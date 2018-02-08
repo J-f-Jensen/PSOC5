@@ -1,0 +1,10 @@
+C:/Users/Bruger/OneDrive/Skrivebord/CODE/PSOC5/CY8CKIT-59-Arduino/CY8CKIT59_Ardudino-Speeduino.cydsn/CortexM3/ARM_GCC_493/Release/CyBootAsmGnu.o : C:/Users/Bruger/OneDrive/Skrivebord/CODE/PSOC5/CY8CKIT-59-Arduino/CY8CKIT59_Ardudino-Speeduino.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s C:/Users/Bruger/OneDrive/Skrivebord/CODE/PSOC5/CY8CKIT-59-Arduino/CY8CKIT59_Ardudino-Speeduino.cydsn/Generated_Source/PSoC5/cydevicegnu.inc C:/Users/Bruger/OneDrive/Skrivebord/CODE/PSOC5/CY8CKIT-59-Arduino/CY8CKIT59_Ardudino-Speeduino.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc C:/Users/Bruger/OneDrive/Skrivebord/CODE/PSOC5/CY8CKIT-59-Arduino/CY8CKIT59_Ardudino-Speeduino.cydsn/Generated_Source/PSoC5/cyfittergnu.inc 
+
+C:/Users/Bruger/OneDrive/Skrivebord/CODE/PSOC5/CY8CKIT-59-Arduino/CY8CKIT59_Ardudino-Speeduino.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s : 
+
+C:/Users/Bruger/OneDrive/Skrivebord/CODE/PSOC5/CY8CKIT-59-Arduino/CY8CKIT59_Ardudino-Speeduino.cydsn/Generated_Source/PSoC5/cydevicegnu.inc : 
+
+C:/Users/Bruger/OneDrive/Skrivebord/CODE/PSOC5/CY8CKIT-59-Arduino/CY8CKIT59_Ardudino-Speeduino.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc : 
+
+C:/Users/Bruger/OneDrive/Skrivebord/CODE/PSOC5/CY8CKIT-59-Arduino/CY8CKIT59_Ardudino-Speeduino.cydsn/Generated_Source/PSoC5/cyfittergnu.inc : 
+

@@ -1,0 +1,1702 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"SPIM_PM.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.section	.gnu.lto_.profile.ec5a0abe,"",%progbits
+  18 0000 789C6366 		.ascii	"x\234cf```a\200\000F\006]>\000\000\334\000D"
+  18      60606061 
+  18      80004606 
+  18      5D3E0000 
+  18      DC0044
+  19              		.text
+  20              		.section	.gnu.lto_.jmpfuncs.ec5a0abe,"",%progbits
+  21 0000 789C6366 		.ascii	"x\234cf\300\016\004\2414\013\0203200A\231\014\014\000"
+  21      C00E04A1 
+  21      340B1033 
+  21      32303041 
+  21      990C0C00 
+  22 0014 02EA0020 		.ascii	"\002\352\000 "
+  23              		.text
+  24              		.section	.gnu.lto_.inline.ec5a0abe,"",%progbits
+  25 0000 789C6366 		.ascii	"x\234cf\300\016\242\2414\013\003\0033\023#\003\023\220"
+  25      C00EA2A1 
+  25      340B0303 
+  25      33132303 
+  25      1390
+  26 0012 C9B6401E 		.ascii	"\311\266@\036D10b\21001p\010\000E8\016\330!\024q\201"
+  26      44313062 
+  26      88303170 
+  26      08004538 
+  26      0ED82114 
+  27 0028 35730803 		.ascii	"5s\010\003\305\331>\350\241\212\203\011\006\000\032"
+  27      C5D93EE8 
+  27      A18A8309 
+  27      06001A
+  28 0037 19061A   		.ascii	"\031\006\032"
+  29              		.text
+  30              		.section	.gnu.lto_.pureconst.ec5a0abe,"",%progbits
+  31 0000 789C6366 		.ascii	"x\234cf``\340d\200\000\026\006\006F\006&)\026\011\000"
+  31      6060E064 
+  31      80001606 
+  31      06460626 
+  31      29160900 
+  32 0014 018D004A 		.ascii	"\001\215\000J"
+  33              		.text
+  34              		.section	.gnu.lto_SPIM_SaveConfig.ec5a0abe,"",%progbits
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 2
+
+
+  35 0000 789C6366 		.ascii	"x\234cf\300\004R@\\\012\304\312@\314\310\314\300\310"
+  35      C0045240 
+  35      5C0AC4CA 
+  35      40CCC8CC 
+  35      C0C8
+  36 0012 34E11C03 		.ascii	"4\341\034\003C#\007\023##\210\301\300\310P\317\304X"
+  36      43230713 
+  36      232388C1 
+  36      C0C850CF 
+  36      C458
+  37 0024 CFF892E9 		.ascii	"\317\370\222\351#\023\343\204\003\253gp\253/mhh\370"
+  37      2313E384 
+  37      03AB6770 
+  37      AB2F6D68 
+  37      68F8
+  38 0036 30E97463 		.ascii	"0\351tc\300\001\306\237L\014\014\237\231 \3460.gTg\000"
+  38      C001C69F 
+  38      4C0C0C9F 
+  38      9920E630 
+  38      2E675467 
+  39 004b 2AFAD8F2 		.ascii	"*\372\330\362\367:7[\013P\221\000D\216q\005#\033#\220"
+  39      F73A375B 
+  39      0B509100 
+  39      448E7105 
+  39      231B2390 
+  40 005f 5E2F74A0 		.ascii	"^/t\240\341\377\377\315k\017\356`\004\012?\001b\220"
+  40      E1FFFFCD 
+  40      6B0FEE60 
+  40      040A3F01 
+  40      6290
+  41 0071 054F9998 		.ascii	"\005O\231\230@4\363=FF\220B\220IO\230\030AB@\005\212"
+  41      4034F33D 
+  41      46469042 
+  41      90494F98 
+  41      18414240 
+  42 0087 EEA979A9 		.ascii	"\356\251y\251E\211%\251)\361\301\371\245E\311\2511\001"
+  42      458925A9 
+  42      29F1C1F9 
+  42      A545C9A9 
+  42      3101
+  43 0099 C1F9CEA6 		.ascii	"\301\371\316\2461\301\001\236\276\361\001\276z\311\014"
+  43      31C1019E 
+  43      BEF101BE 
+  43      7AC90C
+  44 00a8 00A2CB35 		.ascii	"\000\242\3135A"
+  44      41
+  45              		.text
+  46              		.section	.gnu.lto_SPIM_RestoreConfig.ec5a0abe,"",%progbits
+  47 0000 789C6366 		.ascii	"x\234cf\300\004R@\\\012\304\312@\314\310\314\300\310"
+  47      C0045240 
+  47      5C0AC4CA 
+  47      40CCC8CC 
+  47      C0C8
+  48 0012 34E11C03 		.ascii	"4\341\034\003C#\007\023##\210\301\300\310P\317\304X"
+  48      43230713 
+  48      232388C1 
+  48      C0C850CF 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 3
+
+
+  48      C458
+  49 0024 CFF892E9 		.ascii	"\317\370\222\351#\023\343\204\003\253gp\253/mhh\370"
+  49      2313E384 
+  49      03AB6770 
+  49      AB2F6D68 
+  49      68F8
+  50 0036 70E97C63 		.ascii	"p\351|c\300\001\306\237L\014\014\237\231 \3460.gTg\000"
+  50      C001C69F 
+  50      4C0C0C9F 
+  50      9920E630 
+  50      2E675467 
+  51 004b 2AFAD8F2 		.ascii	"*\372\330\362\367:7[\013P\221\000D\216q\005#\033#\220"
+  51      F73A375B 
+  51      0B509100 
+  51      448E7105 
+  51      231B2390 
+  52 005f 5E2F74A0 		.ascii	"^/t\240\341\377\377\315\373\017N`\003\012?\001b\220"
+  52      E1FFFFCD 
+  52      FB0F4E60 
+  52      030A3F01 
+  52      6290
+  53 0071 054F9998 		.ascii	"\005O\231\230@4\363=FF\220B\220IO\230\030AB@\005\212"
+  53      4034F33D 
+  53      46469042 
+  53      90494F98 
+  53      18414240 
+  54 0087 EEA979A9 		.ascii	"\356\251y\251E\211%\251)\361\301\371\245E\311\2511\001"
+  54      458925A9 
+  54      29F1C1F9 
+  54      A545C9A9 
+  54      3101
+  55 0099 C1F9CEA6 		.ascii	"\301\371\316\2461\301\001\236\276\361\001\276z\311\014"
+  55      31C1019E 
+  55      BEF101BE 
+  55      7AC90C
+  56 00a8 00C1FA35 		.ascii	"\000\301\3725t"
+  56      74
+  57              		.text
+  58              		.section	.gnu.lto_SPIM_Sleep.ec5a0abe,"",%progbits
+  59 0000 789C6590 		.ascii	"x\234e\220\317+ea\030\307\237\357s~\3343\261\220\225"
+  59      CF2B6561 
+  59      18C79FEF 
+  59      737EDC33 
+  59      B19095
+  60 0013 2CD46461 		.ascii	",\324da6X\371\013\024Y\250[w\253$s\267\224\306\362\346"
+  60      3658F90B 
+  60      1459A85B 
+  60      77AB2473 
+  60      B794C6F2 
+  61 0028 1CAE48E2 		.ascii	"\034\256H\342\262R\\;3w\346\032\314\225\3054\013\247"
+  61      B2525C3B 
+  61      3377E61A 
+  61      CC95C534 
+  61      0BA7
+  62 003a 494A8ACC 		.ascii	"IJ\212\314\024u\023\021\305\016\267p\222\037\317s\316"
+  62      14751311 
+  62      C50EB770 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 4
+
+
+  62      921FCF73 
+  62      CE
+  63 004b 46BC75DE 		.ascii	"F\274u\336\367}\336\367s\276\337\347\375\032\364~T\313"
+  63      F77DDEF7 
+  63      73BEDFE7 
+  63      FD1AF47E 
+  63      54CB
+  64 005d F70F44B5 		.ascii	"\367\017D\265\262\302 pf\207\310s\030\320\015\201\006"
+  64      B2C22070 
+  64      6687C873 
+  64      18D00D81 
+  64      06
+  65 006e 1803B8E4 		.ascii	"\030\003\270\344kF\306\317\317\224\325-\270\256{u\263"
+  65      6B46C6CF 
+  65      CF94D52D 
+  65      B8AE7B75 
+  65      B3
+  66 007f 56355C15 		.ascii	"V5\\\0250Q\211#\031|C\035\011s\235~<(\263\323\302TD"
+  66      30518923 
+  66      197C431D 
+  66      09739D7E 
+  66      3C28B3D3 
+  67 0096 77C8C116 		.ascii	"w\310\301\026yZ\256\364\335\347\347\325\303\251\\#\034"
+  67      795AAEF4 
+  67      DDE7E7D5 
+  67      C3A95C23 
+  67      1C
+  68 00a7 50C06226 		.ascii	"P\300b&\223)\023[\272#:\023^M\317\231u5\212\370{;\266"
+  68      9329135B 
+  68      BA233A13 
+  68      5E4DCF99 
+  68      75358AF8 
+  69 00be 3FBB02D5 		.ascii	"?\273\002\325\270cC\344\213\353\231u\353\202\00362["
+  69      B86343E4 
+  69      8BEB9975 
+  69      EB820336 
+  69      325B
+  70 00d0 9E6BAAE3 		.ascii	"\236k\252\343\361\331\356\236\023\036\221\226\301\357"
+  70      F1D9EE9E 
+  70      131E9196 
+  70      C1EF
+  71 00de F931CE62 		.ascii	"\3711\316b\326K#`\023\337Q\215\037\220G\"\217,\250\210"
+  71      D64B2360 
+  71      13DF518D 
+  71      1F904722 
+  71      8F2CA888 
+  72 00f2 A17B3B92 		.ascii	"\241{;\222C\244\270}z_*\327\337QAX\024R\220\302\310"
+  72      43A4B87D 
+  72      7A5F2AD7 
+  72      DF514158 
+  72      145290C2 
+  73 0107 861941A6 		.ascii	"\206\031A\246p\002y_\377\214\307BH\204~\206\320\340"
+  73      7002795F 
+  73      FF8CC742 
+  73      48847E86 
+  73      D0E0
+  74 0119 512C422C 		.ascii	"Q,B,\241\264\236>\251\321\003\241\347\377O,q\352\301"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 5
+
+
+  74      A1B49E3E 
+  74      A9D103A1 
+  74      E7FF4F2C 
+  74      71EAC1
+  75 012c 1D759D80 		.ascii	"\035u\235\200\255GM\341u\237VX\346\274\364\034\264O"
+  75      AD474DE1 
+  75      759F5658 
+  75      E6BCF41C 
+  75      B44F
+  76 013e 57291B4B 		.ascii	"W)\033KHaY\033\225\273\247\305\311\202]\237\227\020"
+  76      4861591B 
+  76      95BBA7C5 
+  76      C9825D9F 
+  76      9710
+  77 0150 FD4F01C7 		.ascii	"\375O\001\307\260\"\340M\0304~\241^,\351\020C~\260\311"
+  77      B022E04D 
+  77      18347EA1 
+  77      5E2CE910 
+  77      437EB0C9 
+  78 0164 6A486F1D 		.ascii	"jHo\035\235R\330f\001)\211\365\003\035\301\363\037Z"
+  78      9D52D866 
+  78      012989F5 
+  78      031DC1F3 
+  78      1F5A
+  79 0176 42923463 		.ascii	"B\2224ch\266\"\366\2615\331\223\354\353\372\222\374"
+  79      68B622F6 
+  79      B135D993 
+  79      ECEBFA92 
+  79      FC
+  80 0187 DC99E8ED 		.ascii	"\334\231\350\355\357\353Nv\304\023\275\315M\035\211"
+  80      EFEB4E76 
+  80      C413BDCD 
+  80      4D1D89
+  81 0196 785B7B67 		.ascii	"x[{g\274\275\241\233^\000\266\361\257\214"
+  81      BCBDA19B 
+  81      5E00B6F1 
+  81      AF8C
+  82              		.text
+  83              		.section	.gnu.lto_SPIM_Wakeup.ec5a0abe,"",%progbits
+  84 0000 789C7550 		.ascii	"x\234uP\277KBQ\024>\347\274\353S\322!\232\242A\210\006"
+  84      BF4B4251 
+  84      143EE7BC 
+  84      EB53D221 
+  84      9AA24188 
+  85 0015 A1B086E8 		.ascii	"\241\260\206\350/h\210\002Ap\025$\354\255\011Rm\342"
+  85      2F688802 
+  85      41701524 
+  85      ECAD0952 
+  85      6DE2
+  86 0027 7DF98286 		.ascii	"}\371\202\206(k\012\372\261U\226\246\324P`C\217\246"
+  86      286B0AFA 
+  86      B15596A6 
+  86      D4506043 
+  86      8FA6
+  87 0039 7048242C 		.ascii	"pH$,\212\250\305\240\266\314!$\324\356}\006A\321\205"
+  87      8AA8C5A0 
+  87      B6CC2124 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 6
+
+
+  87      D4EE7D06 
+  87      41D185
+  88 004c CBB9F73B 		.ascii	"\313\271\367;\337w\276\373]\005\376\256a\261\347\020"
+  88      DF77BEFB 
+  88      5D05FEAE 
+  88      61B1E710 
+  89 005c A04F54B4 		.ascii	"\240OT\264\001R\362\012@w\020)y7\360\016v3\004\334\245"
+  89      0152F20A 
+  89      40771029 
+  89      7937F00E 
+  89      763304DC 
+  90 0071 206BC30C 		.ascii	" k\303\014Q\036\000!N\012\3038\276R\2250i\246\327\235"
+  90      511E0021 
+  90      4E0AC338 
+  90      BE529530 
+  90      69A6D79D 
+  91 0085 9E1DCEF9 		.ascii	"\236\035\316\371\333\305y\367Bw\235\000j\324\236\217"
+  91      DBC579F7 
+  91      42779D00 
+  91      6AD49E8F 
+  92 0095 7BE801C1 		.ascii	"{\350\001\301\251\032\215[\247j\010Ng\273\207)T\205"
+  92      A91A8D5B 
+  92      A76A084E 
+  92      67BB8729 
+  92      5485
+  93 00a7 2FE4BA4C 		.ascii	"/\344\272L\336j\325\232\253\227\375\2442\250\223\000"
+  93      DE6AD59A 
+  93      AB97FDA4 
+  93      32A89300 
+  94 00b7 2B82207D 		.ascii	"+\202 }\236\211dU\0360a\236\026HJ\344\254\355\353\345"
+  94      9E896455 
+  94      1E30619E 
+  94      16484AE4 
+  94      ACEDEBE5 
+  95 00cb 2CC53EF9 		.ascii	",\305>\371\"w\324\211jR\201\373\030\023Z\005\356q\376"
+  95      2277D489 
+  95      6A5281FB 
+  95      18135A05 
+  95      EE71FE
+  96 00de E4A8B866 		.ascii	"\344\250\270f\227\334\017b\277\331\254!\275\005\372"
+  96      97DC0F62 
+  96      BFD9AC21 
+  96      BD05FA
+  97 00ed 5429961C 		.ascii	"T)\226\034/$\020\353\232\322\215M\334\302\015\235K\226"
+  97      2F2410EB 
+  97      9AD28D4D 
+  97      DCC20D9D 
+  97      4B96
+  98 00ff 0D0F3086 		.ascii	"\015\0170\206i\354\261z\315\314\312\261\352\035\250"
+  98      69ECB17A 
+  98      CDCCCAB1 
+  98      EA1DA8
+  99 010e 938A19C1 		.ascii	"\223\212\031\301y\267\222\341!z\241\214\306]\302\375"
+  99      79B792E1 
+  99      217AA18C 
+  99      C65DC2FD 
+ 100 011e 63A5EF9E 		.ascii	"c\245\357\236-\331\345P\371\242\254\224\203\014\241"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 7
+
+
+ 100      2DD9E550 
+ 100      F9A2AC94 
+ 100      830CA1
+ 101 012d 40DE6D65 		.ascii	"@\336me(\025\\\377e\020C1\367\235Aj\230\025\374\021"
+ 101      28155CFF 
+ 101      65104331 
+ 101      F79D416A 
+ 101      9815FC11 
+ 102 0141 75B33C61 		.ascii	"u\263<ai@~\013JTP{\307\264i-:9\243M\205\002\221\331"
+ 102      69407E0B 
+ 102      4A54507B 
+ 102      C7B4692D 
+ 102      3A39A34D 
+ 103 0159 68580BFA 		.ascii	"hX\013\372\003\221\321\221`\300?\356\013\371}\203a\370"
+ 103      0391D191 
+ 103      60C03FEE 
+ 103      0BF97D83 
+ 103      61F8
+ 104 016b 02261890 		.ascii	"\002&\030\220\262"
+ 104      B2
+ 105              		.text
+ 106              		.section	.gnu.lto_.symbol_nodes.ec5a0abe,"",%progbits
+ 107 0000 789C55C8 		.ascii	"x\234U\310\261\021@@\024E\321\273\377\357.\005\351\357"
+ 107      B1114040 
+ 107      1445D1BB 
+ 107      FFEF2E05 
+ 107      E9EF
+ 108 0012 09A46654 		.ascii	"\011\244fT`\004Z\320\201X\0154b0\004\353%w\316s\240"
+ 108      60045AD0 
+ 108      81580D34 
+ 108      623004EB 
+ 108      2577CE73 
+ 109 0027 E79B05C1 		.ascii	"\347\233\005\301\260\201\3048\325\230)\374\354\262\322"
+ 109      B081C438 
+ 109      D59829FC 
+ 109      ECB2D2
+ 110 0036 0926935B 		.ascii	"\011&\223[\224\227wH\212\257i\333\233\225R\311\254\\"
+ 110      94977748 
+ 110      8AAF69DB 
+ 110      9B9552C9 
+ 110      AC5C
+ 111 0048 D02DB11E 		.ascii	"\320-\261\036g\360X1\357O3\335\322p\001\321<#_"
+ 111      67F05831 
+ 111      EF4F33DD 
+ 111      D27001D1 
+ 111      3C235F
+ 112              		.text
+ 113              		.section	.gnu.lto_.refs.ec5a0abe,"",%progbits
+ 114 0000 789C6366 		.ascii	"x\234cf``\340f\200\000F&FfVF\026\006f&\006\000\001\267"
+ 114      6060E066 
+ 114      80004626 
+ 114      46665646 
+ 114      16066626 
+ 115 0018 0025     		.ascii	"\000%"
+ 116              		.text
+ 117              		.section	.gnu.lto_.decls.ec5a0abe,"",%progbits
+ 118 0000 789C8594 		.ascii	"x\234\205\224{L\323W\024\307\177\247\277\322\027\345"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 8
+
+
+ 118      7B4CD357 
+ 118      14C77FA7 
+ 118      BFD217E5 
+ 119 0010 B191A0E9 		.ascii	"\261\221\240\351\037\013\303\204l\0131\333\0373$[2f"
+ 119      1F0BC384 
+ 119      6C0B31DB 
+ 119      1F33245B 
+ 119      3266
+ 120 0022 338D33BA 		.ascii	"3\2153\272\306J63\023R\353o\216H(\326\262\304\377.0"
+ 120      C64A3633 
+ 120      1352EB6F 
+ 120      8E4828D6 
+ 120      B2C4FF2E 
+ 121 0037 D782CA98 		.ascii	"\327\202\312\230\321Y\010q5\260\011\010-\2247\312C\006"
+ 121      D1590871 
+ 121      35B00908 
+ 121      2D9437CA 
+ 121      4306
+ 122 0049 A3C2CA9C 		.ascii	"\243\302\312\2342\036n\221\207\257%\272\254n\206I\206"
+ 122      321E6E91 
+ 122      87AF25BA 
+ 122      AC6E8649 
+ 122      86
+ 123 005a 74E7DEDF 		.ascii	"t\347\336\337\357g\213\001w\223\363\353\275\267\347"
+ 123      EF678B01 
+ 123      7793F3EB 
+ 123      BDB7E7
+ 124 0069 FB39E7DE 		.ascii	"\3739\347\336{\356\3459\216{\0338.\214-^\305q/`?\006"
+ 124      7BEEE539 
+ 124      8E7B1B38 
+ 124      2E8C2D5E 
+ 124      C5712F60 
+ 125 007f E74C5CA4 		.ascii	"\347L\\\244\251\321\032\320\274hMh~\264V\264v\264N4"
+ 125      A9D11AD0 
+ 125      BC684D68 
+ 125      7EB456B4 
+ 125      76B44E34 
+ 126 0093 947023DC 		.ascii	"\224p#\334\312\326 \315\313\034\220\346\236m\336U\374"
+ 126      CAD620CD 
+ 126      CB1C90E6 
+ 126      9E6DDE55 
+ 126      FC
+ 127 00a4 BCABF8D1 		.ascii	"\274\253\370\321\270:\311/\031-\2106\201v\015m\022m"
+ 127      B83AC92F 
+ 127      192D8836 
+ 127      81760D6D 
+ 127      126D
+ 128 00b6 08AD076D 		.ascii	"\010\255\007m\012\255N\342\014\240)$m\353\032y\372\245"
+ 128      0AAD4EE2 
+ 128      0CA02924 
+ 128      6DEB1A79 
+ 128      FAA5
+ 129 00c8 F5C95C59 		.ascii	"\365\311\\Y\037\315\224Y\274\344\337)\255}5\336C\005"
+ 129      1FCD9459 
+ 129      BCE4DF29 
+ 129      AD7D35DE 
+ 129      4305
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 9
+
+
+ 130 00da 8CCE3FFE 		.ascii	"\214\316?\376[\377\273\002\342u\211tX9y\347\021\217"
+ 130      5BFFBB02 
+ 130      E2758974 
+ 130      583979E7 
+ 130      118F
+ 131 00ec 43BD4E41 		.ascii	"C\275NA\207\355\213\013>\325\272\323\204\266b\222\250"
+ 131      87ED8B0B 
+ 131      3ED5BAD3 
+ 131      84B66292 
+ 131      A8
+ 132 00fd 0053329C 		.ascii	"\000S2\234\007\003\324\202\001\211u\260\016\277\037"
+ 132      0703D482 
+ 132      018975B0 
+ 132      0EBF1F
+ 133 010c 2B45524D 		.ascii	"+ERM\260\331\247\344\025@\373\325\356\271q]z=\252\\"
+ 133      B0D9A7E4 
+ 133      1540FBD5 
+ 133      EEB9715D 
+ 133      7A3DAA5C 
+ 134 0120 A4FFAA22 		.ascii	"\244\377\252\"\022\256\304\367\253[\227r\22645\205\272"
+ 134      12AEC4F7 
+ 134      AB5B9772 
+ 134      96343585 
+ 134      BA
+ 135 0131 FCD37A52 		.ascii	"\374\323zRK\372\303\341w\030\012\352\201\207\013\220"
+ 135      4BFAC3E1 
+ 135      77180AEA 
+ 135      81870B90 
+ 136 0141 CE3616FB 		.ascii	"\3166\026\373\342\0167@\012\312\346\036\264\334\343"
+ 136      E20E3740 
+ 136      0ACAE61E 
+ 136      B4DCE3
+ 137 0150 F9B718BB 		.ascii	"\371\267\030\273\357\306\025##x\236\370If\021Y\012\207"
+ 137      EFC61523 
+ 137      23789EF8 
+ 137      49661159 
+ 137      0A87
+ 138 0162 79A66F8C 		.ascii	"y\246o\214\3227\312z/\323/\315\017L\306\360;\231~\354"
+ 138      D237CA7A 
+ 138      2FD32FCD 
+ 138      0F4CC6F0 
+ 138      3B997EEC 
+ 139 0176 F1C8970A 		.ascii	"\361\310\227\012\004x\232<\276j\225\230\000\323\373"
+ 139      04789A3C 
+ 139      BE6A9598 
+ 139      00D3FB
+ 140 0185 A2F43E59 		.ascii	"\242\364>Y\337\304\364=GO\217\360\374\036\246_\230\363"
+ 140      DFC4F43D 
+ 140      474F8FF0 
+ 140      FC1EA65F 
+ 140      98F3
+ 141 0197 7EA316F5 		.ascii	"~\243\026\365K+\364\315Q\372fY\357g\372c\315\347\203"
+ 141      4B2BF4CD 
+ 141      51FA6659 
+ 141      EF67FA63 
+ 141      CDE783
+ 142 01aa 71BCC0F4 		.ascii	"q\274\300\364\263\215\335\003\261\250\237%\241\231\342"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 10
+
+
+ 142      B38DDD03 
+ 142      B1A89F25 
+ 142      A199E2
+ 143 01b9 FB1915E4 		.ascii	"\373\031\025\344\\!Y\016\207A\334\204\226(H\213\014"
+ 143      5C21590E 
+ 143      8741DC84 
+ 143      9628488B 
+ 143      0C
+ 144 01ca 696590BB 		.ascii	"ie\220\273\263Oni\3702`\224\241\345\2456\221\342\251"
+ 144      B34F6E69 
+ 144      F8326094 
+ 144      A1E5A536 
+ 144      91E2A9
+ 145 01dd AFFE2225 		.ascii	"\257\376\"%*\215\266(B\233Lhg\204Se%\367\025|\245Hh"
+ 145      2A8DB628 
+ 145      429B4C68 
+ 145      67845365 
+ 145      25F7157C 
+ 146 01f4 F9B6A64A 		.ascii	"\371\266\246J#\022~[I\350\210\"t\310\204NF\250\275y"
+ 146      23127E5B 
+ 146      49E88822 
+ 146      74C8844E 
+ 146      46A8BD79 
+ 147 0208 A34FC9D7 		.ascii	"\243O\311\327\211\204\211>\247S\303_\022\007\205\337"
+ 147      8984893E 
+ 147      A753C35F 
+ 147      120785DF 
+ 148 0218 5D3CAEC6 		.ascii	"]<\256\306\312I\326\261\203.\033\255\274\314\263a\230"
+ 148      CA49D6B1 
+ 148      832E1BAD 
+ 148      BCCCB361 
+ 148      98
+ 149 0229 FEAD989E 		.ascii	"\376\255\230\236>\265\310\203.\315EH\021\011\235$\374"
+ 149      3EB5C883 
+ 149      2ECD4548 
+ 149      11099D24 
+ 149      FC
+ 150 023a 7A0ED20D 		.ascii	"z\016\322\015\360\252\201\203^HC7\026\021.bq]\302\342"
+ 150      F0AA8183 
+ 150      5E484337 
+ 150      16112E62 
+ 150      715DC2E2 
+ 151 024e AAC1D209 		.ascii	"\252\301\322\011\225:{\337/&\231\320\003:\350~\232\023"
+ 151      953A7BDF 
+ 151      2F2699D0 
+ 151      033AE87E 
+ 151      9A13
+ 152 0260 8B209553 		.ascii	"\213 \225S\237\367\272[\303\337\0263\010,\373\007\325"
+ 152      9FF7BA5B 
+ 152      C3DF1633 
+ 152      082CFB07 
+ 152      D5
+ 153 0271 7C880D94 		.ascii	"|\210\015\224\177\314T\004\342 55)\315\203\021C3\325"
+ 153      7FCC5404 
+ 153      E2203535 
+ 153      29CD8311 
+ 153      4333D5
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 11
+
+
+ 154 0284 773F7A58 		.ascii	"w?zXD\216\257g\260~\204}\017Ir\002\257\320bN\307\017"
+ 154      448EAF67 
+ 154      B07E847D 
+ 154      0F497202 
+ 154      AFD0624E 
+ 155 029a 477D3DEE 		.ascii	"G}=\356[1\356\327\231_\337*~\257Q\277\257\350\205(\367"
+ 155      5B31EED7 
+ 155      995FDF2A 
+ 155      7EAF51BF 
+ 155      AFE88528 
+ 156 02af 90CC435C 		.ascii	"\220\314C\\\324}\240\256\230#\014\342\202\006 \025."
+ 156      D47DA0AE 
+ 156      98230CE2 
+ 156      82062015 
+ 156      2E
+ 157 02c0 432A4B94 		.ascii	"C*K\224.f\266\254ZE\200\272p\362\336\312\253PtL\271"
+ 157      2E66B6AC 
+ 157      5A4580BA 
+ 157      70F2DECA 
+ 157      AB50744C 
+ 158 02d5 DE80A4B4 		.ascii	"\336\200\244\264\325\240\360\003\262\236\313\255\264"
+ 158      D5A0F003 
+ 158      B29ECBAD 
+ 158      B4
+ 159 02e2 6A60081D 		.ascii	"j`\010\035\272\"\033D\203\310;tb\244dX\313\377+\356"
+ 159      BA221B44 
+ 159      83C83B74 
+ 159      62A46458 
+ 159      CBFF2BEE 
+ 160 02f6 D0D46CD1 		.ascii	"\320\324l\321H,;\224\004:\254\010T\005U\233Z\211\313"
+ 160      482C3B94 
+ 160      043AAC08 
+ 160      5405559B 
+ 160      5A89CB
+ 161 0309 93C81094 		.ascii	"\223\310\020\224M\017\000\371\020\300\340\364\342\365"
+ 161      4D0F00F9 
+ 161      10C0E0F4 
+ 161      E2F5
+ 162 0317 DEB9A7DB 		.ascii	"\336\271\247\333p\216\020O\250k\352\001\024b\265\020"
+ 162      708E104F 
+ 162      A86BEA01 
+ 162      1462B510 
+ 163 0327 42EB8409 		.ascii	"B\353\204\011\206\305\230Q[0L\313\005\256\300&\016F"
+ 163      86C59851 
+ 163      5B304CCB 
+ 163      05AEC026 
+ 163      0E46
+ 164 0339 600302CE 		.ascii	"`\003\002\316|=Z\245\346\235\354YP\336^\274\371\217"
+ 164      7C3D5AA5 
+ 164      E69DEC59 
+ 164      50DE5EBC 
+ 164      F98F
+ 165 034b 1A0CDA34 		.ascii	"\032\014\3324\203\233h \010Z\316\311\312\241\250<\361"
+ 165      839B6820 
+ 165      085ACEC9 
+ 165      CAA1A83C 
+ 165      F1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 12
+
+
+ 166 035c D0D37218 		.ascii	"\320\323r\030\303U\322\2778\370\021\261?I\305\340\302"
+ 166      C355D2BF 
+ 166      38F811B1 
+ 166      3F49C5E0 
+ 166      C2
+ 167 036d 3AC05918 		.ascii	":\300Y\030\225\352Qln\234\027A\364\203\341\310\231c"
+ 167      95EA516C 
+ 167      6E9C1741 
+ 167      F483E1C8 
+ 167      9963
+ 168 037f 351AFE84 		.ascii	"5\032\376\204\370\012\265-\224v\305\351\\\364\351\372"
+ 168      F80AB52D 
+ 168      9476C5E9 
+ 168      5CF4E9FA 
+ 169 038f FF8AC373 		.ascii	"\377\212\303s\030\037+\235\320\2125\372\254\342\372"
+ 169      181F2B9D 
+ 169      D08A35FA 
+ 169      ACE2FA
+ 170 039e 9A353AFC 		.ascii	"\2325:\374\327\366\3171\267kX.W#G\3603D\212\264\313"
+ 170      D7F6CF31 
+ 170      B76B582E 
+ 170      572347F0 
+ 170      33448AB4 
+ 171 03b3 FB2818CB 		.ascii	"\373(\030\313\236\330\024:\354>\031p\253\330\023\253"
+ 171      9ED8143A 
+ 171      EC3E1970 
+ 171      ABD813AB 
+ 172 03c3 642FE27C 		.ascii	"d/\342|eP\257/\245\373P^L\264\201x\206\032\307\030\277"
+ 172      6550AF2F 
+ 172      A5FB505E 
+ 172      4CB48178 
+ 172      861AC718 
+ 173 03d8 B01D9D00 		.ascii	"\260\035\235\000=\273\177\370\213\336\177\236\035\354"
+ 173      3DBB7FF8 
+ 173      8BDE7F9E 
+ 173      1DEC
+ 174 03e6 54AEF0A6 		.ascii	"T\256\360\246\347\020\361\236\224\274'\231\367\005\337"
+ 174      E710F19E 
+ 174      94BC2799 
+ 174      F705DF
+ 175 03f5 5167C20A 		.ascii	"Qg\302\012oz\275#\336S\240\227\023\306.\227`6m\333\221"
+ 175      6F7ABD23 
+ 175      DE53A097 
+ 175      13C62E97 
+ 175      60366DDB 
+ 176 040a 6DB67C26 		.ascii	"m\266|&\030my\237\344\034Pm\335\231\225b\344^\336*\344"
+ 176      186D799F 
+ 176      E41C506D 
+ 176      DD999562 
+ 176      E45EDE2A 
+ 177 041f 09768B43 		.ascii	"\011v\213C\330\237m\266\025\330\255\302^\223\331f|s"
+ 177      D89F6DB6 
+ 177      15D8ADC2 
+ 177      5E93D966 
+ 177      7C73
+ 178 0431 2FF336ED 		.ascii	"/\3636\355\330h\345^d\335]\302a\207\315.iu\"+W\020\362"
+ 178      D868E55E 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 13
+
+
+ 178      64DD5DC2 
+ 178      6187CD2E 
+ 178      6975222B 
+ 179 0448 6359F743 		.ascii	"cY\367C\313A\241 _+N;l\371/=\207\272\361SN\024\275\227"
+ 179      CB41A120 
+ 179      5F2B4E3B 
+ 179      6CF92F3D 
+ 179      87BAF153 
+ 180 0460 67D9972B 		.ascii	"g\331\227+\304\263\2761W\260\330\267l\333\362\201\030"
+ 180      C4B3BE31 
+ 180      57B0D8B7 
+ 180      6CDBF281 
+ 180      18
+ 181 0471 6DF3BBC6 		.ascii	"m\363\273\306\355Y\246l\363\356]Y\306\3351\0059y\216"
+ 181      ED59A66C 
+ 181      F3EE5D59 
+ 181      C6DD3105 
+ 181      39798E
+ 182 0484 8CB512B5 		.ascii	"\214\265\022\265\036q\034\311\027\016S\252\300\200f"
+ 182      1E711CC9 
+ 182      170E53AA 
+ 182      C08066
+ 183 0493 073AE9AC 		.ascii	"\007:\351\254y\016\273I\260\347\330\366\213\301\366"
+ 183      790EBB49 
+ 183      B0E7D8F6 
+ 183      8BC1F6
+ 184 04a2 59AC070B 		.ascii	"Y\254\007\013\362c\2627\333l\271J\273p \343?q\312L\300"
+ 184      F263B237 
+ 184      DB6CB94A 
+ 184      BB7020E3 
+ 184      3F71CA4C 
+ 185              		.text
+ 186              		.section	.gnu.lto_.symtab.ec5a0abe,"",%progbits
+ 187 0000 5350494D 		.ascii	"SPIM_SaveConfig\000\000\000\000\000\000\000\000\000"
+ 187      5F536176 
+ 187      65436F6E 
+ 187      66696700 
+ 187      00000000 
+ 188 0018 000000AC 		.ascii	"\000\000\000\254\000\000\000SPIM_RestoreConfig\000\000"
+ 188      00000053 
+ 188      50494D5F 
+ 188      52657374 
+ 188      6F726543 
+ 189 0033 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\256\000\000"
+ 189      00000000 
+ 189      0000AE00 
+ 189      00
+ 190 0040 00535049 		.ascii	"\000SPIM_Sleep\000\000\000\000\000\000\000\000\000\000"
+ 190      4D5F536C 
+ 190      65657000 
+ 190      00000000 
+ 190      00000000 
+ 191 0055 0000B000 		.ascii	"\000\000\260\000\000\000SPIM_Wakeup\000\000\000\000"
+ 191      00005350 
+ 191      494D5F57 
+ 191      616B6575 
+ 191      70000000 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 14
+
+
+ 192 006a 00000000 		.ascii	"\000\000\000\000\000\000\000\000\262\000\000\000SPI"
+ 192      00000000 
+ 192      B2000000 
+ 192      535049
+ 193 0079 4D5F5374 		.ascii	"M_Stop\000\000\002\000\000\000\000\000\000\000\000\000"
+ 193      6F700000 
+ 193      02000000 
+ 193      00000000 
+ 193      0000
+ 194 008b B4000000 		.ascii	"\264\000\000\000SPIM_Enable\000\000\002\000\000\000"
+ 194      5350494D 
+ 194      5F456E61 
+ 194      626C6500 
+ 194      00020000 
+ 195 00a0 00000000 		.ascii	"\000\000\000\000\000\000\266\000\000\000SPIM_ClearF"
+ 195      0000B600 
+ 195      00005350 
+ 195      494D5F43 
+ 195      6C656172 
+ 196 00b5 49464F00 		.ascii	"IFO\000\000\002\000\000\000\000\000\000\000\000\000"
+ 196      00020000 
+ 196      00000000 
+ 196      000000
+ 197 00c4 B8000000 		.ascii	"\270\000\000\000"
+ 198              		.text
+ 199              		.section	.gnu.lto_.opts,"",%progbits
+ 200 0000 272D666E 		.ascii	"'-fno-trapv' '-mcpu=cortex-m3' '-mthumb' '-g' '-Os'"
+ 200      6F2D7472 
+ 200      61707627 
+ 200      20272D6D 
+ 200      6370753D 
+ 201 0033 20272D66 		.ascii	" '-ffunction-sections' '-finline-functions' '-flto'"
+ 201      66756E63 
+ 201      74696F6E 
+ 201      2D736563 
+ 201      74696F6E 
+ 202 0066 20272D66 		.ascii	" '-ffat-lto-objects'\000"
+ 202      6661742D 
+ 202      6C746F2D 
+ 202      6F626A65 
+ 202      63747327 
+ 203              		.text
+ 204              		.cfi_sections	.debug_frame
+ 205              		.section	.text.SPIM_SaveConfig,"ax",%progbits
+ 206              		.align	1
+ 207              		.global	SPIM_SaveConfig
+ 208              		.thumb
+ 209              		.thumb_func
+ 210              		.type	SPIM_SaveConfig, %function
+ 211              	SPIM_SaveConfig:
+ 212              	.LFB0:
+ 213              		.file 1 "Generated_Source\\PSoC5\\SPIM_PM.c"
+   1:Generated_Source\PSoC5/SPIM_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/SPIM_PM.c **** * File Name: SPIM_PM.c
+   3:Generated_Source\PSoC5/SPIM_PM.c **** * Version 2.50
+   4:Generated_Source\PSoC5/SPIM_PM.c **** *
+   5:Generated_Source\PSoC5/SPIM_PM.c **** * Description:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 15
+
+
+   6:Generated_Source\PSoC5/SPIM_PM.c **** *  This file contains the setup, control and status commands to support
+   7:Generated_Source\PSoC5/SPIM_PM.c **** *  component operations in low power mode.
+   8:Generated_Source\PSoC5/SPIM_PM.c **** *
+   9:Generated_Source\PSoC5/SPIM_PM.c **** * Note:
+  10:Generated_Source\PSoC5/SPIM_PM.c **** *
+  11:Generated_Source\PSoC5/SPIM_PM.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/SPIM_PM.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/SPIM_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC5/SPIM_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC5/SPIM_PM.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/SPIM_PM.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/SPIM_PM.c **** 
+  18:Generated_Source\PSoC5/SPIM_PM.c **** #include "SPIM_PVT.h"
+  19:Generated_Source\PSoC5/SPIM_PM.c **** 
+  20:Generated_Source\PSoC5/SPIM_PM.c **** static SPIM_BACKUP_STRUCT SPIM_backup =
+  21:Generated_Source\PSoC5/SPIM_PM.c **** {
+  22:Generated_Source\PSoC5/SPIM_PM.c ****     SPIM_DISABLED,
+  23:Generated_Source\PSoC5/SPIM_PM.c ****     SPIM_BITCTR_INIT,
+  24:Generated_Source\PSoC5/SPIM_PM.c **** };
+  25:Generated_Source\PSoC5/SPIM_PM.c **** 
+  26:Generated_Source\PSoC5/SPIM_PM.c **** 
+  27:Generated_Source\PSoC5/SPIM_PM.c **** /*******************************************************************************
+  28:Generated_Source\PSoC5/SPIM_PM.c **** * Function Name: SPIM_SaveConfig
+  29:Generated_Source\PSoC5/SPIM_PM.c **** ********************************************************************************
+  30:Generated_Source\PSoC5/SPIM_PM.c **** *
+  31:Generated_Source\PSoC5/SPIM_PM.c **** * Summary:
+  32:Generated_Source\PSoC5/SPIM_PM.c **** *  Empty function. Included for consistency with other components.
+  33:Generated_Source\PSoC5/SPIM_PM.c **** *
+  34:Generated_Source\PSoC5/SPIM_PM.c **** * Parameters:
+  35:Generated_Source\PSoC5/SPIM_PM.c **** *  None.
+  36:Generated_Source\PSoC5/SPIM_PM.c **** *
+  37:Generated_Source\PSoC5/SPIM_PM.c **** * Return:
+  38:Generated_Source\PSoC5/SPIM_PM.c **** *  None.
+  39:Generated_Source\PSoC5/SPIM_PM.c **** *
+  40:Generated_Source\PSoC5/SPIM_PM.c **** *******************************************************************************/
+  41:Generated_Source\PSoC5/SPIM_PM.c **** void SPIM_SaveConfig(void) 
+  42:Generated_Source\PSoC5/SPIM_PM.c **** {
+ 214              		.loc 1 42 0
+ 215              		.cfi_startproc
+ 216              		@ args = 0, pretend = 0, frame = 0
+ 217              		@ frame_needed = 0, uses_anonymous_args = 0
+ 218              		@ link register save eliminated.
+ 219 0000 7047     		bx	lr
+ 220              		.cfi_endproc
+ 221              	.LFE0:
+ 222              		.size	SPIM_SaveConfig, .-SPIM_SaveConfig
+ 223              		.section	.text.SPIM_RestoreConfig,"ax",%progbits
+ 224              		.align	1
+ 225              		.global	SPIM_RestoreConfig
+ 226              		.thumb
+ 227              		.thumb_func
+ 228              		.type	SPIM_RestoreConfig, %function
+ 229              	SPIM_RestoreConfig:
+ 230              	.LFB1:
+  43:Generated_Source\PSoC5/SPIM_PM.c **** 
+  44:Generated_Source\PSoC5/SPIM_PM.c **** }
+  45:Generated_Source\PSoC5/SPIM_PM.c **** 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 16
+
+
+  46:Generated_Source\PSoC5/SPIM_PM.c **** 
+  47:Generated_Source\PSoC5/SPIM_PM.c **** /*******************************************************************************
+  48:Generated_Source\PSoC5/SPIM_PM.c **** * Function Name: SPIM_RestoreConfig
+  49:Generated_Source\PSoC5/SPIM_PM.c **** ********************************************************************************
+  50:Generated_Source\PSoC5/SPIM_PM.c **** *
+  51:Generated_Source\PSoC5/SPIM_PM.c **** * Summary:
+  52:Generated_Source\PSoC5/SPIM_PM.c **** *  Empty function. Included for consistency with other components.
+  53:Generated_Source\PSoC5/SPIM_PM.c **** *
+  54:Generated_Source\PSoC5/SPIM_PM.c **** * Parameters:
+  55:Generated_Source\PSoC5/SPIM_PM.c **** *  None.
+  56:Generated_Source\PSoC5/SPIM_PM.c **** *
+  57:Generated_Source\PSoC5/SPIM_PM.c **** * Return:
+  58:Generated_Source\PSoC5/SPIM_PM.c **** *  None.
+  59:Generated_Source\PSoC5/SPIM_PM.c **** *
+  60:Generated_Source\PSoC5/SPIM_PM.c **** *******************************************************************************/
+  61:Generated_Source\PSoC5/SPIM_PM.c **** void SPIM_RestoreConfig(void) 
+  62:Generated_Source\PSoC5/SPIM_PM.c **** {
+ 231              		.loc 1 62 0
+ 232              		.cfi_startproc
+ 233              		@ args = 0, pretend = 0, frame = 0
+ 234              		@ frame_needed = 0, uses_anonymous_args = 0
+ 235              		@ link register save eliminated.
+ 236 0000 7047     		bx	lr
+ 237              		.cfi_endproc
+ 238              	.LFE1:
+ 239              		.size	SPIM_RestoreConfig, .-SPIM_RestoreConfig
+ 240              		.section	.text.SPIM_Sleep,"ax",%progbits
+ 241              		.align	1
+ 242              		.global	SPIM_Sleep
+ 243              		.thumb
+ 244              		.thumb_func
+ 245              		.type	SPIM_Sleep, %function
+ 246              	SPIM_Sleep:
+ 247              	.LFB2:
+  63:Generated_Source\PSoC5/SPIM_PM.c **** 
+  64:Generated_Source\PSoC5/SPIM_PM.c **** }
+  65:Generated_Source\PSoC5/SPIM_PM.c **** 
+  66:Generated_Source\PSoC5/SPIM_PM.c **** 
+  67:Generated_Source\PSoC5/SPIM_PM.c **** /*******************************************************************************
+  68:Generated_Source\PSoC5/SPIM_PM.c **** * Function Name: SPIM_Sleep
+  69:Generated_Source\PSoC5/SPIM_PM.c **** ********************************************************************************
+  70:Generated_Source\PSoC5/SPIM_PM.c **** *
+  71:Generated_Source\PSoC5/SPIM_PM.c **** * Summary:
+  72:Generated_Source\PSoC5/SPIM_PM.c **** *  Prepare SPIM Component goes to sleep.
+  73:Generated_Source\PSoC5/SPIM_PM.c **** *
+  74:Generated_Source\PSoC5/SPIM_PM.c **** * Parameters:
+  75:Generated_Source\PSoC5/SPIM_PM.c **** *  None.
+  76:Generated_Source\PSoC5/SPIM_PM.c **** *
+  77:Generated_Source\PSoC5/SPIM_PM.c **** * Return:
+  78:Generated_Source\PSoC5/SPIM_PM.c **** *  None.
+  79:Generated_Source\PSoC5/SPIM_PM.c **** *
+  80:Generated_Source\PSoC5/SPIM_PM.c **** * Global Variables:
+  81:Generated_Source\PSoC5/SPIM_PM.c **** *  SPIM_backup - modified when non-retention registers are saved.
+  82:Generated_Source\PSoC5/SPIM_PM.c **** *
+  83:Generated_Source\PSoC5/SPIM_PM.c **** * Reentrant:
+  84:Generated_Source\PSoC5/SPIM_PM.c **** *  No.
+  85:Generated_Source\PSoC5/SPIM_PM.c **** *
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 17
+
+
+  86:Generated_Source\PSoC5/SPIM_PM.c **** *******************************************************************************/
+  87:Generated_Source\PSoC5/SPIM_PM.c **** void SPIM_Sleep(void) 
+  88:Generated_Source\PSoC5/SPIM_PM.c **** {
+ 248              		.loc 1 88 0
+ 249              		.cfi_startproc
+ 250              		@ args = 0, pretend = 0, frame = 0
+ 251              		@ frame_needed = 0, uses_anonymous_args = 0
+ 252              		@ link register save eliminated.
+  89:Generated_Source\PSoC5/SPIM_PM.c ****     /* Save components enable state */
+  90:Generated_Source\PSoC5/SPIM_PM.c ****     SPIM_backup.enableState = ((uint8) SPIM_IS_ENABLED);
+ 253              		.loc 1 90 0
+ 254 0000 034B     		ldr	r3, .L4
+ 255 0002 044A     		ldr	r2, .L4+4
+ 256 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 257 0006 C3F30013 		ubfx	r3, r3, #4, #1
+ 258 000a 1370     		strb	r3, [r2]
+  91:Generated_Source\PSoC5/SPIM_PM.c **** 
+  92:Generated_Source\PSoC5/SPIM_PM.c ****     SPIM_Stop();
+ 259              		.loc 1 92 0
+ 260 000c FFF7FEBF 		b	SPIM_Stop
+ 261              	.LVL0:
+ 262              	.L5:
+ 263              		.align	2
+ 264              	.L4:
+ 265 0010 90640040 		.word	1073767568
+ 266 0014 00000000 		.word	.LANCHOR0
+ 267              		.cfi_endproc
+ 268              	.LFE2:
+ 269              		.size	SPIM_Sleep, .-SPIM_Sleep
+ 270              		.section	.text.SPIM_Wakeup,"ax",%progbits
+ 271              		.align	1
+ 272              		.global	SPIM_Wakeup
+ 273              		.thumb
+ 274              		.thumb_func
+ 275              		.type	SPIM_Wakeup, %function
+ 276              	SPIM_Wakeup:
+ 277              	.LFB3:
+  93:Generated_Source\PSoC5/SPIM_PM.c **** }
+  94:Generated_Source\PSoC5/SPIM_PM.c **** 
+  95:Generated_Source\PSoC5/SPIM_PM.c **** 
+  96:Generated_Source\PSoC5/SPIM_PM.c **** /*******************************************************************************
+  97:Generated_Source\PSoC5/SPIM_PM.c **** * Function Name: SPIM_Wakeup
+  98:Generated_Source\PSoC5/SPIM_PM.c **** ********************************************************************************
+  99:Generated_Source\PSoC5/SPIM_PM.c **** *
+ 100:Generated_Source\PSoC5/SPIM_PM.c **** * Summary:
+ 101:Generated_Source\PSoC5/SPIM_PM.c **** *  Prepare SPIM Component to wake up.
+ 102:Generated_Source\PSoC5/SPIM_PM.c **** *
+ 103:Generated_Source\PSoC5/SPIM_PM.c **** * Parameters:
+ 104:Generated_Source\PSoC5/SPIM_PM.c **** *  None.
+ 105:Generated_Source\PSoC5/SPIM_PM.c **** *
+ 106:Generated_Source\PSoC5/SPIM_PM.c **** * Return:
+ 107:Generated_Source\PSoC5/SPIM_PM.c **** *  None.
+ 108:Generated_Source\PSoC5/SPIM_PM.c **** *
+ 109:Generated_Source\PSoC5/SPIM_PM.c **** * Global Variables:
+ 110:Generated_Source\PSoC5/SPIM_PM.c **** *  SPIM_backup - used when non-retention registers are restored.
+ 111:Generated_Source\PSoC5/SPIM_PM.c **** *  SPIM_txBufferWrite - modified every function call - resets to
+ 112:Generated_Source\PSoC5/SPIM_PM.c **** *  zero.
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 18
+
+
+ 113:Generated_Source\PSoC5/SPIM_PM.c **** *  SPIM_txBufferRead - modified every function call - resets to
+ 114:Generated_Source\PSoC5/SPIM_PM.c **** *  zero.
+ 115:Generated_Source\PSoC5/SPIM_PM.c **** *  SPIM_rxBufferWrite - modified every function call - resets to
+ 116:Generated_Source\PSoC5/SPIM_PM.c **** *  zero.
+ 117:Generated_Source\PSoC5/SPIM_PM.c **** *  SPIM_rxBufferRead - modified every function call - resets to
+ 118:Generated_Source\PSoC5/SPIM_PM.c **** *  zero.
+ 119:Generated_Source\PSoC5/SPIM_PM.c **** *
+ 120:Generated_Source\PSoC5/SPIM_PM.c **** * Reentrant:
+ 121:Generated_Source\PSoC5/SPIM_PM.c **** *  No.
+ 122:Generated_Source\PSoC5/SPIM_PM.c **** *
+ 123:Generated_Source\PSoC5/SPIM_PM.c **** *******************************************************************************/
+ 124:Generated_Source\PSoC5/SPIM_PM.c **** void SPIM_Wakeup(void) 
+ 125:Generated_Source\PSoC5/SPIM_PM.c **** {
+ 278              		.loc 1 125 0
+ 279              		.cfi_startproc
+ 280              		@ args = 0, pretend = 0, frame = 0
+ 281              		@ frame_needed = 0, uses_anonymous_args = 0
+ 282 0000 08B5     		push	{r3, lr}
+ 283              		.cfi_def_cfa_offset 8
+ 284              		.cfi_offset 3, -8
+ 285              		.cfi_offset 14, -4
+ 126:Generated_Source\PSoC5/SPIM_PM.c ****     #if(SPIM_RX_SOFTWARE_BUF_ENABLED)
+ 127:Generated_Source\PSoC5/SPIM_PM.c ****         SPIM_rxBufferFull  = 0u;
+ 128:Generated_Source\PSoC5/SPIM_PM.c ****         SPIM_rxBufferRead  = 0u;
+ 129:Generated_Source\PSoC5/SPIM_PM.c ****         SPIM_rxBufferWrite = 0u;
+ 130:Generated_Source\PSoC5/SPIM_PM.c ****     #endif /* (SPIM_RX_SOFTWARE_BUF_ENABLED) */
+ 131:Generated_Source\PSoC5/SPIM_PM.c **** 
+ 132:Generated_Source\PSoC5/SPIM_PM.c ****     #if(SPIM_TX_SOFTWARE_BUF_ENABLED)
+ 133:Generated_Source\PSoC5/SPIM_PM.c ****         SPIM_txBufferFull  = 0u;
+ 134:Generated_Source\PSoC5/SPIM_PM.c ****         SPIM_txBufferRead  = 0u;
+ 135:Generated_Source\PSoC5/SPIM_PM.c ****         SPIM_txBufferWrite = 0u;
+ 136:Generated_Source\PSoC5/SPIM_PM.c ****     #endif /* (SPIM_TX_SOFTWARE_BUF_ENABLED) */
+ 137:Generated_Source\PSoC5/SPIM_PM.c **** 
+ 138:Generated_Source\PSoC5/SPIM_PM.c ****     /* Clear any data from the RX and TX FIFO */
+ 139:Generated_Source\PSoC5/SPIM_PM.c ****     SPIM_ClearFIFO();
+ 286              		.loc 1 139 0
+ 287 0002 FFF7FEFF 		bl	SPIM_ClearFIFO
+ 288              	.LVL1:
+ 140:Generated_Source\PSoC5/SPIM_PM.c **** 
+ 141:Generated_Source\PSoC5/SPIM_PM.c ****     /* Restore components block enable state */
+ 142:Generated_Source\PSoC5/SPIM_PM.c ****     if(0u != SPIM_backup.enableState)
+ 289              		.loc 1 142 0
+ 290 0006 044B     		ldr	r3, .L9
+ 291 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 292 000a 1BB1     		cbz	r3, .L6
+ 143:Generated_Source\PSoC5/SPIM_PM.c ****     {
+ 144:Generated_Source\PSoC5/SPIM_PM.c ****         SPIM_Enable();
+ 145:Generated_Source\PSoC5/SPIM_PM.c ****     }
+ 146:Generated_Source\PSoC5/SPIM_PM.c **** }
+ 293              		.loc 1 146 0
+ 294 000c BDE80840 		pop	{r3, lr}
+ 295              		.cfi_remember_state
+ 296              		.cfi_restore 14
+ 297              		.cfi_restore 3
+ 298              		.cfi_def_cfa_offset 0
+ 144:Generated_Source\PSoC5/SPIM_PM.c ****     }
+ 299              		.loc 1 144 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 19
+
+
+ 300 0010 FFF7FEBF 		b	SPIM_Enable
+ 301              	.LVL2:
+ 302              	.L6:
+ 303              		.cfi_restore_state
+ 304 0014 08BD     		pop	{r3, pc}
+ 305              	.L10:
+ 306 0016 00BF     		.align	2
+ 307              	.L9:
+ 308 0018 00000000 		.word	.LANCHOR0
+ 309              		.cfi_endproc
+ 310              	.LFE3:
+ 311              		.size	SPIM_Wakeup, .-SPIM_Wakeup
+ 312              		.data
+ 313              		.set	.LANCHOR0,. + 0
+ 314              		.type	SPIM_backup, %object
+ 315              		.size	SPIM_backup, 2
+ 316              	SPIM_backup:
+ 317 0000 00       		.byte	0
+ 318 0001 0F       		.byte	15
+ 319              		.text
+ 320              	.Letext0:
+ 321              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 322              		.file 3 "Generated_Source\\PSoC5\\SPIM.h"
+ 323              		.section	.debug_info,"",%progbits
+ 324              	.Ldebug_info0:
+ 325 0000 5C010000 		.4byte	0x15c
+ 326 0004 0400     		.2byte	0x4
+ 327 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 328 000a 04       		.byte	0x4
+ 329 000b 01       		.uleb128 0x1
+ 330 000c 1E010000 		.4byte	.LASF25
+ 331 0010 01       		.byte	0x1
+ 332 0011 3F020000 		.4byte	.LASF26
+ 333 0015 B7000000 		.4byte	.LASF27
+ 334 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 335 001d 00000000 		.4byte	0
+ 336 0021 00000000 		.4byte	.Ldebug_line0
+ 337 0025 02       		.uleb128 0x2
+ 338 0026 01       		.byte	0x1
+ 339 0027 06       		.byte	0x6
+ 340 0028 09020000 		.4byte	.LASF0
+ 341 002c 02       		.uleb128 0x2
+ 342 002d 01       		.byte	0x1
+ 343 002e 08       		.byte	0x8
+ 344 002f 10010000 		.4byte	.LASF1
+ 345 0033 02       		.uleb128 0x2
+ 346 0034 02       		.byte	0x2
+ 347 0035 05       		.byte	0x5
+ 348 0036 27020000 		.4byte	.LASF2
+ 349 003a 02       		.uleb128 0x2
+ 350 003b 02       		.byte	0x2
+ 351 003c 07       		.byte	0x7
+ 352 003d 0E000000 		.4byte	.LASF3
+ 353 0041 02       		.uleb128 0x2
+ 354 0042 04       		.byte	0x4
+ 355 0043 05       		.byte	0x5
+ 356 0044 D4010000 		.4byte	.LASF4
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 20
+
+
+ 357 0048 02       		.uleb128 0x2
+ 358 0049 04       		.byte	0x4
+ 359 004a 07       		.byte	0x7
+ 360 004b 6F000000 		.4byte	.LASF5
+ 361 004f 02       		.uleb128 0x2
+ 362 0050 08       		.byte	0x8
+ 363 0051 05       		.byte	0x5
+ 364 0052 00000000 		.4byte	.LASF6
+ 365 0056 02       		.uleb128 0x2
+ 366 0057 08       		.byte	0x8
+ 367 0058 07       		.byte	0x7
+ 368 0059 94000000 		.4byte	.LASF7
+ 369 005d 03       		.uleb128 0x3
+ 370 005e 04       		.byte	0x4
+ 371 005f 05       		.byte	0x5
+ 372 0060 696E7400 		.ascii	"int\000"
+ 373 0064 02       		.uleb128 0x2
+ 374 0065 04       		.byte	0x4
+ 375 0066 07       		.byte	0x7
+ 376 0067 2D000000 		.4byte	.LASF8
+ 377 006b 04       		.uleb128 0x4
+ 378 006c 69000000 		.4byte	.LASF12
+ 379 0070 02       		.byte	0x2
+ 380 0071 3801     		.2byte	0x138
+ 381 0073 2C000000 		.4byte	0x2c
+ 382 0077 02       		.uleb128 0x2
+ 383 0078 04       		.byte	0x4
+ 384 0079 04       		.byte	0x4
+ 385 007a 21020000 		.4byte	.LASF9
+ 386 007e 02       		.uleb128 0x2
+ 387 007f 08       		.byte	0x8
+ 388 0080 04       		.byte	0x4
+ 389 0081 E8010000 		.4byte	.LASF10
+ 390 0085 02       		.uleb128 0x2
+ 391 0086 01       		.byte	0x1
+ 392 0087 08       		.byte	0x8
+ 393 0088 C5010000 		.4byte	.LASF11
+ 394 008c 04       		.uleb128 0x4
+ 395 008d 31020000 		.4byte	.LASF13
+ 396 0091 02       		.byte	0x2
+ 397 0092 E201     		.2byte	0x1e2
+ 398 0094 98000000 		.4byte	0x98
+ 399 0098 05       		.uleb128 0x5
+ 400 0099 6B000000 		.4byte	0x6b
+ 401 009d 02       		.uleb128 0x2
+ 402 009e 04       		.byte	0x4
+ 403 009f 07       		.byte	0x7
+ 404 00a0 36020000 		.4byte	.LASF14
+ 405 00a4 06       		.uleb128 0x6
+ 406 00a5 02       		.byte	0x2
+ 407 00a6 03       		.byte	0x3
+ 408 00a7 46       		.byte	0x46
+ 409 00a8 C5000000 		.4byte	0xc5
+ 410 00ac 07       		.uleb128 0x7
+ 411 00ad 21000000 		.4byte	.LASF15
+ 412 00b1 03       		.byte	0x3
+ 413 00b2 48       		.byte	0x48
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 21
+
+
+ 414 00b3 6B000000 		.4byte	0x6b
+ 415 00b7 00       		.byte	0
+ 416 00b8 07       		.uleb128 0x7
+ 417 00b9 DD010000 		.4byte	.LASF16
+ 418 00bd 03       		.byte	0x3
+ 419 00be 49       		.byte	0x49
+ 420 00bf 6B000000 		.4byte	0x6b
+ 421 00c3 01       		.byte	0x1
+ 422 00c4 00       		.byte	0
+ 423 00c5 08       		.uleb128 0x8
+ 424 00c6 81000000 		.4byte	.LASF17
+ 425 00ca 03       		.byte	0x3
+ 426 00cb 4A       		.byte	0x4a
+ 427 00cc A4000000 		.4byte	0xa4
+ 428 00d0 09       		.uleb128 0x9
+ 429 00d1 3A000000 		.4byte	.LASF18
+ 430 00d5 01       		.byte	0x1
+ 431 00d6 29       		.byte	0x29
+ 432 00d7 00000000 		.4byte	.LFB0
+ 433 00db 02000000 		.4byte	.LFE0-.LFB0
+ 434 00df 01       		.uleb128 0x1
+ 435 00e0 9C       		.byte	0x9c
+ 436 00e1 09       		.uleb128 0x9
+ 437 00e2 56000000 		.4byte	.LASF19
+ 438 00e6 01       		.byte	0x1
+ 439 00e7 3D       		.byte	0x3d
+ 440 00e8 00000000 		.4byte	.LFB1
+ 441 00ec 02000000 		.4byte	.LFE1-.LFB1
+ 442 00f0 01       		.uleb128 0x1
+ 443 00f1 9C       		.byte	0x9c
+ 444 00f2 0A       		.uleb128 0xa
+ 445 00f3 FE010000 		.4byte	.LASF20
+ 446 00f7 01       		.byte	0x1
+ 447 00f8 57       		.byte	0x57
+ 448 00f9 00000000 		.4byte	.LFB2
+ 449 00fd 18000000 		.4byte	.LFE2-.LFB2
+ 450 0101 01       		.uleb128 0x1
+ 451 0102 9C       		.byte	0x9c
+ 452 0103 11010000 		.4byte	0x111
+ 453 0107 0B       		.uleb128 0xb
+ 454 0108 10000000 		.4byte	.LVL0
+ 455 010c 4A010000 		.4byte	0x14a
+ 456 0110 00       		.byte	0
+ 457 0111 0A       		.uleb128 0xa
+ 458 0112 4A000000 		.4byte	.LASF21
+ 459 0116 01       		.byte	0x1
+ 460 0117 7C       		.byte	0x7c
+ 461 0118 00000000 		.4byte	.LFB3
+ 462 011c 1C000000 		.4byte	.LFE3-.LFB3
+ 463 0120 01       		.uleb128 0x1
+ 464 0121 9C       		.byte	0x9c
+ 465 0122 39010000 		.4byte	0x139
+ 466 0126 0C       		.uleb128 0xc
+ 467 0127 06000000 		.4byte	.LVL1
+ 468 012b 51010000 		.4byte	0x151
+ 469 012f 0B       		.uleb128 0xb
+ 470 0130 14000000 		.4byte	.LVL2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 22
+
+
+ 471 0134 58010000 		.4byte	0x158
+ 472 0138 00       		.byte	0
+ 473 0139 0D       		.uleb128 0xd
+ 474 013a AB000000 		.4byte	.LASF28
+ 475 013e 01       		.byte	0x1
+ 476 013f 14       		.byte	0x14
+ 477 0140 C5000000 		.4byte	0xc5
+ 478 0144 05       		.uleb128 0x5
+ 479 0145 03       		.byte	0x3
+ 480 0146 00000000 		.4byte	SPIM_backup
+ 481 014a 0E       		.uleb128 0xe
+ 482 014b CA010000 		.4byte	.LASF22
+ 483 014f 03       		.byte	0x3
+ 484 0150 54       		.byte	0x54
+ 485 0151 0E       		.uleb128 0xe
+ 486 0152 EF010000 		.4byte	.LASF23
+ 487 0156 03       		.byte	0x3
+ 488 0157 6C       		.byte	0x6c
+ 489 0158 0E       		.uleb128 0xe
+ 490 0159 15020000 		.4byte	.LASF24
+ 491 015d 03       		.byte	0x3
+ 492 015e 52       		.byte	0x52
+ 493 015f 00       		.byte	0
+ 494              		.section	.debug_abbrev,"",%progbits
+ 495              	.Ldebug_abbrev0:
+ 496 0000 01       		.uleb128 0x1
+ 497 0001 11       		.uleb128 0x11
+ 498 0002 01       		.byte	0x1
+ 499 0003 25       		.uleb128 0x25
+ 500 0004 0E       		.uleb128 0xe
+ 501 0005 13       		.uleb128 0x13
+ 502 0006 0B       		.uleb128 0xb
+ 503 0007 03       		.uleb128 0x3
+ 504 0008 0E       		.uleb128 0xe
+ 505 0009 1B       		.uleb128 0x1b
+ 506 000a 0E       		.uleb128 0xe
+ 507 000b 55       		.uleb128 0x55
+ 508 000c 17       		.uleb128 0x17
+ 509 000d 11       		.uleb128 0x11
+ 510 000e 01       		.uleb128 0x1
+ 511 000f 10       		.uleb128 0x10
+ 512 0010 17       		.uleb128 0x17
+ 513 0011 00       		.byte	0
+ 514 0012 00       		.byte	0
+ 515 0013 02       		.uleb128 0x2
+ 516 0014 24       		.uleb128 0x24
+ 517 0015 00       		.byte	0
+ 518 0016 0B       		.uleb128 0xb
+ 519 0017 0B       		.uleb128 0xb
+ 520 0018 3E       		.uleb128 0x3e
+ 521 0019 0B       		.uleb128 0xb
+ 522 001a 03       		.uleb128 0x3
+ 523 001b 0E       		.uleb128 0xe
+ 524 001c 00       		.byte	0
+ 525 001d 00       		.byte	0
+ 526 001e 03       		.uleb128 0x3
+ 527 001f 24       		.uleb128 0x24
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 23
+
+
+ 528 0020 00       		.byte	0
+ 529 0021 0B       		.uleb128 0xb
+ 530 0022 0B       		.uleb128 0xb
+ 531 0023 3E       		.uleb128 0x3e
+ 532 0024 0B       		.uleb128 0xb
+ 533 0025 03       		.uleb128 0x3
+ 534 0026 08       		.uleb128 0x8
+ 535 0027 00       		.byte	0
+ 536 0028 00       		.byte	0
+ 537 0029 04       		.uleb128 0x4
+ 538 002a 16       		.uleb128 0x16
+ 539 002b 00       		.byte	0
+ 540 002c 03       		.uleb128 0x3
+ 541 002d 0E       		.uleb128 0xe
+ 542 002e 3A       		.uleb128 0x3a
+ 543 002f 0B       		.uleb128 0xb
+ 544 0030 3B       		.uleb128 0x3b
+ 545 0031 05       		.uleb128 0x5
+ 546 0032 49       		.uleb128 0x49
+ 547 0033 13       		.uleb128 0x13
+ 548 0034 00       		.byte	0
+ 549 0035 00       		.byte	0
+ 550 0036 05       		.uleb128 0x5
+ 551 0037 35       		.uleb128 0x35
+ 552 0038 00       		.byte	0
+ 553 0039 49       		.uleb128 0x49
+ 554 003a 13       		.uleb128 0x13
+ 555 003b 00       		.byte	0
+ 556 003c 00       		.byte	0
+ 557 003d 06       		.uleb128 0x6
+ 558 003e 13       		.uleb128 0x13
+ 559 003f 01       		.byte	0x1
+ 560 0040 0B       		.uleb128 0xb
+ 561 0041 0B       		.uleb128 0xb
+ 562 0042 3A       		.uleb128 0x3a
+ 563 0043 0B       		.uleb128 0xb
+ 564 0044 3B       		.uleb128 0x3b
+ 565 0045 0B       		.uleb128 0xb
+ 566 0046 01       		.uleb128 0x1
+ 567 0047 13       		.uleb128 0x13
+ 568 0048 00       		.byte	0
+ 569 0049 00       		.byte	0
+ 570 004a 07       		.uleb128 0x7
+ 571 004b 0D       		.uleb128 0xd
+ 572 004c 00       		.byte	0
+ 573 004d 03       		.uleb128 0x3
+ 574 004e 0E       		.uleb128 0xe
+ 575 004f 3A       		.uleb128 0x3a
+ 576 0050 0B       		.uleb128 0xb
+ 577 0051 3B       		.uleb128 0x3b
+ 578 0052 0B       		.uleb128 0xb
+ 579 0053 49       		.uleb128 0x49
+ 580 0054 13       		.uleb128 0x13
+ 581 0055 38       		.uleb128 0x38
+ 582 0056 0B       		.uleb128 0xb
+ 583 0057 00       		.byte	0
+ 584 0058 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 24
+
+
+ 585 0059 08       		.uleb128 0x8
+ 586 005a 16       		.uleb128 0x16
+ 587 005b 00       		.byte	0
+ 588 005c 03       		.uleb128 0x3
+ 589 005d 0E       		.uleb128 0xe
+ 590 005e 3A       		.uleb128 0x3a
+ 591 005f 0B       		.uleb128 0xb
+ 592 0060 3B       		.uleb128 0x3b
+ 593 0061 0B       		.uleb128 0xb
+ 594 0062 49       		.uleb128 0x49
+ 595 0063 13       		.uleb128 0x13
+ 596 0064 00       		.byte	0
+ 597 0065 00       		.byte	0
+ 598 0066 09       		.uleb128 0x9
+ 599 0067 2E       		.uleb128 0x2e
+ 600 0068 00       		.byte	0
+ 601 0069 3F       		.uleb128 0x3f
+ 602 006a 19       		.uleb128 0x19
+ 603 006b 03       		.uleb128 0x3
+ 604 006c 0E       		.uleb128 0xe
+ 605 006d 3A       		.uleb128 0x3a
+ 606 006e 0B       		.uleb128 0xb
+ 607 006f 3B       		.uleb128 0x3b
+ 608 0070 0B       		.uleb128 0xb
+ 609 0071 27       		.uleb128 0x27
+ 610 0072 19       		.uleb128 0x19
+ 611 0073 11       		.uleb128 0x11
+ 612 0074 01       		.uleb128 0x1
+ 613 0075 12       		.uleb128 0x12
+ 614 0076 06       		.uleb128 0x6
+ 615 0077 40       		.uleb128 0x40
+ 616 0078 18       		.uleb128 0x18
+ 617 0079 9742     		.uleb128 0x2117
+ 618 007b 19       		.uleb128 0x19
+ 619 007c 00       		.byte	0
+ 620 007d 00       		.byte	0
+ 621 007e 0A       		.uleb128 0xa
+ 622 007f 2E       		.uleb128 0x2e
+ 623 0080 01       		.byte	0x1
+ 624 0081 3F       		.uleb128 0x3f
+ 625 0082 19       		.uleb128 0x19
+ 626 0083 03       		.uleb128 0x3
+ 627 0084 0E       		.uleb128 0xe
+ 628 0085 3A       		.uleb128 0x3a
+ 629 0086 0B       		.uleb128 0xb
+ 630 0087 3B       		.uleb128 0x3b
+ 631 0088 0B       		.uleb128 0xb
+ 632 0089 27       		.uleb128 0x27
+ 633 008a 19       		.uleb128 0x19
+ 634 008b 11       		.uleb128 0x11
+ 635 008c 01       		.uleb128 0x1
+ 636 008d 12       		.uleb128 0x12
+ 637 008e 06       		.uleb128 0x6
+ 638 008f 40       		.uleb128 0x40
+ 639 0090 18       		.uleb128 0x18
+ 640 0091 9742     		.uleb128 0x2117
+ 641 0093 19       		.uleb128 0x19
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 25
+
+
+ 642 0094 01       		.uleb128 0x1
+ 643 0095 13       		.uleb128 0x13
+ 644 0096 00       		.byte	0
+ 645 0097 00       		.byte	0
+ 646 0098 0B       		.uleb128 0xb
+ 647 0099 898201   		.uleb128 0x4109
+ 648 009c 00       		.byte	0
+ 649 009d 11       		.uleb128 0x11
+ 650 009e 01       		.uleb128 0x1
+ 651 009f 9542     		.uleb128 0x2115
+ 652 00a1 19       		.uleb128 0x19
+ 653 00a2 31       		.uleb128 0x31
+ 654 00a3 13       		.uleb128 0x13
+ 655 00a4 00       		.byte	0
+ 656 00a5 00       		.byte	0
+ 657 00a6 0C       		.uleb128 0xc
+ 658 00a7 898201   		.uleb128 0x4109
+ 659 00aa 00       		.byte	0
+ 660 00ab 11       		.uleb128 0x11
+ 661 00ac 01       		.uleb128 0x1
+ 662 00ad 31       		.uleb128 0x31
+ 663 00ae 13       		.uleb128 0x13
+ 664 00af 00       		.byte	0
+ 665 00b0 00       		.byte	0
+ 666 00b1 0D       		.uleb128 0xd
+ 667 00b2 34       		.uleb128 0x34
+ 668 00b3 00       		.byte	0
+ 669 00b4 03       		.uleb128 0x3
+ 670 00b5 0E       		.uleb128 0xe
+ 671 00b6 3A       		.uleb128 0x3a
+ 672 00b7 0B       		.uleb128 0xb
+ 673 00b8 3B       		.uleb128 0x3b
+ 674 00b9 0B       		.uleb128 0xb
+ 675 00ba 49       		.uleb128 0x49
+ 676 00bb 13       		.uleb128 0x13
+ 677 00bc 02       		.uleb128 0x2
+ 678 00bd 18       		.uleb128 0x18
+ 679 00be 00       		.byte	0
+ 680 00bf 00       		.byte	0
+ 681 00c0 0E       		.uleb128 0xe
+ 682 00c1 2E       		.uleb128 0x2e
+ 683 00c2 00       		.byte	0
+ 684 00c3 3F       		.uleb128 0x3f
+ 685 00c4 19       		.uleb128 0x19
+ 686 00c5 03       		.uleb128 0x3
+ 687 00c6 0E       		.uleb128 0xe
+ 688 00c7 3A       		.uleb128 0x3a
+ 689 00c8 0B       		.uleb128 0xb
+ 690 00c9 3B       		.uleb128 0x3b
+ 691 00ca 0B       		.uleb128 0xb
+ 692 00cb 27       		.uleb128 0x27
+ 693 00cc 19       		.uleb128 0x19
+ 694 00cd 3C       		.uleb128 0x3c
+ 695 00ce 19       		.uleb128 0x19
+ 696 00cf 00       		.byte	0
+ 697 00d0 00       		.byte	0
+ 698 00d1 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 26
+
+
+ 699              		.section	.debug_aranges,"",%progbits
+ 700 0000 34000000 		.4byte	0x34
+ 701 0004 0200     		.2byte	0x2
+ 702 0006 00000000 		.4byte	.Ldebug_info0
+ 703 000a 04       		.byte	0x4
+ 704 000b 00       		.byte	0
+ 705 000c 0000     		.2byte	0
+ 706 000e 0000     		.2byte	0
+ 707 0010 00000000 		.4byte	.LFB0
+ 708 0014 02000000 		.4byte	.LFE0-.LFB0
+ 709 0018 00000000 		.4byte	.LFB1
+ 710 001c 02000000 		.4byte	.LFE1-.LFB1
+ 711 0020 00000000 		.4byte	.LFB2
+ 712 0024 18000000 		.4byte	.LFE2-.LFB2
+ 713 0028 00000000 		.4byte	.LFB3
+ 714 002c 1C000000 		.4byte	.LFE3-.LFB3
+ 715 0030 00000000 		.4byte	0
+ 716 0034 00000000 		.4byte	0
+ 717              		.section	.debug_ranges,"",%progbits
+ 718              	.Ldebug_ranges0:
+ 719 0000 00000000 		.4byte	.LFB0
+ 720 0004 02000000 		.4byte	.LFE0
+ 721 0008 00000000 		.4byte	.LFB1
+ 722 000c 02000000 		.4byte	.LFE1
+ 723 0010 00000000 		.4byte	.LFB2
+ 724 0014 18000000 		.4byte	.LFE2
+ 725 0018 00000000 		.4byte	.LFB3
+ 726 001c 1C000000 		.4byte	.LFE3
+ 727 0020 00000000 		.4byte	0
+ 728 0024 00000000 		.4byte	0
+ 729              		.section	.debug_line,"",%progbits
+ 730              	.Ldebug_line0:
+ 731 0000 9A000000 		.section	.debug_str,"MS",%progbits,1
+ 731      02004E00 
+ 731      00000201 
+ 731      FB0E0D00 
+ 731      01010101 
+ 732              	.LASF6:
+ 733 0000 6C6F6E67 		.ascii	"long long int\000"
+ 733      206C6F6E 
+ 733      6720696E 
+ 733      7400
+ 734              	.LASF3:
+ 735 000e 73686F72 		.ascii	"short unsigned int\000"
+ 735      7420756E 
+ 735      7369676E 
+ 735      65642069 
+ 735      6E7400
+ 736              	.LASF15:
+ 737 0021 656E6162 		.ascii	"enableState\000"
+ 737      6C655374 
+ 737      61746500 
+ 738              	.LASF8:
+ 739 002d 756E7369 		.ascii	"unsigned int\000"
+ 739      676E6564 
+ 739      20696E74 
+ 739      00
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 27
+
+
+ 740              	.LASF18:
+ 741 003a 5350494D 		.ascii	"SPIM_SaveConfig\000"
+ 741      5F536176 
+ 741      65436F6E 
+ 741      66696700 
+ 742              	.LASF21:
+ 743 004a 5350494D 		.ascii	"SPIM_Wakeup\000"
+ 743      5F57616B 
+ 743      65757000 
+ 744              	.LASF19:
+ 745 0056 5350494D 		.ascii	"SPIM_RestoreConfig\000"
+ 745      5F526573 
+ 745      746F7265 
+ 745      436F6E66 
+ 745      696700
+ 746              	.LASF12:
+ 747 0069 75696E74 		.ascii	"uint8\000"
+ 747      3800
+ 748              	.LASF5:
+ 749 006f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 749      20756E73 
+ 749      69676E65 
+ 749      6420696E 
+ 749      7400
+ 750              	.LASF17:
+ 751 0081 5350494D 		.ascii	"SPIM_BACKUP_STRUCT\000"
+ 751      5F424143 
+ 751      4B55505F 
+ 751      53545255 
+ 751      435400
+ 752              	.LASF7:
+ 753 0094 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 753      206C6F6E 
+ 753      6720756E 
+ 753      7369676E 
+ 753      65642069 
+ 754              	.LASF28:
+ 755 00ab 5350494D 		.ascii	"SPIM_backup\000"
+ 755      5F626163 
+ 755      6B757000 
+ 756              	.LASF27:
+ 757 00b7 433A5C55 		.ascii	"C:\\Users\\Bruger\\Desktop\\CODE\\PSOC5\\CY8CKIT-59"
+ 757      73657273 
+ 757      5C427275 
+ 757      6765725C 
+ 757      4465736B 
+ 758 00e4 2D417264 		.ascii	"-Arduino\\CY8CKIT59_Ardudino-Speeduino.cydsn\000"
+ 758      75696E6F 
+ 758      5C435938 
+ 758      434B4954 
+ 758      35395F41 
+ 759              	.LASF1:
+ 760 0110 756E7369 		.ascii	"unsigned char\000"
+ 760      676E6564 
+ 760      20636861 
+ 760      7200
+ 761              	.LASF25:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 28
+
+
+ 762 011e 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 762      4320342E 
+ 762      392E3320 
+ 762      32303135 
+ 762      30333033 
+ 763 0151 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 763      20726576 
+ 763      6973696F 
+ 763      6E203232 
+ 763      31323230 
+ 764 0184 73202D66 		.ascii	"s -ffunction-sections -finline-functions -flto -ffa"
+ 764      66756E63 
+ 764      74696F6E 
+ 764      2D736563 
+ 764      74696F6E 
+ 765 01b7 742D6C74 		.ascii	"t-lto-objects\000"
+ 765      6F2D6F62 
+ 765      6A656374 
+ 765      7300
+ 766              	.LASF11:
+ 767 01c5 63686172 		.ascii	"char\000"
+ 767      00
+ 768              	.LASF22:
+ 769 01ca 5350494D 		.ascii	"SPIM_Stop\000"
+ 769      5F53746F 
+ 769      7000
+ 770              	.LASF4:
+ 771 01d4 6C6F6E67 		.ascii	"long int\000"
+ 771      20696E74 
+ 771      00
+ 772              	.LASF16:
+ 773 01dd 636E7472 		.ascii	"cntrPeriod\000"
+ 773      50657269 
+ 773      6F6400
+ 774              	.LASF10:
+ 775 01e8 646F7562 		.ascii	"double\000"
+ 775      6C6500
+ 776              	.LASF23:
+ 777 01ef 5350494D 		.ascii	"SPIM_ClearFIFO\000"
+ 777      5F436C65 
+ 777      61724649 
+ 777      464F00
+ 778              	.LASF20:
+ 779 01fe 5350494D 		.ascii	"SPIM_Sleep\000"
+ 779      5F536C65 
+ 779      657000
+ 780              	.LASF0:
+ 781 0209 7369676E 		.ascii	"signed char\000"
+ 781      65642063 
+ 781      68617200 
+ 782              	.LASF24:
+ 783 0215 5350494D 		.ascii	"SPIM_Enable\000"
+ 783      5F456E61 
+ 783      626C6500 
+ 784              	.LASF9:
+ 785 0221 666C6F61 		.ascii	"float\000"
+ 785      7400
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJM3Xug.s 			page 29
+
+
+ 786              	.LASF2:
+ 787 0227 73686F72 		.ascii	"short int\000"
+ 787      7420696E 
+ 787      7400
+ 788              	.LASF13:
+ 789 0231 72656738 		.ascii	"reg8\000"
+ 789      00
+ 790              	.LASF14:
+ 791 0236 73697A65 		.ascii	"sizetype\000"
+ 791      74797065 
+ 791      00
+ 792              	.LASF26:
+ 793 023f 47656E65 		.ascii	"Generated_Source\\PSoC5\\SPIM_PM.c\000"
+ 793      72617465 
+ 793      645F536F 
+ 793      75726365 
+ 793      5C50536F 
+ 794              		.comm	__gnu_lto_v1,1,1
+ 795              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

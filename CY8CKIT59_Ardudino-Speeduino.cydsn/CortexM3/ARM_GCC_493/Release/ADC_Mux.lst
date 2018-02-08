@@ -1,0 +1,1650 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"ADC_Mux.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.section	.gnu.lto_.profile.24bfecf3,"",%progbits
+  18 0000 789C6366 		.ascii	"x\234cf```a\200\000F\006;q\000\001\007\000^"
+  18      60606061 
+  18      80004606 
+  18      3B710001 
+  18      07005E
+  19              		.text
+  20              		.section	.gnu.lto_.jmpfuncs.24bfecf3,"",%progbits
+  21 0000 789C6366 		.ascii	"x\234cf\300\016d\24043\0203200122\32632\227Cx\314`\222"
+  21      C00E64A0 
+  21      34331033 
+  21      32303031 
+  21      3232D633 
+  22 001b 01001500 		.ascii	"\001\000\025\000\001("
+  22      0128
+  23              		.text
+  24              		.section	.gnu.lto_.inline.24bfecf3,"",%progbits
+  25 0000 789C6366 		.ascii	"x\234cf\300\016\"\24143\003\003\347W\006F\006&\216\017"
+  25      C00E22A1 
+  25      34330303 
+  25      E7570646 
+  25      06268E0F 
+  26 0014 4B9919D8 		.ascii	"K\231\031\330\026\3103\201D\231\270\031\031\030'\370"
+  26      16C83381 
+  26      4499B819 
+  26      191827F8 
+  27 0024 3131704B 		.ascii	"11pK\200\244\016\330!\3110\200e \0243\003'\017H\301"
+  27      80A40ED8 
+  27      21C93080 
+  27      65201433 
+  27      03270F48 
+  28 0039 290B7405 		.ascii	")\013t\005\014\000/\321\013Z"
+  28      0C002FD1 
+  28      0B5A
+  29              		.text
+  30              		.section	.gnu.lto_.pureconst.24bfecf3,"",%progbits
+  31 0000 789C6366 		.ascii	"x\234cf```g\200\000f\006\011&\011f\011\000\001\260\000"
+  31      60606067 
+  31      80006606 
+  31      09260966 
+  31      090001B0 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 2
+
+
+  32 0015 5B       		.ascii	"["
+  33              		.text
+  34              		.section	.gnu.lto_ADC_Mux_Start.24bfecf3,"",%progbits
+  35 0000 789C6550 		.ascii	"x\234ePOH\024a\024\177\277\367\315\354\016\251(\035"
+  35      4F481461 
+  35      147FBFF7 
+  35      CDEC0EA9 
+  35      281D
+  36 0012 3A780B03 		.ascii	":x\013\003\015\242[\207\216\241\020\035\004\301\353"
+  36      0DA25B87 
+  36      8EA1101D 
+  36      04C1EB
+  37 0021 82C836D0 		.ascii	"\202\3106\320IA\024\352\260\370\315\356\024\235B\304"
+  37      494114EA 
+  37      B0F8CDEE 
+  37      149D42C4 
+  38 0031 8364461E 		.ascii	"\203dF\036\324-\313\177`\321%\306\320\242C\226\204\273"
+  38      D42DCB7F 
+  38      60D125C6 
+  38      D0A24396 
+  38      84BB
+  39 0043 20511D34 		.ascii	" Q\0354,<(\013-K\331\364\276o\252C}\314\314{\363\276"
+  39      2C3C280B 
+  39      2D4BD9F4 
+  39      BE6FAA43 
+  39      7DCCCC7B 
+  40 0059 DFFBFD7E 		.ascii	"\337\373\375~\357)\372\377\\\222\267\236\211\332$\""
+  40      EF29FAFF 
+  40      5C92B79E 
+  40      89DA2422 
+  41 0069 45E0910D 		.ascii	"E\340\221\015\242\300c8I\242\222d\325sX=]'\322\307\334"
+  41      A2C06338 
+  41      49A29264 
+  41      D573583D 
+  41      5D27D2C7 
+  42 007e B247BADE 		.ascii	"\262G\272\336\005L\235@\303\254\034\027\303\354\020"
+  42      054C9D40 
+  42      C3AC1C17 
+  42      C3EC10
+  43 008d 3CF3C8F9 		.ascii	"<\363\310\371\302\207\214\221hn\274\256uZk}\360\374"
+  43      C2878C91 
+  43      686EBCAE 
+  43      755A6B7D 
+  43      F0FC
+  44 009f 55D015A1 		.ascii	"U\320\025\241&2\025Nd1\213V\022\320V\374\355+\324)\230"
+  44      2632154E 
+  44      64318B56 
+  44      12D056FC 
+  44      ED2BD429 
+  45 00b4 FCEDD8FE 		.ascii	"\374\355\330\376Z\252eJ\353\374\247\215\307\231(\270"
+  45      5AAA654A 
+  45      EBFCA78D 
+  45      C79928B8 
+  46 00c4 A77FC6B1 		.ascii	"\247\177\306\261t\001E(i\304\231f\234n\376\355[\360"
+  46      74014528 
+  46      69C49966 
+  46      9C6EFEED 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 3
+
+
+  46      5BF0
+  47 00d6 87E151B9 		.ascii	"\207\341Q\271.\025\212@\023\356\243%\341\306\003\244"
+  47      2E158A40 
+  47      13EEA325 
+  47      E1C603A4 
+  48 00e6 20C15416 		.ascii	" \301T\026\216G:\216+3\253%\244A\246\342\332/\321\216"
+  48      8E473A8E 
+  48      2B33AB25 
+  48      A441A6E2 
+  48      DA2FD18E 
+  49 00fa 40658C5D 		.ascii	"@e\214]f\011\252\204|\264t\315v\312\2550\177\334y\263"
+  49      6609AA84 
+  49      7CB474CD 
+  49      76CAAD30 
+  49      7FDC79B3 
+  50 010e E9EDB148 		.ascii	"\351\355\261H\013\323\034\214\346.+\222\371\325{\204"
+  50      0BD31C8C 
+  50      E62E2B92 
+  50      F9D57B84 
+  51 011e D113DF60 		.ascii	"\321\023\337`\215\205\273\357n\315s\356\273\276\251"
+  51      8D85BBEF 
+  51      6ECD73EE 
+  51      BBBEA9
+  52 012d BD1A73C5 		.ascii	"\275\032s\305\342\037\"GU\026\337\212\266Q\030\275\361"
+  52      E21F2247 
+  52      5516DF8A 
+  52      B65118BD 
+  52      F1
+  53 013e 62BAC1C0 		.ascii	"b\272\301\300\253\354JUz6o\317\024\032-\271xz$\344%"
+  53      ABEC4A55 
+  53      7A366FCF 
+  53      141A2DB9 
+  53      787A24E4 
+  54 0153 F01F6D01 		.ascii	"\360\037m\001Y-\207d\271\306W\023%e\320\026\302\327"
+  54      592D8764 
+  54      B9C65713 
+  54      2565D016 
+  54      C2D7
+  55 0165 85130993 		.ascii	"\205\023\011\223\241\251\376xy=\241I\023\346\255G\372"
+  55      A1A9FE78 
+  55      793DA149 
+  55      13E6AD47 
+  55      FA
+  56 0176 0C18BBBC 		.ascii	"\014\030\273\274\247\204H\025\033\204\3115\003n#\177"
+  56      A7844815 
+  56      1B84C935 
+  56      036E237F 
+  57 0186 B0B872DE 		.ascii	"\260\270r\3364\377k\3329\342d\233\177gv\354o1\010\357"
+  57      34FF6BDA 
+  57      39E2649B 
+  57      7F6776EC 
+  57      6F3108EF 
+  58 019a 60121381 		.ascii	"`\022\023\2016(`\0019,\032\025,IY\000\343\023\265gi"
+  58      36286001 
+  58      392C1A15 
+  58      2C495900 
+  58      E313B567 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 4
+
+
+  59 01af AB1FCB1C 		.ascii	"\253\037\313\034\313r\365\001ATv\355j\310\254\030\""
+  59      CB72F501 
+  59      415476ED 
+  59      6AC8AC18 
+  59      22
+  60 01c0 2DE4272F 		.ascii	"-\344'/\372}\376@\357\240\177\271\247\273\177h \353"
+  60      FA7DFE40 
+  60      EFA07FB9 
+  60      A7BB7F68 
+  60      20EB
+  61 01d2 67BABAFB 		.ascii	"g\272\272\373\333\317e.t\264\367t\016]=\233%'{\245\267"
+  61      DBCF652E 
+  61      74B4F774 
+  61      0E5D3D9B 
+  61      25277BA5 
+  62 01e7 EF17CC30 		.ascii	"\357\027\3140\304\007"
+  62      C407
+  63              		.text
+  64              		.section	.gnu.lto_ADC_Mux_FastSelect.24bfecf3,"",%progbits
+  65 0000 789C7590 		.ascii	"x\234u\220MH[A\024\205\357\271\363\242\241\272\020W"
+  65      4D485B41 
+  65      1485EFB9 
+  65      F3A2A1BA 
+  65      1057
+  66 0012 215041A8 		.ascii	"!PA\250HQD\0207]U\024\\\025\004\267\001\221\364\201"
+  66      48514410 
+  66      375D5514 
+  66      5C1504B7 
+  66      0191F481 
+  67 0026 8B124114 		.ascii	"\213\022A\024\272\011\231\350+\270\012\211\013+\332"
+  67      BA0999E8 
+  67      2BB80A89 
+  67      0B2BDA
+  68 0035 7653C49F 		.ascii	"vS\304\237\330\370\003m\227}\256\014\024*AD\024i\300"
+  68      D8F8036D 
+  68      977DAE0C 
+  68      142A4144 
+  68      1469C0
+  69 0048 A6A02268 		.ascii	"\246\240\"h\310\242\204V\322;/`\301\222\201\307\314"
+  69      C8A28456 
+  69      D23B2F60 
+  69      C19281C7 
+  69      CC
+  70 0059 3B9CEFCC 		.ascii	";\234\357\314\271\243\350\377\325#\337%\210:d\207\217"
+  70      B9A3E8FF 
+  70      D523DF25 
+  70      883A6487 
+  70      8F
+  71 006a C0C96F44 		.ascii	"\300\311oDq?\263\312v\223~`e\037\222nT\260\252\262\005"
+  71      713FB3CA 
+  71      76937E60 
+  71      651F926E 
+  71      54B0AAB2 
+  72 007f 98038162 		.ascii	"\230\003\201b\254,\304p\301EF\322M/4\264/k\255o\316"
+  72      AC2CC470 
+  72      C14546D2 
+  72      4D2F34B4 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 5
+
+
+  72      2F6BAD6F 
+  73 0094 3E075E05 		.ascii	">\007^\005\312LT\342j>V\320.\226\322\325G[=\002\311"
+  73      CA4C54E2 
+  73      6A3E56D0 
+  73      2E96D2D5 
+  73      475B3D02 
+  74 00a9 F153E2CF 		.ascii	"\361S\342\317\017\264\275\327z\332\375\222\321OQf`\025"
+  74      0FB4BDD7 
+  74      7ADAFD92 
+  74      D14F5166 
+  74      6015
+  75 00bb 4A007406 		.ascii	"J\000t\006\3618H\"\020\326\320f\314E\347\366\250\241"
+  75      F1384822 
+  75      10D6D066 
+  75      CC45E7F6 
+  75      A8A1
+  76 00cd CE91E8A6 		.ascii	"\316\221\350\246j$\326Q'ui\263\331\325\225J)\237\232"
+  76      6A24D651 
+  76      277569B3 
+  76      D9D5954A 
+  76      299F9A
+  77 00e0 7D02BF12 		.ascii	"}\002\277\022\206}\360 *\210\315\224\374\311lvu\202"
+  77      867DF020 
+  77      2A88CD94 
+  77      FCC96C76 
+  77      7582
+  78 00f2 E9B96221 		.ascii	"\351\271b!Wo\310_\254$\364\335A\"\303\321\337zV\373"
+  78      576FC85F 
+  78      AC24F4DD 
+  78      4122C3D1 
+  78      DF7A56FB 
+  79 0106 CBAC6E4D 		.ascii	"\313\254nM\254\250\371\302~\316\177\316\242x\277\253"
+  79      ACA8F9C2 
+  79      7ECE7FCE 
+  79      A278BFAB 
+  80 0116 71E70DDE 		.ascii	"q\347\015\336b)\256\215\013H#\212\015\004\245\301\007"
+  80      6229AE8D 
+  80      0B48238A 
+  80      0D04A5C1 
+  80      07
+  81 0127 91E910CE 		.ascii	"\221\351\020\316\361L\313\277\314\304\327\305]eh\256"
+  81      F14CCBBF 
+  81      CCC4D7C5 
+  81      5D6568AE 
+  82 0137 48FB8C31 		.ascii	"H\373\2141\222\351\240(\333\255N\341\270\257\367\032"
+  82      92E9A028 
+  82      DBAD4EE1 
+  82      B8AFF71A 
+  83 0147 8D9BEEDF 		.ascii	"\215\233\356\337o\225d\\\302&\242$Ie\366y\230\345U7"
+  83      6F95645C 
+  83      C226A224 
+  83      4965F679 
+  83      98E55537 
+  84 015b DCF61ED7 		.ascii	"\334\366\036\327\342\2448\266<\316g8\031t\276x\235\362"
+  84      E2A438B6 
+  84      3CCE6738 
+  84      1974BE78 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 6
+
+
+  84      9DF2
+  85 016d 06AD39E5 		.ascii	"\006\2559\345\375\261\266\357\306\332\021Y\222\350;"
+  85      FDB1B6EF 
+  85      C6DA1159 
+  85      92E83B
+  86 017c E26E6ED0 		.ascii	"\342nn\320\273\223\314k\302T\021\272u\320\216\330\023"
+  86      BB93CC6B 
+  86      C25411BA 
+  86      75D08ED8 
+  86      13
+  87 018d A393F6F3 		.ascii	"\243\223\366\363\221\341\361\251\211\260\035\032\032"
+  87      91E1F1A9 
+  87      89B01D1A 
+  87      1A
+  88 019a 1EEFEF0D 		.ascii	"\036\357\357\015\365\015\364\217<\233z\331\025\246\372"
+  88      F50DF48F 
+  88      3C9B7AD9 
+  88      15A6FA
+  89 01a9 F0D86824 		.ascii	"\360\330h$b\277\370\013\335t\274\307"
+  89      62BFF80B 
+  89      DD74BCC7 
+  90              		.text
+  91              		.section	.gnu.lto_ADC_Mux_DisconnectAll.24bfecf3,"",%progbits
+  92 0000 789C7590 		.ascii	"x\234u\220\315KBA\024\305\357\275\363\374 ]D+\011\012"
+  92      CD4B4241 
+  92      14C5EFBD 
+  92      F3FC205D 
+  92      442B090A 
+  93 0014 A285BB10 		.ascii	"\242\205\273\020\242M\273(h\021A\340V\210\250\267M\220"
+  93      A24DBB28 
+  93      681141E0 
+  93      5688A8B7 
+  93      4D90
+  94 0026 8436E2BC 		.ascii	"\2046\342\274zA\253\020W\221\325.\262\254\254\177 \314"
+  94      7A41AB10 
+  94      5791D52E 
+  94      B2ACAC7F 
+  94      20CC
+  95 0038 95201416 		.ascii	"\225 \024\026!}P\233\004\333\224b\020\217\020\273\363"
+  95      217D509B 
+  95      04DB9462 
+  95      108F10BB 
+  95      F3
+  96 0049 8402A381 		.ascii	"\204\002\243\201af\316\234{\356\217+\340\357\032\346"
+  96      6166CE9C 
+  96      7BEE8F2B 
+  96      E0EF1AE6 
+  97 0059 9D408041 		.ascii	"\235@\200A>\321\001H\211K\000\303M$\012\001\220]Z\241"
+  97      3ED10148 
+  97      894B00C3 
+  97      4D240A01 
+  97      905D5AA1 
+  98 006d 0FA457A0 		.ascii	"\017\244W\240\326\2265Du\001\2048\011\015\343\370Ju"
+  98      D6963544 
+  98      75018438 
+  98      090DE3F8 
+  98      4A75
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 7
+
+
+  99 007f C2442EB3 		.ascii	"\302D.\263\351\361\357I)k\371\007\337\232\317\"\200"
+  99      E9F1EF49 
+  99      296BF907 
+  99      DF9ACF22 
+  99      80
+ 100 0090 06B5F371 		.ascii	"\006\265\363q\037\375\300\236\272\331,{\234&{\272\333"
+ 100      1FFDC09E 
+ 100      BAD92C7B 
+ 100      9C267BBA 
+ 100      DB
+ 101 00a1 7F984627 		.ascii	"\177\230F'\367\205lON\266Z\215\267du\224\234\002,b\361"
+ 101      F7856C4F 
+ 101      4EB65A8D 
+ 101      B7647594 
+ 101      9C022C62 
+ 102 00b6 850DAA4F 		.ascii	"\205\015\252O\205H\235\342\036W\222g\357y\227\252\371"
+ 102      85489DE2 
+ 102      1E579267 
+ 102      EF7997AA 
+ 102      F9
+ 103 00c7 24C171BB 		.ascii	"$\301q\2737\033'\024\373\222\353\322m\0215U \253\317"
+ 103      371B2714 
+ 103      FB92EBD2 
+ 103      6D113555 
+ 103      20ABCF
+ 104 00da 2F572577 		.ascii	"/W%w\225X\261\237i\303\334\306\035L\031R\271\004\036"
+ 104      9558B19F 
+ 104      69C3DCC6 
+ 104      1D4C1952 
+ 104      B9041E
+ 105 00ed 600C0FB1 		.ascii	"`\014\017\261\227{gX\206[4\357V\373\17737\212[\027B"
+ 105      977B6758 
+ 105      865B34EF 
+ 105      56FB7F33 
+ 105      378A5B17 
+ 106 0102 55630B01 		.ascii	"Uc\013\001\217\224\021\024\203\200B@<\242\231+\025\275"
+ 106      8F941114 
+ 106      83804240 
+ 106      3CA2992B 
+ 106      15BD
+ 107 0114 CA0D9DFD 		.ascii	"\312\015\235\375\265\206\202\306c\214\001'Y\344\000"
+ 107      B58682C6 
+ 107      638C0127 
+ 107      59E400
+ 108 0123 06AED53E 		.ascii	"\006\256\325>\256m\340\177i;\361N~\360\262,\263a3e\235"
+ 108      AE6DE07F 
+ 108      693BF14E 
+ 108      7EF0B22C 
+ 108      B3613365 
+ 109 0138 BB149050 		.ascii	"\273\024\220P@\2476P\2054{$Oh\344\312S6\016\250\201"
+ 109      40A73650 
+ 109      85347B24 
+ 109      4F68E4CA 
+ 109      53360EA8 
+ 110 014d A1523978 		.ascii	"\241R9x`R_\324#sK\372\302l0\034\215\314\353\241\231"
+ 110      60525FD4 
+ 110      23734BFA 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 8
+
+
+ 110      C26C301C 
+ 110      8DCCEBA1 
+ 111 0162 60787C24 		.ascii	"`x|$461>;\035]\036\232\207oU&\235\314"
+ 111      3436313E 
+ 111      3B1D5D1E 
+ 111      9A876F55 
+ 111      269DCC
+ 112              		.text
+ 113              		.section	.gnu.lto_.symbol_nodes.24bfecf3,"",%progbits
+ 114 0000 789C4DC8 		.ascii	"x\234M\310\261\015\2000\014\005\321\263\177\"\261\005"
+ 114      B10D8030 
+ 114      0C05D1B3 
+ 114      7F22B105 
+ 115 0010 63523A05 		.ascii	"cR:\005\0030\001\3120\324\331\001\211\222\222\032\201"
+ 115      033001CA 
+ 115      30D4D901 
+ 115      8992921A 
+ 115      81
+ 116 0021 0445AE7B 		.ascii	"\004E\256{'`\342\317-`i\020\301Z\0072T\017\271\207\365"
+ 116      2760E2CF 
+ 116      2D606910 
+ 116      C15A0732 
+ 116      540FB987 
+ 117 0036 DB15DEDB 		.ascii	"\333\025\336\333R\3503\245\274\314\221:\212\304V\317"
+ 117      52E833A5 
+ 117      BCCC913A 
+ 117      8AC456CF 
+ 118 0046 519E38AE 		.ascii	"Q\2368\256f\362\314\274\337&}\346\001\360\257\0375"
+ 118      66F2CCBC 
+ 118      DF267DE6 
+ 118      01F0AF1F 
+ 118      35
+ 119              		.text
+ 120              		.section	.gnu.lto_.refs.24bfecf3,"",%progbits
+ 121 0000 789C6366 		.ascii	"x\234cf``\020c\200\000F\006FF\016&& \311\310\310\312"
+ 121      60601063 
+ 121      80004606 
+ 121      46460E26 
+ 121      2620C9C8 
+ 122 0016 C40CA659 		.ascii	"\304\014\246Y\030\000\004\323\000?"
+ 122      180004D3 
+ 122      003F
+ 123              		.text
+ 124              		.section	.gnu.lto_.decls.24bfecf3,"",%progbits
+ 125 0000 789C7D91 		.ascii	"x\234}\221_HSq\024\307\357\271\277\353\324mY\024i\214"
+ 125      5F485371 
+ 125      14C7EFB9 
+ 125      BFEBD46D 
+ 125      5914698C 
+ 126 0014 1E168210 		.ascii	"\036\026\202\020\211oA=\205M\362\251\020\206O\012c\254"
+ 126      896F413D 
+ 126      854DF2A9 
+ 126      10864F0A 
+ 126      63AC
+ 127 0026 6B0A63C6 		.ascii	"k\012c\306v\005}\373e\177\024\213pf\351\024lVf\332\322"
+ 127      76057DFB 
+ 127      657F148B 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 9
+
+
+ 127      7066E914 
+ 127      6C5666DA 
+ 128 003b E59F745B 		.ascii	"\345\237t[\271\011!\003\265\240\244\224\"R\010|k\205"
+ 128      B9092103 
+ 128      B5A0A494 
+ 128      2252087C 
+ 128      6B85
+ 129 004d 51A1783B 		.ascii	"Q\241x;\367\267{\335\214\326\017\316\275\277\337\275"
+ 129      F7B77BDD 
+ 129      8CD60FCE 
+ 129      BDBFDFBD 
+ 130 005d E7FB39E7 		.ascii	"\347\3739\347\367=\204\343\270\034\3408\031\3271\302"
+ 130      F73D84E3 
+ 130      B81CE038 
+ 130      19D731C2 
+ 131 006d 719FF02C 		.ascii	"q\237\360,`Tp\251\225\205\021\300\230\304\230\302\010"
+ 131      605470A9 
+ 131      958511C0 
+ 131      98C498C2 
+ 131      08
+ 132 007e 61443050 		.ascii	"aD0P\306\315p\273W@\315W\364A\214(\3068FL\375\317\253"
+ 132      C6CD70BB 
+ 132      5740CD57 
+ 132      F4418C28 
+ 132      C638464C 
+ 133 0095 39A10C7A 		.ascii	"9\241\014z\245\206.M\237\257j5\216\262\210\232\367\277"
+ 133      A5862E4D 
+ 133      9FAF6A35 
+ 133      8EB2889A 
+ 133      F7BF
+ 134 00a7 3EA6D238 		.ascii	">\246\3228\032#\370\027\207O\273\317\277\030\337x\010"
+ 134      1A23F817 
+ 134      874FBBCF 
+ 134      BF18DF78 
+ 134      08
+ 135 00b8 8D6C2C1A 		.ascii	"\215l,\032\326y\310\323\233\225c\270#\336\255\303\243"
+ 135      D679C8D3 
+ 135      9B9563B8 
+ 135      23DEADC3 
+ 135      A3
+ 136 00c9 512F28C7 		.ascii	"Q/(\307\310\346\332\222Pp\233\342j\277L\367\011P\221"
+ 136      C8E6DA92 
+ 136      50709BE2 
+ 136      6ABF4CF7 
+ 136      095091
+ 137 00dc 0F836082 		.ascii	"\017\203`\202G`B\342\020\024\340\263JH\222\006?\274"
+ 137      476042E2 
+ 137      1014E0B3 
+ 137      4A489206 
+ 137      3FBC
+ 138 00ee FEA5273C 		.ascii	"\376\245'<(\373\373\335\253K\372\342a\224\265\322X\214"
+ 138      28FBFBDD 
+ 138      AB4BFAE2 
+ 138      6194B5D2 
+ 138      588C
+ 139 0100 4F959BEB 		.ascii	"O\225\233\353i\361\023s\037\365\007\023\243\335+F\032"
+ 139      69F11373 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 10
+
+
+ 139      1FF50713 
+ 139      A3DD2B46 
+ 139      1A
+ 140 0111 A731593E 		.ascii	"\2471Y>\305P0\014\004\036C\261\222\251\354\231\004\002"
+ 140      C550300C 
+ 140      041E43B1 
+ 140      92A9EC99 
+ 140      0402
+ 141 0123 6046D9BB 		.ascii	"`F\331\273hKK\0169\311\330\227\036Fndc\213\371zF\274"
+ 141      684B4B0E 
+ 141      39C9D897 
+ 141      1E466E64 
+ 141      638BF97A 
+ 142 0139 39DF334B 		.ascii	"9\3373K\330QV~\363++\235\277\011\350\213Z)m\246\211"
+ 142      D851567E 
+ 142      F32B2B9D 
+ 142      BF09E88B 
+ 142      5A296DA6 
+ 143 014e 0E4A0E71 		.ascii	"\016J\016qPl\202\243&\016\236B\021\246\261\0320\202"
+ 143      506C82A3 
+ 143      260E9E42 
+ 143      11A6B11A 
+ 143      3082
+ 144 0160 B718C55B 		.ascii	"\267\030\305[<\300\036\023r\342\355aJ\005\010\202\036"
+ 144      3CC01E13 
+ 144      72E2ED61 
+ 144      4A050882 
+ 144      1E
+ 145 0171 9EEC74C1 		.ascii	"\236\354t\301*\250}\267_\235m\027\004\274\010\313\251"
+ 145      2AA87DB7 
+ 145      5F9D6D17 
+ 145      04BC08CB 
+ 145      A9
+ 146 0182 62E6FC90 		.ascii	"b\346\374\220W\007\370\214\346\2143s\306@u\347\326\352"
+ 146      5707F88C 
+ 146      E68C3373 
+ 146      C64075E7 
+ 146      D6EA
+ 147 0194 46172176 		.ascii	"F\027!vv\003\337\366\372W\243j\302\3265\342\243\376"
+ 147      7603DFF6 
+ 147      FA57A36A 
+ 147      C2D635E2 
+ 147      A3FE
+ 148 01a6 66BA2D63 		.ascii	"f\272-c\373\212\010&\322l\230\320l\230d6|\177\331\331"
+ 148      FB8A0826 
+ 148      D26C98D0 
+ 148      6C986436 
+ 148      7C7FD9D9 
+ 149 01ba 9B452406 		.ascii	"\233E$\006Y\214x\303\271\014\342\3778\240K\372\310l"
+ 149      598C78C3 
+ 149      B90CE2FF 
+ 149      38A04BFA 
+ 149      C86C
+ 150 01cc 7C96A67F 		.ascii	"|\226\246\177\246\351\247\230~y\341\272\317@\332\200"
+ 150      A6E9A798 
+ 150      7E79E1BA 
+ 150      CF40DA80 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 11
+
+
+ 151 01dc 0166BDEB 		.ascii	"\001f\275\353\331\250\377L\023\323_^\345\371h\177z\023"
+ 151      D9A8FF4C 
+ 151      13D35F5E 
+ 151      E5F9687F 
+ 151      7A13
+ 152 01ee D3699069 		.ascii	"\323i\220i\015\022b\020\357\332P\334@\242I\210\354\367"
+ 152      0D126210 
+ 152      EFDA50DC 
+ 152      40A24988 
+ 152      ECF7
+ 153 0200 2EEC6514 		.ascii	".\354e\024\177x\214\236\276B\267d\2310B8\215\020\326"
+ 153      7F788C9E 
+ 153      BE42B764 
+ 153      99304238 
+ 153      8D10D6
+ 154 0213 081146B8 		.ascii	"\010\021F\2703?\364\036\310|\222\020\270\373\246\012"
+ 154      333FF41E 
+ 154      C87C9210 
+ 154      B8FBA60A 
+ 155 0223 C787B6B2 		.ascii	"\307\207\266\262\371A\357\\\354'_\330O\351\275\304\350"
+ 155      F941EF5C 
+ 155      EC275FD8 
+ 155      4FE9BDC4 
+ 155      E8
+ 156 0234 72631792 		.ascii	"rc\027\222)U\256\306\214\177\236\204\252\003\345\224"
+ 156      2955AEC6 
+ 156      8C7F9E84 
+ 156      AA03E594 
+ 157 0244 333E5FA0 		.ascii	"3>_\240\3410\003\205\312\234:zgr\215m\312\354q&\271"
+ 157      E1300385 
+ 157      CA9C3A7A 
+ 157      67728D6D 
+ 157      CAEC7126 
+ 158 0259 F13CD64B 		.ascii	"\361<\326Kj*Q0\262F\360\215\331]}\211\315\335\331J\221"
+ 158      6A2A5130 
+ 158      B246F08D 
+ 158      D95D7D89 
+ 158      CDDDD94A 
+ 159 026e 54764CCD 		.ascii	"TvL\315V\336{J\313,\266\263\015\2156\253dwK\272\362"
+ 159      56DE7B4A 
+ 159      CB2CB6B3 
+ 159      0D8D36AB 
+ 159      64774BBA 
+ 160 0283 7395660B 		.ascii	"s\225f\013w\244\\t\211n\273$\236\267Y\353\033\334\016"
+ 160      77A45C74 
+ 160      896EBB24 
+ 160      9EB759EB 
+ 160      1BDC0E
+ 161 0296 B1BAC25A 		.ascii	"\261\272\302Zo9^\255\346\2268\270\254\206:\227t\"S\236"
+ 161      6F395EAD 
+ 161      E69638B8 
+ 161      AC863A97 
+ 161      7422539E 
+ 162 02aa A3496ABA 		.ascii	"\243Ij\272(zJj\271\375\032\376\214\335#YE\247\350\220"
+ 162      287A4A6A 
+ 162      B9FD1AFE 
+ 162      8CDD2359 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 12
+
+
+ 162      45A7E890 
+ 163 02be 0E6A9FCA 		.ascii	"\016j\237\312\352<\216z\227\013?\225:\235;}T\272<\242"
+ 163      EA3C8E7A 
+ 163      970B3F95 
+ 163      3A9D3B7D 
+ 163      54BA3CA2 
+ 164 02d2 5494115C 		.ascii	"T\224\021\\S'I\242\333\346\250\271\200t\303N\363\242"
+ 164      532749A2 
+ 164      DBE6A8B9 
+ 164      8074C34E 
+ 164      F3A2
+ 165 02e4 7440DB3B 		.ascii	"t@\333;\261\222\245\326\216`\347\037\\\300g*"
+ 165      B192A5D6 
+ 165      8E60E71F 
+ 165      5CC0672A 
+ 166              		.text
+ 167              		.section	.gnu.lto_.symtab.24bfecf3,"",%progbits
+ 168 0000 4144435F 		.ascii	"ADC_Mux_Start\000\000\000\000\000\000\000\000\000\000"
+ 168      4D75785F 
+ 168      53746172 
+ 168      74000000 
+ 168      00000000 
+ 169 0017 0000AC00 		.ascii	"\000\000\254\000\000\000ADC_Mux_FastSelect\000\000\000"
+ 169      00004144 
+ 169      435F4D75 
+ 169      785F4661 
+ 169      73745365 
+ 170 0032 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\265\000\000\000"
+ 170      00000000 
+ 170      00B50000 
+ 170      00
+ 171 003f 4144435F 		.ascii	"ADC_Mux_DisconnectAll\000\000\000\000\000\000\000\000"
+ 171      4D75785F 
+ 171      44697363 
+ 171      6F6E6E65 
+ 171      6374416C 
+ 172 005c 00000000 		.ascii	"\000\000\000\000\267\000\000\000ADC_Mux_Unset\000\000"
+ 172      B7000000 
+ 172      4144435F 
+ 172      4D75785F 
+ 172      556E7365 
+ 173 0073 02000000 		.ascii	"\002\000\000\000\000\000\000\000\000\000\271\000\000"
+ 173      00000000 
+ 173      0000B900 
+ 173      00
+ 174 0080 00414443 		.ascii	"\000ADC_Mux_Set\000\000\002\000\000\000\000\000\000"
+ 174      5F4D7578 
+ 174      5F536574 
+ 174      00000200 
+ 174      00000000 
+ 175 0095 000000BB 		.ascii	"\000\000\000\273\000\000\000"
+ 175      000000
+ 176              		.text
+ 177              		.section	.gnu.lto_.opts,"",%progbits
+ 178 0000 272D666E 		.ascii	"'-fno-trapv' '-mcpu=cortex-m3' '-mthumb' '-g' '-O3'"
+ 178      6F2D7472 
+ 178      61707627 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 13
+
+
+ 178      20272D6D 
+ 178      6370753D 
+ 179 0033 20272D66 		.ascii	" '-ffunction-sections' '-finline-functions' '-flto'"
+ 179      66756E63 
+ 179      74696F6E 
+ 179      2D736563 
+ 179      74696F6E 
+ 180 0066 20272D66 		.ascii	" '-ffat-lto-objects'\000"
+ 180      6661742D 
+ 180      6C746F2D 
+ 180      6F626A65 
+ 180      63747327 
+ 181              		.text
+ 182              		.cfi_sections	.debug_frame
+ 183              		.section	.text.ADC_Mux_Start,"ax",%progbits
+ 184              		.align	2
+ 185              		.global	ADC_Mux_Start
+ 186              		.thumb
+ 187              		.thumb_func
+ 188              		.type	ADC_Mux_Start, %function
+ 189              	ADC_Mux_Start:
+ 190              	.LFB0:
+ 191              		.file 1 "Generated_Source\\PSoC5\\ADC_Mux.c"
+   1:Generated_Source\PSoC5/ADC_Mux.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/ADC_Mux.c **** * File Name: ADC_Mux.c
+   3:Generated_Source\PSoC5/ADC_Mux.c **** * Version 1.80
+   4:Generated_Source\PSoC5/ADC_Mux.c **** *
+   5:Generated_Source\PSoC5/ADC_Mux.c **** *  Description:
+   6:Generated_Source\PSoC5/ADC_Mux.c **** *    This file contains all functions required for the analog multiplexer
+   7:Generated_Source\PSoC5/ADC_Mux.c **** *    AMux User Module.
+   8:Generated_Source\PSoC5/ADC_Mux.c **** *
+   9:Generated_Source\PSoC5/ADC_Mux.c **** *   Note:
+  10:Generated_Source\PSoC5/ADC_Mux.c **** *
+  11:Generated_Source\PSoC5/ADC_Mux.c **** *******************************************************************************
+  12:Generated_Source\PSoC5/ADC_Mux.c **** * Copyright 2008-2010, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/ADC_Mux.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC5/ADC_Mux.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC5/ADC_Mux.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/ADC_Mux.c **** ********************************************************************************/
+  17:Generated_Source\PSoC5/ADC_Mux.c **** 
+  18:Generated_Source\PSoC5/ADC_Mux.c **** #include "ADC_Mux.h"
+  19:Generated_Source\PSoC5/ADC_Mux.c **** 
+  20:Generated_Source\PSoC5/ADC_Mux.c **** static uint8 ADC_Mux_lastChannel = ADC_Mux_NULL_CHANNEL;
+  21:Generated_Source\PSoC5/ADC_Mux.c **** 
+  22:Generated_Source\PSoC5/ADC_Mux.c **** 
+  23:Generated_Source\PSoC5/ADC_Mux.c **** /*******************************************************************************
+  24:Generated_Source\PSoC5/ADC_Mux.c **** * Function Name: ADC_Mux_Start
+  25:Generated_Source\PSoC5/ADC_Mux.c **** ********************************************************************************
+  26:Generated_Source\PSoC5/ADC_Mux.c **** * Summary:
+  27:Generated_Source\PSoC5/ADC_Mux.c **** *  Disconnect all channels.
+  28:Generated_Source\PSoC5/ADC_Mux.c **** *
+  29:Generated_Source\PSoC5/ADC_Mux.c **** * Parameters:
+  30:Generated_Source\PSoC5/ADC_Mux.c **** *  void
+  31:Generated_Source\PSoC5/ADC_Mux.c **** *
+  32:Generated_Source\PSoC5/ADC_Mux.c **** * Return:
+  33:Generated_Source\PSoC5/ADC_Mux.c **** *  void
+  34:Generated_Source\PSoC5/ADC_Mux.c **** *
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 14
+
+
+  35:Generated_Source\PSoC5/ADC_Mux.c **** *******************************************************************************/
+  36:Generated_Source\PSoC5/ADC_Mux.c **** void ADC_Mux_Start(void) 
+  37:Generated_Source\PSoC5/ADC_Mux.c **** {
+ 192              		.loc 1 37 0
+ 193              		.cfi_startproc
+ 194              		@ args = 0, pretend = 0, frame = 0
+ 195              		@ frame_needed = 0, uses_anonymous_args = 0
+ 196              	.LVL0:
+ 197 0000 10B5     		push	{r4, lr}
+ 198              		.cfi_def_cfa_offset 8
+ 199              		.cfi_offset 4, -8
+ 200              		.cfi_offset 14, -4
+ 201              		.loc 1 37 0
+ 202 0002 0024     		movs	r4, #0
+ 203              	.LVL1:
+ 204              	.L2:
+  38:Generated_Source\PSoC5/ADC_Mux.c ****     uint8 chan;
+  39:Generated_Source\PSoC5/ADC_Mux.c **** 
+  40:Generated_Source\PSoC5/ADC_Mux.c ****     for(chan = 0u; chan < ADC_Mux_CHANNELS ; chan++)
+  41:Generated_Source\PSoC5/ADC_Mux.c ****     {
+  42:Generated_Source\PSoC5/ADC_Mux.c **** #if (ADC_Mux_MUXTYPE == ADC_Mux_MUX_SINGLE)
+  43:Generated_Source\PSoC5/ADC_Mux.c ****         ADC_Mux_Unset(chan);
+ 205              		.loc 1 43 0 discriminator 3
+ 206 0004 E0B2     		uxtb	r0, r4
+ 207 0006 0134     		adds	r4, r4, #1
+ 208              	.LVL2:
+ 209 0008 FFF7FEFF 		bl	ADC_Mux_Unset
+ 210              	.LVL3:
+  40:Generated_Source\PSoC5/ADC_Mux.c ****     {
+ 211              		.loc 1 40 0 discriminator 3
+ 212 000c 082C     		cmp	r4, #8
+ 213 000e F9D1     		bne	.L2
+  44:Generated_Source\PSoC5/ADC_Mux.c **** #else
+  45:Generated_Source\PSoC5/ADC_Mux.c ****         ADC_Mux_CYAMUXSIDE_A_Unset(chan);
+  46:Generated_Source\PSoC5/ADC_Mux.c ****         ADC_Mux_CYAMUXSIDE_B_Unset(chan);
+  47:Generated_Source\PSoC5/ADC_Mux.c **** #endif
+  48:Generated_Source\PSoC5/ADC_Mux.c ****     }
+  49:Generated_Source\PSoC5/ADC_Mux.c **** 
+  50:Generated_Source\PSoC5/ADC_Mux.c ****     ADC_Mux_lastChannel = ADC_Mux_NULL_CHANNEL;
+ 214              		.loc 1 50 0
+ 215 0010 014B     		ldr	r3, .L6
+ 216 0012 FF22     		movs	r2, #255
+ 217 0014 1A70     		strb	r2, [r3]
+ 218 0016 10BD     		pop	{r4, pc}
+ 219              	.L7:
+ 220              		.align	2
+ 221              	.L6:
+ 222 0018 00000000 		.word	.LANCHOR0
+ 223              		.cfi_endproc
+ 224              	.LFE0:
+ 225              		.size	ADC_Mux_Start, .-ADC_Mux_Start
+ 226              		.section	.text.ADC_Mux_FastSelect,"ax",%progbits
+ 227              		.align	2
+ 228              		.global	ADC_Mux_FastSelect
+ 229              		.thumb
+ 230              		.thumb_func
+ 231              		.type	ADC_Mux_FastSelect, %function
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 15
+
+
+ 232              	ADC_Mux_FastSelect:
+ 233              	.LFB1:
+  51:Generated_Source\PSoC5/ADC_Mux.c **** }
+  52:Generated_Source\PSoC5/ADC_Mux.c **** 
+  53:Generated_Source\PSoC5/ADC_Mux.c **** 
+  54:Generated_Source\PSoC5/ADC_Mux.c **** #if (!ADC_Mux_ATMOSTONE)
+  55:Generated_Source\PSoC5/ADC_Mux.c **** /*******************************************************************************
+  56:Generated_Source\PSoC5/ADC_Mux.c **** * Function Name: ADC_Mux_Select
+  57:Generated_Source\PSoC5/ADC_Mux.c **** ********************************************************************************
+  58:Generated_Source\PSoC5/ADC_Mux.c **** * Summary:
+  59:Generated_Source\PSoC5/ADC_Mux.c **** *  This functions first disconnects all channels then connects the given
+  60:Generated_Source\PSoC5/ADC_Mux.c **** *  channel.
+  61:Generated_Source\PSoC5/ADC_Mux.c **** *
+  62:Generated_Source\PSoC5/ADC_Mux.c **** * Parameters:
+  63:Generated_Source\PSoC5/ADC_Mux.c **** *  channel:  The channel to connect to the common terminal.
+  64:Generated_Source\PSoC5/ADC_Mux.c **** *
+  65:Generated_Source\PSoC5/ADC_Mux.c **** * Return:
+  66:Generated_Source\PSoC5/ADC_Mux.c **** *  void
+  67:Generated_Source\PSoC5/ADC_Mux.c **** *
+  68:Generated_Source\PSoC5/ADC_Mux.c **** *******************************************************************************/
+  69:Generated_Source\PSoC5/ADC_Mux.c **** void ADC_Mux_Select(uint8 channel) 
+  70:Generated_Source\PSoC5/ADC_Mux.c **** {
+  71:Generated_Source\PSoC5/ADC_Mux.c ****     ADC_Mux_DisconnectAll();        /* Disconnect all previous connections */
+  72:Generated_Source\PSoC5/ADC_Mux.c ****     ADC_Mux_Connect(channel);       /* Make the given selection */
+  73:Generated_Source\PSoC5/ADC_Mux.c ****     ADC_Mux_lastChannel = channel;  /* Update last channel */
+  74:Generated_Source\PSoC5/ADC_Mux.c **** }
+  75:Generated_Source\PSoC5/ADC_Mux.c **** #endif
+  76:Generated_Source\PSoC5/ADC_Mux.c **** 
+  77:Generated_Source\PSoC5/ADC_Mux.c **** 
+  78:Generated_Source\PSoC5/ADC_Mux.c **** /*******************************************************************************
+  79:Generated_Source\PSoC5/ADC_Mux.c **** * Function Name: ADC_Mux_FastSelect
+  80:Generated_Source\PSoC5/ADC_Mux.c **** ********************************************************************************
+  81:Generated_Source\PSoC5/ADC_Mux.c **** * Summary:
+  82:Generated_Source\PSoC5/ADC_Mux.c **** *  This function first disconnects the last connection made with FastSelect or
+  83:Generated_Source\PSoC5/ADC_Mux.c **** *  Select, then connects the given channel. The FastSelect function is similar
+  84:Generated_Source\PSoC5/ADC_Mux.c **** *  to the Select function, except it is faster since it only disconnects the
+  85:Generated_Source\PSoC5/ADC_Mux.c **** *  last channel selected rather than all channels.
+  86:Generated_Source\PSoC5/ADC_Mux.c **** *
+  87:Generated_Source\PSoC5/ADC_Mux.c **** * Parameters:
+  88:Generated_Source\PSoC5/ADC_Mux.c **** *  channel:  The channel to connect to the common terminal.
+  89:Generated_Source\PSoC5/ADC_Mux.c **** *
+  90:Generated_Source\PSoC5/ADC_Mux.c **** * Return:
+  91:Generated_Source\PSoC5/ADC_Mux.c **** *  void
+  92:Generated_Source\PSoC5/ADC_Mux.c **** *
+  93:Generated_Source\PSoC5/ADC_Mux.c **** *******************************************************************************/
+  94:Generated_Source\PSoC5/ADC_Mux.c **** void ADC_Mux_FastSelect(uint8 channel) 
+  95:Generated_Source\PSoC5/ADC_Mux.c **** {
+ 234              		.loc 1 95 0
+ 235              		.cfi_startproc
+ 236              		@ args = 0, pretend = 0, frame = 0
+ 237              		@ frame_needed = 0, uses_anonymous_args = 0
+ 238              	.LVL4:
+ 239 0000 38B5     		push	{r3, r4, r5, lr}
+ 240              		.cfi_def_cfa_offset 16
+ 241              		.cfi_offset 3, -16
+ 242              		.cfi_offset 4, -12
+ 243              		.cfi_offset 5, -8
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 16
+
+
+ 244              		.cfi_offset 14, -4
+  96:Generated_Source\PSoC5/ADC_Mux.c ****     /* Disconnect the last valid channel */
+  97:Generated_Source\PSoC5/ADC_Mux.c ****     if( ADC_Mux_lastChannel != ADC_Mux_NULL_CHANNEL)
+ 245              		.loc 1 97 0
+ 246 0002 064C     		ldr	r4, .L14
+  95:Generated_Source\PSoC5/ADC_Mux.c ****     /* Disconnect the last valid channel */
+ 247              		.loc 1 95 0
+ 248 0004 0546     		mov	r5, r0
+ 249              		.loc 1 97 0
+ 250 0006 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+ 251              	.LVL5:
+ 252 0008 FF28     		cmp	r0, #255
+ 253 000a 01D0     		beq	.L9
+  98:Generated_Source\PSoC5/ADC_Mux.c ****     {
+  99:Generated_Source\PSoC5/ADC_Mux.c ****         ADC_Mux_Disconnect(ADC_Mux_lastChannel);
+ 254              		.loc 1 99 0
+ 255 000c FFF7FEFF 		bl	ADC_Mux_Unset
+ 256              	.LVL6:
+ 257              	.L9:
+ 100:Generated_Source\PSoC5/ADC_Mux.c ****     }
+ 101:Generated_Source\PSoC5/ADC_Mux.c **** 
+ 102:Generated_Source\PSoC5/ADC_Mux.c ****     /* Make the new channel connection */
+ 103:Generated_Source\PSoC5/ADC_Mux.c **** #if (ADC_Mux_MUXTYPE == ADC_Mux_MUX_SINGLE)
+ 104:Generated_Source\PSoC5/ADC_Mux.c ****     ADC_Mux_Set(channel);
+ 258              		.loc 1 104 0
+ 259 0010 2846     		mov	r0, r5
+ 260 0012 FFF7FEFF 		bl	ADC_Mux_Set
+ 261              	.LVL7:
+ 105:Generated_Source\PSoC5/ADC_Mux.c **** #else
+ 106:Generated_Source\PSoC5/ADC_Mux.c ****     ADC_Mux_CYAMUXSIDE_A_Set(channel);
+ 107:Generated_Source\PSoC5/ADC_Mux.c ****     ADC_Mux_CYAMUXSIDE_B_Set(channel);
+ 108:Generated_Source\PSoC5/ADC_Mux.c **** #endif
+ 109:Generated_Source\PSoC5/ADC_Mux.c **** 
+ 110:Generated_Source\PSoC5/ADC_Mux.c **** 
+ 111:Generated_Source\PSoC5/ADC_Mux.c ****     ADC_Mux_lastChannel = channel;   /* Update last channel */
+ 262              		.loc 1 111 0
+ 263 0016 2570     		strb	r5, [r4]
+ 264 0018 38BD     		pop	{r3, r4, r5, pc}
+ 265              	.L15:
+ 266 001a 00BF     		.align	2
+ 267              	.L14:
+ 268 001c 00000000 		.word	.LANCHOR0
+ 269              		.cfi_endproc
+ 270              	.LFE1:
+ 271              		.size	ADC_Mux_FastSelect, .-ADC_Mux_FastSelect
+ 272              		.section	.text.ADC_Mux_DisconnectAll,"ax",%progbits
+ 273              		.align	2
+ 274              		.global	ADC_Mux_DisconnectAll
+ 275              		.thumb
+ 276              		.thumb_func
+ 277              		.type	ADC_Mux_DisconnectAll, %function
+ 278              	ADC_Mux_DisconnectAll:
+ 279              	.LFB2:
+ 112:Generated_Source\PSoC5/ADC_Mux.c **** }
+ 113:Generated_Source\PSoC5/ADC_Mux.c **** 
+ 114:Generated_Source\PSoC5/ADC_Mux.c **** 
+ 115:Generated_Source\PSoC5/ADC_Mux.c **** #if (ADC_Mux_MUXTYPE == ADC_Mux_MUX_DIFF)
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 17
+
+
+ 116:Generated_Source\PSoC5/ADC_Mux.c **** #if (!ADC_Mux_ATMOSTONE)
+ 117:Generated_Source\PSoC5/ADC_Mux.c **** /*******************************************************************************
+ 118:Generated_Source\PSoC5/ADC_Mux.c **** * Function Name: ADC_Mux_Connect
+ 119:Generated_Source\PSoC5/ADC_Mux.c **** ********************************************************************************
+ 120:Generated_Source\PSoC5/ADC_Mux.c **** * Summary:
+ 121:Generated_Source\PSoC5/ADC_Mux.c **** *  This function connects the given channel without affecting other connections.
+ 122:Generated_Source\PSoC5/ADC_Mux.c **** *
+ 123:Generated_Source\PSoC5/ADC_Mux.c **** * Parameters:
+ 124:Generated_Source\PSoC5/ADC_Mux.c **** *  channel:  The channel to connect to the common terminal.
+ 125:Generated_Source\PSoC5/ADC_Mux.c **** *
+ 126:Generated_Source\PSoC5/ADC_Mux.c **** * Return:
+ 127:Generated_Source\PSoC5/ADC_Mux.c **** *  void
+ 128:Generated_Source\PSoC5/ADC_Mux.c **** *
+ 129:Generated_Source\PSoC5/ADC_Mux.c **** *******************************************************************************/
+ 130:Generated_Source\PSoC5/ADC_Mux.c **** void ADC_Mux_Connect(uint8 channel) 
+ 131:Generated_Source\PSoC5/ADC_Mux.c **** {
+ 132:Generated_Source\PSoC5/ADC_Mux.c ****     ADC_Mux_CYAMUXSIDE_A_Set(channel);
+ 133:Generated_Source\PSoC5/ADC_Mux.c ****     ADC_Mux_CYAMUXSIDE_B_Set(channel);
+ 134:Generated_Source\PSoC5/ADC_Mux.c **** }
+ 135:Generated_Source\PSoC5/ADC_Mux.c **** #endif
+ 136:Generated_Source\PSoC5/ADC_Mux.c **** 
+ 137:Generated_Source\PSoC5/ADC_Mux.c **** /*******************************************************************************
+ 138:Generated_Source\PSoC5/ADC_Mux.c **** * Function Name: ADC_Mux_Disconnect
+ 139:Generated_Source\PSoC5/ADC_Mux.c **** ********************************************************************************
+ 140:Generated_Source\PSoC5/ADC_Mux.c **** * Summary:
+ 141:Generated_Source\PSoC5/ADC_Mux.c **** *  This function disconnects the given channel from the common or output
+ 142:Generated_Source\PSoC5/ADC_Mux.c **** *  terminal without affecting other connections.
+ 143:Generated_Source\PSoC5/ADC_Mux.c **** *
+ 144:Generated_Source\PSoC5/ADC_Mux.c **** * Parameters:
+ 145:Generated_Source\PSoC5/ADC_Mux.c **** *  channel:  The channel to disconnect from the common terminal.
+ 146:Generated_Source\PSoC5/ADC_Mux.c **** *
+ 147:Generated_Source\PSoC5/ADC_Mux.c **** * Return:
+ 148:Generated_Source\PSoC5/ADC_Mux.c **** *  void
+ 149:Generated_Source\PSoC5/ADC_Mux.c **** *
+ 150:Generated_Source\PSoC5/ADC_Mux.c **** *******************************************************************************/
+ 151:Generated_Source\PSoC5/ADC_Mux.c **** void ADC_Mux_Disconnect(uint8 channel) 
+ 152:Generated_Source\PSoC5/ADC_Mux.c **** {
+ 153:Generated_Source\PSoC5/ADC_Mux.c ****     ADC_Mux_CYAMUXSIDE_A_Unset(channel);
+ 154:Generated_Source\PSoC5/ADC_Mux.c ****     ADC_Mux_CYAMUXSIDE_B_Unset(channel);
+ 155:Generated_Source\PSoC5/ADC_Mux.c **** }
+ 156:Generated_Source\PSoC5/ADC_Mux.c **** #endif
+ 157:Generated_Source\PSoC5/ADC_Mux.c **** 
+ 158:Generated_Source\PSoC5/ADC_Mux.c **** #if (ADC_Mux_ATMOSTONE)
+ 159:Generated_Source\PSoC5/ADC_Mux.c **** /*******************************************************************************
+ 160:Generated_Source\PSoC5/ADC_Mux.c **** * Function Name: ADC_Mux_DisconnectAll
+ 161:Generated_Source\PSoC5/ADC_Mux.c **** ********************************************************************************
+ 162:Generated_Source\PSoC5/ADC_Mux.c **** * Summary:
+ 163:Generated_Source\PSoC5/ADC_Mux.c **** *  This function disconnects all channels.
+ 164:Generated_Source\PSoC5/ADC_Mux.c **** *
+ 165:Generated_Source\PSoC5/ADC_Mux.c **** * Parameters:
+ 166:Generated_Source\PSoC5/ADC_Mux.c **** *  void
+ 167:Generated_Source\PSoC5/ADC_Mux.c **** *
+ 168:Generated_Source\PSoC5/ADC_Mux.c **** * Return:
+ 169:Generated_Source\PSoC5/ADC_Mux.c **** *  void
+ 170:Generated_Source\PSoC5/ADC_Mux.c **** *
+ 171:Generated_Source\PSoC5/ADC_Mux.c **** *******************************************************************************/
+ 172:Generated_Source\PSoC5/ADC_Mux.c **** void ADC_Mux_DisconnectAll(void) 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 18
+
+
+ 173:Generated_Source\PSoC5/ADC_Mux.c **** {
+ 280              		.loc 1 173 0
+ 281              		.cfi_startproc
+ 282              		@ args = 0, pretend = 0, frame = 0
+ 283              		@ frame_needed = 0, uses_anonymous_args = 0
+ 284 0000 10B5     		push	{r4, lr}
+ 285              		.cfi_def_cfa_offset 8
+ 286              		.cfi_offset 4, -8
+ 287              		.cfi_offset 14, -4
+ 174:Generated_Source\PSoC5/ADC_Mux.c ****     if(ADC_Mux_lastChannel != ADC_Mux_NULL_CHANNEL) 
+ 288              		.loc 1 174 0
+ 289 0002 044C     		ldr	r4, .L22
+ 290 0004 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+ 291 0006 FF28     		cmp	r0, #255
+ 292 0008 03D0     		beq	.L16
+ 175:Generated_Source\PSoC5/ADC_Mux.c ****     {
+ 176:Generated_Source\PSoC5/ADC_Mux.c ****         ADC_Mux_Disconnect(ADC_Mux_lastChannel);
+ 293              		.loc 1 176 0
+ 294 000a FFF7FEFF 		bl	ADC_Mux_Unset
+ 295              	.LVL8:
+ 177:Generated_Source\PSoC5/ADC_Mux.c ****         ADC_Mux_lastChannel = ADC_Mux_NULL_CHANNEL;
+ 296              		.loc 1 177 0
+ 297 000e FF23     		movs	r3, #255
+ 298 0010 2370     		strb	r3, [r4]
+ 299              	.L16:
+ 300 0012 10BD     		pop	{r4, pc}
+ 301              	.L23:
+ 302              		.align	2
+ 303              	.L22:
+ 304 0014 00000000 		.word	.LANCHOR0
+ 305              		.cfi_endproc
+ 306              	.LFE2:
+ 307              		.size	ADC_Mux_DisconnectAll, .-ADC_Mux_DisconnectAll
+ 308              		.data
+ 309              		.set	.LANCHOR0,. + 0
+ 310              		.type	ADC_Mux_lastChannel, %object
+ 311              		.size	ADC_Mux_lastChannel, 1
+ 312              	ADC_Mux_lastChannel:
+ 313 0000 FF       		.byte	-1
+ 314              		.text
+ 315              	.Letext0:
+ 316              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 317              		.file 3 "Generated_Source\\PSoC5\\cyfitter_cfg.h"
+ 318              		.section	.debug_info,"",%progbits
+ 319              	.Ldebug_info0:
+ 320 0000 43010000 		.4byte	0x143
+ 321 0004 0400     		.2byte	0x4
+ 322 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 323 000a 04       		.byte	0x4
+ 324 000b 01       		.uleb128 0x1
+ 325 000c D0000000 		.4byte	.LASF17
+ 326 0010 01       		.byte	0x1
+ 327 0011 08000000 		.4byte	.LASF18
+ 328 0015 B6010000 		.4byte	.LASF19
+ 329 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 330 001d 00000000 		.4byte	0
+ 331 0021 00000000 		.4byte	.Ldebug_line0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 19
+
+
+ 332 0025 02       		.uleb128 0x2
+ 333 0026 01       		.byte	0x1
+ 334 0027 06       		.byte	0x6
+ 335 0028 1B020000 		.4byte	.LASF0
+ 336 002c 02       		.uleb128 0x2
+ 337 002d 01       		.byte	0x1
+ 338 002e 08       		.byte	0x8
+ 339 002f 2F000000 		.4byte	.LASF1
+ 340 0033 02       		.uleb128 0x2
+ 341 0034 02       		.byte	0x2
+ 342 0035 05       		.byte	0x5
+ 343 0036 8A010000 		.4byte	.LASF2
+ 344 003a 02       		.uleb128 0x2
+ 345 003b 02       		.byte	0x2
+ 346 003c 07       		.byte	0x7
+ 347 003d 5D000000 		.4byte	.LASF3
+ 348 0041 02       		.uleb128 0x2
+ 349 0042 04       		.byte	0x4
+ 350 0043 05       		.byte	0x5
+ 351 0044 AD010000 		.4byte	.LASF4
+ 352 0048 02       		.uleb128 0x2
+ 353 0049 04       		.byte	0x4
+ 354 004a 07       		.byte	0x7
+ 355 004b 4B000000 		.4byte	.LASF5
+ 356 004f 02       		.uleb128 0x2
+ 357 0050 08       		.byte	0x8
+ 358 0051 05       		.byte	0x5
+ 359 0052 C2000000 		.4byte	.LASF6
+ 360 0056 02       		.uleb128 0x2
+ 361 0057 08       		.byte	0x8
+ 362 0058 07       		.byte	0x7
+ 363 0059 9A000000 		.4byte	.LASF7
+ 364 005d 03       		.uleb128 0x3
+ 365 005e 04       		.byte	0x4
+ 366 005f 05       		.byte	0x5
+ 367 0060 696E7400 		.ascii	"int\000"
+ 368 0064 02       		.uleb128 0x2
+ 369 0065 04       		.byte	0x4
+ 370 0066 07       		.byte	0x7
+ 371 0067 77000000 		.4byte	.LASF8
+ 372 006b 04       		.uleb128 0x4
+ 373 006c 94010000 		.4byte	.LASF20
+ 374 0070 02       		.byte	0x2
+ 375 0071 3801     		.2byte	0x138
+ 376 0073 2C000000 		.4byte	0x2c
+ 377 0077 02       		.uleb128 0x2
+ 378 0078 04       		.byte	0x4
+ 379 0079 04       		.byte	0x4
+ 380 007a 29000000 		.4byte	.LASF9
+ 381 007e 02       		.uleb128 0x2
+ 382 007f 08       		.byte	0x8
+ 383 0080 04       		.byte	0x4
+ 384 0081 70000000 		.4byte	.LASF10
+ 385 0085 02       		.uleb128 0x2
+ 386 0086 01       		.byte	0x1
+ 387 0087 08       		.byte	0x8
+ 388 0088 77010000 		.4byte	.LASF11
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 20
+
+
+ 389 008c 05       		.uleb128 0x5
+ 390 008d 7C010000 		.4byte	.LASF12
+ 391 0091 01       		.byte	0x1
+ 392 0092 24       		.byte	0x24
+ 393 0093 00000000 		.4byte	.LFB0
+ 394 0097 1C000000 		.4byte	.LFE0-.LFB0
+ 395 009b 01       		.uleb128 0x1
+ 396 009c 9C       		.byte	0x9c
+ 397 009d BA000000 		.4byte	0xba
+ 398 00a1 06       		.uleb128 0x6
+ 399 00a2 B1000000 		.4byte	.LASF15
+ 400 00a6 01       		.byte	0x1
+ 401 00a7 26       		.byte	0x26
+ 402 00a8 6B000000 		.4byte	0x6b
+ 403 00ac 00000000 		.4byte	.LLST0
+ 404 00b0 07       		.uleb128 0x7
+ 405 00b1 0C000000 		.4byte	.LVL3
+ 406 00b5 28010000 		.4byte	0x128
+ 407 00b9 00       		.byte	0
+ 408 00ba 05       		.uleb128 0x5
+ 409 00bb 9A010000 		.4byte	.LASF13
+ 410 00bf 01       		.byte	0x1
+ 411 00c0 5E       		.byte	0x5e
+ 412 00c1 00000000 		.4byte	.LFB1
+ 413 00c5 20000000 		.4byte	.LFE1-.LFB1
+ 414 00c9 01       		.uleb128 0x1
+ 415 00ca 9C       		.byte	0x9c
+ 416 00cb F8000000 		.4byte	0xf8
+ 417 00cf 08       		.uleb128 0x8
+ 418 00d0 00000000 		.4byte	.LASF21
+ 419 00d4 01       		.byte	0x1
+ 420 00d5 5E       		.byte	0x5e
+ 421 00d6 6B000000 		.4byte	0x6b
+ 422 00da 2A000000 		.4byte	.LLST1
+ 423 00de 07       		.uleb128 0x7
+ 424 00df 10000000 		.4byte	.LVL6
+ 425 00e3 28010000 		.4byte	0x128
+ 426 00e7 09       		.uleb128 0x9
+ 427 00e8 16000000 		.4byte	.LVL7
+ 428 00ec 39010000 		.4byte	0x139
+ 429 00f0 0A       		.uleb128 0xa
+ 430 00f1 01       		.uleb128 0x1
+ 431 00f2 50       		.byte	0x50
+ 432 00f3 02       		.uleb128 0x2
+ 433 00f4 75       		.byte	0x75
+ 434 00f5 00       		.sleb128 0
+ 435 00f6 00       		.byte	0
+ 436 00f7 00       		.byte	0
+ 437 00f8 05       		.uleb128 0x5
+ 438 00f9 84000000 		.4byte	.LASF14
+ 439 00fd 01       		.byte	0x1
+ 440 00fe AC       		.byte	0xac
+ 441 00ff 00000000 		.4byte	.LFB2
+ 442 0103 18000000 		.4byte	.LFE2-.LFB2
+ 443 0107 01       		.uleb128 0x1
+ 444 0108 9C       		.byte	0x9c
+ 445 0109 17010000 		.4byte	0x117
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 21
+
+
+ 446 010d 07       		.uleb128 0x7
+ 447 010e 0E000000 		.4byte	.LVL8
+ 448 0112 28010000 		.4byte	0x128
+ 449 0116 00       		.byte	0
+ 450 0117 0B       		.uleb128 0xb
+ 451 0118 27020000 		.4byte	.LASF16
+ 452 011c 01       		.byte	0x1
+ 453 011d 14       		.byte	0x14
+ 454 011e 6B000000 		.4byte	0x6b
+ 455 0122 05       		.uleb128 0x5
+ 456 0123 03       		.byte	0x3
+ 457 0124 00000000 		.4byte	ADC_Mux_lastChannel
+ 458 0128 0C       		.uleb128 0xc
+ 459 0129 3D000000 		.4byte	.LASF22
+ 460 012d 03       		.byte	0x3
+ 461 012e 1B       		.byte	0x1b
+ 462 012f 39010000 		.4byte	0x139
+ 463 0133 0D       		.uleb128 0xd
+ 464 0134 6B000000 		.4byte	0x6b
+ 465 0138 00       		.byte	0
+ 466 0139 0E       		.uleb128 0xe
+ 467 013a B6000000 		.4byte	.LASF23
+ 468 013e 03       		.byte	0x3
+ 469 013f 1A       		.byte	0x1a
+ 470 0140 0D       		.uleb128 0xd
+ 471 0141 6B000000 		.4byte	0x6b
+ 472 0145 00       		.byte	0
+ 473 0146 00       		.byte	0
+ 474              		.section	.debug_abbrev,"",%progbits
+ 475              	.Ldebug_abbrev0:
+ 476 0000 01       		.uleb128 0x1
+ 477 0001 11       		.uleb128 0x11
+ 478 0002 01       		.byte	0x1
+ 479 0003 25       		.uleb128 0x25
+ 480 0004 0E       		.uleb128 0xe
+ 481 0005 13       		.uleb128 0x13
+ 482 0006 0B       		.uleb128 0xb
+ 483 0007 03       		.uleb128 0x3
+ 484 0008 0E       		.uleb128 0xe
+ 485 0009 1B       		.uleb128 0x1b
+ 486 000a 0E       		.uleb128 0xe
+ 487 000b 55       		.uleb128 0x55
+ 488 000c 17       		.uleb128 0x17
+ 489 000d 11       		.uleb128 0x11
+ 490 000e 01       		.uleb128 0x1
+ 491 000f 10       		.uleb128 0x10
+ 492 0010 17       		.uleb128 0x17
+ 493 0011 00       		.byte	0
+ 494 0012 00       		.byte	0
+ 495 0013 02       		.uleb128 0x2
+ 496 0014 24       		.uleb128 0x24
+ 497 0015 00       		.byte	0
+ 498 0016 0B       		.uleb128 0xb
+ 499 0017 0B       		.uleb128 0xb
+ 500 0018 3E       		.uleb128 0x3e
+ 501 0019 0B       		.uleb128 0xb
+ 502 001a 03       		.uleb128 0x3
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 22
+
+
+ 503 001b 0E       		.uleb128 0xe
+ 504 001c 00       		.byte	0
+ 505 001d 00       		.byte	0
+ 506 001e 03       		.uleb128 0x3
+ 507 001f 24       		.uleb128 0x24
+ 508 0020 00       		.byte	0
+ 509 0021 0B       		.uleb128 0xb
+ 510 0022 0B       		.uleb128 0xb
+ 511 0023 3E       		.uleb128 0x3e
+ 512 0024 0B       		.uleb128 0xb
+ 513 0025 03       		.uleb128 0x3
+ 514 0026 08       		.uleb128 0x8
+ 515 0027 00       		.byte	0
+ 516 0028 00       		.byte	0
+ 517 0029 04       		.uleb128 0x4
+ 518 002a 16       		.uleb128 0x16
+ 519 002b 00       		.byte	0
+ 520 002c 03       		.uleb128 0x3
+ 521 002d 0E       		.uleb128 0xe
+ 522 002e 3A       		.uleb128 0x3a
+ 523 002f 0B       		.uleb128 0xb
+ 524 0030 3B       		.uleb128 0x3b
+ 525 0031 05       		.uleb128 0x5
+ 526 0032 49       		.uleb128 0x49
+ 527 0033 13       		.uleb128 0x13
+ 528 0034 00       		.byte	0
+ 529 0035 00       		.byte	0
+ 530 0036 05       		.uleb128 0x5
+ 531 0037 2E       		.uleb128 0x2e
+ 532 0038 01       		.byte	0x1
+ 533 0039 3F       		.uleb128 0x3f
+ 534 003a 19       		.uleb128 0x19
+ 535 003b 03       		.uleb128 0x3
+ 536 003c 0E       		.uleb128 0xe
+ 537 003d 3A       		.uleb128 0x3a
+ 538 003e 0B       		.uleb128 0xb
+ 539 003f 3B       		.uleb128 0x3b
+ 540 0040 0B       		.uleb128 0xb
+ 541 0041 27       		.uleb128 0x27
+ 542 0042 19       		.uleb128 0x19
+ 543 0043 11       		.uleb128 0x11
+ 544 0044 01       		.uleb128 0x1
+ 545 0045 12       		.uleb128 0x12
+ 546 0046 06       		.uleb128 0x6
+ 547 0047 40       		.uleb128 0x40
+ 548 0048 18       		.uleb128 0x18
+ 549 0049 9742     		.uleb128 0x2117
+ 550 004b 19       		.uleb128 0x19
+ 551 004c 01       		.uleb128 0x1
+ 552 004d 13       		.uleb128 0x13
+ 553 004e 00       		.byte	0
+ 554 004f 00       		.byte	0
+ 555 0050 06       		.uleb128 0x6
+ 556 0051 34       		.uleb128 0x34
+ 557 0052 00       		.byte	0
+ 558 0053 03       		.uleb128 0x3
+ 559 0054 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 23
+
+
+ 560 0055 3A       		.uleb128 0x3a
+ 561 0056 0B       		.uleb128 0xb
+ 562 0057 3B       		.uleb128 0x3b
+ 563 0058 0B       		.uleb128 0xb
+ 564 0059 49       		.uleb128 0x49
+ 565 005a 13       		.uleb128 0x13
+ 566 005b 02       		.uleb128 0x2
+ 567 005c 17       		.uleb128 0x17
+ 568 005d 00       		.byte	0
+ 569 005e 00       		.byte	0
+ 570 005f 07       		.uleb128 0x7
+ 571 0060 898201   		.uleb128 0x4109
+ 572 0063 00       		.byte	0
+ 573 0064 11       		.uleb128 0x11
+ 574 0065 01       		.uleb128 0x1
+ 575 0066 31       		.uleb128 0x31
+ 576 0067 13       		.uleb128 0x13
+ 577 0068 00       		.byte	0
+ 578 0069 00       		.byte	0
+ 579 006a 08       		.uleb128 0x8
+ 580 006b 05       		.uleb128 0x5
+ 581 006c 00       		.byte	0
+ 582 006d 03       		.uleb128 0x3
+ 583 006e 0E       		.uleb128 0xe
+ 584 006f 3A       		.uleb128 0x3a
+ 585 0070 0B       		.uleb128 0xb
+ 586 0071 3B       		.uleb128 0x3b
+ 587 0072 0B       		.uleb128 0xb
+ 588 0073 49       		.uleb128 0x49
+ 589 0074 13       		.uleb128 0x13
+ 590 0075 02       		.uleb128 0x2
+ 591 0076 17       		.uleb128 0x17
+ 592 0077 00       		.byte	0
+ 593 0078 00       		.byte	0
+ 594 0079 09       		.uleb128 0x9
+ 595 007a 898201   		.uleb128 0x4109
+ 596 007d 01       		.byte	0x1
+ 597 007e 11       		.uleb128 0x11
+ 598 007f 01       		.uleb128 0x1
+ 599 0080 31       		.uleb128 0x31
+ 600 0081 13       		.uleb128 0x13
+ 601 0082 00       		.byte	0
+ 602 0083 00       		.byte	0
+ 603 0084 0A       		.uleb128 0xa
+ 604 0085 8A8201   		.uleb128 0x410a
+ 605 0088 00       		.byte	0
+ 606 0089 02       		.uleb128 0x2
+ 607 008a 18       		.uleb128 0x18
+ 608 008b 9142     		.uleb128 0x2111
+ 609 008d 18       		.uleb128 0x18
+ 610 008e 00       		.byte	0
+ 611 008f 00       		.byte	0
+ 612 0090 0B       		.uleb128 0xb
+ 613 0091 34       		.uleb128 0x34
+ 614 0092 00       		.byte	0
+ 615 0093 03       		.uleb128 0x3
+ 616 0094 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 24
+
+
+ 617 0095 3A       		.uleb128 0x3a
+ 618 0096 0B       		.uleb128 0xb
+ 619 0097 3B       		.uleb128 0x3b
+ 620 0098 0B       		.uleb128 0xb
+ 621 0099 49       		.uleb128 0x49
+ 622 009a 13       		.uleb128 0x13
+ 623 009b 02       		.uleb128 0x2
+ 624 009c 18       		.uleb128 0x18
+ 625 009d 00       		.byte	0
+ 626 009e 00       		.byte	0
+ 627 009f 0C       		.uleb128 0xc
+ 628 00a0 2E       		.uleb128 0x2e
+ 629 00a1 01       		.byte	0x1
+ 630 00a2 3F       		.uleb128 0x3f
+ 631 00a3 19       		.uleb128 0x19
+ 632 00a4 03       		.uleb128 0x3
+ 633 00a5 0E       		.uleb128 0xe
+ 634 00a6 3A       		.uleb128 0x3a
+ 635 00a7 0B       		.uleb128 0xb
+ 636 00a8 3B       		.uleb128 0x3b
+ 637 00a9 0B       		.uleb128 0xb
+ 638 00aa 27       		.uleb128 0x27
+ 639 00ab 19       		.uleb128 0x19
+ 640 00ac 3C       		.uleb128 0x3c
+ 641 00ad 19       		.uleb128 0x19
+ 642 00ae 01       		.uleb128 0x1
+ 643 00af 13       		.uleb128 0x13
+ 644 00b0 00       		.byte	0
+ 645 00b1 00       		.byte	0
+ 646 00b2 0D       		.uleb128 0xd
+ 647 00b3 05       		.uleb128 0x5
+ 648 00b4 00       		.byte	0
+ 649 00b5 49       		.uleb128 0x49
+ 650 00b6 13       		.uleb128 0x13
+ 651 00b7 00       		.byte	0
+ 652 00b8 00       		.byte	0
+ 653 00b9 0E       		.uleb128 0xe
+ 654 00ba 2E       		.uleb128 0x2e
+ 655 00bb 01       		.byte	0x1
+ 656 00bc 3F       		.uleb128 0x3f
+ 657 00bd 19       		.uleb128 0x19
+ 658 00be 03       		.uleb128 0x3
+ 659 00bf 0E       		.uleb128 0xe
+ 660 00c0 3A       		.uleb128 0x3a
+ 661 00c1 0B       		.uleb128 0xb
+ 662 00c2 3B       		.uleb128 0x3b
+ 663 00c3 0B       		.uleb128 0xb
+ 664 00c4 27       		.uleb128 0x27
+ 665 00c5 19       		.uleb128 0x19
+ 666 00c6 3C       		.uleb128 0x3c
+ 667 00c7 19       		.uleb128 0x19
+ 668 00c8 00       		.byte	0
+ 669 00c9 00       		.byte	0
+ 670 00ca 00       		.byte	0
+ 671              		.section	.debug_loc,"",%progbits
+ 672              	.Ldebug_loc0:
+ 673              	.LLST0:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 25
+
+
+ 674 0000 00000000 		.4byte	.LVL0
+ 675 0004 04000000 		.4byte	.LVL1
+ 676 0008 0200     		.2byte	0x2
+ 677 000a 30       		.byte	0x30
+ 678 000b 9F       		.byte	0x9f
+ 679 000c 04000000 		.4byte	.LVL1
+ 680 0010 08000000 		.4byte	.LVL2
+ 681 0014 0100     		.2byte	0x1
+ 682 0016 54       		.byte	0x54
+ 683 0017 08000000 		.4byte	.LVL2
+ 684 001b 0B000000 		.4byte	.LVL3-1
+ 685 001f 0100     		.2byte	0x1
+ 686 0021 50       		.byte	0x50
+ 687 0022 00000000 		.4byte	0
+ 688 0026 00000000 		.4byte	0
+ 689              	.LLST1:
+ 690 002a 00000000 		.4byte	.LVL4
+ 691 002e 08000000 		.4byte	.LVL5
+ 692 0032 0100     		.2byte	0x1
+ 693 0034 50       		.byte	0x50
+ 694 0035 08000000 		.4byte	.LVL5
+ 695 0039 20000000 		.4byte	.LFE1
+ 696 003d 0400     		.2byte	0x4
+ 697 003f F3       		.byte	0xf3
+ 698 0040 01       		.uleb128 0x1
+ 699 0041 50       		.byte	0x50
+ 700 0042 9F       		.byte	0x9f
+ 701 0043 00000000 		.4byte	0
+ 702 0047 00000000 		.4byte	0
+ 703              		.section	.debug_aranges,"",%progbits
+ 704 0000 2C000000 		.4byte	0x2c
+ 705 0004 0200     		.2byte	0x2
+ 706 0006 00000000 		.4byte	.Ldebug_info0
+ 707 000a 04       		.byte	0x4
+ 708 000b 00       		.byte	0
+ 709 000c 0000     		.2byte	0
+ 710 000e 0000     		.2byte	0
+ 711 0010 00000000 		.4byte	.LFB0
+ 712 0014 1C000000 		.4byte	.LFE0-.LFB0
+ 713 0018 00000000 		.4byte	.LFB1
+ 714 001c 20000000 		.4byte	.LFE1-.LFB1
+ 715 0020 00000000 		.4byte	.LFB2
+ 716 0024 18000000 		.4byte	.LFE2-.LFB2
+ 717 0028 00000000 		.4byte	0
+ 718 002c 00000000 		.4byte	0
+ 719              		.section	.debug_ranges,"",%progbits
+ 720              	.Ldebug_ranges0:
+ 721 0000 00000000 		.4byte	.LFB0
+ 722 0004 1C000000 		.4byte	.LFE0
+ 723 0008 00000000 		.4byte	.LFB1
+ 724 000c 20000000 		.4byte	.LFE1
+ 725 0010 00000000 		.4byte	.LFB2
+ 726 0014 18000000 		.4byte	.LFE2
+ 727 0018 00000000 		.4byte	0
+ 728 001c 00000000 		.4byte	0
+ 729              		.section	.debug_line,"",%progbits
+ 730              	.Ldebug_line0:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 26
+
+
+ 731 0000 A2000000 		.section	.debug_str,"MS",%progbits,1
+ 731      02005600 
+ 731      00000201 
+ 731      FB0E0D00 
+ 731      01010101 
+ 732              	.LASF21:
+ 733 0000 6368616E 		.ascii	"channel\000"
+ 733      6E656C00 
+ 734              	.LASF18:
+ 735 0008 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_Mux.c\000"
+ 735      72617465 
+ 735      645F536F 
+ 735      75726365 
+ 735      5C50536F 
+ 736              	.LASF9:
+ 737 0029 666C6F61 		.ascii	"float\000"
+ 737      7400
+ 738              	.LASF1:
+ 739 002f 756E7369 		.ascii	"unsigned char\000"
+ 739      676E6564 
+ 739      20636861 
+ 739      7200
+ 740              	.LASF22:
+ 741 003d 4144435F 		.ascii	"ADC_Mux_Unset\000"
+ 741      4D75785F 
+ 741      556E7365 
+ 741      7400
+ 742              	.LASF5:
+ 743 004b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 743      20756E73 
+ 743      69676E65 
+ 743      6420696E 
+ 743      7400
+ 744              	.LASF3:
+ 745 005d 73686F72 		.ascii	"short unsigned int\000"
+ 745      7420756E 
+ 745      7369676E 
+ 745      65642069 
+ 745      6E7400
+ 746              	.LASF10:
+ 747 0070 646F7562 		.ascii	"double\000"
+ 747      6C6500
+ 748              	.LASF8:
+ 749 0077 756E7369 		.ascii	"unsigned int\000"
+ 749      676E6564 
+ 749      20696E74 
+ 749      00
+ 750              	.LASF14:
+ 751 0084 4144435F 		.ascii	"ADC_Mux_DisconnectAll\000"
+ 751      4D75785F 
+ 751      44697363 
+ 751      6F6E6E65 
+ 751      6374416C 
+ 752              	.LASF7:
+ 753 009a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 753      206C6F6E 
+ 753      6720756E 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 27
+
+
+ 753      7369676E 
+ 753      65642069 
+ 754              	.LASF15:
+ 755 00b1 6368616E 		.ascii	"chan\000"
+ 755      00
+ 756              	.LASF23:
+ 757 00b6 4144435F 		.ascii	"ADC_Mux_Set\000"
+ 757      4D75785F 
+ 757      53657400 
+ 758              	.LASF6:
+ 759 00c2 6C6F6E67 		.ascii	"long long int\000"
+ 759      206C6F6E 
+ 759      6720696E 
+ 759      7400
+ 760              	.LASF17:
+ 761 00d0 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 761      4320342E 
+ 761      392E3320 
+ 761      32303135 
+ 761      30333033 
+ 762 0103 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 762      20726576 
+ 762      6973696F 
+ 762      6E203232 
+ 762      31323230 
+ 763 0136 33202D66 		.ascii	"3 -ffunction-sections -finline-functions -flto -ffa"
+ 763      66756E63 
+ 763      74696F6E 
+ 763      2D736563 
+ 763      74696F6E 
+ 764 0169 742D6C74 		.ascii	"t-lto-objects\000"
+ 764      6F2D6F62 
+ 764      6A656374 
+ 764      7300
+ 765              	.LASF11:
+ 766 0177 63686172 		.ascii	"char\000"
+ 766      00
+ 767              	.LASF12:
+ 768 017c 4144435F 		.ascii	"ADC_Mux_Start\000"
+ 768      4D75785F 
+ 768      53746172 
+ 768      7400
+ 769              	.LASF2:
+ 770 018a 73686F72 		.ascii	"short int\000"
+ 770      7420696E 
+ 770      7400
+ 771              	.LASF20:
+ 772 0194 75696E74 		.ascii	"uint8\000"
+ 772      3800
+ 773              	.LASF13:
+ 774 019a 4144435F 		.ascii	"ADC_Mux_FastSelect\000"
+ 774      4D75785F 
+ 774      46617374 
+ 774      53656C65 
+ 774      637400
+ 775              	.LASF4:
+ 776 01ad 6C6F6E67 		.ascii	"long int\000"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cct0oxsK.s 			page 28
+
+
+ 776      20696E74 
+ 776      00
+ 777              	.LASF19:
+ 778 01b6 433A5C55 		.ascii	"C:\\Users\\Bruger\\OneDrive\\Skrivebord\\CODE\\PSOC"
+ 778      73657273 
+ 778      5C427275 
+ 778      6765725C 
+ 778      4F6E6544 
+ 779 01e3 355C4359 		.ascii	"5\\CY8CKIT-59-Arduino\\CY8CKIT59_Ardudino-Speeduino"
+ 779      38434B49 
+ 779      542D3539 
+ 779      2D417264 
+ 779      75696E6F 
+ 780 0214 2E637964 		.ascii	".cydsn\000"
+ 780      736E00
+ 781              	.LASF0:
+ 782 021b 7369676E 		.ascii	"signed char\000"
+ 782      65642063 
+ 782      68617200 
+ 783              	.LASF16:
+ 784 0227 4144435F 		.ascii	"ADC_Mux_lastChannel\000"
+ 784      4D75785F 
+ 784      6C617374 
+ 784      4368616E 
+ 784      6E656C00 
+ 785              		.comm	__gnu_lto_v1,1,1
+ 786              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

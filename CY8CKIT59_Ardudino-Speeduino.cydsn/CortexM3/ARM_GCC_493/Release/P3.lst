@@ -1,0 +1,1662 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"P3.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.section	.gnu.lto_.profile.24c0591c,"",%progbits
+  18 0000 789C6366 		.ascii	"x\234cf```a\200\000F\006]M\000\000\367\000_"
+  18      60606061 
+  18      80004606 
+  18      5D4D0000 
+  18      F7005F
+  19              		.text
+  20              		.section	.gnu.lto_.jmpfuncs.24c0591c,"",%progbits
+  21 0000 789C6366 		.ascii	"x\234cf\300\016\204\2404\013\003##c=#\210`b``\006\212"
+  21      C00E84A0 
+  21      340B0323 
+  21      23633D23 
+  21      88606260 
+  22 0017 00000DC0 		.ascii	"\000\000\015\300\001$"
+  22      0124
+  23              		.text
+  24              		.section	.gnu.lto_.inline.24c0591c,"",%progbits
+  25 0000 789C6366 		.ascii	"x\234cf\300\016\"\2404\013\003\003+\013#\003\023\313"
+  25      C00E22A0 
+  25      340B0303 
+  25      2B0B2303 
+  25      13CB
+  26 0012 027906B6 		.ascii	"\002y\006\266\005\362L 1F\006\025eFF \305\300\354\320"
+  26      05F24C20 
+  26      31460615 
+  26      65464620 
+  26      C5C0ECD0 
+  27 0026 F0851922 		.ascii	"\360\205\031\"\316t\201\237\005$\311\304\300\302\014"
+  27      CE74819F 
+  27      0524C9C4 
+  27      C0C20C
+  28 0035 540FE4C2 		.ascii	"T\017\344\302\3253c\0121\000\000\245\201\011\020"
+  28      D533630A 
+  28      310000A5 
+  28      810910
+  29              		.text
+  30              		.section	.gnu.lto_.pureconst.24c0591c,"",%progbits
+  31 0000 789C6366 		.ascii	"x\234cf``\340d\200\000\026\006)F)&)f)\000\002\305\000"
+  31      6060E064 
+  31      80001606 
+  31      29462926 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 2
+
+
+  31      29662900 
+  32 0017 7F       		.ascii	"\177"
+  33              		.text
+  34              		.section	.gnu.lto_P3_Write.24c0591c,"",%progbits
+  35 0000 789C654F 		.ascii	"x\234eOM(\303a\030\177~\357\273!s\220\343R\016ZR\342"
+  35      4D28C361 
+  35      187F7EEF 
+  35      BB217390 
+  35      E3520E5A 
+  36 0016 20B9491C 		.ascii	" \271I\034\\W\256+\255\371\037\224\254\366\341\352\375"
+  36      5C57AE2B 
+  36      ADF91F94 
+  36      ACF6E1EA 
+  36      FD
+  37 0027 6B27A590 		.ascii	"k'\245\220\2424\371H>\346c(7\371\323nb\355B9\0145_7"
+  37      A234F948 
+  37      3EE66328 
+  37      37F9D36E 
+  37      62ED4239 
+  38 003f 6B6521E6 		.ascii	"ke!\346y\377\273\220\247\336\336\247\247\337\247\244"
+  38      79FFBB90 
+  38      A7DEDEA7 
+  38      A7DFA7A4 
+  39 004f FFE3E6B7 		.ascii	"\377\343\346\267\010\2426\376!\011b\352\222\310\254"
+  39      08A236FE 
+  39      210962EA 
+  39      92C8AC
+  40 005e 12805E08 		.ascii	"\022\200^\0104&0\206\027\221\027\230\262\022\363\256"
+  40      34263086 
+  40      17911798 
+  40      B212F3AE 
+  41 006e A635A5D4 		.ascii	"\2465\245\324\353L\332\364Zx\027D\005Q\326\301:\232"
+  41      EB4CDAF4 
+  41      5A781744 
+  41      0551D6C1 
+  41      3A9A
+  42 0080 185348A8 		.ascii	"\030SH\250Y)\033@\274'3\027\337\225\236U\245\306\255"
+  42      59291B40 
+  42      BC273317 
+  42      DF959E55 
+  42      A5C6AD
+  43 0093 9D5DD5CD 		.ascii	"\235]\325\315p`\003\222\031hq\243\331M| l\302\243\301"
+  43      70600392 
+  43      196871A3 
+  43      D94D7C20 
+  43      6CC2A3C1 
+  44 00a7 0793A923 		.ascii	"\007\223\251#!=6q\371\374>U\323\270\314\304\273\317"
+  44      213D3671 
+  44      F9FC3E55 
+  44      D3B8CCC4 
+  44      BBCF
+  45 00b9 239F652E 		.ascii	"#\237e.\251\357R\311\246o\375\246\227\207\361\371\330"
+  45      A9EF52C9 
+  45      A66FFDA6 
+  45      9787F1F9 
+  45      D8
+  46 00ca D7B5AB22 		.ascii	"\327\265\253\"\306\301j\221@c9\023\266Q\301\275h\257"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 3
+
+
+  46      C6C16A91 
+  46      40633913 
+  46      B651C1BD 
+  46      68AF
+  47 00dc CE52A5D2 		.ascii	"\316R\245\322\341\361\351\007\234\202-\205\204\355I"
+  47      E1F1E907 
+  47      9C822D85 
+  47      84ED49
+  48 00eb 3946E98E 		.ascii	"9F\351\216\017B\350_\336\340\354m\";W\251\211E\241\013"
+  48      0F42E85F 
+  48      DEE0EC6D 
+  48      223B57A9 
+  48      8945A10B 
+  49 00ff E71F4FE2 		.ascii	"\347\037O\342\362Y\274\013\231\\1\225C[\335\346\322"
+  49      F259BC0B 
+  49      995C3195 
+  49      435BDDE6 
+  49      D2
+  50 0110 992AFB64 		.ascii	"\231*\373d;?\235\3057\253\343X0c\034\317\201\035\270"
+  50      3B3F9DC5 
+  50      37ABE358 
+  50      30631CCF 
+  50      811DB8
+  51 0123 B10B4E86 		.ascii	"\261\013N\206=\304AW\030W\235v\016N\365\233\314\271"
+  51      3DC44157 
+  51      18579D76 
+  51      0E4EF59B 
+  51      CCB9
+  52 0135 90641C5B 		.ascii	"\220d\034[\316Lwi\304\037-\323r\376U\333g\265\"[faZ"
+  52      CE4C7769 
+  52      C41F2DD3 
+  52      72FE55DB 
+  52      67B5225B 
+  53 014c 9F4E8DD7 		.ascii	"\237N\215\327\315s\254\303\301\271F}\2371b\204\374\021"
+  53      CD73ACC3 
+  53      C1B9467D 
+  53      9F316284 
+  53      FC11
+  54 015e 6370A03F 		.ascii	"cp\240?\030\015\005\014\237\267?\330\333\341\363\266"
+  54      180D050C 
+  54      9FB73FD8 
+  54      DBE1F3B6 
+  55 016e B706C839 		.ascii	"\267\006\3109\352\037\216\032\325\341\210?2\024\350"
+  55      EA1F8E1A 
+  55      D5E1883F 
+  55      3214E8
+  56 017d 198A847F 		.ascii	"\031\212\204\177\000^*\240\311"
+  56      005E2AA0 
+  56      C9
+  57              		.text
+  58              		.section	.gnu.lto_P3_SetDriveMode.24c0591c,"",%progbits
+  59 0000 789C7D95 		.ascii	"x\234}\225_HSa\030\306\277\367\234\315i\316\231\232"
+  59      5F485361 
+  59      18C6BFF7 
+  59      9CCD69CE 
+  59      999A
+  60 0012 A45353D1 		.ascii	"\244SS\3219L\255tx\037t\341\255\320\255\020\241\273"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 4
+
+
+  60      394CAD74 
+  60      781F74E1 
+  60      ADD0AD10 
+  60      A1BB
+  61 0024 2C41EADA 		.ascii	",A\352\332M\027YWj\204\332\264\177\366\307\324R\263"
+  61      4D175957 
+  61      6A84DAB4 
+  61      7FF6C7D4 
+  61      52B3
+  62 0036 B27FD69A 		.ascii	"\262\177\326\232\213 \241P\010i\224\025\230\246a\270"
+  62      8B20A150 
+  62      08699415 
+  62      98A661B8 
+  63 0046 B46C81AD 		.ascii	"\264l\201\255\367\375\316v\366\355\304\032\3569{\037"
+  63      F7FDCE76 
+  63      F6EDC41A 
+  63      EE397B1F 
+  64 0056 BEE7F97E 		.ascii	"\276\347\371~\347\333\344\310\354\337\227\031\337g\014"
+  64      E7DBE4C8 
+  64      ECDF9719 
+  64      DF670C
+  65 0065 8C15E115 		.ascii	"\214\025\341\025d\006R\373+\306\234\211\022\000}`\300"
+  65      640652FB 
+  65      2BC69C89 
+  65      12007D60 
+  65      C0
+  66 0076 9A256886 		.ascii	"\232%h\206e) A\273g\250;\331z\325\341p\254]\236\310"
+  66      65292041 
+  66      BB67A83B 
+  66      D97AD5E1 
+  66      70AC5D9E 
+  67 008b 3A911594 		.ascii	":\221\025\224\030[\227\224\032\270\016V\\\262\024\\"
+  67      185B9794 
+  67      1AB80E56 
+  67      5CB2145C 
+  68 009b BE9E22E7 		.ascii	"\276\236\"\347\003\303\317[\035s\263\222\245\337\341"
+  68      03C3CF5B 
+  68      1D73B392 
+  68      A5DFE1
+  69 00aa 68F13CBE 		.ascii	"h\361<\276\345\330\017A\354\034\000\031\023Pn\206R3"
+  69      E5D80F41 
+  69      EC1C0019 
+  69      13506E86 
+  69      5233
+  70 00bc 4383C10D 		.ascii	"C\203\301\015\260\320\342\200kk.9\301\205\335\333\225"
+  70      B0D0E280 
+  70      6B6B2E39 
+  70      C185DDDB 
+  70      95
+  71 00cd 4E188404 		.ascii	"N\030\204\004\300\353H\272\307\021\012\255\277\357h"
+  71      C0EB48BA 
+  71      C7110AAD 
+  71      BFEF68
+  72 00dc B341B584 		.ascii	"\263A\265\204\031IF\221u$z\240x\002}4\220$\222$\321"
+  72      19494691 
+  72      75247AA0 
+  72      78027D34 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 5
+
+
+  72      90249224 
+  73 00f1 9A641223 		.ascii	"\232d\022#\215)$&\222T\362\322H\322i\314 \331A\222I"
+  73      8D292426 
+  73      9254F2D2 
+  73      48D269CC 
+  73      20D94192 
+  74 0106 DE4E922C 		.ascii	"\336N\222,\032\263I\210N\316!/\217d\027\215\371$\005"
+  74      1AB34988 
+  74      4ECE212F 
+  74      8F64178D 
+  74      F92405
+  75 0119 2485E415 		.ascii	"$\205\344\025\221\024\323h!)!\261\222WJ\262\233\306"
+  75      9114D368 
+  75      212921B1 
+  75      92574AB2 
+  75      9BC6
+  76 012b 32927292 		.ascii	"2\222r\222\012\362\366\222\354\243\261\222\244\212\304"
+  76      0AF2F692 
+  76      ECA3B192 
+  76      A48AC4
+  77 013a 461E630B 		.ascii	"F\036c\013\370\246\003\377\214\003^e?x\177\236^t\353"
+  77      F8A603FF 
+  77      8C035E65 
+  77      3F787F9E 
+  77      5E74EB
+  78 014d E8183625 		.ascii	"\350\0306%:\375\026W\353\245m_\244\240\244\353\276\350"
+  78      3AFD1657 
+  78      EBA56D5F 
+  78      A4A0A4EB 
+  78      BEE8
+  79 015f 74E8E8D0 		.ascii	"t\350\350\320>,\274\236I\344\026\243\261wcj\321\320"
+  79      3E2CBC9E 
+  79      49E416A3 
+  79      B177636A 
+  79      D1D0
+  80 0171 076EA70B 		.ascii	"\007n\247\013\317Z\017C`\206a\300\357\027nB\0370?\264"
+  80      CF5A0F43 
+  80      608661C0 
+  80      EF176E42 
+  80      1F303FB4 
+  81 0185 CC1B943A 		.ascii	"\314\033\224:\031\033qn\375\225\240\314:\2640\377\366"
+  81      191B716E 
+  81      FD95A0CC 
+  81      3AB430FF 
+  81      F6
+  82 0196 DBDA34AF 		.ascii	"\333\3324\257\223\003\241\360\013\277\372[X!d\361O/"
+  82      9303A1F0 
+  82      0BBFFA5B 
+  82      582164F1 
+  82      4F2F
+  83 01a8 660D6861 		.ascii	"f\015havf|\325\247\347Y\023\203\021\036i\335\010/I\344"
+  83      76667CD5 
+  83      A7E75913 
+  83      83111E69 
+  83      DD082F49 
+  84 01bd 3B18C496 		.ascii	";\030\304\226$tq\366v\002\315\377c\037Ev\\\317\370\201"
+  84      247471F6 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 6
+
+
+  84      7602CDFF 
+  84      631F4576 
+  84      5CCFF881 
+  85 01d1 ACE428F1 		.ascii	"\254\344(\361d\242\275=}\311\300o\276'r\036W\273\316"
+  85      64A2BD3D 
+  85      7DC9C06F 
+  85      BE27721E 
+  85      57BBCE
+  86 01e4 3E32464B 		.ascii	">2FK\306\324\222\333\232\0030b\205x\023)h\205oT\245"
+  86      C6D492DB 
+  86      9A033062 
+  86      85781329 
+  86      68856F54 
+  87 01f9 36F17B4B 		.ascii	"6\361{K\021c\251\350\306P\307\335p\234S\247*\324\337"
+  87      1163A9E8 
+  87      C650C7DD 
+  87      709C53A7 
+  87      2AD4DF
+  88 020c C3D46998 		.ascii	"\303\324i\230\030tw\255\2308\3659\225:\320\326\257\217"
+  88      187477AD 
+  88      9838F539 
+  88      953AD0D6 
+  88      AF8F
+  89 021e 96DC514B 		.ascii	"\226\334QK\356j\250\323\261B\244\316@KK\275\203Sg\210"
+  89      EE6AA8D3 
+  89      B142A4CE 
+  89      404B4BBD 
+  89      83536788 
+  90 0232 B14C7463 		.ascii	"\261Ltc\251\343mx\217Sg*\324\277\303\324;1\361\343\323"
+  90      A9E36D78 
+  90      8F53672A 
+  90      D4BFC3D4 
+  90      3B31F1E3 
+  91 0247 E467E587 		.ascii	"\344g\345\207\346\216P\017\377\361\371\204\222\011\265"
+  91      E68E500F 
+  91      FFF1F984 
+  91      9209B5
+  92 0256 E4BE863A 		.ascii	"\344\276\206:\013+D\352l\264\264\324fN\235-\306r\320"
+  92      0B2B44EA 
+  92      6CB4B4D4 
+  92      664E9D2D 
+  92      C672D0
+  93 0269 8DA18EBB 		.ascii	"\215\241\216\273\341\003N\235\243P{s\225x\036&>\276"
+  93      E1034E9D 
+  93      A3507B73 
+  93      95781E26 
+  93      3EBE
+  94 027b BBD2A5E3 		.ascii	"\273\322\245\343\324\275\021\352\257\243\253\335r\264"
+  94      D4BD11EA 
+  94      AFA3ABDD 
+  94      72B4
+  95 0289 E4A15AF2 		.ascii	"\344\241Z\362HC\275\013+D\352|\264\264\324\005\234:"
+  95      4843BD0B 
+  95      2B44EA7C 
+  95      B4B4D405 
+  95      9C3A
+  96 029b 5F8C15A2 		.ascii	"_\214\025\242\033C\035w\303\307\234\272P\241~\031\246"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 7
+
+
+  96      1B431D77 
+  96      C3C79CBA 
+  96      50A17E19 
+  96      A6
+  97 02ac 2EC2C4B5 		.ascii	".\302\304\265\261So\224\263\356\213P\017\370~\2365E"
+  97      B1536F94 
+  97      B3EE8B50 
+  97      0FF87E9E 
+  97      3545
+  98 02be 4B26D592 		.ascii	"K&\325\222'\032\352b\254\020\251-hi\251K8\265E\214Y"
+  98      271AEA62 
+  98      AC10A92D 
+  98      6869A94B 
+  98      38B5458C 
+  99 02d3 D18DA18E 		.ascii	"\321\215\241\216\273\341SNmU\250g\303\324\245\230\350"
+  99      BBE1534E 
+  99      6D55A867 
+  99      C3D4A598 
+  99      E8
+ 100 02e4 5CF20E2A 		.ascii	"\\\362\016*\277\353\363\021\352\220s\353\244\360/\355"
+ 100      BFEBF311 
+ 100      EA9073EB 
+ 100      A4F02FED 
+ 101 02f4 514B9E69 		.ascii	"QK\236i\250wc\205H]\206\226\226\272\234S\227\211\261"
+ 101      A8776385 
+ 101      485D8696 
+ 101      96BA9C53 
+ 101      9789B1
+ 102 0307 0A7463A8 		.ascii	"\012tc\250\343n\350\345\324\025\012\265?L\275\027\023"
+ 102      E36EE8E5 
+ 102      D4150AB5 
+ 102      3F4CBD17 
+ 102      13
+ 103 0318 9B2FE686 		.ascii	"\233/\346\206\215\234\372B\204zs\255\307\017\321\222"
+ 103      8D9CFA42 
+ 103      847A73AD 
+ 103      C70FD192 
+ 104 0328 29B5C4A7 		.ascii	")\265\304\247\241\336\207\025\"u%ZZ\352*N])\306l\350"
+ 104      A1DE8715 
+ 104      2275255A 
+ 104      5AEA2A4E 
+ 104      5D29C66C 
+ 105 033d C650C7DD 		.ascii	"\306P\307\335\3609\247\266\261ypzzjh5=h\027\360\241"
+ 105      F039A7B6 
+ 105      B179707A 
+ 105      7A6A6835 
+ 105      3D6817F0 
+ 106 0352 890F087C 		.ascii	"\211\017\010|\\\344\326\330\217\332\233\016\037\263"
+ 106      5CE4D6D8 
+ 106      8FDA9B0E 
+ 106      1FB3
+ 107 0360 371C3AD8 		.ascii	"7\034:\330x\274\251\336^W{\260\361@u]\255mO=\323\035"
+ 107      78BCA9DE 
+ 107      5E577BB0 
+ 107      F140755D 
+ 107      AD6D4F3D 
+ 108 0376 696CB0FF 		.ascii	"il\260\377\0057\275\206^"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 8
+
+
+ 108      0537BD86 
+ 108      5E
+ 109              		.text
+ 110              		.section	.gnu.lto_P3_Read.24c0591c,"",%progbits
+ 111 0000 789C6366 		.ascii	"x\234cf\300\004R@|\015\210\345\200\230\221\231\201\221"
+ 111      C0045240 
+ 111      7C0D88E5 
+ 111      80989199 
+ 111      8191
+ 112 0012 69C23906 		.ascii	"i\3029\006\206F\016&FF\020\203\201\221\241\236\211\261"
+ 112      86460E26 
+ 112      46461083 
+ 112      8191A19E 
+ 112      89B1
+ 113 0024 9EF125D3 		.ascii	"\236\361%\323G&\3063;\377]fT_\332\320\320\364\241i\377"
+ 113      4726C633 
+ 113      3BFF5D66 
+ 113      545FDAD0 
+ 113      D0F4A169 
+ 114 0039 1DEE5689 		.ascii	"\035\356V\211\237L\014\014\237\231\030\030u\244\030"
+ 114      9F4C0C0C 
+ 114      9F991818 
+ 114      75A418
+ 115 0048 3541E630 		.ascii	"5A\3460.gTg\000*\374\330\362\367:7[KCC\203\000H\036"
+ 115      2E675467 
+ 115      002AFCD8 
+ 115      F2F73A37 
+ 115      5B4B4343 
+ 116 0060 28B18291 		.ascii	"(\261\202\221\215\021H\257\027:\320\360\377\377\347"
+ 116      8D1148AF 
+ 116      173AD0F0 
+ 116      FFFFE7
+ 117 006f 3F135FD8 		.ascii	"?\023_\3301231\200\3643<\001\022 \253\23621\201h\346"
+ 117      31323331 
+ 117      80F4333C 
+ 117      011220AB 
+ 117      9E323181 
+ 118 0085 5B8C87BE 		.ascii	"[\214\207\276u]\233\317\005\322\363\235\011d\357\271"
+ 118      755D9BCF 
+ 118      05D2F39D 
+ 118      0964EFB9 
+ 119 0095 FDAF37F0 		.ascii	"\375\2577\360\274`\372\311\304\270qQc\003\013\310\206"
+ 119      BC60FAC9 
+ 119      C4B87151 
+ 119      63030BC8 
+ 119      86
+ 120 00a6 FB4FCE5F 		.ascii	"\373O\316_\344\000\0131\200\270\275o\033\205\3472\316"
+ 120      E4000B31 
+ 120      80B8BD6F 
+ 120      1B85E732 
+ 120      CE
+ 121 00b7 6E6C693C 		.ascii	"nli< \373\223\211\211q%\243\024\343*F\240\223\030W3"
+ 121      20FB9389 
+ 121      897125A3 
+ 121      14E32A46 
+ 121      A0931857 
+ 122 00cc CE6564B8 		.ascii	"\316ed\270\307\330\330\300\0155\017l##\310& S\306=5"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 9
+
+
+ 122      C7D8D8C0 
+ 122      0D350F6C 
+ 122      2323C826 
+ 122      2053C63D 
+ 123 00e1 2FB528B1 		.ascii	"/\265(\261$5%>8\277\264(95& 8\337\3314&\300X/\231\001"
+ 123      2435253E 
+ 123      38BFB428 
+ 123      39352620 
+ 123      38DFD934 
+ 124 00fb 00E21A58 		.ascii	"\000\342\032X6"
+ 124      36
+ 125              		.text
+ 126              		.section	.gnu.lto_P3_ReadDataReg.24c0591c,"",%progbits
+ 127 0000 789C6366 		.ascii	"x\234cf\300\004R@|\035\210\345\200\230\221\231\201\221"
+ 127      C0045240 
+ 127      7C1D88E5 
+ 127      80989199 
+ 127      8191
+ 128 0012 69C23906 		.ascii	"i\3029\006\206F\016&FF\020\203\201\221\241\236\211\261"
+ 128      86460E26 
+ 128      46461083 
+ 128      8191A19E 
+ 128      89B1
+ 129 0024 9EF125D3 		.ascii	"\236\361%\323G&\3063;\377]fT_\332\320\320\364\341\320"
+ 129      4726C633 
+ 129      3BFF5D66 
+ 129      545FDAD0 
+ 129      D0F4E1D0 
+ 130 0038 D53BDCAD 		.ascii	"\325;\334\255\022?\231\030\030>310\352H1j\202\314a\\"
+ 130      123F9918 
+ 130      183E3331 
+ 130      30EA4831 
+ 130      6A82CC61 
+ 131 004d CEA8CE00 		.ascii	"\316\250\316\000T\370\261\345\357un\266\226\206\206"
+ 131      54F8B1E5 
+ 131      EF756EB6 
+ 131      968686
+ 132 005c 0601903C 		.ascii	"\006\001\220<Pb\005#\033#\220^/t\240\341\377\377\317"
+ 132      50620523 
+ 132      1B23905E 
+ 132      2F74A0E1 
+ 132      FFFFCF
+ 133 006f D726BDD0 		.ascii	"\327&\275\320fbfb\000\351gx\002$@V=eb\002\321\314\267"
+ 133      66626662 
+ 133      00E96778 
+ 133      02244056 
+ 133      3D656202 
+ 134 0086 180F7DEB 		.ascii	"\030\017}\353\372\266\212\013\244\347;\023\310\336\217"
+ 134      FAB68A0B 
+ 134      A4E73B13 
+ 134      C8DE8F
+ 135 0095 CFF6CF65 		.ascii	"\317\366\317e~\301\364\223\211q\303\242\306\006\026"
+ 135      7EC1F493 
+ 135      8971C3A2 
+ 135      C60616
+ 136 00a4 900DF79F 		.ascii	"\220\015\367\237\234\277\310\001\026b\000q\237\037\232"
+ 136      9CBFC801 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 10
+
+
+ 136      16620071 
+ 136      9F1F9A
+ 137 00b3 BB926B2E 		.ascii	"\273\222k.\343\354\306\226\306\003\262?\231\230\030"
+ 137      E3ECC696 
+ 137      C603B23F 
+ 137      999818
+ 138 00c2 57324A31 		.ascii	"W2J1\256b\004\272\211q5\343\\F\206{\214\215\015\334"
+ 138      AE6204BA 
+ 138      897135E3 
+ 138      5C46867B 
+ 138      8C8D0DDC 
+ 139 00d6 5003C156 		.ascii	"P\003\301V2\202\254\0022e\334S\363R\213\022KRS\342\203"
+ 139      3282AC02 
+ 139      3265DC53 
+ 139      F3528B12 
+ 139      4B5253E2 
+ 140 00eb F34B8B92 		.ascii	"\363K\213\222Sc\002\202\363\235Mc\002\214\365\222\031"
+ 140      53630282 
+ 140      F39D4D63 
+ 140      028CF592 
+ 140      19
+ 141 00fc 00B1DB59 		.ascii	"\000\261\333Ym"
+ 141      6D
+ 142              		.text
+ 143              		.section	.gnu.lto_.symbol_nodes.24c0591c,"",%progbits
+ 144 0000 789C6366 		.ascii	"x\234cf``pb\200\002&\206z\006\206\011\347\030\030\352"
+ 144      60607062 
+ 144      80022686 
+ 144      7A068609 
+ 144      E71818EA 
+ 145 0014 EB19E62D 		.ascii	"\353\031\346-\340``b\254gD\3413\3253\241\360\231\353"
+ 145      E0606062 
+ 145      AC6744E1 
+ 145      33D533A1 
+ 145      F099EB
+ 146 0027 9991F90C 		.ascii	"\231\221\371\014\0003\356\020\336"
+ 146      0033EE10 
+ 146      DE
+ 147              		.text
+ 148              		.section	.gnu.lto_.refs.24c0591c,"",%progbits
+ 149 0000 789C6366 		.ascii	"x\234cf```d\200\002\000\000=\000\005"
+ 149      60606064 
+ 149      80020000 
+ 149      3D0005
+ 150              		.text
+ 151              		.section	.gnu.lto_.decls.24c0591c,"",%progbits
+ 152 0000 789C8D92 		.ascii	"x\234\215\222]H\024Q\024\307\357\231;\256\353\270m="
+ 152      5D481451 
+ 152      14C7EF99 
+ 152      3BAEEBB8 
+ 152      6D3D
+ 153 0012 692C421B 		.ascii	"i,B\033\204\020\210\020\022\370V\240\340S\261(\341\203"
+ 153      84108810 
+ 153      12F856A0 
+ 153      E053B128 
+ 153      E183
+ 154 0024 822C3A98 		.ascii	"\202,:\230/nlk\340K\335\324p\265\250E\2146\2112\374"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 11
+
+
+ 154      2F6E6C6B 
+ 154      E04BDDD4 
+ 154      70B5A845 
+ 154      8C368932 
+ 155 0039 2AF32BBF 		.ascii	"*\363+\277\327\317\331\247\024\261\227D0J\2630|\210"
+ 155      D7CFD9A7 
+ 155      14B19744 
+ 155      304AB330 
+ 155      7C88
+ 156 004b 58FB100B 		.ascii	"X\373\020\013i:\367\356l\273lkt\341\314\314\231\371"
+ 156      693AF7EE 
+ 156      6CBB6C6B 
+ 156      74E1CCCC 
+ 156      99F9
+ 157 005d FFFEE7DC 		.ascii	"\377\376\347\334;\207\022B\314@\210\216\353,%\244\016"
+ 157      3B871242 
+ 157      CC40888E 
+ 157      EB2C25A4 
+ 157      0E
+ 158 006e F3240C07 		.ascii	"\363$\014\007\211.\031c\030c\024c\002#@\376^\3031\\"
+ 158      892E1963 
+ 158      18631463 
+ 158      022340FE 
+ 158      5EC3315C 
+ 159 0082 3F461AC6 		.ascii	"?F\032\306\034\306\214\361\035\014M\374\342\236\246"
+ 159      1CC68CF1 
+ 159      1D0C4DFC 
+ 159      E29EA6
+ 160 0091 384E4BC0 		.ascii	"8NK\300\216&`y/\324\340\342\365\023\011\364\201\177"
+ 160      8E266079 
+ 160      2FD4E0E2 
+ 160      F51309F4 
+ 160      817F
+ 161 00a3 E813ED69 		.ascii	"\350\023\355iG\202\300\300\267\345\324m\011\254\212"
+ 161      4782C0C0 
+ 161      B7E5D46D 
+ 161      09AC8A
+ 162 00b2 9DA7532D 		.ascii	"\235\247S-\013~\023\246\026E\346\351\352|c\243\231J"
+ 162      0B7E13A6 
+ 162      1645E6E9 
+ 162      EA7C63A3 
+ 162      994A
+ 163 00c4 C09F3BFC 		.ascii	"\300\237;\374\233+JV/c\314\3134\015\242\026\327\273"
+ 163      9B2B4A56 
+ 163      2F63CCCB 
+ 163      340DA216 
+ 163      D7BB
+ 164 00d6 A76F2523 		.ascii	"\247o%#\223\246\210\364\366R[\220\212T\347\234\264\266"
+ 164      93A688F4 
+ 164      F6525B90 
+ 164      8A54E79C 
+ 164      B4B6
+ 165 00e8 D6FA8382 		.ascii	"\326\372\203\202\222\351e\254\216\205Z\030=J \313\006"
+ 165      92E965AC 
+ 165      8E855A18 
+ 165      3D4A20CB 
+ 165      06
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 12
+
+
+ 166 00f9 276D0406 		.ascii	"'m\004\006 \023e\320\013Y\004\236\201\015\372\300F:"
+ 166      201365D0 
+ 166      0B59049E 
+ 166      810DFAC0 
+ 166      463A
+ 167 010b B140E851 		.ascii	"\261@\350Q\350U\006c2\364\203\002O\201\012\005n\203"
+ 167      E8550663 
+ 167      32F48302 
+ 167      4F810A05 
+ 167      6E83
+ 168 011d 57308AFA 		.ascii	"W0\212\372n\004}\262,\341K\256)\021\335~\3277\273\244"
+ 168      6E047DB2 
+ 168      2CE14BAE 
+ 168      2911DD7E 
+ 168      D737BBA4 
+ 169 0131 F4BB68C0 		.ascii	"\364\273h\300|\365\354\210\014\2164\350A\333'hK`\010"
+ 169      7CF5EC88 
+ 169      0C8E34E8 
+ 169      41DB2768 
+ 169      4B6008
+ 170 0144 D2F13A08 		.ascii	"\322\361:\010r\330`\275\373\353\247$zJl\355M\323\270"
+ 170      72D860BD 
+ 170      FBEBA724 
+ 170      7A4A6CED 
+ 170      4DD3B8
+ 171 0157 D76A7FC8 		.ascii	"\327j\177\310\332\207B?\277\254Y\330\002\323t\375\214"
+ 171      DA87423F 
+ 171      BFAC59D8 
+ 171      02D374FD 
+ 171      8C
+ 172 0168 40E0F99F 		.ascii	"@\340\371\237\362\204?\207\317s\030\354\210M?\330\332"
+ 172      F2843F87 
+ 172      CF7318EC 
+ 172      884D3FD8 
+ 172      DA
+ 173 0179 B0D26261 		.ascii	"\260\322ba\341\033\274\337\243\010\213\366\251\016S"
+ 173      E11BBCDF 
+ 173      A3088BF6 
+ 173      A90E53
+ 174 0188 D840F023 		.ascii	"\330@\360#1\374H\204\037\025|S\303\020\215m\227\357"
+ 174      31FC4884 
+ 174      1F157C53 
+ 174      C3108D6D 
+ 174      97EF
+ 175 019a 24DAEF98 		.ascii	"$\332\357\230\350\267\304hw\353\355\342~*\255\024\265"
+ 175      E8B7C468 
+ 175      77EBEDE2 
+ 175      7E2AAD14 
+ 175      B5
+ 176 01ab D6F5C546 		.ascii	"\326\365\305F\223\250\365n\357\203\2525\260}]\247\002"
+ 176      93A8F56E 
+ 176      EF83AA35 
+ 176      B07D5DA7 
+ 176      02
+ 177 01bc 80F1986A 		.ascii	"\200\361\230j\343\221j\023\242\332\356\354\3079\023"
+ 177      E3916A13 
+ 177      A2DAEEEC 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 13
+
+
+ 177      C73913
+ 178 01cb 750987C7 		.ascii	"u\011\207\307\237\177\2750\272\355\353\212t\313\371"
+ 178      9F7FBD30 
+ 178      BAEDEB8A 
+ 178      74CBF9
+ 179 01da C9187E32 		.ascii	"\311\030~2\302\007\004\317\356\335\3544\323\253\202"
+ 179      C20704CF 
+ 179      EEDDEC34 
+ 179      D3AB82
+ 180 01e9 1FDB6D0E 		.ascii	"\037\333m\016\034R\360\217\326\377\307\037\305\031X"
+ 180      1C52F08F 
+ 180      D6FFC71F 
+ 180      C51958
+ 181 01f8 79D9BC9A 		.ascii	"y\331\274\232\022\236\201xb\366\300\031h\3358\301g`"
+ 181      129E8178 
+ 181      62F6C019 
+ 181      68DD38C1 
+ 181      6760
+ 182 020a 064F652A 		.ascii	"\006Oe*:\003\323\020\035\202\246\367m\313\026K3\037"
+ 182      3A03D310 
+ 182      1D82A6F7 
+ 182      6DCB164B 
+ 182      331F
+ 183 021c 2C3CC194 		.ascii	",<\301\224\005\253\020G\217p\016,b\003x\337\221h\260"
+ 183      05AB1047 
+ 183      8F700E2C 
+ 183      620378DF 
+ 183      9168B0
+ 184 022f 27F85A01 		.ascii	"'\370Z\001\233b\363\343\004\357\035\003\015\235\274"
+ 184      9B62F3E3 
+ 184      04EF1D03 
+ 184      0D9DBC
+ 185 023e FCF44375 		.ascii	"\374\364Cu\214\372\255\221\216\210\370@ \2106\363h\303"
+ 185      8CFAAD91 
+ 185      8E88F840 
+ 185      208836F3 
+ 185      68C3
+ 186 0250 D5DAB6AE 		.ascii	"\325\332\266\256_\323\303\353N\262\020\210KRMU\265'"
+ 186      5FD3C3EB 
+ 186      4EB21088 
+ 186      4B524D55 
+ 186      B527
+ 187 0262 D75470FE 		.ascii	"\327Tp\376\202=\217\034/P\253U\267\323\243V\224\025"
+ 187      823D8F1C 
+ 187      2F50AB55 
+ 187      B7D3A356 
+ 187      9415
+ 188 0274 B96ADCE5 		.ascii	"\271j\334\345j\251\243\310\225w\272\264\274\326S{I\275"
+ 188      6AA9A3C8 
+ 188      9577BAB4 
+ 188      BCD6537B 
+ 188      49BD
+ 189 0286 9C7D9198 		.ascii	"\234}\221\230\0359e\305\356*\217\232q\200\324\221\223"
+ 189      1D3965C5 
+ 189      EE2A8F9A 
+ 189      7180D491 
+ 189      93
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 14
+
+
+ 190 0297 5D4E0EA3 		.ascii	"]N\016\243\252H\365\344\273\253\256\250\347\\\025j2"
+ 190      AA48F5E4 
+ 190      BBABAEA8 
+ 190      E75C156A 
+ 190      32
+ 191 02a8 E685AAB3 		.ascii	"\346\205\252\263\302j\334\363\235\036g\241Z)\273\325"
+ 191      C26ADCF3 
+ 191      9D1E67A1 
+ 191      5A29BBD5 
+ 192 02b8 CADCDF01 		.ascii	"\312\334\337\001\364A\000"
+ 192      F44100
+ 193              		.text
+ 194              		.section	.gnu.lto_.symtab.24c0591c,"",%progbits
+ 195 0000 50335F57 		.ascii	"P3_Write\000\000\000\000\000\000\000\000\000\000\000"
+ 195      72697465 
+ 195      00000000 
+ 195      00000000 
+ 195      000000
+ 196 0013 00B20000 		.ascii	"\000\262\000\000\000P3_SetDriveMode\000\000\000\000"
+ 196      0050335F 
+ 196      53657444 
+ 196      72697665 
+ 196      4D6F6465 
+ 197 002b 00000000 		.ascii	"\000\000\000\000\000\000\000\000\264\000\000\000P3_"
+ 197      00000000 
+ 197      B4000000 
+ 197      50335F
+ 198 003a 52656164 		.ascii	"Read\000\000\000\000\000\000\000\000\000\000\000\000"
+ 198      00000000 
+ 198      00000000 
+ 198      00000000 
+ 199 004a B7000000 		.ascii	"\267\000\000\000P3_ReadDataReg\000\000\000\000\000\000"
+ 199      50335F52 
+ 199      65616444 
+ 199      61746152 
+ 199      65670000 
+ 200 0062 00000000 		.ascii	"\000\000\000\000\000\000\271\000\000\000"
+ 200      0000B900 
+ 200      0000
+ 201              		.text
+ 202              		.section	.gnu.lto_.opts,"",%progbits
+ 203 0000 272D666E 		.ascii	"'-fno-trapv' '-mcpu=cortex-m3' '-mthumb' '-g' '-O3'"
+ 203      6F2D7472 
+ 203      61707627 
+ 203      20272D6D 
+ 203      6370753D 
+ 204 0033 20272D66 		.ascii	" '-ffunction-sections' '-finline-functions' '-flto'"
+ 204      66756E63 
+ 204      74696F6E 
+ 204      2D736563 
+ 204      74696F6E 
+ 205 0066 20272D66 		.ascii	" '-ffat-lto-objects'\000"
+ 205      6661742D 
+ 205      6C746F2D 
+ 205      6F626A65 
+ 205      63747327 
+ 206              		.text
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 15
+
+
+ 207              		.cfi_sections	.debug_frame
+ 208              		.section	.text.P3_Write,"ax",%progbits
+ 209              		.align	2
+ 210              		.global	P3_Write
+ 211              		.thumb
+ 212              		.thumb_func
+ 213              		.type	P3_Write, %function
+ 214              	P3_Write:
+ 215              	.LFB0:
+ 216              		.file 1 "Generated_Source\\PSoC5\\P3.c"
+   1:Generated_Source\PSoC5/P3.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/P3.c **** * File Name: P3.c  
+   3:Generated_Source\PSoC5/P3.c **** * Version 2.20
+   4:Generated_Source\PSoC5/P3.c **** *
+   5:Generated_Source\PSoC5/P3.c **** * Description:
+   6:Generated_Source\PSoC5/P3.c **** *  This file contains API to enable firmware control of a Pins component.
+   7:Generated_Source\PSoC5/P3.c **** *
+   8:Generated_Source\PSoC5/P3.c **** * Note:
+   9:Generated_Source\PSoC5/P3.c **** *
+  10:Generated_Source\PSoC5/P3.c **** ********************************************************************************
+  11:Generated_Source\PSoC5/P3.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC5/P3.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  13:Generated_Source\PSoC5/P3.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  14:Generated_Source\PSoC5/P3.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC5/P3.c **** *******************************************************************************/
+  16:Generated_Source\PSoC5/P3.c **** 
+  17:Generated_Source\PSoC5/P3.c **** #include "cytypes.h"
+  18:Generated_Source\PSoC5/P3.c **** #include "P3.h"
+  19:Generated_Source\PSoC5/P3.c **** 
+  20:Generated_Source\PSoC5/P3.c **** /* APIs are not generated for P15[7:6] on PSoC 5 */
+  21:Generated_Source\PSoC5/P3.c **** #if !(CY_PSOC5A &&\
+  22:Generated_Source\PSoC5/P3.c **** 	 P3__PORT == 15 && ((P3__MASK & 0xC0) != 0))
+  23:Generated_Source\PSoC5/P3.c **** 
+  24:Generated_Source\PSoC5/P3.c **** 
+  25:Generated_Source\PSoC5/P3.c **** /*******************************************************************************
+  26:Generated_Source\PSoC5/P3.c **** * Function Name: P3_Write
+  27:Generated_Source\PSoC5/P3.c **** ****************************************************************************//**
+  28:Generated_Source\PSoC5/P3.c **** *
+  29:Generated_Source\PSoC5/P3.c **** * \brief Writes the value to the physical port (data output register), masking
+  30:Generated_Source\PSoC5/P3.c **** *  and shifting the bits appropriately. 
+  31:Generated_Source\PSoC5/P3.c **** *
+  32:Generated_Source\PSoC5/P3.c **** * The data output register controls the signal applied to the physical pin in 
+  33:Generated_Source\PSoC5/P3.c **** * conjunction with the drive mode parameter. This function avoids changing 
+  34:Generated_Source\PSoC5/P3.c **** * other bits in the port by using the appropriate method (read-modify-write or
+  35:Generated_Source\PSoC5/P3.c **** * bit banding).
+  36:Generated_Source\PSoC5/P3.c **** *
+  37:Generated_Source\PSoC5/P3.c **** * <b>Note</b> This function should not be used on a hardware digital output pin 
+  38:Generated_Source\PSoC5/P3.c **** * as it is driven by the hardware signal attached to it.
+  39:Generated_Source\PSoC5/P3.c **** *
+  40:Generated_Source\PSoC5/P3.c **** * \param value
+  41:Generated_Source\PSoC5/P3.c **** *  Value to write to the component instance.
+  42:Generated_Source\PSoC5/P3.c **** *
+  43:Generated_Source\PSoC5/P3.c **** * \return 
+  44:Generated_Source\PSoC5/P3.c **** *  None 
+  45:Generated_Source\PSoC5/P3.c **** *
+  46:Generated_Source\PSoC5/P3.c **** * \sideeffect
+  47:Generated_Source\PSoC5/P3.c **** *  If you use read-modify-write operations that are not atomic; the Interrupt 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 16
+
+
+  48:Generated_Source\PSoC5/P3.c **** *  Service Routines (ISR) can cause corruption of this function. An ISR that 
+  49:Generated_Source\PSoC5/P3.c **** *  interrupts this function and performs writes to the Pins component data 
+  50:Generated_Source\PSoC5/P3.c **** *  register can cause corrupted port data. To avoid this issue, you should 
+  51:Generated_Source\PSoC5/P3.c **** *  either use the Per-Pin APIs (primary method) or disable interrupts around 
+  52:Generated_Source\PSoC5/P3.c **** *  this function.
+  53:Generated_Source\PSoC5/P3.c **** *
+  54:Generated_Source\PSoC5/P3.c **** * \funcusage
+  55:Generated_Source\PSoC5/P3.c **** *  \snippet P3_SUT.c usage_P3_Write
+  56:Generated_Source\PSoC5/P3.c **** *******************************************************************************/
+  57:Generated_Source\PSoC5/P3.c **** void P3_Write(uint8 value)
+  58:Generated_Source\PSoC5/P3.c **** {
+ 217              		.loc 1 58 0
+ 218              		.cfi_startproc
+ 219              		@ args = 0, pretend = 0, frame = 0
+ 220              		@ frame_needed = 0, uses_anonymous_args = 0
+ 221              		@ link register save eliminated.
+ 222              	.LVL0:
+  59:Generated_Source\PSoC5/P3.c ****     uint8 staticBits = (P3_DR & (uint8)(~P3_MASK));
+ 223              		.loc 1 59 0
+ 224 0000 014B     		ldr	r3, .L2
+ 225 0002 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 226              	.LVL1:
+  60:Generated_Source\PSoC5/P3.c ****     P3_DR = staticBits | ((uint8)(value << P3_SHIFT) & P3_MASK);
+ 227              		.loc 1 60 0
+ 228 0004 1870     		strb	r0, [r3]
+ 229 0006 7047     		bx	lr
+ 230              	.L3:
+ 231              		.align	2
+ 232              	.L2:
+ 233 0008 30510040 		.word	1073762608
+ 234              		.cfi_endproc
+ 235              	.LFE0:
+ 236              		.size	P3_Write, .-P3_Write
+ 237              		.section	.text.P3_SetDriveMode,"ax",%progbits
+ 238              		.align	2
+ 239              		.global	P3_SetDriveMode
+ 240              		.thumb
+ 241              		.thumb_func
+ 242              		.type	P3_SetDriveMode, %function
+ 243              	P3_SetDriveMode:
+ 244              	.LFB1:
+  61:Generated_Source\PSoC5/P3.c **** }
+  62:Generated_Source\PSoC5/P3.c **** 
+  63:Generated_Source\PSoC5/P3.c **** 
+  64:Generated_Source\PSoC5/P3.c **** /*******************************************************************************
+  65:Generated_Source\PSoC5/P3.c **** * Function Name: P3_SetDriveMode
+  66:Generated_Source\PSoC5/P3.c **** ****************************************************************************//**
+  67:Generated_Source\PSoC5/P3.c **** *
+  68:Generated_Source\PSoC5/P3.c **** * \brief Sets the drive mode for each of the Pins component's pins.
+  69:Generated_Source\PSoC5/P3.c **** * 
+  70:Generated_Source\PSoC5/P3.c **** * <b>Note</b> This affects all pins in the Pins component instance. Use the
+  71:Generated_Source\PSoC5/P3.c **** * Per-Pin APIs if you wish to control individual pin's drive modes.
+  72:Generated_Source\PSoC5/P3.c **** *
+  73:Generated_Source\PSoC5/P3.c **** * \param mode
+  74:Generated_Source\PSoC5/P3.c **** *  Mode for the selected signals. Valid options are documented in 
+  75:Generated_Source\PSoC5/P3.c **** *  \ref driveMode.
+  76:Generated_Source\PSoC5/P3.c **** *
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 17
+
+
+  77:Generated_Source\PSoC5/P3.c **** * \return
+  78:Generated_Source\PSoC5/P3.c **** *  None
+  79:Generated_Source\PSoC5/P3.c **** *
+  80:Generated_Source\PSoC5/P3.c **** * \sideeffect
+  81:Generated_Source\PSoC5/P3.c **** *  If you use read-modify-write operations that are not atomic, the ISR can
+  82:Generated_Source\PSoC5/P3.c **** *  cause corruption of this function. An ISR that interrupts this function 
+  83:Generated_Source\PSoC5/P3.c **** *  and performs writes to the Pins component Drive Mode registers can cause 
+  84:Generated_Source\PSoC5/P3.c **** *  corrupted port data. To avoid this issue, you should either use the Per-Pin
+  85:Generated_Source\PSoC5/P3.c **** *  APIs (primary method) or disable interrupts around this function.
+  86:Generated_Source\PSoC5/P3.c **** *
+  87:Generated_Source\PSoC5/P3.c **** * \funcusage
+  88:Generated_Source\PSoC5/P3.c **** *  \snippet P3_SUT.c usage_P3_SetDriveMode
+  89:Generated_Source\PSoC5/P3.c **** *******************************************************************************/
+  90:Generated_Source\PSoC5/P3.c **** void P3_SetDriveMode(uint8 mode)
+  91:Generated_Source\PSoC5/P3.c **** {
+ 245              		.loc 1 91 0
+ 246              		.cfi_startproc
+ 247              		@ args = 0, pretend = 0, frame = 0
+ 248              		@ frame_needed = 0, uses_anonymous_args = 0
+ 249              		@ link register save eliminated.
+ 250              	.LVL2:
+  92:Generated_Source\PSoC5/P3.c **** 	CyPins_SetPinDriveMode(P3_0, mode);
+ 251              		.loc 1 92 0
+ 252 0000 1649     		ldr	r1, .L5
+ 253 0002 00F00E00 		and	r0, r0, #14
+ 254              	.LVL3:
+ 255 0006 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+  93:Generated_Source\PSoC5/P3.c **** 	CyPins_SetPinDriveMode(P3_1, mode);
+ 256              		.loc 1 93 0
+ 257 0008 154A     		ldr	r2, .L5+4
+  92:Generated_Source\PSoC5/P3.c **** 	CyPins_SetPinDriveMode(P3_0, mode);
+ 258              		.loc 1 92 0
+ 259 000a 03F0F103 		and	r3, r3, #241
+ 260 000e 0343     		orrs	r3, r3, r0
+ 261 0010 0B70     		strb	r3, [r1]
+ 262              		.loc 1 93 0
+ 263 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 264 0014 03F0F103 		and	r3, r3, #241
+ 265 0018 0343     		orrs	r3, r3, r0
+ 266 001a 1370     		strb	r3, [r2]
+  94:Generated_Source\PSoC5/P3.c **** 	CyPins_SetPinDriveMode(P3_2, mode);
+ 267              		.loc 1 94 0
+ 268 001c 8B78     		ldrb	r3, [r1, #2]	@ zero_extendqisi2
+ 269 001e 03F0F103 		and	r3, r3, #241
+ 270 0022 0343     		orrs	r3, r3, r0
+ 271 0024 8B70     		strb	r3, [r1, #2]
+  95:Generated_Source\PSoC5/P3.c **** 	CyPins_SetPinDriveMode(P3_3, mode);
+ 272              		.loc 1 95 0
+ 273 0026 9378     		ldrb	r3, [r2, #2]	@ zero_extendqisi2
+ 274 0028 03F0F103 		and	r3, r3, #241
+ 275 002c 0343     		orrs	r3, r3, r0
+ 276 002e 9370     		strb	r3, [r2, #2]
+  96:Generated_Source\PSoC5/P3.c **** 	CyPins_SetPinDriveMode(P3_4, mode);
+ 277              		.loc 1 96 0
+ 278 0030 0B79     		ldrb	r3, [r1, #4]	@ zero_extendqisi2
+ 279 0032 03F0F103 		and	r3, r3, #241
+ 280 0036 0343     		orrs	r3, r3, r0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 18
+
+
+ 281 0038 0B71     		strb	r3, [r1, #4]
+  97:Generated_Source\PSoC5/P3.c **** 	CyPins_SetPinDriveMode(P3_5, mode);
+ 282              		.loc 1 97 0
+ 283 003a 1379     		ldrb	r3, [r2, #4]	@ zero_extendqisi2
+ 284 003c 03F0F103 		and	r3, r3, #241
+ 285 0040 0343     		orrs	r3, r3, r0
+ 286 0042 1371     		strb	r3, [r2, #4]
+  98:Generated_Source\PSoC5/P3.c **** 	CyPins_SetPinDriveMode(P3_6, mode);
+ 287              		.loc 1 98 0
+ 288 0044 8B79     		ldrb	r3, [r1, #6]	@ zero_extendqisi2
+ 289 0046 03F0F103 		and	r3, r3, #241
+ 290 004a 0343     		orrs	r3, r3, r0
+ 291 004c 8B71     		strb	r3, [r1, #6]
+  99:Generated_Source\PSoC5/P3.c **** 	CyPins_SetPinDriveMode(P3_7, mode);
+ 292              		.loc 1 99 0
+ 293 004e 9379     		ldrb	r3, [r2, #6]	@ zero_extendqisi2
+ 294 0050 03F0F103 		and	r3, r3, #241
+ 295 0054 1843     		orrs	r0, r0, r3
+ 296 0056 9071     		strb	r0, [r2, #6]
+ 297 0058 7047     		bx	lr
+ 298              	.L6:
+ 299 005a 00BF     		.align	2
+ 300              	.L5:
+ 301 005c 18500040 		.word	1073762328
+ 302 0060 19500040 		.word	1073762329
+ 303              		.cfi_endproc
+ 304              	.LFE1:
+ 305              		.size	P3_SetDriveMode, .-P3_SetDriveMode
+ 306              		.section	.text.P3_Read,"ax",%progbits
+ 307              		.align	2
+ 308              		.global	P3_Read
+ 309              		.thumb
+ 310              		.thumb_func
+ 311              		.type	P3_Read, %function
+ 312              	P3_Read:
+ 313              	.LFB2:
+ 100:Generated_Source\PSoC5/P3.c **** }
+ 101:Generated_Source\PSoC5/P3.c **** 
+ 102:Generated_Source\PSoC5/P3.c **** 
+ 103:Generated_Source\PSoC5/P3.c **** /*******************************************************************************
+ 104:Generated_Source\PSoC5/P3.c **** * Function Name: P3_Read
+ 105:Generated_Source\PSoC5/P3.c **** ****************************************************************************//**
+ 106:Generated_Source\PSoC5/P3.c **** *
+ 107:Generated_Source\PSoC5/P3.c **** * \brief Reads the associated physical port (pin status register) and masks 
+ 108:Generated_Source\PSoC5/P3.c **** *  the required bits according to the width and bit position of the component
+ 109:Generated_Source\PSoC5/P3.c **** *  instance. 
+ 110:Generated_Source\PSoC5/P3.c **** *
+ 111:Generated_Source\PSoC5/P3.c **** * The pin's status register returns the current logic level present on the 
+ 112:Generated_Source\PSoC5/P3.c **** * physical pin.
+ 113:Generated_Source\PSoC5/P3.c **** *
+ 114:Generated_Source\PSoC5/P3.c **** * \return 
+ 115:Generated_Source\PSoC5/P3.c **** *  The current value for the pins in the component as a right justified number.
+ 116:Generated_Source\PSoC5/P3.c **** *
+ 117:Generated_Source\PSoC5/P3.c **** * \funcusage
+ 118:Generated_Source\PSoC5/P3.c **** *  \snippet P3_SUT.c usage_P3_Read  
+ 119:Generated_Source\PSoC5/P3.c **** *******************************************************************************/
+ 120:Generated_Source\PSoC5/P3.c **** uint8 P3_Read(void)
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 19
+
+
+ 121:Generated_Source\PSoC5/P3.c **** {
+ 314              		.loc 1 121 0
+ 315              		.cfi_startproc
+ 316              		@ args = 0, pretend = 0, frame = 0
+ 317              		@ frame_needed = 0, uses_anonymous_args = 0
+ 318              		@ link register save eliminated.
+ 122:Generated_Source\PSoC5/P3.c ****     return (P3_PS & P3_MASK) >> P3_SHIFT;
+ 319              		.loc 1 122 0
+ 320 0000 014B     		ldr	r3, .L8
+ 321 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 123:Generated_Source\PSoC5/P3.c **** }
+ 322              		.loc 1 123 0
+ 323 0004 7047     		bx	lr
+ 324              	.L9:
+ 325 0006 00BF     		.align	2
+ 326              	.L8:
+ 327 0008 31510040 		.word	1073762609
+ 328              		.cfi_endproc
+ 329              	.LFE2:
+ 330              		.size	P3_Read, .-P3_Read
+ 331              		.section	.text.P3_ReadDataReg,"ax",%progbits
+ 332              		.align	2
+ 333              		.global	P3_ReadDataReg
+ 334              		.thumb
+ 335              		.thumb_func
+ 336              		.type	P3_ReadDataReg, %function
+ 337              	P3_ReadDataReg:
+ 338              	.LFB3:
+ 124:Generated_Source\PSoC5/P3.c **** 
+ 125:Generated_Source\PSoC5/P3.c **** 
+ 126:Generated_Source\PSoC5/P3.c **** /*******************************************************************************
+ 127:Generated_Source\PSoC5/P3.c **** * Function Name: P3_ReadDataReg
+ 128:Generated_Source\PSoC5/P3.c **** ****************************************************************************//**
+ 129:Generated_Source\PSoC5/P3.c **** *
+ 130:Generated_Source\PSoC5/P3.c **** * \brief Reads the associated physical port's data output register and masks 
+ 131:Generated_Source\PSoC5/P3.c **** *  the correct bits according to the width and bit position of the component 
+ 132:Generated_Source\PSoC5/P3.c **** *  instance. 
+ 133:Generated_Source\PSoC5/P3.c **** *
+ 134:Generated_Source\PSoC5/P3.c **** * The data output register controls the signal applied to the physical pin in 
+ 135:Generated_Source\PSoC5/P3.c **** * conjunction with the drive mode parameter. This is not the same as the 
+ 136:Generated_Source\PSoC5/P3.c **** * preferred P3_Read() API because the 
+ 137:Generated_Source\PSoC5/P3.c **** * P3_ReadDataReg() reads the data register instead of the status 
+ 138:Generated_Source\PSoC5/P3.c **** * register. For output pins this is a useful function to determine the value 
+ 139:Generated_Source\PSoC5/P3.c **** * just written to the pin.
+ 140:Generated_Source\PSoC5/P3.c **** *
+ 141:Generated_Source\PSoC5/P3.c **** * \return 
+ 142:Generated_Source\PSoC5/P3.c **** *  The current value of the data register masked and shifted into a right 
+ 143:Generated_Source\PSoC5/P3.c **** *  justified number for the component instance.
+ 144:Generated_Source\PSoC5/P3.c **** *
+ 145:Generated_Source\PSoC5/P3.c **** * \funcusage
+ 146:Generated_Source\PSoC5/P3.c **** *  \snippet P3_SUT.c usage_P3_ReadDataReg 
+ 147:Generated_Source\PSoC5/P3.c **** *******************************************************************************/
+ 148:Generated_Source\PSoC5/P3.c **** uint8 P3_ReadDataReg(void)
+ 149:Generated_Source\PSoC5/P3.c **** {
+ 339              		.loc 1 149 0
+ 340              		.cfi_startproc
+ 341              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 20
+
+
+ 342              		@ frame_needed = 0, uses_anonymous_args = 0
+ 343              		@ link register save eliminated.
+ 150:Generated_Source\PSoC5/P3.c ****     return (P3_DR & P3_MASK) >> P3_SHIFT;
+ 344              		.loc 1 150 0
+ 345 0000 014B     		ldr	r3, .L11
+ 346 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 151:Generated_Source\PSoC5/P3.c **** }
+ 347              		.loc 1 151 0
+ 348 0004 7047     		bx	lr
+ 349              	.L12:
+ 350 0006 00BF     		.align	2
+ 351              	.L11:
+ 352 0008 30510040 		.word	1073762608
+ 353              		.cfi_endproc
+ 354              	.LFE3:
+ 355              		.size	P3_ReadDataReg, .-P3_ReadDataReg
+ 356              		.text
+ 357              	.Letext0:
+ 358              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 359              		.section	.debug_info,"",%progbits
+ 360              	.Ldebug_info0:
+ 361 0000 18010000 		.4byte	0x118
+ 362 0004 0400     		.2byte	0x4
+ 363 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 364 000a 04       		.byte	0x4
+ 365 000b 01       		.uleb128 0x1
+ 366 000c C1000000 		.4byte	.LASF20
+ 367 0010 01       		.byte	0x1
+ 368 0011 57000000 		.4byte	.LASF21
+ 369 0015 95010000 		.4byte	.LASF22
+ 370 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 371 001d 00000000 		.4byte	0
+ 372 0021 00000000 		.4byte	.Ldebug_line0
+ 373 0025 02       		.uleb128 0x2
+ 374 0026 01       		.byte	0x1
+ 375 0027 06       		.byte	0x6
+ 376 0028 FA010000 		.4byte	.LASF0
+ 377 002c 02       		.uleb128 0x2
+ 378 002d 01       		.byte	0x1
+ 379 002e 08       		.byte	0x8
+ 380 002f 32000000 		.4byte	.LASF1
+ 381 0033 02       		.uleb128 0x2
+ 382 0034 02       		.byte	0x2
+ 383 0035 05       		.byte	0x5
+ 384 0036 7C010000 		.4byte	.LASF2
+ 385 003a 02       		.uleb128 0x2
+ 386 003b 02       		.byte	0x2
+ 387 003c 07       		.byte	0x7
+ 388 003d 19000000 		.4byte	.LASF3
+ 389 0041 02       		.uleb128 0x2
+ 390 0042 04       		.byte	0x4
+ 391 0043 05       		.byte	0x5
+ 392 0044 8C010000 		.4byte	.LASF4
+ 393 0048 02       		.uleb128 0x2
+ 394 0049 04       		.byte	0x4
+ 395 004a 07       		.byte	0x7
+ 396 004b 45000000 		.4byte	.LASF5
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 21
+
+
+ 397 004f 02       		.uleb128 0x2
+ 398 0050 08       		.byte	0x8
+ 399 0051 05       		.byte	0x5
+ 400 0052 B3000000 		.4byte	.LASF6
+ 401 0056 02       		.uleb128 0x2
+ 402 0057 08       		.byte	0x8
+ 403 0058 07       		.byte	0x7
+ 404 0059 97000000 		.4byte	.LASF7
+ 405 005d 03       		.uleb128 0x3
+ 406 005e 04       		.byte	0x4
+ 407 005f 05       		.byte	0x5
+ 408 0060 696E7400 		.ascii	"int\000"
+ 409 0064 02       		.uleb128 0x2
+ 410 0065 04       		.byte	0x4
+ 411 0066 07       		.byte	0x7
+ 412 0067 8A000000 		.4byte	.LASF8
+ 413 006b 04       		.uleb128 0x4
+ 414 006c 86010000 		.4byte	.LASF12
+ 415 0070 02       		.byte	0x2
+ 416 0071 3801     		.2byte	0x138
+ 417 0073 2C000000 		.4byte	0x2c
+ 418 0077 02       		.uleb128 0x2
+ 419 0078 04       		.byte	0x4
+ 420 0079 04       		.byte	0x4
+ 421 007a 2C000000 		.4byte	.LASF9
+ 422 007e 02       		.uleb128 0x2
+ 423 007f 08       		.byte	0x8
+ 424 0080 04       		.byte	0x4
+ 425 0081 73000000 		.4byte	.LASF10
+ 426 0085 02       		.uleb128 0x2
+ 427 0086 01       		.byte	0x1
+ 428 0087 08       		.byte	0x8
+ 429 0088 68010000 		.4byte	.LASF11
+ 430 008c 04       		.uleb128 0x4
+ 431 008d 40000000 		.4byte	.LASF13
+ 432 0091 02       		.byte	0x2
+ 433 0092 E201     		.2byte	0x1e2
+ 434 0094 98000000 		.4byte	0x98
+ 435 0098 05       		.uleb128 0x5
+ 436 0099 6B000000 		.4byte	0x6b
+ 437 009d 06       		.uleb128 0x6
+ 438 009e 06020000 		.4byte	.LASF14
+ 439 00a2 01       		.byte	0x1
+ 440 00a3 39       		.byte	0x39
+ 441 00a4 00000000 		.4byte	.LFB0
+ 442 00a8 0C000000 		.4byte	.LFE0-.LFB0
+ 443 00ac 01       		.uleb128 0x1
+ 444 00ad 9C       		.byte	0x9c
+ 445 00ae CC000000 		.4byte	0xcc
+ 446 00b2 07       		.uleb128 0x7
+ 447 00b3 08000000 		.4byte	.LASF16
+ 448 00b7 01       		.byte	0x1
+ 449 00b8 39       		.byte	0x39
+ 450 00b9 6B000000 		.4byte	0x6b
+ 451 00bd 01       		.uleb128 0x1
+ 452 00be 50       		.byte	0x50
+ 453 00bf 08       		.uleb128 0x8
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 22
+
+
+ 454 00c0 0E000000 		.4byte	.LASF23
+ 455 00c4 01       		.byte	0x1
+ 456 00c5 3B       		.byte	0x3b
+ 457 00c6 6B000000 		.4byte	0x6b
+ 458 00ca 00       		.byte	0
+ 459 00cb 00       		.byte	0
+ 460 00cc 06       		.uleb128 0x6
+ 461 00cd 7A000000 		.4byte	.LASF15
+ 462 00d1 01       		.byte	0x1
+ 463 00d2 5A       		.byte	0x5a
+ 464 00d3 00000000 		.4byte	.LFB1
+ 465 00d7 64000000 		.4byte	.LFE1-.LFB1
+ 466 00db 01       		.uleb128 0x1
+ 467 00dc 9C       		.byte	0x9c
+ 468 00dd F1000000 		.4byte	0xf1
+ 469 00e1 09       		.uleb128 0x9
+ 470 00e2 AE000000 		.4byte	.LASF17
+ 471 00e6 01       		.byte	0x1
+ 472 00e7 5A       		.byte	0x5a
+ 473 00e8 6B000000 		.4byte	0x6b
+ 474 00ec 00000000 		.4byte	.LLST0
+ 475 00f0 00       		.byte	0
+ 476 00f1 0A       		.uleb128 0xa
+ 477 00f2 00000000 		.4byte	.LASF18
+ 478 00f6 01       		.byte	0x1
+ 479 00f7 78       		.byte	0x78
+ 480 00f8 6B000000 		.4byte	0x6b
+ 481 00fc 00000000 		.4byte	.LFB2
+ 482 0100 0C000000 		.4byte	.LFE2-.LFB2
+ 483 0104 01       		.uleb128 0x1
+ 484 0105 9C       		.byte	0x9c
+ 485 0106 0A       		.uleb128 0xa
+ 486 0107 6D010000 		.4byte	.LASF19
+ 487 010b 01       		.byte	0x1
+ 488 010c 94       		.byte	0x94
+ 489 010d 6B000000 		.4byte	0x6b
+ 490 0111 00000000 		.4byte	.LFB3
+ 491 0115 0C000000 		.4byte	.LFE3-.LFB3
+ 492 0119 01       		.uleb128 0x1
+ 493 011a 9C       		.byte	0x9c
+ 494 011b 00       		.byte	0
+ 495              		.section	.debug_abbrev,"",%progbits
+ 496              	.Ldebug_abbrev0:
+ 497 0000 01       		.uleb128 0x1
+ 498 0001 11       		.uleb128 0x11
+ 499 0002 01       		.byte	0x1
+ 500 0003 25       		.uleb128 0x25
+ 501 0004 0E       		.uleb128 0xe
+ 502 0005 13       		.uleb128 0x13
+ 503 0006 0B       		.uleb128 0xb
+ 504 0007 03       		.uleb128 0x3
+ 505 0008 0E       		.uleb128 0xe
+ 506 0009 1B       		.uleb128 0x1b
+ 507 000a 0E       		.uleb128 0xe
+ 508 000b 55       		.uleb128 0x55
+ 509 000c 17       		.uleb128 0x17
+ 510 000d 11       		.uleb128 0x11
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 23
+
+
+ 511 000e 01       		.uleb128 0x1
+ 512 000f 10       		.uleb128 0x10
+ 513 0010 17       		.uleb128 0x17
+ 514 0011 00       		.byte	0
+ 515 0012 00       		.byte	0
+ 516 0013 02       		.uleb128 0x2
+ 517 0014 24       		.uleb128 0x24
+ 518 0015 00       		.byte	0
+ 519 0016 0B       		.uleb128 0xb
+ 520 0017 0B       		.uleb128 0xb
+ 521 0018 3E       		.uleb128 0x3e
+ 522 0019 0B       		.uleb128 0xb
+ 523 001a 03       		.uleb128 0x3
+ 524 001b 0E       		.uleb128 0xe
+ 525 001c 00       		.byte	0
+ 526 001d 00       		.byte	0
+ 527 001e 03       		.uleb128 0x3
+ 528 001f 24       		.uleb128 0x24
+ 529 0020 00       		.byte	0
+ 530 0021 0B       		.uleb128 0xb
+ 531 0022 0B       		.uleb128 0xb
+ 532 0023 3E       		.uleb128 0x3e
+ 533 0024 0B       		.uleb128 0xb
+ 534 0025 03       		.uleb128 0x3
+ 535 0026 08       		.uleb128 0x8
+ 536 0027 00       		.byte	0
+ 537 0028 00       		.byte	0
+ 538 0029 04       		.uleb128 0x4
+ 539 002a 16       		.uleb128 0x16
+ 540 002b 00       		.byte	0
+ 541 002c 03       		.uleb128 0x3
+ 542 002d 0E       		.uleb128 0xe
+ 543 002e 3A       		.uleb128 0x3a
+ 544 002f 0B       		.uleb128 0xb
+ 545 0030 3B       		.uleb128 0x3b
+ 546 0031 05       		.uleb128 0x5
+ 547 0032 49       		.uleb128 0x49
+ 548 0033 13       		.uleb128 0x13
+ 549 0034 00       		.byte	0
+ 550 0035 00       		.byte	0
+ 551 0036 05       		.uleb128 0x5
+ 552 0037 35       		.uleb128 0x35
+ 553 0038 00       		.byte	0
+ 554 0039 49       		.uleb128 0x49
+ 555 003a 13       		.uleb128 0x13
+ 556 003b 00       		.byte	0
+ 557 003c 00       		.byte	0
+ 558 003d 06       		.uleb128 0x6
+ 559 003e 2E       		.uleb128 0x2e
+ 560 003f 01       		.byte	0x1
+ 561 0040 3F       		.uleb128 0x3f
+ 562 0041 19       		.uleb128 0x19
+ 563 0042 03       		.uleb128 0x3
+ 564 0043 0E       		.uleb128 0xe
+ 565 0044 3A       		.uleb128 0x3a
+ 566 0045 0B       		.uleb128 0xb
+ 567 0046 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 24
+
+
+ 568 0047 0B       		.uleb128 0xb
+ 569 0048 27       		.uleb128 0x27
+ 570 0049 19       		.uleb128 0x19
+ 571 004a 11       		.uleb128 0x11
+ 572 004b 01       		.uleb128 0x1
+ 573 004c 12       		.uleb128 0x12
+ 574 004d 06       		.uleb128 0x6
+ 575 004e 40       		.uleb128 0x40
+ 576 004f 18       		.uleb128 0x18
+ 577 0050 9742     		.uleb128 0x2117
+ 578 0052 19       		.uleb128 0x19
+ 579 0053 01       		.uleb128 0x1
+ 580 0054 13       		.uleb128 0x13
+ 581 0055 00       		.byte	0
+ 582 0056 00       		.byte	0
+ 583 0057 07       		.uleb128 0x7
+ 584 0058 05       		.uleb128 0x5
+ 585 0059 00       		.byte	0
+ 586 005a 03       		.uleb128 0x3
+ 587 005b 0E       		.uleb128 0xe
+ 588 005c 3A       		.uleb128 0x3a
+ 589 005d 0B       		.uleb128 0xb
+ 590 005e 3B       		.uleb128 0x3b
+ 591 005f 0B       		.uleb128 0xb
+ 592 0060 49       		.uleb128 0x49
+ 593 0061 13       		.uleb128 0x13
+ 594 0062 02       		.uleb128 0x2
+ 595 0063 18       		.uleb128 0x18
+ 596 0064 00       		.byte	0
+ 597 0065 00       		.byte	0
+ 598 0066 08       		.uleb128 0x8
+ 599 0067 34       		.uleb128 0x34
+ 600 0068 00       		.byte	0
+ 601 0069 03       		.uleb128 0x3
+ 602 006a 0E       		.uleb128 0xe
+ 603 006b 3A       		.uleb128 0x3a
+ 604 006c 0B       		.uleb128 0xb
+ 605 006d 3B       		.uleb128 0x3b
+ 606 006e 0B       		.uleb128 0xb
+ 607 006f 49       		.uleb128 0x49
+ 608 0070 13       		.uleb128 0x13
+ 609 0071 1C       		.uleb128 0x1c
+ 610 0072 0B       		.uleb128 0xb
+ 611 0073 00       		.byte	0
+ 612 0074 00       		.byte	0
+ 613 0075 09       		.uleb128 0x9
+ 614 0076 05       		.uleb128 0x5
+ 615 0077 00       		.byte	0
+ 616 0078 03       		.uleb128 0x3
+ 617 0079 0E       		.uleb128 0xe
+ 618 007a 3A       		.uleb128 0x3a
+ 619 007b 0B       		.uleb128 0xb
+ 620 007c 3B       		.uleb128 0x3b
+ 621 007d 0B       		.uleb128 0xb
+ 622 007e 49       		.uleb128 0x49
+ 623 007f 13       		.uleb128 0x13
+ 624 0080 02       		.uleb128 0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 25
+
+
+ 625 0081 17       		.uleb128 0x17
+ 626 0082 00       		.byte	0
+ 627 0083 00       		.byte	0
+ 628 0084 0A       		.uleb128 0xa
+ 629 0085 2E       		.uleb128 0x2e
+ 630 0086 00       		.byte	0
+ 631 0087 3F       		.uleb128 0x3f
+ 632 0088 19       		.uleb128 0x19
+ 633 0089 03       		.uleb128 0x3
+ 634 008a 0E       		.uleb128 0xe
+ 635 008b 3A       		.uleb128 0x3a
+ 636 008c 0B       		.uleb128 0xb
+ 637 008d 3B       		.uleb128 0x3b
+ 638 008e 0B       		.uleb128 0xb
+ 639 008f 27       		.uleb128 0x27
+ 640 0090 19       		.uleb128 0x19
+ 641 0091 49       		.uleb128 0x49
+ 642 0092 13       		.uleb128 0x13
+ 643 0093 11       		.uleb128 0x11
+ 644 0094 01       		.uleb128 0x1
+ 645 0095 12       		.uleb128 0x12
+ 646 0096 06       		.uleb128 0x6
+ 647 0097 40       		.uleb128 0x40
+ 648 0098 18       		.uleb128 0x18
+ 649 0099 9742     		.uleb128 0x2117
+ 650 009b 19       		.uleb128 0x19
+ 651 009c 00       		.byte	0
+ 652 009d 00       		.byte	0
+ 653 009e 00       		.byte	0
+ 654              		.section	.debug_loc,"",%progbits
+ 655              	.Ldebug_loc0:
+ 656              	.LLST0:
+ 657 0000 00000000 		.4byte	.LVL2
+ 658 0004 06000000 		.4byte	.LVL3
+ 659 0008 0100     		.2byte	0x1
+ 660 000a 50       		.byte	0x50
+ 661 000b 06000000 		.4byte	.LVL3
+ 662 000f 64000000 		.4byte	.LFE1
+ 663 0013 0400     		.2byte	0x4
+ 664 0015 F3       		.byte	0xf3
+ 665 0016 01       		.uleb128 0x1
+ 666 0017 50       		.byte	0x50
+ 667 0018 9F       		.byte	0x9f
+ 668 0019 00000000 		.4byte	0
+ 669 001d 00000000 		.4byte	0
+ 670              		.section	.debug_aranges,"",%progbits
+ 671 0000 34000000 		.4byte	0x34
+ 672 0004 0200     		.2byte	0x2
+ 673 0006 00000000 		.4byte	.Ldebug_info0
+ 674 000a 04       		.byte	0x4
+ 675 000b 00       		.byte	0
+ 676 000c 0000     		.2byte	0
+ 677 000e 0000     		.2byte	0
+ 678 0010 00000000 		.4byte	.LFB0
+ 679 0014 0C000000 		.4byte	.LFE0-.LFB0
+ 680 0018 00000000 		.4byte	.LFB1
+ 681 001c 64000000 		.4byte	.LFE1-.LFB1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 26
+
+
+ 682 0020 00000000 		.4byte	.LFB2
+ 683 0024 0C000000 		.4byte	.LFE2-.LFB2
+ 684 0028 00000000 		.4byte	.LFB3
+ 685 002c 0C000000 		.4byte	.LFE3-.LFB3
+ 686 0030 00000000 		.4byte	0
+ 687 0034 00000000 		.4byte	0
+ 688              		.section	.debug_ranges,"",%progbits
+ 689              	.Ldebug_ranges0:
+ 690 0000 00000000 		.4byte	.LFB0
+ 691 0004 0C000000 		.4byte	.LFE0
+ 692 0008 00000000 		.4byte	.LFB1
+ 693 000c 64000000 		.4byte	.LFE1
+ 694 0010 00000000 		.4byte	.LFB2
+ 695 0014 0C000000 		.4byte	.LFE2
+ 696 0018 00000000 		.4byte	.LFB3
+ 697 001c 0C000000 		.4byte	.LFE3
+ 698 0020 00000000 		.4byte	0
+ 699 0024 00000000 		.4byte	0
+ 700              		.section	.debug_line,"",%progbits
+ 701              	.Ldebug_line0:
+ 702 0000 94000000 		.section	.debug_str,"MS",%progbits,1
+ 702      02003F00 
+ 702      00000201 
+ 702      FB0E0D00 
+ 702      01010101 
+ 703              	.LASF18:
+ 704 0000 50335F52 		.ascii	"P3_Read\000"
+ 704      65616400 
+ 705              	.LASF16:
+ 706 0008 76616C75 		.ascii	"value\000"
+ 706      6500
+ 707              	.LASF23:
+ 708 000e 73746174 		.ascii	"staticBits\000"
+ 708      69634269 
+ 708      747300
+ 709              	.LASF3:
+ 710 0019 73686F72 		.ascii	"short unsigned int\000"
+ 710      7420756E 
+ 710      7369676E 
+ 710      65642069 
+ 710      6E7400
+ 711              	.LASF9:
+ 712 002c 666C6F61 		.ascii	"float\000"
+ 712      7400
+ 713              	.LASF1:
+ 714 0032 756E7369 		.ascii	"unsigned char\000"
+ 714      676E6564 
+ 714      20636861 
+ 714      7200
+ 715              	.LASF13:
+ 716 0040 72656738 		.ascii	"reg8\000"
+ 716      00
+ 717              	.LASF5:
+ 718 0045 6C6F6E67 		.ascii	"long unsigned int\000"
+ 718      20756E73 
+ 718      69676E65 
+ 718      6420696E 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 27
+
+
+ 718      7400
+ 719              	.LASF21:
+ 720 0057 47656E65 		.ascii	"Generated_Source\\PSoC5\\P3.c\000"
+ 720      72617465 
+ 720      645F536F 
+ 720      75726365 
+ 720      5C50536F 
+ 721              	.LASF10:
+ 722 0073 646F7562 		.ascii	"double\000"
+ 722      6C6500
+ 723              	.LASF15:
+ 724 007a 50335F53 		.ascii	"P3_SetDriveMode\000"
+ 724      65744472 
+ 724      6976654D 
+ 724      6F646500 
+ 725              	.LASF8:
+ 726 008a 756E7369 		.ascii	"unsigned int\000"
+ 726      676E6564 
+ 726      20696E74 
+ 726      00
+ 727              	.LASF7:
+ 728 0097 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 728      206C6F6E 
+ 728      6720756E 
+ 728      7369676E 
+ 728      65642069 
+ 729              	.LASF17:
+ 730 00ae 6D6F6465 		.ascii	"mode\000"
+ 730      00
+ 731              	.LASF6:
+ 732 00b3 6C6F6E67 		.ascii	"long long int\000"
+ 732      206C6F6E 
+ 732      6720696E 
+ 732      7400
+ 733              	.LASF20:
+ 734 00c1 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 734      4320342E 
+ 734      392E3320 
+ 734      32303135 
+ 734      30333033 
+ 735 00f4 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 735      20726576 
+ 735      6973696F 
+ 735      6E203232 
+ 735      31323230 
+ 736 0127 33202D66 		.ascii	"3 -ffunction-sections -finline-functions -flto -ffa"
+ 736      66756E63 
+ 736      74696F6E 
+ 736      2D736563 
+ 736      74696F6E 
+ 737 015a 742D6C74 		.ascii	"t-lto-objects\000"
+ 737      6F2D6F62 
+ 737      6A656374 
+ 737      7300
+ 738              	.LASF11:
+ 739 0168 63686172 		.ascii	"char\000"
+ 739      00
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccx6u9w3.s 			page 28
+
+
+ 740              	.LASF19:
+ 741 016d 50335F52 		.ascii	"P3_ReadDataReg\000"
+ 741      65616444 
+ 741      61746152 
+ 741      656700
+ 742              	.LASF2:
+ 743 017c 73686F72 		.ascii	"short int\000"
+ 743      7420696E 
+ 743      7400
+ 744              	.LASF12:
+ 745 0186 75696E74 		.ascii	"uint8\000"
+ 745      3800
+ 746              	.LASF4:
+ 747 018c 6C6F6E67 		.ascii	"long int\000"
+ 747      20696E74 
+ 747      00
+ 748              	.LASF22:
+ 749 0195 433A5C55 		.ascii	"C:\\Users\\Bruger\\OneDrive\\Skrivebord\\CODE\\PSOC"
+ 749      73657273 
+ 749      5C427275 
+ 749      6765725C 
+ 749      4F6E6544 
+ 750 01c2 355C4359 		.ascii	"5\\CY8CKIT-59-Arduino\\CY8CKIT59_Ardudino-Speeduino"
+ 750      38434B49 
+ 750      542D3539 
+ 750      2D417264 
+ 750      75696E6F 
+ 751 01f3 2E637964 		.ascii	".cydsn\000"
+ 751      736E00
+ 752              	.LASF0:
+ 753 01fa 7369676E 		.ascii	"signed char\000"
+ 753      65642063 
+ 753      68617200 
+ 754              	.LASF14:
+ 755 0206 50335F57 		.ascii	"P3_Write\000"
+ 755      72697465 
+ 755      00
+ 756              		.comm	__gnu_lto_v1,1,1
+ 757              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

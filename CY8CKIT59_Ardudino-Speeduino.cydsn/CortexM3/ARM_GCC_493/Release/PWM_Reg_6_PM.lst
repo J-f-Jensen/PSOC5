@@ -1,0 +1,1459 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"PWM_Reg_6_PM.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.section	.gnu.lto_.profile.ec5a4e18,"",%progbits
+  18 0000 789C6366 		.ascii	"x\234cf```a\200\000F\006\005.\000\000\276\0003"
+  18      60606061 
+  18      80004606 
+  18      052E0000 
+  18      BE0033
+  19              		.text
+  20              		.section	.gnu.lto_.jmpfuncs.ec5a4e18,"",%progbits
+  21 0000 789C6366 		.ascii	"x\234cf\300\016\004\2404\013\0203100C\231\014\000\002"
+  21      C00E04A0 
+  21      340B1033 
+  21      31303043 
+  21      990C0002 
+  22 0014 C70021   		.ascii	"\307\000!"
+  23              		.text
+  24              		.section	.gnu.lto_.inline.ec5a4e18,"",%progbits
+  25 0000 789C6366 		.ascii	"x\234cf\300\016\302\2404\013\003\003+\013#\003\023\313"
+  25      C00EC2A0 
+  25      340B0303 
+  25      2B0B2303 
+  25      13CB
+  26 0012 027906B6 		.ascii	"\002y\006\266\005\362L 1&L!f\006\026\036\240\020\220"
+  26      05F24C20 
+  26      31264C21 
+  26      6606161E 
+  26      A01090
+  27 0025 051361E4 		.ascii	"\005\023a\344\002\353\306*\314\000\000 A\005]"
+  27      02EBC62A 
+  27      CC000020 
+  27      41055D
+  28              		.text
+  29              		.section	.gnu.lto_.pureconst.ec5a4e18,"",%progbits
+  30 0000 789C6366 		.ascii	"x\234cf``\340d\200\000\026\006)&)f\011\026\011\000\002"
+  30      6060E064 
+  30      80001606 
+  30      29262966 
+  30      09160900 
+  31 0015 C9007E   		.ascii	"\311\000~"
+  32              		.text
+  33              		.section	.gnu.lto_PWM_Reg_6_SaveConfig.ec5a4e18,"",%progbits
+  34 0000 789C654F 		.ascii	"x\234eO=HBQ\024>\337\361)\206\004\321\350^\266\330V"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 2
+
+
+  34      3D484251 
+  34      143EDFF1 
+  34      298604D1 
+  34      E85EB6D8 
+  35 0015 6B434393 		.ascii	"kCC\223\360\310\241Ex\204=\332\022\244F\361=q\210\240"
+  35      F0C8A145 
+  35      78843DDA 
+  35      12A446F1 
+  35      3D7188A0 
+  36 0029 922088CA 		.ascii	"\222 \210\3126\313\322\024\032j}5\005A\021Q\201D\021"
+  36      36CBD214 
+  36      1A6A7D35 
+  36      05411151 
+  36      814411
+  37 003c 18D49609 		.ascii	"\030\324\226\011\305#\314\316\325%\350\302\345\334s"
+  37      C523CCCE 
+  37      D525E8C2 
+  37      E5DC73
+  38 004b CE77BF1F 		.ascii	"\316w\277\037\017\375?A\271c \032\222\012\017\201s\227"
+  38      0FFD3F41 
+  38      B963201A 
+  38      920A0F81 
+  38      7397
+  39 005d 44B69F01 		.ascii	"D\266\237\001\365 P\232\221\306\0337\0309\247\264\021"
+  39      F520509A 
+  39      91C61B37 
+  39      1839A7B4 
+  39      11
+  40 006e 08152CCB 		.ascii	"\010\025,\313z\317\\\330\272\003\227\211\232\334\345"
+  40      7ACF5CD8 
+  40      BA039789 
+  40      9ADCE5
+  41 007d C11E4224 		.ascii	"\301\036B$\240F\266u\037\360e\005\324\327\335\241\010"
+  41      A046B675 
+  41      1FF06505 
+  41      D4D7DDA1 
+  41      08
+  42 008e 9FF053B5 		.ascii	"\237\360S\265\337\261\332\355f\371\364\030\032\223\313"
+  42      DFB1DAED 
+  42      66F9F418 
+  42      1A93CB
+  43 009d 32ABCB5E 		.ascii	"2\253\313^\251\2740\253\352\251\341\354s\351\356\266"
+  43      A9BC30AB 
+  43      EAA9E1EC 
+  43      73E9EEB6 
+  44 00ad 477DF962 		.ascii	"G}\371b%\271\331(\354\366\276\262\313\354\236\333\226"
+  44      25B9D928 
+  44      ECF6BEB2 
+  44      CBEC9EDB 
+  44      96
+  45 00be A6049EEA 		.ascii	"\246\004\236\352W\327\376\316\210T\373\260\261\276\314"
+  45      57D7FECE 
+  45      8854FBB0 
+  45      B1BECC
+  46 00cd 796CD959 		.ascii	"yl\331Y\261\343\301>\2028\200\204B\011yP\015\231\265"
+  46      B1E3C13E 
+  46      82388084 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 3
+
+
+  46      42097950 
+  46      0D99B5
+  47 00e0 E701C527 		.ascii	"\347\001\305'\320\235\233\225\012\247\276\255E\313\357"
+  47      D09D9B95 
+  47      0AA7BEAD 
+  47      45CBEF
+  48 00ef B2D652E6 		.ascii	"\262\326R\346\376\362i\235\266hg\267\241\370,\205\362"
+  48      FEF2699D 
+  48      B66867B7 
+  48      A1F82C85 
+  48      F2
+  49 0100 A28C140E 		.ascii	"\242\214\024\016\025\241\354~\312\253G\276pI\2629a\227"
+  49      15A1EC7E 
+  49      CAAB47BE 
+  49      7049B239 
+  49      6197
+  50 0112 7DA808F0 		.ascii	"}\250\010\360\243\223\037U\204\3051=\302vN\274JOM\353"
+  50      A3931F55 
+  50      84C5313D 
+  50      C2764EBC 
+  50      4A4F4DEB 
+  51 0126 12527209 		.ascii	"\022Rr\011bp\302\2343\223\323\363\346\214\021M,$\343"
+  51      6270C29C 
+  51      3393D3F3 
+  51      E68C114D 
+  51      2C24E3
+  52 0139 664C8F26 		.ascii	"fL\217&\306Gb\372T\304\2304g\215QC\217\014\307\351\027"
+  52      C64762FA 
+  52      54C49834 
+  52      678D5143 
+  52      8F0CC7E9 
+  53 014e 31D180C1 		.ascii	"1\321\200\301"
+  54              		.text
+  55              		.section	.gnu.lto_PWM_Reg_6_RestoreConfig.ec5a4e18,"",%progbits
+  56 0000 789C658F 		.ascii	"x\234e\217=H\003A\020\205g\346\222#\020\004\261\014"
+  56      3D480341 
+  56      108567E6 
+  56      92231004 
+  56      B10C
+  57 0012 D64690D8 		.ascii	"\326F\220\330ic)h\0258L!H\340\220x\330\031\010Z\206"
+  57      69632968 
+  57      15384C21 
+  57      48E09078 
+  57      D819085A 
+  58 0027 ECCA1536 		.ascii	"\354\312\0256j\024\204\340\037XD\243\211\011(\330\346"
+  58      6A1484E0 
+  58      1F5844A3 
+  58      890928D8 
+  58      E6
+  59 0038 B4B232A8 		.ascii	"\264\2622\250\205\020D\233\010\332yZ\310!1\316^*qa\231"
+  59      8510449B 
+  59      08DA795A 
+  59      C82131CE 
+  59      5E2A7161 
+  60 004d DD9937EF 		.ascii	"\335\2317\357\233\321\340\377\211\360\035C\200A\216"
+  60      9BD1E0FF 
+  60      89F01D43 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 4
+
+
+  60      80418E
+  61 005c A80152FE 		.ascii	"\250\001R\376\006@\206\010Q=\000!G\230\3037r\011\363"
+  61      06408608 
+  61      513D0021 
+  61      4798C337 
+  61      7209F3
+  62 006f 4EB9108E 		.ascii	"N\271\020\216\026\205\020\357w\015i8\350\021\300'u}"
+  62      168510EF 
+  62      770D6938 
+  62      E811C027 
+  62      757D
+  63 0081 F008A3C0 		.ascii	"\360\010\243\300\"\327n?\204u\233E\275\335\032\226P"
+  63      22D76E3F 
+  63      84759B45 
+  63      BDDD1A96 
+  63      50
+  64 0092 677FA8F5 		.ascii	"g\177\250\3659\242\3239\257_\346\365\000\201G\234kq"
+  64      39A2D339 
+  64      AF5FE6F5 
+  64      0081479C 
+  64      6B71
+  65 00a4 5D515E88 		.ascii	"]Q^\210T\324\232\270|\341\326gT\307\027)\342\376\375"
+  65      54D49AB8 
+  65      7CE1D667 
+  65      54C71729 
+  65      E2FEFD
+  66 00b7 5A95B2DF 		.ascii	"Z\225\262\337bE\204<\242\266\262\343\354s\253q\033z"
+  66      6245843C 
+  66      A2B6B2E3 
+  66      EC73AB71 
+  66      1B7A
+  67 00c9 25CEF8DF 		.ascii	"%\316\370\337\222\264wq\017w\244P*\015\2171\213'\030"
+  67      92B47771 
+  67      0F77A450 
+  67      2A0D8F31 
+  67      8B2718
+  68 00dc F16B3F95 		.ascii	"\361k?\225\3653=6\344Q\000\313\254\371\360\207\305\012"
+  68      F5333D36 
+  68      E45100CB 
+  68      ACF9F087 
+  68      C50A
+  69 00ee C6A08957 		.ascii	"\306\240\211W\233\007\375\012\305\262m\267x\330\243"
+  69      9B07FD0A 
+  69      C5B26DB7 
+  69      78D8A3
+  70 00fd 1C83DEB5 		.ascii	"\034\203\336\265\024\201?\220\240o\364X\330Z%\005\261"
+  70      14813F90 
+  70      A06FF458 
+  70      D85A2505 
+  70      B1
+  71 010e A5A37BA4 		.ascii	"\245\243{\244\343)F\260\252(Xcc\036\027\236P:\033\023"
+  71      E32946B0 
+  71      AA285863 
+  71      631E179E 
+  71      503A1B13 
+  72 0122 CA51415A 		.ascii	"\312QAZ\274 \357\304\300\201Ik\301\312\314.Zsf\"\275"
+  72      BC20EFC4 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 5
+
+
+  72      C081496B 
+  72      C1CACC2E 
+  72      5A736622 
+  73 0137 94495949 		.ascii	"\224IYI#\221\036\037I\032\323qs\312\2327GM#>\234\202"
+  73      23911E1F 
+  73      491AD371 
+  73      73CA9A37 
+  73      474D233E 
+  74 014d 5F08997E 		.ascii	"_\010\231~{"
+  74      7B
+  75              		.text
+  76              		.section	.gnu.lto_PWM_Reg_6_Sleep.ec5a4e18,"",%progbits
+  77 0000 789C6366 		.ascii	"x\234cf\300\004R@\274\030\2105\200\230\221\231\201\221"
+  77      C0045240 
+  77      BC188835 
+  77      80989199 
+  77      8191
+  78 0012 69C23906 		.ascii	"i\3029\006\206F\016&FF\020\203\201\221\241\236\211\261"
+  78      86460E26 
+  78      46461083 
+  78      8191A19E 
+  78      89B1
+  79 0024 9EF125D3 		.ascii	"\236\361%\323G&\306\011\007V\317\340V_\332\320\320\360"
+  79      4726C609 
+  79      0756CFE0 
+  79      565FDAD0 
+  79      D0F0
+  80 0036 61D25689 		.ascii	"a\322V\211V\211\237L\014\014\237\231 \3060.gTg\000\252"
+  80      56899F4C 
+  80      0C0C9F99 
+  80      20C6302E 
+  80      67546700 
+  81 004b F9D8F2F7 		.ascii	"\371\330\362\367:7[\013P\215\000D\216q\005#\033#\220"
+  81      3A375B0B 
+  81      508D0044 
+  81      8E710523 
+  81      1B2390
+  82 005e 5E2F74A0 		.ascii	"^/t\240\341\377\377\315W'vh\003\255ax\002\224\003Y\360"
+  82      E1FFFFCD 
+  82      57277668 
+  82      03AD6178 
+  82      02940359 
+  83 0073 94890944 		.ascii	"\224\211\011D3\337al>p\375\030\023H5\310\230y\227\373"
+  83      33DF616C 
+  83      3E70FD18 
+  83      134835C8 
+  83      987997FB 
+  84 0087 D631D5FE 		.ascii	"\3261\325\376n\350h\340\370\311\304\370\231\011h\002"
+  84      6EE868E0 
+  84      F8C9C4F8 
+  84      99096802 
+  85 0097 E34AC65A 		.ascii	"\343J\306Z\206\237@\345\367\030\033\017\334t\003\253"
+  85      869F40E5 
+  85      F7181B0F 
+  85      DC7403AB 
+  86 00a7 640019C4 		.ascii	"d\000\031\304\0102\000h\234\232{j^jQbIjJ|p~iQrjL@p\276"
+  86      08320068 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 6
+
+
+  86      9C9A7B6A 
+  86      5E6A5162 
+  86      496A4A7C 
+  87 00c5 B3694C40 		.ascii	"\263iL@\270o|Pjz\274Y|\200\257^2\003\000\334\373G\327"
+  87      B86F7C50 
+  87      6A7ABC59 
+  87      7C80AF5E 
+  87      320300DC 
+  88              		.text
+  89              		.section	.gnu.lto_PWM_Reg_6_Wakeup.ec5a4e18,"",%progbits
+  90 0000 789C6366 		.ascii	"x\234cf\300\004R@\274\030\2105\200\230\221\231\201\221"
+  90      C0045240 
+  90      BC188835 
+  90      80989199 
+  90      8191
+  91 0012 69C23906 		.ascii	"i\3029\006\206F\016&FF\020\203\201\221\241\236\211\261"
+  91      86460E26 
+  91      46461083 
+  91      8191A19E 
+  91      89B1
+  92 0024 9EF125D3 		.ascii	"\236\361%\323G&\306\011\007V\317\340V_\332\320\320\360"
+  92      4726C609 
+  92      0756CFE0 
+  92      565FDAD0 
+  92      D0F0
+  93 0036 E1D24E89 		.ascii	"\341\322N\211V\211\237L\014\014\237\231 \3060.gTg\000"
+  93      56899F4C 
+  93      0C0C9F99 
+  93      20C6302E 
+  93      67546700 
+  94 004a AAF9D8F2 		.ascii	"\252\371\330\362\367:7[\013P\215\000D\216q\005#\033"
+  94      F73A375B 
+  94      0B508D00 
+  94      448E7105 
+  94      231B
+  95 005c 23905E2F 		.ascii	"#\220^/t\240\341\377\377\315\317'v\230\001\255ax\002"
+  95      74A0E1FF 
+  95      FFCDCF27 
+  95      769801AD 
+  95      617802
+  96 006f 940359F0 		.ascii	"\224\003Y\360\224\211\011D3\337al>0\3778\023H5\310\230"
+  96      94890944 
+  96      33DF616C 
+  96      3E30FF38 
+  96      134835C8 
+  97 0084 7997FBD6 		.ascii	"y\227\373\3261\325\376n\350h\340\370\311\304\370\231"
+  97      31D5FE6E 
+  97      E868E0F8 
+  97      C9C4F899 
+  98 0094 096802E3 		.ascii	"\011h\002\343J\306Z\206\237@\345\367\030\033\017lt\007"
+  98      4AC65A86 
+  98      9F40E5F7 
+  98      181B0F6C 
+  98      7407
+  99 00a6 AB640019 		.ascii	"\253d\000\031\304\0102\000h\234\232{j^jQbIjJ|p~iQrj"
+  99      C4083200 
+  99      689C9A7B 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 7
+
+
+  99      6A5E6A51 
+  99      62496A4A 
+ 100 00c1 4C4070BE 		.ascii	"L@p\276\263iL@\270o|Pjz\274Y|\200\257^2\003\000\376"
+ 100      B3694C40 
+ 100      B86F7C50 
+ 100      6A7ABC59 
+ 100      7C80AF5E 
+ 101 00d9 5347DA   		.ascii	"SG\332"
+ 102              		.text
+ 103              		.section	.gnu.lto_.symbol_nodes.ec5a4e18,"",%progbits
+ 104 0000 789C5588 		.ascii	"x\234U\210\321\011\2000\024\304\362\356*\270\242\323"
+ 104      D1098030 
+ 104      14C4F2EE 
+ 104      2AB8A2D3 
+ 105 0010 DC0A4E20 		.ascii	"\334\012N \305\201\234\301I\212 ~\324\374\204\304\300"
+ 105      C5819CC1 
+ 105      498A207E 
+ 105      D4FC84C4 
+ 105      C0
+ 106 0021 C6872AB0 		.ascii	"\306\207*\260_\220p\364\225\005\272b)5o9\372u\213\347"
+ 106      5F9070F4 
+ 106      9505BA62 
+ 106      29356F39 
+ 106      FA758BE7 
+ 107 0035 B6E1BC47 		.ascii	"\266\341\274G\271\3515\017\341m\0273"
+ 107      B9E9350F 
+ 107      E16D1733 
+ 108              		.text
+ 109              		.section	.gnu.lto_.refs.ec5a4e18,"",%progbits
+ 110 0000 789C6366 		.ascii	"x\234cf``\340f\200\000F\006FF&F& \311\000\000\001l\000"
+ 110      6060E066 
+ 110      80004606 
+ 110      46462646 
+ 110      2620C900 
+ 111 0018 19       		.ascii	"\031"
+ 112              		.text
+ 113              		.section	.gnu.lto_.decls.ec5a4e18,"",%progbits
+ 114 0000 789C8553 		.ascii	"x\234\205S_HSQ\030?\337=s\316\271L04|\262\204Q!\021"
+ 114      5F485351 
+ 114      183FDF3D 
+ 114      73CEB94C 
+ 114      30347CB2 
+ 115 0018 41D25BD6 		.ascii	"A\322[\326\210\240(\206Kz\250\030\266n\026\231\2635"
+ 115      88A02886 
+ 115      4B7AA818 
+ 115      B66E1699 
+ 115      B335
+ 116 002a 837A8893 		.ascii	"\203z\210\223Z\232E\224\375\223\005\265P\252\331\232"
+ 116      5A9A4594 
+ 116      FD9305B5 
+ 116      50AAD99A 
+ 117 003a 6B69B666 		.ascii	"ki\266fs\366\317YX\017\211e\017aA\021\365\320\262\010"
+ 117      73F6CF59 
+ 117      580F8965 
+ 117      0F614111 
+ 117      F5D0B208 
+ 118 004e 836A7DE7 		.ascii	"\203j}\347\354\256;-\353\300w\357\375\356\371\375~\337"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 8
+
+
+ 118      ECAE3B2D 
+ 118      EBC077EF 
+ 118      FDEEF9FD 
+ 118      7EDF
+ 119 0060 EF7EDF3D 		.ascii	"\357~\337=\224\020\262\000\010\211\343\332\253!D\203"
+ 119      9410B200 
+ 119      0889E3DA 
+ 119      AB214483 
+ 120 0070 CF69F8CE 		.ascii	"\317i\370\316L\324\205\257\211\027\303\207\341\307\010"
+ 120      4CD485AF 
+ 120      8917C387 
+ 120      E1C708
+ 121 007f 60208CF4 		.ascii	"` \214\364\221\211\213c\322\025n.F\024\343\036\306\000"
+ 121      91898B63 
+ 121      D2156E2E 
+ 121      4614E31E 
+ 121      C600
+ 122 0091 4618A35B 		.ascii	"F\030\243[\341\205\224\273w\012\035\337$\235T~R3U\307"
+ 122      E18594BB 
+ 122      770A1DDF 
+ 122      249D547E 
+ 122      523355C7 
+ 123 00a5 37850EF7 		.ascii	"7\205\016\367J\025\235\207\030\036\345\275\244\354y"
+ 123      4A159D87 
+ 123      181EE5BD 
+ 123      A4EC79
+ 124 00b4 C99F2BF0 		.ascii	"\311\237+\360\017N@\2515y}\222\340\321\353\361\317\206"
+ 124      0F4E40A9 
+ 124      35797D92 
+ 124      E0D1EBF1 
+ 124      CF86
+ 125 00c6 771264E9 		.ascii	"w\022d\351\263y\352z\366\346\013\305\324\240\227xz\343"
+ 125      B379EA7A 
+ 125      F6E60BC5 
+ 125      D4A09778 
+ 125      7AE3
+ 126 00d8 DBD70E6D 		.ascii	"\333\327\016m\336)\306W\035\313\226\300\234\013\227"
+ 126      DE29C657 
+ 126      1DCB96C0 
+ 126      9C0B97
+ 127 00e7 201F2E43 		.ascii	" \037.C>:\367@\036^\327k\022J\365\303\343\361L*\001"
+ 127      3E3AF740 
+ 127      1E5ED76B 
+ 127      124AF5C3 
+ 127      E3F14C2A 
+ 128 00fc 7F6E6D79 		.ascii	"\177nmy5\244/jGV#\213\214Kj\271p\363\207\027\031\005"
+ 128      35A42F6A 
+ 128      4756238B 
+ 128      8C4B6AB9 
+ 128      70F38717 
+ 129 0112 E7D8A83F 		.ascii	"\347\330\250?\026\366\217\030\330e\026\211\307\227\010"
+ 129      16F68F18 
+ 129      D8651689 
+ 129      C79708
+ 130 0121 2968070A 		.ascii	")h\007\012W\240\210#\371\263\240\200\027\012\220v\350"
+ 130      57A08823 
+ 130      F9B3A080 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 9
+
+
+ 130      170A9076 
+ 130      E8
+ 131 0132 E883B14C 		.ascii	"\350\203\261L\272\\h\337zqa,MH\270\177\004XI-\373\036"
+ 131      BA5C68DF 
+ 131      7A71612C 
+ 131      4D48B87F 
+ 131      0458492D 
+ 132 0148 8F532170 		.ascii	"\217S!p5E\340jR\300'\004\336\\:\341\325\321\215B\340"
+ 132      3545E06A 
+ 132      52C02704 
+ 132      DE5C3AE1 
+ 132      D5D18D42 
+ 133 015d 7C20D249 		.ascii	"| \322IQ\300\355w{Z\265\011\007\202\337\221\302\357"
+ 133      51C0ED77 
+ 133      7B5AB509 
+ 133      0782DF91 
+ 133      C2EF
+ 134 016f 48F2FD82 		.ascii	"H\362\375\202\037z>\330\242\241;\004\177\250\341\255"
+ 134      1F7A3ED8 
+ 134      A2A13B04 
+ 134      7FA8E1AD 
+ 135 017f 2B33C11F 		.ascii	"+3\301\037\234\300\277\226\302\277\226\344\007\004\277"
+ 135      9CC0BF96 
+ 135      C2BF96E4 
+ 135      0704BF
+ 136 018e BEF57A7F 		.ascii	"\276\365z\177\032\335'\370\303\275\015\015:z\032D\262"
+ 136      1ADD27F8 
+ 136      C3BD0D0D 
+ 136      3A7A1A44 
+ 136      B2
+ 137 019f FF62E848 		.ascii	"\377b\350H:6<W/\372s\364\221\253\217\2124\316\267\245"
+ 137      3A363C57 
+ 137      2FFA73F4 
+ 137      91AB8F8A 
+ 137      34CEB7A5 
+ 138 01b3 919193DF 		.ascii	"\221\221\223\337(\350\215\215\214\325\262X3\2433\011"
+ 138      28E88D8D 
+ 138      8CD5B258 
+ 138      33A33309 
+ 139 01c3 14E5C3DC 		.ascii	"\024\345\303\334|\0027\301\2100Q\020\272p&7p&m\330\361"
+ 139      7C0237C1 
+ 139      88305110 
+ 139      BA702637 
+ 139      70266DD8 
+ 140 01d8 58CF81F0 		.ascii	"X\317\201\360\312:V\002\335\240\207\316\337\226D\005"
+ 140      CA3A5602 
+ 140      DDA087CE 
+ 140      DF964405 
+ 141 01e8 650AAEF8 		.ascii	"e\012\256\370pg\026\015\013\007\364\344\317\357\376"
+ 141      7067160D 
+ 141      0B07F4E4 
+ 141      CFEFFE
+ 142 01f7 2CC8996D 		.ascii	",\310\231m<\316\247\034\253e%;\2235\010\334\202\034"
+ 142      3CCEA71C 
+ 142      AB65253B 
+ 142      933508DC 
+ 142      821C
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 10
+
+
+ 143 0209 CE871E2C 		.ascii	"\316\207\036,\026\202\331B\300\215^bg\373\237L;\303"
+ 143      1682D942 
+ 143      C08D5E62 
+ 143      67FB9F4C 
+ 143      3BC3
+ 144 021b 462320CA 		.ascii	"F# \312\004\261\014\207*\326\346p\352<\274\010C\243"
+ 144      04B10C87 
+ 144      2AD6E670 
+ 144      EA3CBC08 
+ 144      43A3
+ 145 022d 3D0B757C 		.ascii	"=\013u|\227$\233\223\364!\265\207<]\000\306\034\201"
+ 145      97249B93 
+ 145      F421B587 
+ 145      3C5D00C6 
+ 145      1C81
+ 146 023f 8A6A01C2 		.ascii	"\212j\001\302\250q]\265\314Ib\375i\015n\243\243\277"
+ 146      A8715DB5 
+ 146      CC4962FD 
+ 146      690D6EA3 
+ 146      A3BF
+ 147 0251 B9C3CF6B 		.ascii	"\271\303\317k\276;\376QC?&\032\374\351\370\253 \024"
+ 147      BE3BFE51 
+ 147      433F261A 
+ 147      FCE9F8AB 
+ 147      2014
+ 148 0263 77B246B7 		.ascii	"w\262F\267N\310#\216\267\213o\275\357\366\004\365\205"
+ 148      4EC8238E 
+ 148      B78B6FBD 
+ 148      EFF604F5 
+ 148      85
+ 149 0274 171873C7 		.ascii	"\027\030s\307\302/\333$\374\034\254\302\207)\200\275"
+ 149      C22FDB24 
+ 149      FC1CACC2 
+ 149      872980BD 
+ 150 0284 091FBF5B 		.ascii	"\011\037\277[\321\313'\012\021(&\320\007\205Hgg\016"
+ 150      D1CB270A 
+ 150      112826D0 
+ 150      07854867 
+ 150      670E
+ 151 0296 B7E9284B 		.ascii	"\267\351(K\374\361]_\233\202\323\364\215\374\230\374"
+ 151      FCF15D5F 
+ 151      9B82D3F4 
+ 151      8DFC98FC 
+ 152 02a6 7F4CF8E9 		.ascii	"\177L\370\351C\217\233\2063\022\203\235\314\270?\305"
+ 152      438F9B86 
+ 152      3312839D 
+ 152      CCB83FC5 
+ 153 02b6 60FD3DF7 		.ascii	"`\375=\367\307(c\032\270\207\035\277\243v\351.\250\223"
+ 153      C728631A 
+ 153      B8871DBF 
+ 153      A376E92E 
+ 153      A893
+ 154 02c8 0DFABE0C 		.ascii	"\015\372\276\014f\212\343\\ \316Js\264E+\216\263\206"
+ 154      668AE35C 
+ 154      20CE4A73 
+ 154      B4452B8E 
+ 154      B386
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 11
+
+
+ 155 02da A7875EBB 		.ascii	"\247\207^\273\006\015\206&\376/\035\253c\031\321,!\365"
+ 155      060D8626 
+ 155      FE2F1DAB 
+ 155      6319D12C 
+ 155      21F5
+ 156 02ec 006BF48B 		.ascii	"\000k\364\213\003\035\005\203\370g\361\216\350\233O"
+ 156      031D0583 
+ 156      F867F18E 
+ 156      E89B4F
+ 157 02fb 0FD6C304 		.ascii	"\017\326\303\0044o\213\212\036P\320\003\002}\245\343"
+ 157      346F8B8A 
+ 157      1E50D003 
+ 157      027DA5E3 
+ 158 030b 40C3F409 		.ascii	"@\303\364\011h~$T\364C0$\015\343#\231a^\267\332Z*WX"
+ 158      687E2454 
+ 158      F4433024 
+ 158      0DE32399 
+ 158      615EB7DA 
+ 159 0323 8BAD96F2 		.ascii	"\213\255\226\362\335\262\311^\265e[\205v\305\232\262"
+ 159      DDB2C95E 
+ 159      B5655B85 
+ 159      76C59AB2 
+ 160 0333 021331AE 		.ascii	"\002\0231\256\220\253dG\271S\336l\265\330k\0346y\203"
+ 160      90AB6447 
+ 160      B953DE6C 
+ 160      B5D86B1C 
+ 160      367983
+ 161 0346 D962372D 		.ascii	"\331b7-\332\240R\314\253\347\333H\236\232\227\312\273"
+ 161      DAA052CC 
+ 161      ABE7DB48 
+ 161      9E9A97CA 
+ 161      BB
+ 162 0357 9C7687A2 		.ascii	"\234v\207\2422=E\272R\226\253\263\325|]\371v\271\246"
+ 162      323D45BA 
+ 162      5296ABB3 
+ 162      D57C5DF9 
+ 162      76B9A6
+ 163 036a 3A85B86C 		.ascii	":\205\270l\251iU\231\331jY[ZfZ\233V\263\255\312\271"
+ 163      A9695599 
+ 163      D96A595B 
+ 163      5A665A9B 
+ 163      56B3ADCA 
+ 164 037f 78D614D5 		.ascii	"x\326\024\325m{\234{\252\345]\363\267\022\203\315^\345"
+ 164      6D7B9C7B 
+ 164      AAE55DF3 
+ 164      B71283CD 
+ 164      5EE5
+ 165 0391 74D82B2D 		.ascii	"t\330+-ND\025\376\317,\022R\034l*\267m\257\251\3268"
+ 165      4E4415FE 
+ 165      CF2C1252 
+ 165      1C6C2AB7 
+ 165      6DAFA9D6 
+ 166 03a6 E48AC5BF 		.ascii	"\344\212\305\277\000*Z\311\313"
+ 166      002A5AC9 
+ 166      CB
+ 167              		.text
+ 168              		.section	.gnu.lto_.symtab.ec5a4e18,"",%progbits
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 12
+
+
+ 169 0000 50574D5F 		.ascii	"PWM_Reg_6_SaveConfig\000\000\000\000\000\000\000\000"
+ 169      5265675F 
+ 169      365F5361 
+ 169      7665436F 
+ 169      6E666967 
+ 170 001c 00000000 		.ascii	"\000\000\000\000\254\000\000\000PWM_Reg_6_RestoreCo"
+ 170      AC000000 
+ 170      50574D5F 
+ 170      5265675F 
+ 170      365F5265 
+ 171 0037 6E666967 		.ascii	"nfig\000\000\000\000\000\000\000\000\000\000\000\000"
+ 171      00000000 
+ 171      00000000 
+ 171      00000000 
+ 172 0047 AE000000 		.ascii	"\256\000\000\000PWM_Reg_6_Sleep\000\000\000\000\000"
+ 172      50574D5F 
+ 172      5265675F 
+ 172      365F536C 
+ 172      65657000 
+ 173 005f 00000000 		.ascii	"\000\000\000\000\000\000\000\260\000\000\000PWM_Reg"
+ 173      000000B0 
+ 173      00000050 
+ 173      574D5F52 
+ 173      6567
+ 174 0071 5F365F57 		.ascii	"_6_Wakeup\000\000\000\000\000\000\000\000\000\000\000"
+ 174      616B6575 
+ 174      70000000 
+ 174      00000000 
+ 174      00000000 
+ 175 0085 00B20000 		.ascii	"\000\262\000\000\000"
+ 175      00
+ 176              		.text
+ 177              		.section	.gnu.lto_.opts,"",%progbits
+ 178 0000 272D666E 		.ascii	"'-fno-trapv' '-mcpu=cortex-m3' '-mthumb' '-g' '-Os'"
+ 178      6F2D7472 
+ 178      61707627 
+ 178      20272D6D 
+ 178      6370753D 
+ 179 0033 20272D66 		.ascii	" '-ffunction-sections' '-finline-functions' '-flto'"
+ 179      66756E63 
+ 179      74696F6E 
+ 179      2D736563 
+ 179      74696F6E 
+ 180 0066 20272D66 		.ascii	" '-ffat-lto-objects'\000"
+ 180      6661742D 
+ 180      6C746F2D 
+ 180      6F626A65 
+ 180      63747327 
+ 181              		.text
+ 182              		.cfi_sections	.debug_frame
+ 183              		.section	.text.PWM_Reg_6_SaveConfig,"ax",%progbits
+ 184              		.align	1
+ 185              		.global	PWM_Reg_6_SaveConfig
+ 186              		.thumb
+ 187              		.thumb_func
+ 188              		.type	PWM_Reg_6_SaveConfig, %function
+ 189              	PWM_Reg_6_SaveConfig:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 13
+
+
+ 190              	.LFB0:
+ 191              		.file 1 "Generated_Source\\PSoC5\\PWM_Reg_6_PM.c"
+   1:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * File Name: PWM_Reg_6_PM.c
+   3:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Version 1.80
+   4:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+   5:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Description:
+   6:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *  This file contains the setup, control, and status commands to support 
+   7:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *  the component operation in the low power mode. 
+   8:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+   9:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Note:
+  10:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+  11:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Copyright 2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** 
+  18:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** #include "PWM_Reg_6.h"
+  19:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** 
+  20:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** /* Check for removal by optimization */
+  21:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** #if !defined(PWM_Reg_6_Sync_ctrl_reg__REMOVED)
+  22:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** 
+  23:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** static PWM_Reg_6_BACKUP_STRUCT  PWM_Reg_6_backup = {0u};
+  24:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** 
+  25:Generated_Source\PSoC5/PWM_Reg_6_PM.c ****     
+  26:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** /*******************************************************************************
+  27:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Function Name: PWM_Reg_6_SaveConfig
+  28:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** ********************************************************************************
+  29:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+  30:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Summary:
+  31:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *  Saves the control register value.
+  32:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+  33:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Parameters:
+  34:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *  None
+  35:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+  36:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Return:
+  37:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *  None
+  38:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+  39:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *******************************************************************************/
+  40:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** void PWM_Reg_6_SaveConfig(void) 
+  41:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** {
+ 192              		.loc 1 41 0
+ 193              		.cfi_startproc
+ 194              		@ args = 0, pretend = 0, frame = 0
+ 195              		@ frame_needed = 0, uses_anonymous_args = 0
+ 196              		@ link register save eliminated.
+  42:Generated_Source\PSoC5/PWM_Reg_6_PM.c ****     PWM_Reg_6_backup.controlState = PWM_Reg_6_Control;
+ 197              		.loc 1 42 0
+ 198 0000 024B     		ldr	r3, .L2
+ 199 0002 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 200 0004 024B     		ldr	r3, .L2+4
+ 201 0006 1A70     		strb	r2, [r3]
+ 202 0008 7047     		bx	lr
+ 203              	.L3:
+ 204 000a 00BF     		.align	2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 14
+
+
+ 205              	.L2:
+ 206 000c 79640040 		.word	1073767545
+ 207 0010 00000000 		.word	.LANCHOR0
+ 208              		.cfi_endproc
+ 209              	.LFE0:
+ 210              		.size	PWM_Reg_6_SaveConfig, .-PWM_Reg_6_SaveConfig
+ 211              		.section	.text.PWM_Reg_6_RestoreConfig,"ax",%progbits
+ 212              		.align	1
+ 213              		.global	PWM_Reg_6_RestoreConfig
+ 214              		.thumb
+ 215              		.thumb_func
+ 216              		.type	PWM_Reg_6_RestoreConfig, %function
+ 217              	PWM_Reg_6_RestoreConfig:
+ 218              	.LFB1:
+  43:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** }
+  44:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** 
+  45:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** 
+  46:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** /*******************************************************************************
+  47:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Function Name: PWM_Reg_6_RestoreConfig
+  48:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** ********************************************************************************
+  49:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+  50:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Summary:
+  51:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *  Restores the control register value.
+  52:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+  53:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Parameters:
+  54:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *  None
+  55:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+  56:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Return:
+  57:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *  None
+  58:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+  59:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+  60:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *******************************************************************************/
+  61:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** void PWM_Reg_6_RestoreConfig(void) 
+  62:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** {
+ 219              		.loc 1 62 0
+ 220              		.cfi_startproc
+ 221              		@ args = 0, pretend = 0, frame = 0
+ 222              		@ frame_needed = 0, uses_anonymous_args = 0
+ 223              		@ link register save eliminated.
+  63:Generated_Source\PSoC5/PWM_Reg_6_PM.c ****      PWM_Reg_6_Control = PWM_Reg_6_backup.controlState;
+ 224              		.loc 1 63 0
+ 225 0000 024B     		ldr	r3, .L5
+ 226 0002 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 227 0004 024B     		ldr	r3, .L5+4
+ 228 0006 1A70     		strb	r2, [r3]
+ 229 0008 7047     		bx	lr
+ 230              	.L6:
+ 231 000a 00BF     		.align	2
+ 232              	.L5:
+ 233 000c 00000000 		.word	.LANCHOR0
+ 234 0010 79640040 		.word	1073767545
+ 235              		.cfi_endproc
+ 236              	.LFE1:
+ 237              		.size	PWM_Reg_6_RestoreConfig, .-PWM_Reg_6_RestoreConfig
+ 238              		.section	.text.PWM_Reg_6_Sleep,"ax",%progbits
+ 239              		.align	1
+ 240              		.global	PWM_Reg_6_Sleep
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 15
+
+
+ 241              		.thumb
+ 242              		.thumb_func
+ 243              		.type	PWM_Reg_6_Sleep, %function
+ 244              	PWM_Reg_6_Sleep:
+ 245              	.LFB2:
+  64:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** }
+  65:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** 
+  66:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** 
+  67:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** /*******************************************************************************
+  68:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Function Name: PWM_Reg_6_Sleep
+  69:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** ********************************************************************************
+  70:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+  71:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Summary:
+  72:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *  Prepares the component for entering the low power mode.
+  73:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+  74:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Parameters:
+  75:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *  None
+  76:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+  77:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Return:
+  78:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *  None
+  79:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+  80:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *******************************************************************************/
+  81:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** void PWM_Reg_6_Sleep(void) 
+  82:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** {
+ 246              		.loc 1 82 0
+ 247              		.cfi_startproc
+ 248              		@ args = 0, pretend = 0, frame = 0
+ 249              		@ frame_needed = 0, uses_anonymous_args = 0
+ 250              		@ link register save eliminated.
+  83:Generated_Source\PSoC5/PWM_Reg_6_PM.c ****     PWM_Reg_6_SaveConfig();
+ 251              		.loc 1 83 0
+ 252 0000 FFF7FEBF 		b	PWM_Reg_6_SaveConfig
+ 253              	.LVL0:
+ 254              		.cfi_endproc
+ 255              	.LFE2:
+ 256              		.size	PWM_Reg_6_Sleep, .-PWM_Reg_6_Sleep
+ 257              		.section	.text.PWM_Reg_6_Wakeup,"ax",%progbits
+ 258              		.align	1
+ 259              		.global	PWM_Reg_6_Wakeup
+ 260              		.thumb
+ 261              		.thumb_func
+ 262              		.type	PWM_Reg_6_Wakeup, %function
+ 263              	PWM_Reg_6_Wakeup:
+ 264              	.LFB3:
+  84:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** }
+  85:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** 
+  86:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** 
+  87:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** /*******************************************************************************
+  88:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Function Name: PWM_Reg_6_Wakeup
+  89:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** ********************************************************************************
+  90:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+  91:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Summary:
+  92:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *  Restores the component after waking up from the low power mode.
+  93:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+  94:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Parameters:
+  95:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *  None
+  96:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 16
+
+
+  97:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** * Return:
+  98:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *  None
+  99:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *
+ 100:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** *******************************************************************************/
+ 101:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** void PWM_Reg_6_Wakeup(void)  
+ 102:Generated_Source\PSoC5/PWM_Reg_6_PM.c **** {
+ 265              		.loc 1 102 0
+ 266              		.cfi_startproc
+ 267              		@ args = 0, pretend = 0, frame = 0
+ 268              		@ frame_needed = 0, uses_anonymous_args = 0
+ 269              		@ link register save eliminated.
+ 103:Generated_Source\PSoC5/PWM_Reg_6_PM.c ****     PWM_Reg_6_RestoreConfig();
+ 270              		.loc 1 103 0
+ 271 0000 FFF7FEBF 		b	PWM_Reg_6_RestoreConfig
+ 272              	.LVL1:
+ 273              		.cfi_endproc
+ 274              	.LFE3:
+ 275              		.size	PWM_Reg_6_Wakeup, .-PWM_Reg_6_Wakeup
+ 276              		.bss
+ 277              		.set	.LANCHOR0,. + 0
+ 278              		.type	PWM_Reg_6_backup, %object
+ 279              		.size	PWM_Reg_6_backup, 1
+ 280              	PWM_Reg_6_backup:
+ 281 0000 00       		.space	1
+ 282              		.text
+ 283              	.Letext0:
+ 284              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 285              		.file 3 "Generated_Source\\PSoC5\\PWM_Reg_6.h"
+ 286              		.section	.debug_info,"",%progbits
+ 287              	.Ldebug_info0:
+ 288 0000 2B010000 		.4byte	0x12b
+ 289 0004 0400     		.2byte	0x4
+ 290 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 291 000a 04       		.byte	0x4
+ 292 000b 01       		.uleb128 0x1
+ 293 000c 71000000 		.4byte	.LASF19
+ 294 0010 01       		.byte	0x1
+ 295 0011 26000000 		.4byte	.LASF20
+ 296 0015 56010000 		.4byte	.LASF21
+ 297 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 298 001d 00000000 		.4byte	0
+ 299 0021 00000000 		.4byte	.Ldebug_line0
+ 300 0025 02       		.uleb128 0x2
+ 301 0026 01       		.byte	0x1
+ 302 0027 06       		.byte	0x6
+ 303 0028 3F020000 		.4byte	.LASF0
+ 304 002c 02       		.uleb128 0x2
+ 305 002d 01       		.byte	0x1
+ 306 002e 08       		.byte	0x8
+ 307 002f 63000000 		.4byte	.LASF1
+ 308 0033 02       		.uleb128 0x2
+ 309 0034 02       		.byte	0x2
+ 310 0035 05       		.byte	0x5
+ 311 0036 26020000 		.4byte	.LASF2
+ 312 003a 02       		.uleb128 0x2
+ 313 003b 02       		.byte	0x2
+ 314 003c 07       		.byte	0x7
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 17
+
+
+ 315 003d 2F010000 		.4byte	.LASF3
+ 316 0041 02       		.uleb128 0x2
+ 317 0042 04       		.byte	0x4
+ 318 0043 05       		.byte	0x5
+ 319 0044 36020000 		.4byte	.LASF4
+ 320 0048 02       		.uleb128 0x2
+ 321 0049 04       		.byte	0x4
+ 322 004a 07       		.byte	0x7
+ 323 004b 1D010000 		.4byte	.LASF5
+ 324 004f 02       		.uleb128 0x2
+ 325 0050 08       		.byte	0x8
+ 326 0051 05       		.byte	0x5
+ 327 0052 FB010000 		.4byte	.LASF6
+ 328 0056 02       		.uleb128 0x2
+ 329 0057 08       		.byte	0x8
+ 330 0058 07       		.byte	0x7
+ 331 0059 E4010000 		.4byte	.LASF7
+ 332 005d 03       		.uleb128 0x3
+ 333 005e 04       		.byte	0x4
+ 334 005f 05       		.byte	0x5
+ 335 0060 696E7400 		.ascii	"int\000"
+ 336 0064 02       		.uleb128 0x2
+ 337 0065 04       		.byte	0x4
+ 338 0066 07       		.byte	0x7
+ 339 0067 AF010000 		.4byte	.LASF8
+ 340 006b 04       		.uleb128 0x4
+ 341 006c 30020000 		.4byte	.LASF12
+ 342 0070 02       		.byte	0x2
+ 343 0071 3801     		.2byte	0x138
+ 344 0073 2C000000 		.4byte	0x2c
+ 345 0077 02       		.uleb128 0x2
+ 346 0078 04       		.byte	0x4
+ 347 0079 04       		.byte	0x4
+ 348 007a 5D000000 		.4byte	.LASF9
+ 349 007e 02       		.uleb128 0x2
+ 350 007f 08       		.byte	0x8
+ 351 0080 04       		.byte	0x4
+ 352 0081 4F010000 		.4byte	.LASF10
+ 353 0085 02       		.uleb128 0x2
+ 354 0086 01       		.byte	0x1
+ 355 0087 08       		.byte	0x8
+ 356 0088 09020000 		.4byte	.LASF11
+ 357 008c 04       		.uleb128 0x4
+ 358 008d 18010000 		.4byte	.LASF13
+ 359 0091 02       		.byte	0x2
+ 360 0092 E201     		.2byte	0x1e2
+ 361 0094 98000000 		.4byte	0x98
+ 362 0098 05       		.uleb128 0x5
+ 363 0099 6B000000 		.4byte	0x6b
+ 364 009d 06       		.uleb128 0x6
+ 365 009e 01       		.byte	0x1
+ 366 009f 03       		.byte	0x3
+ 367 00a0 1C       		.byte	0x1c
+ 368 00a1 B2000000 		.4byte	0xb2
+ 369 00a5 07       		.uleb128 0x7
+ 370 00a6 42010000 		.4byte	.LASF22
+ 371 00aa 03       		.byte	0x3
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 18
+
+
+ 372 00ab 1E       		.byte	0x1e
+ 373 00ac 6B000000 		.4byte	0x6b
+ 374 00b0 00       		.byte	0
+ 375 00b1 00       		.byte	0
+ 376 00b2 08       		.uleb128 0x8
+ 377 00b3 BC010000 		.4byte	.LASF14
+ 378 00b7 03       		.byte	0x3
+ 379 00b8 20       		.byte	0x20
+ 380 00b9 9D000000 		.4byte	0x9d
+ 381 00bd 09       		.uleb128 0x9
+ 382 00be 00000000 		.4byte	.LASF15
+ 383 00c2 01       		.byte	0x1
+ 384 00c3 28       		.byte	0x28
+ 385 00c4 00000000 		.4byte	.LFB0
+ 386 00c8 14000000 		.4byte	.LFE0-.LFB0
+ 387 00cc 01       		.uleb128 0x1
+ 388 00cd 9C       		.byte	0x9c
+ 389 00ce 09       		.uleb128 0x9
+ 390 00cf 0E020000 		.4byte	.LASF16
+ 391 00d3 01       		.byte	0x1
+ 392 00d4 3D       		.byte	0x3d
+ 393 00d5 00000000 		.4byte	.LFB1
+ 394 00d9 14000000 		.4byte	.LFE1-.LFB1
+ 395 00dd 01       		.uleb128 0x1
+ 396 00de 9C       		.byte	0x9c
+ 397 00df 0A       		.uleb128 0xa
+ 398 00e0 D4010000 		.4byte	.LASF17
+ 399 00e4 01       		.byte	0x1
+ 400 00e5 51       		.byte	0x51
+ 401 00e6 00000000 		.4byte	.LFB2
+ 402 00ea 04000000 		.4byte	.LFE2-.LFB2
+ 403 00ee 01       		.uleb128 0x1
+ 404 00ef 9C       		.byte	0x9c
+ 405 00f0 FE000000 		.4byte	0xfe
+ 406 00f4 0B       		.uleb128 0xb
+ 407 00f5 04000000 		.4byte	.LVL0
+ 408 00f9 BD000000 		.4byte	0xbd
+ 409 00fd 00       		.byte	0
+ 410 00fe 0A       		.uleb128 0xa
+ 411 00ff 4C000000 		.4byte	.LASF18
+ 412 0103 01       		.byte	0x1
+ 413 0104 65       		.byte	0x65
+ 414 0105 00000000 		.4byte	.LFB3
+ 415 0109 04000000 		.4byte	.LFE3-.LFB3
+ 416 010d 01       		.uleb128 0x1
+ 417 010e 9C       		.byte	0x9c
+ 418 010f 1D010000 		.4byte	0x11d
+ 419 0113 0B       		.uleb128 0xb
+ 420 0114 04000000 		.4byte	.LVL1
+ 421 0118 CE000000 		.4byte	0xce
+ 422 011c 00       		.byte	0
+ 423 011d 0C       		.uleb128 0xc
+ 424 011e 15000000 		.4byte	.LASF23
+ 425 0122 01       		.byte	0x1
+ 426 0123 17       		.byte	0x17
+ 427 0124 B2000000 		.4byte	0xb2
+ 428 0128 05       		.uleb128 0x5
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 19
+
+
+ 429 0129 03       		.byte	0x3
+ 430 012a 00000000 		.4byte	PWM_Reg_6_backup
+ 431 012e 00       		.byte	0
+ 432              		.section	.debug_abbrev,"",%progbits
+ 433              	.Ldebug_abbrev0:
+ 434 0000 01       		.uleb128 0x1
+ 435 0001 11       		.uleb128 0x11
+ 436 0002 01       		.byte	0x1
+ 437 0003 25       		.uleb128 0x25
+ 438 0004 0E       		.uleb128 0xe
+ 439 0005 13       		.uleb128 0x13
+ 440 0006 0B       		.uleb128 0xb
+ 441 0007 03       		.uleb128 0x3
+ 442 0008 0E       		.uleb128 0xe
+ 443 0009 1B       		.uleb128 0x1b
+ 444 000a 0E       		.uleb128 0xe
+ 445 000b 55       		.uleb128 0x55
+ 446 000c 17       		.uleb128 0x17
+ 447 000d 11       		.uleb128 0x11
+ 448 000e 01       		.uleb128 0x1
+ 449 000f 10       		.uleb128 0x10
+ 450 0010 17       		.uleb128 0x17
+ 451 0011 00       		.byte	0
+ 452 0012 00       		.byte	0
+ 453 0013 02       		.uleb128 0x2
+ 454 0014 24       		.uleb128 0x24
+ 455 0015 00       		.byte	0
+ 456 0016 0B       		.uleb128 0xb
+ 457 0017 0B       		.uleb128 0xb
+ 458 0018 3E       		.uleb128 0x3e
+ 459 0019 0B       		.uleb128 0xb
+ 460 001a 03       		.uleb128 0x3
+ 461 001b 0E       		.uleb128 0xe
+ 462 001c 00       		.byte	0
+ 463 001d 00       		.byte	0
+ 464 001e 03       		.uleb128 0x3
+ 465 001f 24       		.uleb128 0x24
+ 466 0020 00       		.byte	0
+ 467 0021 0B       		.uleb128 0xb
+ 468 0022 0B       		.uleb128 0xb
+ 469 0023 3E       		.uleb128 0x3e
+ 470 0024 0B       		.uleb128 0xb
+ 471 0025 03       		.uleb128 0x3
+ 472 0026 08       		.uleb128 0x8
+ 473 0027 00       		.byte	0
+ 474 0028 00       		.byte	0
+ 475 0029 04       		.uleb128 0x4
+ 476 002a 16       		.uleb128 0x16
+ 477 002b 00       		.byte	0
+ 478 002c 03       		.uleb128 0x3
+ 479 002d 0E       		.uleb128 0xe
+ 480 002e 3A       		.uleb128 0x3a
+ 481 002f 0B       		.uleb128 0xb
+ 482 0030 3B       		.uleb128 0x3b
+ 483 0031 05       		.uleb128 0x5
+ 484 0032 49       		.uleb128 0x49
+ 485 0033 13       		.uleb128 0x13
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 20
+
+
+ 486 0034 00       		.byte	0
+ 487 0035 00       		.byte	0
+ 488 0036 05       		.uleb128 0x5
+ 489 0037 35       		.uleb128 0x35
+ 490 0038 00       		.byte	0
+ 491 0039 49       		.uleb128 0x49
+ 492 003a 13       		.uleb128 0x13
+ 493 003b 00       		.byte	0
+ 494 003c 00       		.byte	0
+ 495 003d 06       		.uleb128 0x6
+ 496 003e 13       		.uleb128 0x13
+ 497 003f 01       		.byte	0x1
+ 498 0040 0B       		.uleb128 0xb
+ 499 0041 0B       		.uleb128 0xb
+ 500 0042 3A       		.uleb128 0x3a
+ 501 0043 0B       		.uleb128 0xb
+ 502 0044 3B       		.uleb128 0x3b
+ 503 0045 0B       		.uleb128 0xb
+ 504 0046 01       		.uleb128 0x1
+ 505 0047 13       		.uleb128 0x13
+ 506 0048 00       		.byte	0
+ 507 0049 00       		.byte	0
+ 508 004a 07       		.uleb128 0x7
+ 509 004b 0D       		.uleb128 0xd
+ 510 004c 00       		.byte	0
+ 511 004d 03       		.uleb128 0x3
+ 512 004e 0E       		.uleb128 0xe
+ 513 004f 3A       		.uleb128 0x3a
+ 514 0050 0B       		.uleb128 0xb
+ 515 0051 3B       		.uleb128 0x3b
+ 516 0052 0B       		.uleb128 0xb
+ 517 0053 49       		.uleb128 0x49
+ 518 0054 13       		.uleb128 0x13
+ 519 0055 38       		.uleb128 0x38
+ 520 0056 0B       		.uleb128 0xb
+ 521 0057 00       		.byte	0
+ 522 0058 00       		.byte	0
+ 523 0059 08       		.uleb128 0x8
+ 524 005a 16       		.uleb128 0x16
+ 525 005b 00       		.byte	0
+ 526 005c 03       		.uleb128 0x3
+ 527 005d 0E       		.uleb128 0xe
+ 528 005e 3A       		.uleb128 0x3a
+ 529 005f 0B       		.uleb128 0xb
+ 530 0060 3B       		.uleb128 0x3b
+ 531 0061 0B       		.uleb128 0xb
+ 532 0062 49       		.uleb128 0x49
+ 533 0063 13       		.uleb128 0x13
+ 534 0064 00       		.byte	0
+ 535 0065 00       		.byte	0
+ 536 0066 09       		.uleb128 0x9
+ 537 0067 2E       		.uleb128 0x2e
+ 538 0068 00       		.byte	0
+ 539 0069 3F       		.uleb128 0x3f
+ 540 006a 19       		.uleb128 0x19
+ 541 006b 03       		.uleb128 0x3
+ 542 006c 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 21
+
+
+ 543 006d 3A       		.uleb128 0x3a
+ 544 006e 0B       		.uleb128 0xb
+ 545 006f 3B       		.uleb128 0x3b
+ 546 0070 0B       		.uleb128 0xb
+ 547 0071 27       		.uleb128 0x27
+ 548 0072 19       		.uleb128 0x19
+ 549 0073 11       		.uleb128 0x11
+ 550 0074 01       		.uleb128 0x1
+ 551 0075 12       		.uleb128 0x12
+ 552 0076 06       		.uleb128 0x6
+ 553 0077 40       		.uleb128 0x40
+ 554 0078 18       		.uleb128 0x18
+ 555 0079 9742     		.uleb128 0x2117
+ 556 007b 19       		.uleb128 0x19
+ 557 007c 00       		.byte	0
+ 558 007d 00       		.byte	0
+ 559 007e 0A       		.uleb128 0xa
+ 560 007f 2E       		.uleb128 0x2e
+ 561 0080 01       		.byte	0x1
+ 562 0081 3F       		.uleb128 0x3f
+ 563 0082 19       		.uleb128 0x19
+ 564 0083 03       		.uleb128 0x3
+ 565 0084 0E       		.uleb128 0xe
+ 566 0085 3A       		.uleb128 0x3a
+ 567 0086 0B       		.uleb128 0xb
+ 568 0087 3B       		.uleb128 0x3b
+ 569 0088 0B       		.uleb128 0xb
+ 570 0089 27       		.uleb128 0x27
+ 571 008a 19       		.uleb128 0x19
+ 572 008b 11       		.uleb128 0x11
+ 573 008c 01       		.uleb128 0x1
+ 574 008d 12       		.uleb128 0x12
+ 575 008e 06       		.uleb128 0x6
+ 576 008f 40       		.uleb128 0x40
+ 577 0090 18       		.uleb128 0x18
+ 578 0091 9742     		.uleb128 0x2117
+ 579 0093 19       		.uleb128 0x19
+ 580 0094 01       		.uleb128 0x1
+ 581 0095 13       		.uleb128 0x13
+ 582 0096 00       		.byte	0
+ 583 0097 00       		.byte	0
+ 584 0098 0B       		.uleb128 0xb
+ 585 0099 898201   		.uleb128 0x4109
+ 586 009c 00       		.byte	0
+ 587 009d 11       		.uleb128 0x11
+ 588 009e 01       		.uleb128 0x1
+ 589 009f 9542     		.uleb128 0x2115
+ 590 00a1 19       		.uleb128 0x19
+ 591 00a2 31       		.uleb128 0x31
+ 592 00a3 13       		.uleb128 0x13
+ 593 00a4 00       		.byte	0
+ 594 00a5 00       		.byte	0
+ 595 00a6 0C       		.uleb128 0xc
+ 596 00a7 34       		.uleb128 0x34
+ 597 00a8 00       		.byte	0
+ 598 00a9 03       		.uleb128 0x3
+ 599 00aa 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 22
+
+
+ 600 00ab 3A       		.uleb128 0x3a
+ 601 00ac 0B       		.uleb128 0xb
+ 602 00ad 3B       		.uleb128 0x3b
+ 603 00ae 0B       		.uleb128 0xb
+ 604 00af 49       		.uleb128 0x49
+ 605 00b0 13       		.uleb128 0x13
+ 606 00b1 02       		.uleb128 0x2
+ 607 00b2 18       		.uleb128 0x18
+ 608 00b3 00       		.byte	0
+ 609 00b4 00       		.byte	0
+ 610 00b5 00       		.byte	0
+ 611              		.section	.debug_aranges,"",%progbits
+ 612 0000 34000000 		.4byte	0x34
+ 613 0004 0200     		.2byte	0x2
+ 614 0006 00000000 		.4byte	.Ldebug_info0
+ 615 000a 04       		.byte	0x4
+ 616 000b 00       		.byte	0
+ 617 000c 0000     		.2byte	0
+ 618 000e 0000     		.2byte	0
+ 619 0010 00000000 		.4byte	.LFB0
+ 620 0014 14000000 		.4byte	.LFE0-.LFB0
+ 621 0018 00000000 		.4byte	.LFB1
+ 622 001c 14000000 		.4byte	.LFE1-.LFB1
+ 623 0020 00000000 		.4byte	.LFB2
+ 624 0024 04000000 		.4byte	.LFE2-.LFB2
+ 625 0028 00000000 		.4byte	.LFB3
+ 626 002c 04000000 		.4byte	.LFE3-.LFB3
+ 627 0030 00000000 		.4byte	0
+ 628 0034 00000000 		.4byte	0
+ 629              		.section	.debug_ranges,"",%progbits
+ 630              	.Ldebug_ranges0:
+ 631 0000 00000000 		.4byte	.LFB0
+ 632 0004 14000000 		.4byte	.LFE0
+ 633 0008 00000000 		.4byte	.LFB1
+ 634 000c 14000000 		.4byte	.LFE1
+ 635 0010 00000000 		.4byte	.LFB2
+ 636 0014 04000000 		.4byte	.LFE2
+ 637 0018 00000000 		.4byte	.LFB3
+ 638 001c 04000000 		.4byte	.LFE3
+ 639 0020 00000000 		.4byte	0
+ 640 0024 00000000 		.4byte	0
+ 641              		.section	.debug_line,"",%progbits
+ 642              	.Ldebug_line0:
+ 643 0000 A0000000 		.section	.debug_str,"MS",%progbits,1
+ 643      02005800 
+ 643      00000201 
+ 643      FB0E0D00 
+ 643      01010101 
+ 644              	.LASF15:
+ 645 0000 50574D5F 		.ascii	"PWM_Reg_6_SaveConfig\000"
+ 645      5265675F 
+ 645      365F5361 
+ 645      7665436F 
+ 645      6E666967 
+ 646              	.LASF23:
+ 647 0015 50574D5F 		.ascii	"PWM_Reg_6_backup\000"
+ 647      5265675F 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 23
+
+
+ 647      365F6261 
+ 647      636B7570 
+ 647      00
+ 648              	.LASF20:
+ 649 0026 47656E65 		.ascii	"Generated_Source\\PSoC5\\PWM_Reg_6_PM.c\000"
+ 649      72617465 
+ 649      645F536F 
+ 649      75726365 
+ 649      5C50536F 
+ 650              	.LASF18:
+ 651 004c 50574D5F 		.ascii	"PWM_Reg_6_Wakeup\000"
+ 651      5265675F 
+ 651      365F5761 
+ 651      6B657570 
+ 651      00
+ 652              	.LASF9:
+ 653 005d 666C6F61 		.ascii	"float\000"
+ 653      7400
+ 654              	.LASF1:
+ 655 0063 756E7369 		.ascii	"unsigned char\000"
+ 655      676E6564 
+ 655      20636861 
+ 655      7200
+ 656              	.LASF19:
+ 657 0071 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 657      4320342E 
+ 657      392E3320 
+ 657      32303135 
+ 657      30333033 
+ 658 00a4 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 658      20726576 
+ 658      6973696F 
+ 658      6E203232 
+ 658      31323230 
+ 659 00d7 73202D66 		.ascii	"s -ffunction-sections -finline-functions -flto -ffa"
+ 659      66756E63 
+ 659      74696F6E 
+ 659      2D736563 
+ 659      74696F6E 
+ 660 010a 742D6C74 		.ascii	"t-lto-objects\000"
+ 660      6F2D6F62 
+ 660      6A656374 
+ 660      7300
+ 661              	.LASF13:
+ 662 0118 72656738 		.ascii	"reg8\000"
+ 662      00
+ 663              	.LASF5:
+ 664 011d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 664      20756E73 
+ 664      69676E65 
+ 664      6420696E 
+ 664      7400
+ 665              	.LASF3:
+ 666 012f 73686F72 		.ascii	"short unsigned int\000"
+ 666      7420756E 
+ 666      7369676E 
+ 666      65642069 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 24
+
+
+ 666      6E7400
+ 667              	.LASF22:
+ 668 0142 636F6E74 		.ascii	"controlState\000"
+ 668      726F6C53 
+ 668      74617465 
+ 668      00
+ 669              	.LASF10:
+ 670 014f 646F7562 		.ascii	"double\000"
+ 670      6C6500
+ 671              	.LASF21:
+ 672 0156 433A5C55 		.ascii	"C:\\Users\\Bruger\\Desktop\\CODE\\PSOC5\\CY8CKIT-59"
+ 672      73657273 
+ 672      5C427275 
+ 672      6765725C 
+ 672      4465736B 
+ 673 0183 2D417264 		.ascii	"-Arduino\\CY8CKIT59_Ardudino-Speeduino.cydsn\000"
+ 673      75696E6F 
+ 673      5C435938 
+ 673      434B4954 
+ 673      35395F41 
+ 674              	.LASF8:
+ 675 01af 756E7369 		.ascii	"unsigned int\000"
+ 675      676E6564 
+ 675      20696E74 
+ 675      00
+ 676              	.LASF14:
+ 677 01bc 50574D5F 		.ascii	"PWM_Reg_6_BACKUP_STRUCT\000"
+ 677      5265675F 
+ 677      365F4241 
+ 677      434B5550 
+ 677      5F535452 
+ 678              	.LASF17:
+ 679 01d4 50574D5F 		.ascii	"PWM_Reg_6_Sleep\000"
+ 679      5265675F 
+ 679      365F536C 
+ 679      65657000 
+ 680              	.LASF7:
+ 681 01e4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 681      206C6F6E 
+ 681      6720756E 
+ 681      7369676E 
+ 681      65642069 
+ 682              	.LASF6:
+ 683 01fb 6C6F6E67 		.ascii	"long long int\000"
+ 683      206C6F6E 
+ 683      6720696E 
+ 683      7400
+ 684              	.LASF11:
+ 685 0209 63686172 		.ascii	"char\000"
+ 685      00
+ 686              	.LASF16:
+ 687 020e 50574D5F 		.ascii	"PWM_Reg_6_RestoreConfig\000"
+ 687      5265675F 
+ 687      365F5265 
+ 687      73746F72 
+ 687      65436F6E 
+ 688              	.LASF2:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cclgth00.s 			page 25
+
+
+ 689 0226 73686F72 		.ascii	"short int\000"
+ 689      7420696E 
+ 689      7400
+ 690              	.LASF12:
+ 691 0230 75696E74 		.ascii	"uint8\000"
+ 691      3800
+ 692              	.LASF4:
+ 693 0236 6C6F6E67 		.ascii	"long int\000"
+ 693      20696E74 
+ 693      00
+ 694              	.LASF0:
+ 695 023f 7369676E 		.ascii	"signed char\000"
+ 695      65642063 
+ 695      68617200 
+ 696              		.comm	__gnu_lto_v1,1,1
+ 697              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

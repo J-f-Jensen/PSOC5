@@ -1,0 +1,637 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccVFTk88.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"Arduino_Analog_In.cpp"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text._Z15initAnalogInputv,"ax",%progbits
+  19              		.align	2
+  20              		.global	_Z15initAnalogInputv
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	_Z15initAnalogInputv, %function
+  24              	_Z15initAnalogInputv:
+  25              		.fnstart
+  26              	.LFB63:
+  27              		.file 1 "core\\Arduino_Analog_In.cpp"
+   1:core/Arduino_Analog_In.cpp **** /* ========================================
+   2:core/Arduino_Analog_In.cpp ****  *
+   3:core/Arduino_Analog_In.cpp ****  * Copyright YOUR COMPANY, THE YEAR
+   4:core/Arduino_Analog_In.cpp ****  * All Rights Reserved
+   5:core/Arduino_Analog_In.cpp ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:core/Arduino_Analog_In.cpp ****  *
+   7:core/Arduino_Analog_In.cpp ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:core/Arduino_Analog_In.cpp ****  * WHICH IS THE PROPERTY OF your company.
+   9:core/Arduino_Analog_In.cpp ****  *
+  10:core/Arduino_Analog_In.cpp ****  * ========================================
+  11:core/Arduino_Analog_In.cpp **** */
+  12:core/Arduino_Analog_In.cpp **** extern "C" {
+  13:core/Arduino_Analog_In.cpp **** #include <project.h>
+  14:core/Arduino_Analog_In.cpp **** }
+  15:core/Arduino_Analog_In.cpp **** 
+  16:core/Arduino_Analog_In.cpp **** #include <Arduino_Analog_In.h>
+  17:core/Arduino_Analog_In.cpp **** 
+  18:core/Arduino_Analog_In.cpp **** void initAnalogInput()
+  19:core/Arduino_Analog_In.cpp **** {
+  28              		.loc 1 19 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              		.save {r7, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 7, -8
+  36              		.cfi_offset 14, -4
+  37              		.setfp r7, sp, #0
+  38 0002 00AF     		add	r7, sp, #0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccVFTk88.s 			page 2
+
+
+  39              		.cfi_def_cfa_register 7
+  20:core/Arduino_Analog_In.cpp ****     ADC_Mux_Start();
+  40              		.loc 1 20 0
+  41 0004 FFF7FEFF 		bl	ADC_Mux_Start
+  21:core/Arduino_Analog_In.cpp ****     ADC_Start();
+  42              		.loc 1 21 0
+  43 0008 FFF7FEFF 		bl	ADC_Start
+  22:core/Arduino_Analog_In.cpp **** }
+  44              		.loc 1 22 0
+  45 000c 80BD     		pop	{r7, pc}
+  46              		.cfi_endproc
+  47              	.LFE63:
+  48              		.fnend
+  49              		.size	_Z15initAnalogInputv, .-_Z15initAnalogInputv
+  50 000e 00BF     		.section	.text._Z10analogReadh,"ax",%progbits
+  51              		.align	2
+  52              		.global	_Z10analogReadh
+  53              		.thumb
+  54              		.thumb_func
+  55              		.type	_Z10analogReadh, %function
+  56              	_Z10analogReadh:
+  57              		.fnstart
+  58              	.LFB64:
+  23:core/Arduino_Analog_In.cpp **** 
+  24:core/Arduino_Analog_In.cpp **** uint16_t analogRead(uint8_t pin)
+  25:core/Arduino_Analog_In.cpp **** {
+  59              		.loc 1 25 0
+  60              		.cfi_startproc
+  61              		@ args = 0, pretend = 0, frame = 8
+  62              		@ frame_needed = 1, uses_anonymous_args = 0
+  63 0000 80B5     		push	{r7, lr}
+  64              		.save {r7, lr}
+  65              		.cfi_def_cfa_offset 8
+  66              		.cfi_offset 7, -8
+  67              		.cfi_offset 14, -4
+  68              		.pad #8
+  69 0002 82B0     		sub	sp, sp, #8
+  70              		.cfi_def_cfa_offset 16
+  71              		.setfp r7, sp, #0
+  72 0004 00AF     		add	r7, sp, #0
+  73              		.cfi_def_cfa_register 7
+  74 0006 0346     		mov	r3, r0
+  75 0008 FB71     		strb	r3, [r7, #7]
+  26:core/Arduino_Analog_In.cpp ****     if (pin > 21 || pin < 14) return 0;
+  76              		.loc 1 26 0
+  77 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  78 000c 152B     		cmp	r3, #21
+  79 000e 02D8     		bhi	.L3
+  80              		.loc 1 26 0 is_stmt 0 discriminator 2
+  81 0010 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  82 0012 0D2B     		cmp	r3, #13
+  83 0014 01D8     		bhi	.L4
+  84              	.L3:
+  85              		.loc 1 26 0 discriminator 3
+  86 0016 0023     		movs	r3, #0
+  87 0018 0FE0     		b	.L5
+  88              	.L4:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccVFTk88.s 			page 3
+
+
+  27:core/Arduino_Analog_In.cpp ****     ADC_Mux_Select(pin-14);
+  89              		.loc 1 27 0 is_stmt 1
+  90 001a FB79     		ldrb	r3, [r7, #7]
+  91 001c 0E3B     		subs	r3, r3, #14
+  92 001e DBB2     		uxtb	r3, r3
+  93 0020 1846     		mov	r0, r3
+  94 0022 FFF7FEFF 		bl	ADC_Mux_FastSelect
+  28:core/Arduino_Analog_In.cpp ****     ADC_StartConvert();
+  95              		.loc 1 28 0
+  96 0026 FFF7FEFF 		bl	ADC_StartConvert
+  29:core/Arduino_Analog_In.cpp ****     ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
+  97              		.loc 1 29 0
+  98 002a 0020     		movs	r0, #0
+  99 002c FFF7FEFF 		bl	ADC_IsEndConversion
+  30:core/Arduino_Analog_In.cpp ****     return ADC_GetResult16();
+ 100              		.loc 1 30 0
+ 101 0030 FFF7FEFF 		bl	ADC_GetResult16
+ 102 0034 0346     		mov	r3, r0
+ 103 0036 9BB2     		uxth	r3, r3
+ 104 0038 9BB2     		uxth	r3, r3
+ 105              	.L5:
+  31:core/Arduino_Analog_In.cpp **** }
+ 106              		.loc 1 31 0
+ 107 003a 1846     		mov	r0, r3
+ 108 003c 0837     		adds	r7, r7, #8
+ 109              		.cfi_def_cfa_offset 8
+ 110 003e BD46     		mov	sp, r7
+ 111              		.cfi_def_cfa_register 13
+ 112              		@ sp needed
+ 113 0040 80BD     		pop	{r7, pc}
+ 114              		.cfi_endproc
+ 115              	.LFE64:
+ 116              		.fnend
+ 117              		.size	_Z10analogReadh, .-_Z10analogReadh
+ 118 0042 00BF     		.text
+ 119              	.Letext0:
+ 120              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 121              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 122              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 123              		.section	.debug_info,"",%progbits
+ 124              	.Ldebug_info0:
+ 125 0000 18010000 		.4byte	0x118
+ 126 0004 0400     		.2byte	0x4
+ 127 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 128 000a 04       		.byte	0x4
+ 129 000b 01       		.uleb128 0x1
+ 130 000c A7000000 		.4byte	.LASF19
+ 131 0010 04       		.byte	0x4
+ 132 0011 F2010000 		.4byte	.LASF20
+ 133 0015 55010000 		.4byte	.LASF21
+ 134 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 135 001d 00000000 		.4byte	0
+ 136 0021 00000000 		.4byte	.Ldebug_line0
+ 137 0025 02       		.uleb128 0x2
+ 138 0026 01       		.byte	0x1
+ 139 0027 06       		.byte	0x6
+ 140 0028 C2010000 		.4byte	.LASF0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccVFTk88.s 			page 4
+
+
+ 141 002c 03       		.uleb128 0x3
+ 142 002d 8A000000 		.4byte	.LASF3
+ 143 0031 02       		.byte	0x2
+ 144 0032 1D       		.byte	0x1d
+ 145 0033 37000000 		.4byte	0x37
+ 146 0037 02       		.uleb128 0x2
+ 147 0038 01       		.byte	0x1
+ 148 0039 08       		.byte	0x8
+ 149 003a 2E000000 		.4byte	.LASF1
+ 150 003e 02       		.uleb128 0x2
+ 151 003f 02       		.byte	0x2
+ 152 0040 05       		.byte	0x5
+ 153 0041 0D020000 		.4byte	.LASF2
+ 154 0045 03       		.uleb128 0x3
+ 155 0046 94000000 		.4byte	.LASF4
+ 156 004a 02       		.byte	0x2
+ 157 004b 2B       		.byte	0x2b
+ 158 004c 50000000 		.4byte	0x50
+ 159 0050 02       		.uleb128 0x2
+ 160 0051 02       		.byte	0x2
+ 161 0052 07       		.byte	0x7
+ 162 0053 0E000000 		.4byte	.LASF5
+ 163 0057 03       		.uleb128 0x3
+ 164 0058 D9010000 		.4byte	.LASF6
+ 165 005c 02       		.byte	0x2
+ 166 005d 3F       		.byte	0x3f
+ 167 005e 62000000 		.4byte	0x62
+ 168 0062 02       		.uleb128 0x2
+ 169 0063 04       		.byte	0x4
+ 170 0064 05       		.byte	0x5
+ 171 0065 3C010000 		.4byte	.LASF7
+ 172 0069 02       		.uleb128 0x2
+ 173 006a 04       		.byte	0x4
+ 174 006b 07       		.byte	0x7
+ 175 006c 51000000 		.4byte	.LASF8
+ 176 0070 02       		.uleb128 0x2
+ 177 0071 08       		.byte	0x8
+ 178 0072 05       		.byte	0x5
+ 179 0073 00000000 		.4byte	.LASF9
+ 180 0077 02       		.uleb128 0x2
+ 181 0078 08       		.byte	0x8
+ 182 0079 07       		.byte	0x7
+ 183 007a 73000000 		.4byte	.LASF10
+ 184 007e 04       		.uleb128 0x4
+ 185 007f 04       		.byte	0x4
+ 186 0080 05       		.byte	0x5
+ 187 0081 696E7400 		.ascii	"int\000"
+ 188 0085 02       		.uleb128 0x2
+ 189 0086 04       		.byte	0x4
+ 190 0087 07       		.byte	0x7
+ 191 0088 21000000 		.4byte	.LASF11
+ 192 008c 03       		.uleb128 0x3
+ 193 008d 9F000000 		.4byte	.LASF12
+ 194 0091 03       		.byte	0x3
+ 195 0092 15       		.byte	0x15
+ 196 0093 2C000000 		.4byte	0x2c
+ 197 0097 03       		.uleb128 0x3
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccVFTk88.s 			page 5
+
+
+ 198 0098 E3010000 		.4byte	.LASF13
+ 199 009c 03       		.byte	0x3
+ 200 009d 21       		.byte	0x21
+ 201 009e 45000000 		.4byte	0x45
+ 202 00a2 03       		.uleb128 0x3
+ 203 00a3 17020000 		.4byte	.LASF14
+ 204 00a7 03       		.byte	0x3
+ 205 00a8 2C       		.byte	0x2c
+ 206 00a9 57000000 		.4byte	0x57
+ 207 00ad 02       		.uleb128 0x2
+ 208 00ae 04       		.byte	0x4
+ 209 00af 04       		.byte	0x4
+ 210 00b0 EC010000 		.4byte	.LASF15
+ 211 00b4 02       		.uleb128 0x2
+ 212 00b5 08       		.byte	0x8
+ 213 00b6 04       		.byte	0x4
+ 214 00b7 AE010000 		.4byte	.LASF16
+ 215 00bb 02       		.uleb128 0x2
+ 216 00bc 01       		.byte	0x1
+ 217 00bd 08       		.byte	0x8
+ 218 00be 37010000 		.4byte	.LASF17
+ 219 00c2 02       		.uleb128 0x2
+ 220 00c3 04       		.byte	0x4
+ 221 00c4 07       		.byte	0x7
+ 222 00c5 1F020000 		.4byte	.LASF18
+ 223 00c9 05       		.uleb128 0x5
+ 224 00ca 63000000 		.4byte	.LASF22
+ 225 00ce 01       		.byte	0x1
+ 226 00cf 12       		.byte	0x12
+ 227 00d0 3C000000 		.4byte	.LASF23
+ 228 00d4 00000000 		.4byte	.LFB63
+ 229 00d8 0E000000 		.4byte	.LFE63-.LFB63
+ 230 00dc 01       		.uleb128 0x1
+ 231 00dd 9C       		.byte	0x9c
+ 232 00de 06       		.uleb128 0x6
+ 233 00df CE010000 		.4byte	.LASF24
+ 234 00e3 01       		.byte	0x1
+ 235 00e4 18       		.byte	0x18
+ 236 00e5 45010000 		.4byte	.LASF25
+ 237 00e9 97000000 		.4byte	0x97
+ 238 00ed 00000000 		.4byte	.LFB64
+ 239 00f1 42000000 		.4byte	.LFE64-.LFB64
+ 240 00f5 01       		.uleb128 0x1
+ 241 00f6 9C       		.byte	0x9c
+ 242 00f7 0A010000 		.4byte	0x10a
+ 243 00fb 07       		.uleb128 0x7
+ 244 00fc 70696E00 		.ascii	"pin\000"
+ 245 0100 01       		.byte	0x1
+ 246 0101 18       		.byte	0x18
+ 247 0102 8C000000 		.4byte	0x8c
+ 248 0106 02       		.uleb128 0x2
+ 249 0107 91       		.byte	0x91
+ 250 0108 77       		.sleb128 -9
+ 251 0109 00       		.byte	0
+ 252 010a 08       		.uleb128 0x8
+ 253 010b B5010000 		.4byte	.LASF26
+ 254 010f 04       		.byte	0x4
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccVFTk88.s 			page 6
+
+
+ 255 0110 5506     		.2byte	0x655
+ 256 0112 16010000 		.4byte	0x116
+ 257 0116 09       		.uleb128 0x9
+ 258 0117 A2000000 		.4byte	0xa2
+ 259 011b 00       		.byte	0
+ 260              		.section	.debug_abbrev,"",%progbits
+ 261              	.Ldebug_abbrev0:
+ 262 0000 01       		.uleb128 0x1
+ 263 0001 11       		.uleb128 0x11
+ 264 0002 01       		.byte	0x1
+ 265 0003 25       		.uleb128 0x25
+ 266 0004 0E       		.uleb128 0xe
+ 267 0005 13       		.uleb128 0x13
+ 268 0006 0B       		.uleb128 0xb
+ 269 0007 03       		.uleb128 0x3
+ 270 0008 0E       		.uleb128 0xe
+ 271 0009 1B       		.uleb128 0x1b
+ 272 000a 0E       		.uleb128 0xe
+ 273 000b 55       		.uleb128 0x55
+ 274 000c 17       		.uleb128 0x17
+ 275 000d 11       		.uleb128 0x11
+ 276 000e 01       		.uleb128 0x1
+ 277 000f 10       		.uleb128 0x10
+ 278 0010 17       		.uleb128 0x17
+ 279 0011 00       		.byte	0
+ 280 0012 00       		.byte	0
+ 281 0013 02       		.uleb128 0x2
+ 282 0014 24       		.uleb128 0x24
+ 283 0015 00       		.byte	0
+ 284 0016 0B       		.uleb128 0xb
+ 285 0017 0B       		.uleb128 0xb
+ 286 0018 3E       		.uleb128 0x3e
+ 287 0019 0B       		.uleb128 0xb
+ 288 001a 03       		.uleb128 0x3
+ 289 001b 0E       		.uleb128 0xe
+ 290 001c 00       		.byte	0
+ 291 001d 00       		.byte	0
+ 292 001e 03       		.uleb128 0x3
+ 293 001f 16       		.uleb128 0x16
+ 294 0020 00       		.byte	0
+ 295 0021 03       		.uleb128 0x3
+ 296 0022 0E       		.uleb128 0xe
+ 297 0023 3A       		.uleb128 0x3a
+ 298 0024 0B       		.uleb128 0xb
+ 299 0025 3B       		.uleb128 0x3b
+ 300 0026 0B       		.uleb128 0xb
+ 301 0027 49       		.uleb128 0x49
+ 302 0028 13       		.uleb128 0x13
+ 303 0029 00       		.byte	0
+ 304 002a 00       		.byte	0
+ 305 002b 04       		.uleb128 0x4
+ 306 002c 24       		.uleb128 0x24
+ 307 002d 00       		.byte	0
+ 308 002e 0B       		.uleb128 0xb
+ 309 002f 0B       		.uleb128 0xb
+ 310 0030 3E       		.uleb128 0x3e
+ 311 0031 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccVFTk88.s 			page 7
+
+
+ 312 0032 03       		.uleb128 0x3
+ 313 0033 08       		.uleb128 0x8
+ 314 0034 00       		.byte	0
+ 315 0035 00       		.byte	0
+ 316 0036 05       		.uleb128 0x5
+ 317 0037 2E       		.uleb128 0x2e
+ 318 0038 00       		.byte	0
+ 319 0039 3F       		.uleb128 0x3f
+ 320 003a 19       		.uleb128 0x19
+ 321 003b 03       		.uleb128 0x3
+ 322 003c 0E       		.uleb128 0xe
+ 323 003d 3A       		.uleb128 0x3a
+ 324 003e 0B       		.uleb128 0xb
+ 325 003f 3B       		.uleb128 0x3b
+ 326 0040 0B       		.uleb128 0xb
+ 327 0041 6E       		.uleb128 0x6e
+ 328 0042 0E       		.uleb128 0xe
+ 329 0043 11       		.uleb128 0x11
+ 330 0044 01       		.uleb128 0x1
+ 331 0045 12       		.uleb128 0x12
+ 332 0046 06       		.uleb128 0x6
+ 333 0047 40       		.uleb128 0x40
+ 334 0048 18       		.uleb128 0x18
+ 335 0049 9642     		.uleb128 0x2116
+ 336 004b 19       		.uleb128 0x19
+ 337 004c 00       		.byte	0
+ 338 004d 00       		.byte	0
+ 339 004e 06       		.uleb128 0x6
+ 340 004f 2E       		.uleb128 0x2e
+ 341 0050 01       		.byte	0x1
+ 342 0051 3F       		.uleb128 0x3f
+ 343 0052 19       		.uleb128 0x19
+ 344 0053 03       		.uleb128 0x3
+ 345 0054 0E       		.uleb128 0xe
+ 346 0055 3A       		.uleb128 0x3a
+ 347 0056 0B       		.uleb128 0xb
+ 348 0057 3B       		.uleb128 0x3b
+ 349 0058 0B       		.uleb128 0xb
+ 350 0059 6E       		.uleb128 0x6e
+ 351 005a 0E       		.uleb128 0xe
+ 352 005b 49       		.uleb128 0x49
+ 353 005c 13       		.uleb128 0x13
+ 354 005d 11       		.uleb128 0x11
+ 355 005e 01       		.uleb128 0x1
+ 356 005f 12       		.uleb128 0x12
+ 357 0060 06       		.uleb128 0x6
+ 358 0061 40       		.uleb128 0x40
+ 359 0062 18       		.uleb128 0x18
+ 360 0063 9642     		.uleb128 0x2116
+ 361 0065 19       		.uleb128 0x19
+ 362 0066 01       		.uleb128 0x1
+ 363 0067 13       		.uleb128 0x13
+ 364 0068 00       		.byte	0
+ 365 0069 00       		.byte	0
+ 366 006a 07       		.uleb128 0x7
+ 367 006b 05       		.uleb128 0x5
+ 368 006c 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccVFTk88.s 			page 8
+
+
+ 369 006d 03       		.uleb128 0x3
+ 370 006e 08       		.uleb128 0x8
+ 371 006f 3A       		.uleb128 0x3a
+ 372 0070 0B       		.uleb128 0xb
+ 373 0071 3B       		.uleb128 0x3b
+ 374 0072 0B       		.uleb128 0xb
+ 375 0073 49       		.uleb128 0x49
+ 376 0074 13       		.uleb128 0x13
+ 377 0075 02       		.uleb128 0x2
+ 378 0076 18       		.uleb128 0x18
+ 379 0077 00       		.byte	0
+ 380 0078 00       		.byte	0
+ 381 0079 08       		.uleb128 0x8
+ 382 007a 34       		.uleb128 0x34
+ 383 007b 00       		.byte	0
+ 384 007c 03       		.uleb128 0x3
+ 385 007d 0E       		.uleb128 0xe
+ 386 007e 3A       		.uleb128 0x3a
+ 387 007f 0B       		.uleb128 0xb
+ 388 0080 3B       		.uleb128 0x3b
+ 389 0081 05       		.uleb128 0x5
+ 390 0082 49       		.uleb128 0x49
+ 391 0083 13       		.uleb128 0x13
+ 392 0084 3F       		.uleb128 0x3f
+ 393 0085 19       		.uleb128 0x19
+ 394 0086 3C       		.uleb128 0x3c
+ 395 0087 19       		.uleb128 0x19
+ 396 0088 00       		.byte	0
+ 397 0089 00       		.byte	0
+ 398 008a 09       		.uleb128 0x9
+ 399 008b 35       		.uleb128 0x35
+ 400 008c 00       		.byte	0
+ 401 008d 49       		.uleb128 0x49
+ 402 008e 13       		.uleb128 0x13
+ 403 008f 00       		.byte	0
+ 404 0090 00       		.byte	0
+ 405 0091 00       		.byte	0
+ 406              		.section	.debug_aranges,"",%progbits
+ 407 0000 24000000 		.4byte	0x24
+ 408 0004 0200     		.2byte	0x2
+ 409 0006 00000000 		.4byte	.Ldebug_info0
+ 410 000a 04       		.byte	0x4
+ 411 000b 00       		.byte	0
+ 412 000c 0000     		.2byte	0
+ 413 000e 0000     		.2byte	0
+ 414 0010 00000000 		.4byte	.LFB63
+ 415 0014 0E000000 		.4byte	.LFE63-.LFB63
+ 416 0018 00000000 		.4byte	.LFB64
+ 417 001c 42000000 		.4byte	.LFE64-.LFB64
+ 418 0020 00000000 		.4byte	0
+ 419 0024 00000000 		.4byte	0
+ 420              		.section	.debug_ranges,"",%progbits
+ 421              	.Ldebug_ranges0:
+ 422 0000 00000000 		.4byte	.LFB63
+ 423 0004 0E000000 		.4byte	.LFE63
+ 424 0008 00000000 		.4byte	.LFB64
+ 425 000c 42000000 		.4byte	.LFE64
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccVFTk88.s 			page 9
+
+
+ 426 0010 00000000 		.4byte	0
+ 427 0014 00000000 		.4byte	0
+ 428              		.section	.debug_line,"",%progbits
+ 429              	.Ldebug_line0:
+ 430 0000 87010000 		.section	.debug_str,"MS",%progbits,1
+ 430      02004E01 
+ 430      00000201 
+ 430      FB0E0D00 
+ 430      01010101 
+ 431              	.LASF9:
+ 432 0000 6C6F6E67 		.ascii	"long long int\000"
+ 432      206C6F6E 
+ 432      6720696E 
+ 432      7400
+ 433              	.LASF5:
+ 434 000e 73686F72 		.ascii	"short unsigned int\000"
+ 434      7420756E 
+ 434      7369676E 
+ 434      65642069 
+ 434      6E7400
+ 435              	.LASF11:
+ 436 0021 756E7369 		.ascii	"unsigned int\000"
+ 436      676E6564 
+ 436      20696E74 
+ 436      00
+ 437              	.LASF1:
+ 438 002e 756E7369 		.ascii	"unsigned char\000"
+ 438      676E6564 
+ 438      20636861 
+ 438      7200
+ 439              	.LASF23:
+ 440 003c 5F5A3135 		.ascii	"_Z15initAnalogInputv\000"
+ 440      696E6974 
+ 440      416E616C 
+ 440      6F67496E 
+ 440      70757476 
+ 441              	.LASF8:
+ 442 0051 6C6F6E67 		.ascii	"long unsigned int\000"
+ 442      20756E73 
+ 442      69676E65 
+ 442      6420696E 
+ 442      7400
+ 443              	.LASF22:
+ 444 0063 696E6974 		.ascii	"initAnalogInput\000"
+ 444      416E616C 
+ 444      6F67496E 
+ 444      70757400 
+ 445              	.LASF10:
+ 446 0073 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 446      206C6F6E 
+ 446      6720756E 
+ 446      7369676E 
+ 446      65642069 
+ 447              	.LASF3:
+ 448 008a 5F5F7569 		.ascii	"__uint8_t\000"
+ 448      6E74385F 
+ 448      7400
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccVFTk88.s 			page 10
+
+
+ 449              	.LASF4:
+ 450 0094 5F5F7569 		.ascii	"__uint16_t\000"
+ 450      6E743136 
+ 450      5F7400
+ 451              	.LASF12:
+ 452 009f 75696E74 		.ascii	"uint8_t\000"
+ 452      385F7400 
+ 453              	.LASF19:
+ 454 00a7 474E5520 		.ascii	"GNU C++ 4.9.3 20150303 (release) [ARM/embedded-4_9-"
+ 454      432B2B20 
+ 454      342E392E 
+ 454      33203230 
+ 454      31353033 
+ 455 00da 6272616E 		.ascii	"branch revision 221220] -mcpu=cortex-m3 -mthumb -g "
+ 455      63682072 
+ 455      65766973 
+ 455      696F6E20 
+ 455      32323132 
+ 456 010d 2D4F3020 		.ascii	"-O0 -ffunction-sections -ffat-lto-objects\000"
+ 456      2D666675 
+ 456      6E637469 
+ 456      6F6E2D73 
+ 456      65637469 
+ 457              	.LASF17:
+ 458 0137 63686172 		.ascii	"char\000"
+ 458      00
+ 459              	.LASF7:
+ 460 013c 6C6F6E67 		.ascii	"long int\000"
+ 460      20696E74 
+ 460      00
+ 461              	.LASF25:
+ 462 0145 5F5A3130 		.ascii	"_Z10analogReadh\000"
+ 462      616E616C 
+ 462      6F675265 
+ 462      61646800 
+ 463              	.LASF21:
+ 464 0155 433A5C55 		.ascii	"C:\\Users\\Bruger\\Desktop\\CODE\\PSOC5\\CY8CKIT-59"
+ 464      73657273 
+ 464      5C427275 
+ 464      6765725C 
+ 464      4465736B 
+ 465 0182 2D417264 		.ascii	"-Arduino\\CY8CKIT59_Ardudino-Speeduino.cydsn\000"
+ 465      75696E6F 
+ 465      5C435938 
+ 465      434B4954 
+ 465      35395F41 
+ 466              	.LASF16:
+ 467 01ae 646F7562 		.ascii	"double\000"
+ 467      6C6500
+ 468              	.LASF26:
+ 469 01b5 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 469      52784275 
+ 469      66666572 
+ 469      00
+ 470              	.LASF0:
+ 471 01c2 7369676E 		.ascii	"signed char\000"
+ 471      65642063 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccVFTk88.s 			page 11
+
+
+ 471      68617200 
+ 472              	.LASF24:
+ 473 01ce 616E616C 		.ascii	"analogRead\000"
+ 473      6F675265 
+ 473      616400
+ 474              	.LASF6:
+ 475 01d9 5F5F696E 		.ascii	"__int32_t\000"
+ 475      7433325F 
+ 475      7400
+ 476              	.LASF13:
+ 477 01e3 75696E74 		.ascii	"uint16_t\000"
+ 477      31365F74 
+ 477      00
+ 478              	.LASF15:
+ 479 01ec 666C6F61 		.ascii	"float\000"
+ 479      7400
+ 480              	.LASF20:
+ 481 01f2 636F7265 		.ascii	"core\\Arduino_Analog_In.cpp\000"
+ 481      5C417264 
+ 481      75696E6F 
+ 481      5F416E61 
+ 481      6C6F675F 
+ 482              	.LASF2:
+ 483 020d 73686F72 		.ascii	"short int\000"
+ 483      7420696E 
+ 483      7400
+ 484              	.LASF14:
+ 485 0217 696E7433 		.ascii	"int32_t\000"
+ 485      325F7400 
+ 486              	.LASF18:
+ 487 021f 73697A65 		.ascii	"sizetype\000"
+ 487      74797065 
+ 487      00
+ 488              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

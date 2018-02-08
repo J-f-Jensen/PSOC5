@@ -1,0 +1,1581 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"I2C_Enable_PM.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.section	.gnu.lto_.profile.727bdb8f,"",%progbits
+  18 0000 789C6366 		.ascii	"x\234cf```a\200\000F\006\001\036\000\000\240\000%"
+  18      60606061 
+  18      80004606 
+  18      011E0000 
+  18      A00025
+  19              		.text
+  20              		.section	.gnu.lto_.jmpfuncs.727bdb8f,"",%progbits
+  21 0000 789C6366 		.ascii	"x\234cf\300\016\370\2404\013\0203100CX\000\002]\000"
+  21      C00EF8A0 
+  21      340B1033 
+  21      31303043 
+  21      5800025D 
+  22 0015 1F       		.ascii	"\037"
+  23              		.text
+  24              		.section	.gnu.lto_.inline.727bdb8f,"",%progbits
+  25 0000 789C6366 		.ascii	"x\234cf\300\016\374\2404\013\003\003+\013#\003\023\313"
+  25      C00EFCA0 
+  25      340B0303 
+  25      2B0B2303 
+  25      13CB
+  26 0012 027906B6 		.ascii	"\002y\006\266\005\362L 1&L!fL!\026L!\006\000\022\360"
+  26      05F24C20 
+  26      31264C21 
+  26      664C2116 
+  26      4C210600 
+  27 0028 06B7     		.ascii	"\006\267"
+  28              		.text
+  29              		.section	.gnu.lto_.pureconst.727bdb8f,"",%progbits
+  30 0000 789C6366 		.ascii	"x\234cf``\340d\200\000\026\006)&)f)\026)\000\002\321"
+  30      6060E064 
+  30      80001606 
+  30      29262966 
+  30      29162900 
+  31 0016 0082     		.ascii	"\000\202"
+  32              		.text
+  33              		.section	.gnu.lto_I2C_Enable_SaveConfig.727bdb8f,"",%progbits
+  34 0000 789C654F 		.ascii	"x\234eO\277KBQ\024>\337\361G\206K4\372\007$\015:\004"
+  34      BF4B4251 
+  34      143EDFF1 
+  34      47864B34 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 2
+
+
+  34      FA07240D 
+  35 0016 CD0D12D1 		.ascii	"\315\015\022\321\020\010\256\201\230\275-\024\244F\361"
+  35      1008AE81 
+  35      98BD2D14 
+  35      A446F1
+  36 0025 3D7B4334 		.ascii	"={C4\2244\005e\320\020Y\232BC-\015\257\306\242\"\202"
+  36      94340565 
+  36      D010599A 
+  36      42432D0D 
+  36      AFC6A222 
+  37 003a 0A078350 		.ascii	"\012\007\203P\250-\225\212G\230\235\253K\320\205\313"
+  37      A82D958A 
+  37      47989DAB 
+  37      4BD085CB 
+  38 004a B9E79CEF 		.ascii	"\271\347\234\357~?\034\364\377\370\344N\200hT*\034\004"
+  38      7E3F1CF4 
+  38      FFF8E44E 
+  38      8068542A 
+  38      1C04
+  39 005c CEDD1019 		.ascii	"\316\335\020\031\036\006\324\203@\031F\006o\334d\344"
+  39      1E06D483 
+  39      40194606 
+  39      6FDC64E4 
+  40 006c ACE2A6D7 		.ascii	"\254\342\246\327\277\247\353\372{\366\312\010[\260\231"
+  40      BFA7EBFA 
+  40      7BF6CA08 
+  40      5BB099
+  41 007b A8CD7D1E 		.ascii	"\250\315}\036\354\303O\002j\232\235G\257\333\024\320"
+  41      ECC34F02 
+  41      6A9A9D47 
+  41      AFDB14D0 
+  42 008b 507F8702 		.ascii	"P\177\207\002\334\302O\225aK\357v\333\245\363\0238\231"
+  42      DCC24F95 
+  42      614BEF76 
+  42      DBA5F313 
+  42      3899
+  43 009d 6C96595D 		.ascii	"l\226Y]\366J\245\301\254\252\243\212\213\317\325\207"
+  43      F64AA5C1 
+  43      ACAAA38A 
+  43      8BCFD587 
+  44 00ad C6A0FAF2 		.ascii	"\306\240\372\362\305Jr\371\351\254\305\257l3\177\\\032"
+  44      C54A72F9 
+  44      E9ACC5AF 
+  44      6C337F5C 
+  44      1A
+  45 00be BA53093C 		.ascii	"\272S\011<\327o\357<\275\021\251\366\345\272\226\035"
+  45      D76FEF3C 
+  45      BD11A9F6 
+  45      E5BA961D 
+  46 00ce C863CB30 		.ascii	"\310c\3130\305\216\003\007\360\341\020\022\012E\344"
+  46      C58E0307 
+  46      F0E11012 
+  46      0A45E4
+  47 00dd 41556437 		.ascii	"AUd7vG\024\237@w\356\327\312\234\376\326Wt\217\315\316"
+  47      7647149F 
+  47      4077EED7 
+  47      CA9CFED6 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 3
+
+
+  47      57748FCD 
+  48 00f2 8E32F797 		.ascii	"\2162\367\227\317\331k\013\206\271\015\305\247+\224"
+  48      CFD96B0B 
+  48      86B90DC5 
+  48      A72B94
+  49 0101 0B25A471 		.ascii	"\013%\244q\244\010e\367SZ?v\007\212\222\315\012\332"
+  49      A40865F7 
+  49      535A3F76 
+  49      078A92CD 
+  49      0ADA
+  50 0113 EC465980 		.ascii	"\354FY\200\255^~T\020\020\307T\203a\235\272\224\236"
+  50      AD5E7E54 
+  50      1010C754 
+  50      83619DBA 
+  50      949E
+  51 0125 9AD625A4 		.ascii	"\232\326%\244\344\022\204\177JKh\251\330\2426\037\215"
+  51      E412847F 
+  51      4A4B68A9 
+  51      D8A2361F 
+  51      8D
+  52 0136 24975271 		.ascii	"$\227Rqm6\034I\206\306g\247\307B\321\311DlnA\213\206"
+  52      6D361C49 
+  52      86C667A7 
+  52      C742D1C9 
+  52      446C6E41 
+  53 014c 678271FA 		.ascii	"g\202q\372\005!\005\201\227"
+  53      05210581 
+  53      97
+  54              		.text
+  55              		.section	.gnu.lto_I2C_Enable_RestoreConfig.727bdb8f,"",%progbits
+  56 0000 789C658F 		.ascii	"x\234e\217?HBQ\024\306\357w\236\276\004\227h\224v\211"
+  56      3F484251 
+  56      14C6EF77 
+  56      9EBE0497 
+  56      68947689 
+  57 0014 B021686A 		.ascii	"\260!hj\224\212\206@h\025\304\354m\241 5\212\367\331"
+  57      948A8640 
+  57      6815C4EC 
+  57      6DA12035 
+  57      8AF7D9
+  58 0027 1B9ACA9A 		.ascii	"\033\232\312\232\202\376l\221\245)\0244\005\276\032"
+  58      82FE6C91 
+  58      A5291434 
+  58      05BE1A
+  59 0036 83926A28 		.ascii	"\203\222j(\034\214\302\240\2664\"\036av\356s\212.\\"
+  59      1C8CC2A0 
+  59      B634221E 
+  59      6176EE73 
+  59      8A2E5C
+  60 0049 CEBDE77C 		.ascii	"\316\275\347|\347\373\235\243\211\377'\300w\034B\014"
+  60      E7FB9DA3 
+  60      89FF27C0 
+  60      771C420C 
+  61 0059 71842640 		.ascii	"q\204&@\371k!L\037\001\352! \262\204,\336\250E\310\333"
+  61      F96B214C 
+  61      1F01EA21 
+  61      20B2842C 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 4
+
+
+  61      DEA845C8 
+  62 006e C54D7F70 		.ascii	"\305M\177pOJ\371~[3#6\034\022\342\203z>\330GP\260\250"
+  62      4F4AF97E 
+  62      5B332336 
+  62      1C12E283 
+  62      7A3ED847 
+  63 0085 6575EEFD 		.ascii	"eu\356\375\272\305\242\376^\015\005\350\354/*\003\266"
+  63      BAC5A2FE 
+  63      5E0D05E8 
+  63      EC2F2A03 
+  63      B6
+  64 0096 EC764FAA 		.ascii	"\354vO\252\347y\335C\302!\3165\271\256(/D*ju\344N[\325"
+  64      E779DD43 
+  64      C221CE35 
+  64      B9AE282F 
+  64      442A6A75 
+  65 00ae A8EAF822 		.ascii	"\250\352\370\"E\334\275[-S\346[\256H\237C\324Qv\234"
+  65      45DCBD5B 
+  65      2D53E65B 
+  65      AE489F43 
+  65      D451769C 
+  66 00c2 7D6CD66E 		.ascii	"}l\326n|\257\304\031\367[0\255m\354`\313\224J\245\341"
+  66      7CAFC419 
+  66      F75B30AD 
+  66      6DEC60CB 
+  66      944AA5E1 
+  67 00d6 00191C22 		.ascii	"\000\031\034\"\340\326~Jk\307zh\330!\017\212\254i\273"
+  67      E0D67E4A 
+  67      6BC77A68 
+  67      D8210F8A 
+  67      AC69BB
+  68 00e9 C3A28490 		.ascii	"\303\242\204\220\250\343b\343iP\241X\266\374p\326&\345"
+  68      A8E362E3 
+  68      6950A158 
+  68      B6FC70D6 
+  68      26E5
+  69 00fb E8FDBC34 		.ascii	"\350\375\2744\245\347\017\304\353\032=_5r}\012b\231"
+  69      A5E70FC4 
+  69      EB1A3D5F 
+  69      35727D0A 
+  69      6299
+  70 010d B6EE908E 		.ascii	"\266\356\220\216#\004PV\024T\330\230\307\025\015\230"
+  70      23045056 
+  70      1454D898 
+  70      C7150D98 
+  71 011d F6FAA472 		.ascii	"\366\372\244rT\220&/\310;108e$\215t|\321\230\217\315"
+  71      5490262F 
+  71      C83B3130 
+  71      3865248D 
+  71      747CD198 
+  72 0133 A696D209 		.ascii	"\246\226\322\011#\032\231M\205\307\242\323\243\341\330"
+  72      231A994D 
+  72      85C7A2D3 
+  72      A3E1D8
+  73 0142 44323EB7 		.ascii	"D2>\267`\304\"3#\011\361\013\360\226\177\301"
+  73      60C42233 
+  73      2309F10B 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 5
+
+
+  73      F0967FC1 
+  74              		.text
+  75              		.section	.gnu.lto_I2C_Enable_Sleep.727bdb8f,"",%progbits
+  76 0000 789C6590 		.ascii	"x\234e\2209K\003Q\020\307\347?\273\256\021\033\261\012"
+  76      394B0351 
+  76      10C7E73F 
+  76      BBAE111B 
+  76      B10A
+  77 0012 F9024124 		.ascii	"\371\002A$\026\202\237@T\004\205@\332@\320\270\235("
+  77      16829F40 
+  77      54048540 
+  77      DA40D0B8 
+  77      9D28
+  78 0024 7894E2AE 		.ascii	"x\224\342\256F\020\013\215AD\320\330\211G.\017\354,"
+  78      46100B8D 
+  78      4144D0D8 
+  78      89472E0F 
+  78      EC2C
+  79 0036 82858585 		.ascii	"\202\205\205\205\"\342\225B\233\004\2643\011*\213D\235"
+  79      22E29542 
+  79      9B04B433 
+  79      092A8B44 
+  79      9D
+  80 0047 171B8F07 		.ascii	"\027\033\217\007\217w\314\357\375\346\315h\364\177x"
+  80      8F77CCEF 
+  80      FDE6CD68 
+  80      F47F78
+  81 0056 648E82A8 		.ascii	"d\216\202\250IVh\004\216\236\021\331.\006\324\206@\223"
+  81      49566804 
+  81      8E9E11D9 
+  81      2E06D486 
+  81      4093
+  82 0068 8C493C71 		.ascii	"\214I<q\221\021\315&V\352\275\033\226e=\307\016\335"
+  82      9111CD26 
+  82      56EABD1B 
+  82      96653DC7 
+  82      0EDD
+  83 007a 336E8789 		.ascii	"3n\207\211\312\374\255\301&\274$L1R\271\2517\"\3024"
+  83      CAFCADC1 
+  83      26BC244C 
+  83      3152B9A9 
+  83      3722C234 
+  84 008e 7CC7B005 		.ascii	"|\307\260\005C\364\224i\314Z\237\237\007W\213\263\315"
+  84      43F49469 
+  84      CC5A9F9F 
+  84      07578BB3 
+  84      CD
+  85 009f D0357258 		.ascii	"\3205rX.\363\002\250,\005f\265j9\034\277\316]\027\352"
+  85      2EF302A8 
+  85      2C0566B5 
+  85      6A391CBF 
+  85      CE5D17EA 
+  86 00b3 7E79B237 		.ascii	"~y\2627'\\\265\224\345\311\237\014\330\206!)v`\274\261"
+  86      275CB594 
+  86      E5C99F0C 
+  86      D8862129 
+  86      7660BCB1 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 6
+
+
+  87 00c7 26B1E9DB 		.ascii	"&\261\351\333\243\022?\262\303\374rj[\272\302\037\362"
+  87      A3123FB2 
+  87      C3FC726A 
+  87      5BBAC21F 
+  87      F2
+  88 00d8 E717AEEA 		.ascii	"\347\027\256\352\025\251\343[|y\2456\216U{\311v9\254"
+  88      15A9E35B 
+  88      7C79A536 
+  88      8E557BC9 
+  88      7639AC
+  89 00eb 21010F92 		.ascii	"!\001\017\222\220& \2058(\207\251\330^\252G\031\005"
+  89      90262085 
+  89      382887A9 
+  89      D85EAA47 
+  89      1905
+  90 00fd 5EBF9C4F 		.ascii	"^\277\234O\363\304\2735k\011\253WT9?\215z\365\270eG"
+  90      F3C4BB35 
+  90      6B09AB57 
+  90      54393F8D 
+  90      7AF5B865 
+  91 0112 D6A08C96 		.ascii	"\326\240\214\226\242j\220\306\0042\312(\261\217\344"
+  91      A26A90C6 
+  91      0432CA28 
+  91      B18FE4
+  92 0121 C2BEE14B 		.ascii	"\302\276\341K\250*Z\0346\260+`I4\325\177c\017>\3716"
+  92      A82A5A1C 
+  92      36B02B60 
+  92      4934D57F 
+  92      630F3EF9 
+  93 0136 DDC3CEDE 		.ascii	"\335\303\316\336u\252\012U#\363R\245\364B o\2279d\216"
+  93      75AA0A55 
+  93      23F352A5 
+  93      F442206F 
+  93      9739648E 
+  94 014a F48D9903 		.ascii	"\364\215\231\003\241\300\360\370H\330\014\372\003\303"
+  94      A1C0F0F8 
+  94      48D80CFA 
+  94      03C3
+  95 0158 ED6DC1EE 		.ascii	"\355m\301\356\326\366P\307P_\377\240\031\362\367\266"
+  95      D6F650C7 
+  95      505FFFA0 
+  95      19F2F7B6 
+  96 0168 84E90B10 		.ascii	"\204\351\013\020Z\224_"
+  96      5A945F
+  97              		.text
+  98              		.section	.gnu.lto_I2C_Enable_Wakeup.727bdb8f,"",%progbits
+  99 0000 789C6590 		.ascii	"x\234e\220\273K\003A\020\306\347\233\213g\300F\254$"
+  99      BB4B0341 
+  99      10C6E79B 
+  99      8B67C046 
+  99      AC24
+ 100 0012 D8070B2D 		.ascii	"\330\007\013-\004\375\007\202\004\013!\2206\020b\274"
+ 100      04FD0782 
+ 100      040B2190 
+ 100      361062BC 
+ 101 0022 4E147C94 		.ascii	"N\024|\224\222;\215\220\312\027\"\202\257J\214&&>@\024"
+ 101      923B8D90 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 7
+
+
+ 101      CA172282 
+ 101      AF4A8C26 
+ 101      263E4014 
+ 102 0036 040F1BC1 		.ascii	"\004\017\033\301BQ\013%\205\017\210\250\2351\210\034"
+ 102      42510B25 
+ 102      850F88A8 
+ 102      9D31881C 
+ 103 0046 A271F6AC 		.ascii	"\242q\366\254\324\205evg\276\371~;\253\321\377\345\223"
+ 103      D4856576 
+ 103      67BEF97E 
+ 103      3BABD1FF 
+ 103      E593
+ 104 0058 3D00A246 		.ascii	"=\000\242F\211\320\010<yJdy\031P\007\002%\030\011<s"
+ 104      89D0083C 
+ 104      794A6479 
+ 104      19500702 
+ 104      2518093C 
+ 105 006d 89316967 		.ascii	"\2111ig\346j\374+\246i\276\\\354\327\217\325;LT\346"
+ 105      E66AFC2B 
+ 105      A669BE5C 
+ 105      ECD78FD5 
+ 105      3B4C54E6 
+ 106 0081 1F1BACC2 		.ascii	"\037\033\254\302O\242)%?\257j\364\244hj\177jHC\027{"
+ 106      4FA22925 
+ 106      3FAF6AF4 
+ 106      A4686A7F 
+ 106      6A484317 
+ 107 0096 CAD7D966 		.ascii	"\312\327\331f\245\262\3638\225j\203G#\207%Y\024\201"
+ 107      A5B2F338 
+ 107      956A8347 
+ 107      23872559 
+ 107      1481
+ 108 00a8 A23C30AB 		.ascii	"\242<0\253\250\0250\262[:\214\374\262\261\227\217\331"
+ 108      A81530B2 
+ 108      5B3A8CFC 
+ 108      B2B1978F 
+ 108      D9
+ 109 00b9 35294BC7 		.ascii	"5)K\307\037\000\326\240\013a\035\372;kR[\272\034\317"
+ 109      1F00D6A0 
+ 109      0B611DFA 
+ 109      3B6B525B 
+ 109      BA1CCF
+ 110 00cc F1F08799 		.ascii	"\361\360\207\2312\275\016\363\247\302K\366\266xv\356"
+ 110      32BD0EF3 
+ 110      A7C24BF6 
+ 110      B67876EE 
+ 111 00dc 7D62C9B8 		.ascii	"}b\311\270\327\264\225\\\300\"\346-S\2514d0\214,|n\355"
+ 111      D7B4955C 
+ 111      C022E62D 
+ 111      53A93464 
+ 111      308C2C7C 
+ 112 00f2 2B3BB1AD 		.ascii	"+;\261\2557e\304\374\256\262\007\207=\330\020\351\253"
+ 112      3765C4FC 
+ 112      AEB20787 
+ 112      3DD810E9 
+ 112      AB
+ 113 0103 34BA28E4 		.ascii	"4\272(\344\320D\005\034M\3377(\2504\214^\037\274\262"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 8
+
+
+ 113      D044051C 
+ 113      4DDF3728 
+ 113      A8348C5E 
+ 113      1FBCB2
+ 114 0116 F2AE7A3B 		.ascii	"\362\256z;\261L\317/\\\225k\371\2768;W\255p3\226\340"
+ 114      B14CCF2F 
+ 114      5C956BF9 
+ 114      BE383B57 
+ 114      AD703396 
+ 115 012b 74E4E1C3 		.ascii	"t\344\341\303\246\302aK\254\345\335t\003\313\336\012"
+ 115      A6C2614B 
+ 115      ACE5DD74 
+ 115      03CBDE0A 
+ 116 013b AA11D547 		.ascii	"\252\021\325G\026eL\371\013A\372\203F\257\321\037\033"
+ 116      16654CF9 
+ 116      0B41FA83 
+ 116      46AFD11F 
+ 116      1B
+ 117 014c 34BAA3E1 		.ascii	"4\272\243\341\276\241\376\270\021\011\205\373\002\255"
+ 117      BEA1FEB8 
+ 117      110985FB 
+ 117      02AD
+ 118 015a 918E9640 		.ascii	"\221\216\226@\264\2757\326\325cDC\235\315q\372\006\304"
+ 118      B4BD37D6 
+ 118      D5634443 
+ 118      9DCD71FA 
+ 118      06C4
+ 119 016c 5C94DE   		.ascii	"\\\224\336"
+ 120              		.text
+ 121              		.section	.gnu.lto_.symbol_nodes.727bdb8f,"",%progbits
+ 122 0000 789C55C8 		.ascii	"x\234U\310A\015\000 \020\304\300\336\036$XC\325Z@\001"
+ 122      410D0020 
+ 122      10C4C0DE 
+ 122      1E245843 
+ 122      D55A4001 
+ 123 0014 41119AF8 		.ascii	"A\021\232\370\360\200\376\246\011tn\012\303\330`3W\243"
+ 123      F080FEA6 
+ 123      09746E0A 
+ 123      C3D86033 
+ 123      57A3
+ 124 0026 C2925372 		.ascii	"\302\222Sr\274[i}.\316\327\034\222.\022\022"
+ 124      BC5B697D 
+ 124      2ECED71C 
+ 124      922E1212 
+ 125              		.text
+ 126              		.section	.gnu.lto_.refs.727bdb8f,"",%progbits
+ 127 0000 789C6366 		.ascii	"x\234cf``\020e\200\000F\006FF&F& \311\310\014b\261\000"
+ 127      60601065 
+ 127      80004606 
+ 127      46462646 
+ 127      2620C9C8 
+ 128 0018 590C0003 		.ascii	"Y\014\000\003\357\0002"
+ 128      EF0032
+ 129              		.text
+ 130              		.section	.gnu.lto_.decls.727bdb8f,"",%progbits
+ 131 0000 789C9553 		.ascii	"x\234\225SmHSQ\030>\357\316t\327\265\244\220,\374e\037"
+ 131      6D485351 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 9
+
+
+ 131      183EEFCE 
+ 131      74D7B5A4 
+ 131      902CFC65 
+ 132 0015 D897F823 		.ascii	"\330\227\370#H\372\2275B*\212\321\222~\024\330\\\267"
+ 132      48FA9735 
+ 132      422A8AD1 
+ 132      927E14D8 
+ 132      5CB7
+ 133 0027 0F92CDE6 		.ascii	"\017\222\315\346\014\374wrF\246!\231\226b\037,\212R"
+ 133      0CFC7772 
+ 133      46A62199 
+ 133      96621F2C 
+ 133      8A52
+ 134 0039 D3B54CB3 		.ascii	"\323\265L\263\271r\2634W\241\375\021\303~\224JP\370"
+ 134      B972B334 
+ 134      57A1FD11 
+ 134      C37E944A 
+ 134      50F8
+ 135 004b 6B8548D1 		.ascii	"k\205H\321\307z\317\331]\273V\243:\360\336{\3179\317"
+ 135      C77ACFD9 
+ 135      5DBB56A3 
+ 135      3AF0DE7B 
+ 135      CF39CF
+ 136 005e F3BCCF79 		.ascii	"\363\274\317y\337s)!d?\020\022\301\221\243%\304\200"
+ 136      DF732921 
+ 136      643F1012 
+ 136      C191A325 
+ 136      C480
+ 137 0070 DF49B866 		.ascii	"\337I\270f\"\361\201\313\244\035\303\203\341\305\350"
+ 137      22F181CB 
+ 137      A41DC383 
+ 137      E1C5E8
+ 138 007f C44018E9 		.ascii	"\304@\030\351's\007\307\350\024n:\306\023\214\001\214"
+ 138      277307C7 
+ 138      E8146E3A 
+ 138      C6138C01 
+ 138      8C
+ 139 0090 218C3E8C 		.ascii	"!\214>\214\036\205\347W\336\355\011t<\277\350\250\371"
+ 139      1E85E757 
+ 139      DEED0974 
+ 139      3CBFE8A8 
+ 139      F9
+ 140 00a1 314DB58E 		.ascii	"1M\265\216'\201\216\367?\374h\024|\"O\235\377\341I\243"
+ 140      27818EF7 
+ 140      3FFC6814 
+ 140      7C224F9D 
+ 140      FFE149A3 
+ 141 00b5 E013F9FA 		.ascii	"\340\023\371\372\240\001\237gfx\336{\015\244\3523\371"
+ 141      A0019F67 
+ 141      6678DE7B 
+ 141      0DA4EA33 
+ 141      F9
+ 142 00c6 B4F75CA8 		.ascii	"\264\367\\\250)\031\247\006\275\226O\375_\246F\265\213"
+ 142      2919A706 
+ 142      BD964FFD 
+ 142      5FA646B5 
+ 142      8B
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 10
+
+
+ 143 00d7 CF331C67 		.ascii	"\3173\034g]l\201\026L\351p\0232\240\0052P\261\025\026"
+ 143      5D6C8116 
+ 143      4CE97013 
+ 143      32A00532 
+ 143      50B11516 
+ 144 00eb E373AF36 		.ascii	"\343s\2576\252\364\362\335\314\264D5\300\277\2575M\216"
+ 144      AAF4F2DD 
+ 144      CCB44435 
+ 144      C0BFAF35 
+ 144      4D8E
+ 145 00fd EAB3DB90 		.ascii	"\352\263\333\220V\305\202A\032OW\363e\366\215\224y\205"
+ 145      56C58241 
+ 145      1A4F57F3 
+ 145      65F68D94 
+ 145      7985
+ 146 010f 4D78C301 		.ascii	"Mx\303\001\357\270\201\205X0\022\0110\020b\320\006\024"
+ 146      EFB88185 
+ 146      58301209 
+ 146      301062D0 
+ 146      0614
+ 147 0121 6E4136C7 		.ascii	"nA6\307\362oA\202v\310D\342t}C_\022\315\027\352\203"
+ 147      F26F4182 
+ 147      76C844E2 
+ 147      747D435F 
+ 147      12CD17EA 
+ 148 0136 FEB6B542 		.ascii	"\376\266\265B\303\375\255\223\345U\262\257\221\210K"
+ 148      C3FDAD93 
+ 148      E555B2AF 
+ 148      91884B
+ 149 0145 12021D2A 		.ascii	"\022\002\035*\201\216\230\200G\010\214\370\202\265)"
+ 149      818E9880 
+ 149      47088CF8 
+ 149      82B529
+ 150 0154 74BF10F0 		.ascii	"t\277\020\360\277:_OQ\301\355u\267^K\026\0366\012\376"
+ 150      BF3A5F4F 
+ 150      51C1ED75 
+ 150      B75E4B16 
+ 150      1E360AFE 
+ 151 0168 6D15FF76 		.ascii	"m\025\377v\214\357\025\374\311\221\326:J\217\011\276"
+ 151      8CEF15FC 
+ 151      C991D63A 
+ 151      4A8F09BE 
+ 152 0178 6F78E6B1 		.ascii	"ox\346\261\024\345\017\317\341\337Q\361\357\304\370"
+ 152      14E50FCF 
+ 152      E1DF51F1 
+ 152      EFC4F8
+ 153 0187 9D827F3F 		.ascii	"\235\202\177?t\201i\251\013\204\300X\340\324)\211^\212"
+ 153      748169A9 
+ 153      0B84C058 
+ 153      E0D42989 
+ 153      5E8A
+ 154 0199 4E4EDCF0 		.ascii	"NN\334\360\237\321a\315\323\365\242D\265\317\233\373"
+ 154      9FD161CD 
+ 154      D3F5A244 
+ 154      B5CF9BFB 
+ 155 01a9 A99846F8 		.ascii	"\251\230F\370\266f|\274\3413\005}V\025c\025,|\216\321"
+ 155      B6667CBC 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 11
+
+
+ 155      E133057D 
+ 155      56156315 
+ 155      2C7C8ED1 
+ 156 01bd 2504B233 		.ascii	"%\004\2623`u\006\201\373\220\2050\221\021\272\261-\367"
+ 156      60750681 
+ 156      FB908530 
+ 156      9111BAB1 
+ 156      2DF7
+ 157 01cf B02DD7B1 		.ascii	"\260-\327\261\350\341g'\373\266\271X\036\364\200\036"
+ 157      E8E16727 
+ 157      FBB6B958 
+ 157      1EF4801E 
+ 158 01df BA7E7A12 		.ascii	"\272~z\022\031\224F4G\306\272R\351\200p@\033\276\177"
+ 158      19944634 
+ 158      47C6BA52 
+ 158      E9807040 
+ 158      1BBE7F
+ 159 01f2 F5A642DA 		.ascii	"\365\246B\332\262\254:\336\351p\005\313;\026\313A\240"
+ 159      B2AC3ADE 
+ 159      E97005CB 
+ 159      3B16CB41 
+ 159      A0
+ 160 0203 17D2381F 		.ascii	"\027\3228\037\036`2?,\023\002n\364\022n\035z1\277\221"
+ 160      1E60323F 
+ 160      2C13026E 
+ 160      F4126E1D 
+ 160      7A31BF91 
+ 161 0217 4D0441A4 		.ascii	"M\004A\244\361a\032\016U\254\255\342\3245\370\020\206"
+ 161      F1611A0E 
+ 161      55ACADE2 
+ 161      D435F810 
+ 161      86
+ 162 0228 261EAC93 		.ascii	"&\036\254\223\370.\211U'\346CS\357o\252\324AV\232@\205"
+ 162      F82E8955 
+ 162      27E64353 
+ 162      EF6FAAD4 
+ 162      41569A40 
+ 163 023d 9201FA50 		.ascii	"\222\001\372P\343n\3342'\211\361\2735x\210\216\376\344"
+ 163      E36EDC32 
+ 163      2789F1BB 
+ 163      3578888E 
+ 163      FEE4
+ 164 024f 0E8FF7BA 		.ascii	"\016\217\367\272\356bo\012\235\215\026\270\243\356\355"
+ 164      EE626F0A 
+ 164      9D8D16B8 
+ 164      A3EEED
+ 165 025e 6529B78B 		.ascii	"e)\267\213U\271%!\2178^.\2765ri|@\267\374*c\356p\340"
+ 165      55B92521 
+ 165      8F385E2E 
+ 165      BE357269 
+ 165      7C40B7FC 
+ 166 0277 758BA691 		.ascii	"u\213\246\221\271+\030\343\335\024\300@\324\307\317"
+ 166      B92B18E3 
+ 166      DD14C040 
+ 166      D4C7CF
+ 167 0286 5204784B 		.ascii	"R\004xK!\010\271\004\372a9\322Yc\315u\211VE/}\367l\265"
+ 167      2108B904 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 12
+
+
+ 167      FA6139D2 
+ 167      5963CD75 
+ 167      8956452F 
+ 168 029e 6FBE1EDB 		.ascii	"o\276\036\333\344\372\2076\341\321GG\252\307R\242\215"
+ 168      E4FA8736 
+ 168      E1D14747 
+ 168      AAC752A2 
+ 168      8D
+ 169 02af FD953198 		.ascii	"\375\2251\230\260\261\203\037\267Wbc\007\260\342\217"
+ 169      B0B1831F 
+ 169      B7576263 
+ 169      07B0E28F 
+ 170 02bf E2557A0C 		.ascii	"\342Uz\014\361\316\236\236j\0366\030\252\371m\301\177"
+ 170      F1CE9E9E 
+ 170      6A1E3618 
+ 170      AAF96DC1 
+ 170      7F
+ 171 02d0 3625942A 		.ascii	"6%\224*\300\361\277\366\011\030\304\265\3047\242\033"
+ 171      C0F1BFF6 
+ 171      0918C4B5 
+ 171      C437A21B 
+ 172 02e0 3E3D6DD1 		.ascii	">=m\321\315A\363\203\307\321C\012\232\277\027m]g,\334"
+ 172      CD41F383 
+ 172      C7D1430A 
+ 172      9ABF176D 
+ 172      5D672CDC 
+ 173 02f4 62B31415 		.ascii	"b\263\024\025\313\205f\313q\331h\267\035<r(9\177gA\246"
+ 173      CB8566CB 
+ 173      71D968B7 
+ 173      1D3C7228 
+ 173      397F6741 
+ 174 0309 91ACCC97 		.ascii	"\221\254\314\227m\262\303\342\224\017\024\232\355e\016"
+ 174      6DB2C3E2 
+ 174      940F149A 
+ 174      ED650E
+ 175 0318 ABBCCF64 		.ascii	"\253\274\317d\266\033\327\357SqL;r\254d\211ja\227\\"
+ 175      B61BD7EF 
+ 175      53714C3B 
+ 175      72AC6489 
+ 175      6A61975C 
+ 176 032c EAB43B14 		.ascii	"\352\264;\024\235\005j\365bY.Y\250Z\330c9*\227\225\250"
+ 176      9D056AF5 
+ 176      62592E59 
+ 176      A85AD863 
+ 176      392A9795 
+ 177 0341 B99B3719 		.ascii	"\271\2337\031\267\027\230\012\315\273w\025\030w'\225"
+ 177      B717980A 
+ 177      CDBB7715 
+ 177      18772795 
+ 178 0351 1DB13937 		.ascii	"\035\26197,M`\301Z\356,/\221Ks\016\023\203\325ns:\354"
+ 178      2C4D60C1 
+ 178      5AEE2C2F 
+ 178      914B730E 
+ 178      1383D56E 
+ 179 0368 C56627A2 		.ascii	"\305f'\242V\374\32512\324&\212,\326\243e%Z\207|h\303"
+ 179      56FCD531 
+ 179      32D4268A 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 13
+
+
+ 179      2CD6A365 
+ 179      255A877C 
+ 180 037e 0FBFA7BD 		.ascii	"\017\277\247\275\220"
+ 180      90
+ 181              		.text
+ 182              		.section	.gnu.lto_.symtab.727bdb8f,"",%progbits
+ 183 0000 4932435F 		.ascii	"I2C_Enable_SaveConfig\000\000\000\000\000\000\000\000"
+ 183      456E6162 
+ 183      6C655F53 
+ 183      61766543 
+ 183      6F6E6669 
+ 184 001d 00000000 		.ascii	"\000\000\000\000\254\000\000\000I2C_Enable_RestoreC"
+ 184      AC000000 
+ 184      4932435F 
+ 184      456E6162 
+ 184      6C655F52 
+ 185 0038 6F6E6669 		.ascii	"onfig\000\000\000\000\000\000\000\000\000\000\000\000"
+ 185      67000000 
+ 185      00000000 
+ 185      00000000 
+ 185      00
+ 186 0049 AE000000 		.ascii	"\256\000\000\000I2C_Enable_Sleep\000\000\000\000\000"
+ 186      4932435F 
+ 186      456E6162 
+ 186      6C655F53 
+ 186      6C656570 
+ 187 0062 00000000 		.ascii	"\000\000\000\000\000\000\000\260\000\000\000I2C_Ena"
+ 187      000000B0 
+ 187      00000049 
+ 187      32435F45 
+ 187      6E61
+ 188 0074 626C655F 		.ascii	"ble_Wakeup\000\000\000\000\000\000\000\000\000\000\000"
+ 188      57616B65 
+ 188      75700000 
+ 188      00000000 
+ 188      00000000 
+ 189 0089 00B20000 		.ascii	"\000\262\000\000\000"
+ 189      00
+ 190              		.text
+ 191              		.section	.gnu.lto_.opts,"",%progbits
+ 192 0000 272D666E 		.ascii	"'-fno-trapv' '-mcpu=cortex-m3' '-mthumb' '-g' '-O3'"
+ 192      6F2D7472 
+ 192      61707627 
+ 192      20272D6D 
+ 192      6370753D 
+ 193 0033 20272D66 		.ascii	" '-ffunction-sections' '-finline-functions' '-flto'"
+ 193      66756E63 
+ 193      74696F6E 
+ 193      2D736563 
+ 193      74696F6E 
+ 194 0066 20272D66 		.ascii	" '-ffat-lto-objects'\000"
+ 194      6661742D 
+ 194      6C746F2D 
+ 194      6F626A65 
+ 194      63747327 
+ 195              		.text
+ 196              		.cfi_sections	.debug_frame
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 14
+
+
+ 197              		.section	.text.I2C_Enable_SaveConfig,"ax",%progbits
+ 198              		.align	2
+ 199              		.global	I2C_Enable_SaveConfig
+ 200              		.thumb
+ 201              		.thumb_func
+ 202              		.type	I2C_Enable_SaveConfig, %function
+ 203              	I2C_Enable_SaveConfig:
+ 204              	.LFB0:
+ 205              		.file 1 "Generated_Source\\PSoC5\\I2C_Enable_PM.c"
+   1:Generated_Source\PSoC5/I2C_Enable_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/I2C_Enable_PM.c **** * File Name: I2C_Enable_PM.c
+   3:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Version 1.80
+   4:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+   5:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Description:
+   6:Generated_Source\PSoC5/I2C_Enable_PM.c **** *  This file contains the setup, control, and status commands to support 
+   7:Generated_Source\PSoC5/I2C_Enable_PM.c **** *  the component operation in the low power mode. 
+   8:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+   9:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Note:
+  10:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+  11:Generated_Source\PSoC5/I2C_Enable_PM.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Copyright 2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/I2C_Enable_PM.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC5/I2C_Enable_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC5/I2C_Enable_PM.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/I2C_Enable_PM.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/I2C_Enable_PM.c **** 
+  18:Generated_Source\PSoC5/I2C_Enable_PM.c **** #include "I2C_Enable.h"
+  19:Generated_Source\PSoC5/I2C_Enable_PM.c **** 
+  20:Generated_Source\PSoC5/I2C_Enable_PM.c **** /* Check for removal by optimization */
+  21:Generated_Source\PSoC5/I2C_Enable_PM.c **** #if !defined(I2C_Enable_Sync_ctrl_reg__REMOVED)
+  22:Generated_Source\PSoC5/I2C_Enable_PM.c **** 
+  23:Generated_Source\PSoC5/I2C_Enable_PM.c **** static I2C_Enable_BACKUP_STRUCT  I2C_Enable_backup = {0u};
+  24:Generated_Source\PSoC5/I2C_Enable_PM.c **** 
+  25:Generated_Source\PSoC5/I2C_Enable_PM.c ****     
+  26:Generated_Source\PSoC5/I2C_Enable_PM.c **** /*******************************************************************************
+  27:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Function Name: I2C_Enable_SaveConfig
+  28:Generated_Source\PSoC5/I2C_Enable_PM.c **** ********************************************************************************
+  29:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+  30:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Summary:
+  31:Generated_Source\PSoC5/I2C_Enable_PM.c **** *  Saves the control register value.
+  32:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+  33:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Parameters:
+  34:Generated_Source\PSoC5/I2C_Enable_PM.c **** *  None
+  35:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+  36:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Return:
+  37:Generated_Source\PSoC5/I2C_Enable_PM.c **** *  None
+  38:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+  39:Generated_Source\PSoC5/I2C_Enable_PM.c **** *******************************************************************************/
+  40:Generated_Source\PSoC5/I2C_Enable_PM.c **** void I2C_Enable_SaveConfig(void) 
+  41:Generated_Source\PSoC5/I2C_Enable_PM.c **** {
+ 206              		.loc 1 41 0
+ 207              		.cfi_startproc
+ 208              		@ args = 0, pretend = 0, frame = 0
+ 209              		@ frame_needed = 0, uses_anonymous_args = 0
+ 210              		@ link register save eliminated.
+  42:Generated_Source\PSoC5/I2C_Enable_PM.c ****     I2C_Enable_backup.controlState = I2C_Enable_Control;
+ 211              		.loc 1 42 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 15
+
+
+ 212 0000 024A     		ldr	r2, .L2
+ 213 0002 034B     		ldr	r3, .L2+4
+ 214 0004 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 215 0006 1A70     		strb	r2, [r3]
+ 216 0008 7047     		bx	lr
+ 217              	.L3:
+ 218 000a 00BF     		.align	2
+ 219              	.L2:
+ 220 000c 75650040 		.word	1073767797
+ 221 0010 00000000 		.word	.LANCHOR0
+ 222              		.cfi_endproc
+ 223              	.LFE0:
+ 224              		.size	I2C_Enable_SaveConfig, .-I2C_Enable_SaveConfig
+ 225              		.section	.text.I2C_Enable_RestoreConfig,"ax",%progbits
+ 226              		.align	2
+ 227              		.global	I2C_Enable_RestoreConfig
+ 228              		.thumb
+ 229              		.thumb_func
+ 230              		.type	I2C_Enable_RestoreConfig, %function
+ 231              	I2C_Enable_RestoreConfig:
+ 232              	.LFB1:
+  43:Generated_Source\PSoC5/I2C_Enable_PM.c **** }
+  44:Generated_Source\PSoC5/I2C_Enable_PM.c **** 
+  45:Generated_Source\PSoC5/I2C_Enable_PM.c **** 
+  46:Generated_Source\PSoC5/I2C_Enable_PM.c **** /*******************************************************************************
+  47:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Function Name: I2C_Enable_RestoreConfig
+  48:Generated_Source\PSoC5/I2C_Enable_PM.c **** ********************************************************************************
+  49:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+  50:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Summary:
+  51:Generated_Source\PSoC5/I2C_Enable_PM.c **** *  Restores the control register value.
+  52:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+  53:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Parameters:
+  54:Generated_Source\PSoC5/I2C_Enable_PM.c **** *  None
+  55:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+  56:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Return:
+  57:Generated_Source\PSoC5/I2C_Enable_PM.c **** *  None
+  58:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+  59:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+  60:Generated_Source\PSoC5/I2C_Enable_PM.c **** *******************************************************************************/
+  61:Generated_Source\PSoC5/I2C_Enable_PM.c **** void I2C_Enable_RestoreConfig(void) 
+  62:Generated_Source\PSoC5/I2C_Enable_PM.c **** {
+ 233              		.loc 1 62 0
+ 234              		.cfi_startproc
+ 235              		@ args = 0, pretend = 0, frame = 0
+ 236              		@ frame_needed = 0, uses_anonymous_args = 0
+ 237              		@ link register save eliminated.
+  63:Generated_Source\PSoC5/I2C_Enable_PM.c ****      I2C_Enable_Control = I2C_Enable_backup.controlState;
+ 238              		.loc 1 63 0
+ 239 0000 024A     		ldr	r2, .L5
+ 240 0002 034B     		ldr	r3, .L5+4
+ 241 0004 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 242 0006 1A70     		strb	r2, [r3]
+ 243 0008 7047     		bx	lr
+ 244              	.L6:
+ 245 000a 00BF     		.align	2
+ 246              	.L5:
+ 247 000c 00000000 		.word	.LANCHOR0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 16
+
+
+ 248 0010 75650040 		.word	1073767797
+ 249              		.cfi_endproc
+ 250              	.LFE1:
+ 251              		.size	I2C_Enable_RestoreConfig, .-I2C_Enable_RestoreConfig
+ 252              		.section	.text.I2C_Enable_Sleep,"ax",%progbits
+ 253              		.align	2
+ 254              		.global	I2C_Enable_Sleep
+ 255              		.thumb
+ 256              		.thumb_func
+ 257              		.type	I2C_Enable_Sleep, %function
+ 258              	I2C_Enable_Sleep:
+ 259              	.LFB2:
+  64:Generated_Source\PSoC5/I2C_Enable_PM.c **** }
+  65:Generated_Source\PSoC5/I2C_Enable_PM.c **** 
+  66:Generated_Source\PSoC5/I2C_Enable_PM.c **** 
+  67:Generated_Source\PSoC5/I2C_Enable_PM.c **** /*******************************************************************************
+  68:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Function Name: I2C_Enable_Sleep
+  69:Generated_Source\PSoC5/I2C_Enable_PM.c **** ********************************************************************************
+  70:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+  71:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Summary:
+  72:Generated_Source\PSoC5/I2C_Enable_PM.c **** *  Prepares the component for entering the low power mode.
+  73:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+  74:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Parameters:
+  75:Generated_Source\PSoC5/I2C_Enable_PM.c **** *  None
+  76:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+  77:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Return:
+  78:Generated_Source\PSoC5/I2C_Enable_PM.c **** *  None
+  79:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+  80:Generated_Source\PSoC5/I2C_Enable_PM.c **** *******************************************************************************/
+  81:Generated_Source\PSoC5/I2C_Enable_PM.c **** void I2C_Enable_Sleep(void) 
+  82:Generated_Source\PSoC5/I2C_Enable_PM.c **** {
+ 260              		.loc 1 82 0
+ 261              		.cfi_startproc
+ 262              		@ args = 0, pretend = 0, frame = 0
+ 263              		@ frame_needed = 0, uses_anonymous_args = 0
+ 264              		@ link register save eliminated.
+ 265              	.LBB6:
+ 266              	.LBB7:
+  42:Generated_Source\PSoC5/I2C_Enable_PM.c **** }
+ 267              		.loc 1 42 0
+ 268 0000 024A     		ldr	r2, .L8
+ 269 0002 034B     		ldr	r3, .L8+4
+ 270 0004 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 271 0006 1A70     		strb	r2, [r3]
+ 272 0008 7047     		bx	lr
+ 273              	.L9:
+ 274 000a 00BF     		.align	2
+ 275              	.L8:
+ 276 000c 75650040 		.word	1073767797
+ 277 0010 00000000 		.word	.LANCHOR0
+ 278              	.LBE7:
+ 279              	.LBE6:
+ 280              		.cfi_endproc
+ 281              	.LFE2:
+ 282              		.size	I2C_Enable_Sleep, .-I2C_Enable_Sleep
+ 283              		.section	.text.I2C_Enable_Wakeup,"ax",%progbits
+ 284              		.align	2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 17
+
+
+ 285              		.global	I2C_Enable_Wakeup
+ 286              		.thumb
+ 287              		.thumb_func
+ 288              		.type	I2C_Enable_Wakeup, %function
+ 289              	I2C_Enable_Wakeup:
+ 290              	.LFB3:
+  83:Generated_Source\PSoC5/I2C_Enable_PM.c ****     I2C_Enable_SaveConfig();
+  84:Generated_Source\PSoC5/I2C_Enable_PM.c **** }
+  85:Generated_Source\PSoC5/I2C_Enable_PM.c **** 
+  86:Generated_Source\PSoC5/I2C_Enable_PM.c **** 
+  87:Generated_Source\PSoC5/I2C_Enable_PM.c **** /*******************************************************************************
+  88:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Function Name: I2C_Enable_Wakeup
+  89:Generated_Source\PSoC5/I2C_Enable_PM.c **** ********************************************************************************
+  90:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+  91:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Summary:
+  92:Generated_Source\PSoC5/I2C_Enable_PM.c **** *  Restores the component after waking up from the low power mode.
+  93:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+  94:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Parameters:
+  95:Generated_Source\PSoC5/I2C_Enable_PM.c **** *  None
+  96:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+  97:Generated_Source\PSoC5/I2C_Enable_PM.c **** * Return:
+  98:Generated_Source\PSoC5/I2C_Enable_PM.c **** *  None
+  99:Generated_Source\PSoC5/I2C_Enable_PM.c **** *
+ 100:Generated_Source\PSoC5/I2C_Enable_PM.c **** *******************************************************************************/
+ 101:Generated_Source\PSoC5/I2C_Enable_PM.c **** void I2C_Enable_Wakeup(void)  
+ 102:Generated_Source\PSoC5/I2C_Enable_PM.c **** {
+ 291              		.loc 1 102 0
+ 292              		.cfi_startproc
+ 293              		@ args = 0, pretend = 0, frame = 0
+ 294              		@ frame_needed = 0, uses_anonymous_args = 0
+ 295              		@ link register save eliminated.
+ 296              	.LBB8:
+ 297              	.LBB9:
+  63:Generated_Source\PSoC5/I2C_Enable_PM.c **** }
+ 298              		.loc 1 63 0
+ 299 0000 024A     		ldr	r2, .L11
+ 300 0002 034B     		ldr	r3, .L11+4
+ 301 0004 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 302 0006 1A70     		strb	r2, [r3]
+ 303 0008 7047     		bx	lr
+ 304              	.L12:
+ 305 000a 00BF     		.align	2
+ 306              	.L11:
+ 307 000c 00000000 		.word	.LANCHOR0
+ 308 0010 75650040 		.word	1073767797
+ 309              	.LBE9:
+ 310              	.LBE8:
+ 311              		.cfi_endproc
+ 312              	.LFE3:
+ 313              		.size	I2C_Enable_Wakeup, .-I2C_Enable_Wakeup
+ 314              		.bss
+ 315              		.align	2
+ 316              		.set	.LANCHOR0,. + 0
+ 317              		.type	I2C_Enable_backup, %object
+ 318              		.size	I2C_Enable_backup, 1
+ 319              	I2C_Enable_backup:
+ 320 0000 00       		.space	1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 18
+
+
+ 321 0001 000000   		.text
+ 322              	.Letext0:
+ 323              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 324              		.file 3 "Generated_Source\\PSoC5\\I2C_Enable.h"
+ 325              		.section	.debug_info,"",%progbits
+ 326              	.Ldebug_info0:
+ 327 0000 43010000 		.4byte	0x143
+ 328 0004 0400     		.2byte	0x4
+ 329 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 330 000a 04       		.byte	0x4
+ 331 000b 01       		.uleb128 0x1
+ 332 000c 16010000 		.4byte	.LASF19
+ 333 0010 01       		.byte	0x1
+ 334 0011 BD010000 		.4byte	.LASF20
+ 335 0015 75000000 		.4byte	.LASF21
+ 336 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 337 001d 00000000 		.4byte	0
+ 338 0021 00000000 		.4byte	.Ldebug_line0
+ 339 0025 02       		.uleb128 0x2
+ 340 0026 01       		.byte	0x1
+ 341 0027 06       		.byte	0x6
+ 342 0028 34020000 		.4byte	.LASF0
+ 343 002c 02       		.uleb128 0x2
+ 344 002d 01       		.byte	0x1
+ 345 002e 08       		.byte	0x8
+ 346 002f 18000000 		.4byte	.LASF1
+ 347 0033 02       		.uleb128 0x2
+ 348 0034 02       		.byte	0x2
+ 349 0035 05       		.byte	0x5
+ 350 0036 FD010000 		.4byte	.LASF2
+ 351 003a 02       		.uleb128 0x2
+ 352 003b 02       		.byte	0x2
+ 353 003c 07       		.byte	0x7
+ 354 003d 4E000000 		.4byte	.LASF3
+ 355 0041 02       		.uleb128 0x2
+ 356 0042 04       		.byte	0x4
+ 357 0043 05       		.byte	0x5
+ 358 0044 26020000 		.4byte	.LASF4
+ 359 0048 02       		.uleb128 0x2
+ 360 0049 04       		.byte	0x4
+ 361 004a 07       		.byte	0x7
+ 362 004b 3C000000 		.4byte	.LASF5
+ 363 004f 02       		.uleb128 0x2
+ 364 0050 08       		.byte	0x8
+ 365 0051 05       		.byte	0x5
+ 366 0052 08010000 		.4byte	.LASF6
+ 367 0056 02       		.uleb128 0x2
+ 368 0057 08       		.byte	0x8
+ 369 0058 07       		.byte	0x7
+ 370 0059 DB000000 		.4byte	.LASF7
+ 371 005d 03       		.uleb128 0x3
+ 372 005e 04       		.byte	0x4
+ 373 005f 05       		.byte	0x5
+ 374 0060 696E7400 		.ascii	"int\000"
+ 375 0064 02       		.uleb128 0x2
+ 376 0065 04       		.byte	0x4
+ 377 0066 07       		.byte	0x7
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 19
+
+
+ 378 0067 CE000000 		.4byte	.LASF8
+ 379 006b 04       		.uleb128 0x4
+ 380 006c 20020000 		.4byte	.LASF12
+ 381 0070 02       		.byte	0x2
+ 382 0071 3801     		.2byte	0x138
+ 383 0073 2C000000 		.4byte	0x2c
+ 384 0077 02       		.uleb128 0x2
+ 385 0078 04       		.byte	0x4
+ 386 0079 04       		.byte	0x4
+ 387 007a 12000000 		.4byte	.LASF9
+ 388 007e 02       		.uleb128 0x2
+ 389 007f 08       		.byte	0x8
+ 390 0080 04       		.byte	0x4
+ 391 0081 6E000000 		.4byte	.LASF10
+ 392 0085 02       		.uleb128 0x2
+ 393 0086 01       		.byte	0x1
+ 394 0087 08       		.byte	0x8
+ 395 0088 2F020000 		.4byte	.LASF11
+ 396 008c 04       		.uleb128 0x4
+ 397 008d 26000000 		.4byte	.LASF13
+ 398 0091 02       		.byte	0x2
+ 399 0092 E201     		.2byte	0x1e2
+ 400 0094 98000000 		.4byte	0x98
+ 401 0098 05       		.uleb128 0x5
+ 402 0099 6B000000 		.4byte	0x6b
+ 403 009d 06       		.uleb128 0x6
+ 404 009e 01       		.byte	0x1
+ 405 009f 03       		.byte	0x3
+ 406 00a0 1C       		.byte	0x1c
+ 407 00a1 B2000000 		.4byte	0xb2
+ 408 00a5 07       		.uleb128 0x7
+ 409 00a6 61000000 		.4byte	.LASF22
+ 410 00aa 03       		.byte	0x3
+ 411 00ab 1E       		.byte	0x1e
+ 412 00ac 6B000000 		.4byte	0x6b
+ 413 00b0 00       		.byte	0
+ 414 00b1 00       		.byte	0
+ 415 00b2 08       		.uleb128 0x8
+ 416 00b3 E4010000 		.4byte	.LASF14
+ 417 00b7 03       		.byte	0x3
+ 418 00b8 20       		.byte	0x20
+ 419 00b9 9D000000 		.4byte	0x9d
+ 420 00bd 09       		.uleb128 0x9
+ 421 00be F2000000 		.4byte	.LASF15
+ 422 00c2 01       		.byte	0x1
+ 423 00c3 28       		.byte	0x28
+ 424 00c4 01       		.byte	0x1
+ 425 00c5 09       		.uleb128 0x9
+ 426 00c6 07020000 		.4byte	.LASF16
+ 427 00ca 01       		.byte	0x1
+ 428 00cb 3D       		.byte	0x3d
+ 429 00cc 01       		.byte	0x1
+ 430 00cd 0A       		.uleb128 0xa
+ 431 00ce BD000000 		.4byte	0xbd
+ 432 00d2 00000000 		.4byte	.LFB0
+ 433 00d6 14000000 		.4byte	.LFE0-.LFB0
+ 434 00da 01       		.uleb128 0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 20
+
+
+ 435 00db 9C       		.byte	0x9c
+ 436 00dc 0A       		.uleb128 0xa
+ 437 00dd C5000000 		.4byte	0xc5
+ 438 00e1 00000000 		.4byte	.LFB1
+ 439 00e5 14000000 		.4byte	.LFE1-.LFB1
+ 440 00e9 01       		.uleb128 0x1
+ 441 00ea 9C       		.byte	0x9c
+ 442 00eb 0B       		.uleb128 0xb
+ 443 00ec 2B000000 		.4byte	.LASF17
+ 444 00f0 01       		.byte	0x1
+ 445 00f1 51       		.byte	0x51
+ 446 00f2 00000000 		.4byte	.LFB2
+ 447 00f6 14000000 		.4byte	.LFE2-.LFB2
+ 448 00fa 01       		.uleb128 0x1
+ 449 00fb 9C       		.byte	0x9c
+ 450 00fc 10010000 		.4byte	0x110
+ 451 0100 0C       		.uleb128 0xc
+ 452 0101 BD000000 		.4byte	0xbd
+ 453 0105 00000000 		.4byte	.LBB6
+ 454 0109 14000000 		.4byte	.LBE6-.LBB6
+ 455 010d 01       		.byte	0x1
+ 456 010e 53       		.byte	0x53
+ 457 010f 00       		.byte	0
+ 458 0110 0B       		.uleb128 0xb
+ 459 0111 00000000 		.4byte	.LASF18
+ 460 0115 01       		.byte	0x1
+ 461 0116 65       		.byte	0x65
+ 462 0117 00000000 		.4byte	.LFB3
+ 463 011b 14000000 		.4byte	.LFE3-.LFB3
+ 464 011f 01       		.uleb128 0x1
+ 465 0120 9C       		.byte	0x9c
+ 466 0121 35010000 		.4byte	0x135
+ 467 0125 0C       		.uleb128 0xc
+ 468 0126 C5000000 		.4byte	0xc5
+ 469 012a 00000000 		.4byte	.LBB8
+ 470 012e 14000000 		.4byte	.LBE8-.LBB8
+ 471 0132 01       		.byte	0x1
+ 472 0133 67       		.byte	0x67
+ 473 0134 00       		.byte	0
+ 474 0135 0D       		.uleb128 0xd
+ 475 0136 40020000 		.4byte	.LASF23
+ 476 013a 01       		.byte	0x1
+ 477 013b 17       		.byte	0x17
+ 478 013c B2000000 		.4byte	0xb2
+ 479 0140 05       		.uleb128 0x5
+ 480 0141 03       		.byte	0x3
+ 481 0142 00000000 		.4byte	I2C_Enable_backup
+ 482 0146 00       		.byte	0
+ 483              		.section	.debug_abbrev,"",%progbits
+ 484              	.Ldebug_abbrev0:
+ 485 0000 01       		.uleb128 0x1
+ 486 0001 11       		.uleb128 0x11
+ 487 0002 01       		.byte	0x1
+ 488 0003 25       		.uleb128 0x25
+ 489 0004 0E       		.uleb128 0xe
+ 490 0005 13       		.uleb128 0x13
+ 491 0006 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 21
+
+
+ 492 0007 03       		.uleb128 0x3
+ 493 0008 0E       		.uleb128 0xe
+ 494 0009 1B       		.uleb128 0x1b
+ 495 000a 0E       		.uleb128 0xe
+ 496 000b 55       		.uleb128 0x55
+ 497 000c 17       		.uleb128 0x17
+ 498 000d 11       		.uleb128 0x11
+ 499 000e 01       		.uleb128 0x1
+ 500 000f 10       		.uleb128 0x10
+ 501 0010 17       		.uleb128 0x17
+ 502 0011 00       		.byte	0
+ 503 0012 00       		.byte	0
+ 504 0013 02       		.uleb128 0x2
+ 505 0014 24       		.uleb128 0x24
+ 506 0015 00       		.byte	0
+ 507 0016 0B       		.uleb128 0xb
+ 508 0017 0B       		.uleb128 0xb
+ 509 0018 3E       		.uleb128 0x3e
+ 510 0019 0B       		.uleb128 0xb
+ 511 001a 03       		.uleb128 0x3
+ 512 001b 0E       		.uleb128 0xe
+ 513 001c 00       		.byte	0
+ 514 001d 00       		.byte	0
+ 515 001e 03       		.uleb128 0x3
+ 516 001f 24       		.uleb128 0x24
+ 517 0020 00       		.byte	0
+ 518 0021 0B       		.uleb128 0xb
+ 519 0022 0B       		.uleb128 0xb
+ 520 0023 3E       		.uleb128 0x3e
+ 521 0024 0B       		.uleb128 0xb
+ 522 0025 03       		.uleb128 0x3
+ 523 0026 08       		.uleb128 0x8
+ 524 0027 00       		.byte	0
+ 525 0028 00       		.byte	0
+ 526 0029 04       		.uleb128 0x4
+ 527 002a 16       		.uleb128 0x16
+ 528 002b 00       		.byte	0
+ 529 002c 03       		.uleb128 0x3
+ 530 002d 0E       		.uleb128 0xe
+ 531 002e 3A       		.uleb128 0x3a
+ 532 002f 0B       		.uleb128 0xb
+ 533 0030 3B       		.uleb128 0x3b
+ 534 0031 05       		.uleb128 0x5
+ 535 0032 49       		.uleb128 0x49
+ 536 0033 13       		.uleb128 0x13
+ 537 0034 00       		.byte	0
+ 538 0035 00       		.byte	0
+ 539 0036 05       		.uleb128 0x5
+ 540 0037 35       		.uleb128 0x35
+ 541 0038 00       		.byte	0
+ 542 0039 49       		.uleb128 0x49
+ 543 003a 13       		.uleb128 0x13
+ 544 003b 00       		.byte	0
+ 545 003c 00       		.byte	0
+ 546 003d 06       		.uleb128 0x6
+ 547 003e 13       		.uleb128 0x13
+ 548 003f 01       		.byte	0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 22
+
+
+ 549 0040 0B       		.uleb128 0xb
+ 550 0041 0B       		.uleb128 0xb
+ 551 0042 3A       		.uleb128 0x3a
+ 552 0043 0B       		.uleb128 0xb
+ 553 0044 3B       		.uleb128 0x3b
+ 554 0045 0B       		.uleb128 0xb
+ 555 0046 01       		.uleb128 0x1
+ 556 0047 13       		.uleb128 0x13
+ 557 0048 00       		.byte	0
+ 558 0049 00       		.byte	0
+ 559 004a 07       		.uleb128 0x7
+ 560 004b 0D       		.uleb128 0xd
+ 561 004c 00       		.byte	0
+ 562 004d 03       		.uleb128 0x3
+ 563 004e 0E       		.uleb128 0xe
+ 564 004f 3A       		.uleb128 0x3a
+ 565 0050 0B       		.uleb128 0xb
+ 566 0051 3B       		.uleb128 0x3b
+ 567 0052 0B       		.uleb128 0xb
+ 568 0053 49       		.uleb128 0x49
+ 569 0054 13       		.uleb128 0x13
+ 570 0055 38       		.uleb128 0x38
+ 571 0056 0B       		.uleb128 0xb
+ 572 0057 00       		.byte	0
+ 573 0058 00       		.byte	0
+ 574 0059 08       		.uleb128 0x8
+ 575 005a 16       		.uleb128 0x16
+ 576 005b 00       		.byte	0
+ 577 005c 03       		.uleb128 0x3
+ 578 005d 0E       		.uleb128 0xe
+ 579 005e 3A       		.uleb128 0x3a
+ 580 005f 0B       		.uleb128 0xb
+ 581 0060 3B       		.uleb128 0x3b
+ 582 0061 0B       		.uleb128 0xb
+ 583 0062 49       		.uleb128 0x49
+ 584 0063 13       		.uleb128 0x13
+ 585 0064 00       		.byte	0
+ 586 0065 00       		.byte	0
+ 587 0066 09       		.uleb128 0x9
+ 588 0067 2E       		.uleb128 0x2e
+ 589 0068 00       		.byte	0
+ 590 0069 3F       		.uleb128 0x3f
+ 591 006a 19       		.uleb128 0x19
+ 592 006b 03       		.uleb128 0x3
+ 593 006c 0E       		.uleb128 0xe
+ 594 006d 3A       		.uleb128 0x3a
+ 595 006e 0B       		.uleb128 0xb
+ 596 006f 3B       		.uleb128 0x3b
+ 597 0070 0B       		.uleb128 0xb
+ 598 0071 27       		.uleb128 0x27
+ 599 0072 19       		.uleb128 0x19
+ 600 0073 20       		.uleb128 0x20
+ 601 0074 0B       		.uleb128 0xb
+ 602 0075 00       		.byte	0
+ 603 0076 00       		.byte	0
+ 604 0077 0A       		.uleb128 0xa
+ 605 0078 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 23
+
+
+ 606 0079 00       		.byte	0
+ 607 007a 31       		.uleb128 0x31
+ 608 007b 13       		.uleb128 0x13
+ 609 007c 11       		.uleb128 0x11
+ 610 007d 01       		.uleb128 0x1
+ 611 007e 12       		.uleb128 0x12
+ 612 007f 06       		.uleb128 0x6
+ 613 0080 40       		.uleb128 0x40
+ 614 0081 18       		.uleb128 0x18
+ 615 0082 9742     		.uleb128 0x2117
+ 616 0084 19       		.uleb128 0x19
+ 617 0085 00       		.byte	0
+ 618 0086 00       		.byte	0
+ 619 0087 0B       		.uleb128 0xb
+ 620 0088 2E       		.uleb128 0x2e
+ 621 0089 01       		.byte	0x1
+ 622 008a 3F       		.uleb128 0x3f
+ 623 008b 19       		.uleb128 0x19
+ 624 008c 03       		.uleb128 0x3
+ 625 008d 0E       		.uleb128 0xe
+ 626 008e 3A       		.uleb128 0x3a
+ 627 008f 0B       		.uleb128 0xb
+ 628 0090 3B       		.uleb128 0x3b
+ 629 0091 0B       		.uleb128 0xb
+ 630 0092 27       		.uleb128 0x27
+ 631 0093 19       		.uleb128 0x19
+ 632 0094 11       		.uleb128 0x11
+ 633 0095 01       		.uleb128 0x1
+ 634 0096 12       		.uleb128 0x12
+ 635 0097 06       		.uleb128 0x6
+ 636 0098 40       		.uleb128 0x40
+ 637 0099 18       		.uleb128 0x18
+ 638 009a 9742     		.uleb128 0x2117
+ 639 009c 19       		.uleb128 0x19
+ 640 009d 01       		.uleb128 0x1
+ 641 009e 13       		.uleb128 0x13
+ 642 009f 00       		.byte	0
+ 643 00a0 00       		.byte	0
+ 644 00a1 0C       		.uleb128 0xc
+ 645 00a2 1D       		.uleb128 0x1d
+ 646 00a3 00       		.byte	0
+ 647 00a4 31       		.uleb128 0x31
+ 648 00a5 13       		.uleb128 0x13
+ 649 00a6 11       		.uleb128 0x11
+ 650 00a7 01       		.uleb128 0x1
+ 651 00a8 12       		.uleb128 0x12
+ 652 00a9 06       		.uleb128 0x6
+ 653 00aa 58       		.uleb128 0x58
+ 654 00ab 0B       		.uleb128 0xb
+ 655 00ac 59       		.uleb128 0x59
+ 656 00ad 0B       		.uleb128 0xb
+ 657 00ae 00       		.byte	0
+ 658 00af 00       		.byte	0
+ 659 00b0 0D       		.uleb128 0xd
+ 660 00b1 34       		.uleb128 0x34
+ 661 00b2 00       		.byte	0
+ 662 00b3 03       		.uleb128 0x3
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 24
+
+
+ 663 00b4 0E       		.uleb128 0xe
+ 664 00b5 3A       		.uleb128 0x3a
+ 665 00b6 0B       		.uleb128 0xb
+ 666 00b7 3B       		.uleb128 0x3b
+ 667 00b8 0B       		.uleb128 0xb
+ 668 00b9 49       		.uleb128 0x49
+ 669 00ba 13       		.uleb128 0x13
+ 670 00bb 02       		.uleb128 0x2
+ 671 00bc 18       		.uleb128 0x18
+ 672 00bd 00       		.byte	0
+ 673 00be 00       		.byte	0
+ 674 00bf 00       		.byte	0
+ 675              		.section	.debug_aranges,"",%progbits
+ 676 0000 34000000 		.4byte	0x34
+ 677 0004 0200     		.2byte	0x2
+ 678 0006 00000000 		.4byte	.Ldebug_info0
+ 679 000a 04       		.byte	0x4
+ 680 000b 00       		.byte	0
+ 681 000c 0000     		.2byte	0
+ 682 000e 0000     		.2byte	0
+ 683 0010 00000000 		.4byte	.LFB0
+ 684 0014 14000000 		.4byte	.LFE0-.LFB0
+ 685 0018 00000000 		.4byte	.LFB1
+ 686 001c 14000000 		.4byte	.LFE1-.LFB1
+ 687 0020 00000000 		.4byte	.LFB2
+ 688 0024 14000000 		.4byte	.LFE2-.LFB2
+ 689 0028 00000000 		.4byte	.LFB3
+ 690 002c 14000000 		.4byte	.LFE3-.LFB3
+ 691 0030 00000000 		.4byte	0
+ 692 0034 00000000 		.4byte	0
+ 693              		.section	.debug_ranges,"",%progbits
+ 694              	.Ldebug_ranges0:
+ 695 0000 00000000 		.4byte	.LFB0
+ 696 0004 14000000 		.4byte	.LFE0
+ 697 0008 00000000 		.4byte	.LFB1
+ 698 000c 14000000 		.4byte	.LFE1
+ 699 0010 00000000 		.4byte	.LFB2
+ 700 0014 14000000 		.4byte	.LFE2
+ 701 0018 00000000 		.4byte	.LFB3
+ 702 001c 14000000 		.4byte	.LFE3
+ 703 0020 00000000 		.4byte	0
+ 704 0024 00000000 		.4byte	0
+ 705              		.section	.debug_line,"",%progbits
+ 706              	.Ldebug_line0:
+ 707 0000 A6000000 		.section	.debug_str,"MS",%progbits,1
+ 707      02005A00 
+ 707      00000201 
+ 707      FB0E0D00 
+ 707      01010101 
+ 708              	.LASF18:
+ 709 0000 4932435F 		.ascii	"I2C_Enable_Wakeup\000"
+ 709      456E6162 
+ 709      6C655F57 
+ 709      616B6575 
+ 709      7000
+ 710              	.LASF9:
+ 711 0012 666C6F61 		.ascii	"float\000"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 25
+
+
+ 711      7400
+ 712              	.LASF1:
+ 713 0018 756E7369 		.ascii	"unsigned char\000"
+ 713      676E6564 
+ 713      20636861 
+ 713      7200
+ 714              	.LASF13:
+ 715 0026 72656738 		.ascii	"reg8\000"
+ 715      00
+ 716              	.LASF17:
+ 717 002b 4932435F 		.ascii	"I2C_Enable_Sleep\000"
+ 717      456E6162 
+ 717      6C655F53 
+ 717      6C656570 
+ 717      00
+ 718              	.LASF5:
+ 719 003c 6C6F6E67 		.ascii	"long unsigned int\000"
+ 719      20756E73 
+ 719      69676E65 
+ 719      6420696E 
+ 719      7400
+ 720              	.LASF3:
+ 721 004e 73686F72 		.ascii	"short unsigned int\000"
+ 721      7420756E 
+ 721      7369676E 
+ 721      65642069 
+ 721      6E7400
+ 722              	.LASF22:
+ 723 0061 636F6E74 		.ascii	"controlState\000"
+ 723      726F6C53 
+ 723      74617465 
+ 723      00
+ 724              	.LASF10:
+ 725 006e 646F7562 		.ascii	"double\000"
+ 725      6C6500
+ 726              	.LASF21:
+ 727 0075 433A5C55 		.ascii	"C:\\Users\\Bruger\\Desktop\\CODE\\PSOC5\\CY8CKIT-59"
+ 727      73657273 
+ 727      5C427275 
+ 727      6765725C 
+ 727      4465736B 
+ 728 00a2 2D417264 		.ascii	"-Arduino\\CY8CKIT59_Ardudino-Speeduino.cydsn\000"
+ 728      75696E6F 
+ 728      5C435938 
+ 728      434B4954 
+ 728      35395F41 
+ 729              	.LASF8:
+ 730 00ce 756E7369 		.ascii	"unsigned int\000"
+ 730      676E6564 
+ 730      20696E74 
+ 730      00
+ 731              	.LASF7:
+ 732 00db 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 732      206C6F6E 
+ 732      6720756E 
+ 732      7369676E 
+ 732      65642069 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 26
+
+
+ 733              	.LASF15:
+ 734 00f2 4932435F 		.ascii	"I2C_Enable_SaveConfig\000"
+ 734      456E6162 
+ 734      6C655F53 
+ 734      61766543 
+ 734      6F6E6669 
+ 735              	.LASF6:
+ 736 0108 6C6F6E67 		.ascii	"long long int\000"
+ 736      206C6F6E 
+ 736      6720696E 
+ 736      7400
+ 737              	.LASF19:
+ 738 0116 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 738      4320342E 
+ 738      392E3320 
+ 738      32303135 
+ 738      30333033 
+ 739 0149 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 739      20726576 
+ 739      6973696F 
+ 739      6E203232 
+ 739      31323230 
+ 740 017c 33202D66 		.ascii	"3 -ffunction-sections -finline-functions -flto -ffa"
+ 740      66756E63 
+ 740      74696F6E 
+ 740      2D736563 
+ 740      74696F6E 
+ 741 01af 742D6C74 		.ascii	"t-lto-objects\000"
+ 741      6F2D6F62 
+ 741      6A656374 
+ 741      7300
+ 742              	.LASF20:
+ 743 01bd 47656E65 		.ascii	"Generated_Source\\PSoC5\\I2C_Enable_PM.c\000"
+ 743      72617465 
+ 743      645F536F 
+ 743      75726365 
+ 743      5C50536F 
+ 744              	.LASF14:
+ 745 01e4 4932435F 		.ascii	"I2C_Enable_BACKUP_STRUCT\000"
+ 745      456E6162 
+ 745      6C655F42 
+ 745      41434B55 
+ 745      505F5354 
+ 746              	.LASF2:
+ 747 01fd 73686F72 		.ascii	"short int\000"
+ 747      7420696E 
+ 747      7400
+ 748              	.LASF16:
+ 749 0207 4932435F 		.ascii	"I2C_Enable_RestoreConfig\000"
+ 749      456E6162 
+ 749      6C655F52 
+ 749      6573746F 
+ 749      7265436F 
+ 750              	.LASF12:
+ 751 0220 75696E74 		.ascii	"uint8\000"
+ 751      3800
+ 752              	.LASF4:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccDDrgt5.s 			page 27
+
+
+ 753 0226 6C6F6E67 		.ascii	"long int\000"
+ 753      20696E74 
+ 753      00
+ 754              	.LASF11:
+ 755 022f 63686172 		.ascii	"char\000"
+ 755      00
+ 756              	.LASF0:
+ 757 0234 7369676E 		.ascii	"signed char\000"
+ 757      65642063 
+ 757      68617200 
+ 758              	.LASF23:
+ 759 0240 4932435F 		.ascii	"I2C_Enable_backup\000"
+ 759      456E6162 
+ 759      6C655F62 
+ 759      61636B75 
+ 759      7000
+ 760              		.comm	__gnu_lto_v1,1,1
+ 761              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

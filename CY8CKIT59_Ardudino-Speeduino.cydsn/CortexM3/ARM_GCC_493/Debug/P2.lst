@@ -1,0 +1,1319 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"P2.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.P2_Write,"ax",%progbits
+  19              		.align	2
+  20              		.global	P2_Write
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	P2_Write, %function
+  24              	P2_Write:
+  25              	.LFB0:
+  26              		.file 1 "Generated_Source\\PSoC5\\P2.c"
+   1:Generated_Source\PSoC5/P2.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/P2.c **** * File Name: P2.c  
+   3:Generated_Source\PSoC5/P2.c **** * Version 2.20
+   4:Generated_Source\PSoC5/P2.c **** *
+   5:Generated_Source\PSoC5/P2.c **** * Description:
+   6:Generated_Source\PSoC5/P2.c **** *  This file contains API to enable firmware control of a Pins component.
+   7:Generated_Source\PSoC5/P2.c **** *
+   8:Generated_Source\PSoC5/P2.c **** * Note:
+   9:Generated_Source\PSoC5/P2.c **** *
+  10:Generated_Source\PSoC5/P2.c **** ********************************************************************************
+  11:Generated_Source\PSoC5/P2.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC5/P2.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  13:Generated_Source\PSoC5/P2.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  14:Generated_Source\PSoC5/P2.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC5/P2.c **** *******************************************************************************/
+  16:Generated_Source\PSoC5/P2.c **** 
+  17:Generated_Source\PSoC5/P2.c **** #include "cytypes.h"
+  18:Generated_Source\PSoC5/P2.c **** #include "P2.h"
+  19:Generated_Source\PSoC5/P2.c **** 
+  20:Generated_Source\PSoC5/P2.c **** /* APIs are not generated for P15[7:6] on PSoC 5 */
+  21:Generated_Source\PSoC5/P2.c **** #if !(CY_PSOC5A &&\
+  22:Generated_Source\PSoC5/P2.c **** 	 P2__PORT == 15 && ((P2__MASK & 0xC0) != 0))
+  23:Generated_Source\PSoC5/P2.c **** 
+  24:Generated_Source\PSoC5/P2.c **** 
+  25:Generated_Source\PSoC5/P2.c **** /*******************************************************************************
+  26:Generated_Source\PSoC5/P2.c **** * Function Name: P2_Write
+  27:Generated_Source\PSoC5/P2.c **** ****************************************************************************//**
+  28:Generated_Source\PSoC5/P2.c **** *
+  29:Generated_Source\PSoC5/P2.c **** * \brief Writes the value to the physical port (data output register), masking
+  30:Generated_Source\PSoC5/P2.c **** *  and shifting the bits appropriately. 
+  31:Generated_Source\PSoC5/P2.c **** *
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 2
+
+
+  32:Generated_Source\PSoC5/P2.c **** * The data output register controls the signal applied to the physical pin in 
+  33:Generated_Source\PSoC5/P2.c **** * conjunction with the drive mode parameter. This function avoids changing 
+  34:Generated_Source\PSoC5/P2.c **** * other bits in the port by using the appropriate method (read-modify-write or
+  35:Generated_Source\PSoC5/P2.c **** * bit banding).
+  36:Generated_Source\PSoC5/P2.c **** *
+  37:Generated_Source\PSoC5/P2.c **** * <b>Note</b> This function should not be used on a hardware digital output pin 
+  38:Generated_Source\PSoC5/P2.c **** * as it is driven by the hardware signal attached to it.
+  39:Generated_Source\PSoC5/P2.c **** *
+  40:Generated_Source\PSoC5/P2.c **** * \param value
+  41:Generated_Source\PSoC5/P2.c **** *  Value to write to the component instance.
+  42:Generated_Source\PSoC5/P2.c **** *
+  43:Generated_Source\PSoC5/P2.c **** * \return 
+  44:Generated_Source\PSoC5/P2.c **** *  None 
+  45:Generated_Source\PSoC5/P2.c **** *
+  46:Generated_Source\PSoC5/P2.c **** * \sideeffect
+  47:Generated_Source\PSoC5/P2.c **** *  If you use read-modify-write operations that are not atomic; the Interrupt 
+  48:Generated_Source\PSoC5/P2.c **** *  Service Routines (ISR) can cause corruption of this function. An ISR that 
+  49:Generated_Source\PSoC5/P2.c **** *  interrupts this function and performs writes to the Pins component data 
+  50:Generated_Source\PSoC5/P2.c **** *  register can cause corrupted port data. To avoid this issue, you should 
+  51:Generated_Source\PSoC5/P2.c **** *  either use the Per-Pin APIs (primary method) or disable interrupts around 
+  52:Generated_Source\PSoC5/P2.c **** *  this function.
+  53:Generated_Source\PSoC5/P2.c **** *
+  54:Generated_Source\PSoC5/P2.c **** * \funcusage
+  55:Generated_Source\PSoC5/P2.c **** *  \snippet P2_SUT.c usage_P2_Write
+  56:Generated_Source\PSoC5/P2.c **** *******************************************************************************/
+  57:Generated_Source\PSoC5/P2.c **** void P2_Write(uint8 value)
+  58:Generated_Source\PSoC5/P2.c **** {
+  27              		.loc 1 58 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 16
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32 0000 80B4     		push	{r7}
+  33              		.cfi_def_cfa_offset 4
+  34              		.cfi_offset 7, -4
+  35 0002 85B0     		sub	sp, sp, #20
+  36              		.cfi_def_cfa_offset 24
+  37 0004 00AF     		add	r7, sp, #0
+  38              		.cfi_def_cfa_register 7
+  39 0006 0346     		mov	r3, r0
+  40 0008 FB71     		strb	r3, [r7, #7]
+  59:Generated_Source\PSoC5/P2.c ****     uint8 staticBits = (P2_DR & (uint8)(~P2_MASK));
+  41              		.loc 1 59 0
+  42 000a 074B     		ldr	r3, .L2
+  43 000c 1B78     		ldrb	r3, [r3]
+  44 000e 0023     		movs	r3, #0
+  45 0010 FB73     		strb	r3, [r7, #15]
+  60:Generated_Source\PSoC5/P2.c ****     P2_DR = staticBits | ((uint8)(value << P2_SHIFT) & P2_MASK);
+  46              		.loc 1 60 0
+  47 0012 0549     		ldr	r1, .L2
+  48 0014 FA7B     		ldrb	r2, [r7, #15]
+  49 0016 FB79     		ldrb	r3, [r7, #7]
+  50 0018 1343     		orrs	r3, r3, r2
+  51 001a DBB2     		uxtb	r3, r3
+  52 001c 0B70     		strb	r3, [r1]
+  61:Generated_Source\PSoC5/P2.c **** }
+  53              		.loc 1 61 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 3
+
+
+  54 001e 1437     		adds	r7, r7, #20
+  55              		.cfi_def_cfa_offset 4
+  56 0020 BD46     		mov	sp, r7
+  57              		.cfi_def_cfa_register 13
+  58              		@ sp needed
+  59 0022 5DF8047B 		ldr	r7, [sp], #4
+  60              		.cfi_restore 7
+  61              		.cfi_def_cfa_offset 0
+  62 0026 7047     		bx	lr
+  63              	.L3:
+  64              		.align	2
+  65              	.L2:
+  66 0028 20510040 		.word	1073762592
+  67              		.cfi_endproc
+  68              	.LFE0:
+  69              		.size	P2_Write, .-P2_Write
+  70              		.section	.text.P2_SetDriveMode,"ax",%progbits
+  71              		.align	2
+  72              		.global	P2_SetDriveMode
+  73              		.thumb
+  74              		.thumb_func
+  75              		.type	P2_SetDriveMode, %function
+  76              	P2_SetDriveMode:
+  77              	.LFB1:
+  62:Generated_Source\PSoC5/P2.c **** 
+  63:Generated_Source\PSoC5/P2.c **** 
+  64:Generated_Source\PSoC5/P2.c **** /*******************************************************************************
+  65:Generated_Source\PSoC5/P2.c **** * Function Name: P2_SetDriveMode
+  66:Generated_Source\PSoC5/P2.c **** ****************************************************************************//**
+  67:Generated_Source\PSoC5/P2.c **** *
+  68:Generated_Source\PSoC5/P2.c **** * \brief Sets the drive mode for each of the Pins component's pins.
+  69:Generated_Source\PSoC5/P2.c **** * 
+  70:Generated_Source\PSoC5/P2.c **** * <b>Note</b> This affects all pins in the Pins component instance. Use the
+  71:Generated_Source\PSoC5/P2.c **** * Per-Pin APIs if you wish to control individual pin's drive modes.
+  72:Generated_Source\PSoC5/P2.c **** *
+  73:Generated_Source\PSoC5/P2.c **** * \param mode
+  74:Generated_Source\PSoC5/P2.c **** *  Mode for the selected signals. Valid options are documented in 
+  75:Generated_Source\PSoC5/P2.c **** *  \ref driveMode.
+  76:Generated_Source\PSoC5/P2.c **** *
+  77:Generated_Source\PSoC5/P2.c **** * \return
+  78:Generated_Source\PSoC5/P2.c **** *  None
+  79:Generated_Source\PSoC5/P2.c **** *
+  80:Generated_Source\PSoC5/P2.c **** * \sideeffect
+  81:Generated_Source\PSoC5/P2.c **** *  If you use read-modify-write operations that are not atomic, the ISR can
+  82:Generated_Source\PSoC5/P2.c **** *  cause corruption of this function. An ISR that interrupts this function 
+  83:Generated_Source\PSoC5/P2.c **** *  and performs writes to the Pins component Drive Mode registers can cause 
+  84:Generated_Source\PSoC5/P2.c **** *  corrupted port data. To avoid this issue, you should either use the Per-Pin
+  85:Generated_Source\PSoC5/P2.c **** *  APIs (primary method) or disable interrupts around this function.
+  86:Generated_Source\PSoC5/P2.c **** *
+  87:Generated_Source\PSoC5/P2.c **** * \funcusage
+  88:Generated_Source\PSoC5/P2.c **** *  \snippet P2_SUT.c usage_P2_SetDriveMode
+  89:Generated_Source\PSoC5/P2.c **** *******************************************************************************/
+  90:Generated_Source\PSoC5/P2.c **** void P2_SetDriveMode(uint8 mode)
+  91:Generated_Source\PSoC5/P2.c **** {
+  78              		.loc 1 91 0
+  79              		.cfi_startproc
+  80              		@ args = 0, pretend = 0, frame = 8
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 4
+
+
+  81              		@ frame_needed = 1, uses_anonymous_args = 0
+  82              		@ link register save eliminated.
+  83 0000 80B4     		push	{r7}
+  84              		.cfi_def_cfa_offset 4
+  85              		.cfi_offset 7, -4
+  86 0002 83B0     		sub	sp, sp, #12
+  87              		.cfi_def_cfa_offset 16
+  88 0004 00AF     		add	r7, sp, #0
+  89              		.cfi_def_cfa_register 7
+  90 0006 0346     		mov	r3, r0
+  91 0008 FB71     		strb	r3, [r7, #7]
+  92:Generated_Source\PSoC5/P2.c **** 	CyPins_SetPinDriveMode(P2_0, mode);
+  92              		.loc 1 92 0
+  93 000a 424B     		ldr	r3, .L5
+  94 000c 414A     		ldr	r2, .L5
+  95 000e 1278     		ldrb	r2, [r2]
+  96 0010 D2B2     		uxtb	r2, r2
+  97 0012 D2B2     		uxtb	r2, r2
+  98 0014 22F00E02 		bic	r2, r2, #14
+  99 0018 D1B2     		uxtb	r1, r2
+ 100 001a FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 101 001c 02F00E02 		and	r2, r2, #14
+ 102 0020 D2B2     		uxtb	r2, r2
+ 103 0022 0A43     		orrs	r2, r2, r1
+ 104 0024 D2B2     		uxtb	r2, r2
+ 105 0026 D2B2     		uxtb	r2, r2
+ 106 0028 1A70     		strb	r2, [r3]
+  93:Generated_Source\PSoC5/P2.c **** 	CyPins_SetPinDriveMode(P2_1, mode);
+ 107              		.loc 1 93 0
+ 108 002a 3B4B     		ldr	r3, .L5+4
+ 109 002c 3A4A     		ldr	r2, .L5+4
+ 110 002e 1278     		ldrb	r2, [r2]
+ 111 0030 D2B2     		uxtb	r2, r2
+ 112 0032 D2B2     		uxtb	r2, r2
+ 113 0034 22F00E02 		bic	r2, r2, #14
+ 114 0038 D1B2     		uxtb	r1, r2
+ 115 003a FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 116 003c 02F00E02 		and	r2, r2, #14
+ 117 0040 D2B2     		uxtb	r2, r2
+ 118 0042 0A43     		orrs	r2, r2, r1
+ 119 0044 D2B2     		uxtb	r2, r2
+ 120 0046 D2B2     		uxtb	r2, r2
+ 121 0048 1A70     		strb	r2, [r3]
+  94:Generated_Source\PSoC5/P2.c **** 	CyPins_SetPinDriveMode(P2_2, mode);
+ 122              		.loc 1 94 0
+ 123 004a 344B     		ldr	r3, .L5+8
+ 124 004c 334A     		ldr	r2, .L5+8
+ 125 004e 1278     		ldrb	r2, [r2]
+ 126 0050 D2B2     		uxtb	r2, r2
+ 127 0052 D2B2     		uxtb	r2, r2
+ 128 0054 22F00E02 		bic	r2, r2, #14
+ 129 0058 D1B2     		uxtb	r1, r2
+ 130 005a FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 131 005c 02F00E02 		and	r2, r2, #14
+ 132 0060 D2B2     		uxtb	r2, r2
+ 133 0062 0A43     		orrs	r2, r2, r1
+ 134 0064 D2B2     		uxtb	r2, r2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 5
+
+
+ 135 0066 D2B2     		uxtb	r2, r2
+ 136 0068 1A70     		strb	r2, [r3]
+  95:Generated_Source\PSoC5/P2.c **** 	CyPins_SetPinDriveMode(P2_3, mode);
+ 137              		.loc 1 95 0
+ 138 006a 2D4B     		ldr	r3, .L5+12
+ 139 006c 2C4A     		ldr	r2, .L5+12
+ 140 006e 1278     		ldrb	r2, [r2]
+ 141 0070 D2B2     		uxtb	r2, r2
+ 142 0072 D2B2     		uxtb	r2, r2
+ 143 0074 22F00E02 		bic	r2, r2, #14
+ 144 0078 D1B2     		uxtb	r1, r2
+ 145 007a FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 146 007c 02F00E02 		and	r2, r2, #14
+ 147 0080 D2B2     		uxtb	r2, r2
+ 148 0082 0A43     		orrs	r2, r2, r1
+ 149 0084 D2B2     		uxtb	r2, r2
+ 150 0086 D2B2     		uxtb	r2, r2
+ 151 0088 1A70     		strb	r2, [r3]
+  96:Generated_Source\PSoC5/P2.c **** 	CyPins_SetPinDriveMode(P2_4, mode);
+ 152              		.loc 1 96 0
+ 153 008a 264B     		ldr	r3, .L5+16
+ 154 008c 254A     		ldr	r2, .L5+16
+ 155 008e 1278     		ldrb	r2, [r2]
+ 156 0090 D2B2     		uxtb	r2, r2
+ 157 0092 D2B2     		uxtb	r2, r2
+ 158 0094 22F00E02 		bic	r2, r2, #14
+ 159 0098 D1B2     		uxtb	r1, r2
+ 160 009a FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 161 009c 02F00E02 		and	r2, r2, #14
+ 162 00a0 D2B2     		uxtb	r2, r2
+ 163 00a2 0A43     		orrs	r2, r2, r1
+ 164 00a4 D2B2     		uxtb	r2, r2
+ 165 00a6 D2B2     		uxtb	r2, r2
+ 166 00a8 1A70     		strb	r2, [r3]
+  97:Generated_Source\PSoC5/P2.c **** 	CyPins_SetPinDriveMode(P2_5, mode);
+ 167              		.loc 1 97 0
+ 168 00aa 1F4B     		ldr	r3, .L5+20
+ 169 00ac 1E4A     		ldr	r2, .L5+20
+ 170 00ae 1278     		ldrb	r2, [r2]
+ 171 00b0 D2B2     		uxtb	r2, r2
+ 172 00b2 D2B2     		uxtb	r2, r2
+ 173 00b4 22F00E02 		bic	r2, r2, #14
+ 174 00b8 D1B2     		uxtb	r1, r2
+ 175 00ba FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 176 00bc 02F00E02 		and	r2, r2, #14
+ 177 00c0 D2B2     		uxtb	r2, r2
+ 178 00c2 0A43     		orrs	r2, r2, r1
+ 179 00c4 D2B2     		uxtb	r2, r2
+ 180 00c6 D2B2     		uxtb	r2, r2
+ 181 00c8 1A70     		strb	r2, [r3]
+  98:Generated_Source\PSoC5/P2.c **** 	CyPins_SetPinDriveMode(P2_6, mode);
+ 182              		.loc 1 98 0
+ 183 00ca 184B     		ldr	r3, .L5+24
+ 184 00cc 174A     		ldr	r2, .L5+24
+ 185 00ce 1278     		ldrb	r2, [r2]
+ 186 00d0 D2B2     		uxtb	r2, r2
+ 187 00d2 D2B2     		uxtb	r2, r2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 6
+
+
+ 188 00d4 22F00E02 		bic	r2, r2, #14
+ 189 00d8 D1B2     		uxtb	r1, r2
+ 190 00da FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 191 00dc 02F00E02 		and	r2, r2, #14
+ 192 00e0 D2B2     		uxtb	r2, r2
+ 193 00e2 0A43     		orrs	r2, r2, r1
+ 194 00e4 D2B2     		uxtb	r2, r2
+ 195 00e6 D2B2     		uxtb	r2, r2
+ 196 00e8 1A70     		strb	r2, [r3]
+  99:Generated_Source\PSoC5/P2.c **** 	CyPins_SetPinDriveMode(P2_7, mode);
+ 197              		.loc 1 99 0
+ 198 00ea 114B     		ldr	r3, .L5+28
+ 199 00ec 104A     		ldr	r2, .L5+28
+ 200 00ee 1278     		ldrb	r2, [r2]
+ 201 00f0 D2B2     		uxtb	r2, r2
+ 202 00f2 D2B2     		uxtb	r2, r2
+ 203 00f4 22F00E02 		bic	r2, r2, #14
+ 204 00f8 D1B2     		uxtb	r1, r2
+ 205 00fa FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 206 00fc 02F00E02 		and	r2, r2, #14
+ 207 0100 D2B2     		uxtb	r2, r2
+ 208 0102 0A43     		orrs	r2, r2, r1
+ 209 0104 D2B2     		uxtb	r2, r2
+ 210 0106 D2B2     		uxtb	r2, r2
+ 211 0108 1A70     		strb	r2, [r3]
+ 100:Generated_Source\PSoC5/P2.c **** }
+ 212              		.loc 1 100 0
+ 213 010a 0C37     		adds	r7, r7, #12
+ 214              		.cfi_def_cfa_offset 4
+ 215 010c BD46     		mov	sp, r7
+ 216              		.cfi_def_cfa_register 13
+ 217              		@ sp needed
+ 218 010e 5DF8047B 		ldr	r7, [sp], #4
+ 219              		.cfi_restore 7
+ 220              		.cfi_def_cfa_offset 0
+ 221 0112 7047     		bx	lr
+ 222              	.L6:
+ 223              		.align	2
+ 224              	.L5:
+ 225 0114 10500040 		.word	1073762320
+ 226 0118 11500040 		.word	1073762321
+ 227 011c 12500040 		.word	1073762322
+ 228 0120 13500040 		.word	1073762323
+ 229 0124 14500040 		.word	1073762324
+ 230 0128 15500040 		.word	1073762325
+ 231 012c 16500040 		.word	1073762326
+ 232 0130 17500040 		.word	1073762327
+ 233              		.cfi_endproc
+ 234              	.LFE1:
+ 235              		.size	P2_SetDriveMode, .-P2_SetDriveMode
+ 236              		.section	.text.P2_Read,"ax",%progbits
+ 237              		.align	2
+ 238              		.global	P2_Read
+ 239              		.thumb
+ 240              		.thumb_func
+ 241              		.type	P2_Read, %function
+ 242              	P2_Read:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 7
+
+
+ 243              	.LFB2:
+ 101:Generated_Source\PSoC5/P2.c **** 
+ 102:Generated_Source\PSoC5/P2.c **** 
+ 103:Generated_Source\PSoC5/P2.c **** /*******************************************************************************
+ 104:Generated_Source\PSoC5/P2.c **** * Function Name: P2_Read
+ 105:Generated_Source\PSoC5/P2.c **** ****************************************************************************//**
+ 106:Generated_Source\PSoC5/P2.c **** *
+ 107:Generated_Source\PSoC5/P2.c **** * \brief Reads the associated physical port (pin status register) and masks 
+ 108:Generated_Source\PSoC5/P2.c **** *  the required bits according to the width and bit position of the component
+ 109:Generated_Source\PSoC5/P2.c **** *  instance. 
+ 110:Generated_Source\PSoC5/P2.c **** *
+ 111:Generated_Source\PSoC5/P2.c **** * The pin's status register returns the current logic level present on the 
+ 112:Generated_Source\PSoC5/P2.c **** * physical pin.
+ 113:Generated_Source\PSoC5/P2.c **** *
+ 114:Generated_Source\PSoC5/P2.c **** * \return 
+ 115:Generated_Source\PSoC5/P2.c **** *  The current value for the pins in the component as a right justified number.
+ 116:Generated_Source\PSoC5/P2.c **** *
+ 117:Generated_Source\PSoC5/P2.c **** * \funcusage
+ 118:Generated_Source\PSoC5/P2.c **** *  \snippet P2_SUT.c usage_P2_Read  
+ 119:Generated_Source\PSoC5/P2.c **** *******************************************************************************/
+ 120:Generated_Source\PSoC5/P2.c **** uint8 P2_Read(void)
+ 121:Generated_Source\PSoC5/P2.c **** {
+ 244              		.loc 1 121 0
+ 245              		.cfi_startproc
+ 246              		@ args = 0, pretend = 0, frame = 0
+ 247              		@ frame_needed = 1, uses_anonymous_args = 0
+ 248              		@ link register save eliminated.
+ 249 0000 80B4     		push	{r7}
+ 250              		.cfi_def_cfa_offset 4
+ 251              		.cfi_offset 7, -4
+ 252 0002 00AF     		add	r7, sp, #0
+ 253              		.cfi_def_cfa_register 7
+ 122:Generated_Source\PSoC5/P2.c ****     return (P2_PS & P2_MASK) >> P2_SHIFT;
+ 254              		.loc 1 122 0
+ 255 0004 034B     		ldr	r3, .L9
+ 256 0006 1B78     		ldrb	r3, [r3]
+ 257 0008 DBB2     		uxtb	r3, r3
+ 123:Generated_Source\PSoC5/P2.c **** }
+ 258              		.loc 1 123 0
+ 259 000a 1846     		mov	r0, r3
+ 260 000c BD46     		mov	sp, r7
+ 261              		.cfi_def_cfa_register 13
+ 262              		@ sp needed
+ 263 000e 5DF8047B 		ldr	r7, [sp], #4
+ 264              		.cfi_restore 7
+ 265              		.cfi_def_cfa_offset 0
+ 266 0012 7047     		bx	lr
+ 267              	.L10:
+ 268              		.align	2
+ 269              	.L9:
+ 270 0014 21510040 		.word	1073762593
+ 271              		.cfi_endproc
+ 272              	.LFE2:
+ 273              		.size	P2_Read, .-P2_Read
+ 274              		.section	.text.P2_ReadDataReg,"ax",%progbits
+ 275              		.align	2
+ 276              		.global	P2_ReadDataReg
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 8
+
+
+ 277              		.thumb
+ 278              		.thumb_func
+ 279              		.type	P2_ReadDataReg, %function
+ 280              	P2_ReadDataReg:
+ 281              	.LFB3:
+ 124:Generated_Source\PSoC5/P2.c **** 
+ 125:Generated_Source\PSoC5/P2.c **** 
+ 126:Generated_Source\PSoC5/P2.c **** /*******************************************************************************
+ 127:Generated_Source\PSoC5/P2.c **** * Function Name: P2_ReadDataReg
+ 128:Generated_Source\PSoC5/P2.c **** ****************************************************************************//**
+ 129:Generated_Source\PSoC5/P2.c **** *
+ 130:Generated_Source\PSoC5/P2.c **** * \brief Reads the associated physical port's data output register and masks 
+ 131:Generated_Source\PSoC5/P2.c **** *  the correct bits according to the width and bit position of the component 
+ 132:Generated_Source\PSoC5/P2.c **** *  instance. 
+ 133:Generated_Source\PSoC5/P2.c **** *
+ 134:Generated_Source\PSoC5/P2.c **** * The data output register controls the signal applied to the physical pin in 
+ 135:Generated_Source\PSoC5/P2.c **** * conjunction with the drive mode parameter. This is not the same as the 
+ 136:Generated_Source\PSoC5/P2.c **** * preferred P2_Read() API because the 
+ 137:Generated_Source\PSoC5/P2.c **** * P2_ReadDataReg() reads the data register instead of the status 
+ 138:Generated_Source\PSoC5/P2.c **** * register. For output pins this is a useful function to determine the value 
+ 139:Generated_Source\PSoC5/P2.c **** * just written to the pin.
+ 140:Generated_Source\PSoC5/P2.c **** *
+ 141:Generated_Source\PSoC5/P2.c **** * \return 
+ 142:Generated_Source\PSoC5/P2.c **** *  The current value of the data register masked and shifted into a right 
+ 143:Generated_Source\PSoC5/P2.c **** *  justified number for the component instance.
+ 144:Generated_Source\PSoC5/P2.c **** *
+ 145:Generated_Source\PSoC5/P2.c **** * \funcusage
+ 146:Generated_Source\PSoC5/P2.c **** *  \snippet P2_SUT.c usage_P2_ReadDataReg 
+ 147:Generated_Source\PSoC5/P2.c **** *******************************************************************************/
+ 148:Generated_Source\PSoC5/P2.c **** uint8 P2_ReadDataReg(void)
+ 149:Generated_Source\PSoC5/P2.c **** {
+ 282              		.loc 1 149 0
+ 283              		.cfi_startproc
+ 284              		@ args = 0, pretend = 0, frame = 0
+ 285              		@ frame_needed = 1, uses_anonymous_args = 0
+ 286              		@ link register save eliminated.
+ 287 0000 80B4     		push	{r7}
+ 288              		.cfi_def_cfa_offset 4
+ 289              		.cfi_offset 7, -4
+ 290 0002 00AF     		add	r7, sp, #0
+ 291              		.cfi_def_cfa_register 7
+ 150:Generated_Source\PSoC5/P2.c ****     return (P2_DR & P2_MASK) >> P2_SHIFT;
+ 292              		.loc 1 150 0
+ 293 0004 034B     		ldr	r3, .L13
+ 294 0006 1B78     		ldrb	r3, [r3]
+ 295 0008 DBB2     		uxtb	r3, r3
+ 151:Generated_Source\PSoC5/P2.c **** }
+ 296              		.loc 1 151 0
+ 297 000a 1846     		mov	r0, r3
+ 298 000c BD46     		mov	sp, r7
+ 299              		.cfi_def_cfa_register 13
+ 300              		@ sp needed
+ 301 000e 5DF8047B 		ldr	r7, [sp], #4
+ 302              		.cfi_restore 7
+ 303              		.cfi_def_cfa_offset 0
+ 304 0012 7047     		bx	lr
+ 305              	.L14:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 9
+
+
+ 306              		.align	2
+ 307              	.L13:
+ 308 0014 20510040 		.word	1073762592
+ 309              		.cfi_endproc
+ 310              	.LFE3:
+ 311              		.size	P2_ReadDataReg, .-P2_ReadDataReg
+ 312              		.section	.text.P2_SetInterruptMode,"ax",%progbits
+ 313              		.align	2
+ 314              		.global	P2_SetInterruptMode
+ 315              		.thumb
+ 316              		.thumb_func
+ 317              		.type	P2_SetInterruptMode, %function
+ 318              	P2_SetInterruptMode:
+ 319              	.LFB4:
+ 152:Generated_Source\PSoC5/P2.c **** 
+ 153:Generated_Source\PSoC5/P2.c **** 
+ 154:Generated_Source\PSoC5/P2.c **** /* If interrupt is connected for this Pins component */ 
+ 155:Generated_Source\PSoC5/P2.c **** #if defined(P2_INTSTAT) 
+ 156:Generated_Source\PSoC5/P2.c **** 
+ 157:Generated_Source\PSoC5/P2.c ****     /*******************************************************************************
+ 158:Generated_Source\PSoC5/P2.c ****     * Function Name: P2_SetInterruptMode
+ 159:Generated_Source\PSoC5/P2.c ****     ****************************************************************************//**
+ 160:Generated_Source\PSoC5/P2.c ****     *
+ 161:Generated_Source\PSoC5/P2.c ****     * \brief Configures the interrupt mode for each of the Pins component's
+ 162:Generated_Source\PSoC5/P2.c ****     *  pins. Alternatively you may set the interrupt mode for all the pins
+ 163:Generated_Source\PSoC5/P2.c ****     *  specified in the Pins component.
+ 164:Generated_Source\PSoC5/P2.c ****     *
+ 165:Generated_Source\PSoC5/P2.c ****     *  <b>Note</b> The interrupt is port-wide and therefore any enabled pin
+ 166:Generated_Source\PSoC5/P2.c ****     *  interrupt may trigger it.
+ 167:Generated_Source\PSoC5/P2.c ****     *
+ 168:Generated_Source\PSoC5/P2.c ****     * \param position
+ 169:Generated_Source\PSoC5/P2.c ****     *  The pin position as listed in the Pins component. You may OR these to be 
+ 170:Generated_Source\PSoC5/P2.c ****     *  able to configure the interrupt mode of multiple pins within a Pins 
+ 171:Generated_Source\PSoC5/P2.c ****     *  component. Or you may use P2_INTR_ALL to configure the
+ 172:Generated_Source\PSoC5/P2.c ****     *  interrupt mode of all the pins in the Pins component.       
+ 173:Generated_Source\PSoC5/P2.c ****     *  - P2_0_INTR       (First pin in the list)
+ 174:Generated_Source\PSoC5/P2.c ****     *  - P2_1_INTR       (Second pin in the list)
+ 175:Generated_Source\PSoC5/P2.c ****     *  - ...
+ 176:Generated_Source\PSoC5/P2.c ****     *  - P2_INTR_ALL     (All pins in Pins component)
+ 177:Generated_Source\PSoC5/P2.c ****     *
+ 178:Generated_Source\PSoC5/P2.c ****     * \param mode
+ 179:Generated_Source\PSoC5/P2.c ****     *  Interrupt mode for the selected pins. Valid options are documented in
+ 180:Generated_Source\PSoC5/P2.c ****     *  \ref intrMode.
+ 181:Generated_Source\PSoC5/P2.c ****     *
+ 182:Generated_Source\PSoC5/P2.c ****     * \return 
+ 183:Generated_Source\PSoC5/P2.c ****     *  None
+ 184:Generated_Source\PSoC5/P2.c ****     *  
+ 185:Generated_Source\PSoC5/P2.c ****     * \sideeffect
+ 186:Generated_Source\PSoC5/P2.c ****     *  It is recommended that the interrupt be disabled before calling this 
+ 187:Generated_Source\PSoC5/P2.c ****     *  function to avoid unintended interrupt requests. Note that the interrupt
+ 188:Generated_Source\PSoC5/P2.c ****     *  type is port wide, and therefore will trigger for any enabled pin on the 
+ 189:Generated_Source\PSoC5/P2.c ****     *  port.
+ 190:Generated_Source\PSoC5/P2.c ****     *
+ 191:Generated_Source\PSoC5/P2.c ****     * \funcusage
+ 192:Generated_Source\PSoC5/P2.c ****     *  \snippet P2_SUT.c usage_P2_SetInterruptMode
+ 193:Generated_Source\PSoC5/P2.c ****     *******************************************************************************/
+ 194:Generated_Source\PSoC5/P2.c ****     void P2_SetInterruptMode(uint16 position, uint16 mode)
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 10
+
+
+ 195:Generated_Source\PSoC5/P2.c ****     {
+ 320              		.loc 1 195 0
+ 321              		.cfi_startproc
+ 322              		@ args = 0, pretend = 0, frame = 8
+ 323              		@ frame_needed = 1, uses_anonymous_args = 0
+ 324              		@ link register save eliminated.
+ 325 0000 80B4     		push	{r7}
+ 326              		.cfi_def_cfa_offset 4
+ 327              		.cfi_offset 7, -4
+ 328 0002 83B0     		sub	sp, sp, #12
+ 329              		.cfi_def_cfa_offset 16
+ 330 0004 00AF     		add	r7, sp, #0
+ 331              		.cfi_def_cfa_register 7
+ 332 0006 0346     		mov	r3, r0
+ 333 0008 0A46     		mov	r2, r1
+ 334 000a FB80     		strh	r3, [r7, #6]	@ movhi
+ 335 000c 1346     		mov	r3, r2	@ movhi
+ 336 000e BB80     		strh	r3, [r7, #4]	@ movhi
+ 196:Generated_Source\PSoC5/P2.c **** 		if((position & P2_0_INTR) != 0u) 
+ 337              		.loc 1 196 0
+ 338 0010 FB88     		ldrh	r3, [r7, #6]
+ 339 0012 03F00103 		and	r3, r3, #1
+ 340 0016 002B     		cmp	r3, #0
+ 341 0018 03D0     		beq	.L16
+ 197:Generated_Source\PSoC5/P2.c **** 		{ 
+ 198:Generated_Source\PSoC5/P2.c **** 			 P2_0_INTTYPE_REG = (uint8)mode; 
+ 342              		.loc 1 198 0
+ 343 001a 244B     		ldr	r3, .L24
+ 344 001c BA88     		ldrh	r2, [r7, #4]	@ movhi
+ 345 001e D2B2     		uxtb	r2, r2
+ 346 0020 1A70     		strb	r2, [r3]
+ 347              	.L16:
+ 199:Generated_Source\PSoC5/P2.c **** 		} 
+ 200:Generated_Source\PSoC5/P2.c **** 		if((position & P2_1_INTR) != 0u) 
+ 348              		.loc 1 200 0
+ 349 0022 FB88     		ldrh	r3, [r7, #6]
+ 350 0024 03F00203 		and	r3, r3, #2
+ 351 0028 002B     		cmp	r3, #0
+ 352 002a 03D0     		beq	.L17
+ 201:Generated_Source\PSoC5/P2.c **** 		{ 
+ 202:Generated_Source\PSoC5/P2.c **** 			 P2_1_INTTYPE_REG = (uint8)mode; 
+ 353              		.loc 1 202 0
+ 354 002c 204B     		ldr	r3, .L24+4
+ 355 002e BA88     		ldrh	r2, [r7, #4]	@ movhi
+ 356 0030 D2B2     		uxtb	r2, r2
+ 357 0032 1A70     		strb	r2, [r3]
+ 358              	.L17:
+ 203:Generated_Source\PSoC5/P2.c **** 		} 
+ 204:Generated_Source\PSoC5/P2.c **** 		if((position & P2_2_INTR) != 0u) 
+ 359              		.loc 1 204 0
+ 360 0034 FB88     		ldrh	r3, [r7, #6]
+ 361 0036 03F00403 		and	r3, r3, #4
+ 362 003a 002B     		cmp	r3, #0
+ 363 003c 03D0     		beq	.L18
+ 205:Generated_Source\PSoC5/P2.c **** 		{ 
+ 206:Generated_Source\PSoC5/P2.c **** 			 P2_2_INTTYPE_REG = (uint8)mode; 
+ 364              		.loc 1 206 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 11
+
+
+ 365 003e 1D4B     		ldr	r3, .L24+8
+ 366 0040 BA88     		ldrh	r2, [r7, #4]	@ movhi
+ 367 0042 D2B2     		uxtb	r2, r2
+ 368 0044 1A70     		strb	r2, [r3]
+ 369              	.L18:
+ 207:Generated_Source\PSoC5/P2.c **** 		} 
+ 208:Generated_Source\PSoC5/P2.c **** 		if((position & P2_3_INTR) != 0u) 
+ 370              		.loc 1 208 0
+ 371 0046 FB88     		ldrh	r3, [r7, #6]
+ 372 0048 03F00803 		and	r3, r3, #8
+ 373 004c 002B     		cmp	r3, #0
+ 374 004e 03D0     		beq	.L19
+ 209:Generated_Source\PSoC5/P2.c **** 		{ 
+ 210:Generated_Source\PSoC5/P2.c **** 			 P2_3_INTTYPE_REG = (uint8)mode; 
+ 375              		.loc 1 210 0
+ 376 0050 194B     		ldr	r3, .L24+12
+ 377 0052 BA88     		ldrh	r2, [r7, #4]	@ movhi
+ 378 0054 D2B2     		uxtb	r2, r2
+ 379 0056 1A70     		strb	r2, [r3]
+ 380              	.L19:
+ 211:Generated_Source\PSoC5/P2.c **** 		} 
+ 212:Generated_Source\PSoC5/P2.c **** 		if((position & P2_4_INTR) != 0u) 
+ 381              		.loc 1 212 0
+ 382 0058 FB88     		ldrh	r3, [r7, #6]
+ 383 005a 03F01003 		and	r3, r3, #16
+ 384 005e 002B     		cmp	r3, #0
+ 385 0060 03D0     		beq	.L20
+ 213:Generated_Source\PSoC5/P2.c **** 		{ 
+ 214:Generated_Source\PSoC5/P2.c **** 			 P2_4_INTTYPE_REG = (uint8)mode; 
+ 386              		.loc 1 214 0
+ 387 0062 164B     		ldr	r3, .L24+16
+ 388 0064 BA88     		ldrh	r2, [r7, #4]	@ movhi
+ 389 0066 D2B2     		uxtb	r2, r2
+ 390 0068 1A70     		strb	r2, [r3]
+ 391              	.L20:
+ 215:Generated_Source\PSoC5/P2.c **** 		} 
+ 216:Generated_Source\PSoC5/P2.c **** 		if((position & P2_5_INTR) != 0u) 
+ 392              		.loc 1 216 0
+ 393 006a FB88     		ldrh	r3, [r7, #6]
+ 394 006c 03F02003 		and	r3, r3, #32
+ 395 0070 002B     		cmp	r3, #0
+ 396 0072 03D0     		beq	.L21
+ 217:Generated_Source\PSoC5/P2.c **** 		{ 
+ 218:Generated_Source\PSoC5/P2.c **** 			 P2_5_INTTYPE_REG = (uint8)mode; 
+ 397              		.loc 1 218 0
+ 398 0074 124B     		ldr	r3, .L24+20
+ 399 0076 BA88     		ldrh	r2, [r7, #4]	@ movhi
+ 400 0078 D2B2     		uxtb	r2, r2
+ 401 007a 1A70     		strb	r2, [r3]
+ 402              	.L21:
+ 219:Generated_Source\PSoC5/P2.c **** 		} 
+ 220:Generated_Source\PSoC5/P2.c **** 		if((position & P2_6_INTR) != 0u) 
+ 403              		.loc 1 220 0
+ 404 007c FB88     		ldrh	r3, [r7, #6]
+ 405 007e 03F04003 		and	r3, r3, #64
+ 406 0082 002B     		cmp	r3, #0
+ 407 0084 03D0     		beq	.L22
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 12
+
+
+ 221:Generated_Source\PSoC5/P2.c **** 		{ 
+ 222:Generated_Source\PSoC5/P2.c **** 			 P2_6_INTTYPE_REG = (uint8)mode; 
+ 408              		.loc 1 222 0
+ 409 0086 0F4B     		ldr	r3, .L24+24
+ 410 0088 BA88     		ldrh	r2, [r7, #4]	@ movhi
+ 411 008a D2B2     		uxtb	r2, r2
+ 412 008c 1A70     		strb	r2, [r3]
+ 413              	.L22:
+ 223:Generated_Source\PSoC5/P2.c **** 		} 
+ 224:Generated_Source\PSoC5/P2.c **** 		if((position & P2_7_INTR) != 0u) 
+ 414              		.loc 1 224 0
+ 415 008e FB88     		ldrh	r3, [r7, #6]
+ 416 0090 03F08003 		and	r3, r3, #128
+ 417 0094 002B     		cmp	r3, #0
+ 418 0096 03D0     		beq	.L15
+ 225:Generated_Source\PSoC5/P2.c **** 		{ 
+ 226:Generated_Source\PSoC5/P2.c **** 			 P2_7_INTTYPE_REG = (uint8)mode; 
+ 419              		.loc 1 226 0
+ 420 0098 0B4B     		ldr	r3, .L24+28
+ 421 009a BA88     		ldrh	r2, [r7, #4]	@ movhi
+ 422 009c D2B2     		uxtb	r2, r2
+ 423 009e 1A70     		strb	r2, [r3]
+ 424              	.L15:
+ 227:Generated_Source\PSoC5/P2.c **** 		}
+ 228:Generated_Source\PSoC5/P2.c ****     }
+ 425              		.loc 1 228 0
+ 426 00a0 0C37     		adds	r7, r7, #12
+ 427              		.cfi_def_cfa_offset 4
+ 428 00a2 BD46     		mov	sp, r7
+ 429              		.cfi_def_cfa_register 13
+ 430              		@ sp needed
+ 431 00a4 5DF8047B 		ldr	r7, [sp], #4
+ 432              		.cfi_restore 7
+ 433              		.cfi_def_cfa_offset 0
+ 434 00a8 7047     		bx	lr
+ 435              	.L25:
+ 436 00aa 00BF     		.align	2
+ 437              	.L24:
+ 438 00ac 10450040 		.word	1073759504
+ 439 00b0 11450040 		.word	1073759505
+ 440 00b4 12450040 		.word	1073759506
+ 441 00b8 13450040 		.word	1073759507
+ 442 00bc 14450040 		.word	1073759508
+ 443 00c0 15450040 		.word	1073759509
+ 444 00c4 16450040 		.word	1073759510
+ 445 00c8 17450040 		.word	1073759511
+ 446              		.cfi_endproc
+ 447              	.LFE4:
+ 448              		.size	P2_SetInterruptMode, .-P2_SetInterruptMode
+ 449              		.section	.text.P2_ClearInterrupt,"ax",%progbits
+ 450              		.align	2
+ 451              		.global	P2_ClearInterrupt
+ 452              		.thumb
+ 453              		.thumb_func
+ 454              		.type	P2_ClearInterrupt, %function
+ 455              	P2_ClearInterrupt:
+ 456              	.LFB5:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 13
+
+
+ 229:Generated_Source\PSoC5/P2.c ****     
+ 230:Generated_Source\PSoC5/P2.c ****     
+ 231:Generated_Source\PSoC5/P2.c ****     /*******************************************************************************
+ 232:Generated_Source\PSoC5/P2.c ****     * Function Name: P2_ClearInterrupt
+ 233:Generated_Source\PSoC5/P2.c ****     ****************************************************************************//**
+ 234:Generated_Source\PSoC5/P2.c ****     *
+ 235:Generated_Source\PSoC5/P2.c ****     * \brief Clears any active interrupts attached with the component and returns 
+ 236:Generated_Source\PSoC5/P2.c ****     *  the value of the interrupt status register allowing determination of which
+ 237:Generated_Source\PSoC5/P2.c ****     *  pins generated an interrupt event.
+ 238:Generated_Source\PSoC5/P2.c ****     *
+ 239:Generated_Source\PSoC5/P2.c ****     * \return 
+ 240:Generated_Source\PSoC5/P2.c ****     *  The right-shifted current value of the interrupt status register. Each pin 
+ 241:Generated_Source\PSoC5/P2.c ****     *  has one bit set if it generated an interrupt event. For example, bit 0 is 
+ 242:Generated_Source\PSoC5/P2.c ****     *  for pin 0 and bit 1 is for pin 1 of the Pins component.
+ 243:Generated_Source\PSoC5/P2.c ****     *  
+ 244:Generated_Source\PSoC5/P2.c ****     * \sideeffect
+ 245:Generated_Source\PSoC5/P2.c ****     *  Clears all bits of the physical port's interrupt status register, not just
+ 246:Generated_Source\PSoC5/P2.c ****     *  those associated with the Pins component.
+ 247:Generated_Source\PSoC5/P2.c ****     *
+ 248:Generated_Source\PSoC5/P2.c ****     * \funcusage
+ 249:Generated_Source\PSoC5/P2.c ****     *  \snippet P2_SUT.c usage_P2_ClearInterrupt
+ 250:Generated_Source\PSoC5/P2.c ****     *******************************************************************************/
+ 251:Generated_Source\PSoC5/P2.c ****     uint8 P2_ClearInterrupt(void)
+ 252:Generated_Source\PSoC5/P2.c ****     {
+ 457              		.loc 1 252 0
+ 458              		.cfi_startproc
+ 459              		@ args = 0, pretend = 0, frame = 0
+ 460              		@ frame_needed = 1, uses_anonymous_args = 0
+ 461              		@ link register save eliminated.
+ 462 0000 80B4     		push	{r7}
+ 463              		.cfi_def_cfa_offset 4
+ 464              		.cfi_offset 7, -4
+ 465 0002 00AF     		add	r7, sp, #0
+ 466              		.cfi_def_cfa_register 7
+ 253:Generated_Source\PSoC5/P2.c ****         return (P2_INTSTAT & P2_MASK) >> P2_SHIFT;
+ 467              		.loc 1 253 0
+ 468 0004 034B     		ldr	r3, .L28
+ 469 0006 1B78     		ldrb	r3, [r3]
+ 470 0008 DBB2     		uxtb	r3, r3
+ 254:Generated_Source\PSoC5/P2.c ****     }
+ 471              		.loc 1 254 0
+ 472 000a 1846     		mov	r0, r3
+ 473 000c BD46     		mov	sp, r7
+ 474              		.cfi_def_cfa_register 13
+ 475              		@ sp needed
+ 476 000e 5DF8047B 		ldr	r7, [sp], #4
+ 477              		.cfi_restore 7
+ 478              		.cfi_def_cfa_offset 0
+ 479 0012 7047     		bx	lr
+ 480              	.L29:
+ 481              		.align	2
+ 482              	.L28:
+ 483 0014 82450040 		.word	1073759618
+ 484              		.cfi_endproc
+ 485              	.LFE5:
+ 486              		.size	P2_ClearInterrupt, .-P2_ClearInterrupt
+ 487              		.text
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 14
+
+
+ 488              	.Letext0:
+ 489              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 490              		.section	.debug_info,"",%progbits
+ 491              	.Ldebug_info0:
+ 492 0000 6D010000 		.4byte	0x16d
+ 493 0004 0400     		.2byte	0x4
+ 494 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 495 000a 04       		.byte	0x4
+ 496 000b 01       		.uleb128 0x1
+ 497 000c 41000000 		.4byte	.LASF24
+ 498 0010 01       		.byte	0x1
+ 499 0011 00000000 		.4byte	.LASF25
+ 500 0015 33010000 		.4byte	.LASF26
+ 501 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 502 001d 00000000 		.4byte	0
+ 503 0021 00000000 		.4byte	.Ldebug_line0
+ 504 0025 02       		.uleb128 0x2
+ 505 0026 01       		.byte	0x1
+ 506 0027 06       		.byte	0x6
+ 507 0028 14020000 		.4byte	.LASF0
+ 508 002c 02       		.uleb128 0x2
+ 509 002d 01       		.byte	0x1
+ 510 002e 08       		.byte	0x8
+ 511 002f E4000000 		.4byte	.LASF1
+ 512 0033 02       		.uleb128 0x2
+ 513 0034 02       		.byte	0x2
+ 514 0035 05       		.byte	0x5
+ 515 0036 EB010000 		.4byte	.LASF2
+ 516 003a 02       		.uleb128 0x2
+ 517 003b 02       		.byte	0x2
+ 518 003c 07       		.byte	0x7
+ 519 003d 09010000 		.4byte	.LASF3
+ 520 0041 02       		.uleb128 0x2
+ 521 0042 04       		.byte	0x4
+ 522 0043 05       		.byte	0x5
+ 523 0044 FB010000 		.4byte	.LASF4
+ 524 0048 02       		.uleb128 0x2
+ 525 0049 04       		.byte	0x4
+ 526 004a 07       		.byte	0x7
+ 527 004b F7000000 		.4byte	.LASF5
+ 528 004f 02       		.uleb128 0x2
+ 529 0050 08       		.byte	0x8
+ 530 0051 05       		.byte	0x5
+ 531 0052 CF010000 		.4byte	.LASF6
+ 532 0056 02       		.uleb128 0x2
+ 533 0057 08       		.byte	0x8
+ 534 0058 07       		.byte	0x7
+ 535 0059 99010000 		.4byte	.LASF7
+ 536 005d 03       		.uleb128 0x3
+ 537 005e 04       		.byte	0x4
+ 538 005f 05       		.byte	0x5
+ 539 0060 696E7400 		.ascii	"int\000"
+ 540 0064 02       		.uleb128 0x2
+ 541 0065 04       		.byte	0x4
+ 542 0066 07       		.byte	0x7
+ 543 0067 8C010000 		.4byte	.LASF8
+ 544 006b 04       		.uleb128 0x4
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 15
+
+
+ 545 006c F5010000 		.4byte	.LASF9
+ 546 0070 02       		.byte	0x2
+ 547 0071 3801     		.2byte	0x138
+ 548 0073 2C000000 		.4byte	0x2c
+ 549 0077 04       		.uleb128 0x4
+ 550 0078 23010000 		.4byte	.LASF10
+ 551 007c 02       		.byte	0x2
+ 552 007d 3901     		.2byte	0x139
+ 553 007f 3A000000 		.4byte	0x3a
+ 554 0083 02       		.uleb128 0x2
+ 555 0084 04       		.byte	0x4
+ 556 0085 04       		.byte	0x4
+ 557 0086 DE000000 		.4byte	.LASF11
+ 558 008a 02       		.uleb128 0x2
+ 559 008b 08       		.byte	0x8
+ 560 008c 04       		.byte	0x4
+ 561 008d 1C010000 		.4byte	.LASF12
+ 562 0091 02       		.uleb128 0x2
+ 563 0092 01       		.byte	0x1
+ 564 0093 08       		.byte	0x8
+ 565 0094 E6010000 		.4byte	.LASF13
+ 566 0098 04       		.uleb128 0x4
+ 567 0099 F2000000 		.4byte	.LASF14
+ 568 009d 02       		.byte	0x2
+ 569 009e E201     		.2byte	0x1e2
+ 570 00a0 A4000000 		.4byte	0xa4
+ 571 00a4 05       		.uleb128 0x5
+ 572 00a5 6B000000 		.4byte	0x6b
+ 573 00a9 06       		.uleb128 0x6
+ 574 00aa DD010000 		.4byte	.LASF15
+ 575 00ae 01       		.byte	0x1
+ 576 00af 39       		.byte	0x39
+ 577 00b0 00000000 		.4byte	.LFB0
+ 578 00b4 2C000000 		.4byte	.LFE0-.LFB0
+ 579 00b8 01       		.uleb128 0x1
+ 580 00b9 9C       		.byte	0x9c
+ 581 00ba DB000000 		.4byte	0xdb
+ 582 00be 07       		.uleb128 0x7
+ 583 00bf 30000000 		.4byte	.LASF17
+ 584 00c3 01       		.byte	0x1
+ 585 00c4 39       		.byte	0x39
+ 586 00c5 6B000000 		.4byte	0x6b
+ 587 00c9 02       		.uleb128 0x2
+ 588 00ca 91       		.byte	0x91
+ 589 00cb 6F       		.sleb128 -17
+ 590 00cc 08       		.uleb128 0x8
+ 591 00cd 36000000 		.4byte	.LASF27
+ 592 00d1 01       		.byte	0x1
+ 593 00d2 3B       		.byte	0x3b
+ 594 00d3 6B000000 		.4byte	0x6b
+ 595 00d7 02       		.uleb128 0x2
+ 596 00d8 91       		.byte	0x91
+ 597 00d9 77       		.sleb128 -9
+ 598 00da 00       		.byte	0
+ 599 00db 06       		.uleb128 0x6
+ 600 00dc 04020000 		.4byte	.LASF16
+ 601 00e0 01       		.byte	0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 16
+
+
+ 602 00e1 5A       		.byte	0x5a
+ 603 00e2 00000000 		.4byte	.LFB1
+ 604 00e6 34010000 		.4byte	.LFE1-.LFB1
+ 605 00ea 01       		.uleb128 0x1
+ 606 00eb 9C       		.byte	0x9c
+ 607 00ec FF000000 		.4byte	0xff
+ 608 00f0 07       		.uleb128 0x7
+ 609 00f1 B0010000 		.4byte	.LASF18
+ 610 00f5 01       		.byte	0x1
+ 611 00f6 5A       		.byte	0x5a
+ 612 00f7 6B000000 		.4byte	0x6b
+ 613 00fb 02       		.uleb128 0x2
+ 614 00fc 91       		.byte	0x91
+ 615 00fd 77       		.sleb128 -9
+ 616 00fe 00       		.byte	0
+ 617 00ff 09       		.uleb128 0x9
+ 618 0100 B5010000 		.4byte	.LASF19
+ 619 0104 01       		.byte	0x1
+ 620 0105 78       		.byte	0x78
+ 621 0106 6B000000 		.4byte	0x6b
+ 622 010a 00000000 		.4byte	.LFB2
+ 623 010e 18000000 		.4byte	.LFE2-.LFB2
+ 624 0112 01       		.uleb128 0x1
+ 625 0113 9C       		.byte	0x9c
+ 626 0114 09       		.uleb128 0x9
+ 627 0115 CF000000 		.4byte	.LASF20
+ 628 0119 01       		.byte	0x1
+ 629 011a 94       		.byte	0x94
+ 630 011b 6B000000 		.4byte	0x6b
+ 631 011f 00000000 		.4byte	.LFB3
+ 632 0123 18000000 		.4byte	.LFE3-.LFB3
+ 633 0127 01       		.uleb128 0x1
+ 634 0128 9C       		.byte	0x9c
+ 635 0129 06       		.uleb128 0x6
+ 636 012a 1C000000 		.4byte	.LASF21
+ 637 012e 01       		.byte	0x1
+ 638 012f C2       		.byte	0xc2
+ 639 0130 00000000 		.4byte	.LFB4
+ 640 0134 CC000000 		.4byte	.LFE4-.LFB4
+ 641 0138 01       		.uleb128 0x1
+ 642 0139 9C       		.byte	0x9c
+ 643 013a 5B010000 		.4byte	0x15b
+ 644 013e 07       		.uleb128 0x7
+ 645 013f 2A010000 		.4byte	.LASF22
+ 646 0143 01       		.byte	0x1
+ 647 0144 C2       		.byte	0xc2
+ 648 0145 77000000 		.4byte	0x77
+ 649 0149 02       		.uleb128 0x2
+ 650 014a 91       		.byte	0x91
+ 651 014b 76       		.sleb128 -10
+ 652 014c 07       		.uleb128 0x7
+ 653 014d B0010000 		.4byte	.LASF18
+ 654 0151 01       		.byte	0x1
+ 655 0152 C2       		.byte	0xc2
+ 656 0153 77000000 		.4byte	0x77
+ 657 0157 02       		.uleb128 0x2
+ 658 0158 91       		.byte	0x91
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 17
+
+
+ 659 0159 74       		.sleb128 -12
+ 660 015a 00       		.byte	0
+ 661 015b 09       		.uleb128 0x9
+ 662 015c BD010000 		.4byte	.LASF23
+ 663 0160 01       		.byte	0x1
+ 664 0161 FB       		.byte	0xfb
+ 665 0162 6B000000 		.4byte	0x6b
+ 666 0166 00000000 		.4byte	.LFB5
+ 667 016a 18000000 		.4byte	.LFE5-.LFB5
+ 668 016e 01       		.uleb128 0x1
+ 669 016f 9C       		.byte	0x9c
+ 670 0170 00       		.byte	0
+ 671              		.section	.debug_abbrev,"",%progbits
+ 672              	.Ldebug_abbrev0:
+ 673 0000 01       		.uleb128 0x1
+ 674 0001 11       		.uleb128 0x11
+ 675 0002 01       		.byte	0x1
+ 676 0003 25       		.uleb128 0x25
+ 677 0004 0E       		.uleb128 0xe
+ 678 0005 13       		.uleb128 0x13
+ 679 0006 0B       		.uleb128 0xb
+ 680 0007 03       		.uleb128 0x3
+ 681 0008 0E       		.uleb128 0xe
+ 682 0009 1B       		.uleb128 0x1b
+ 683 000a 0E       		.uleb128 0xe
+ 684 000b 55       		.uleb128 0x55
+ 685 000c 17       		.uleb128 0x17
+ 686 000d 11       		.uleb128 0x11
+ 687 000e 01       		.uleb128 0x1
+ 688 000f 10       		.uleb128 0x10
+ 689 0010 17       		.uleb128 0x17
+ 690 0011 00       		.byte	0
+ 691 0012 00       		.byte	0
+ 692 0013 02       		.uleb128 0x2
+ 693 0014 24       		.uleb128 0x24
+ 694 0015 00       		.byte	0
+ 695 0016 0B       		.uleb128 0xb
+ 696 0017 0B       		.uleb128 0xb
+ 697 0018 3E       		.uleb128 0x3e
+ 698 0019 0B       		.uleb128 0xb
+ 699 001a 03       		.uleb128 0x3
+ 700 001b 0E       		.uleb128 0xe
+ 701 001c 00       		.byte	0
+ 702 001d 00       		.byte	0
+ 703 001e 03       		.uleb128 0x3
+ 704 001f 24       		.uleb128 0x24
+ 705 0020 00       		.byte	0
+ 706 0021 0B       		.uleb128 0xb
+ 707 0022 0B       		.uleb128 0xb
+ 708 0023 3E       		.uleb128 0x3e
+ 709 0024 0B       		.uleb128 0xb
+ 710 0025 03       		.uleb128 0x3
+ 711 0026 08       		.uleb128 0x8
+ 712 0027 00       		.byte	0
+ 713 0028 00       		.byte	0
+ 714 0029 04       		.uleb128 0x4
+ 715 002a 16       		.uleb128 0x16
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 18
+
+
+ 716 002b 00       		.byte	0
+ 717 002c 03       		.uleb128 0x3
+ 718 002d 0E       		.uleb128 0xe
+ 719 002e 3A       		.uleb128 0x3a
+ 720 002f 0B       		.uleb128 0xb
+ 721 0030 3B       		.uleb128 0x3b
+ 722 0031 05       		.uleb128 0x5
+ 723 0032 49       		.uleb128 0x49
+ 724 0033 13       		.uleb128 0x13
+ 725 0034 00       		.byte	0
+ 726 0035 00       		.byte	0
+ 727 0036 05       		.uleb128 0x5
+ 728 0037 35       		.uleb128 0x35
+ 729 0038 00       		.byte	0
+ 730 0039 49       		.uleb128 0x49
+ 731 003a 13       		.uleb128 0x13
+ 732 003b 00       		.byte	0
+ 733 003c 00       		.byte	0
+ 734 003d 06       		.uleb128 0x6
+ 735 003e 2E       		.uleb128 0x2e
+ 736 003f 01       		.byte	0x1
+ 737 0040 3F       		.uleb128 0x3f
+ 738 0041 19       		.uleb128 0x19
+ 739 0042 03       		.uleb128 0x3
+ 740 0043 0E       		.uleb128 0xe
+ 741 0044 3A       		.uleb128 0x3a
+ 742 0045 0B       		.uleb128 0xb
+ 743 0046 3B       		.uleb128 0x3b
+ 744 0047 0B       		.uleb128 0xb
+ 745 0048 27       		.uleb128 0x27
+ 746 0049 19       		.uleb128 0x19
+ 747 004a 11       		.uleb128 0x11
+ 748 004b 01       		.uleb128 0x1
+ 749 004c 12       		.uleb128 0x12
+ 750 004d 06       		.uleb128 0x6
+ 751 004e 40       		.uleb128 0x40
+ 752 004f 18       		.uleb128 0x18
+ 753 0050 9742     		.uleb128 0x2117
+ 754 0052 19       		.uleb128 0x19
+ 755 0053 01       		.uleb128 0x1
+ 756 0054 13       		.uleb128 0x13
+ 757 0055 00       		.byte	0
+ 758 0056 00       		.byte	0
+ 759 0057 07       		.uleb128 0x7
+ 760 0058 05       		.uleb128 0x5
+ 761 0059 00       		.byte	0
+ 762 005a 03       		.uleb128 0x3
+ 763 005b 0E       		.uleb128 0xe
+ 764 005c 3A       		.uleb128 0x3a
+ 765 005d 0B       		.uleb128 0xb
+ 766 005e 3B       		.uleb128 0x3b
+ 767 005f 0B       		.uleb128 0xb
+ 768 0060 49       		.uleb128 0x49
+ 769 0061 13       		.uleb128 0x13
+ 770 0062 02       		.uleb128 0x2
+ 771 0063 18       		.uleb128 0x18
+ 772 0064 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 19
+
+
+ 773 0065 00       		.byte	0
+ 774 0066 08       		.uleb128 0x8
+ 775 0067 34       		.uleb128 0x34
+ 776 0068 00       		.byte	0
+ 777 0069 03       		.uleb128 0x3
+ 778 006a 0E       		.uleb128 0xe
+ 779 006b 3A       		.uleb128 0x3a
+ 780 006c 0B       		.uleb128 0xb
+ 781 006d 3B       		.uleb128 0x3b
+ 782 006e 0B       		.uleb128 0xb
+ 783 006f 49       		.uleb128 0x49
+ 784 0070 13       		.uleb128 0x13
+ 785 0071 02       		.uleb128 0x2
+ 786 0072 18       		.uleb128 0x18
+ 787 0073 00       		.byte	0
+ 788 0074 00       		.byte	0
+ 789 0075 09       		.uleb128 0x9
+ 790 0076 2E       		.uleb128 0x2e
+ 791 0077 00       		.byte	0
+ 792 0078 3F       		.uleb128 0x3f
+ 793 0079 19       		.uleb128 0x19
+ 794 007a 03       		.uleb128 0x3
+ 795 007b 0E       		.uleb128 0xe
+ 796 007c 3A       		.uleb128 0x3a
+ 797 007d 0B       		.uleb128 0xb
+ 798 007e 3B       		.uleb128 0x3b
+ 799 007f 0B       		.uleb128 0xb
+ 800 0080 27       		.uleb128 0x27
+ 801 0081 19       		.uleb128 0x19
+ 802 0082 49       		.uleb128 0x49
+ 803 0083 13       		.uleb128 0x13
+ 804 0084 11       		.uleb128 0x11
+ 805 0085 01       		.uleb128 0x1
+ 806 0086 12       		.uleb128 0x12
+ 807 0087 06       		.uleb128 0x6
+ 808 0088 40       		.uleb128 0x40
+ 809 0089 18       		.uleb128 0x18
+ 810 008a 9742     		.uleb128 0x2117
+ 811 008c 19       		.uleb128 0x19
+ 812 008d 00       		.byte	0
+ 813 008e 00       		.byte	0
+ 814 008f 00       		.byte	0
+ 815              		.section	.debug_aranges,"",%progbits
+ 816 0000 44000000 		.4byte	0x44
+ 817 0004 0200     		.2byte	0x2
+ 818 0006 00000000 		.4byte	.Ldebug_info0
+ 819 000a 04       		.byte	0x4
+ 820 000b 00       		.byte	0
+ 821 000c 0000     		.2byte	0
+ 822 000e 0000     		.2byte	0
+ 823 0010 00000000 		.4byte	.LFB0
+ 824 0014 2C000000 		.4byte	.LFE0-.LFB0
+ 825 0018 00000000 		.4byte	.LFB1
+ 826 001c 34010000 		.4byte	.LFE1-.LFB1
+ 827 0020 00000000 		.4byte	.LFB2
+ 828 0024 18000000 		.4byte	.LFE2-.LFB2
+ 829 0028 00000000 		.4byte	.LFB3
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 20
+
+
+ 830 002c 18000000 		.4byte	.LFE3-.LFB3
+ 831 0030 00000000 		.4byte	.LFB4
+ 832 0034 CC000000 		.4byte	.LFE4-.LFB4
+ 833 0038 00000000 		.4byte	.LFB5
+ 834 003c 18000000 		.4byte	.LFE5-.LFB5
+ 835 0040 00000000 		.4byte	0
+ 836 0044 00000000 		.4byte	0
+ 837              		.section	.debug_ranges,"",%progbits
+ 838              	.Ldebug_ranges0:
+ 839 0000 00000000 		.4byte	.LFB0
+ 840 0004 2C000000 		.4byte	.LFE0
+ 841 0008 00000000 		.4byte	.LFB1
+ 842 000c 34010000 		.4byte	.LFE1
+ 843 0010 00000000 		.4byte	.LFB2
+ 844 0014 18000000 		.4byte	.LFE2
+ 845 0018 00000000 		.4byte	.LFB3
+ 846 001c 18000000 		.4byte	.LFE3
+ 847 0020 00000000 		.4byte	.LFB4
+ 848 0024 CC000000 		.4byte	.LFE4
+ 849 0028 00000000 		.4byte	.LFB5
+ 850 002c 18000000 		.4byte	.LFE5
+ 851 0030 00000000 		.4byte	0
+ 852 0034 00000000 		.4byte	0
+ 853              		.section	.debug_line,"",%progbits
+ 854              	.Ldebug_line0:
+ 855 0000 C7000000 		.section	.debug_str,"MS",%progbits,1
+ 855      02003F00 
+ 855      00000201 
+ 855      FB0E0D00 
+ 855      01010101 
+ 856              	.LASF25:
+ 857 0000 47656E65 		.ascii	"Generated_Source\\PSoC5\\P2.c\000"
+ 857      72617465 
+ 857      645F536F 
+ 857      75726365 
+ 857      5C50536F 
+ 858              	.LASF21:
+ 859 001c 50325F53 		.ascii	"P2_SetInterruptMode\000"
+ 859      6574496E 
+ 859      74657272 
+ 859      7570744D 
+ 859      6F646500 
+ 860              	.LASF17:
+ 861 0030 76616C75 		.ascii	"value\000"
+ 861      6500
+ 862              	.LASF27:
+ 863 0036 73746174 		.ascii	"staticBits\000"
+ 863      69634269 
+ 863      747300
+ 864              	.LASF24:
+ 865 0041 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 865      4320342E 
+ 865      392E3320 
+ 865      32303135 
+ 865      30333033 
+ 866 0074 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 866      20726576 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 21
+
+
+ 866      6973696F 
+ 866      6E203232 
+ 866      31323230 
+ 867 00a7 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 867      66756E63 
+ 867      74696F6E 
+ 867      2D736563 
+ 867      74696F6E 
+ 868              	.LASF20:
+ 869 00cf 50325F52 		.ascii	"P2_ReadDataReg\000"
+ 869      65616444 
+ 869      61746152 
+ 869      656700
+ 870              	.LASF11:
+ 871 00de 666C6F61 		.ascii	"float\000"
+ 871      7400
+ 872              	.LASF1:
+ 873 00e4 756E7369 		.ascii	"unsigned char\000"
+ 873      676E6564 
+ 873      20636861 
+ 873      7200
+ 874              	.LASF14:
+ 875 00f2 72656738 		.ascii	"reg8\000"
+ 875      00
+ 876              	.LASF5:
+ 877 00f7 6C6F6E67 		.ascii	"long unsigned int\000"
+ 877      20756E73 
+ 877      69676E65 
+ 877      6420696E 
+ 877      7400
+ 878              	.LASF3:
+ 879 0109 73686F72 		.ascii	"short unsigned int\000"
+ 879      7420756E 
+ 879      7369676E 
+ 879      65642069 
+ 879      6E7400
+ 880              	.LASF12:
+ 881 011c 646F7562 		.ascii	"double\000"
+ 881      6C6500
+ 882              	.LASF10:
+ 883 0123 75696E74 		.ascii	"uint16\000"
+ 883      313600
+ 884              	.LASF22:
+ 885 012a 706F7369 		.ascii	"position\000"
+ 885      74696F6E 
+ 885      00
+ 886              	.LASF26:
+ 887 0133 433A5C55 		.ascii	"C:\\Users\\Bruger\\Desktop\\CODE\\PSOC5\\CY8CKIT-59"
+ 887      73657273 
+ 887      5C427275 
+ 887      6765725C 
+ 887      4465736B 
+ 888 0160 2D417264 		.ascii	"-Arduino\\CY8CKIT59_Ardudino-Speeduino.cydsn\000"
+ 888      75696E6F 
+ 888      5C435938 
+ 888      434B4954 
+ 888      35395F41 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cciRZkjC.s 			page 22
+
+
+ 889              	.LASF8:
+ 890 018c 756E7369 		.ascii	"unsigned int\000"
+ 890      676E6564 
+ 890      20696E74 
+ 890      00
+ 891              	.LASF7:
+ 892 0199 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 892      206C6F6E 
+ 892      6720756E 
+ 892      7369676E 
+ 892      65642069 
+ 893              	.LASF18:
+ 894 01b0 6D6F6465 		.ascii	"mode\000"
+ 894      00
+ 895              	.LASF19:
+ 896 01b5 50325F52 		.ascii	"P2_Read\000"
+ 896      65616400 
+ 897              	.LASF23:
+ 898 01bd 50325F43 		.ascii	"P2_ClearInterrupt\000"
+ 898      6C656172 
+ 898      496E7465 
+ 898      72727570 
+ 898      7400
+ 899              	.LASF6:
+ 900 01cf 6C6F6E67 		.ascii	"long long int\000"
+ 900      206C6F6E 
+ 900      6720696E 
+ 900      7400
+ 901              	.LASF15:
+ 902 01dd 50325F57 		.ascii	"P2_Write\000"
+ 902      72697465 
+ 902      00
+ 903              	.LASF13:
+ 904 01e6 63686172 		.ascii	"char\000"
+ 904      00
+ 905              	.LASF2:
+ 906 01eb 73686F72 		.ascii	"short int\000"
+ 906      7420696E 
+ 906      7400
+ 907              	.LASF9:
+ 908 01f5 75696E74 		.ascii	"uint8\000"
+ 908      3800
+ 909              	.LASF4:
+ 910 01fb 6C6F6E67 		.ascii	"long int\000"
+ 910      20696E74 
+ 910      00
+ 911              	.LASF16:
+ 912 0204 50325F53 		.ascii	"P2_SetDriveMode\000"
+ 912      65744472 
+ 912      6976654D 
+ 912      6F646500 
+ 913              	.LASF0:
+ 914 0214 7369676E 		.ascii	"signed char\000"
+ 914      65642063 
+ 914      68617200 
+ 915              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

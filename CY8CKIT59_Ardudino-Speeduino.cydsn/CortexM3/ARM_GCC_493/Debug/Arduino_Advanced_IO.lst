@@ -1,0 +1,1525 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"Arduino_Advanced_IO.cpp"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text._Z7pulseInhhm,"ax",%progbits
+  19              		.align	2
+  20              		.global	_Z7pulseInhhm
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	_Z7pulseInhhm, %function
+  24              	_Z7pulseInhhm:
+  25              		.fnstart
+  26              	.LFB147:
+  27              		.file 1 "core\\Arduino_Advanced_IO.cpp"
+   1:core/Arduino_Advanced_IO.cpp **** extern "C" {
+   2:core/Arduino_Advanced_IO.cpp **** #include <Project.h>
+   3:core/Arduino_Advanced_IO.cpp **** }
+   4:core/Arduino_Advanced_IO.cpp **** 
+   5:core/Arduino_Advanced_IO.cpp **** #include <stdint.h>
+   6:core/Arduino_Advanced_IO.cpp **** #include "Arduino_Advanced_IO.h"
+   7:core/Arduino_Advanced_IO.cpp **** #include <Arduino.h>
+   8:core/Arduino_Advanced_IO.cpp **** #include "Arduino_Time.h"
+   9:core/Arduino_Advanced_IO.cpp **** 
+  10:core/Arduino_Advanced_IO.cpp **** uint32_t pulseIn(uint8_t pin, uint8_t level, uint32_t timeout)
+  11:core/Arduino_Advanced_IO.cpp **** {
+  28              		.loc 1 11 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 16
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              		.save {r7, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 7, -8
+  36              		.cfi_offset 14, -4
+  37              		.pad #16
+  38 0002 84B0     		sub	sp, sp, #16
+  39              		.cfi_def_cfa_offset 24
+  40              		.setfp r7, sp, #0
+  41 0004 00AF     		add	r7, sp, #0
+  42              		.cfi_def_cfa_register 7
+  43 0006 0346     		mov	r3, r0
+  44 0008 3A60     		str	r2, [r7]
+  45 000a FB71     		strb	r3, [r7, #7]
+  46 000c 0B46     		mov	r3, r1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 2
+
+
+  47 000e BB71     		strb	r3, [r7, #6]
+  48              	.LBB2:
+  12:core/Arduino_Advanced_IO.cpp ****     pinMode(pin, INPUT);
+  49              		.loc 1 12 0
+  50 0010 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  51 0012 1846     		mov	r0, r3
+  52 0014 0121     		movs	r1, #1
+  53 0016 FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+  13:core/Arduino_Advanced_IO.cpp ****     uint32_t clockStart = micros();
+  54              		.loc 1 13 0
+  55 001a FFF7FEFF 		bl	Micros_Counter_ReadCounter
+  56 001e 0346     		mov	r3, r0
+  57 0020 FB60     		str	r3, [r7, #12]
+  14:core/Arduino_Advanced_IO.cpp ****     while (digitalRead(pin) != level)
+  58              		.loc 1 14 0
+  59 0022 0EE0     		b	.L2
+  60              	.L4:
+  15:core/Arduino_Advanced_IO.cpp ****     {
+  16:core/Arduino_Advanced_IO.cpp ****         if (micros() - clockStart >= timeout) return 0;
+  61              		.loc 1 16 0
+  62 0024 FFF7FEFF 		bl	Micros_Counter_ReadCounter
+  63 0028 0246     		mov	r2, r0
+  64 002a FB68     		ldr	r3, [r7, #12]
+  65 002c D21A     		subs	r2, r2, r3
+  66 002e 3B68     		ldr	r3, [r7]
+  67 0030 9A42     		cmp	r2, r3
+  68 0032 2CBF     		ite	cs
+  69 0034 0123     		movcs	r3, #1
+  70 0036 0023     		movcc	r3, #0
+  71 0038 DBB2     		uxtb	r3, r3
+  72 003a 002B     		cmp	r3, #0
+  73 003c 01D0     		beq	.L2
+  74              		.loc 1 16 0 is_stmt 0 discriminator 1
+  75 003e 0023     		movs	r3, #0
+  76 0040 25E0     		b	.L3
+  77              	.L2:
+  14:core/Arduino_Advanced_IO.cpp ****     while (digitalRead(pin) != level)
+  78              		.loc 1 14 0 is_stmt 1
+  79 0042 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  80 0044 1846     		mov	r0, r3
+  81 0046 FFF7FEFF 		bl	_Z11digitalReadm
+  82 004a 0346     		mov	r3, r0
+  83 004c 1A46     		mov	r2, r3
+  84 004e BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+  85 0050 9342     		cmp	r3, r2
+  86 0052 14BF     		ite	ne
+  87 0054 0123     		movne	r3, #1
+  88 0056 0023     		moveq	r3, #0
+  89 0058 DBB2     		uxtb	r3, r3
+  90 005a 002B     		cmp	r3, #0
+  91 005c E2D1     		bne	.L4
+  17:core/Arduino_Advanced_IO.cpp ****     }
+  18:core/Arduino_Advanced_IO.cpp ****     clockStart = micros();
+  92              		.loc 1 18 0
+  93 005e FFF7FEFF 		bl	Micros_Counter_ReadCounter
+  94 0062 0346     		mov	r3, r0
+  95 0064 FB60     		str	r3, [r7, #12]
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 3
+
+
+  19:core/Arduino_Advanced_IO.cpp ****     while (digitalRead(pin) == level){};
+  96              		.loc 1 19 0
+  97 0066 00BF     		nop
+  98              	.L5:
+  99              		.loc 1 19 0 is_stmt 0 discriminator 1
+ 100 0068 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 101 006a 1846     		mov	r0, r3
+ 102 006c FFF7FEFF 		bl	_Z11digitalReadm
+ 103 0070 0346     		mov	r3, r0
+ 104 0072 1A46     		mov	r2, r3
+ 105 0074 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 106 0076 9342     		cmp	r3, r2
+ 107 0078 0CBF     		ite	eq
+ 108 007a 0123     		moveq	r3, #1
+ 109 007c 0023     		movne	r3, #0
+ 110 007e DBB2     		uxtb	r3, r3
+ 111 0080 002B     		cmp	r3, #0
+ 112 0082 F1D1     		bne	.L5
+  20:core/Arduino_Advanced_IO.cpp ****     return micros() - clockStart;
+ 113              		.loc 1 20 0 is_stmt 1
+ 114 0084 FFF7FEFF 		bl	Micros_Counter_ReadCounter
+ 115 0088 0246     		mov	r2, r0
+ 116 008a FB68     		ldr	r3, [r7, #12]
+ 117 008c D31A     		subs	r3, r2, r3
+ 118              	.L3:
+ 119              	.LBE2:
+  21:core/Arduino_Advanced_IO.cpp **** }
+ 120              		.loc 1 21 0
+ 121 008e 1846     		mov	r0, r3
+ 122 0090 1037     		adds	r7, r7, #16
+ 123              		.cfi_def_cfa_offset 8
+ 124 0092 BD46     		mov	sp, r7
+ 125              		.cfi_def_cfa_register 13
+ 126              		@ sp needed
+ 127 0094 80BD     		pop	{r7, pc}
+ 128              		.cfi_endproc
+ 129              	.LFE147:
+ 130              		.fnend
+ 131              		.size	_Z7pulseInhhm, .-_Z7pulseInhhm
+ 132 0096 00BF     		.section	.text._Z8shiftOuthhhh,"ax",%progbits
+ 133              		.align	2
+ 134              		.global	_Z8shiftOuthhhh
+ 135              		.thumb
+ 136              		.thumb_func
+ 137              		.type	_Z8shiftOuthhhh, %function
+ 138              	_Z8shiftOuthhhh:
+ 139              		.fnstart
+ 140              	.LFB148:
+  22:core/Arduino_Advanced_IO.cpp **** 
+  23:core/Arduino_Advanced_IO.cpp **** void shiftOut(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder, \
+  24:core/Arduino_Advanced_IO.cpp ****     uint8_t value)
+  25:core/Arduino_Advanced_IO.cpp **** {
+ 141              		.loc 1 25 0
+ 142              		.cfi_startproc
+ 143              		@ args = 0, pretend = 0, frame = 16
+ 144              		@ frame_needed = 1, uses_anonymous_args = 0
+ 145 0000 90B5     		push	{r4, r7, lr}
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 4
+
+
+ 146              		.save {r4, r7, lr}
+ 147              		.cfi_def_cfa_offset 12
+ 148              		.cfi_offset 4, -12
+ 149              		.cfi_offset 7, -8
+ 150              		.cfi_offset 14, -4
+ 151              		.pad #20
+ 152 0002 85B0     		sub	sp, sp, #20
+ 153              		.cfi_def_cfa_offset 32
+ 154              		.setfp r7, sp, #0
+ 155 0004 00AF     		add	r7, sp, #0
+ 156              		.cfi_def_cfa_register 7
+ 157 0006 0446     		mov	r4, r0
+ 158 0008 0846     		mov	r0, r1
+ 159 000a 1146     		mov	r1, r2
+ 160 000c 1A46     		mov	r2, r3
+ 161 000e 2346     		mov	r3, r4
+ 162 0010 FB71     		strb	r3, [r7, #7]
+ 163 0012 0346     		mov	r3, r0
+ 164 0014 BB71     		strb	r3, [r7, #6]
+ 165 0016 0B46     		mov	r3, r1
+ 166 0018 7B71     		strb	r3, [r7, #5]
+ 167 001a 1346     		mov	r3, r2
+ 168 001c 3B71     		strb	r3, [r7, #4]
+ 169              	.LBB3:
+  26:core/Arduino_Advanced_IO.cpp ****     pinMode(dataPin, OUTPUT);
+ 170              		.loc 1 26 0
+ 171 001e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 172 0020 1846     		mov	r0, r3
+ 173 0022 0021     		movs	r1, #0
+ 174 0024 FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+  27:core/Arduino_Advanced_IO.cpp ****     pinMode(clockPin, OUTPUT);
+ 175              		.loc 1 27 0
+ 176 0028 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 177 002a 1846     		mov	r0, r3
+ 178 002c 0021     		movs	r1, #0
+ 179 002e FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+  28:core/Arduino_Advanced_IO.cpp ****     uint8_t i;
+  29:core/Arduino_Advanced_IO.cpp ****     if (bitOrder == LSBFIRST)
+ 180              		.loc 1 29 0
+ 181 0032 7B79     		ldrb	r3, [r7, #5]	@ zero_extendqisi2
+ 182 0034 012B     		cmp	r3, #1
+ 183 0036 36D1     		bne	.L7
+  30:core/Arduino_Advanced_IO.cpp ****     {
+  31:core/Arduino_Advanced_IO.cpp ****         for(i = 0; i<8; i++)
+ 184              		.loc 1 31 0
+ 185 0038 0023     		movs	r3, #0
+ 186 003a FB73     		strb	r3, [r7, #15]
+ 187 003c 2FE0     		b	.L8
+ 188              	.L11:
+  32:core/Arduino_Advanced_IO.cpp ****         {
+  33:core/Arduino_Advanced_IO.cpp ****             if (value>>i & 0x01) digitalWrite(dataPin, HIGH);
+ 189              		.loc 1 33 0
+ 190 003e 3A79     		ldrb	r2, [r7, #4]	@ zero_extendqisi2
+ 191 0040 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 192 0042 42FA03F3 		asr	r3, r2, r3
+ 193 0046 03F00103 		and	r3, r3, #1
+ 194 004a 002B     		cmp	r3, #0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 5
+
+
+ 195 004c 05D0     		beq	.L9
+ 196              		.loc 1 33 0 is_stmt 0 discriminator 1
+ 197 004e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 198 0050 1846     		mov	r0, r3
+ 199 0052 0121     		movs	r1, #1
+ 200 0054 FFF7FEFF 		bl	_Z12digitalWritemh
+ 201 0058 04E0     		b	.L10
+ 202              	.L9:
+  34:core/Arduino_Advanced_IO.cpp ****             else                 digitalWrite(dataPin, LOW);
+ 203              		.loc 1 34 0 is_stmt 1
+ 204 005a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 205 005c 1846     		mov	r0, r3
+ 206 005e 0021     		movs	r1, #0
+ 207 0060 FFF7FEFF 		bl	_Z12digitalWritemh
+ 208              	.L10:
+  35:core/Arduino_Advanced_IO.cpp ****             digitalWrite(clockPin, digitalRead(clockPin) ^ 0x01);
+ 209              		.loc 1 35 0 discriminator 2
+ 210 0064 BC79     		ldrb	r4, [r7, #6]	@ zero_extendqisi2
+ 211 0066 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 212 0068 1846     		mov	r0, r3
+ 213 006a FFF7FEFF 		bl	_Z11digitalReadm
+ 214 006e 0346     		mov	r3, r0
+ 215 0070 83F00103 		eor	r3, r3, #1
+ 216 0074 DBB2     		uxtb	r3, r3
+ 217 0076 2046     		mov	r0, r4
+ 218 0078 1946     		mov	r1, r3
+ 219 007a FFF7FEFF 		bl	_Z12digitalWritemh
+  36:core/Arduino_Advanced_IO.cpp ****             digitalWrite(clockPin, digitalRead(clockPin) ^ 0x01);
+ 220              		.loc 1 36 0 discriminator 2
+ 221 007e BC79     		ldrb	r4, [r7, #6]	@ zero_extendqisi2
+ 222 0080 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 223 0082 1846     		mov	r0, r3
+ 224 0084 FFF7FEFF 		bl	_Z11digitalReadm
+ 225 0088 0346     		mov	r3, r0
+ 226 008a 83F00103 		eor	r3, r3, #1
+ 227 008e DBB2     		uxtb	r3, r3
+ 228 0090 2046     		mov	r0, r4
+ 229 0092 1946     		mov	r1, r3
+ 230 0094 FFF7FEFF 		bl	_Z12digitalWritemh
+  31:core/Arduino_Advanced_IO.cpp ****         {
+ 231              		.loc 1 31 0 discriminator 2
+ 232 0098 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 233 009a 0133     		adds	r3, r3, #1
+ 234 009c FB73     		strb	r3, [r7, #15]
+ 235              	.L8:
+  31:core/Arduino_Advanced_IO.cpp ****         {
+ 236              		.loc 1 31 0 is_stmt 0 discriminator 1
+ 237 009e FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 238 00a0 072B     		cmp	r3, #7
+ 239 00a2 CCD9     		bls	.L11
+ 240 00a4 35E0     		b	.L6
+ 241              	.L7:
+  37:core/Arduino_Advanced_IO.cpp ****         }
+  38:core/Arduino_Advanced_IO.cpp ****     }
+  39:core/Arduino_Advanced_IO.cpp ****     else
+  40:core/Arduino_Advanced_IO.cpp ****     {
+  41:core/Arduino_Advanced_IO.cpp ****         for(i = 0; i<8; i++)
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 6
+
+
+ 242              		.loc 1 41 0 is_stmt 1
+ 243 00a6 0023     		movs	r3, #0
+ 244 00a8 FB73     		strb	r3, [r7, #15]
+ 245 00aa 2FE0     		b	.L13
+ 246              	.L16:
+  42:core/Arduino_Advanced_IO.cpp ****         {
+  43:core/Arduino_Advanced_IO.cpp ****             if (value<<i & 0x80) digitalWrite(dataPin, HIGH);
+ 247              		.loc 1 43 0
+ 248 00ac 3A79     		ldrb	r2, [r7, #4]	@ zero_extendqisi2
+ 249 00ae FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 250 00b0 02FA03F3 		lsl	r3, r2, r3
+ 251 00b4 03F08003 		and	r3, r3, #128
+ 252 00b8 002B     		cmp	r3, #0
+ 253 00ba 05D0     		beq	.L14
+ 254              		.loc 1 43 0 is_stmt 0 discriminator 1
+ 255 00bc FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 256 00be 1846     		mov	r0, r3
+ 257 00c0 0121     		movs	r1, #1
+ 258 00c2 FFF7FEFF 		bl	_Z12digitalWritemh
+ 259 00c6 04E0     		b	.L15
+ 260              	.L14:
+  44:core/Arduino_Advanced_IO.cpp ****             else                 digitalWrite(dataPin, LOW);
+ 261              		.loc 1 44 0 is_stmt 1
+ 262 00c8 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 263 00ca 1846     		mov	r0, r3
+ 264 00cc 0021     		movs	r1, #0
+ 265 00ce FFF7FEFF 		bl	_Z12digitalWritemh
+ 266              	.L15:
+  45:core/Arduino_Advanced_IO.cpp ****             digitalWrite(clockPin, digitalRead(clockPin) ^ 0x01);
+ 267              		.loc 1 45 0 discriminator 2
+ 268 00d2 BC79     		ldrb	r4, [r7, #6]	@ zero_extendqisi2
+ 269 00d4 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 270 00d6 1846     		mov	r0, r3
+ 271 00d8 FFF7FEFF 		bl	_Z11digitalReadm
+ 272 00dc 0346     		mov	r3, r0
+ 273 00de 83F00103 		eor	r3, r3, #1
+ 274 00e2 DBB2     		uxtb	r3, r3
+ 275 00e4 2046     		mov	r0, r4
+ 276 00e6 1946     		mov	r1, r3
+ 277 00e8 FFF7FEFF 		bl	_Z12digitalWritemh
+  46:core/Arduino_Advanced_IO.cpp ****             digitalWrite(clockPin, digitalRead(clockPin) ^ 0x01);
+ 278              		.loc 1 46 0 discriminator 2
+ 279 00ec BC79     		ldrb	r4, [r7, #6]	@ zero_extendqisi2
+ 280 00ee BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 281 00f0 1846     		mov	r0, r3
+ 282 00f2 FFF7FEFF 		bl	_Z11digitalReadm
+ 283 00f6 0346     		mov	r3, r0
+ 284 00f8 83F00103 		eor	r3, r3, #1
+ 285 00fc DBB2     		uxtb	r3, r3
+ 286 00fe 2046     		mov	r0, r4
+ 287 0100 1946     		mov	r1, r3
+ 288 0102 FFF7FEFF 		bl	_Z12digitalWritemh
+  41:core/Arduino_Advanced_IO.cpp ****         {
+ 289              		.loc 1 41 0 discriminator 2
+ 290 0106 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 291 0108 0133     		adds	r3, r3, #1
+ 292 010a FB73     		strb	r3, [r7, #15]
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 7
+
+
+ 293              	.L13:
+  41:core/Arduino_Advanced_IO.cpp ****         {
+ 294              		.loc 1 41 0 is_stmt 0 discriminator 1
+ 295 010c FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 296 010e 072B     		cmp	r3, #7
+ 297 0110 CCD9     		bls	.L16
+ 298              	.L6:
+ 299              	.LBE3:
+  47:core/Arduino_Advanced_IO.cpp ****         }
+  48:core/Arduino_Advanced_IO.cpp ****     }
+  49:core/Arduino_Advanced_IO.cpp **** }
+ 300              		.loc 1 49 0 is_stmt 1
+ 301 0112 1437     		adds	r7, r7, #20
+ 302              		.cfi_def_cfa_offset 12
+ 303 0114 BD46     		mov	sp, r7
+ 304              		.cfi_def_cfa_register 13
+ 305              		@ sp needed
+ 306 0116 90BD     		pop	{r4, r7, pc}
+ 307              		.cfi_endproc
+ 308              	.LFE148:
+ 309              		.fnend
+ 310              		.size	_Z8shiftOuthhhh, .-_Z8shiftOuthhhh
+ 311              		.section	.text._Z7shiftInhhh,"ax",%progbits
+ 312              		.align	2
+ 313              		.global	_Z7shiftInhhh
+ 314              		.thumb
+ 315              		.thumb_func
+ 316              		.type	_Z7shiftInhhh, %function
+ 317              	_Z7shiftInhhh:
+ 318              		.fnstart
+ 319              	.LFB149:
+  50:core/Arduino_Advanced_IO.cpp **** 
+  51:core/Arduino_Advanced_IO.cpp **** uint8_t shiftIn(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder)
+  52:core/Arduino_Advanced_IO.cpp **** {
+ 320              		.loc 1 52 0
+ 321              		.cfi_startproc
+ 322              		@ args = 0, pretend = 0, frame = 16
+ 323              		@ frame_needed = 1, uses_anonymous_args = 0
+ 324 0000 90B5     		push	{r4, r7, lr}
+ 325              		.save {r4, r7, lr}
+ 326              		.cfi_def_cfa_offset 12
+ 327              		.cfi_offset 4, -12
+ 328              		.cfi_offset 7, -8
+ 329              		.cfi_offset 14, -4
+ 330              		.pad #20
+ 331 0002 85B0     		sub	sp, sp, #20
+ 332              		.cfi_def_cfa_offset 32
+ 333              		.setfp r7, sp, #0
+ 334 0004 00AF     		add	r7, sp, #0
+ 335              		.cfi_def_cfa_register 7
+ 336 0006 0346     		mov	r3, r0
+ 337 0008 FB71     		strb	r3, [r7, #7]
+ 338 000a 0B46     		mov	r3, r1
+ 339 000c BB71     		strb	r3, [r7, #6]
+ 340 000e 1346     		mov	r3, r2
+ 341 0010 7B71     		strb	r3, [r7, #5]
+ 342              	.LBB4:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 8
+
+
+  53:core/Arduino_Advanced_IO.cpp ****     pinMode(dataPin, INPUT);
+ 343              		.loc 1 53 0
+ 344 0012 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 345 0014 1846     		mov	r0, r3
+ 346 0016 0121     		movs	r1, #1
+ 347 0018 FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+  54:core/Arduino_Advanced_IO.cpp ****     pinMode(clockPin, OUTPUT);
+ 348              		.loc 1 54 0
+ 349 001c BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 350 001e 1846     		mov	r0, r3
+ 351 0020 0021     		movs	r1, #0
+ 352 0022 FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+  55:core/Arduino_Advanced_IO.cpp ****     uint8_t i;
+  56:core/Arduino_Advanced_IO.cpp ****     uint8_t rxByte = 0;
+ 353              		.loc 1 56 0
+ 354 0026 0023     		movs	r3, #0
+ 355 0028 BB73     		strb	r3, [r7, #14]
+  57:core/Arduino_Advanced_IO.cpp ****     if (bitOrder == LSBFIRST)
+ 356              		.loc 1 57 0
+ 357 002a 7B79     		ldrb	r3, [r7, #5]	@ zero_extendqisi2
+ 358 002c 012B     		cmp	r3, #1
+ 359 002e 36D1     		bne	.L18
+  58:core/Arduino_Advanced_IO.cpp ****     {
+  59:core/Arduino_Advanced_IO.cpp ****         for(i = 0; i<8; i++)
+ 360              		.loc 1 59 0
+ 361 0030 0023     		movs	r3, #0
+ 362 0032 FB73     		strb	r3, [r7, #15]
+ 363 0034 2FE0     		b	.L19
+ 364              	.L21:
+  60:core/Arduino_Advanced_IO.cpp ****         {
+  61:core/Arduino_Advanced_IO.cpp ****             rxByte = rxByte << 1;
+ 365              		.loc 1 61 0
+ 366 0036 BB7B     		ldrb	r3, [r7, #14]
+ 367 0038 5B00     		lsls	r3, r3, #1
+ 368 003a BB73     		strb	r3, [r7, #14]
+  62:core/Arduino_Advanced_IO.cpp ****             if (digitalRead(dataPin)) rxByte |= 0x01;
+ 369              		.loc 1 62 0
+ 370 003c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 371 003e 1846     		mov	r0, r3
+ 372 0040 FFF7FEFF 		bl	_Z11digitalReadm
+ 373 0044 0346     		mov	r3, r0
+ 374 0046 002B     		cmp	r3, #0
+ 375 0048 14BF     		ite	ne
+ 376 004a 0123     		movne	r3, #1
+ 377 004c 0023     		moveq	r3, #0
+ 378 004e DBB2     		uxtb	r3, r3
+ 379 0050 002B     		cmp	r3, #0
+ 380 0052 03D0     		beq	.L20
+ 381              		.loc 1 62 0 is_stmt 0 discriminator 1
+ 382 0054 BB7B     		ldrb	r3, [r7, #14]
+ 383 0056 43F00103 		orr	r3, r3, #1
+ 384 005a BB73     		strb	r3, [r7, #14]
+ 385              	.L20:
+  63:core/Arduino_Advanced_IO.cpp ****             digitalWrite(clockPin, digitalRead(clockPin) ^ 0x01);
+ 386              		.loc 1 63 0 is_stmt 1 discriminator 2
+ 387 005c BC79     		ldrb	r4, [r7, #6]	@ zero_extendqisi2
+ 388 005e BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 9
+
+
+ 389 0060 1846     		mov	r0, r3
+ 390 0062 FFF7FEFF 		bl	_Z11digitalReadm
+ 391 0066 0346     		mov	r3, r0
+ 392 0068 83F00103 		eor	r3, r3, #1
+ 393 006c DBB2     		uxtb	r3, r3
+ 394 006e 2046     		mov	r0, r4
+ 395 0070 1946     		mov	r1, r3
+ 396 0072 FFF7FEFF 		bl	_Z12digitalWritemh
+  64:core/Arduino_Advanced_IO.cpp ****             digitalWrite(clockPin, digitalRead(clockPin) ^ 0x01);
+ 397              		.loc 1 64 0 discriminator 2
+ 398 0076 BC79     		ldrb	r4, [r7, #6]	@ zero_extendqisi2
+ 399 0078 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 400 007a 1846     		mov	r0, r3
+ 401 007c FFF7FEFF 		bl	_Z11digitalReadm
+ 402 0080 0346     		mov	r3, r0
+ 403 0082 83F00103 		eor	r3, r3, #1
+ 404 0086 DBB2     		uxtb	r3, r3
+ 405 0088 2046     		mov	r0, r4
+ 406 008a 1946     		mov	r1, r3
+ 407 008c FFF7FEFF 		bl	_Z12digitalWritemh
+  59:core/Arduino_Advanced_IO.cpp ****         {
+ 408              		.loc 1 59 0 discriminator 2
+ 409 0090 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 410 0092 0133     		adds	r3, r3, #1
+ 411 0094 FB73     		strb	r3, [r7, #15]
+ 412              	.L19:
+  59:core/Arduino_Advanced_IO.cpp ****         {
+ 413              		.loc 1 59 0 is_stmt 0 discriminator 1
+ 414 0096 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 415 0098 072B     		cmp	r3, #7
+ 416 009a CCD9     		bls	.L21
+ 417 009c 35E0     		b	.L22
+ 418              	.L18:
+  65:core/Arduino_Advanced_IO.cpp ****         }
+  66:core/Arduino_Advanced_IO.cpp ****     }
+  67:core/Arduino_Advanced_IO.cpp ****     else
+  68:core/Arduino_Advanced_IO.cpp ****     {
+  69:core/Arduino_Advanced_IO.cpp ****         for(i = 0; i<8; i++)
+ 419              		.loc 1 69 0 is_stmt 1
+ 420 009e 0023     		movs	r3, #0
+ 421 00a0 FB73     		strb	r3, [r7, #15]
+ 422 00a2 2FE0     		b	.L23
+ 423              	.L25:
+  70:core/Arduino_Advanced_IO.cpp ****         {
+  71:core/Arduino_Advanced_IO.cpp ****             rxByte = rxByte >> 1;
+ 424              		.loc 1 71 0
+ 425 00a4 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 426 00a6 5B10     		asrs	r3, r3, #1
+ 427 00a8 BB73     		strb	r3, [r7, #14]
+  72:core/Arduino_Advanced_IO.cpp ****             if (digitalRead(dataPin)) rxByte |= 0x80;
+ 428              		.loc 1 72 0
+ 429 00aa FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 430 00ac 1846     		mov	r0, r3
+ 431 00ae FFF7FEFF 		bl	_Z11digitalReadm
+ 432 00b2 0346     		mov	r3, r0
+ 433 00b4 002B     		cmp	r3, #0
+ 434 00b6 14BF     		ite	ne
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 10
+
+
+ 435 00b8 0123     		movne	r3, #1
+ 436 00ba 0023     		moveq	r3, #0
+ 437 00bc DBB2     		uxtb	r3, r3
+ 438 00be 002B     		cmp	r3, #0
+ 439 00c0 03D0     		beq	.L24
+ 440              		.loc 1 72 0 is_stmt 0 discriminator 1
+ 441 00c2 BB7B     		ldrb	r3, [r7, #14]
+ 442 00c4 63F07F03 		orn	r3, r3, #127
+ 443 00c8 BB73     		strb	r3, [r7, #14]
+ 444              	.L24:
+  73:core/Arduino_Advanced_IO.cpp ****             digitalWrite(clockPin, digitalRead(clockPin) ^ 0x01);
+ 445              		.loc 1 73 0 is_stmt 1 discriminator 2
+ 446 00ca BC79     		ldrb	r4, [r7, #6]	@ zero_extendqisi2
+ 447 00cc BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 448 00ce 1846     		mov	r0, r3
+ 449 00d0 FFF7FEFF 		bl	_Z11digitalReadm
+ 450 00d4 0346     		mov	r3, r0
+ 451 00d6 83F00103 		eor	r3, r3, #1
+ 452 00da DBB2     		uxtb	r3, r3
+ 453 00dc 2046     		mov	r0, r4
+ 454 00de 1946     		mov	r1, r3
+ 455 00e0 FFF7FEFF 		bl	_Z12digitalWritemh
+  74:core/Arduino_Advanced_IO.cpp ****             digitalWrite(clockPin, digitalRead(clockPin) ^ 0x01);
+ 456              		.loc 1 74 0 discriminator 2
+ 457 00e4 BC79     		ldrb	r4, [r7, #6]	@ zero_extendqisi2
+ 458 00e6 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 459 00e8 1846     		mov	r0, r3
+ 460 00ea FFF7FEFF 		bl	_Z11digitalReadm
+ 461 00ee 0346     		mov	r3, r0
+ 462 00f0 83F00103 		eor	r3, r3, #1
+ 463 00f4 DBB2     		uxtb	r3, r3
+ 464 00f6 2046     		mov	r0, r4
+ 465 00f8 1946     		mov	r1, r3
+ 466 00fa FFF7FEFF 		bl	_Z12digitalWritemh
+  69:core/Arduino_Advanced_IO.cpp ****         {
+ 467              		.loc 1 69 0 discriminator 2
+ 468 00fe FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 469 0100 0133     		adds	r3, r3, #1
+ 470 0102 FB73     		strb	r3, [r7, #15]
+ 471              	.L23:
+  69:core/Arduino_Advanced_IO.cpp ****         {
+ 472              		.loc 1 69 0 is_stmt 0 discriminator 1
+ 473 0104 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 474 0106 072B     		cmp	r3, #7
+ 475 0108 CCD9     		bls	.L25
+ 476              	.L22:
+  75:core/Arduino_Advanced_IO.cpp ****         }
+  76:core/Arduino_Advanced_IO.cpp ****     }
+  77:core/Arduino_Advanced_IO.cpp ****     return rxByte;
+ 477              		.loc 1 77 0 is_stmt 1
+ 478 010a BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 479              	.LBE4:
+  78:core/Arduino_Advanced_IO.cpp **** }
+ 480              		.loc 1 78 0
+ 481 010c 1846     		mov	r0, r3
+ 482 010e 1437     		adds	r7, r7, #20
+ 483              		.cfi_def_cfa_offset 12
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 11
+
+
+ 484 0110 BD46     		mov	sp, r7
+ 485              		.cfi_def_cfa_register 13
+ 486              		@ sp needed
+ 487 0112 90BD     		pop	{r4, r7, pc}
+ 488              		.cfi_endproc
+ 489              	.LFE149:
+ 490              		.fnend
+ 491              		.size	_Z7shiftInhhh, .-_Z7shiftInhhh
+ 492              		.section	.rodata
+ 493              		.type	_ZL2SS, %object
+ 494              		.size	_ZL2SS, 1
+ 495              	_ZL2SS:
+ 496 0000 0A       		.byte	10
+ 497              		.type	_ZL4MOSI, %object
+ 498              		.size	_ZL4MOSI, 1
+ 499              	_ZL4MOSI:
+ 500 0001 0B       		.byte	11
+ 501              		.type	_ZL4MISO, %object
+ 502              		.size	_ZL4MISO, 1
+ 503              	_ZL4MISO:
+ 504 0002 0C       		.byte	12
+ 505              		.type	_ZL3SCK, %object
+ 506              		.size	_ZL3SCK, 1
+ 507              	_ZL3SCK:
+ 508 0003 0D       		.byte	13
+ 509              		.type	_ZL3SDA, %object
+ 510              		.size	_ZL3SDA, 1
+ 511              	_ZL3SDA:
+ 512 0004 15       		.byte	21
+ 513              		.type	_ZL3SCL, %object
+ 514              		.size	_ZL3SCL, 1
+ 515              	_ZL3SCL:
+ 516 0005 14       		.byte	20
+ 517              		.text
+ 518              	.Letext0:
+ 519              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 520              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 521              		.file 4 ".\\core/pins_arduino.h"
+ 522              		.file 5 ".\\core/Arduino_Pins.h"
+ 523              		.file 6 "Generated_Source\\PSoC5/core_cm3.h"
+ 524              		.section	.debug_info,"",%progbits
+ 525              	.Ldebug_info0:
+ 526 0000 BA020000 		.4byte	0x2ba
+ 527 0004 0400     		.2byte	0x4
+ 528 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 529 000a 04       		.byte	0x4
+ 530 000b 01       		.uleb128 0x1
+ 531 000c 58000000 		.4byte	.LASF42
+ 532 0010 04       		.byte	0x4
+ 533 0011 20000000 		.4byte	.LASF43
+ 534 0015 AC010000 		.4byte	.LASF44
+ 535 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 536 001d 00000000 		.4byte	0
+ 537 0021 00000000 		.4byte	.Ldebug_line0
+ 538 0025 02       		.uleb128 0x2
+ 539 0026 01       		.byte	0x1
+ 540 0027 06       		.byte	0x6
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 12
+
+
+ 541 0028 C7020000 		.4byte	.LASF0
+ 542 002c 03       		.uleb128 0x3
+ 543 002d 0E000000 		.4byte	.LASF4
+ 544 0031 02       		.byte	0x2
+ 545 0032 1D       		.byte	0x1d
+ 546 0033 37000000 		.4byte	0x37
+ 547 0037 02       		.uleb128 0x2
+ 548 0038 01       		.byte	0x1
+ 549 0039 08       		.byte	0x8
+ 550 003a 2D010000 		.4byte	.LASF1
+ 551 003e 02       		.uleb128 0x2
+ 552 003f 02       		.byte	0x2
+ 553 0040 05       		.byte	0x5
+ 554 0041 81020000 		.4byte	.LASF2
+ 555 0045 02       		.uleb128 0x2
+ 556 0046 02       		.byte	0x2
+ 557 0047 07       		.byte	0x7
+ 558 0048 54010000 		.4byte	.LASF3
+ 559 004c 03       		.uleb128 0x3
+ 560 004d 43000000 		.4byte	.LASF5
+ 561 0051 02       		.byte	0x2
+ 562 0052 3F       		.byte	0x3f
+ 563 0053 57000000 		.4byte	0x57
+ 564 0057 02       		.uleb128 0x2
+ 565 0058 04       		.byte	0x4
+ 566 0059 05       		.byte	0x5
+ 567 005a A2020000 		.4byte	.LASF6
+ 568 005e 03       		.uleb128 0x3
+ 569 005f 94010000 		.4byte	.LASF7
+ 570 0063 02       		.byte	0x2
+ 571 0064 41       		.byte	0x41
+ 572 0065 69000000 		.4byte	0x69
+ 573 0069 02       		.uleb128 0x2
+ 574 006a 04       		.byte	0x4
+ 575 006b 07       		.byte	0x7
+ 576 006c 42010000 		.4byte	.LASF8
+ 577 0070 02       		.uleb128 0x2
+ 578 0071 08       		.byte	0x8
+ 579 0072 05       		.byte	0x5
+ 580 0073 00000000 		.4byte	.LASF9
+ 581 0077 02       		.uleb128 0x2
+ 582 0078 08       		.byte	0x8
+ 583 0079 07       		.byte	0x7
+ 584 007a 0E010000 		.4byte	.LASF10
+ 585 007e 04       		.uleb128 0x4
+ 586 007f 04       		.byte	0x4
+ 587 0080 05       		.byte	0x5
+ 588 0081 696E7400 		.ascii	"int\000"
+ 589 0085 02       		.uleb128 0x2
+ 590 0086 04       		.byte	0x4
+ 591 0087 07       		.byte	0x7
+ 592 0088 05020000 		.4byte	.LASF11
+ 593 008c 03       		.uleb128 0x3
+ 594 008d 26020000 		.4byte	.LASF12
+ 595 0091 03       		.byte	0x3
+ 596 0092 15       		.byte	0x15
+ 597 0093 2C000000 		.4byte	0x2c
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 13
+
+
+ 598 0097 03       		.uleb128 0x3
+ 599 0098 50020000 		.4byte	.LASF13
+ 600 009c 03       		.byte	0x3
+ 601 009d 2C       		.byte	0x2c
+ 602 009e 4C000000 		.4byte	0x4c
+ 603 00a2 03       		.uleb128 0x3
+ 604 00a3 99020000 		.4byte	.LASF14
+ 605 00a7 03       		.byte	0x3
+ 606 00a8 2D       		.byte	0x2d
+ 607 00a9 5E000000 		.4byte	0x5e
+ 608 00ad 02       		.uleb128 0x2
+ 609 00ae 04       		.byte	0x4
+ 610 00af 04       		.byte	0x4
+ 611 00b0 08010000 		.4byte	.LASF15
+ 612 00b4 02       		.uleb128 0x2
+ 613 00b5 08       		.byte	0x8
+ 614 00b6 04       		.byte	0x4
+ 615 00b7 8D010000 		.4byte	.LASF16
+ 616 00bb 02       		.uleb128 0x2
+ 617 00bc 01       		.byte	0x1
+ 618 00bd 08       		.byte	0x8
+ 619 00be 21020000 		.4byte	.LASF17
+ 620 00c2 02       		.uleb128 0x2
+ 621 00c3 04       		.byte	0x4
+ 622 00c4 07       		.byte	0x7
+ 623 00c5 58020000 		.4byte	.LASF18
+ 624 00c9 05       		.uleb128 0x5
+ 625 00ca AB020000 		.4byte	.LASF45
+ 626 00ce 01       		.byte	0x1
+ 627 00cf 05       		.byte	0x5
+ 628 00d0 51       		.byte	0x51
+ 629 00d1 00010000 		.4byte	0x100
+ 630 00d5 06       		.uleb128 0x6
+ 631 00d6 C0020000 		.4byte	.LASF19
+ 632 00da 00       		.sleb128 0
+ 633 00db 06       		.uleb128 0x6
+ 634 00dc 52000000 		.4byte	.LASF20
+ 635 00e0 01       		.sleb128 1
+ 636 00e1 06       		.uleb128 0x6
+ 637 00e2 74020000 		.4byte	.LASF21
+ 638 00e6 02       		.sleb128 2
+ 639 00e7 06       		.uleb128 0x6
+ 640 00e8 74010000 		.4byte	.LASF22
+ 641 00ec 03       		.sleb128 3
+ 642 00ed 06       		.uleb128 0x6
+ 643 00ee 12020000 		.4byte	.LASF23
+ 644 00f2 04       		.sleb128 4
+ 645 00f3 06       		.uleb128 0x6
+ 646 00f4 7F010000 		.4byte	.LASF24
+ 647 00f8 05       		.sleb128 5
+ 648 00f9 06       		.uleb128 0x6
+ 649 00fa 42020000 		.4byte	.LASF25
+ 650 00fe 06       		.sleb128 6
+ 651 00ff 00       		.byte	0
+ 652 0100 02       		.uleb128 0x2
+ 653 0101 01       		.byte	0x1
+ 654 0102 02       		.byte	0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 14
+
+
+ 655 0103 4D000000 		.4byte	.LASF26
+ 656 0107 07       		.uleb128 0x7
+ 657 0108 8C000000 		.4byte	0x8c
+ 658 010c 02       		.uleb128 0x2
+ 659 010d 08       		.byte	0x8
+ 660 010e 04       		.byte	0x4
+ 661 010f B4020000 		.4byte	.LASF27
+ 662 0113 08       		.uleb128 0x8
+ 663 0114 25010000 		.4byte	.LASF35
+ 664 0118 01       		.byte	0x1
+ 665 0119 0A       		.byte	0xa
+ 666 011a E8000000 		.4byte	.LASF37
+ 667 011e A2000000 		.4byte	0xa2
+ 668 0122 00000000 		.4byte	.LFB147
+ 669 0126 96000000 		.4byte	.LFE147-.LFB147
+ 670 012a 01       		.uleb128 0x1
+ 671 012b 9C       		.byte	0x9c
+ 672 012c 73010000 		.4byte	0x173
+ 673 0130 09       		.uleb128 0x9
+ 674 0131 70696E00 		.ascii	"pin\000"
+ 675 0135 01       		.byte	0x1
+ 676 0136 0A       		.byte	0xa
+ 677 0137 8C000000 		.4byte	0x8c
+ 678 013b 02       		.uleb128 0x2
+ 679 013c 91       		.byte	0x91
+ 680 013d 6F       		.sleb128 -17
+ 681 013e 0A       		.uleb128 0xa
+ 682 013f 61020000 		.4byte	.LASF28
+ 683 0143 01       		.byte	0x1
+ 684 0144 0A       		.byte	0xa
+ 685 0145 8C000000 		.4byte	0x8c
+ 686 0149 02       		.uleb128 0x2
+ 687 014a 91       		.byte	0x91
+ 688 014b 6E       		.sleb128 -18
+ 689 014c 0A       		.uleb128 0xa
+ 690 014d 67020000 		.4byte	.LASF29
+ 691 0151 01       		.byte	0x1
+ 692 0152 0A       		.byte	0xa
+ 693 0153 A2000000 		.4byte	0xa2
+ 694 0157 02       		.uleb128 0x2
+ 695 0158 91       		.byte	0x91
+ 696 0159 68       		.sleb128 -24
+ 697 015a 0B       		.uleb128 0xb
+ 698 015b 10000000 		.4byte	.LBB2
+ 699 015f 7E000000 		.4byte	.LBE2-.LBB2
+ 700 0163 0C       		.uleb128 0xc
+ 701 0164 2E020000 		.4byte	.LASF34
+ 702 0168 01       		.byte	0x1
+ 703 0169 0D       		.byte	0xd
+ 704 016a A2000000 		.4byte	0xa2
+ 705 016e 02       		.uleb128 0x2
+ 706 016f 91       		.byte	0x91
+ 707 0170 74       		.sleb128 -12
+ 708 0171 00       		.byte	0
+ 709 0172 00       		.byte	0
+ 710 0173 0D       		.uleb128 0xd
+ 711 0174 39020000 		.4byte	.LASF46
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 15
+
+
+ 712 0178 01       		.byte	0x1
+ 713 0179 17       		.byte	0x17
+ 714 017a D3020000 		.4byte	.LASF47
+ 715 017e 00000000 		.4byte	.LFB148
+ 716 0182 18010000 		.4byte	.LFE148-.LFB148
+ 717 0186 01       		.uleb128 0x1
+ 718 0187 9C       		.byte	0x9c
+ 719 0188 DB010000 		.4byte	0x1db
+ 720 018c 0A       		.uleb128 0xa
+ 721 018d 9F010000 		.4byte	.LASF30
+ 722 0191 01       		.byte	0x1
+ 723 0192 17       		.byte	0x17
+ 724 0193 8C000000 		.4byte	0x8c
+ 725 0197 02       		.uleb128 0x2
+ 726 0198 91       		.byte	0x91
+ 727 0199 67       		.sleb128 -25
+ 728 019a 0A       		.uleb128 0xa
+ 729 019b FF000000 		.4byte	.LASF31
+ 730 019f 01       		.byte	0x1
+ 731 01a0 17       		.byte	0x17
+ 732 01a1 8C000000 		.4byte	0x8c
+ 733 01a5 02       		.uleb128 0x2
+ 734 01a6 91       		.byte	0x91
+ 735 01a7 66       		.sleb128 -26
+ 736 01a8 0A       		.uleb128 0xa
+ 737 01a9 F6000000 		.4byte	.LASF32
+ 738 01ad 01       		.byte	0x1
+ 739 01ae 17       		.byte	0x17
+ 740 01af 8C000000 		.4byte	0x8c
+ 741 01b3 02       		.uleb128 0x2
+ 742 01b4 91       		.byte	0x91
+ 743 01b5 65       		.sleb128 -27
+ 744 01b6 0A       		.uleb128 0xa
+ 745 01b7 3D000000 		.4byte	.LASF33
+ 746 01bb 01       		.byte	0x1
+ 747 01bc 18       		.byte	0x18
+ 748 01bd 8C000000 		.4byte	0x8c
+ 749 01c1 02       		.uleb128 0x2
+ 750 01c2 91       		.byte	0x91
+ 751 01c3 64       		.sleb128 -28
+ 752 01c4 0B       		.uleb128 0xb
+ 753 01c5 1E000000 		.4byte	.LBB3
+ 754 01c9 F4000000 		.4byte	.LBE3-.LBB3
+ 755 01cd 0E       		.uleb128 0xe
+ 756 01ce 6900     		.ascii	"i\000"
+ 757 01d0 01       		.byte	0x1
+ 758 01d1 1C       		.byte	0x1c
+ 759 01d2 8C000000 		.4byte	0x8c
+ 760 01d6 02       		.uleb128 0x2
+ 761 01d7 91       		.byte	0x91
+ 762 01d8 6F       		.sleb128 -17
+ 763 01d9 00       		.byte	0
+ 764 01da 00       		.byte	0
+ 765 01db 08       		.uleb128 0x8
+ 766 01dc 18000000 		.4byte	.LASF36
+ 767 01e0 01       		.byte	0x1
+ 768 01e1 33       		.byte	0x33
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 16
+
+
+ 769 01e2 8B020000 		.4byte	.LASF38
+ 770 01e6 8C000000 		.4byte	0x8c
+ 771 01ea 00000000 		.4byte	.LFB149
+ 772 01ee 14010000 		.4byte	.LFE149-.LFB149
+ 773 01f2 01       		.uleb128 0x1
+ 774 01f3 9C       		.byte	0x9c
+ 775 01f4 47020000 		.4byte	0x247
+ 776 01f8 0A       		.uleb128 0xa
+ 777 01f9 9F010000 		.4byte	.LASF30
+ 778 01fd 01       		.byte	0x1
+ 779 01fe 33       		.byte	0x33
+ 780 01ff 8C000000 		.4byte	0x8c
+ 781 0203 02       		.uleb128 0x2
+ 782 0204 91       		.byte	0x91
+ 783 0205 67       		.sleb128 -25
+ 784 0206 0A       		.uleb128 0xa
+ 785 0207 FF000000 		.4byte	.LASF31
+ 786 020b 01       		.byte	0x1
+ 787 020c 33       		.byte	0x33
+ 788 020d 8C000000 		.4byte	0x8c
+ 789 0211 02       		.uleb128 0x2
+ 790 0212 91       		.byte	0x91
+ 791 0213 66       		.sleb128 -26
+ 792 0214 0A       		.uleb128 0xa
+ 793 0215 F6000000 		.4byte	.LASF32
+ 794 0219 01       		.byte	0x1
+ 795 021a 33       		.byte	0x33
+ 796 021b 8C000000 		.4byte	0x8c
+ 797 021f 02       		.uleb128 0x2
+ 798 0220 91       		.byte	0x91
+ 799 0221 65       		.sleb128 -27
+ 800 0222 0B       		.uleb128 0xb
+ 801 0223 12000000 		.4byte	.LBB4
+ 802 0227 FA000000 		.4byte	.LBE4-.LBB4
+ 803 022b 0E       		.uleb128 0xe
+ 804 022c 6900     		.ascii	"i\000"
+ 805 022e 01       		.byte	0x1
+ 806 022f 37       		.byte	0x37
+ 807 0230 8C000000 		.4byte	0x8c
+ 808 0234 02       		.uleb128 0x2
+ 809 0235 91       		.byte	0x91
+ 810 0236 6F       		.sleb128 -17
+ 811 0237 0C       		.uleb128 0xc
+ 812 0238 3B010000 		.4byte	.LASF39
+ 813 023c 01       		.byte	0x1
+ 814 023d 38       		.byte	0x38
+ 815 023e 8C000000 		.4byte	0x8c
+ 816 0242 02       		.uleb128 0x2
+ 817 0243 91       		.byte	0x91
+ 818 0244 6E       		.sleb128 -18
+ 819 0245 00       		.byte	0
+ 820 0246 00       		.byte	0
+ 821 0247 0F       		.uleb128 0xf
+ 822 0248 67010000 		.4byte	.LASF48
+ 823 024c 06       		.byte	0x6
+ 824 024d 5506     		.2byte	0x655
+ 825 024f 53020000 		.4byte	0x253
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 17
+
+
+ 826 0253 10       		.uleb128 0x10
+ 827 0254 97000000 		.4byte	0x97
+ 828 0258 0E       		.uleb128 0xe
+ 829 0259 535300   		.ascii	"SS\000"
+ 830 025c 04       		.byte	0x4
+ 831 025d 26       		.byte	0x26
+ 832 025e 07010000 		.4byte	0x107
+ 833 0262 05       		.uleb128 0x5
+ 834 0263 03       		.byte	0x3
+ 835 0264 00000000 		.4byte	_ZL2SS
+ 836 0268 0C       		.uleb128 0xc
+ 837 0269 6F020000 		.4byte	.LASF40
+ 838 026d 04       		.byte	0x4
+ 839 026e 27       		.byte	0x27
+ 840 026f 07010000 		.4byte	0x107
+ 841 0273 05       		.uleb128 0x5
+ 842 0274 03       		.byte	0x3
+ 843 0275 01000000 		.4byte	_ZL4MOSI
+ 844 0279 0C       		.uleb128 0xc
+ 845 027a A7010000 		.4byte	.LASF41
+ 846 027e 04       		.byte	0x4
+ 847 027f 28       		.byte	0x28
+ 848 0280 07010000 		.4byte	0x107
+ 849 0284 05       		.uleb128 0x5
+ 850 0285 03       		.byte	0x3
+ 851 0286 02000000 		.4byte	_ZL4MISO
+ 852 028a 0E       		.uleb128 0xe
+ 853 028b 53434B00 		.ascii	"SCK\000"
+ 854 028f 04       		.byte	0x4
+ 855 0290 29       		.byte	0x29
+ 856 0291 07010000 		.4byte	0x107
+ 857 0295 05       		.uleb128 0x5
+ 858 0296 03       		.byte	0x3
+ 859 0297 03000000 		.4byte	_ZL3SCK
+ 860 029b 0E       		.uleb128 0xe
+ 861 029c 53444100 		.ascii	"SDA\000"
+ 862 02a0 04       		.byte	0x4
+ 863 02a1 2B       		.byte	0x2b
+ 864 02a2 07010000 		.4byte	0x107
+ 865 02a6 05       		.uleb128 0x5
+ 866 02a7 03       		.byte	0x3
+ 867 02a8 04000000 		.4byte	_ZL3SDA
+ 868 02ac 0E       		.uleb128 0xe
+ 869 02ad 53434C00 		.ascii	"SCL\000"
+ 870 02b1 04       		.byte	0x4
+ 871 02b2 2C       		.byte	0x2c
+ 872 02b3 07010000 		.4byte	0x107
+ 873 02b7 05       		.uleb128 0x5
+ 874 02b8 03       		.byte	0x3
+ 875 02b9 05000000 		.4byte	_ZL3SCL
+ 876 02bd 00       		.byte	0
+ 877              		.section	.debug_abbrev,"",%progbits
+ 878              	.Ldebug_abbrev0:
+ 879 0000 01       		.uleb128 0x1
+ 880 0001 11       		.uleb128 0x11
+ 881 0002 01       		.byte	0x1
+ 882 0003 25       		.uleb128 0x25
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 18
+
+
+ 883 0004 0E       		.uleb128 0xe
+ 884 0005 13       		.uleb128 0x13
+ 885 0006 0B       		.uleb128 0xb
+ 886 0007 03       		.uleb128 0x3
+ 887 0008 0E       		.uleb128 0xe
+ 888 0009 1B       		.uleb128 0x1b
+ 889 000a 0E       		.uleb128 0xe
+ 890 000b 55       		.uleb128 0x55
+ 891 000c 17       		.uleb128 0x17
+ 892 000d 11       		.uleb128 0x11
+ 893 000e 01       		.uleb128 0x1
+ 894 000f 10       		.uleb128 0x10
+ 895 0010 17       		.uleb128 0x17
+ 896 0011 00       		.byte	0
+ 897 0012 00       		.byte	0
+ 898 0013 02       		.uleb128 0x2
+ 899 0014 24       		.uleb128 0x24
+ 900 0015 00       		.byte	0
+ 901 0016 0B       		.uleb128 0xb
+ 902 0017 0B       		.uleb128 0xb
+ 903 0018 3E       		.uleb128 0x3e
+ 904 0019 0B       		.uleb128 0xb
+ 905 001a 03       		.uleb128 0x3
+ 906 001b 0E       		.uleb128 0xe
+ 907 001c 00       		.byte	0
+ 908 001d 00       		.byte	0
+ 909 001e 03       		.uleb128 0x3
+ 910 001f 16       		.uleb128 0x16
+ 911 0020 00       		.byte	0
+ 912 0021 03       		.uleb128 0x3
+ 913 0022 0E       		.uleb128 0xe
+ 914 0023 3A       		.uleb128 0x3a
+ 915 0024 0B       		.uleb128 0xb
+ 916 0025 3B       		.uleb128 0x3b
+ 917 0026 0B       		.uleb128 0xb
+ 918 0027 49       		.uleb128 0x49
+ 919 0028 13       		.uleb128 0x13
+ 920 0029 00       		.byte	0
+ 921 002a 00       		.byte	0
+ 922 002b 04       		.uleb128 0x4
+ 923 002c 24       		.uleb128 0x24
+ 924 002d 00       		.byte	0
+ 925 002e 0B       		.uleb128 0xb
+ 926 002f 0B       		.uleb128 0xb
+ 927 0030 3E       		.uleb128 0x3e
+ 928 0031 0B       		.uleb128 0xb
+ 929 0032 03       		.uleb128 0x3
+ 930 0033 08       		.uleb128 0x8
+ 931 0034 00       		.byte	0
+ 932 0035 00       		.byte	0
+ 933 0036 05       		.uleb128 0x5
+ 934 0037 04       		.uleb128 0x4
+ 935 0038 01       		.byte	0x1
+ 936 0039 03       		.uleb128 0x3
+ 937 003a 0E       		.uleb128 0xe
+ 938 003b 0B       		.uleb128 0xb
+ 939 003c 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 19
+
+
+ 940 003d 3A       		.uleb128 0x3a
+ 941 003e 0B       		.uleb128 0xb
+ 942 003f 3B       		.uleb128 0x3b
+ 943 0040 0B       		.uleb128 0xb
+ 944 0041 01       		.uleb128 0x1
+ 945 0042 13       		.uleb128 0x13
+ 946 0043 00       		.byte	0
+ 947 0044 00       		.byte	0
+ 948 0045 06       		.uleb128 0x6
+ 949 0046 28       		.uleb128 0x28
+ 950 0047 00       		.byte	0
+ 951 0048 03       		.uleb128 0x3
+ 952 0049 0E       		.uleb128 0xe
+ 953 004a 1C       		.uleb128 0x1c
+ 954 004b 0D       		.uleb128 0xd
+ 955 004c 00       		.byte	0
+ 956 004d 00       		.byte	0
+ 957 004e 07       		.uleb128 0x7
+ 958 004f 26       		.uleb128 0x26
+ 959 0050 00       		.byte	0
+ 960 0051 49       		.uleb128 0x49
+ 961 0052 13       		.uleb128 0x13
+ 962 0053 00       		.byte	0
+ 963 0054 00       		.byte	0
+ 964 0055 08       		.uleb128 0x8
+ 965 0056 2E       		.uleb128 0x2e
+ 966 0057 01       		.byte	0x1
+ 967 0058 3F       		.uleb128 0x3f
+ 968 0059 19       		.uleb128 0x19
+ 969 005a 03       		.uleb128 0x3
+ 970 005b 0E       		.uleb128 0xe
+ 971 005c 3A       		.uleb128 0x3a
+ 972 005d 0B       		.uleb128 0xb
+ 973 005e 3B       		.uleb128 0x3b
+ 974 005f 0B       		.uleb128 0xb
+ 975 0060 6E       		.uleb128 0x6e
+ 976 0061 0E       		.uleb128 0xe
+ 977 0062 49       		.uleb128 0x49
+ 978 0063 13       		.uleb128 0x13
+ 979 0064 11       		.uleb128 0x11
+ 980 0065 01       		.uleb128 0x1
+ 981 0066 12       		.uleb128 0x12
+ 982 0067 06       		.uleb128 0x6
+ 983 0068 40       		.uleb128 0x40
+ 984 0069 18       		.uleb128 0x18
+ 985 006a 9642     		.uleb128 0x2116
+ 986 006c 19       		.uleb128 0x19
+ 987 006d 01       		.uleb128 0x1
+ 988 006e 13       		.uleb128 0x13
+ 989 006f 00       		.byte	0
+ 990 0070 00       		.byte	0
+ 991 0071 09       		.uleb128 0x9
+ 992 0072 05       		.uleb128 0x5
+ 993 0073 00       		.byte	0
+ 994 0074 03       		.uleb128 0x3
+ 995 0075 08       		.uleb128 0x8
+ 996 0076 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 20
+
+
+ 997 0077 0B       		.uleb128 0xb
+ 998 0078 3B       		.uleb128 0x3b
+ 999 0079 0B       		.uleb128 0xb
+ 1000 007a 49       		.uleb128 0x49
+ 1001 007b 13       		.uleb128 0x13
+ 1002 007c 02       		.uleb128 0x2
+ 1003 007d 18       		.uleb128 0x18
+ 1004 007e 00       		.byte	0
+ 1005 007f 00       		.byte	0
+ 1006 0080 0A       		.uleb128 0xa
+ 1007 0081 05       		.uleb128 0x5
+ 1008 0082 00       		.byte	0
+ 1009 0083 03       		.uleb128 0x3
+ 1010 0084 0E       		.uleb128 0xe
+ 1011 0085 3A       		.uleb128 0x3a
+ 1012 0086 0B       		.uleb128 0xb
+ 1013 0087 3B       		.uleb128 0x3b
+ 1014 0088 0B       		.uleb128 0xb
+ 1015 0089 49       		.uleb128 0x49
+ 1016 008a 13       		.uleb128 0x13
+ 1017 008b 02       		.uleb128 0x2
+ 1018 008c 18       		.uleb128 0x18
+ 1019 008d 00       		.byte	0
+ 1020 008e 00       		.byte	0
+ 1021 008f 0B       		.uleb128 0xb
+ 1022 0090 0B       		.uleb128 0xb
+ 1023 0091 01       		.byte	0x1
+ 1024 0092 11       		.uleb128 0x11
+ 1025 0093 01       		.uleb128 0x1
+ 1026 0094 12       		.uleb128 0x12
+ 1027 0095 06       		.uleb128 0x6
+ 1028 0096 00       		.byte	0
+ 1029 0097 00       		.byte	0
+ 1030 0098 0C       		.uleb128 0xc
+ 1031 0099 34       		.uleb128 0x34
+ 1032 009a 00       		.byte	0
+ 1033 009b 03       		.uleb128 0x3
+ 1034 009c 0E       		.uleb128 0xe
+ 1035 009d 3A       		.uleb128 0x3a
+ 1036 009e 0B       		.uleb128 0xb
+ 1037 009f 3B       		.uleb128 0x3b
+ 1038 00a0 0B       		.uleb128 0xb
+ 1039 00a1 49       		.uleb128 0x49
+ 1040 00a2 13       		.uleb128 0x13
+ 1041 00a3 02       		.uleb128 0x2
+ 1042 00a4 18       		.uleb128 0x18
+ 1043 00a5 00       		.byte	0
+ 1044 00a6 00       		.byte	0
+ 1045 00a7 0D       		.uleb128 0xd
+ 1046 00a8 2E       		.uleb128 0x2e
+ 1047 00a9 01       		.byte	0x1
+ 1048 00aa 3F       		.uleb128 0x3f
+ 1049 00ab 19       		.uleb128 0x19
+ 1050 00ac 03       		.uleb128 0x3
+ 1051 00ad 0E       		.uleb128 0xe
+ 1052 00ae 3A       		.uleb128 0x3a
+ 1053 00af 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 21
+
+
+ 1054 00b0 3B       		.uleb128 0x3b
+ 1055 00b1 0B       		.uleb128 0xb
+ 1056 00b2 6E       		.uleb128 0x6e
+ 1057 00b3 0E       		.uleb128 0xe
+ 1058 00b4 11       		.uleb128 0x11
+ 1059 00b5 01       		.uleb128 0x1
+ 1060 00b6 12       		.uleb128 0x12
+ 1061 00b7 06       		.uleb128 0x6
+ 1062 00b8 40       		.uleb128 0x40
+ 1063 00b9 18       		.uleb128 0x18
+ 1064 00ba 9642     		.uleb128 0x2116
+ 1065 00bc 19       		.uleb128 0x19
+ 1066 00bd 01       		.uleb128 0x1
+ 1067 00be 13       		.uleb128 0x13
+ 1068 00bf 00       		.byte	0
+ 1069 00c0 00       		.byte	0
+ 1070 00c1 0E       		.uleb128 0xe
+ 1071 00c2 34       		.uleb128 0x34
+ 1072 00c3 00       		.byte	0
+ 1073 00c4 03       		.uleb128 0x3
+ 1074 00c5 08       		.uleb128 0x8
+ 1075 00c6 3A       		.uleb128 0x3a
+ 1076 00c7 0B       		.uleb128 0xb
+ 1077 00c8 3B       		.uleb128 0x3b
+ 1078 00c9 0B       		.uleb128 0xb
+ 1079 00ca 49       		.uleb128 0x49
+ 1080 00cb 13       		.uleb128 0x13
+ 1081 00cc 02       		.uleb128 0x2
+ 1082 00cd 18       		.uleb128 0x18
+ 1083 00ce 00       		.byte	0
+ 1084 00cf 00       		.byte	0
+ 1085 00d0 0F       		.uleb128 0xf
+ 1086 00d1 34       		.uleb128 0x34
+ 1087 00d2 00       		.byte	0
+ 1088 00d3 03       		.uleb128 0x3
+ 1089 00d4 0E       		.uleb128 0xe
+ 1090 00d5 3A       		.uleb128 0x3a
+ 1091 00d6 0B       		.uleb128 0xb
+ 1092 00d7 3B       		.uleb128 0x3b
+ 1093 00d8 05       		.uleb128 0x5
+ 1094 00d9 49       		.uleb128 0x49
+ 1095 00da 13       		.uleb128 0x13
+ 1096 00db 3F       		.uleb128 0x3f
+ 1097 00dc 19       		.uleb128 0x19
+ 1098 00dd 3C       		.uleb128 0x3c
+ 1099 00de 19       		.uleb128 0x19
+ 1100 00df 00       		.byte	0
+ 1101 00e0 00       		.byte	0
+ 1102 00e1 10       		.uleb128 0x10
+ 1103 00e2 35       		.uleb128 0x35
+ 1104 00e3 00       		.byte	0
+ 1105 00e4 49       		.uleb128 0x49
+ 1106 00e5 13       		.uleb128 0x13
+ 1107 00e6 00       		.byte	0
+ 1108 00e7 00       		.byte	0
+ 1109 00e8 00       		.byte	0
+ 1110              		.section	.debug_aranges,"",%progbits
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 22
+
+
+ 1111 0000 2C000000 		.4byte	0x2c
+ 1112 0004 0200     		.2byte	0x2
+ 1113 0006 00000000 		.4byte	.Ldebug_info0
+ 1114 000a 04       		.byte	0x4
+ 1115 000b 00       		.byte	0
+ 1116 000c 0000     		.2byte	0
+ 1117 000e 0000     		.2byte	0
+ 1118 0010 00000000 		.4byte	.LFB147
+ 1119 0014 96000000 		.4byte	.LFE147-.LFB147
+ 1120 0018 00000000 		.4byte	.LFB148
+ 1121 001c 18010000 		.4byte	.LFE148-.LFB148
+ 1122 0020 00000000 		.4byte	.LFB149
+ 1123 0024 14010000 		.4byte	.LFE149-.LFB149
+ 1124 0028 00000000 		.4byte	0
+ 1125 002c 00000000 		.4byte	0
+ 1126              		.section	.debug_ranges,"",%progbits
+ 1127              	.Ldebug_ranges0:
+ 1128 0000 00000000 		.4byte	.LFB147
+ 1129 0004 96000000 		.4byte	.LFE147
+ 1130 0008 00000000 		.4byte	.LFB148
+ 1131 000c 18010000 		.4byte	.LFE148
+ 1132 0010 00000000 		.4byte	.LFB149
+ 1133 0014 14010000 		.4byte	.LFE149
+ 1134 0018 00000000 		.4byte	0
+ 1135 001c 00000000 		.4byte	0
+ 1136              		.section	.debug_line,"",%progbits
+ 1137              	.Ldebug_line0:
+ 1138 0000 53020000 		.section	.debug_str,"MS",%progbits,1
+ 1138      02007B01 
+ 1138      00000201 
+ 1138      FB0E0D00 
+ 1138      01010101 
+ 1139              	.LASF9:
+ 1140 0000 6C6F6E67 		.ascii	"long long int\000"
+ 1140      206C6F6E 
+ 1140      6720696E 
+ 1140      7400
+ 1141              	.LASF4:
+ 1142 000e 5F5F7569 		.ascii	"__uint8_t\000"
+ 1142      6E74385F 
+ 1142      7400
+ 1143              	.LASF36:
+ 1144 0018 73686966 		.ascii	"shiftIn\000"
+ 1144      74496E00 
+ 1145              	.LASF43:
+ 1146 0020 636F7265 		.ascii	"core\\Arduino_Advanced_IO.cpp\000"
+ 1146      5C417264 
+ 1146      75696E6F 
+ 1146      5F416476 
+ 1146      616E6365 
+ 1147              	.LASF33:
+ 1148 003d 76616C75 		.ascii	"value\000"
+ 1148      6500
+ 1149              	.LASF5:
+ 1150 0043 5F5F696E 		.ascii	"__int32_t\000"
+ 1150      7433325F 
+ 1150      7400
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 23
+
+
+ 1151              	.LASF26:
+ 1152 004d 626F6F6C 		.ascii	"bool\000"
+ 1152      00
+ 1153              	.LASF20:
+ 1154 0052 494E5055 		.ascii	"INPUT\000"
+ 1154      5400
+ 1155              	.LASF42:
+ 1156 0058 474E5520 		.ascii	"GNU C++ 4.9.3 20150303 (release) [ARM/embedded-4_9-"
+ 1156      432B2B20 
+ 1156      342E392E 
+ 1156      33203230 
+ 1156      31353033 
+ 1157 008b 6272616E 		.ascii	"branch revision 221220] -mcpu=cortex-m3 -mthumb -g "
+ 1157      63682072 
+ 1157      65766973 
+ 1157      696F6E20 
+ 1157      32323132 
+ 1158 00be 2D4F3020 		.ascii	"-O0 -ffunction-sections -ffat-lto-objects\000"
+ 1158      2D666675 
+ 1158      6E637469 
+ 1158      6F6E2D73 
+ 1158      65637469 
+ 1159              	.LASF37:
+ 1160 00e8 5F5A3770 		.ascii	"_Z7pulseInhhm\000"
+ 1160      756C7365 
+ 1160      496E6868 
+ 1160      6D00
+ 1161              	.LASF32:
+ 1162 00f6 6269744F 		.ascii	"bitOrder\000"
+ 1162      72646572 
+ 1162      00
+ 1163              	.LASF31:
+ 1164 00ff 636C6F63 		.ascii	"clockPin\000"
+ 1164      6B50696E 
+ 1164      00
+ 1165              	.LASF15:
+ 1166 0108 666C6F61 		.ascii	"float\000"
+ 1166      7400
+ 1167              	.LASF10:
+ 1168 010e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1168      206C6F6E 
+ 1168      6720756E 
+ 1168      7369676E 
+ 1168      65642069 
+ 1169              	.LASF35:
+ 1170 0125 70756C73 		.ascii	"pulseIn\000"
+ 1170      65496E00 
+ 1171              	.LASF1:
+ 1172 012d 756E7369 		.ascii	"unsigned char\000"
+ 1172      676E6564 
+ 1172      20636861 
+ 1172      7200
+ 1173              	.LASF39:
+ 1174 013b 72784279 		.ascii	"rxByte\000"
+ 1174      746500
+ 1175              	.LASF8:
+ 1176 0142 6C6F6E67 		.ascii	"long unsigned int\000"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 24
+
+
+ 1176      20756E73 
+ 1176      69676E65 
+ 1176      6420696E 
+ 1176      7400
+ 1177              	.LASF3:
+ 1178 0154 73686F72 		.ascii	"short unsigned int\000"
+ 1178      7420756E 
+ 1178      7369676E 
+ 1178      65642069 
+ 1178      6E7400
+ 1179              	.LASF48:
+ 1180 0167 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1180      52784275 
+ 1180      66666572 
+ 1180      00
+ 1181              	.LASF22:
+ 1182 0174 50455249 		.ascii	"PERIPHERAL\000"
+ 1182      50484552 
+ 1182      414C00
+ 1183              	.LASF24:
+ 1184 017f 50455249 		.ascii	"PERIPHERAL_IN\000"
+ 1184      50484552 
+ 1184      414C5F49 
+ 1184      4E00
+ 1185              	.LASF16:
+ 1186 018d 646F7562 		.ascii	"double\000"
+ 1186      6C6500
+ 1187              	.LASF7:
+ 1188 0194 5F5F7569 		.ascii	"__uint32_t\000"
+ 1188      6E743332 
+ 1188      5F7400
+ 1189              	.LASF30:
+ 1190 019f 64617461 		.ascii	"dataPin\000"
+ 1190      50696E00 
+ 1191              	.LASF41:
+ 1192 01a7 4D49534F 		.ascii	"MISO\000"
+ 1192      00
+ 1193              	.LASF44:
+ 1194 01ac 433A5C55 		.ascii	"C:\\Users\\Bruger\\Desktop\\CODE\\PSOC5\\CY8CKIT-59"
+ 1194      73657273 
+ 1194      5C427275 
+ 1194      6765725C 
+ 1194      4465736B 
+ 1195 01d9 2D417264 		.ascii	"-Arduino\\CY8CKIT59_Ardudino-Speeduino.cydsn\000"
+ 1195      75696E6F 
+ 1195      5C435938 
+ 1195      434B4954 
+ 1195      35395F41 
+ 1196              	.LASF11:
+ 1197 0205 756E7369 		.ascii	"unsigned int\000"
+ 1197      676E6564 
+ 1197      20696E74 
+ 1197      00
+ 1198              	.LASF23:
+ 1199 0212 50455249 		.ascii	"PERIPHERAL_OUT\000"
+ 1199      50484552 
+ 1199      414C5F4F 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 25
+
+
+ 1199      555400
+ 1200              	.LASF17:
+ 1201 0221 63686172 		.ascii	"char\000"
+ 1201      00
+ 1202              	.LASF12:
+ 1203 0226 75696E74 		.ascii	"uint8_t\000"
+ 1203      385F7400 
+ 1204              	.LASF34:
+ 1205 022e 636C6F63 		.ascii	"clockStart\000"
+ 1205      6B537461 
+ 1205      727400
+ 1206              	.LASF46:
+ 1207 0239 73686966 		.ascii	"shiftOut\000"
+ 1207      744F7574 
+ 1207      00
+ 1208              	.LASF25:
+ 1209 0242 50455249 		.ascii	"PERIPHERAL_OD\000"
+ 1209      50484552 
+ 1209      414C5F4F 
+ 1209      4400
+ 1210              	.LASF13:
+ 1211 0250 696E7433 		.ascii	"int32_t\000"
+ 1211      325F7400 
+ 1212              	.LASF18:
+ 1213 0258 73697A65 		.ascii	"sizetype\000"
+ 1213      74797065 
+ 1213      00
+ 1214              	.LASF28:
+ 1215 0261 6C657665 		.ascii	"level\000"
+ 1215      6C00
+ 1216              	.LASF29:
+ 1217 0267 74696D65 		.ascii	"timeout\000"
+ 1217      6F757400 
+ 1218              	.LASF40:
+ 1219 026f 4D4F5349 		.ascii	"MOSI\000"
+ 1219      00
+ 1220              	.LASF21:
+ 1221 0274 494E5055 		.ascii	"INPUT_PULLUP\000"
+ 1221      545F5055 
+ 1221      4C4C5550 
+ 1221      00
+ 1222              	.LASF2:
+ 1223 0281 73686F72 		.ascii	"short int\000"
+ 1223      7420696E 
+ 1223      7400
+ 1224              	.LASF38:
+ 1225 028b 5F5A3773 		.ascii	"_Z7shiftInhhh\000"
+ 1225      68696674 
+ 1225      496E6868 
+ 1225      6800
+ 1226              	.LASF14:
+ 1227 0299 75696E74 		.ascii	"uint32_t\000"
+ 1227      33325F74 
+ 1227      00
+ 1228              	.LASF6:
+ 1229 02a2 6C6F6E67 		.ascii	"long int\000"
+ 1229      20696E74 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccZAU2gd.s 			page 26
+
+
+ 1229      00
+ 1230              	.LASF45:
+ 1231 02ab 50494E5F 		.ascii	"PIN_MODE\000"
+ 1231      4D4F4445 
+ 1231      00
+ 1232              	.LASF27:
+ 1233 02b4 6C6F6E67 		.ascii	"long double\000"
+ 1233      20646F75 
+ 1233      626C6500 
+ 1234              	.LASF19:
+ 1235 02c0 4F555450 		.ascii	"OUTPUT\000"
+ 1235      555400
+ 1236              	.LASF0:
+ 1237 02c7 7369676E 		.ascii	"signed char\000"
+ 1237      65642063 
+ 1237      68617200 
+ 1238              	.LASF47:
+ 1239 02d3 5F5A3873 		.ascii	"_Z8shiftOuthhhh\000"
+ 1239      68696674 
+ 1239      4F757468 
+ 1239      68686800 
+ 1240              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

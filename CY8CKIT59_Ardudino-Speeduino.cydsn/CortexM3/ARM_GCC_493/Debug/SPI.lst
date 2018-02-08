@@ -1,0 +1,2596 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"SPI.cpp"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	SPI
+  19              		.bss
+  20              		.align	2
+  21              		.type	SPI, %object
+  22              		.size	SPI, 1
+  23              	SPI:
+  24 0000 00       		.space	1
+  25 0001 000000   		.section	.text._ZN8SPIClassC2Ev,"ax",%progbits
+  26              		.align	2
+  27              		.global	_ZN8SPIClassC2Ev
+  28              		.thumb
+  29              		.thumb_func
+  30              		.type	_ZN8SPIClassC2Ev, %function
+  31              	_ZN8SPIClassC2Ev:
+  32              		.fnstart
+  33              	.LFB148:
+  34              		.file 1 "Libraries\\SPI\\SPI.cpp"
+   1:Libraries\SPI/SPI.cpp **** /*
+   2:Libraries\SPI/SPI.cpp ****  * Copyright (c) 2010 by Cristian Maglie <c.maglie@arduino.cc>
+   3:Libraries\SPI/SPI.cpp ****  * Copyright (c) 2014 by Paul Stoffregen <paul@pjrc.com> (Transaction API)
+   4:Libraries\SPI/SPI.cpp ****  * SPI Master library for arduino.
+   5:Libraries\SPI/SPI.cpp ****  *
+   6:Libraries\SPI/SPI.cpp ****  * This file is free software; you can redistribute it and/or modify
+   7:Libraries\SPI/SPI.cpp ****  * it under the terms of either the GNU General Public License version 2
+   8:Libraries\SPI/SPI.cpp ****  * or the GNU Lesser General Public License version 2.1, both as
+   9:Libraries\SPI/SPI.cpp ****  * published by the Free Software Foundation.
+  10:Libraries\SPI/SPI.cpp ****  */
+  11:Libraries\SPI/SPI.cpp **** 
+  12:Libraries\SPI/SPI.cpp **** #include "Arduino.h"
+  13:Libraries\SPI/SPI.cpp **** #include "SPI.h"
+  14:Libraries\SPI/SPI.cpp **** 
+  15:Libraries\SPI/SPI.cpp **** SPIClass SPI;
+  16:Libraries\SPI/SPI.cpp **** 
+  17:Libraries\SPI/SPI.cpp **** 
+  18:Libraries\SPI/SPI.cpp **** SPIClass::SPIClass()
+  35              		.loc 1 18 0
+  36              		.cfi_startproc
+  37              		@ args = 0, pretend = 0, frame = 8
+  38              		@ frame_needed = 1, uses_anonymous_args = 0
+  39 0000 80B5     		push	{r7, lr}
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 2
+
+
+  40              		.save {r7, lr}
+  41              		.cfi_def_cfa_offset 8
+  42              		.cfi_offset 7, -8
+  43              		.cfi_offset 14, -4
+  44              		.pad #8
+  45 0002 82B0     		sub	sp, sp, #8
+  46              		.cfi_def_cfa_offset 16
+  47              		.setfp r7, sp, #0
+  48 0004 00AF     		add	r7, sp, #0
+  49              		.cfi_def_cfa_register 7
+  50 0006 7860     		str	r0, [r7, #4]
+  51              	.LBB2:
+  19:Libraries\SPI/SPI.cpp **** {
+  20:Libraries\SPI/SPI.cpp **** 	SPIM_Start();
+  52              		.loc 1 20 0
+  53 0008 FFF7FEFF 		bl	SPIM_Start
+  54              	.LBE2:
+  21:Libraries\SPI/SPI.cpp **** }
+  55              		.loc 1 21 0
+  56 000c 7B68     		ldr	r3, [r7, #4]
+  57 000e 1846     		mov	r0, r3
+  58 0010 0837     		adds	r7, r7, #8
+  59              		.cfi_def_cfa_offset 8
+  60 0012 BD46     		mov	sp, r7
+  61              		.cfi_def_cfa_register 13
+  62              		@ sp needed
+  63 0014 80BD     		pop	{r7, pc}
+  64              		.cfi_endproc
+  65              	.LFE148:
+  66              		.fnend
+  67              		.size	_ZN8SPIClassC2Ev, .-_ZN8SPIClassC2Ev
+  68              		.global	_ZN8SPIClassC1Ev
+  69              		.thumb_set _ZN8SPIClassC1Ev,_ZN8SPIClassC2Ev
+  70 0016 00BF     		.section	.text._ZN8SPIClassD2Ev,"ax",%progbits
+  71              		.align	2
+  72              		.global	_ZN8SPIClassD2Ev
+  73              		.thumb
+  74              		.thumb_func
+  75              		.type	_ZN8SPIClassD2Ev, %function
+  76              	_ZN8SPIClassD2Ev:
+  77              		.fnstart
+  78              	.LFB151:
+  22:Libraries\SPI/SPI.cpp **** 
+  23:Libraries\SPI/SPI.cpp **** SPIClass::~SPIClass()
+  79              		.loc 1 23 0
+  80              		.cfi_startproc
+  81              		@ args = 0, pretend = 0, frame = 8
+  82              		@ frame_needed = 1, uses_anonymous_args = 0
+  83              		@ link register save eliminated.
+  84 0000 80B4     		push	{r7}
+  85              		.cfi_def_cfa_offset 4
+  86              		.cfi_offset 7, -4
+  87 0002 83B0     		sub	sp, sp, #12
+  88              		.cfi_def_cfa_offset 16
+  89 0004 00AF     		add	r7, sp, #0
+  90              		.cfi_def_cfa_register 7
+  91 0006 7860     		str	r0, [r7, #4]
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 3
+
+
+  24:Libraries\SPI/SPI.cpp **** {
+  25:Libraries\SPI/SPI.cpp **** }
+  92              		.loc 1 25 0
+  93 0008 7B68     		ldr	r3, [r7, #4]
+  94 000a 1846     		mov	r0, r3
+  95 000c 0C37     		adds	r7, r7, #12
+  96              		.cfi_def_cfa_offset 4
+  97 000e BD46     		mov	sp, r7
+  98              		.cfi_def_cfa_register 13
+  99              		@ sp needed
+ 100 0010 5DF8047B 		ldr	r7, [sp], #4
+ 101              		.cfi_restore 7
+ 102              		.cfi_def_cfa_offset 0
+ 103 0014 7047     		bx	lr
+ 104              		.cfi_endproc
+ 105              	.LFE151:
+ 106              		.cantunwind
+ 107              		.fnend
+ 108              		.size	_ZN8SPIClassD2Ev, .-_ZN8SPIClassD2Ev
+ 109              		.global	_ZN8SPIClassD1Ev
+ 110              		.thumb_set _ZN8SPIClassD1Ev,_ZN8SPIClassD2Ev
+ 111 0016 00BF     		.section	.text._ZN8SPIClass5beginEv,"ax",%progbits
+ 112              		.align	2
+ 113              		.global	_ZN8SPIClass5beginEv
+ 114              		.thumb
+ 115              		.thumb_func
+ 116              		.type	_ZN8SPIClass5beginEv, %function
+ 117              	_ZN8SPIClass5beginEv:
+ 118              		.fnstart
+ 119              	.LFB153:
+  26:Libraries\SPI/SPI.cpp **** 
+  27:Libraries\SPI/SPI.cpp **** void SPIClass::begin() 
+  28:Libraries\SPI/SPI.cpp **** {
+ 120              		.loc 1 28 0
+ 121              		.cfi_startproc
+ 122              		@ args = 0, pretend = 0, frame = 8
+ 123              		@ frame_needed = 1, uses_anonymous_args = 0
+ 124 0000 80B5     		push	{r7, lr}
+ 125              		.save {r7, lr}
+ 126              		.cfi_def_cfa_offset 8
+ 127              		.cfi_offset 7, -8
+ 128              		.cfi_offset 14, -4
+ 129              		.pad #8
+ 130 0002 82B0     		sub	sp, sp, #8
+ 131              		.cfi_def_cfa_offset 16
+ 132              		.setfp r7, sp, #0
+ 133 0004 00AF     		add	r7, sp, #0
+ 134              		.cfi_def_cfa_register 7
+ 135 0006 7860     		str	r0, [r7, #4]
+  29:Libraries\SPI/SPI.cpp ****   // D10_Ctrl and D11_Ctrl are registers which select between PWM and SPI for
+  30:Libraries\SPI/SPI.cpp ****   //  those two pins. 0 is PWM, 1 is SPI. Do this *first* so if the PWM is on
+  31:Libraries\SPI/SPI.cpp ****   //  these pins don't see a bunch of gibberish transitions when we hook the
+  32:Libraries\SPI/SPI.cpp ****   //  peripheral bus up to them.
+  33:Libraries\SPI/SPI.cpp ****   D10_Ctrl_Write(0x01);
+ 136              		.loc 1 33 0
+ 137 0008 0120     		movs	r0, #1
+ 138 000a FFF7FEFF 		bl	D10_Ctrl_Write
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 4
+
+
+  34:Libraries\SPI/SPI.cpp ****   D11_Ctrl_Write(0x01);
+ 139              		.loc 1 34 0
+ 140 000e 0120     		movs	r0, #1
+ 141 0010 FFF7FEFF 		bl	D11_Ctrl_Write
+  35:Libraries\SPI/SPI.cpp ****   pinMode(10, PERIPHERAL_OUT);
+ 142              		.loc 1 35 0
+ 143 0014 0A20     		movs	r0, #10
+ 144 0016 0421     		movs	r1, #4
+ 145 0018 FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+  36:Libraries\SPI/SPI.cpp ****   pinMode(11, PERIPHERAL_OUT);
+ 146              		.loc 1 36 0
+ 147 001c 0B20     		movs	r0, #11
+ 148 001e 0421     		movs	r1, #4
+ 149 0020 FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+  37:Libraries\SPI/SPI.cpp ****   pinMode(12, PERIPHERAL_IN);
+ 150              		.loc 1 37 0
+ 151 0024 0C20     		movs	r0, #12
+ 152 0026 0521     		movs	r1, #5
+ 153 0028 FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+  38:Libraries\SPI/SPI.cpp ****   pinMode(13, PERIPHERAL_OUT);
+ 154              		.loc 1 38 0
+ 155 002c 0D20     		movs	r0, #13
+ 156 002e 0421     		movs	r1, #4
+ 157 0030 FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+  39:Libraries\SPI/SPI.cpp ****   SPI_MODE_REG_Write(0x00);
+ 158              		.loc 1 39 0
+ 159 0034 0020     		movs	r0, #0
+ 160 0036 FFF7FEFF 		bl	SPI_MODE_REG_Write
+  40:Libraries\SPI/SPI.cpp **** }
+ 161              		.loc 1 40 0
+ 162 003a 0837     		adds	r7, r7, #8
+ 163              		.cfi_def_cfa_offset 8
+ 164 003c BD46     		mov	sp, r7
+ 165              		.cfi_def_cfa_register 13
+ 166              		@ sp needed
+ 167 003e 80BD     		pop	{r7, pc}
+ 168              		.cfi_endproc
+ 169              	.LFE153:
+ 170              		.fnend
+ 171              		.size	_ZN8SPIClass5beginEv, .-_ZN8SPIClass5beginEv
+ 172              		.section	.text._ZN8SPIClass3endEv,"ax",%progbits
+ 173              		.align	2
+ 174              		.global	_ZN8SPIClass3endEv
+ 175              		.thumb
+ 176              		.thumb_func
+ 177              		.type	_ZN8SPIClass3endEv, %function
+ 178              	_ZN8SPIClass3endEv:
+ 179              		.fnstart
+ 180              	.LFB154:
+  41:Libraries\SPI/SPI.cpp **** 
+  42:Libraries\SPI/SPI.cpp **** void SPIClass::end()
+  43:Libraries\SPI/SPI.cpp **** {
+ 181              		.loc 1 43 0
+ 182              		.cfi_startproc
+ 183              		@ args = 0, pretend = 0, frame = 8
+ 184              		@ frame_needed = 1, uses_anonymous_args = 0
+ 185 0000 80B5     		push	{r7, lr}
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 5
+
+
+ 186              		.save {r7, lr}
+ 187              		.cfi_def_cfa_offset 8
+ 188              		.cfi_offset 7, -8
+ 189              		.cfi_offset 14, -4
+ 190              		.pad #8
+ 191 0002 82B0     		sub	sp, sp, #8
+ 192              		.cfi_def_cfa_offset 16
+ 193              		.setfp r7, sp, #0
+ 194 0004 00AF     		add	r7, sp, #0
+ 195              		.cfi_def_cfa_register 7
+ 196 0006 7860     		str	r0, [r7, #4]
+  44:Libraries\SPI/SPI.cpp ****   pinMode(10, INPUT);
+ 197              		.loc 1 44 0
+ 198 0008 0A20     		movs	r0, #10
+ 199 000a 0121     		movs	r1, #1
+ 200 000c FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+  45:Libraries\SPI/SPI.cpp ****   pinMode(11, INPUT);
+ 201              		.loc 1 45 0
+ 202 0010 0B20     		movs	r0, #11
+ 203 0012 0121     		movs	r1, #1
+ 204 0014 FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+  46:Libraries\SPI/SPI.cpp ****   pinMode(12, INPUT);
+ 205              		.loc 1 46 0
+ 206 0018 0C20     		movs	r0, #12
+ 207 001a 0121     		movs	r1, #1
+ 208 001c FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+  47:Libraries\SPI/SPI.cpp ****   pinMode(13, INPUT);
+ 209              		.loc 1 47 0
+ 210 0020 0D20     		movs	r0, #13
+ 211 0022 0121     		movs	r1, #1
+ 212 0024 FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+  48:Libraries\SPI/SPI.cpp **** }
+ 213              		.loc 1 48 0
+ 214 0028 0837     		adds	r7, r7, #8
+ 215              		.cfi_def_cfa_offset 8
+ 216 002a BD46     		mov	sp, r7
+ 217              		.cfi_def_cfa_register 13
+ 218              		@ sp needed
+ 219 002c 80BD     		pop	{r7, pc}
+ 220              		.cfi_endproc
+ 221              	.LFE154:
+ 222              		.fnend
+ 223              		.size	_ZN8SPIClass3endEv, .-_ZN8SPIClass3endEv
+ 224 002e 00BF     		.section	.text._ZN8SPIClass11setBitOrderE8BITORDER,"ax",%progbits
+ 225              		.align	2
+ 226              		.global	_ZN8SPIClass11setBitOrderE8BITORDER
+ 227              		.thumb
+ 228              		.thumb_func
+ 229              		.type	_ZN8SPIClass11setBitOrderE8BITORDER, %function
+ 230              	_ZN8SPIClass11setBitOrderE8BITORDER:
+ 231              		.fnstart
+ 232              	.LFB155:
+  49:Libraries\SPI/SPI.cpp **** 
+  50:Libraries\SPI/SPI.cpp **** void SPIClass::setBitOrder(BITORDER _bitOrder) 
+  51:Libraries\SPI/SPI.cpp **** {
+ 233              		.loc 1 51 0
+ 234              		.cfi_startproc
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 6
+
+
+ 235              		@ args = 0, pretend = 0, frame = 8
+ 236              		@ frame_needed = 1, uses_anonymous_args = 0
+ 237              		@ link register save eliminated.
+ 238 0000 80B4     		push	{r7}
+ 239              		.cfi_def_cfa_offset 4
+ 240              		.cfi_offset 7, -4
+ 241 0002 83B0     		sub	sp, sp, #12
+ 242              		.cfi_def_cfa_offset 16
+ 243 0004 00AF     		add	r7, sp, #0
+ 244              		.cfi_def_cfa_register 7
+ 245 0006 7860     		str	r0, [r7, #4]
+ 246 0008 0B46     		mov	r3, r1
+ 247 000a FB70     		strb	r3, [r7, #3]
+  52:Libraries\SPI/SPI.cpp ****   // This is not supported by the native SPI master device provided by
+  53:Libraries\SPI/SPI.cpp ****   //  Cypress. Future support may occur but for now, MSB first only!
+  54:Libraries\SPI/SPI.cpp **** }
+ 248              		.loc 1 54 0
+ 249 000c 0C37     		adds	r7, r7, #12
+ 250              		.cfi_def_cfa_offset 4
+ 251 000e BD46     		mov	sp, r7
+ 252              		.cfi_def_cfa_register 13
+ 253              		@ sp needed
+ 254 0010 5DF8047B 		ldr	r7, [sp], #4
+ 255              		.cfi_restore 7
+ 256              		.cfi_def_cfa_offset 0
+ 257 0014 7047     		bx	lr
+ 258              		.cfi_endproc
+ 259              	.LFE155:
+ 260              		.cantunwind
+ 261              		.fnend
+ 262              		.size	_ZN8SPIClass11setBitOrderE8BITORDER, .-_ZN8SPIClass11setBitOrderE8BITORDER
+ 263 0016 00BF     		.section	.text._ZN8SPIClass11setDataModeE8SPI_MODE,"ax",%progbits
+ 264              		.align	2
+ 265              		.global	_ZN8SPIClass11setDataModeE8SPI_MODE
+ 266              		.thumb
+ 267              		.thumb_func
+ 268              		.type	_ZN8SPIClass11setDataModeE8SPI_MODE, %function
+ 269              	_ZN8SPIClass11setDataModeE8SPI_MODE:
+ 270              		.fnstart
+ 271              	.LFB156:
+  55:Libraries\SPI/SPI.cpp **** 
+  56:Libraries\SPI/SPI.cpp **** void SPIClass::setDataMode(SPI_MODE spiMode) 
+  57:Libraries\SPI/SPI.cpp **** {
+ 272              		.loc 1 57 0
+ 273              		.cfi_startproc
+ 274              		@ args = 0, pretend = 0, frame = 8
+ 275              		@ frame_needed = 1, uses_anonymous_args = 0
+ 276 0000 80B5     		push	{r7, lr}
+ 277              		.save {r7, lr}
+ 278              		.cfi_def_cfa_offset 8
+ 279              		.cfi_offset 7, -8
+ 280              		.cfi_offset 14, -4
+ 281              		.pad #8
+ 282 0002 82B0     		sub	sp, sp, #8
+ 283              		.cfi_def_cfa_offset 16
+ 284              		.setfp r7, sp, #0
+ 285 0004 00AF     		add	r7, sp, #0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 7
+
+
+ 286              		.cfi_def_cfa_register 7
+ 287 0006 7860     		str	r0, [r7, #4]
+ 288 0008 0B46     		mov	r3, r1
+ 289 000a FB70     		strb	r3, [r7, #3]
+  58:Libraries\SPI/SPI.cpp ****   // The SPI_M peripheral provided by Cypress doesn't support dynamic mode
+  59:Libraries\SPI/SPI.cpp ****   //  changing; however, we can game it a bit by running the output through
+  60:Libraries\SPI/SPI.cpp ****   //  some digital logic on the way off chip.
+  61:Libraries\SPI/SPI.cpp ****   //  We run the clock output of the SPI module through an XOR gate, and MISO
+  62:Libraries\SPI/SPI.cpp ****   //  and MOSI through a MUX which allows to select either the native signal
+  63:Libraries\SPI/SPI.cpp ****   //  or the signal run through a D flip flop which is clocked by the clock
+  64:Libraries\SPI/SPI.cpp ****   //  going into the SPI module. The SCLK of the SPI module is 1/2 the input
+  65:Libraries\SPI/SPI.cpp ****   //  frequency, so the one-cycle delay of the D-ff is actually a 1/2 SCLK
+  66:Libraries\SPI/SPI.cpp ****   //  cycle delay.
+  67:Libraries\SPI/SPI.cpp ****   //  These changes are controlled by the SPI_MODE_REG register; writing the
+  68:Libraries\SPI/SPI.cpp ****   //  MODE value (0, 1, 2, 3) to that register will configure the logic for
+  69:Libraries\SPI/SPI.cpp ****   //  the signal properly.
+  70:Libraries\SPI/SPI.cpp ****   SPI_MODE_REG_Write(spiMode);
+ 290              		.loc 1 70 0
+ 291 000c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 292 000e 1846     		mov	r0, r3
+ 293 0010 FFF7FEFF 		bl	SPI_MODE_REG_Write
+  71:Libraries\SPI/SPI.cpp **** }
+ 294              		.loc 1 71 0
+ 295 0014 0837     		adds	r7, r7, #8
+ 296              		.cfi_def_cfa_offset 8
+ 297 0016 BD46     		mov	sp, r7
+ 298              		.cfi_def_cfa_register 13
+ 299              		@ sp needed
+ 300 0018 80BD     		pop	{r7, pc}
+ 301              		.cfi_endproc
+ 302              	.LFE156:
+ 303              		.fnend
+ 304              		.size	_ZN8SPIClass11setDataModeE8SPI_MODE, .-_ZN8SPIClass11setDataModeE8SPI_MODE
+ 305 001a 00BF     		.section	.text._ZN8SPIClass15setClockDividerEh,"ax",%progbits
+ 306              		.align	2
+ 307              		.global	_ZN8SPIClass15setClockDividerEh
+ 308              		.thumb
+ 309              		.thumb_func
+ 310              		.type	_ZN8SPIClass15setClockDividerEh, %function
+ 311              	_ZN8SPIClass15setClockDividerEh:
+ 312              		.fnstart
+ 313              	.LFB157:
+  72:Libraries\SPI/SPI.cpp **** 
+  73:Libraries\SPI/SPI.cpp **** void SPIClass::setClockDivider(uint8_t _divider) 
+  74:Libraries\SPI/SPI.cpp **** {
+ 314              		.loc 1 74 0
+ 315              		.cfi_startproc
+ 316              		@ args = 0, pretend = 0, frame = 8
+ 317              		@ frame_needed = 1, uses_anonymous_args = 0
+ 318 0000 80B5     		push	{r7, lr}
+ 319              		.save {r7, lr}
+ 320              		.cfi_def_cfa_offset 8
+ 321              		.cfi_offset 7, -8
+ 322              		.cfi_offset 14, -4
+ 323              		.pad #8
+ 324 0002 82B0     		sub	sp, sp, #8
+ 325              		.cfi_def_cfa_offset 16
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 8
+
+
+ 326              		.setfp r7, sp, #0
+ 327 0004 00AF     		add	r7, sp, #0
+ 328              		.cfi_def_cfa_register 7
+ 329 0006 7860     		str	r0, [r7, #4]
+ 330 0008 0B46     		mov	r3, r1
+ 331 000a FB70     		strb	r3, [r7, #3]
+  75:Libraries\SPI/SPI.cpp ****   /* The clock output is determined by the input clock to the SPI module. That
+  76:Libraries\SPI/SPI.cpp ****    *  is, in turn, determined by the divider we write here. The output freq is
+  77:Libraries\SPI/SPI.cpp ****    *  (IMO / _divider) / 2; IMO is nominally 24MHz. 
+  78:Libraries\SPI/SPI.cpp ****    *  The maximum frequency out is 9 MHz; maximum in is thus 18MHz
+  79:Libraries\SPI/SPI.cpp ****    *  However, since IMO is 24MHz, and the divider is an integer, we can't do
+  80:Libraries\SPI/SPI.cpp ****    *  better than 12 MHz input, or a by-two division.*/
+  81:Libraries\SPI/SPI.cpp ****   if (_divider < 2)
+ 332              		.loc 1 81 0
+ 333 000c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 334 000e 012B     		cmp	r3, #1
+ 335 0010 00D8     		bhi	.L12
+  82:Libraries\SPI/SPI.cpp ****   {
+  83:Libraries\SPI/SPI.cpp ****     return;
+ 336              		.loc 1 83 0
+ 337 0012 07E0     		b	.L11
+ 338              	.L12:
+  84:Libraries\SPI/SPI.cpp ****   }
+  85:Libraries\SPI/SPI.cpp ****   SPI_Clock_In_SetDividerValue(_divider);
+ 339              		.loc 1 85 0
+ 340 0014 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 341 0016 9BB2     		uxth	r3, r3
+ 342 0018 013B     		subs	r3, r3, #1
+ 343 001a 9BB2     		uxth	r3, r3
+ 344 001c 1846     		mov	r0, r3
+ 345 001e 0121     		movs	r1, #1
+ 346 0020 FFF7FEFF 		bl	SPI_Clock_In_SetDividerRegister
+ 347              	.L11:
+  86:Libraries\SPI/SPI.cpp **** }
+ 348              		.loc 1 86 0
+ 349 0024 0837     		adds	r7, r7, #8
+ 350              		.cfi_def_cfa_offset 8
+ 351 0026 BD46     		mov	sp, r7
+ 352              		.cfi_def_cfa_register 13
+ 353              		@ sp needed
+ 354 0028 80BD     		pop	{r7, pc}
+ 355              		.cfi_endproc
+ 356              	.LFE157:
+ 357              		.fnend
+ 358              		.size	_ZN8SPIClass15setClockDividerEh, .-_ZN8SPIClass15setClockDividerEh
+ 359 002a 00BF     		.section	.text._ZN8SPIClass8transferEh,"ax",%progbits
+ 360              		.align	2
+ 361              		.global	_ZN8SPIClass8transferEh
+ 362              		.thumb
+ 363              		.thumb_func
+ 364              		.type	_ZN8SPIClass8transferEh, %function
+ 365              	_ZN8SPIClass8transferEh:
+ 366              		.fnstart
+ 367              	.LFB158:
+  87:Libraries\SPI/SPI.cpp **** 
+  88:Libraries\SPI/SPI.cpp **** uint8_t SPIClass::transfer(uint8_t _data) 
+  89:Libraries\SPI/SPI.cpp **** {
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 9
+
+
+ 368              		.loc 1 89 0
+ 369              		.cfi_startproc
+ 370              		@ args = 0, pretend = 0, frame = 8
+ 371              		@ frame_needed = 1, uses_anonymous_args = 0
+ 372 0000 80B5     		push	{r7, lr}
+ 373              		.save {r7, lr}
+ 374              		.cfi_def_cfa_offset 8
+ 375              		.cfi_offset 7, -8
+ 376              		.cfi_offset 14, -4
+ 377              		.pad #8
+ 378 0002 82B0     		sub	sp, sp, #8
+ 379              		.cfi_def_cfa_offset 16
+ 380              		.setfp r7, sp, #0
+ 381 0004 00AF     		add	r7, sp, #0
+ 382              		.cfi_def_cfa_register 7
+ 383 0006 7860     		str	r0, [r7, #4]
+ 384 0008 0B46     		mov	r3, r1
+ 385 000a FB70     		strb	r3, [r7, #3]
+  90:Libraries\SPI/SPI.cpp ****   SPIM_WriteTxData(_data);
+ 386              		.loc 1 90 0
+ 387 000c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 388 000e 1846     		mov	r0, r3
+ 389 0010 FFF7FEFF 		bl	SPIM_WriteTxData
+  91:Libraries\SPI/SPI.cpp ****   while (SPIM_GetTxBufferSize() > 0)
+ 390              		.loc 1 91 0
+ 391 0014 00BF     		nop
+ 392              	.L15:
+ 393              		.loc 1 91 0 is_stmt 0 discriminator 1
+ 394 0016 FFF7FEFF 		bl	SPIM_GetTxBufferSize
+ 395 001a 0346     		mov	r3, r0
+ 396 001c 002B     		cmp	r3, #0
+ 397 001e 14BF     		ite	ne
+ 398 0020 0123     		movne	r3, #1
+ 399 0022 0023     		moveq	r3, #0
+ 400 0024 DBB2     		uxtb	r3, r3
+ 401 0026 002B     		cmp	r3, #0
+ 402 0028 F5D1     		bne	.L15
+  92:Libraries\SPI/SPI.cpp ****   { /* wait for data to be sent */}
+  93:Libraries\SPI/SPI.cpp ****   return SPIM_ReadRxData(); 
+ 403              		.loc 1 93 0 is_stmt 1
+ 404 002a FFF7FEFF 		bl	SPIM_ReadRxData
+ 405 002e 0346     		mov	r3, r0
+  94:Libraries\SPI/SPI.cpp **** }
+ 406              		.loc 1 94 0
+ 407 0030 1846     		mov	r0, r3
+ 408 0032 0837     		adds	r7, r7, #8
+ 409              		.cfi_def_cfa_offset 8
+ 410 0034 BD46     		mov	sp, r7
+ 411              		.cfi_def_cfa_register 13
+ 412              		@ sp needed
+ 413 0036 80BD     		pop	{r7, pc}
+ 414              		.cfi_endproc
+ 415              	.LFE158:
+ 416              		.fnend
+ 417              		.size	_ZN8SPIClass8transferEh, .-_ZN8SPIClass8transferEh
+ 418              		.section	.text._ZN8SPIClass8transferEPhj,"ax",%progbits
+ 419              		.align	2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 10
+
+
+ 420              		.global	_ZN8SPIClass8transferEPhj
+ 421              		.thumb
+ 422              		.thumb_func
+ 423              		.type	_ZN8SPIClass8transferEPhj, %function
+ 424              	_ZN8SPIClass8transferEPhj:
+ 425              		.fnstart
+ 426              	.LFB159:
+  95:Libraries\SPI/SPI.cpp **** 
+  96:Libraries\SPI/SPI.cpp **** void SPIClass::transfer(uint8_t *_buf, size_t _count)
+  97:Libraries\SPI/SPI.cpp **** {
+ 427              		.loc 1 97 0
+ 428              		.cfi_startproc
+ 429              		@ args = 0, pretend = 0, frame = 32
+ 430              		@ frame_needed = 1, uses_anonymous_args = 0
+ 431 0000 90B5     		push	{r4, r7, lr}
+ 432              		.save {r4, r7, lr}
+ 433              		.cfi_def_cfa_offset 12
+ 434              		.cfi_offset 4, -12
+ 435              		.cfi_offset 7, -8
+ 436              		.cfi_offset 14, -4
+ 437              		.pad #36
+ 438 0002 89B0     		sub	sp, sp, #36
+ 439              		.cfi_def_cfa_offset 48
+ 440              		.setfp r7, sp, #0
+ 441 0004 00AF     		add	r7, sp, #0
+ 442              		.cfi_def_cfa_register 7
+ 443 0006 F860     		str	r0, [r7, #12]
+ 444 0008 B960     		str	r1, [r7, #8]
+ 445 000a 7A60     		str	r2, [r7, #4]
+ 446              	.LBB3:
+  98:Libraries\SPI/SPI.cpp ****   SPI_SS_Stretch_Write(0x00);
+ 447              		.loc 1 98 0
+ 448 000c 0020     		movs	r0, #0
+ 449 000e FFF7FEFF 		bl	SPI_SS_Stretch_Write
+  99:Libraries\SPI/SPI.cpp ****   uint8_t fullPackets = _count/4;
+ 450              		.loc 1 99 0
+ 451 0012 7B68     		ldr	r3, [r7, #4]
+ 452 0014 9B08     		lsrs	r3, r3, #2
+ 453 0016 FB77     		strb	r3, [r7, #31]
+ 100:Libraries\SPI/SPI.cpp ****   uint8_t strayBytes = _count%4;
+ 454              		.loc 1 100 0
+ 455 0018 7B68     		ldr	r3, [r7, #4]
+ 456 001a DBB2     		uxtb	r3, r3
+ 457 001c 03F00303 		and	r3, r3, #3
+ 458 0020 FB74     		strb	r3, [r7, #19]
+ 101:Libraries\SPI/SPI.cpp ****   uint8_t i = 0;
+ 459              		.loc 1 101 0
+ 460 0022 0023     		movs	r3, #0
+ 461 0024 BB77     		strb	r3, [r7, #30]
+ 102:Libraries\SPI/SPI.cpp ****   while (fullPackets > 0)
+ 462              		.loc 1 102 0
+ 463 0026 29E0     		b	.L18
+ 464              	.L22:
+ 465              	.LBB4:
+ 103:Libraries\SPI/SPI.cpp ****   {
+ 104:Libraries\SPI/SPI.cpp ****     SPIM_PutArray((const uint8_t*)(_buf + i), 4);
+ 466              		.loc 1 104 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 11
+
+
+ 467 0028 BB7F     		ldrb	r3, [r7, #30]	@ zero_extendqisi2
+ 468 002a BA68     		ldr	r2, [r7, #8]
+ 469 002c 1344     		add	r3, r3, r2
+ 470 002e 1846     		mov	r0, r3
+ 471 0030 0421     		movs	r1, #4
+ 472 0032 FFF7FEFF 		bl	SPIM_PutArray
+ 105:Libraries\SPI/SPI.cpp ****     while (SPIM_GetTxBufferSize() > 0)
+ 473              		.loc 1 105 0
+ 474 0036 00BF     		nop
+ 475              	.L19:
+ 476              		.loc 1 105 0 is_stmt 0 discriminator 1
+ 477 0038 FFF7FEFF 		bl	SPIM_GetTxBufferSize
+ 478 003c 0346     		mov	r3, r0
+ 479 003e 002B     		cmp	r3, #0
+ 480 0040 14BF     		ite	ne
+ 481 0042 0123     		movne	r3, #1
+ 482 0044 0023     		moveq	r3, #0
+ 483 0046 DBB2     		uxtb	r3, r3
+ 484 0048 002B     		cmp	r3, #0
+ 485 004a F5D1     		bne	.L19
+ 486              	.LBB5:
+ 106:Libraries\SPI/SPI.cpp ****     { /* wait for data to be sent */ }
+ 107:Libraries\SPI/SPI.cpp ****     for (int j = 0; j<4; j++)
+ 487              		.loc 1 107 0 is_stmt 1
+ 488 004c 0023     		movs	r3, #0
+ 489 004e BB61     		str	r3, [r7, #24]
+ 490 0050 0BE0     		b	.L20
+ 491              	.L21:
+ 108:Libraries\SPI/SPI.cpp ****     {
+ 109:Libraries\SPI/SPI.cpp ****       *(_buf + i + j) = SPIM_ReadRxData();
+ 492              		.loc 1 109 0 discriminator 3
+ 493 0052 BA7F     		ldrb	r2, [r7, #30]	@ zero_extendqisi2
+ 494 0054 BB69     		ldr	r3, [r7, #24]
+ 495 0056 1344     		add	r3, r3, r2
+ 496 0058 BA68     		ldr	r2, [r7, #8]
+ 497 005a D418     		adds	r4, r2, r3
+ 498 005c FFF7FEFF 		bl	SPIM_ReadRxData
+ 499 0060 0346     		mov	r3, r0
+ 500 0062 2370     		strb	r3, [r4]
+ 107:Libraries\SPI/SPI.cpp ****     {
+ 501              		.loc 1 107 0 discriminator 3
+ 502 0064 BB69     		ldr	r3, [r7, #24]
+ 503 0066 0133     		adds	r3, r3, #1
+ 504 0068 BB61     		str	r3, [r7, #24]
+ 505              	.L20:
+ 107:Libraries\SPI/SPI.cpp ****     {
+ 506              		.loc 1 107 0 is_stmt 0 discriminator 1
+ 507 006a BB69     		ldr	r3, [r7, #24]
+ 508 006c 032B     		cmp	r3, #3
+ 509 006e F0DD     		ble	.L21
+ 510              	.LBE5:
+ 110:Libraries\SPI/SPI.cpp ****     }
+ 111:Libraries\SPI/SPI.cpp ****     ++i;
+ 511              		.loc 1 111 0 is_stmt 1
+ 512 0070 BB7F     		ldrb	r3, [r7, #30]
+ 513 0072 0133     		adds	r3, r3, #1
+ 514 0074 BB77     		strb	r3, [r7, #30]
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 12
+
+
+ 112:Libraries\SPI/SPI.cpp ****     --fullPackets;
+ 515              		.loc 1 112 0
+ 516 0076 FB7F     		ldrb	r3, [r7, #31]
+ 517 0078 013B     		subs	r3, r3, #1
+ 518 007a FB77     		strb	r3, [r7, #31]
+ 519              	.L18:
+ 520              	.LBE4:
+ 102:Libraries\SPI/SPI.cpp ****   {
+ 521              		.loc 1 102 0
+ 522 007c FB7F     		ldrb	r3, [r7, #31]	@ zero_extendqisi2
+ 523 007e 002B     		cmp	r3, #0
+ 524 0080 D2D1     		bne	.L22
+ 525              	.LBB6:
+ 113:Libraries\SPI/SPI.cpp ****   }
+ 114:Libraries\SPI/SPI.cpp ****   if (strayBytes > 0)
+ 526              		.loc 1 114 0
+ 527 0082 FB7C     		ldrb	r3, [r7, #19]	@ zero_extendqisi2
+ 528 0084 002B     		cmp	r3, #0
+ 529 0086 25D0     		beq	.L23
+ 530              	.LBB7:
+ 115:Libraries\SPI/SPI.cpp ****   {
+ 116:Libraries\SPI/SPI.cpp ****     SPIM_PutArray((const uint8_t*)(_buf + i), strayBytes);
+ 531              		.loc 1 116 0
+ 532 0088 BB7F     		ldrb	r3, [r7, #30]	@ zero_extendqisi2
+ 533 008a BA68     		ldr	r2, [r7, #8]
+ 534 008c 1A44     		add	r2, r2, r3
+ 535 008e FB7C     		ldrb	r3, [r7, #19]	@ zero_extendqisi2
+ 536 0090 1046     		mov	r0, r2
+ 537 0092 1946     		mov	r1, r3
+ 538 0094 FFF7FEFF 		bl	SPIM_PutArray
+ 117:Libraries\SPI/SPI.cpp ****     while (SPIM_GetTxBufferSize() > 0)
+ 539              		.loc 1 117 0
+ 540 0098 00BF     		nop
+ 541              	.L24:
+ 542              		.loc 1 117 0 is_stmt 0 discriminator 1
+ 543 009a FFF7FEFF 		bl	SPIM_GetTxBufferSize
+ 544 009e 0346     		mov	r3, r0
+ 545 00a0 002B     		cmp	r3, #0
+ 546 00a2 14BF     		ite	ne
+ 547 00a4 0123     		movne	r3, #1
+ 548 00a6 0023     		moveq	r3, #0
+ 549 00a8 DBB2     		uxtb	r3, r3
+ 550 00aa 002B     		cmp	r3, #0
+ 551 00ac F5D1     		bne	.L24
+ 552              	.LBB8:
+ 118:Libraries\SPI/SPI.cpp ****     { /* wait for data to be sent */ }
+ 119:Libraries\SPI/SPI.cpp ****     for (int j = 0; j<strayBytes; j++)
+ 553              		.loc 1 119 0 is_stmt 1
+ 554 00ae 0023     		movs	r3, #0
+ 555 00b0 7B61     		str	r3, [r7, #20]
+ 556 00b2 0BE0     		b	.L25
+ 557              	.L26:
+ 120:Libraries\SPI/SPI.cpp ****     {
+ 121:Libraries\SPI/SPI.cpp ****       *(_buf + i + j) = SPIM_ReadRxData();
+ 558              		.loc 1 121 0 discriminator 3
+ 559 00b4 BA7F     		ldrb	r2, [r7, #30]	@ zero_extendqisi2
+ 560 00b6 7B69     		ldr	r3, [r7, #20]
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 13
+
+
+ 561 00b8 1344     		add	r3, r3, r2
+ 562 00ba BA68     		ldr	r2, [r7, #8]
+ 563 00bc D418     		adds	r4, r2, r3
+ 564 00be FFF7FEFF 		bl	SPIM_ReadRxData
+ 565 00c2 0346     		mov	r3, r0
+ 566 00c4 2370     		strb	r3, [r4]
+ 119:Libraries\SPI/SPI.cpp ****     {
+ 567              		.loc 1 119 0 discriminator 3
+ 568 00c6 7B69     		ldr	r3, [r7, #20]
+ 569 00c8 0133     		adds	r3, r3, #1
+ 570 00ca 7B61     		str	r3, [r7, #20]
+ 571              	.L25:
+ 119:Libraries\SPI/SPI.cpp ****     {
+ 572              		.loc 1 119 0 is_stmt 0 discriminator 1
+ 573 00cc FA7C     		ldrb	r2, [r7, #19]	@ zero_extendqisi2
+ 574 00ce 7B69     		ldr	r3, [r7, #20]
+ 575 00d0 9A42     		cmp	r2, r3
+ 576 00d2 EFDC     		bgt	.L26
+ 577              	.L23:
+ 578              	.LBE8:
+ 579              	.LBE7:
+ 580              	.LBE6:
+ 122:Libraries\SPI/SPI.cpp ****     }
+ 123:Libraries\SPI/SPI.cpp ****   }
+ 124:Libraries\SPI/SPI.cpp ****   SPI_SS_Stretch_Write(0x01);
+ 581              		.loc 1 124 0 is_stmt 1
+ 582 00d4 0120     		movs	r0, #1
+ 583 00d6 FFF7FEFF 		bl	SPI_SS_Stretch_Write
+ 584              	.LBE3:
+ 125:Libraries\SPI/SPI.cpp **** }
+ 585              		.loc 1 125 0
+ 586 00da 2437     		adds	r7, r7, #36
+ 587              		.cfi_def_cfa_offset 12
+ 588 00dc BD46     		mov	sp, r7
+ 589              		.cfi_def_cfa_register 13
+ 590              		@ sp needed
+ 591 00de 90BD     		pop	{r4, r7, pc}
+ 592              		.cfi_endproc
+ 593              	.LFE159:
+ 594              		.fnend
+ 595              		.size	_ZN8SPIClass8transferEPhj, .-_ZN8SPIClass8transferEPhj
+ 596              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+ 597              		.align	2
+ 598              		.thumb
+ 599              		.thumb_func
+ 600              		.type	_Z41__static_initialization_and_destruction_0ii, %function
+ 601              	_Z41__static_initialization_and_destruction_0ii:
+ 602              		.fnstart
+ 603              	.LFB160:
+ 604              		.loc 1 125 0
+ 605              		.cfi_startproc
+ 606              		@ args = 0, pretend = 0, frame = 8
+ 607              		@ frame_needed = 1, uses_anonymous_args = 0
+ 608 0000 80B5     		push	{r7, lr}
+ 609              		.cfi_def_cfa_offset 8
+ 610              		.cfi_offset 7, -8
+ 611              		.cfi_offset 14, -4
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 14
+
+
+ 612 0002 82B0     		sub	sp, sp, #8
+ 613              		.cfi_def_cfa_offset 16
+ 614 0004 00AF     		add	r7, sp, #0
+ 615              		.cfi_def_cfa_register 7
+ 616 0006 7860     		str	r0, [r7, #4]
+ 617 0008 3960     		str	r1, [r7]
+ 618              		.loc 1 125 0
+ 619 000a 7B68     		ldr	r3, [r7, #4]
+ 620 000c 012B     		cmp	r3, #1
+ 621 000e 0CD1     		bne	.L27
+ 622              		.loc 1 125 0 is_stmt 0 discriminator 1
+ 623 0010 3B68     		ldr	r3, [r7]
+ 624 0012 4FF6FF72 		movw	r2, #65535
+ 625 0016 9342     		cmp	r3, r2
+ 626 0018 07D1     		bne	.L27
+  15:Libraries\SPI/SPI.cpp **** 
+ 627              		.loc 1 15 0 is_stmt 1
+ 628 001a 0548     		ldr	r0, .L29
+ 629 001c FFF7FEFF 		bl	_ZN8SPIClassC2Ev
+ 630 0020 0348     		ldr	r0, .L29
+ 631 0022 0449     		ldr	r1, .L29+4
+ 632 0024 044A     		ldr	r2, .L29+8
+ 633 0026 FFF7FEFF 		bl	__aeabi_atexit
+ 634              	.L27:
+ 635              		.loc 1 125 0
+ 636 002a 0837     		adds	r7, r7, #8
+ 637              		.cfi_def_cfa_offset 8
+ 638 002c BD46     		mov	sp, r7
+ 639              		.cfi_def_cfa_register 13
+ 640              		@ sp needed
+ 641 002e 80BD     		pop	{r7, pc}
+ 642              	.L30:
+ 643              		.align	2
+ 644              	.L29:
+ 645 0030 00000000 		.word	SPI
+ 646 0034 00000000 		.word	_ZN8SPIClassD1Ev
+ 647 0038 00000000 		.word	__dso_handle
+ 648              		.cfi_endproc
+ 649              	.LFE160:
+ 650              		.cantunwind
+ 651              		.fnend
+ 652              		.size	_Z41__static_initialization_and_destruction_0ii, .-_Z41__static_initialization_and_destructi
+ 653              		.section	.rodata
+ 654              		.type	_ZL2SS, %object
+ 655              		.size	_ZL2SS, 1
+ 656              	_ZL2SS:
+ 657 0000 0A       		.byte	10
+ 658              		.type	_ZL4MOSI, %object
+ 659              		.size	_ZL4MOSI, 1
+ 660              	_ZL4MOSI:
+ 661 0001 0B       		.byte	11
+ 662              		.type	_ZL4MISO, %object
+ 663              		.size	_ZL4MISO, 1
+ 664              	_ZL4MISO:
+ 665 0002 0C       		.byte	12
+ 666              		.type	_ZL3SCK, %object
+ 667              		.size	_ZL3SCK, 1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 15
+
+
+ 668              	_ZL3SCK:
+ 669 0003 0D       		.byte	13
+ 670              		.type	_ZL3SDA, %object
+ 671              		.size	_ZL3SDA, 1
+ 672              	_ZL3SDA:
+ 673 0004 15       		.byte	21
+ 674              		.type	_ZL3SCL, %object
+ 675              		.size	_ZL3SCL, 1
+ 676              	_ZL3SCL:
+ 677 0005 14       		.byte	20
+ 678              		.section	.text._GLOBAL__sub_I_SPI,"ax",%progbits
+ 679              		.align	2
+ 680              		.thumb
+ 681              		.thumb_func
+ 682              		.type	_GLOBAL__sub_I_SPI, %function
+ 683              	_GLOBAL__sub_I_SPI:
+ 684              		.fnstart
+ 685              	.LFB161:
+ 686              		.loc 1 125 0
+ 687              		.cfi_startproc
+ 688              		@ args = 0, pretend = 0, frame = 0
+ 689              		@ frame_needed = 1, uses_anonymous_args = 0
+ 690 0000 80B5     		push	{r7, lr}
+ 691              		.cfi_def_cfa_offset 8
+ 692              		.cfi_offset 7, -8
+ 693              		.cfi_offset 14, -4
+ 694 0002 00AF     		add	r7, sp, #0
+ 695              		.cfi_def_cfa_register 7
+ 696              		.loc 1 125 0
+ 697 0004 0120     		movs	r0, #1
+ 698 0006 4FF6FF71 		movw	r1, #65535
+ 699 000a FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 700 000e 80BD     		pop	{r7, pc}
+ 701              		.cfi_endproc
+ 702              	.LFE161:
+ 703              		.cantunwind
+ 704              		.fnend
+ 705              		.size	_GLOBAL__sub_I_SPI, .-_GLOBAL__sub_I_SPI
+ 706              		.section	.init_array,"aw",%init_array
+ 707              		.align	2
+ 708 0000 00000000 		.word	_GLOBAL__sub_I_SPI(target1)
+ 709              		.text
+ 710              	.Letext0:
+ 711              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 712              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 713              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 714              		.file 5 ".\\core/Arduino_Pins.h"
+ 715              		.file 6 "Libraries\\SPI\\SPI.h"
+ 716              		.file 7 ".\\core/pins_arduino.h"
+ 717              		.file 8 "Generated_Source\\PSoC5/core_cm3.h"
+ 718              		.section	.debug_info,"",%progbits
+ 719              	.Ldebug_info0:
+ 720 0000 89050000 		.4byte	0x589
+ 721 0004 0400     		.2byte	0x4
+ 722 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 723 000a 04       		.byte	0x4
+ 724 000b 01       		.uleb128 0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 16
+
+
+ 725 000c ED030000 		.4byte	.LASF64
+ 726 0010 04       		.byte	0x4
+ 727 0011 28010000 		.4byte	.LASF65
+ 728 0015 4A030000 		.4byte	.LASF66
+ 729 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 730 001d 00000000 		.4byte	0
+ 731 0021 00000000 		.4byte	.Ldebug_line0
+ 732 0025 02       		.uleb128 0x2
+ 733 0026 01       		.byte	0x1
+ 734 0027 06       		.byte	0x6
+ 735 0028 D6010000 		.4byte	.LASF0
+ 736 002c 03       		.uleb128 0x3
+ 737 002d 90010000 		.4byte	.LASF4
+ 738 0031 02       		.byte	0x2
+ 739 0032 1D       		.byte	0x1d
+ 740 0033 37000000 		.4byte	0x37
+ 741 0037 02       		.uleb128 0x2
+ 742 0038 01       		.byte	0x1
+ 743 0039 08       		.byte	0x8
+ 744 003a B5010000 		.4byte	.LASF1
+ 745 003e 02       		.uleb128 0x2
+ 746 003f 02       		.byte	0x2
+ 747 0040 05       		.byte	0x5
+ 748 0041 0B000000 		.4byte	.LASF2
+ 749 0045 02       		.uleb128 0x2
+ 750 0046 02       		.byte	0x2
+ 751 0047 07       		.byte	0x7
+ 752 0048 6B020000 		.4byte	.LASF3
+ 753 004c 03       		.uleb128 0x3
+ 754 004d 40030000 		.4byte	.LASF5
+ 755 0051 02       		.byte	0x2
+ 756 0052 3F       		.byte	0x3f
+ 757 0053 57000000 		.4byte	0x57
+ 758 0057 02       		.uleb128 0x2
+ 759 0058 04       		.byte	0x4
+ 760 0059 05       		.byte	0x5
+ 761 005a 69010000 		.4byte	.LASF6
+ 762 005e 02       		.uleb128 0x2
+ 763 005f 04       		.byte	0x4
+ 764 0060 07       		.byte	0x7
+ 765 0061 18020000 		.4byte	.LASF7
+ 766 0065 02       		.uleb128 0x2
+ 767 0066 08       		.byte	0x8
+ 768 0067 05       		.byte	0x5
+ 769 0068 44010000 		.4byte	.LASF8
+ 770 006c 02       		.uleb128 0x2
+ 771 006d 08       		.byte	0x8
+ 772 006e 07       		.byte	0x7
+ 773 006f 52010000 		.4byte	.LASF9
+ 774 0073 04       		.uleb128 0x4
+ 775 0074 04       		.byte	0x4
+ 776 0075 05       		.byte	0x5
+ 777 0076 696E7400 		.ascii	"int\000"
+ 778 007a 02       		.uleb128 0x2
+ 779 007b 04       		.byte	0x4
+ 780 007c 07       		.byte	0x7
+ 781 007d EC010000 		.4byte	.LASF10
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 17
+
+
+ 782 0081 03       		.uleb128 0x3
+ 783 0082 A7000000 		.4byte	.LASF11
+ 784 0086 03       		.byte	0x3
+ 785 0087 15       		.byte	0x15
+ 786 0088 2C000000 		.4byte	0x2c
+ 787 008c 03       		.uleb128 0x3
+ 788 008d 8F020000 		.4byte	.LASF12
+ 789 0091 03       		.byte	0x3
+ 790 0092 2C       		.byte	0x2c
+ 791 0093 4C000000 		.4byte	0x4c
+ 792 0097 02       		.uleb128 0x2
+ 793 0098 04       		.byte	0x4
+ 794 0099 04       		.byte	0x4
+ 795 009a 3E010000 		.4byte	.LASF13
+ 796 009e 02       		.uleb128 0x2
+ 797 009f 08       		.byte	0x8
+ 798 00a0 04       		.byte	0x4
+ 799 00a1 13030000 		.4byte	.LASF14
+ 800 00a5 02       		.uleb128 0x2
+ 801 00a6 01       		.byte	0x1
+ 802 00a7 08       		.byte	0x8
+ 803 00a8 85020000 		.4byte	.LASF15
+ 804 00ac 03       		.uleb128 0x3
+ 805 00ad 15000000 		.4byte	.LASF16
+ 806 00b1 04       		.byte	0x4
+ 807 00b2 D4       		.byte	0xd4
+ 808 00b3 7A000000 		.4byte	0x7a
+ 809 00b7 02       		.uleb128 0x2
+ 810 00b8 04       		.byte	0x4
+ 811 00b9 07       		.byte	0x7
+ 812 00ba 31000000 		.4byte	.LASF17
+ 813 00be 05       		.uleb128 0x5
+ 814 00bf 04       		.byte	0x4
+ 815 00c0 06       		.uleb128 0x6
+ 816 00c1 2A030000 		.4byte	.LASF27
+ 817 00c5 01       		.byte	0x1
+ 818 00c6 05       		.byte	0x5
+ 819 00c7 51       		.byte	0x51
+ 820 00c8 F7000000 		.4byte	0xf7
+ 821 00cc 07       		.uleb128 0x7
+ 822 00cd 7E020000 		.4byte	.LASF18
+ 823 00d1 00       		.sleb128 0
+ 824 00d2 07       		.uleb128 0x7
+ 825 00d3 A3030000 		.4byte	.LASF19
+ 826 00d7 01       		.sleb128 1
+ 827 00d8 07       		.uleb128 0x7
+ 828 00d9 72010000 		.4byte	.LASF20
+ 829 00dd 02       		.sleb128 2
+ 830 00de 07       		.uleb128 0x7
+ 831 00df 7F010000 		.4byte	.LASF21
+ 832 00e3 03       		.sleb128 3
+ 833 00e4 07       		.uleb128 0x7
+ 834 00e5 04030000 		.4byte	.LASF22
+ 835 00e9 04       		.sleb128 4
+ 836 00ea 07       		.uleb128 0x7
+ 837 00eb 0A020000 		.4byte	.LASF23
+ 838 00ef 05       		.sleb128 5
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 18
+
+
+ 839 00f0 07       		.uleb128 0x7
+ 840 00f1 3A000000 		.4byte	.LASF24
+ 841 00f5 06       		.sleb128 6
+ 842 00f6 00       		.byte	0
+ 843 00f7 02       		.uleb128 0x2
+ 844 00f8 01       		.byte	0x1
+ 845 00f9 02       		.byte	0x2
+ 846 00fa 12010000 		.4byte	.LASF25
+ 847 00fe 08       		.uleb128 0x8
+ 848 00ff 81000000 		.4byte	0x81
+ 849 0103 09       		.uleb128 0x9
+ 850 0104 04       		.byte	0x4
+ 851 0105 81000000 		.4byte	0x81
+ 852 0109 02       		.uleb128 0x2
+ 853 010a 08       		.byte	0x8
+ 854 010b 04       		.byte	0x4
+ 855 010c A9010000 		.4byte	.LASF26
+ 856 0110 06       		.uleb128 0x6
+ 857 0111 B6030000 		.4byte	.LASF28
+ 858 0115 01       		.byte	0x1
+ 859 0116 06       		.byte	0x6
+ 860 0117 15       		.byte	0x15
+ 861 0118 35010000 		.4byte	0x135
+ 862 011c 07       		.uleb128 0x7
+ 863 011d EA000000 		.4byte	.LASF29
+ 864 0121 00       		.sleb128 0
+ 865 0122 07       		.uleb128 0x7
+ 866 0123 F4000000 		.4byte	.LASF30
+ 867 0127 01       		.sleb128 1
+ 868 0128 07       		.uleb128 0x7
+ 869 0129 FE000000 		.4byte	.LASF31
+ 870 012d 02       		.sleb128 2
+ 871 012e 07       		.uleb128 0x7
+ 872 012f 08010000 		.4byte	.LASF32
+ 873 0133 03       		.sleb128 3
+ 874 0134 00       		.byte	0
+ 875 0135 06       		.uleb128 0x6
+ 876 0136 9E000000 		.4byte	.LASF33
+ 877 013a 01       		.byte	0x1
+ 878 013b 06       		.byte	0x6
+ 879 013c 1C       		.byte	0x1c
+ 880 013d 4E010000 		.4byte	0x14e
+ 881 0141 07       		.uleb128 0x7
+ 882 0142 E2010000 		.4byte	.LASF34
+ 883 0146 00       		.sleb128 0
+ 884 0147 07       		.uleb128 0x7
+ 885 0148 C3010000 		.4byte	.LASF35
+ 886 014c 01       		.sleb128 1
+ 887 014d 00       		.byte	0
+ 888 014e 0A       		.uleb128 0xa
+ 889 014f CD010000 		.4byte	.LASF36
+ 890 0153 01       		.byte	0x1
+ 891 0154 06       		.byte	0x6
+ 892 0155 21       		.byte	0x21
+ 893 0156 68020000 		.4byte	0x268
+ 894 015a 0B       		.uleb128 0xb
+ 895 015b CD010000 		.4byte	.LASF36
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 19
+
+
+ 896 015f 06       		.byte	0x6
+ 897 0160 24       		.byte	0x24
+ 898 0161 68020000 		.4byte	0x268
+ 899 0165 01       		.byte	0x1
+ 900 0166 6E010000 		.4byte	0x16e
+ 901 016a 74010000 		.4byte	0x174
+ 902 016e 0C       		.uleb128 0xc
+ 903 016f 68020000 		.4byte	0x268
+ 904 0173 00       		.byte	0
+ 905 0174 0B       		.uleb128 0xb
+ 906 0175 E3030000 		.4byte	.LASF37
+ 907 0179 06       		.byte	0x6
+ 908 017a 25       		.byte	0x25
+ 909 017b BE000000 		.4byte	0xbe
+ 910 017f 01       		.byte	0x1
+ 911 0180 88010000 		.4byte	0x188
+ 912 0184 93010000 		.4byte	0x193
+ 913 0188 0C       		.uleb128 0xc
+ 914 0189 68020000 		.4byte	0x268
+ 915 018d 0C       		.uleb128 0xc
+ 916 018e 73000000 		.4byte	0x73
+ 917 0192 00       		.byte	0
+ 918 0193 0D       		.uleb128 0xd
+ 919 0194 FB020000 		.4byte	.LASF38
+ 920 0198 06       		.byte	0x6
+ 921 0199 28       		.byte	0x28
+ 922 019a BF000000 		.4byte	.LASF67
+ 923 019e 81000000 		.4byte	0x81
+ 924 01a2 01       		.byte	0x1
+ 925 01a3 AB010000 		.4byte	0x1ab
+ 926 01a7 B6010000 		.4byte	0x1b6
+ 927 01ab 0C       		.uleb128 0xc
+ 928 01ac 68020000 		.4byte	0x268
+ 929 01b0 0E       		.uleb128 0xe
+ 930 01b1 81000000 		.4byte	0x81
+ 931 01b5 00       		.byte	0
+ 932 01b6 0F       		.uleb128 0xf
+ 933 01b7 FB020000 		.4byte	.LASF38
+ 934 01bb 06       		.byte	0x6
+ 935 01bc 29       		.byte	0x29
+ 936 01bd BF030000 		.4byte	.LASF40
+ 937 01c1 01       		.byte	0x1
+ 938 01c2 CA010000 		.4byte	0x1ca
+ 939 01c6 DA010000 		.4byte	0x1da
+ 940 01ca 0C       		.uleb128 0xc
+ 941 01cb 68020000 		.4byte	0x268
+ 942 01cf 0E       		.uleb128 0xe
+ 943 01d0 03010000 		.4byte	0x103
+ 944 01d4 0E       		.uleb128 0xe
+ 945 01d5 AC000000 		.4byte	0xac
+ 946 01d9 00       		.byte	0
+ 947 01da 0F       		.uleb128 0xf
+ 948 01db 48000000 		.4byte	.LASF39
+ 949 01df 06       		.byte	0x6
+ 950 01e0 2B       		.byte	0x2b
+ 951 01e1 1C000000 		.4byte	.LASF41
+ 952 01e5 01       		.byte	0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 20
+
+
+ 953 01e6 EE010000 		.4byte	0x1ee
+ 954 01ea F4010000 		.4byte	0x1f4
+ 955 01ee 0C       		.uleb128 0xc
+ 956 01ef 68020000 		.4byte	0x268
+ 957 01f3 00       		.byte	0
+ 958 01f4 10       		.uleb128 0x10
+ 959 01f5 656E6400 		.ascii	"end\000"
+ 960 01f9 06       		.byte	0x6
+ 961 01fa 2C       		.byte	0x2c
+ 962 01fb D7000000 		.4byte	.LASF68
+ 963 01ff 01       		.byte	0x1
+ 964 0200 08020000 		.4byte	0x208
+ 965 0204 0E020000 		.4byte	0x20e
+ 966 0208 0C       		.uleb128 0xc
+ 967 0209 68020000 		.4byte	0x268
+ 968 020d 00       		.byte	0
+ 969 020e 0F       		.uleb128 0xf
+ 970 020f EF020000 		.4byte	.LASF42
+ 971 0213 06       		.byte	0x6
+ 972 0214 2F       		.byte	0x2f
+ 973 0215 47020000 		.4byte	.LASF43
+ 974 0219 01       		.byte	0x1
+ 975 021a 22020000 		.4byte	0x222
+ 976 021e 2D020000 		.4byte	0x22d
+ 977 0222 0C       		.uleb128 0xc
+ 978 0223 68020000 		.4byte	0x268
+ 979 0227 0E       		.uleb128 0xe
+ 980 0228 35010000 		.4byte	0x135
+ 981 022c 00       		.byte	0
+ 982 022d 0F       		.uleb128 0xf
+ 983 022e 4E000000 		.4byte	.LASF44
+ 984 0232 06       		.byte	0x6
+ 985 0233 30       		.byte	0x30
+ 986 0234 7A000000 		.4byte	.LASF45
+ 987 0238 01       		.byte	0x1
+ 988 0239 41020000 		.4byte	0x241
+ 989 023d 4C020000 		.4byte	0x24c
+ 990 0241 0C       		.uleb128 0xc
+ 991 0242 68020000 		.4byte	0x268
+ 992 0246 0E       		.uleb128 0xe
+ 993 0247 10010000 		.4byte	0x110
+ 994 024b 00       		.byte	0
+ 995 024c 11       		.uleb128 0x11
+ 996 024d AF000000 		.4byte	.LASF69
+ 997 0251 06       		.byte	0x6
+ 998 0252 31       		.byte	0x31
+ 999 0253 5A000000 		.4byte	.LASF70
+ 1000 0257 01       		.byte	0x1
+ 1001 0258 5C020000 		.4byte	0x25c
+ 1002 025c 0C       		.uleb128 0xc
+ 1003 025d 68020000 		.4byte	0x268
+ 1004 0261 0E       		.uleb128 0xe
+ 1005 0262 81000000 		.4byte	0x81
+ 1006 0266 00       		.byte	0
+ 1007 0267 00       		.byte	0
+ 1008 0268 09       		.uleb128 0x9
+ 1009 0269 04       		.byte	0x4
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 21
+
+
+ 1010 026a 4E010000 		.4byte	0x14e
+ 1011 026e 12       		.uleb128 0x12
+ 1012 026f 5A010000 		.4byte	0x15a
+ 1013 0273 01       		.byte	0x1
+ 1014 0274 12       		.byte	0x12
+ 1015 0275 00       		.byte	0
+ 1016 0276 7E020000 		.4byte	0x27e
+ 1017 027a 88020000 		.4byte	0x288
+ 1018 027e 13       		.uleb128 0x13
+ 1019 027f DE020000 		.4byte	.LASF46
+ 1020 0283 88020000 		.4byte	0x288
+ 1021 0287 00       		.byte	0
+ 1022 0288 08       		.uleb128 0x8
+ 1023 0289 68020000 		.4byte	0x268
+ 1024 028d 14       		.uleb128 0x14
+ 1025 028e 6E020000 		.4byte	0x26e
+ 1026 0292 17010000 		.4byte	.LASF48
+ 1027 0296 00000000 		.4byte	.LFB148
+ 1028 029a 16000000 		.4byte	.LFE148-.LFB148
+ 1029 029e 01       		.uleb128 0x1
+ 1030 029f 9C       		.byte	0x9c
+ 1031 02a0 A8020000 		.4byte	0x2a8
+ 1032 02a4 B1020000 		.4byte	0x2b1
+ 1033 02a8 15       		.uleb128 0x15
+ 1034 02a9 7E020000 		.4byte	0x27e
+ 1035 02ad 02       		.uleb128 0x2
+ 1036 02ae 91       		.byte	0x91
+ 1037 02af 74       		.sleb128 -12
+ 1038 02b0 00       		.byte	0
+ 1039 02b1 12       		.uleb128 0x12
+ 1040 02b2 74010000 		.4byte	0x174
+ 1041 02b6 01       		.byte	0x1
+ 1042 02b7 17       		.byte	0x17
+ 1043 02b8 00       		.byte	0
+ 1044 02b9 C1020000 		.4byte	0x2c1
+ 1045 02bd D4020000 		.4byte	0x2d4
+ 1046 02c1 13       		.uleb128 0x13
+ 1047 02c2 DE020000 		.4byte	.LASF46
+ 1048 02c6 88020000 		.4byte	0x288
+ 1049 02ca 13       		.uleb128 0x13
+ 1050 02cb 9F020000 		.4byte	.LASF47
+ 1051 02cf D4020000 		.4byte	0x2d4
+ 1052 02d3 00       		.byte	0
+ 1053 02d4 08       		.uleb128 0x8
+ 1054 02d5 73000000 		.4byte	0x73
+ 1055 02d9 16       		.uleb128 0x16
+ 1056 02da B1020000 		.4byte	0x2b1
+ 1057 02de F9010000 		.4byte	.LASF49
+ 1058 02e2 00000000 		.4byte	.LFB151
+ 1059 02e6 16000000 		.4byte	.LFE151-.LFB151
+ 1060 02ea 01       		.uleb128 0x1
+ 1061 02eb 9C       		.byte	0x9c
+ 1062 02ec F4020000 		.4byte	0x2f4
+ 1063 02f0 FD020000 		.4byte	0x2fd
+ 1064 02f4 15       		.uleb128 0x15
+ 1065 02f5 C1020000 		.4byte	0x2c1
+ 1066 02f9 02       		.uleb128 0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 22
+
+
+ 1067 02fa 91       		.byte	0x91
+ 1068 02fb 74       		.sleb128 -12
+ 1069 02fc 00       		.byte	0
+ 1070 02fd 17       		.uleb128 0x17
+ 1071 02fe DA010000 		.4byte	0x1da
+ 1072 0302 01       		.byte	0x1
+ 1073 0303 1B       		.byte	0x1b
+ 1074 0304 00000000 		.4byte	.LFB153
+ 1075 0308 40000000 		.4byte	.LFE153-.LFB153
+ 1076 030c 01       		.uleb128 0x1
+ 1077 030d 9C       		.byte	0x9c
+ 1078 030e 16030000 		.4byte	0x316
+ 1079 0312 23030000 		.4byte	0x323
+ 1080 0316 18       		.uleb128 0x18
+ 1081 0317 DE020000 		.4byte	.LASF46
+ 1082 031b 88020000 		.4byte	0x288
+ 1083 031f 02       		.uleb128 0x2
+ 1084 0320 91       		.byte	0x91
+ 1085 0321 74       		.sleb128 -12
+ 1086 0322 00       		.byte	0
+ 1087 0323 17       		.uleb128 0x17
+ 1088 0324 F4010000 		.4byte	0x1f4
+ 1089 0328 01       		.byte	0x1
+ 1090 0329 2A       		.byte	0x2a
+ 1091 032a 00000000 		.4byte	.LFB154
+ 1092 032e 2E000000 		.4byte	.LFE154-.LFB154
+ 1093 0332 01       		.uleb128 0x1
+ 1094 0333 9C       		.byte	0x9c
+ 1095 0334 3C030000 		.4byte	0x33c
+ 1096 0338 49030000 		.4byte	0x349
+ 1097 033c 18       		.uleb128 0x18
+ 1098 033d DE020000 		.4byte	.LASF46
+ 1099 0341 88020000 		.4byte	0x288
+ 1100 0345 02       		.uleb128 0x2
+ 1101 0346 91       		.byte	0x91
+ 1102 0347 74       		.sleb128 -12
+ 1103 0348 00       		.byte	0
+ 1104 0349 19       		.uleb128 0x19
+ 1105 034a 0E020000 		.4byte	0x20e
+ 1106 034e 01       		.byte	0x1
+ 1107 034f 32       		.byte	0x32
+ 1108 0350 00000000 		.4byte	.LFB155
+ 1109 0354 16000000 		.4byte	.LFE155-.LFB155
+ 1110 0358 01       		.uleb128 0x1
+ 1111 0359 9C       		.byte	0x9c
+ 1112 035a 62030000 		.4byte	0x362
+ 1113 035e 7D030000 		.4byte	0x37d
+ 1114 0362 18       		.uleb128 0x18
+ 1115 0363 DE020000 		.4byte	.LASF46
+ 1116 0367 88020000 		.4byte	0x288
+ 1117 036b 02       		.uleb128 0x2
+ 1118 036c 91       		.byte	0x91
+ 1119 036d 74       		.sleb128 -12
+ 1120 036e 1A       		.uleb128 0x1a
+ 1121 036f D9030000 		.4byte	.LASF50
+ 1122 0373 01       		.byte	0x1
+ 1123 0374 32       		.byte	0x32
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 23
+
+
+ 1124 0375 35010000 		.4byte	0x135
+ 1125 0379 02       		.uleb128 0x2
+ 1126 037a 91       		.byte	0x91
+ 1127 037b 73       		.sleb128 -13
+ 1128 037c 00       		.byte	0
+ 1129 037d 17       		.uleb128 0x17
+ 1130 037e 2D020000 		.4byte	0x22d
+ 1131 0382 01       		.byte	0x1
+ 1132 0383 38       		.byte	0x38
+ 1133 0384 00000000 		.4byte	.LFB156
+ 1134 0388 1A000000 		.4byte	.LFE156-.LFB156
+ 1135 038c 01       		.uleb128 0x1
+ 1136 038d 9C       		.byte	0x9c
+ 1137 038e 96030000 		.4byte	0x396
+ 1138 0392 B1030000 		.4byte	0x3b1
+ 1139 0396 18       		.uleb128 0x18
+ 1140 0397 DE020000 		.4byte	.LASF46
+ 1141 039b 88020000 		.4byte	0x288
+ 1142 039f 02       		.uleb128 0x2
+ 1143 03a0 91       		.byte	0x91
+ 1144 03a1 74       		.sleb128 -12
+ 1145 03a2 1A       		.uleb128 0x1a
+ 1146 03a3 97020000 		.4byte	.LASF51
+ 1147 03a7 01       		.byte	0x1
+ 1148 03a8 38       		.byte	0x38
+ 1149 03a9 10010000 		.4byte	0x110
+ 1150 03ad 02       		.uleb128 0x2
+ 1151 03ae 91       		.byte	0x91
+ 1152 03af 73       		.sleb128 -13
+ 1153 03b0 00       		.byte	0
+ 1154 03b1 17       		.uleb128 0x17
+ 1155 03b2 4C020000 		.4byte	0x24c
+ 1156 03b6 01       		.byte	0x1
+ 1157 03b7 49       		.byte	0x49
+ 1158 03b8 00000000 		.4byte	.LFB157
+ 1159 03bc 2A000000 		.4byte	.LFE157-.LFB157
+ 1160 03c0 01       		.uleb128 0x1
+ 1161 03c1 9C       		.byte	0x9c
+ 1162 03c2 CA030000 		.4byte	0x3ca
+ 1163 03c6 E5030000 		.4byte	0x3e5
+ 1164 03ca 18       		.uleb128 0x18
+ 1165 03cb DE020000 		.4byte	.LASF46
+ 1166 03cf 88020000 		.4byte	0x288
+ 1167 03d3 02       		.uleb128 0x2
+ 1168 03d4 91       		.byte	0x91
+ 1169 03d5 74       		.sleb128 -12
+ 1170 03d6 1A       		.uleb128 0x1a
+ 1171 03d7 21030000 		.4byte	.LASF52
+ 1172 03db 01       		.byte	0x1
+ 1173 03dc 49       		.byte	0x49
+ 1174 03dd 81000000 		.4byte	0x81
+ 1175 03e1 02       		.uleb128 0x2
+ 1176 03e2 91       		.byte	0x91
+ 1177 03e3 73       		.sleb128 -13
+ 1178 03e4 00       		.byte	0
+ 1179 03e5 17       		.uleb128 0x17
+ 1180 03e6 93010000 		.4byte	0x193
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 24
+
+
+ 1181 03ea 01       		.byte	0x1
+ 1182 03eb 58       		.byte	0x58
+ 1183 03ec 00000000 		.4byte	.LFB158
+ 1184 03f0 38000000 		.4byte	.LFE158-.LFB158
+ 1185 03f4 01       		.uleb128 0x1
+ 1186 03f5 9C       		.byte	0x9c
+ 1187 03f6 FE030000 		.4byte	0x3fe
+ 1188 03fa 19040000 		.4byte	0x419
+ 1189 03fe 18       		.uleb128 0x18
+ 1190 03ff DE020000 		.4byte	.LASF46
+ 1191 0403 88020000 		.4byte	0x288
+ 1192 0407 02       		.uleb128 0x2
+ 1193 0408 91       		.byte	0x91
+ 1194 0409 74       		.sleb128 -12
+ 1195 040a 1A       		.uleb128 0x1a
+ 1196 040b 8A010000 		.4byte	.LASF53
+ 1197 040f 01       		.byte	0x1
+ 1198 0410 58       		.byte	0x58
+ 1199 0411 81000000 		.4byte	0x81
+ 1200 0415 02       		.uleb128 0x2
+ 1201 0416 91       		.byte	0x91
+ 1202 0417 73       		.sleb128 -13
+ 1203 0418 00       		.byte	0
+ 1204 0419 17       		.uleb128 0x17
+ 1205 041a B6010000 		.4byte	0x1b6
+ 1206 041e 01       		.byte	0x1
+ 1207 041f 60       		.byte	0x60
+ 1208 0420 00000000 		.4byte	.LFB159
+ 1209 0424 E0000000 		.4byte	.LFE159-.LFB159
+ 1210 0428 01       		.uleb128 0x1
+ 1211 0429 9C       		.byte	0x9c
+ 1212 042a 32040000 		.4byte	0x432
+ 1213 042e BD040000 		.4byte	0x4bd
+ 1214 0432 18       		.uleb128 0x18
+ 1215 0433 DE020000 		.4byte	.LASF46
+ 1216 0437 88020000 		.4byte	0x288
+ 1217 043b 02       		.uleb128 0x2
+ 1218 043c 91       		.byte	0x91
+ 1219 043d 5C       		.sleb128 -36
+ 1220 043e 1A       		.uleb128 0x1a
+ 1221 043f 2F020000 		.4byte	.LASF54
+ 1222 0443 01       		.byte	0x1
+ 1223 0444 60       		.byte	0x60
+ 1224 0445 03010000 		.4byte	0x103
+ 1225 0449 02       		.uleb128 0x2
+ 1226 044a 91       		.byte	0x91
+ 1227 044b 58       		.sleb128 -40
+ 1228 044c 1A       		.uleb128 0x1a
+ 1229 044d 1A030000 		.4byte	.LASF55
+ 1230 0451 01       		.byte	0x1
+ 1231 0452 60       		.byte	0x60
+ 1232 0453 AC000000 		.4byte	0xac
+ 1233 0457 02       		.uleb128 0x2
+ 1234 0458 91       		.byte	0x91
+ 1235 0459 54       		.sleb128 -44
+ 1236 045a 1B       		.uleb128 0x1b
+ 1237 045b 0C000000 		.4byte	.LBB3
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 25
+
+
+ 1238 045f CE000000 		.4byte	.LBE3-.LBB3
+ 1239 0463 1C       		.uleb128 0x1c
+ 1240 0464 E3020000 		.4byte	.LASF56
+ 1241 0468 01       		.byte	0x1
+ 1242 0469 63       		.byte	0x63
+ 1243 046a 81000000 		.4byte	0x81
+ 1244 046e 02       		.uleb128 0x2
+ 1245 046f 91       		.byte	0x91
+ 1246 0470 6F       		.sleb128 -17
+ 1247 0471 1C       		.uleb128 0x1c
+ 1248 0472 00000000 		.4byte	.LASF57
+ 1249 0476 01       		.byte	0x1
+ 1250 0477 64       		.byte	0x64
+ 1251 0478 81000000 		.4byte	0x81
+ 1252 047c 02       		.uleb128 0x2
+ 1253 047d 91       		.byte	0x91
+ 1254 047e 63       		.sleb128 -29
+ 1255 047f 1D       		.uleb128 0x1d
+ 1256 0480 6900     		.ascii	"i\000"
+ 1257 0482 01       		.byte	0x1
+ 1258 0483 65       		.byte	0x65
+ 1259 0484 81000000 		.4byte	0x81
+ 1260 0488 02       		.uleb128 0x2
+ 1261 0489 91       		.byte	0x91
+ 1262 048a 6E       		.sleb128 -18
+ 1263 048b 1E       		.uleb128 0x1e
+ 1264 048c 4C000000 		.4byte	.LBB5
+ 1265 0490 24000000 		.4byte	.LBE5-.LBB5
+ 1266 0494 A5040000 		.4byte	0x4a5
+ 1267 0498 1D       		.uleb128 0x1d
+ 1268 0499 6A00     		.ascii	"j\000"
+ 1269 049b 01       		.byte	0x1
+ 1270 049c 6B       		.byte	0x6b
+ 1271 049d 73000000 		.4byte	0x73
+ 1272 04a1 02       		.uleb128 0x2
+ 1273 04a2 91       		.byte	0x91
+ 1274 04a3 68       		.sleb128 -24
+ 1275 04a4 00       		.byte	0
+ 1276 04a5 1B       		.uleb128 0x1b
+ 1277 04a6 AE000000 		.4byte	.LBB8
+ 1278 04aa 26000000 		.4byte	.LBE8-.LBB8
+ 1279 04ae 1D       		.uleb128 0x1d
+ 1280 04af 6A00     		.ascii	"j\000"
+ 1281 04b1 01       		.byte	0x1
+ 1282 04b2 77       		.byte	0x77
+ 1283 04b3 73000000 		.4byte	0x73
+ 1284 04b7 02       		.uleb128 0x2
+ 1285 04b8 91       		.byte	0x91
+ 1286 04b9 64       		.sleb128 -28
+ 1287 04ba 00       		.byte	0
+ 1288 04bb 00       		.byte	0
+ 1289 04bc 00       		.byte	0
+ 1290 04bd 1F       		.uleb128 0x1f
+ 1291 04be A9020000 		.4byte	.LASF71
+ 1292 04c2 00000000 		.4byte	.LFB160
+ 1293 04c6 3C000000 		.4byte	.LFE160-.LFB160
+ 1294 04ca 01       		.uleb128 0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 26
+
+
+ 1295 04cb 9C       		.byte	0x9c
+ 1296 04cc ED040000 		.4byte	0x4ed
+ 1297 04d0 1A       		.uleb128 0x1a
+ 1298 04d1 9A010000 		.4byte	.LASF58
+ 1299 04d5 01       		.byte	0x1
+ 1300 04d6 7D       		.byte	0x7d
+ 1301 04d7 73000000 		.4byte	0x73
+ 1302 04db 02       		.uleb128 0x2
+ 1303 04dc 91       		.byte	0x91
+ 1304 04dd 74       		.sleb128 -12
+ 1305 04de 1A       		.uleb128 0x1a
+ 1306 04df D3020000 		.4byte	.LASF59
+ 1307 04e3 01       		.byte	0x1
+ 1308 04e4 7D       		.byte	0x7d
+ 1309 04e5 73000000 		.4byte	0x73
+ 1310 04e9 02       		.uleb128 0x2
+ 1311 04ea 91       		.byte	0x91
+ 1312 04eb 70       		.sleb128 -16
+ 1313 04ec 00       		.byte	0
+ 1314 04ed 20       		.uleb128 0x20
+ 1315 04ee 34020000 		.4byte	.LASF72
+ 1316 04f2 00000000 		.4byte	.LFB161
+ 1317 04f6 10000000 		.4byte	.LFE161-.LFB161
+ 1318 04fa 01       		.uleb128 0x1
+ 1319 04fb 9C       		.byte	0x9c
+ 1320 04fc 21       		.uleb128 0x21
+ 1321 04fd A9030000 		.4byte	.LASF62
+ 1322 0501 08       		.byte	0x8
+ 1323 0502 5506     		.2byte	0x655
+ 1324 0504 08050000 		.4byte	0x508
+ 1325 0508 22       		.uleb128 0x22
+ 1326 0509 8C000000 		.4byte	0x8c
+ 1327 050d 1D       		.uleb128 0x1d
+ 1328 050e 535300   		.ascii	"SS\000"
+ 1329 0511 07       		.byte	0x7
+ 1330 0512 26       		.byte	0x26
+ 1331 0513 FE000000 		.4byte	0xfe
+ 1332 0517 05       		.uleb128 0x5
+ 1333 0518 03       		.byte	0x3
+ 1334 0519 00000000 		.4byte	_ZL2SS
+ 1335 051d 1C       		.uleb128 0x1c
+ 1336 051e 2A020000 		.4byte	.LASF60
+ 1337 0522 07       		.byte	0x7
+ 1338 0523 27       		.byte	0x27
+ 1339 0524 FE000000 		.4byte	0xfe
+ 1340 0528 05       		.uleb128 0x5
+ 1341 0529 03       		.byte	0x3
+ 1342 052a 01000000 		.4byte	_ZL4MOSI
+ 1343 052e 1C       		.uleb128 0x1c
+ 1344 052f 8A020000 		.4byte	.LASF61
+ 1345 0533 07       		.byte	0x7
+ 1346 0534 28       		.byte	0x28
+ 1347 0535 FE000000 		.4byte	0xfe
+ 1348 0539 05       		.uleb128 0x5
+ 1349 053a 03       		.byte	0x3
+ 1350 053b 02000000 		.4byte	_ZL4MISO
+ 1351 053f 1D       		.uleb128 0x1d
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 27
+
+
+ 1352 0540 53434B00 		.ascii	"SCK\000"
+ 1353 0544 07       		.byte	0x7
+ 1354 0545 29       		.byte	0x29
+ 1355 0546 FE000000 		.4byte	0xfe
+ 1356 054a 05       		.uleb128 0x5
+ 1357 054b 03       		.byte	0x3
+ 1358 054c 03000000 		.4byte	_ZL3SCK
+ 1359 0550 1D       		.uleb128 0x1d
+ 1360 0551 53444100 		.ascii	"SDA\000"
+ 1361 0555 07       		.byte	0x7
+ 1362 0556 2B       		.byte	0x2b
+ 1363 0557 FE000000 		.4byte	0xfe
+ 1364 055b 05       		.uleb128 0x5
+ 1365 055c 03       		.byte	0x3
+ 1366 055d 04000000 		.4byte	_ZL3SDA
+ 1367 0561 1D       		.uleb128 0x1d
+ 1368 0562 53434C00 		.ascii	"SCL\000"
+ 1369 0566 07       		.byte	0x7
+ 1370 0567 2C       		.byte	0x2c
+ 1371 0568 FE000000 		.4byte	0xfe
+ 1372 056c 05       		.uleb128 0x5
+ 1373 056d 03       		.byte	0x3
+ 1374 056e 05000000 		.4byte	_ZL3SCL
+ 1375 0572 23       		.uleb128 0x23
+ 1376 0573 53504900 		.ascii	"SPI\000"
+ 1377 0577 01       		.byte	0x1
+ 1378 0578 0F       		.byte	0xf
+ 1379 0579 4E010000 		.4byte	0x14e
+ 1380 057d 05       		.uleb128 0x5
+ 1381 057e 03       		.byte	0x3
+ 1382 057f 00000000 		.4byte	SPI
+ 1383 0583 24       		.uleb128 0x24
+ 1384 0584 33030000 		.4byte	.LASF63
+ 1385 0588 BE000000 		.4byte	0xbe
+ 1386 058c 00       		.byte	0
+ 1387              		.section	.debug_abbrev,"",%progbits
+ 1388              	.Ldebug_abbrev0:
+ 1389 0000 01       		.uleb128 0x1
+ 1390 0001 11       		.uleb128 0x11
+ 1391 0002 01       		.byte	0x1
+ 1392 0003 25       		.uleb128 0x25
+ 1393 0004 0E       		.uleb128 0xe
+ 1394 0005 13       		.uleb128 0x13
+ 1395 0006 0B       		.uleb128 0xb
+ 1396 0007 03       		.uleb128 0x3
+ 1397 0008 0E       		.uleb128 0xe
+ 1398 0009 1B       		.uleb128 0x1b
+ 1399 000a 0E       		.uleb128 0xe
+ 1400 000b 55       		.uleb128 0x55
+ 1401 000c 17       		.uleb128 0x17
+ 1402 000d 11       		.uleb128 0x11
+ 1403 000e 01       		.uleb128 0x1
+ 1404 000f 10       		.uleb128 0x10
+ 1405 0010 17       		.uleb128 0x17
+ 1406 0011 00       		.byte	0
+ 1407 0012 00       		.byte	0
+ 1408 0013 02       		.uleb128 0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 28
+
+
+ 1409 0014 24       		.uleb128 0x24
+ 1410 0015 00       		.byte	0
+ 1411 0016 0B       		.uleb128 0xb
+ 1412 0017 0B       		.uleb128 0xb
+ 1413 0018 3E       		.uleb128 0x3e
+ 1414 0019 0B       		.uleb128 0xb
+ 1415 001a 03       		.uleb128 0x3
+ 1416 001b 0E       		.uleb128 0xe
+ 1417 001c 00       		.byte	0
+ 1418 001d 00       		.byte	0
+ 1419 001e 03       		.uleb128 0x3
+ 1420 001f 16       		.uleb128 0x16
+ 1421 0020 00       		.byte	0
+ 1422 0021 03       		.uleb128 0x3
+ 1423 0022 0E       		.uleb128 0xe
+ 1424 0023 3A       		.uleb128 0x3a
+ 1425 0024 0B       		.uleb128 0xb
+ 1426 0025 3B       		.uleb128 0x3b
+ 1427 0026 0B       		.uleb128 0xb
+ 1428 0027 49       		.uleb128 0x49
+ 1429 0028 13       		.uleb128 0x13
+ 1430 0029 00       		.byte	0
+ 1431 002a 00       		.byte	0
+ 1432 002b 04       		.uleb128 0x4
+ 1433 002c 24       		.uleb128 0x24
+ 1434 002d 00       		.byte	0
+ 1435 002e 0B       		.uleb128 0xb
+ 1436 002f 0B       		.uleb128 0xb
+ 1437 0030 3E       		.uleb128 0x3e
+ 1438 0031 0B       		.uleb128 0xb
+ 1439 0032 03       		.uleb128 0x3
+ 1440 0033 08       		.uleb128 0x8
+ 1441 0034 00       		.byte	0
+ 1442 0035 00       		.byte	0
+ 1443 0036 05       		.uleb128 0x5
+ 1444 0037 0F       		.uleb128 0xf
+ 1445 0038 00       		.byte	0
+ 1446 0039 0B       		.uleb128 0xb
+ 1447 003a 0B       		.uleb128 0xb
+ 1448 003b 00       		.byte	0
+ 1449 003c 00       		.byte	0
+ 1450 003d 06       		.uleb128 0x6
+ 1451 003e 04       		.uleb128 0x4
+ 1452 003f 01       		.byte	0x1
+ 1453 0040 03       		.uleb128 0x3
+ 1454 0041 0E       		.uleb128 0xe
+ 1455 0042 0B       		.uleb128 0xb
+ 1456 0043 0B       		.uleb128 0xb
+ 1457 0044 3A       		.uleb128 0x3a
+ 1458 0045 0B       		.uleb128 0xb
+ 1459 0046 3B       		.uleb128 0x3b
+ 1460 0047 0B       		.uleb128 0xb
+ 1461 0048 01       		.uleb128 0x1
+ 1462 0049 13       		.uleb128 0x13
+ 1463 004a 00       		.byte	0
+ 1464 004b 00       		.byte	0
+ 1465 004c 07       		.uleb128 0x7
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 29
+
+
+ 1466 004d 28       		.uleb128 0x28
+ 1467 004e 00       		.byte	0
+ 1468 004f 03       		.uleb128 0x3
+ 1469 0050 0E       		.uleb128 0xe
+ 1470 0051 1C       		.uleb128 0x1c
+ 1471 0052 0D       		.uleb128 0xd
+ 1472 0053 00       		.byte	0
+ 1473 0054 00       		.byte	0
+ 1474 0055 08       		.uleb128 0x8
+ 1475 0056 26       		.uleb128 0x26
+ 1476 0057 00       		.byte	0
+ 1477 0058 49       		.uleb128 0x49
+ 1478 0059 13       		.uleb128 0x13
+ 1479 005a 00       		.byte	0
+ 1480 005b 00       		.byte	0
+ 1481 005c 09       		.uleb128 0x9
+ 1482 005d 0F       		.uleb128 0xf
+ 1483 005e 00       		.byte	0
+ 1484 005f 0B       		.uleb128 0xb
+ 1485 0060 0B       		.uleb128 0xb
+ 1486 0061 49       		.uleb128 0x49
+ 1487 0062 13       		.uleb128 0x13
+ 1488 0063 00       		.byte	0
+ 1489 0064 00       		.byte	0
+ 1490 0065 0A       		.uleb128 0xa
+ 1491 0066 02       		.uleb128 0x2
+ 1492 0067 01       		.byte	0x1
+ 1493 0068 03       		.uleb128 0x3
+ 1494 0069 0E       		.uleb128 0xe
+ 1495 006a 0B       		.uleb128 0xb
+ 1496 006b 0B       		.uleb128 0xb
+ 1497 006c 3A       		.uleb128 0x3a
+ 1498 006d 0B       		.uleb128 0xb
+ 1499 006e 3B       		.uleb128 0x3b
+ 1500 006f 0B       		.uleb128 0xb
+ 1501 0070 01       		.uleb128 0x1
+ 1502 0071 13       		.uleb128 0x13
+ 1503 0072 00       		.byte	0
+ 1504 0073 00       		.byte	0
+ 1505 0074 0B       		.uleb128 0xb
+ 1506 0075 2E       		.uleb128 0x2e
+ 1507 0076 01       		.byte	0x1
+ 1508 0077 3F       		.uleb128 0x3f
+ 1509 0078 19       		.uleb128 0x19
+ 1510 0079 03       		.uleb128 0x3
+ 1511 007a 0E       		.uleb128 0xe
+ 1512 007b 3A       		.uleb128 0x3a
+ 1513 007c 0B       		.uleb128 0xb
+ 1514 007d 3B       		.uleb128 0x3b
+ 1515 007e 0B       		.uleb128 0xb
+ 1516 007f 49       		.uleb128 0x49
+ 1517 0080 13       		.uleb128 0x13
+ 1518 0081 32       		.uleb128 0x32
+ 1519 0082 0B       		.uleb128 0xb
+ 1520 0083 3C       		.uleb128 0x3c
+ 1521 0084 19       		.uleb128 0x19
+ 1522 0085 64       		.uleb128 0x64
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 30
+
+
+ 1523 0086 13       		.uleb128 0x13
+ 1524 0087 01       		.uleb128 0x1
+ 1525 0088 13       		.uleb128 0x13
+ 1526 0089 00       		.byte	0
+ 1527 008a 00       		.byte	0
+ 1528 008b 0C       		.uleb128 0xc
+ 1529 008c 05       		.uleb128 0x5
+ 1530 008d 00       		.byte	0
+ 1531 008e 49       		.uleb128 0x49
+ 1532 008f 13       		.uleb128 0x13
+ 1533 0090 34       		.uleb128 0x34
+ 1534 0091 19       		.uleb128 0x19
+ 1535 0092 00       		.byte	0
+ 1536 0093 00       		.byte	0
+ 1537 0094 0D       		.uleb128 0xd
+ 1538 0095 2E       		.uleb128 0x2e
+ 1539 0096 01       		.byte	0x1
+ 1540 0097 3F       		.uleb128 0x3f
+ 1541 0098 19       		.uleb128 0x19
+ 1542 0099 03       		.uleb128 0x3
+ 1543 009a 0E       		.uleb128 0xe
+ 1544 009b 3A       		.uleb128 0x3a
+ 1545 009c 0B       		.uleb128 0xb
+ 1546 009d 3B       		.uleb128 0x3b
+ 1547 009e 0B       		.uleb128 0xb
+ 1548 009f 6E       		.uleb128 0x6e
+ 1549 00a0 0E       		.uleb128 0xe
+ 1550 00a1 49       		.uleb128 0x49
+ 1551 00a2 13       		.uleb128 0x13
+ 1552 00a3 32       		.uleb128 0x32
+ 1553 00a4 0B       		.uleb128 0xb
+ 1554 00a5 3C       		.uleb128 0x3c
+ 1555 00a6 19       		.uleb128 0x19
+ 1556 00a7 64       		.uleb128 0x64
+ 1557 00a8 13       		.uleb128 0x13
+ 1558 00a9 01       		.uleb128 0x1
+ 1559 00aa 13       		.uleb128 0x13
+ 1560 00ab 00       		.byte	0
+ 1561 00ac 00       		.byte	0
+ 1562 00ad 0E       		.uleb128 0xe
+ 1563 00ae 05       		.uleb128 0x5
+ 1564 00af 00       		.byte	0
+ 1565 00b0 49       		.uleb128 0x49
+ 1566 00b1 13       		.uleb128 0x13
+ 1567 00b2 00       		.byte	0
+ 1568 00b3 00       		.byte	0
+ 1569 00b4 0F       		.uleb128 0xf
+ 1570 00b5 2E       		.uleb128 0x2e
+ 1571 00b6 01       		.byte	0x1
+ 1572 00b7 3F       		.uleb128 0x3f
+ 1573 00b8 19       		.uleb128 0x19
+ 1574 00b9 03       		.uleb128 0x3
+ 1575 00ba 0E       		.uleb128 0xe
+ 1576 00bb 3A       		.uleb128 0x3a
+ 1577 00bc 0B       		.uleb128 0xb
+ 1578 00bd 3B       		.uleb128 0x3b
+ 1579 00be 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 31
+
+
+ 1580 00bf 6E       		.uleb128 0x6e
+ 1581 00c0 0E       		.uleb128 0xe
+ 1582 00c1 32       		.uleb128 0x32
+ 1583 00c2 0B       		.uleb128 0xb
+ 1584 00c3 3C       		.uleb128 0x3c
+ 1585 00c4 19       		.uleb128 0x19
+ 1586 00c5 64       		.uleb128 0x64
+ 1587 00c6 13       		.uleb128 0x13
+ 1588 00c7 01       		.uleb128 0x1
+ 1589 00c8 13       		.uleb128 0x13
+ 1590 00c9 00       		.byte	0
+ 1591 00ca 00       		.byte	0
+ 1592 00cb 10       		.uleb128 0x10
+ 1593 00cc 2E       		.uleb128 0x2e
+ 1594 00cd 01       		.byte	0x1
+ 1595 00ce 3F       		.uleb128 0x3f
+ 1596 00cf 19       		.uleb128 0x19
+ 1597 00d0 03       		.uleb128 0x3
+ 1598 00d1 08       		.uleb128 0x8
+ 1599 00d2 3A       		.uleb128 0x3a
+ 1600 00d3 0B       		.uleb128 0xb
+ 1601 00d4 3B       		.uleb128 0x3b
+ 1602 00d5 0B       		.uleb128 0xb
+ 1603 00d6 6E       		.uleb128 0x6e
+ 1604 00d7 0E       		.uleb128 0xe
+ 1605 00d8 32       		.uleb128 0x32
+ 1606 00d9 0B       		.uleb128 0xb
+ 1607 00da 3C       		.uleb128 0x3c
+ 1608 00db 19       		.uleb128 0x19
+ 1609 00dc 64       		.uleb128 0x64
+ 1610 00dd 13       		.uleb128 0x13
+ 1611 00de 01       		.uleb128 0x1
+ 1612 00df 13       		.uleb128 0x13
+ 1613 00e0 00       		.byte	0
+ 1614 00e1 00       		.byte	0
+ 1615 00e2 11       		.uleb128 0x11
+ 1616 00e3 2E       		.uleb128 0x2e
+ 1617 00e4 01       		.byte	0x1
+ 1618 00e5 3F       		.uleb128 0x3f
+ 1619 00e6 19       		.uleb128 0x19
+ 1620 00e7 03       		.uleb128 0x3
+ 1621 00e8 0E       		.uleb128 0xe
+ 1622 00e9 3A       		.uleb128 0x3a
+ 1623 00ea 0B       		.uleb128 0xb
+ 1624 00eb 3B       		.uleb128 0x3b
+ 1625 00ec 0B       		.uleb128 0xb
+ 1626 00ed 6E       		.uleb128 0x6e
+ 1627 00ee 0E       		.uleb128 0xe
+ 1628 00ef 32       		.uleb128 0x32
+ 1629 00f0 0B       		.uleb128 0xb
+ 1630 00f1 3C       		.uleb128 0x3c
+ 1631 00f2 19       		.uleb128 0x19
+ 1632 00f3 64       		.uleb128 0x64
+ 1633 00f4 13       		.uleb128 0x13
+ 1634 00f5 00       		.byte	0
+ 1635 00f6 00       		.byte	0
+ 1636 00f7 12       		.uleb128 0x12
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 32
+
+
+ 1637 00f8 2E       		.uleb128 0x2e
+ 1638 00f9 01       		.byte	0x1
+ 1639 00fa 47       		.uleb128 0x47
+ 1640 00fb 13       		.uleb128 0x13
+ 1641 00fc 3A       		.uleb128 0x3a
+ 1642 00fd 0B       		.uleb128 0xb
+ 1643 00fe 3B       		.uleb128 0x3b
+ 1644 00ff 0B       		.uleb128 0xb
+ 1645 0100 20       		.uleb128 0x20
+ 1646 0101 0B       		.uleb128 0xb
+ 1647 0102 64       		.uleb128 0x64
+ 1648 0103 13       		.uleb128 0x13
+ 1649 0104 01       		.uleb128 0x1
+ 1650 0105 13       		.uleb128 0x13
+ 1651 0106 00       		.byte	0
+ 1652 0107 00       		.byte	0
+ 1653 0108 13       		.uleb128 0x13
+ 1654 0109 05       		.uleb128 0x5
+ 1655 010a 00       		.byte	0
+ 1656 010b 03       		.uleb128 0x3
+ 1657 010c 0E       		.uleb128 0xe
+ 1658 010d 49       		.uleb128 0x49
+ 1659 010e 13       		.uleb128 0x13
+ 1660 010f 34       		.uleb128 0x34
+ 1661 0110 19       		.uleb128 0x19
+ 1662 0111 00       		.byte	0
+ 1663 0112 00       		.byte	0
+ 1664 0113 14       		.uleb128 0x14
+ 1665 0114 2E       		.uleb128 0x2e
+ 1666 0115 01       		.byte	0x1
+ 1667 0116 31       		.uleb128 0x31
+ 1668 0117 13       		.uleb128 0x13
+ 1669 0118 6E       		.uleb128 0x6e
+ 1670 0119 0E       		.uleb128 0xe
+ 1671 011a 11       		.uleb128 0x11
+ 1672 011b 01       		.uleb128 0x1
+ 1673 011c 12       		.uleb128 0x12
+ 1674 011d 06       		.uleb128 0x6
+ 1675 011e 40       		.uleb128 0x40
+ 1676 011f 18       		.uleb128 0x18
+ 1677 0120 64       		.uleb128 0x64
+ 1678 0121 13       		.uleb128 0x13
+ 1679 0122 9642     		.uleb128 0x2116
+ 1680 0124 19       		.uleb128 0x19
+ 1681 0125 01       		.uleb128 0x1
+ 1682 0126 13       		.uleb128 0x13
+ 1683 0127 00       		.byte	0
+ 1684 0128 00       		.byte	0
+ 1685 0129 15       		.uleb128 0x15
+ 1686 012a 05       		.uleb128 0x5
+ 1687 012b 00       		.byte	0
+ 1688 012c 31       		.uleb128 0x31
+ 1689 012d 13       		.uleb128 0x13
+ 1690 012e 02       		.uleb128 0x2
+ 1691 012f 18       		.uleb128 0x18
+ 1692 0130 00       		.byte	0
+ 1693 0131 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 33
+
+
+ 1694 0132 16       		.uleb128 0x16
+ 1695 0133 2E       		.uleb128 0x2e
+ 1696 0134 01       		.byte	0x1
+ 1697 0135 31       		.uleb128 0x31
+ 1698 0136 13       		.uleb128 0x13
+ 1699 0137 6E       		.uleb128 0x6e
+ 1700 0138 0E       		.uleb128 0xe
+ 1701 0139 11       		.uleb128 0x11
+ 1702 013a 01       		.uleb128 0x1
+ 1703 013b 12       		.uleb128 0x12
+ 1704 013c 06       		.uleb128 0x6
+ 1705 013d 40       		.uleb128 0x40
+ 1706 013e 18       		.uleb128 0x18
+ 1707 013f 64       		.uleb128 0x64
+ 1708 0140 13       		.uleb128 0x13
+ 1709 0141 9742     		.uleb128 0x2117
+ 1710 0143 19       		.uleb128 0x19
+ 1711 0144 01       		.uleb128 0x1
+ 1712 0145 13       		.uleb128 0x13
+ 1713 0146 00       		.byte	0
+ 1714 0147 00       		.byte	0
+ 1715 0148 17       		.uleb128 0x17
+ 1716 0149 2E       		.uleb128 0x2e
+ 1717 014a 01       		.byte	0x1
+ 1718 014b 47       		.uleb128 0x47
+ 1719 014c 13       		.uleb128 0x13
+ 1720 014d 3A       		.uleb128 0x3a
+ 1721 014e 0B       		.uleb128 0xb
+ 1722 014f 3B       		.uleb128 0x3b
+ 1723 0150 0B       		.uleb128 0xb
+ 1724 0151 11       		.uleb128 0x11
+ 1725 0152 01       		.uleb128 0x1
+ 1726 0153 12       		.uleb128 0x12
+ 1727 0154 06       		.uleb128 0x6
+ 1728 0155 40       		.uleb128 0x40
+ 1729 0156 18       		.uleb128 0x18
+ 1730 0157 64       		.uleb128 0x64
+ 1731 0158 13       		.uleb128 0x13
+ 1732 0159 9642     		.uleb128 0x2116
+ 1733 015b 19       		.uleb128 0x19
+ 1734 015c 01       		.uleb128 0x1
+ 1735 015d 13       		.uleb128 0x13
+ 1736 015e 00       		.byte	0
+ 1737 015f 00       		.byte	0
+ 1738 0160 18       		.uleb128 0x18
+ 1739 0161 05       		.uleb128 0x5
+ 1740 0162 00       		.byte	0
+ 1741 0163 03       		.uleb128 0x3
+ 1742 0164 0E       		.uleb128 0xe
+ 1743 0165 49       		.uleb128 0x49
+ 1744 0166 13       		.uleb128 0x13
+ 1745 0167 34       		.uleb128 0x34
+ 1746 0168 19       		.uleb128 0x19
+ 1747 0169 02       		.uleb128 0x2
+ 1748 016a 18       		.uleb128 0x18
+ 1749 016b 00       		.byte	0
+ 1750 016c 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 34
+
+
+ 1751 016d 19       		.uleb128 0x19
+ 1752 016e 2E       		.uleb128 0x2e
+ 1753 016f 01       		.byte	0x1
+ 1754 0170 47       		.uleb128 0x47
+ 1755 0171 13       		.uleb128 0x13
+ 1756 0172 3A       		.uleb128 0x3a
+ 1757 0173 0B       		.uleb128 0xb
+ 1758 0174 3B       		.uleb128 0x3b
+ 1759 0175 0B       		.uleb128 0xb
+ 1760 0176 11       		.uleb128 0x11
+ 1761 0177 01       		.uleb128 0x1
+ 1762 0178 12       		.uleb128 0x12
+ 1763 0179 06       		.uleb128 0x6
+ 1764 017a 40       		.uleb128 0x40
+ 1765 017b 18       		.uleb128 0x18
+ 1766 017c 64       		.uleb128 0x64
+ 1767 017d 13       		.uleb128 0x13
+ 1768 017e 9742     		.uleb128 0x2117
+ 1769 0180 19       		.uleb128 0x19
+ 1770 0181 01       		.uleb128 0x1
+ 1771 0182 13       		.uleb128 0x13
+ 1772 0183 00       		.byte	0
+ 1773 0184 00       		.byte	0
+ 1774 0185 1A       		.uleb128 0x1a
+ 1775 0186 05       		.uleb128 0x5
+ 1776 0187 00       		.byte	0
+ 1777 0188 03       		.uleb128 0x3
+ 1778 0189 0E       		.uleb128 0xe
+ 1779 018a 3A       		.uleb128 0x3a
+ 1780 018b 0B       		.uleb128 0xb
+ 1781 018c 3B       		.uleb128 0x3b
+ 1782 018d 0B       		.uleb128 0xb
+ 1783 018e 49       		.uleb128 0x49
+ 1784 018f 13       		.uleb128 0x13
+ 1785 0190 02       		.uleb128 0x2
+ 1786 0191 18       		.uleb128 0x18
+ 1787 0192 00       		.byte	0
+ 1788 0193 00       		.byte	0
+ 1789 0194 1B       		.uleb128 0x1b
+ 1790 0195 0B       		.uleb128 0xb
+ 1791 0196 01       		.byte	0x1
+ 1792 0197 11       		.uleb128 0x11
+ 1793 0198 01       		.uleb128 0x1
+ 1794 0199 12       		.uleb128 0x12
+ 1795 019a 06       		.uleb128 0x6
+ 1796 019b 00       		.byte	0
+ 1797 019c 00       		.byte	0
+ 1798 019d 1C       		.uleb128 0x1c
+ 1799 019e 34       		.uleb128 0x34
+ 1800 019f 00       		.byte	0
+ 1801 01a0 03       		.uleb128 0x3
+ 1802 01a1 0E       		.uleb128 0xe
+ 1803 01a2 3A       		.uleb128 0x3a
+ 1804 01a3 0B       		.uleb128 0xb
+ 1805 01a4 3B       		.uleb128 0x3b
+ 1806 01a5 0B       		.uleb128 0xb
+ 1807 01a6 49       		.uleb128 0x49
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 35
+
+
+ 1808 01a7 13       		.uleb128 0x13
+ 1809 01a8 02       		.uleb128 0x2
+ 1810 01a9 18       		.uleb128 0x18
+ 1811 01aa 00       		.byte	0
+ 1812 01ab 00       		.byte	0
+ 1813 01ac 1D       		.uleb128 0x1d
+ 1814 01ad 34       		.uleb128 0x34
+ 1815 01ae 00       		.byte	0
+ 1816 01af 03       		.uleb128 0x3
+ 1817 01b0 08       		.uleb128 0x8
+ 1818 01b1 3A       		.uleb128 0x3a
+ 1819 01b2 0B       		.uleb128 0xb
+ 1820 01b3 3B       		.uleb128 0x3b
+ 1821 01b4 0B       		.uleb128 0xb
+ 1822 01b5 49       		.uleb128 0x49
+ 1823 01b6 13       		.uleb128 0x13
+ 1824 01b7 02       		.uleb128 0x2
+ 1825 01b8 18       		.uleb128 0x18
+ 1826 01b9 00       		.byte	0
+ 1827 01ba 00       		.byte	0
+ 1828 01bb 1E       		.uleb128 0x1e
+ 1829 01bc 0B       		.uleb128 0xb
+ 1830 01bd 01       		.byte	0x1
+ 1831 01be 11       		.uleb128 0x11
+ 1832 01bf 01       		.uleb128 0x1
+ 1833 01c0 12       		.uleb128 0x12
+ 1834 01c1 06       		.uleb128 0x6
+ 1835 01c2 01       		.uleb128 0x1
+ 1836 01c3 13       		.uleb128 0x13
+ 1837 01c4 00       		.byte	0
+ 1838 01c5 00       		.byte	0
+ 1839 01c6 1F       		.uleb128 0x1f
+ 1840 01c7 2E       		.uleb128 0x2e
+ 1841 01c8 01       		.byte	0x1
+ 1842 01c9 03       		.uleb128 0x3
+ 1843 01ca 0E       		.uleb128 0xe
+ 1844 01cb 34       		.uleb128 0x34
+ 1845 01cc 19       		.uleb128 0x19
+ 1846 01cd 11       		.uleb128 0x11
+ 1847 01ce 01       		.uleb128 0x1
+ 1848 01cf 12       		.uleb128 0x12
+ 1849 01d0 06       		.uleb128 0x6
+ 1850 01d1 40       		.uleb128 0x40
+ 1851 01d2 18       		.uleb128 0x18
+ 1852 01d3 9642     		.uleb128 0x2116
+ 1853 01d5 19       		.uleb128 0x19
+ 1854 01d6 01       		.uleb128 0x1
+ 1855 01d7 13       		.uleb128 0x13
+ 1856 01d8 00       		.byte	0
+ 1857 01d9 00       		.byte	0
+ 1858 01da 20       		.uleb128 0x20
+ 1859 01db 2E       		.uleb128 0x2e
+ 1860 01dc 00       		.byte	0
+ 1861 01dd 03       		.uleb128 0x3
+ 1862 01de 0E       		.uleb128 0xe
+ 1863 01df 34       		.uleb128 0x34
+ 1864 01e0 19       		.uleb128 0x19
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 36
+
+
+ 1865 01e1 11       		.uleb128 0x11
+ 1866 01e2 01       		.uleb128 0x1
+ 1867 01e3 12       		.uleb128 0x12
+ 1868 01e4 06       		.uleb128 0x6
+ 1869 01e5 40       		.uleb128 0x40
+ 1870 01e6 18       		.uleb128 0x18
+ 1871 01e7 9642     		.uleb128 0x2116
+ 1872 01e9 19       		.uleb128 0x19
+ 1873 01ea 00       		.byte	0
+ 1874 01eb 00       		.byte	0
+ 1875 01ec 21       		.uleb128 0x21
+ 1876 01ed 34       		.uleb128 0x34
+ 1877 01ee 00       		.byte	0
+ 1878 01ef 03       		.uleb128 0x3
+ 1879 01f0 0E       		.uleb128 0xe
+ 1880 01f1 3A       		.uleb128 0x3a
+ 1881 01f2 0B       		.uleb128 0xb
+ 1882 01f3 3B       		.uleb128 0x3b
+ 1883 01f4 05       		.uleb128 0x5
+ 1884 01f5 49       		.uleb128 0x49
+ 1885 01f6 13       		.uleb128 0x13
+ 1886 01f7 3F       		.uleb128 0x3f
+ 1887 01f8 19       		.uleb128 0x19
+ 1888 01f9 3C       		.uleb128 0x3c
+ 1889 01fa 19       		.uleb128 0x19
+ 1890 01fb 00       		.byte	0
+ 1891 01fc 00       		.byte	0
+ 1892 01fd 22       		.uleb128 0x22
+ 1893 01fe 35       		.uleb128 0x35
+ 1894 01ff 00       		.byte	0
+ 1895 0200 49       		.uleb128 0x49
+ 1896 0201 13       		.uleb128 0x13
+ 1897 0202 00       		.byte	0
+ 1898 0203 00       		.byte	0
+ 1899 0204 23       		.uleb128 0x23
+ 1900 0205 34       		.uleb128 0x34
+ 1901 0206 00       		.byte	0
+ 1902 0207 03       		.uleb128 0x3
+ 1903 0208 08       		.uleb128 0x8
+ 1904 0209 3A       		.uleb128 0x3a
+ 1905 020a 0B       		.uleb128 0xb
+ 1906 020b 3B       		.uleb128 0x3b
+ 1907 020c 0B       		.uleb128 0xb
+ 1908 020d 49       		.uleb128 0x49
+ 1909 020e 13       		.uleb128 0x13
+ 1910 020f 3F       		.uleb128 0x3f
+ 1911 0210 19       		.uleb128 0x19
+ 1912 0211 02       		.uleb128 0x2
+ 1913 0212 18       		.uleb128 0x18
+ 1914 0213 00       		.byte	0
+ 1915 0214 00       		.byte	0
+ 1916 0215 24       		.uleb128 0x24
+ 1917 0216 34       		.uleb128 0x34
+ 1918 0217 00       		.byte	0
+ 1919 0218 03       		.uleb128 0x3
+ 1920 0219 0E       		.uleb128 0xe
+ 1921 021a 49       		.uleb128 0x49
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 37
+
+
+ 1922 021b 13       		.uleb128 0x13
+ 1923 021c 3F       		.uleb128 0x3f
+ 1924 021d 19       		.uleb128 0x19
+ 1925 021e 34       		.uleb128 0x34
+ 1926 021f 19       		.uleb128 0x19
+ 1927 0220 3C       		.uleb128 0x3c
+ 1928 0221 19       		.uleb128 0x19
+ 1929 0222 00       		.byte	0
+ 1930 0223 00       		.byte	0
+ 1931 0224 00       		.byte	0
+ 1932              		.section	.debug_aranges,"",%progbits
+ 1933 0000 6C000000 		.4byte	0x6c
+ 1934 0004 0200     		.2byte	0x2
+ 1935 0006 00000000 		.4byte	.Ldebug_info0
+ 1936 000a 04       		.byte	0x4
+ 1937 000b 00       		.byte	0
+ 1938 000c 0000     		.2byte	0
+ 1939 000e 0000     		.2byte	0
+ 1940 0010 00000000 		.4byte	.LFB148
+ 1941 0014 16000000 		.4byte	.LFE148-.LFB148
+ 1942 0018 00000000 		.4byte	.LFB151
+ 1943 001c 16000000 		.4byte	.LFE151-.LFB151
+ 1944 0020 00000000 		.4byte	.LFB153
+ 1945 0024 40000000 		.4byte	.LFE153-.LFB153
+ 1946 0028 00000000 		.4byte	.LFB154
+ 1947 002c 2E000000 		.4byte	.LFE154-.LFB154
+ 1948 0030 00000000 		.4byte	.LFB155
+ 1949 0034 16000000 		.4byte	.LFE155-.LFB155
+ 1950 0038 00000000 		.4byte	.LFB156
+ 1951 003c 1A000000 		.4byte	.LFE156-.LFB156
+ 1952 0040 00000000 		.4byte	.LFB157
+ 1953 0044 2A000000 		.4byte	.LFE157-.LFB157
+ 1954 0048 00000000 		.4byte	.LFB158
+ 1955 004c 38000000 		.4byte	.LFE158-.LFB158
+ 1956 0050 00000000 		.4byte	.LFB159
+ 1957 0054 E0000000 		.4byte	.LFE159-.LFB159
+ 1958 0058 00000000 		.4byte	.LFB160
+ 1959 005c 3C000000 		.4byte	.LFE160-.LFB160
+ 1960 0060 00000000 		.4byte	.LFB161
+ 1961 0064 10000000 		.4byte	.LFE161-.LFB161
+ 1962 0068 00000000 		.4byte	0
+ 1963 006c 00000000 		.4byte	0
+ 1964              		.section	.debug_ranges,"",%progbits
+ 1965              	.Ldebug_ranges0:
+ 1966 0000 00000000 		.4byte	.LFB148
+ 1967 0004 16000000 		.4byte	.LFE148
+ 1968 0008 00000000 		.4byte	.LFB151
+ 1969 000c 16000000 		.4byte	.LFE151
+ 1970 0010 00000000 		.4byte	.LFB153
+ 1971 0014 40000000 		.4byte	.LFE153
+ 1972 0018 00000000 		.4byte	.LFB154
+ 1973 001c 2E000000 		.4byte	.LFE154
+ 1974 0020 00000000 		.4byte	.LFB155
+ 1975 0024 16000000 		.4byte	.LFE155
+ 1976 0028 00000000 		.4byte	.LFB156
+ 1977 002c 1A000000 		.4byte	.LFE156
+ 1978 0030 00000000 		.4byte	.LFB157
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 38
+
+
+ 1979 0034 2A000000 		.4byte	.LFE157
+ 1980 0038 00000000 		.4byte	.LFB158
+ 1981 003c 38000000 		.4byte	.LFE158
+ 1982 0040 00000000 		.4byte	.LFB159
+ 1983 0044 E0000000 		.4byte	.LFE159
+ 1984 0048 00000000 		.4byte	.LFB160
+ 1985 004c 3C000000 		.4byte	.LFE160
+ 1986 0050 00000000 		.4byte	.LFB161
+ 1987 0054 10000000 		.4byte	.LFE161
+ 1988 0058 00000000 		.4byte	0
+ 1989 005c 00000000 		.4byte	0
+ 1990              		.section	.debug_line,"",%progbits
+ 1991              	.Ldebug_line0:
+ 1992 0000 29030000 		.section	.debug_str,"MS",%progbits,1
+ 1992      0200FF01 
+ 1992      00000201 
+ 1992      FB0E0D00 
+ 1992      01010101 
+ 1993              	.LASF57:
+ 1994 0000 73747261 		.ascii	"strayBytes\000"
+ 1994      79427974 
+ 1994      657300
+ 1995              	.LASF2:
+ 1996 000b 73686F72 		.ascii	"short int\000"
+ 1996      7420696E 
+ 1996      7400
+ 1997              	.LASF16:
+ 1998 0015 73697A65 		.ascii	"size_t\000"
+ 1998      5F7400
+ 1999              	.LASF41:
+ 2000 001c 5F5A4E38 		.ascii	"_ZN8SPIClass5beginEv\000"
+ 2000      53504943 
+ 2000      6C617373 
+ 2000      35626567 
+ 2000      696E4576 
+ 2001              	.LASF17:
+ 2002 0031 73697A65 		.ascii	"sizetype\000"
+ 2002      74797065 
+ 2002      00
+ 2003              	.LASF24:
+ 2004 003a 50455249 		.ascii	"PERIPHERAL_OD\000"
+ 2004      50484552 
+ 2004      414C5F4F 
+ 2004      4400
+ 2005              	.LASF39:
+ 2006 0048 62656769 		.ascii	"begin\000"
+ 2006      6E00
+ 2007              	.LASF44:
+ 2008 004e 73657444 		.ascii	"setDataMode\000"
+ 2008      6174614D 
+ 2008      6F646500 
+ 2009              	.LASF70:
+ 2010 005a 5F5A4E38 		.ascii	"_ZN8SPIClass15setClockDividerEh\000"
+ 2010      53504943 
+ 2010      6C617373 
+ 2010      31357365 
+ 2010      74436C6F 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 39
+
+
+ 2011              	.LASF45:
+ 2012 007a 5F5A4E38 		.ascii	"_ZN8SPIClass11setDataModeE8SPI_MODE\000"
+ 2012      53504943 
+ 2012      6C617373 
+ 2012      31317365 
+ 2012      74446174 
+ 2013              	.LASF33:
+ 2014 009e 4249544F 		.ascii	"BITORDER\000"
+ 2014      52444552 
+ 2014      00
+ 2015              	.LASF11:
+ 2016 00a7 75696E74 		.ascii	"uint8_t\000"
+ 2016      385F7400 
+ 2017              	.LASF69:
+ 2018 00af 73657443 		.ascii	"setClockDivider\000"
+ 2018      6C6F636B 
+ 2018      44697669 
+ 2018      64657200 
+ 2019              	.LASF67:
+ 2020 00bf 5F5A4E38 		.ascii	"_ZN8SPIClass8transferEh\000"
+ 2020      53504943 
+ 2020      6C617373 
+ 2020      38747261 
+ 2020      6E736665 
+ 2021              	.LASF68:
+ 2022 00d7 5F5A4E38 		.ascii	"_ZN8SPIClass3endEv\000"
+ 2022      53504943 
+ 2022      6C617373 
+ 2022      33656E64 
+ 2022      457600
+ 2023              	.LASF29:
+ 2024 00ea 5350495F 		.ascii	"SPI_MODE0\000"
+ 2024      4D4F4445 
+ 2024      3000
+ 2025              	.LASF30:
+ 2026 00f4 5350495F 		.ascii	"SPI_MODE1\000"
+ 2026      4D4F4445 
+ 2026      3100
+ 2027              	.LASF31:
+ 2028 00fe 5350495F 		.ascii	"SPI_MODE2\000"
+ 2028      4D4F4445 
+ 2028      3200
+ 2029              	.LASF32:
+ 2030 0108 5350495F 		.ascii	"SPI_MODE3\000"
+ 2030      4D4F4445 
+ 2030      3300
+ 2031              	.LASF25:
+ 2032 0112 626F6F6C 		.ascii	"bool\000"
+ 2032      00
+ 2033              	.LASF48:
+ 2034 0117 5F5A4E38 		.ascii	"_ZN8SPIClassC2Ev\000"
+ 2034      53504943 
+ 2034      6C617373 
+ 2034      43324576 
+ 2034      00
+ 2035              	.LASF65:
+ 2036 0128 4C696272 		.ascii	"Libraries\\SPI\\SPI.cpp\000"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 40
+
+
+ 2036      61726965 
+ 2036      735C5350 
+ 2036      495C5350 
+ 2036      492E6370 
+ 2037              	.LASF13:
+ 2038 013e 666C6F61 		.ascii	"float\000"
+ 2038      7400
+ 2039              	.LASF8:
+ 2040 0144 6C6F6E67 		.ascii	"long long int\000"
+ 2040      206C6F6E 
+ 2040      6720696E 
+ 2040      7400
+ 2041              	.LASF9:
+ 2042 0152 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2042      206C6F6E 
+ 2042      6720756E 
+ 2042      7369676E 
+ 2042      65642069 
+ 2043              	.LASF6:
+ 2044 0169 6C6F6E67 		.ascii	"long int\000"
+ 2044      20696E74 
+ 2044      00
+ 2045              	.LASF20:
+ 2046 0172 494E5055 		.ascii	"INPUT_PULLUP\000"
+ 2046      545F5055 
+ 2046      4C4C5550 
+ 2046      00
+ 2047              	.LASF21:
+ 2048 017f 50455249 		.ascii	"PERIPHERAL\000"
+ 2048      50484552 
+ 2048      414C00
+ 2049              	.LASF53:
+ 2050 018a 5F646174 		.ascii	"_data\000"
+ 2050      6100
+ 2051              	.LASF4:
+ 2052 0190 5F5F7569 		.ascii	"__uint8_t\000"
+ 2052      6E74385F 
+ 2052      7400
+ 2053              	.LASF58:
+ 2054 019a 5F5F696E 		.ascii	"__initialize_p\000"
+ 2054      69746961 
+ 2054      6C697A65 
+ 2054      5F7000
+ 2055              	.LASF26:
+ 2056 01a9 6C6F6E67 		.ascii	"long double\000"
+ 2056      20646F75 
+ 2056      626C6500 
+ 2057              	.LASF1:
+ 2058 01b5 756E7369 		.ascii	"unsigned char\000"
+ 2058      676E6564 
+ 2058      20636861 
+ 2058      7200
+ 2059              	.LASF35:
+ 2060 01c3 4C53425F 		.ascii	"LSB_FIRST\000"
+ 2060      46495253 
+ 2060      5400
+ 2061              	.LASF36:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 41
+
+
+ 2062 01cd 53504943 		.ascii	"SPIClass\000"
+ 2062      6C617373 
+ 2062      00
+ 2063              	.LASF0:
+ 2064 01d6 7369676E 		.ascii	"signed char\000"
+ 2064      65642063 
+ 2064      68617200 
+ 2065              	.LASF34:
+ 2066 01e2 4D53425F 		.ascii	"MSB_FIRST\000"
+ 2066      46495253 
+ 2066      5400
+ 2067              	.LASF10:
+ 2068 01ec 756E7369 		.ascii	"unsigned int\000"
+ 2068      676E6564 
+ 2068      20696E74 
+ 2068      00
+ 2069              	.LASF49:
+ 2070 01f9 5F5A4E38 		.ascii	"_ZN8SPIClassD2Ev\000"
+ 2070      53504943 
+ 2070      6C617373 
+ 2070      44324576 
+ 2070      00
+ 2071              	.LASF23:
+ 2072 020a 50455249 		.ascii	"PERIPHERAL_IN\000"
+ 2072      50484552 
+ 2072      414C5F49 
+ 2072      4E00
+ 2073              	.LASF7:
+ 2074 0218 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2074      20756E73 
+ 2074      69676E65 
+ 2074      6420696E 
+ 2074      7400
+ 2075              	.LASF60:
+ 2076 022a 4D4F5349 		.ascii	"MOSI\000"
+ 2076      00
+ 2077              	.LASF54:
+ 2078 022f 5F627566 		.ascii	"_buf\000"
+ 2078      00
+ 2079              	.LASF72:
+ 2080 0234 5F474C4F 		.ascii	"_GLOBAL__sub_I_SPI\000"
+ 2080      42414C5F 
+ 2080      5F737562 
+ 2080      5F495F53 
+ 2080      504900
+ 2081              	.LASF43:
+ 2082 0247 5F5A4E38 		.ascii	"_ZN8SPIClass11setBitOrderE8BITORDER\000"
+ 2082      53504943 
+ 2082      6C617373 
+ 2082      31317365 
+ 2082      74426974 
+ 2083              	.LASF3:
+ 2084 026b 73686F72 		.ascii	"short unsigned int\000"
+ 2084      7420756E 
+ 2084      7369676E 
+ 2084      65642069 
+ 2084      6E7400
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 42
+
+
+ 2085              	.LASF18:
+ 2086 027e 4F555450 		.ascii	"OUTPUT\000"
+ 2086      555400
+ 2087              	.LASF15:
+ 2088 0285 63686172 		.ascii	"char\000"
+ 2088      00
+ 2089              	.LASF61:
+ 2090 028a 4D49534F 		.ascii	"MISO\000"
+ 2090      00
+ 2091              	.LASF12:
+ 2092 028f 696E7433 		.ascii	"int32_t\000"
+ 2092      325F7400 
+ 2093              	.LASF51:
+ 2094 0297 7370694D 		.ascii	"spiMode\000"
+ 2094      6F646500 
+ 2095              	.LASF47:
+ 2096 029f 5F5F696E 		.ascii	"__in_chrg\000"
+ 2096      5F636872 
+ 2096      6700
+ 2097              	.LASF71:
+ 2098 02a9 5F5F7374 		.ascii	"__static_initialization_and_destruction_0\000"
+ 2098      61746963 
+ 2098      5F696E69 
+ 2098      7469616C 
+ 2098      697A6174 
+ 2099              	.LASF59:
+ 2100 02d3 5F5F7072 		.ascii	"__priority\000"
+ 2100      696F7269 
+ 2100      747900
+ 2101              	.LASF46:
+ 2102 02de 74686973 		.ascii	"this\000"
+ 2102      00
+ 2103              	.LASF56:
+ 2104 02e3 66756C6C 		.ascii	"fullPackets\000"
+ 2104      5061636B 
+ 2104      65747300 
+ 2105              	.LASF42:
+ 2106 02ef 73657442 		.ascii	"setBitOrder\000"
+ 2106      69744F72 
+ 2106      64657200 
+ 2107              	.LASF38:
+ 2108 02fb 7472616E 		.ascii	"transfer\000"
+ 2108      73666572 
+ 2108      00
+ 2109              	.LASF22:
+ 2110 0304 50455249 		.ascii	"PERIPHERAL_OUT\000"
+ 2110      50484552 
+ 2110      414C5F4F 
+ 2110      555400
+ 2111              	.LASF14:
+ 2112 0313 646F7562 		.ascii	"double\000"
+ 2112      6C6500
+ 2113              	.LASF55:
+ 2114 031a 5F636F75 		.ascii	"_count\000"
+ 2114      6E7400
+ 2115              	.LASF52:
+ 2116 0321 5F646976 		.ascii	"_divider\000"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 43
+
+
+ 2116      69646572 
+ 2116      00
+ 2117              	.LASF27:
+ 2118 032a 50494E5F 		.ascii	"PIN_MODE\000"
+ 2118      4D4F4445 
+ 2118      00
+ 2119              	.LASF63:
+ 2120 0333 5F5F6473 		.ascii	"__dso_handle\000"
+ 2120      6F5F6861 
+ 2120      6E646C65 
+ 2120      00
+ 2121              	.LASF5:
+ 2122 0340 5F5F696E 		.ascii	"__int32_t\000"
+ 2122      7433325F 
+ 2122      7400
+ 2123              	.LASF66:
+ 2124 034a 433A5C55 		.ascii	"C:\\Users\\Bruger\\Desktop\\CODE\\PSOC5\\CY8CKIT-59"
+ 2124      73657273 
+ 2124      5C427275 
+ 2124      6765725C 
+ 2124      4465736B 
+ 2125 0377 2D417264 		.ascii	"-Arduino\\CY8CKIT59_Ardudino-Speeduino.cydsn\000"
+ 2125      75696E6F 
+ 2125      5C435938 
+ 2125      434B4954 
+ 2125      35395F41 
+ 2126              	.LASF19:
+ 2127 03a3 494E5055 		.ascii	"INPUT\000"
+ 2127      5400
+ 2128              	.LASF62:
+ 2129 03a9 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2129      52784275 
+ 2129      66666572 
+ 2129      00
+ 2130              	.LASF28:
+ 2131 03b6 5350495F 		.ascii	"SPI_MODE\000"
+ 2131      4D4F4445 
+ 2131      00
+ 2132              	.LASF40:
+ 2133 03bf 5F5A4E38 		.ascii	"_ZN8SPIClass8transferEPhj\000"
+ 2133      53504943 
+ 2133      6C617373 
+ 2133      38747261 
+ 2133      6E736665 
+ 2134              	.LASF50:
+ 2135 03d9 5F626974 		.ascii	"_bitOrder\000"
+ 2135      4F726465 
+ 2135      7200
+ 2136              	.LASF37:
+ 2137 03e3 7E535049 		.ascii	"~SPIClass\000"
+ 2137      436C6173 
+ 2137      7300
+ 2138              	.LASF64:
+ 2139 03ed 474E5520 		.ascii	"GNU C++ 4.9.3 20150303 (release) [ARM/embedded-4_9-"
+ 2139      432B2B20 
+ 2139      342E392E 
+ 2139      33203230 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc6E5BQ9.s 			page 44
+
+
+ 2139      31353033 
+ 2140 0420 6272616E 		.ascii	"branch revision 221220] -mcpu=cortex-m3 -mthumb -g "
+ 2140      63682072 
+ 2140      65766973 
+ 2140      696F6E20 
+ 2140      32323132 
+ 2141 0453 2D4F3020 		.ascii	"-O0 -ffunction-sections -ffat-lto-objects\000"
+ 2141      2D666675 
+ 2141      6E637469 
+ 2141      6F6E2D73 
+ 2141      65637469 
+ 2142              		.hidden	__dso_handle
+ 2143              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

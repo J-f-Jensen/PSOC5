@@ -1,0 +1,2322 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"IgnitionCounter.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	IgnitionCounter_initVar
+  19              		.bss
+  20              		.type	IgnitionCounter_initVar, %object
+  21              		.size	IgnitionCounter_initVar, 1
+  22              	IgnitionCounter_initVar:
+  23 0000 00       		.space	1
+  24              		.section	.text.IgnitionCounter_Init,"ax",%progbits
+  25              		.align	2
+  26              		.global	IgnitionCounter_Init
+  27              		.thumb
+  28              		.thumb_func
+  29              		.type	IgnitionCounter_Init, %function
+  30              	IgnitionCounter_Init:
+  31              	.LFB0:
+  32              		.file 1 "Generated_Source\\PSoC5\\IgnitionCounter.c"
+   1:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/IgnitionCounter.c **** * File Name: IgnitionCounter.c  
+   3:Generated_Source\PSoC5/IgnitionCounter.c **** * Version 3.0
+   4:Generated_Source\PSoC5/IgnitionCounter.c **** *
+   5:Generated_Source\PSoC5/IgnitionCounter.c **** *  Description:
+   6:Generated_Source\PSoC5/IgnitionCounter.c **** *     The Counter component consists of a 8, 16, 24 or 32-bit counter with
+   7:Generated_Source\PSoC5/IgnitionCounter.c **** *     a selectable period between 2 and 2^Width - 1.  
+   8:Generated_Source\PSoC5/IgnitionCounter.c **** *
+   9:Generated_Source\PSoC5/IgnitionCounter.c **** *   Note:
+  10:Generated_Source\PSoC5/IgnitionCounter.c **** *     None
+  11:Generated_Source\PSoC5/IgnitionCounter.c **** *
+  12:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+  13:Generated_Source\PSoC5/IgnitionCounter.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC5/IgnitionCounter.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  15:Generated_Source\PSoC5/IgnitionCounter.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  16:Generated_Source\PSoC5/IgnitionCounter.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+  18:Generated_Source\PSoC5/IgnitionCounter.c **** 
+  19:Generated_Source\PSoC5/IgnitionCounter.c **** #include "IgnitionCounter.h"
+  20:Generated_Source\PSoC5/IgnitionCounter.c **** 
+  21:Generated_Source\PSoC5/IgnitionCounter.c **** uint8 IgnitionCounter_initVar = 0u;
+  22:Generated_Source\PSoC5/IgnitionCounter.c **** 
+  23:Generated_Source\PSoC5/IgnitionCounter.c **** 
+  24:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+  25:Generated_Source\PSoC5/IgnitionCounter.c **** * Function Name: IgnitionCounter_Init
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 2
+
+
+  26:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+  27:Generated_Source\PSoC5/IgnitionCounter.c **** * Summary:
+  28:Generated_Source\PSoC5/IgnitionCounter.c **** *     Initialize to the schematic state
+  29:Generated_Source\PSoC5/IgnitionCounter.c **** * 
+  30:Generated_Source\PSoC5/IgnitionCounter.c **** * Parameters:  
+  31:Generated_Source\PSoC5/IgnitionCounter.c **** *  void  
+  32:Generated_Source\PSoC5/IgnitionCounter.c **** *
+  33:Generated_Source\PSoC5/IgnitionCounter.c **** * Return: 
+  34:Generated_Source\PSoC5/IgnitionCounter.c **** *  void
+  35:Generated_Source\PSoC5/IgnitionCounter.c **** *
+  36:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+  37:Generated_Source\PSoC5/IgnitionCounter.c **** void IgnitionCounter_Init(void) 
+  38:Generated_Source\PSoC5/IgnitionCounter.c **** {
+  33              		.loc 1 38 0
+  34              		.cfi_startproc
+  35              		@ args = 0, pretend = 0, frame = 8
+  36              		@ frame_needed = 1, uses_anonymous_args = 0
+  37 0000 80B5     		push	{r7, lr}
+  38              		.cfi_def_cfa_offset 8
+  39              		.cfi_offset 7, -8
+  40              		.cfi_offset 14, -4
+  41 0002 82B0     		sub	sp, sp, #8
+  42              		.cfi_def_cfa_offset 16
+  43 0004 00AF     		add	r7, sp, #0
+  44              		.cfi_def_cfa_register 7
+  39:Generated_Source\PSoC5/IgnitionCounter.c ****         #if (!IgnitionCounter_UsingFixedFunction && !IgnitionCounter_ControlRegRemoved)
+  40:Generated_Source\PSoC5/IgnitionCounter.c ****             uint8 ctrl;
+  41:Generated_Source\PSoC5/IgnitionCounter.c ****         #endif /* (!IgnitionCounter_UsingFixedFunction && !IgnitionCounter_ControlRegRemoved) */
+  42:Generated_Source\PSoC5/IgnitionCounter.c ****         
+  43:Generated_Source\PSoC5/IgnitionCounter.c ****         #if(!IgnitionCounter_UsingFixedFunction) 
+  44:Generated_Source\PSoC5/IgnitionCounter.c ****             /* Interrupt State Backup for Critical Region*/
+  45:Generated_Source\PSoC5/IgnitionCounter.c ****             uint8 IgnitionCounter_interruptState;
+  46:Generated_Source\PSoC5/IgnitionCounter.c ****         #endif /* (!IgnitionCounter_UsingFixedFunction) */
+  47:Generated_Source\PSoC5/IgnitionCounter.c ****         
+  48:Generated_Source\PSoC5/IgnitionCounter.c ****         #if (IgnitionCounter_UsingFixedFunction)
+  49:Generated_Source\PSoC5/IgnitionCounter.c ****             /* Clear all bits but the enable bit (if it's already set for Timer operation */
+  50:Generated_Source\PSoC5/IgnitionCounter.c ****             IgnitionCounter_CONTROL &= IgnitionCounter_CTRL_ENABLE;
+  51:Generated_Source\PSoC5/IgnitionCounter.c ****             
+  52:Generated_Source\PSoC5/IgnitionCounter.c ****             /* Clear the mode bits for continuous run mode */
+  53:Generated_Source\PSoC5/IgnitionCounter.c ****             #if (CY_PSOC5A)
+  54:Generated_Source\PSoC5/IgnitionCounter.c ****                 IgnitionCounter_CONTROL2 &= ((uint8)(~IgnitionCounter_CTRL_MODE_MASK));
+  55:Generated_Source\PSoC5/IgnitionCounter.c ****             #endif /* (CY_PSOC5A) */
+  56:Generated_Source\PSoC5/IgnitionCounter.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  57:Generated_Source\PSoC5/IgnitionCounter.c ****                 IgnitionCounter_CONTROL3 &= ((uint8)(~IgnitionCounter_CTRL_MODE_MASK));            
+  58:Generated_Source\PSoC5/IgnitionCounter.c ****             #endif /* (CY_PSOC3 || CY_PSOC5LP) */
+  59:Generated_Source\PSoC5/IgnitionCounter.c ****             /* Check if One Shot mode is enabled i.e. RunMode !=0*/
+  60:Generated_Source\PSoC5/IgnitionCounter.c ****             #if (IgnitionCounter_RunModeUsed != 0x0u)
+  61:Generated_Source\PSoC5/IgnitionCounter.c ****                 /* Set 3rd bit of Control register to enable one shot mode */
+  62:Generated_Source\PSoC5/IgnitionCounter.c ****                 IgnitionCounter_CONTROL |= IgnitionCounter_ONESHOT;
+  63:Generated_Source\PSoC5/IgnitionCounter.c ****             #endif /* (IgnitionCounter_RunModeUsed != 0x0u) */
+  64:Generated_Source\PSoC5/IgnitionCounter.c ****             
+  65:Generated_Source\PSoC5/IgnitionCounter.c ****             /* Set the IRQ to use the status register interrupts */
+  66:Generated_Source\PSoC5/IgnitionCounter.c ****             IgnitionCounter_CONTROL2 |= IgnitionCounter_CTRL2_IRQ_SEL;
+  67:Generated_Source\PSoC5/IgnitionCounter.c ****             
+  68:Generated_Source\PSoC5/IgnitionCounter.c ****             /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+  69:Generated_Source\PSoC5/IgnitionCounter.c ****             IgnitionCounter_RT1 &= ((uint8)(~IgnitionCounter_RT1_MASK));
+  70:Generated_Source\PSoC5/IgnitionCounter.c ****             IgnitionCounter_RT1 |= IgnitionCounter_SYNC;     
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 3
+
+
+  71:Generated_Source\PSoC5/IgnitionCounter.c ****                     
+  72:Generated_Source\PSoC5/IgnitionCounter.c ****             /*Enable DSI Sync all all inputs of the Timer*/
+  73:Generated_Source\PSoC5/IgnitionCounter.c ****             IgnitionCounter_RT1 &= ((uint8)(~IgnitionCounter_SYNCDSI_MASK));
+  74:Generated_Source\PSoC5/IgnitionCounter.c ****             IgnitionCounter_RT1 |= IgnitionCounter_SYNCDSI_EN;
+  75:Generated_Source\PSoC5/IgnitionCounter.c **** 
+  76:Generated_Source\PSoC5/IgnitionCounter.c ****         #else
+  77:Generated_Source\PSoC5/IgnitionCounter.c ****             #if(!IgnitionCounter_ControlRegRemoved)
+  78:Generated_Source\PSoC5/IgnitionCounter.c ****             /* Set the default compare mode defined in the parameter */
+  79:Generated_Source\PSoC5/IgnitionCounter.c ****             ctrl = IgnitionCounter_CONTROL & ((uint8)(~IgnitionCounter_CTRL_CMPMODE_MASK));
+  45              		.loc 1 79 0
+  46 0006 1D4B     		ldr	r3, .L2
+  47 0008 1B78     		ldrb	r3, [r3]
+  48 000a DBB2     		uxtb	r3, r3
+  49 000c 23F00703 		bic	r3, r3, #7
+  50 0010 FB71     		strb	r3, [r7, #7]
+  80:Generated_Source\PSoC5/IgnitionCounter.c ****             IgnitionCounter_CONTROL = ctrl | IgnitionCounter_DEFAULT_COMPARE_MODE;
+  51              		.loc 1 80 0
+  52 0012 1A4A     		ldr	r2, .L2
+  53 0014 FB79     		ldrb	r3, [r7, #7]
+  54 0016 43F00303 		orr	r3, r3, #3
+  55 001a DBB2     		uxtb	r3, r3
+  56 001c 1370     		strb	r3, [r2]
+  81:Generated_Source\PSoC5/IgnitionCounter.c ****             
+  82:Generated_Source\PSoC5/IgnitionCounter.c ****             /* Set the default capture mode defined in the parameter */
+  83:Generated_Source\PSoC5/IgnitionCounter.c ****             ctrl = IgnitionCounter_CONTROL & ((uint8)(~IgnitionCounter_CTRL_CAPMODE_MASK));
+  57              		.loc 1 83 0
+  58 001e 174B     		ldr	r3, .L2
+  59 0020 1B78     		ldrb	r3, [r3]
+  60 0022 DBB2     		uxtb	r3, r3
+  61 0024 23F00303 		bic	r3, r3, #3
+  62 0028 FB71     		strb	r3, [r7, #7]
+  84:Generated_Source\PSoC5/IgnitionCounter.c ****             
+  85:Generated_Source\PSoC5/IgnitionCounter.c ****             #if( 0 != IgnitionCounter_CAPTURE_MODE_CONF)
+  86:Generated_Source\PSoC5/IgnitionCounter.c ****                 IgnitionCounter_CONTROL = ctrl | IgnitionCounter_DEFAULT_CAPTURE_MODE;
+  87:Generated_Source\PSoC5/IgnitionCounter.c ****             #else
+  88:Generated_Source\PSoC5/IgnitionCounter.c ****                 IgnitionCounter_CONTROL = ctrl;
+  63              		.loc 1 88 0
+  64 002a 144A     		ldr	r2, .L2
+  65 002c FB79     		ldrb	r3, [r7, #7]
+  66 002e 1370     		strb	r3, [r2]
+  89:Generated_Source\PSoC5/IgnitionCounter.c ****             #endif /* 0 != IgnitionCounter_CAPTURE_MODE */ 
+  90:Generated_Source\PSoC5/IgnitionCounter.c ****             
+  91:Generated_Source\PSoC5/IgnitionCounter.c ****             #endif /* (!IgnitionCounter_ControlRegRemoved) */
+  92:Generated_Source\PSoC5/IgnitionCounter.c ****         #endif /* (IgnitionCounter_UsingFixedFunction) */
+  93:Generated_Source\PSoC5/IgnitionCounter.c ****         
+  94:Generated_Source\PSoC5/IgnitionCounter.c ****         /* Clear all data in the FIFO's */
+  95:Generated_Source\PSoC5/IgnitionCounter.c ****         #if (!IgnitionCounter_UsingFixedFunction)
+  96:Generated_Source\PSoC5/IgnitionCounter.c ****             IgnitionCounter_ClearFIFO();
+  67              		.loc 1 96 0
+  68 0030 FFF7FEFF 		bl	IgnitionCounter_ClearFIFO
+  97:Generated_Source\PSoC5/IgnitionCounter.c ****         #endif /* (!IgnitionCounter_UsingFixedFunction) */
+  98:Generated_Source\PSoC5/IgnitionCounter.c ****         
+  99:Generated_Source\PSoC5/IgnitionCounter.c ****         /* Set Initial values from Configuration */
+ 100:Generated_Source\PSoC5/IgnitionCounter.c ****         IgnitionCounter_WritePeriod(IgnitionCounter_INIT_PERIOD_VALUE);
+  69              		.loc 1 100 0
+  70 0034 4FF6FF70 		movw	r0, #65535
+  71 0038 FFF7FEFF 		bl	IgnitionCounter_WritePeriod
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 4
+
+
+ 101:Generated_Source\PSoC5/IgnitionCounter.c ****         #if (!(IgnitionCounter_UsingFixedFunction && (CY_PSOC5A)))
+ 102:Generated_Source\PSoC5/IgnitionCounter.c ****             IgnitionCounter_WriteCounter(IgnitionCounter_INIT_COUNTER_VALUE);
+  72              		.loc 1 102 0
+  73 003c 0020     		movs	r0, #0
+  74 003e FFF7FEFF 		bl	IgnitionCounter_WriteCounter
+ 103:Generated_Source\PSoC5/IgnitionCounter.c ****         #endif /* (!(IgnitionCounter_UsingFixedFunction && (CY_PSOC5A))) */
+ 104:Generated_Source\PSoC5/IgnitionCounter.c ****         IgnitionCounter_SetInterruptMode(IgnitionCounter_INIT_INTERRUPTS_MASK);
+  75              		.loc 1 104 0
+  76 0042 0D20     		movs	r0, #13
+  77 0044 FFF7FEFF 		bl	IgnitionCounter_SetInterruptMode
+ 105:Generated_Source\PSoC5/IgnitionCounter.c ****         
+ 106:Generated_Source\PSoC5/IgnitionCounter.c ****         #if (!IgnitionCounter_UsingFixedFunction)
+ 107:Generated_Source\PSoC5/IgnitionCounter.c ****             /* Read the status register to clear the unwanted interrupts */
+ 108:Generated_Source\PSoC5/IgnitionCounter.c ****             (void)IgnitionCounter_ReadStatusRegister();
+  78              		.loc 1 108 0
+  79 0048 FFF7FEFF 		bl	IgnitionCounter_ReadStatusRegister
+ 109:Generated_Source\PSoC5/IgnitionCounter.c ****             /* Set the compare value (only available to non-fixed function implementation */
+ 110:Generated_Source\PSoC5/IgnitionCounter.c ****             IgnitionCounter_WriteCompare(IgnitionCounter_INIT_COMPARE_VALUE);
+  80              		.loc 1 110 0
+  81 004c 4FF6FF70 		movw	r0, #65535
+  82 0050 FFF7FEFF 		bl	IgnitionCounter_WriteCompare
+ 111:Generated_Source\PSoC5/IgnitionCounter.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 112:Generated_Source\PSoC5/IgnitionCounter.c ****             
+ 113:Generated_Source\PSoC5/IgnitionCounter.c ****             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region cri
+ 114:Generated_Source\PSoC5/IgnitionCounter.c ****             /* Enter Critical Region*/
+ 115:Generated_Source\PSoC5/IgnitionCounter.c ****             IgnitionCounter_interruptState = CyEnterCriticalSection();
+  83              		.loc 1 115 0
+  84 0054 FFF7FEFF 		bl	CyEnterCriticalSection
+  85 0058 0346     		mov	r3, r0
+  86 005a BB71     		strb	r3, [r7, #6]
+ 116:Generated_Source\PSoC5/IgnitionCounter.c ****             
+ 117:Generated_Source\PSoC5/IgnitionCounter.c ****             IgnitionCounter_STATUS_AUX_CTRL |= IgnitionCounter_STATUS_ACTL_INT_EN_MASK;
+  87              		.loc 1 117 0
+  88 005c 084A     		ldr	r2, .L2+4
+  89 005e 084B     		ldr	r3, .L2+4
+  90 0060 1B78     		ldrb	r3, [r3]
+  91 0062 DBB2     		uxtb	r3, r3
+  92 0064 43F01003 		orr	r3, r3, #16
+  93 0068 DBB2     		uxtb	r3, r3
+  94 006a 1370     		strb	r3, [r2]
+ 118:Generated_Source\PSoC5/IgnitionCounter.c ****             
+ 119:Generated_Source\PSoC5/IgnitionCounter.c ****             /* Exit Critical Region*/
+ 120:Generated_Source\PSoC5/IgnitionCounter.c ****             CyExitCriticalSection(IgnitionCounter_interruptState);
+  95              		.loc 1 120 0
+  96 006c BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+  97 006e 1846     		mov	r0, r3
+  98 0070 FFF7FEFF 		bl	CyExitCriticalSection
+ 121:Generated_Source\PSoC5/IgnitionCounter.c ****             
+ 122:Generated_Source\PSoC5/IgnitionCounter.c ****         #endif /* (!IgnitionCounter_UsingFixedFunction) */
+ 123:Generated_Source\PSoC5/IgnitionCounter.c **** }
+  99              		.loc 1 123 0
+ 100 0074 0837     		adds	r7, r7, #8
+ 101              		.cfi_def_cfa_offset 8
+ 102 0076 BD46     		mov	sp, r7
+ 103              		.cfi_def_cfa_register 13
+ 104              		@ sp needed
+ 105 0078 80BD     		pop	{r7, pc}
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 5
+
+
+ 106              	.L3:
+ 107 007a 00BF     		.align	2
+ 108              	.L2:
+ 109 007c 75640040 		.word	1073767541
+ 110 0080 95640040 		.word	1073767573
+ 111              		.cfi_endproc
+ 112              	.LFE0:
+ 113              		.size	IgnitionCounter_Init, .-IgnitionCounter_Init
+ 114              		.section	.text.IgnitionCounter_Enable,"ax",%progbits
+ 115              		.align	2
+ 116              		.global	IgnitionCounter_Enable
+ 117              		.thumb
+ 118              		.thumb_func
+ 119              		.type	IgnitionCounter_Enable, %function
+ 120              	IgnitionCounter_Enable:
+ 121              	.LFB1:
+ 124:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 125:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 126:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+ 127:Generated_Source\PSoC5/IgnitionCounter.c **** * Function Name: IgnitionCounter_Enable
+ 128:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+ 129:Generated_Source\PSoC5/IgnitionCounter.c **** * Summary:
+ 130:Generated_Source\PSoC5/IgnitionCounter.c **** *     Enable the Counter
+ 131:Generated_Source\PSoC5/IgnitionCounter.c **** * 
+ 132:Generated_Source\PSoC5/IgnitionCounter.c **** * Parameters:  
+ 133:Generated_Source\PSoC5/IgnitionCounter.c **** *  void  
+ 134:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 135:Generated_Source\PSoC5/IgnitionCounter.c **** * Return: 
+ 136:Generated_Source\PSoC5/IgnitionCounter.c **** *  void
+ 137:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 138:Generated_Source\PSoC5/IgnitionCounter.c **** * Side Effects: 
+ 139:Generated_Source\PSoC5/IgnitionCounter.c **** *   If the Enable mode is set to Hardware only then this function has no effect 
+ 140:Generated_Source\PSoC5/IgnitionCounter.c **** *   on the operation of the counter.
+ 141:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 142:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+ 143:Generated_Source\PSoC5/IgnitionCounter.c **** void IgnitionCounter_Enable(void) 
+ 144:Generated_Source\PSoC5/IgnitionCounter.c **** {
+ 122              		.loc 1 144 0
+ 123              		.cfi_startproc
+ 124              		@ args = 0, pretend = 0, frame = 0
+ 125              		@ frame_needed = 1, uses_anonymous_args = 0
+ 126              		@ link register save eliminated.
+ 127 0000 80B4     		push	{r7}
+ 128              		.cfi_def_cfa_offset 4
+ 129              		.cfi_offset 7, -4
+ 130 0002 00AF     		add	r7, sp, #0
+ 131              		.cfi_def_cfa_register 7
+ 145:Generated_Source\PSoC5/IgnitionCounter.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 146:Generated_Source\PSoC5/IgnitionCounter.c ****     #if (IgnitionCounter_UsingFixedFunction)
+ 147:Generated_Source\PSoC5/IgnitionCounter.c ****         IgnitionCounter_GLOBAL_ENABLE |= IgnitionCounter_BLOCK_EN_MASK;
+ 148:Generated_Source\PSoC5/IgnitionCounter.c ****         IgnitionCounter_GLOBAL_STBY_ENABLE |= IgnitionCounter_BLOCK_STBY_EN_MASK;
+ 149:Generated_Source\PSoC5/IgnitionCounter.c ****     #endif /* (IgnitionCounter_UsingFixedFunction) */  
+ 150:Generated_Source\PSoC5/IgnitionCounter.c ****         
+ 151:Generated_Source\PSoC5/IgnitionCounter.c ****     /* Enable the counter from the control register  */
+ 152:Generated_Source\PSoC5/IgnitionCounter.c ****     /* If Fixed Function then make sure Mode is set correctly */
+ 153:Generated_Source\PSoC5/IgnitionCounter.c ****     /* else make sure reset is clear */
+ 154:Generated_Source\PSoC5/IgnitionCounter.c ****     #if(!IgnitionCounter_ControlRegRemoved || IgnitionCounter_UsingFixedFunction)
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 6
+
+
+ 155:Generated_Source\PSoC5/IgnitionCounter.c ****         IgnitionCounter_CONTROL |= IgnitionCounter_CTRL_ENABLE;                
+ 132              		.loc 1 155 0
+ 133 0004 054A     		ldr	r2, .L5
+ 134 0006 054B     		ldr	r3, .L5
+ 135 0008 1B78     		ldrb	r3, [r3]
+ 136 000a DBB2     		uxtb	r3, r3
+ 137 000c 63F07F03 		orn	r3, r3, #127
+ 138 0010 DBB2     		uxtb	r3, r3
+ 139 0012 1370     		strb	r3, [r2]
+ 156:Generated_Source\PSoC5/IgnitionCounter.c ****     #endif /* (!IgnitionCounter_ControlRegRemoved || IgnitionCounter_UsingFixedFunction) */
+ 157:Generated_Source\PSoC5/IgnitionCounter.c ****     
+ 158:Generated_Source\PSoC5/IgnitionCounter.c **** }
+ 140              		.loc 1 158 0
+ 141 0014 BD46     		mov	sp, r7
+ 142              		.cfi_def_cfa_register 13
+ 143              		@ sp needed
+ 144 0016 5DF8047B 		ldr	r7, [sp], #4
+ 145              		.cfi_restore 7
+ 146              		.cfi_def_cfa_offset 0
+ 147 001a 7047     		bx	lr
+ 148              	.L6:
+ 149              		.align	2
+ 150              	.L5:
+ 151 001c 75640040 		.word	1073767541
+ 152              		.cfi_endproc
+ 153              	.LFE1:
+ 154              		.size	IgnitionCounter_Enable, .-IgnitionCounter_Enable
+ 155              		.section	.text.IgnitionCounter_Start,"ax",%progbits
+ 156              		.align	2
+ 157              		.global	IgnitionCounter_Start
+ 158              		.thumb
+ 159              		.thumb_func
+ 160              		.type	IgnitionCounter_Start, %function
+ 161              	IgnitionCounter_Start:
+ 162              	.LFB2:
+ 159:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 160:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 161:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+ 162:Generated_Source\PSoC5/IgnitionCounter.c **** * Function Name: IgnitionCounter_Start
+ 163:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+ 164:Generated_Source\PSoC5/IgnitionCounter.c **** * Summary:
+ 165:Generated_Source\PSoC5/IgnitionCounter.c **** *  Enables the counter for operation 
+ 166:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 167:Generated_Source\PSoC5/IgnitionCounter.c **** * Parameters:  
+ 168:Generated_Source\PSoC5/IgnitionCounter.c **** *  void  
+ 169:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 170:Generated_Source\PSoC5/IgnitionCounter.c **** * Return: 
+ 171:Generated_Source\PSoC5/IgnitionCounter.c **** *  void
+ 172:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 173:Generated_Source\PSoC5/IgnitionCounter.c **** * Global variables:
+ 174:Generated_Source\PSoC5/IgnitionCounter.c **** *  IgnitionCounter_initVar: Is modified when this function is called for the  
+ 175:Generated_Source\PSoC5/IgnitionCounter.c **** *   first time. Is used to ensure that initialization happens only once.
+ 176:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 177:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+ 178:Generated_Source\PSoC5/IgnitionCounter.c **** void IgnitionCounter_Start(void) 
+ 179:Generated_Source\PSoC5/IgnitionCounter.c **** {
+ 163              		.loc 1 179 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 7
+
+
+ 164              		.cfi_startproc
+ 165              		@ args = 0, pretend = 0, frame = 0
+ 166              		@ frame_needed = 1, uses_anonymous_args = 0
+ 167 0000 80B5     		push	{r7, lr}
+ 168              		.cfi_def_cfa_offset 8
+ 169              		.cfi_offset 7, -8
+ 170              		.cfi_offset 14, -4
+ 171 0002 00AF     		add	r7, sp, #0
+ 172              		.cfi_def_cfa_register 7
+ 180:Generated_Source\PSoC5/IgnitionCounter.c ****     if(IgnitionCounter_initVar == 0u)
+ 173              		.loc 1 180 0
+ 174 0004 054B     		ldr	r3, .L9
+ 175 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 176 0008 002B     		cmp	r3, #0
+ 177 000a 04D1     		bne	.L8
+ 181:Generated_Source\PSoC5/IgnitionCounter.c ****     {
+ 182:Generated_Source\PSoC5/IgnitionCounter.c ****         IgnitionCounter_Init();
+ 178              		.loc 1 182 0
+ 179 000c FFF7FEFF 		bl	IgnitionCounter_Init
+ 183:Generated_Source\PSoC5/IgnitionCounter.c ****         
+ 184:Generated_Source\PSoC5/IgnitionCounter.c ****         IgnitionCounter_initVar = 1u; /* Clear this bit for Initialization */        
+ 180              		.loc 1 184 0
+ 181 0010 024B     		ldr	r3, .L9
+ 182 0012 0122     		movs	r2, #1
+ 183 0014 1A70     		strb	r2, [r3]
+ 184              	.L8:
+ 185:Generated_Source\PSoC5/IgnitionCounter.c ****     }
+ 186:Generated_Source\PSoC5/IgnitionCounter.c ****     
+ 187:Generated_Source\PSoC5/IgnitionCounter.c ****     /* Enable the Counter */
+ 188:Generated_Source\PSoC5/IgnitionCounter.c ****     IgnitionCounter_Enable();        
+ 185              		.loc 1 188 0
+ 186 0016 FFF7FEFF 		bl	IgnitionCounter_Enable
+ 189:Generated_Source\PSoC5/IgnitionCounter.c **** }
+ 187              		.loc 1 189 0
+ 188 001a 80BD     		pop	{r7, pc}
+ 189              	.L10:
+ 190              		.align	2
+ 191              	.L9:
+ 192 001c 00000000 		.word	IgnitionCounter_initVar
+ 193              		.cfi_endproc
+ 194              	.LFE2:
+ 195              		.size	IgnitionCounter_Start, .-IgnitionCounter_Start
+ 196              		.section	.text.IgnitionCounter_Stop,"ax",%progbits
+ 197              		.align	2
+ 198              		.global	IgnitionCounter_Stop
+ 199              		.thumb
+ 200              		.thumb_func
+ 201              		.type	IgnitionCounter_Stop, %function
+ 202              	IgnitionCounter_Stop:
+ 203              	.LFB3:
+ 190:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 191:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 192:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+ 193:Generated_Source\PSoC5/IgnitionCounter.c **** * Function Name: IgnitionCounter_Stop
+ 194:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+ 195:Generated_Source\PSoC5/IgnitionCounter.c **** * Summary:
+ 196:Generated_Source\PSoC5/IgnitionCounter.c **** * Halts the counter, but does not change any modes or disable interrupts.
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 8
+
+
+ 197:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 198:Generated_Source\PSoC5/IgnitionCounter.c **** * Parameters:  
+ 199:Generated_Source\PSoC5/IgnitionCounter.c **** *  void  
+ 200:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 201:Generated_Source\PSoC5/IgnitionCounter.c **** * Return: 
+ 202:Generated_Source\PSoC5/IgnitionCounter.c **** *  void
+ 203:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 204:Generated_Source\PSoC5/IgnitionCounter.c **** * Side Effects: If the Enable mode is set to Hardware only then this function
+ 205:Generated_Source\PSoC5/IgnitionCounter.c **** *               has no effect on the operation of the counter.
+ 206:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 207:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+ 208:Generated_Source\PSoC5/IgnitionCounter.c **** void IgnitionCounter_Stop(void) 
+ 209:Generated_Source\PSoC5/IgnitionCounter.c **** {
+ 204              		.loc 1 209 0
+ 205              		.cfi_startproc
+ 206              		@ args = 0, pretend = 0, frame = 0
+ 207              		@ frame_needed = 1, uses_anonymous_args = 0
+ 208              		@ link register save eliminated.
+ 209 0000 80B4     		push	{r7}
+ 210              		.cfi_def_cfa_offset 4
+ 211              		.cfi_offset 7, -4
+ 212 0002 00AF     		add	r7, sp, #0
+ 213              		.cfi_def_cfa_register 7
+ 210:Generated_Source\PSoC5/IgnitionCounter.c ****     /* Disable Counter */
+ 211:Generated_Source\PSoC5/IgnitionCounter.c ****     #if(!IgnitionCounter_ControlRegRemoved || IgnitionCounter_UsingFixedFunction)
+ 212:Generated_Source\PSoC5/IgnitionCounter.c ****         IgnitionCounter_CONTROL &= ((uint8)(~IgnitionCounter_CTRL_ENABLE));        
+ 214              		.loc 1 212 0
+ 215 0004 054A     		ldr	r2, .L12
+ 216 0006 054B     		ldr	r3, .L12
+ 217 0008 1B78     		ldrb	r3, [r3]
+ 218 000a DBB2     		uxtb	r3, r3
+ 219 000c 03F07F03 		and	r3, r3, #127
+ 220 0010 DBB2     		uxtb	r3, r3
+ 221 0012 1370     		strb	r3, [r2]
+ 213:Generated_Source\PSoC5/IgnitionCounter.c ****     #endif /* (!IgnitionCounter_ControlRegRemoved || IgnitionCounter_UsingFixedFunction) */
+ 214:Generated_Source\PSoC5/IgnitionCounter.c ****     
+ 215:Generated_Source\PSoC5/IgnitionCounter.c ****     /* Globally disable the Fixed Function Block chosen */
+ 216:Generated_Source\PSoC5/IgnitionCounter.c ****     #if (IgnitionCounter_UsingFixedFunction)
+ 217:Generated_Source\PSoC5/IgnitionCounter.c ****         IgnitionCounter_GLOBAL_ENABLE &= ((uint8)(~IgnitionCounter_BLOCK_EN_MASK));
+ 218:Generated_Source\PSoC5/IgnitionCounter.c ****         IgnitionCounter_GLOBAL_STBY_ENABLE &= ((uint8)(~IgnitionCounter_BLOCK_STBY_EN_MASK));
+ 219:Generated_Source\PSoC5/IgnitionCounter.c ****     #endif /* (IgnitionCounter_UsingFixedFunction) */
+ 220:Generated_Source\PSoC5/IgnitionCounter.c **** }
+ 222              		.loc 1 220 0
+ 223 0014 BD46     		mov	sp, r7
+ 224              		.cfi_def_cfa_register 13
+ 225              		@ sp needed
+ 226 0016 5DF8047B 		ldr	r7, [sp], #4
+ 227              		.cfi_restore 7
+ 228              		.cfi_def_cfa_offset 0
+ 229 001a 7047     		bx	lr
+ 230              	.L13:
+ 231              		.align	2
+ 232              	.L12:
+ 233 001c 75640040 		.word	1073767541
+ 234              		.cfi_endproc
+ 235              	.LFE3:
+ 236              		.size	IgnitionCounter_Stop, .-IgnitionCounter_Stop
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 9
+
+
+ 237              		.section	.text.IgnitionCounter_SetInterruptMode,"ax",%progbits
+ 238              		.align	2
+ 239              		.global	IgnitionCounter_SetInterruptMode
+ 240              		.thumb
+ 241              		.thumb_func
+ 242              		.type	IgnitionCounter_SetInterruptMode, %function
+ 243              	IgnitionCounter_SetInterruptMode:
+ 244              	.LFB4:
+ 221:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 222:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 223:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+ 224:Generated_Source\PSoC5/IgnitionCounter.c **** * Function Name: IgnitionCounter_SetInterruptMode
+ 225:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+ 226:Generated_Source\PSoC5/IgnitionCounter.c **** * Summary:
+ 227:Generated_Source\PSoC5/IgnitionCounter.c **** * Configures which interrupt sources are enabled to generate the final interrupt
+ 228:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 229:Generated_Source\PSoC5/IgnitionCounter.c **** * Parameters:  
+ 230:Generated_Source\PSoC5/IgnitionCounter.c **** *  InterruptsMask: This parameter is an or'd collection of the status bits
+ 231:Generated_Source\PSoC5/IgnitionCounter.c **** *                   which will be allowed to generate the counters interrupt.   
+ 232:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 233:Generated_Source\PSoC5/IgnitionCounter.c **** * Return: 
+ 234:Generated_Source\PSoC5/IgnitionCounter.c **** *  void
+ 235:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 236:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+ 237:Generated_Source\PSoC5/IgnitionCounter.c **** void IgnitionCounter_SetInterruptMode(uint8 interruptsMask) 
+ 238:Generated_Source\PSoC5/IgnitionCounter.c **** {
+ 245              		.loc 1 238 0
+ 246              		.cfi_startproc
+ 247              		@ args = 0, pretend = 0, frame = 8
+ 248              		@ frame_needed = 1, uses_anonymous_args = 0
+ 249              		@ link register save eliminated.
+ 250 0000 80B4     		push	{r7}
+ 251              		.cfi_def_cfa_offset 4
+ 252              		.cfi_offset 7, -4
+ 253 0002 83B0     		sub	sp, sp, #12
+ 254              		.cfi_def_cfa_offset 16
+ 255 0004 00AF     		add	r7, sp, #0
+ 256              		.cfi_def_cfa_register 7
+ 257 0006 0346     		mov	r3, r0
+ 258 0008 FB71     		strb	r3, [r7, #7]
+ 239:Generated_Source\PSoC5/IgnitionCounter.c ****     IgnitionCounter_STATUS_MASK = interruptsMask;
+ 259              		.loc 1 239 0
+ 260 000a 044A     		ldr	r2, .L15
+ 261 000c FB79     		ldrb	r3, [r7, #7]
+ 262 000e 1370     		strb	r3, [r2]
+ 240:Generated_Source\PSoC5/IgnitionCounter.c **** }
+ 263              		.loc 1 240 0
+ 264 0010 0C37     		adds	r7, r7, #12
+ 265              		.cfi_def_cfa_offset 4
+ 266 0012 BD46     		mov	sp, r7
+ 267              		.cfi_def_cfa_register 13
+ 268              		@ sp needed
+ 269 0014 5DF8047B 		ldr	r7, [sp], #4
+ 270              		.cfi_restore 7
+ 271              		.cfi_def_cfa_offset 0
+ 272 0018 7047     		bx	lr
+ 273              	.L16:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 10
+
+
+ 274 001a 00BF     		.align	2
+ 275              	.L15:
+ 276 001c 85640040 		.word	1073767557
+ 277              		.cfi_endproc
+ 278              	.LFE4:
+ 279              		.size	IgnitionCounter_SetInterruptMode, .-IgnitionCounter_SetInterruptMode
+ 280              		.section	.text.IgnitionCounter_ReadStatusRegister,"ax",%progbits
+ 281              		.align	2
+ 282              		.global	IgnitionCounter_ReadStatusRegister
+ 283              		.thumb
+ 284              		.thumb_func
+ 285              		.type	IgnitionCounter_ReadStatusRegister, %function
+ 286              	IgnitionCounter_ReadStatusRegister:
+ 287              	.LFB5:
+ 241:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 242:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 243:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+ 244:Generated_Source\PSoC5/IgnitionCounter.c **** * Function Name: IgnitionCounter_ReadStatusRegister
+ 245:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+ 246:Generated_Source\PSoC5/IgnitionCounter.c **** * Summary:
+ 247:Generated_Source\PSoC5/IgnitionCounter.c **** *   Reads the status register and returns it's state. This function should use
+ 248:Generated_Source\PSoC5/IgnitionCounter.c **** *       defined types for the bit-field information as the bits in this
+ 249:Generated_Source\PSoC5/IgnitionCounter.c **** *       register may be permuteable.
+ 250:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 251:Generated_Source\PSoC5/IgnitionCounter.c **** * Parameters:  
+ 252:Generated_Source\PSoC5/IgnitionCounter.c **** *  void
+ 253:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 254:Generated_Source\PSoC5/IgnitionCounter.c **** * Return: 
+ 255:Generated_Source\PSoC5/IgnitionCounter.c **** *  (uint8) The contents of the status register
+ 256:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 257:Generated_Source\PSoC5/IgnitionCounter.c **** * Side Effects:
+ 258:Generated_Source\PSoC5/IgnitionCounter.c **** *   Status register bits may be clear on read. 
+ 259:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 260:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+ 261:Generated_Source\PSoC5/IgnitionCounter.c **** uint8   IgnitionCounter_ReadStatusRegister(void) 
+ 262:Generated_Source\PSoC5/IgnitionCounter.c **** {
+ 288              		.loc 1 262 0
+ 289              		.cfi_startproc
+ 290              		@ args = 0, pretend = 0, frame = 0
+ 291              		@ frame_needed = 1, uses_anonymous_args = 0
+ 292              		@ link register save eliminated.
+ 293 0000 80B4     		push	{r7}
+ 294              		.cfi_def_cfa_offset 4
+ 295              		.cfi_offset 7, -4
+ 296 0002 00AF     		add	r7, sp, #0
+ 297              		.cfi_def_cfa_register 7
+ 263:Generated_Source\PSoC5/IgnitionCounter.c ****     return IgnitionCounter_STATUS;
+ 298              		.loc 1 263 0
+ 299 0004 034B     		ldr	r3, .L19
+ 300 0006 1B78     		ldrb	r3, [r3]
+ 301 0008 DBB2     		uxtb	r3, r3
+ 264:Generated_Source\PSoC5/IgnitionCounter.c **** }
+ 302              		.loc 1 264 0
+ 303 000a 1846     		mov	r0, r3
+ 304 000c BD46     		mov	sp, r7
+ 305              		.cfi_def_cfa_register 13
+ 306              		@ sp needed
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 11
+
+
+ 307 000e 5DF8047B 		ldr	r7, [sp], #4
+ 308              		.cfi_restore 7
+ 309              		.cfi_def_cfa_offset 0
+ 310 0012 7047     		bx	lr
+ 311              	.L20:
+ 312              		.align	2
+ 313              	.L19:
+ 314 0014 65640040 		.word	1073767525
+ 315              		.cfi_endproc
+ 316              	.LFE5:
+ 317              		.size	IgnitionCounter_ReadStatusRegister, .-IgnitionCounter_ReadStatusRegister
+ 318              		.section	.text.IgnitionCounter_ReadControlRegister,"ax",%progbits
+ 319              		.align	2
+ 320              		.global	IgnitionCounter_ReadControlRegister
+ 321              		.thumb
+ 322              		.thumb_func
+ 323              		.type	IgnitionCounter_ReadControlRegister, %function
+ 324              	IgnitionCounter_ReadControlRegister:
+ 325              	.LFB6:
+ 265:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 266:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 267:Generated_Source\PSoC5/IgnitionCounter.c **** #if(!IgnitionCounter_ControlRegRemoved)
+ 268:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+ 269:Generated_Source\PSoC5/IgnitionCounter.c **** * Function Name: IgnitionCounter_ReadControlRegister
+ 270:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+ 271:Generated_Source\PSoC5/IgnitionCounter.c **** * Summary:
+ 272:Generated_Source\PSoC5/IgnitionCounter.c **** *   Reads the control register and returns it's state. This function should use
+ 273:Generated_Source\PSoC5/IgnitionCounter.c **** *       defined types for the bit-field information as the bits in this
+ 274:Generated_Source\PSoC5/IgnitionCounter.c **** *       register may be permuteable.
+ 275:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 276:Generated_Source\PSoC5/IgnitionCounter.c **** * Parameters:  
+ 277:Generated_Source\PSoC5/IgnitionCounter.c **** *  void
+ 278:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 279:Generated_Source\PSoC5/IgnitionCounter.c **** * Return: 
+ 280:Generated_Source\PSoC5/IgnitionCounter.c **** *  (uint8) The contents of the control register
+ 281:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 282:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+ 283:Generated_Source\PSoC5/IgnitionCounter.c **** uint8   IgnitionCounter_ReadControlRegister(void) 
+ 284:Generated_Source\PSoC5/IgnitionCounter.c **** {
+ 326              		.loc 1 284 0
+ 327              		.cfi_startproc
+ 328              		@ args = 0, pretend = 0, frame = 0
+ 329              		@ frame_needed = 1, uses_anonymous_args = 0
+ 330              		@ link register save eliminated.
+ 331 0000 80B4     		push	{r7}
+ 332              		.cfi_def_cfa_offset 4
+ 333              		.cfi_offset 7, -4
+ 334 0002 00AF     		add	r7, sp, #0
+ 335              		.cfi_def_cfa_register 7
+ 285:Generated_Source\PSoC5/IgnitionCounter.c ****     return IgnitionCounter_CONTROL;
+ 336              		.loc 1 285 0
+ 337 0004 034B     		ldr	r3, .L23
+ 338 0006 1B78     		ldrb	r3, [r3]
+ 339 0008 DBB2     		uxtb	r3, r3
+ 286:Generated_Source\PSoC5/IgnitionCounter.c **** }
+ 340              		.loc 1 286 0
+ 341 000a 1846     		mov	r0, r3
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 12
+
+
+ 342 000c BD46     		mov	sp, r7
+ 343              		.cfi_def_cfa_register 13
+ 344              		@ sp needed
+ 345 000e 5DF8047B 		ldr	r7, [sp], #4
+ 346              		.cfi_restore 7
+ 347              		.cfi_def_cfa_offset 0
+ 348 0012 7047     		bx	lr
+ 349              	.L24:
+ 350              		.align	2
+ 351              	.L23:
+ 352 0014 75640040 		.word	1073767541
+ 353              		.cfi_endproc
+ 354              	.LFE6:
+ 355              		.size	IgnitionCounter_ReadControlRegister, .-IgnitionCounter_ReadControlRegister
+ 356              		.section	.text.IgnitionCounter_WriteControlRegister,"ax",%progbits
+ 357              		.align	2
+ 358              		.global	IgnitionCounter_WriteControlRegister
+ 359              		.thumb
+ 360              		.thumb_func
+ 361              		.type	IgnitionCounter_WriteControlRegister, %function
+ 362              	IgnitionCounter_WriteControlRegister:
+ 363              	.LFB7:
+ 287:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 288:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 289:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+ 290:Generated_Source\PSoC5/IgnitionCounter.c **** * Function Name: IgnitionCounter_WriteControlRegister
+ 291:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+ 292:Generated_Source\PSoC5/IgnitionCounter.c **** * Summary:
+ 293:Generated_Source\PSoC5/IgnitionCounter.c **** *   Sets the bit-field of the control register.  This function should use
+ 294:Generated_Source\PSoC5/IgnitionCounter.c **** *       defined types for the bit-field information as the bits in this
+ 295:Generated_Source\PSoC5/IgnitionCounter.c **** *       register may be permuteable.
+ 296:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 297:Generated_Source\PSoC5/IgnitionCounter.c **** * Parameters:  
+ 298:Generated_Source\PSoC5/IgnitionCounter.c **** *  void
+ 299:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 300:Generated_Source\PSoC5/IgnitionCounter.c **** * Return: 
+ 301:Generated_Source\PSoC5/IgnitionCounter.c **** *  (uint8) The contents of the control register
+ 302:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 303:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+ 304:Generated_Source\PSoC5/IgnitionCounter.c **** void    IgnitionCounter_WriteControlRegister(uint8 control) 
+ 305:Generated_Source\PSoC5/IgnitionCounter.c **** {
+ 364              		.loc 1 305 0
+ 365              		.cfi_startproc
+ 366              		@ args = 0, pretend = 0, frame = 8
+ 367              		@ frame_needed = 1, uses_anonymous_args = 0
+ 368              		@ link register save eliminated.
+ 369 0000 80B4     		push	{r7}
+ 370              		.cfi_def_cfa_offset 4
+ 371              		.cfi_offset 7, -4
+ 372 0002 83B0     		sub	sp, sp, #12
+ 373              		.cfi_def_cfa_offset 16
+ 374 0004 00AF     		add	r7, sp, #0
+ 375              		.cfi_def_cfa_register 7
+ 376 0006 0346     		mov	r3, r0
+ 377 0008 FB71     		strb	r3, [r7, #7]
+ 306:Generated_Source\PSoC5/IgnitionCounter.c ****     IgnitionCounter_CONTROL = control;
+ 378              		.loc 1 306 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 13
+
+
+ 379 000a 044A     		ldr	r2, .L26
+ 380 000c FB79     		ldrb	r3, [r7, #7]
+ 381 000e 1370     		strb	r3, [r2]
+ 307:Generated_Source\PSoC5/IgnitionCounter.c **** }
+ 382              		.loc 1 307 0
+ 383 0010 0C37     		adds	r7, r7, #12
+ 384              		.cfi_def_cfa_offset 4
+ 385 0012 BD46     		mov	sp, r7
+ 386              		.cfi_def_cfa_register 13
+ 387              		@ sp needed
+ 388 0014 5DF8047B 		ldr	r7, [sp], #4
+ 389              		.cfi_restore 7
+ 390              		.cfi_def_cfa_offset 0
+ 391 0018 7047     		bx	lr
+ 392              	.L27:
+ 393 001a 00BF     		.align	2
+ 394              	.L26:
+ 395 001c 75640040 		.word	1073767541
+ 396              		.cfi_endproc
+ 397              	.LFE7:
+ 398              		.size	IgnitionCounter_WriteControlRegister, .-IgnitionCounter_WriteControlRegister
+ 399              		.section	.text.IgnitionCounter_WriteCounter,"ax",%progbits
+ 400              		.align	2
+ 401              		.global	IgnitionCounter_WriteCounter
+ 402              		.thumb
+ 403              		.thumb_func
+ 404              		.type	IgnitionCounter_WriteCounter, %function
+ 405              	IgnitionCounter_WriteCounter:
+ 406              	.LFB8:
+ 308:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 309:Generated_Source\PSoC5/IgnitionCounter.c **** #endif  /* (!IgnitionCounter_ControlRegRemoved) */
+ 310:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 311:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 312:Generated_Source\PSoC5/IgnitionCounter.c **** #if (!(IgnitionCounter_UsingFixedFunction && (CY_PSOC5A)))
+ 313:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+ 314:Generated_Source\PSoC5/IgnitionCounter.c **** * Function Name: IgnitionCounter_WriteCounter
+ 315:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+ 316:Generated_Source\PSoC5/IgnitionCounter.c **** * Summary:
+ 317:Generated_Source\PSoC5/IgnitionCounter.c **** *   This funtion is used to set the counter to a specific value
+ 318:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 319:Generated_Source\PSoC5/IgnitionCounter.c **** * Parameters:  
+ 320:Generated_Source\PSoC5/IgnitionCounter.c **** *  counter:  New counter value. 
+ 321:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 322:Generated_Source\PSoC5/IgnitionCounter.c **** * Return: 
+ 323:Generated_Source\PSoC5/IgnitionCounter.c **** *  void 
+ 324:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 325:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+ 326:Generated_Source\PSoC5/IgnitionCounter.c **** void IgnitionCounter_WriteCounter(uint16 counter) \
+ 327:Generated_Source\PSoC5/IgnitionCounter.c ****                                    
+ 328:Generated_Source\PSoC5/IgnitionCounter.c **** {
+ 407              		.loc 1 328 0
+ 408              		.cfi_startproc
+ 409              		@ args = 0, pretend = 0, frame = 8
+ 410              		@ frame_needed = 1, uses_anonymous_args = 0
+ 411              		@ link register save eliminated.
+ 412 0000 80B4     		push	{r7}
+ 413              		.cfi_def_cfa_offset 4
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 14
+
+
+ 414              		.cfi_offset 7, -4
+ 415 0002 83B0     		sub	sp, sp, #12
+ 416              		.cfi_def_cfa_offset 16
+ 417 0004 00AF     		add	r7, sp, #0
+ 418              		.cfi_def_cfa_register 7
+ 419 0006 0346     		mov	r3, r0
+ 420 0008 FB80     		strh	r3, [r7, #6]	@ movhi
+ 329:Generated_Source\PSoC5/IgnitionCounter.c ****     #if(IgnitionCounter_UsingFixedFunction)
+ 330:Generated_Source\PSoC5/IgnitionCounter.c ****         /* assert if block is already enabled */
+ 331:Generated_Source\PSoC5/IgnitionCounter.c ****         CYASSERT (0u == (IgnitionCounter_GLOBAL_ENABLE & IgnitionCounter_BLOCK_EN_MASK));
+ 332:Generated_Source\PSoC5/IgnitionCounter.c ****         /* If block is disabled, enable it and then write the counter */
+ 333:Generated_Source\PSoC5/IgnitionCounter.c ****         IgnitionCounter_GLOBAL_ENABLE |= IgnitionCounter_BLOCK_EN_MASK;
+ 334:Generated_Source\PSoC5/IgnitionCounter.c ****         CY_SET_REG16(IgnitionCounter_COUNTER_LSB_PTR, (uint16)counter);
+ 335:Generated_Source\PSoC5/IgnitionCounter.c ****         IgnitionCounter_GLOBAL_ENABLE &= ((uint8)(~IgnitionCounter_BLOCK_EN_MASK));
+ 336:Generated_Source\PSoC5/IgnitionCounter.c ****     #else
+ 337:Generated_Source\PSoC5/IgnitionCounter.c ****         CY_SET_REG16(IgnitionCounter_COUNTER_LSB_PTR, counter);
+ 421              		.loc 1 337 0
+ 422 000a 044A     		ldr	r2, .L29
+ 423 000c FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 424 000e 1380     		strh	r3, [r2]	@ movhi
+ 338:Generated_Source\PSoC5/IgnitionCounter.c ****     #endif /* (IgnitionCounter_UsingFixedFunction) */
+ 339:Generated_Source\PSoC5/IgnitionCounter.c **** }
+ 425              		.loc 1 339 0
+ 426 0010 0C37     		adds	r7, r7, #12
+ 427              		.cfi_def_cfa_offset 4
+ 428 0012 BD46     		mov	sp, r7
+ 429              		.cfi_def_cfa_register 13
+ 430              		@ sp needed
+ 431 0014 5DF8047B 		ldr	r7, [sp], #4
+ 432              		.cfi_restore 7
+ 433              		.cfi_def_cfa_offset 0
+ 434 0018 7047     		bx	lr
+ 435              	.L30:
+ 436 001a 00BF     		.align	2
+ 437              	.L29:
+ 438 001c 08680040 		.word	1073768456
+ 439              		.cfi_endproc
+ 440              	.LFE8:
+ 441              		.size	IgnitionCounter_WriteCounter, .-IgnitionCounter_WriteCounter
+ 442              		.section	.text.IgnitionCounter_ReadCounter,"ax",%progbits
+ 443              		.align	2
+ 444              		.global	IgnitionCounter_ReadCounter
+ 445              		.thumb
+ 446              		.thumb_func
+ 447              		.type	IgnitionCounter_ReadCounter, %function
+ 448              	IgnitionCounter_ReadCounter:
+ 449              	.LFB9:
+ 340:Generated_Source\PSoC5/IgnitionCounter.c **** #endif /* (!(IgnitionCounter_UsingFixedFunction && (CY_PSOC5A))) */
+ 341:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 342:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 343:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+ 344:Generated_Source\PSoC5/IgnitionCounter.c **** * Function Name: IgnitionCounter_ReadCounter
+ 345:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+ 346:Generated_Source\PSoC5/IgnitionCounter.c **** * Summary:
+ 347:Generated_Source\PSoC5/IgnitionCounter.c **** * Returns the current value of the counter.  It doesn't matter
+ 348:Generated_Source\PSoC5/IgnitionCounter.c **** * if the counter is enabled or running.
+ 349:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 15
+
+
+ 350:Generated_Source\PSoC5/IgnitionCounter.c **** * Parameters:  
+ 351:Generated_Source\PSoC5/IgnitionCounter.c **** *  void:  
+ 352:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 353:Generated_Source\PSoC5/IgnitionCounter.c **** * Return: 
+ 354:Generated_Source\PSoC5/IgnitionCounter.c **** *  (uint16) The present value of the counter.
+ 355:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 356:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+ 357:Generated_Source\PSoC5/IgnitionCounter.c **** uint16 IgnitionCounter_ReadCounter(void) 
+ 358:Generated_Source\PSoC5/IgnitionCounter.c **** {
+ 450              		.loc 1 358 0
+ 451              		.cfi_startproc
+ 452              		@ args = 0, pretend = 0, frame = 0
+ 453              		@ frame_needed = 1, uses_anonymous_args = 0
+ 454              		@ link register save eliminated.
+ 455 0000 80B4     		push	{r7}
+ 456              		.cfi_def_cfa_offset 4
+ 457              		.cfi_offset 7, -4
+ 458 0002 00AF     		add	r7, sp, #0
+ 459              		.cfi_def_cfa_register 7
+ 359:Generated_Source\PSoC5/IgnitionCounter.c ****     /* Force capture by reading Accumulator */
+ 360:Generated_Source\PSoC5/IgnitionCounter.c ****     /* Must first do a software capture to be able to read the counter */
+ 361:Generated_Source\PSoC5/IgnitionCounter.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 362:Generated_Source\PSoC5/IgnitionCounter.c ****     #if(IgnitionCounter_UsingFixedFunction)
+ 363:Generated_Source\PSoC5/IgnitionCounter.c **** 		(void)CY_GET_REG16(IgnitionCounter_COUNTER_LSB_PTR);
+ 364:Generated_Source\PSoC5/IgnitionCounter.c **** 	#else
+ 365:Generated_Source\PSoC5/IgnitionCounter.c **** 		(void)CY_GET_REG8(IgnitionCounter_COUNTER_LSB_PTR_8BIT);
+ 460              		.loc 1 365 0
+ 461 0004 044B     		ldr	r3, .L33
+ 462 0006 1B78     		ldrb	r3, [r3]
+ 366:Generated_Source\PSoC5/IgnitionCounter.c **** 	#endif/* (IgnitionCounter_UsingFixedFunction) */
+ 367:Generated_Source\PSoC5/IgnitionCounter.c ****     
+ 368:Generated_Source\PSoC5/IgnitionCounter.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
+ 369:Generated_Source\PSoC5/IgnitionCounter.c ****     #if(IgnitionCounter_UsingFixedFunction)
+ 370:Generated_Source\PSoC5/IgnitionCounter.c ****         return ((uint16)CY_GET_REG16(IgnitionCounter_STATICCOUNT_LSB_PTR));
+ 371:Generated_Source\PSoC5/IgnitionCounter.c ****     #else
+ 372:Generated_Source\PSoC5/IgnitionCounter.c ****         return (CY_GET_REG16(IgnitionCounter_STATICCOUNT_LSB_PTR));
+ 463              		.loc 1 372 0
+ 464 0008 044B     		ldr	r3, .L33+4
+ 465 000a 1B88     		ldrh	r3, [r3]	@ movhi
+ 466 000c 9BB2     		uxth	r3, r3
+ 373:Generated_Source\PSoC5/IgnitionCounter.c ****     #endif /* (IgnitionCounter_UsingFixedFunction) */
+ 374:Generated_Source\PSoC5/IgnitionCounter.c **** }
+ 467              		.loc 1 374 0
+ 468 000e 1846     		mov	r0, r3
+ 469 0010 BD46     		mov	sp, r7
+ 470              		.cfi_def_cfa_register 13
+ 471              		@ sp needed
+ 472 0012 5DF8047B 		ldr	r7, [sp], #4
+ 473              		.cfi_restore 7
+ 474              		.cfi_def_cfa_offset 0
+ 475 0016 7047     		bx	lr
+ 476              	.L34:
+ 477              		.align	2
+ 478              	.L33:
+ 479 0018 04640040 		.word	1073767428
+ 480 001c 88680040 		.word	1073768584
+ 481              		.cfi_endproc
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 16
+
+
+ 482              	.LFE9:
+ 483              		.size	IgnitionCounter_ReadCounter, .-IgnitionCounter_ReadCounter
+ 484              		.section	.text.IgnitionCounter_ReadCapture,"ax",%progbits
+ 485              		.align	2
+ 486              		.global	IgnitionCounter_ReadCapture
+ 487              		.thumb
+ 488              		.thumb_func
+ 489              		.type	IgnitionCounter_ReadCapture, %function
+ 490              	IgnitionCounter_ReadCapture:
+ 491              	.LFB10:
+ 375:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 376:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 377:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+ 378:Generated_Source\PSoC5/IgnitionCounter.c **** * Function Name: IgnitionCounter_ReadCapture
+ 379:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+ 380:Generated_Source\PSoC5/IgnitionCounter.c **** * Summary:
+ 381:Generated_Source\PSoC5/IgnitionCounter.c **** *   This function returns the last value captured.
+ 382:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 383:Generated_Source\PSoC5/IgnitionCounter.c **** * Parameters:  
+ 384:Generated_Source\PSoC5/IgnitionCounter.c **** *  void
+ 385:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 386:Generated_Source\PSoC5/IgnitionCounter.c **** * Return: 
+ 387:Generated_Source\PSoC5/IgnitionCounter.c **** *  (uint16) Present Capture value.
+ 388:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 389:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+ 390:Generated_Source\PSoC5/IgnitionCounter.c **** uint16 IgnitionCounter_ReadCapture(void) 
+ 391:Generated_Source\PSoC5/IgnitionCounter.c **** {
+ 492              		.loc 1 391 0
+ 493              		.cfi_startproc
+ 494              		@ args = 0, pretend = 0, frame = 0
+ 495              		@ frame_needed = 1, uses_anonymous_args = 0
+ 496              		@ link register save eliminated.
+ 497 0000 80B4     		push	{r7}
+ 498              		.cfi_def_cfa_offset 4
+ 499              		.cfi_offset 7, -4
+ 500 0002 00AF     		add	r7, sp, #0
+ 501              		.cfi_def_cfa_register 7
+ 392:Generated_Source\PSoC5/IgnitionCounter.c ****     #if(IgnitionCounter_UsingFixedFunction)
+ 393:Generated_Source\PSoC5/IgnitionCounter.c ****         return ((uint16)CY_GET_REG16(IgnitionCounter_STATICCOUNT_LSB_PTR));
+ 394:Generated_Source\PSoC5/IgnitionCounter.c ****     #else
+ 395:Generated_Source\PSoC5/IgnitionCounter.c ****         return (CY_GET_REG16(IgnitionCounter_STATICCOUNT_LSB_PTR));
+ 502              		.loc 1 395 0
+ 503 0004 034B     		ldr	r3, .L37
+ 504 0006 1B88     		ldrh	r3, [r3]	@ movhi
+ 505 0008 9BB2     		uxth	r3, r3
+ 396:Generated_Source\PSoC5/IgnitionCounter.c ****     #endif /* (IgnitionCounter_UsingFixedFunction) */
+ 397:Generated_Source\PSoC5/IgnitionCounter.c **** }
+ 506              		.loc 1 397 0
+ 507 000a 1846     		mov	r0, r3
+ 508 000c BD46     		mov	sp, r7
+ 509              		.cfi_def_cfa_register 13
+ 510              		@ sp needed
+ 511 000e 5DF8047B 		ldr	r7, [sp], #4
+ 512              		.cfi_restore 7
+ 513              		.cfi_def_cfa_offset 0
+ 514 0012 7047     		bx	lr
+ 515              	.L38:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 17
+
+
+ 516              		.align	2
+ 517              	.L37:
+ 518 0014 88680040 		.word	1073768584
+ 519              		.cfi_endproc
+ 520              	.LFE10:
+ 521              		.size	IgnitionCounter_ReadCapture, .-IgnitionCounter_ReadCapture
+ 522              		.section	.text.IgnitionCounter_WritePeriod,"ax",%progbits
+ 523              		.align	2
+ 524              		.global	IgnitionCounter_WritePeriod
+ 525              		.thumb
+ 526              		.thumb_func
+ 527              		.type	IgnitionCounter_WritePeriod, %function
+ 528              	IgnitionCounter_WritePeriod:
+ 529              	.LFB11:
+ 398:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 399:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 400:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+ 401:Generated_Source\PSoC5/IgnitionCounter.c **** * Function Name: IgnitionCounter_WritePeriod
+ 402:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+ 403:Generated_Source\PSoC5/IgnitionCounter.c **** * Summary:
+ 404:Generated_Source\PSoC5/IgnitionCounter.c **** * Changes the period of the counter.  The new period 
+ 405:Generated_Source\PSoC5/IgnitionCounter.c **** * will be loaded the next time terminal count is detected.
+ 406:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 407:Generated_Source\PSoC5/IgnitionCounter.c **** * Parameters:  
+ 408:Generated_Source\PSoC5/IgnitionCounter.c **** *  period: (uint16) A value of 0 will result in
+ 409:Generated_Source\PSoC5/IgnitionCounter.c **** *         the counter remaining at zero.  
+ 410:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 411:Generated_Source\PSoC5/IgnitionCounter.c **** * Return: 
+ 412:Generated_Source\PSoC5/IgnitionCounter.c **** *  void
+ 413:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 414:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+ 415:Generated_Source\PSoC5/IgnitionCounter.c **** void IgnitionCounter_WritePeriod(uint16 period) 
+ 416:Generated_Source\PSoC5/IgnitionCounter.c **** {
+ 530              		.loc 1 416 0
+ 531              		.cfi_startproc
+ 532              		@ args = 0, pretend = 0, frame = 8
+ 533              		@ frame_needed = 1, uses_anonymous_args = 0
+ 534              		@ link register save eliminated.
+ 535 0000 80B4     		push	{r7}
+ 536              		.cfi_def_cfa_offset 4
+ 537              		.cfi_offset 7, -4
+ 538 0002 83B0     		sub	sp, sp, #12
+ 539              		.cfi_def_cfa_offset 16
+ 540 0004 00AF     		add	r7, sp, #0
+ 541              		.cfi_def_cfa_register 7
+ 542 0006 0346     		mov	r3, r0
+ 543 0008 FB80     		strh	r3, [r7, #6]	@ movhi
+ 417:Generated_Source\PSoC5/IgnitionCounter.c ****     #if(IgnitionCounter_UsingFixedFunction)
+ 418:Generated_Source\PSoC5/IgnitionCounter.c ****         CY_SET_REG16(IgnitionCounter_PERIOD_LSB_PTR,(uint16)period);
+ 419:Generated_Source\PSoC5/IgnitionCounter.c ****     #else
+ 420:Generated_Source\PSoC5/IgnitionCounter.c ****         CY_SET_REG16(IgnitionCounter_PERIOD_LSB_PTR, period);
+ 544              		.loc 1 420 0
+ 545 000a 044A     		ldr	r2, .L40
+ 546 000c FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 547 000e 1380     		strh	r3, [r2]	@ movhi
+ 421:Generated_Source\PSoC5/IgnitionCounter.c ****     #endif /* (IgnitionCounter_UsingFixedFunction) */
+ 422:Generated_Source\PSoC5/IgnitionCounter.c **** }
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 18
+
+
+ 548              		.loc 1 422 0
+ 549 0010 0C37     		adds	r7, r7, #12
+ 550              		.cfi_def_cfa_offset 4
+ 551 0012 BD46     		mov	sp, r7
+ 552              		.cfi_def_cfa_register 13
+ 553              		@ sp needed
+ 554 0014 5DF8047B 		ldr	r7, [sp], #4
+ 555              		.cfi_restore 7
+ 556              		.cfi_def_cfa_offset 0
+ 557 0018 7047     		bx	lr
+ 558              	.L41:
+ 559 001a 00BF     		.align	2
+ 560              	.L40:
+ 561 001c 48680040 		.word	1073768520
+ 562              		.cfi_endproc
+ 563              	.LFE11:
+ 564              		.size	IgnitionCounter_WritePeriod, .-IgnitionCounter_WritePeriod
+ 565              		.section	.text.IgnitionCounter_ReadPeriod,"ax",%progbits
+ 566              		.align	2
+ 567              		.global	IgnitionCounter_ReadPeriod
+ 568              		.thumb
+ 569              		.thumb_func
+ 570              		.type	IgnitionCounter_ReadPeriod, %function
+ 571              	IgnitionCounter_ReadPeriod:
+ 572              	.LFB12:
+ 423:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 424:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 425:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+ 426:Generated_Source\PSoC5/IgnitionCounter.c **** * Function Name: IgnitionCounter_ReadPeriod
+ 427:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+ 428:Generated_Source\PSoC5/IgnitionCounter.c **** * Summary:
+ 429:Generated_Source\PSoC5/IgnitionCounter.c **** * Reads the current period value without affecting counter operation.
+ 430:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 431:Generated_Source\PSoC5/IgnitionCounter.c **** * Parameters:  
+ 432:Generated_Source\PSoC5/IgnitionCounter.c **** *  void:  
+ 433:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 434:Generated_Source\PSoC5/IgnitionCounter.c **** * Return: 
+ 435:Generated_Source\PSoC5/IgnitionCounter.c **** *  (uint16) Present period value.
+ 436:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 437:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+ 438:Generated_Source\PSoC5/IgnitionCounter.c **** uint16 IgnitionCounter_ReadPeriod(void) 
+ 439:Generated_Source\PSoC5/IgnitionCounter.c **** {
+ 573              		.loc 1 439 0
+ 574              		.cfi_startproc
+ 575              		@ args = 0, pretend = 0, frame = 0
+ 576              		@ frame_needed = 1, uses_anonymous_args = 0
+ 577              		@ link register save eliminated.
+ 578 0000 80B4     		push	{r7}
+ 579              		.cfi_def_cfa_offset 4
+ 580              		.cfi_offset 7, -4
+ 581 0002 00AF     		add	r7, sp, #0
+ 582              		.cfi_def_cfa_register 7
+ 440:Generated_Source\PSoC5/IgnitionCounter.c ****     #if(IgnitionCounter_UsingFixedFunction)
+ 441:Generated_Source\PSoC5/IgnitionCounter.c ****         return ((uint16)CY_GET_REG16(IgnitionCounter_PERIOD_LSB_PTR));
+ 442:Generated_Source\PSoC5/IgnitionCounter.c ****     #else
+ 443:Generated_Source\PSoC5/IgnitionCounter.c ****         return (CY_GET_REG16(IgnitionCounter_PERIOD_LSB_PTR));
+ 583              		.loc 1 443 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 19
+
+
+ 584 0004 034B     		ldr	r3, .L44
+ 585 0006 1B88     		ldrh	r3, [r3]	@ movhi
+ 586 0008 9BB2     		uxth	r3, r3
+ 444:Generated_Source\PSoC5/IgnitionCounter.c ****     #endif /* (IgnitionCounter_UsingFixedFunction) */
+ 445:Generated_Source\PSoC5/IgnitionCounter.c **** }
+ 587              		.loc 1 445 0
+ 588 000a 1846     		mov	r0, r3
+ 589 000c BD46     		mov	sp, r7
+ 590              		.cfi_def_cfa_register 13
+ 591              		@ sp needed
+ 592 000e 5DF8047B 		ldr	r7, [sp], #4
+ 593              		.cfi_restore 7
+ 594              		.cfi_def_cfa_offset 0
+ 595 0012 7047     		bx	lr
+ 596              	.L45:
+ 597              		.align	2
+ 598              	.L44:
+ 599 0014 48680040 		.word	1073768520
+ 600              		.cfi_endproc
+ 601              	.LFE12:
+ 602              		.size	IgnitionCounter_ReadPeriod, .-IgnitionCounter_ReadPeriod
+ 603              		.section	.text.IgnitionCounter_WriteCompare,"ax",%progbits
+ 604              		.align	2
+ 605              		.global	IgnitionCounter_WriteCompare
+ 606              		.thumb
+ 607              		.thumb_func
+ 608              		.type	IgnitionCounter_WriteCompare, %function
+ 609              	IgnitionCounter_WriteCompare:
+ 610              	.LFB13:
+ 446:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 447:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 448:Generated_Source\PSoC5/IgnitionCounter.c **** #if (!IgnitionCounter_UsingFixedFunction)
+ 449:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+ 450:Generated_Source\PSoC5/IgnitionCounter.c **** * Function Name: IgnitionCounter_WriteCompare
+ 451:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+ 452:Generated_Source\PSoC5/IgnitionCounter.c **** * Summary:
+ 453:Generated_Source\PSoC5/IgnitionCounter.c **** * Changes the compare value.  The compare output will 
+ 454:Generated_Source\PSoC5/IgnitionCounter.c **** * reflect the new value on the next UDB clock.  The compare output will be 
+ 455:Generated_Source\PSoC5/IgnitionCounter.c **** * driven high when the present counter value compares true based on the 
+ 456:Generated_Source\PSoC5/IgnitionCounter.c **** * configured compare mode setting. 
+ 457:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 458:Generated_Source\PSoC5/IgnitionCounter.c **** * Parameters:  
+ 459:Generated_Source\PSoC5/IgnitionCounter.c **** *  Compare:  New compare value. 
+ 460:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 461:Generated_Source\PSoC5/IgnitionCounter.c **** * Return: 
+ 462:Generated_Source\PSoC5/IgnitionCounter.c **** *  void
+ 463:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 464:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+ 465:Generated_Source\PSoC5/IgnitionCounter.c **** void IgnitionCounter_WriteCompare(uint16 compare) \
+ 466:Generated_Source\PSoC5/IgnitionCounter.c ****                                    
+ 467:Generated_Source\PSoC5/IgnitionCounter.c **** {
+ 611              		.loc 1 467 0
+ 612              		.cfi_startproc
+ 613              		@ args = 0, pretend = 0, frame = 8
+ 614              		@ frame_needed = 1, uses_anonymous_args = 0
+ 615              		@ link register save eliminated.
+ 616 0000 80B4     		push	{r7}
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 20
+
+
+ 617              		.cfi_def_cfa_offset 4
+ 618              		.cfi_offset 7, -4
+ 619 0002 83B0     		sub	sp, sp, #12
+ 620              		.cfi_def_cfa_offset 16
+ 621 0004 00AF     		add	r7, sp, #0
+ 622              		.cfi_def_cfa_register 7
+ 623 0006 0346     		mov	r3, r0
+ 624 0008 FB80     		strh	r3, [r7, #6]	@ movhi
+ 468:Generated_Source\PSoC5/IgnitionCounter.c ****     #if(IgnitionCounter_UsingFixedFunction)
+ 469:Generated_Source\PSoC5/IgnitionCounter.c ****         CY_SET_REG16(IgnitionCounter_COMPARE_LSB_PTR, (uint16)compare);
+ 470:Generated_Source\PSoC5/IgnitionCounter.c ****     #else
+ 471:Generated_Source\PSoC5/IgnitionCounter.c ****         CY_SET_REG16(IgnitionCounter_COMPARE_LSB_PTR, compare);
+ 625              		.loc 1 471 0
+ 626 000a 044A     		ldr	r2, .L47
+ 627 000c FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 628 000e 1380     		strh	r3, [r2]	@ movhi
+ 472:Generated_Source\PSoC5/IgnitionCounter.c ****     #endif /* (IgnitionCounter_UsingFixedFunction) */
+ 473:Generated_Source\PSoC5/IgnitionCounter.c **** }
+ 629              		.loc 1 473 0
+ 630 0010 0C37     		adds	r7, r7, #12
+ 631              		.cfi_def_cfa_offset 4
+ 632 0012 BD46     		mov	sp, r7
+ 633              		.cfi_def_cfa_register 13
+ 634              		@ sp needed
+ 635 0014 5DF8047B 		ldr	r7, [sp], #4
+ 636              		.cfi_restore 7
+ 637              		.cfi_def_cfa_offset 0
+ 638 0018 7047     		bx	lr
+ 639              	.L48:
+ 640 001a 00BF     		.align	2
+ 641              	.L47:
+ 642 001c 68680040 		.word	1073768552
+ 643              		.cfi_endproc
+ 644              	.LFE13:
+ 645              		.size	IgnitionCounter_WriteCompare, .-IgnitionCounter_WriteCompare
+ 646              		.section	.text.IgnitionCounter_ReadCompare,"ax",%progbits
+ 647              		.align	2
+ 648              		.global	IgnitionCounter_ReadCompare
+ 649              		.thumb
+ 650              		.thumb_func
+ 651              		.type	IgnitionCounter_ReadCompare, %function
+ 652              	IgnitionCounter_ReadCompare:
+ 653              	.LFB14:
+ 474:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 475:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 476:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+ 477:Generated_Source\PSoC5/IgnitionCounter.c **** * Function Name: IgnitionCounter_ReadCompare
+ 478:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+ 479:Generated_Source\PSoC5/IgnitionCounter.c **** * Summary:
+ 480:Generated_Source\PSoC5/IgnitionCounter.c **** * Returns the compare value.
+ 481:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 482:Generated_Source\PSoC5/IgnitionCounter.c **** * Parameters:  
+ 483:Generated_Source\PSoC5/IgnitionCounter.c **** *  void:
+ 484:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 485:Generated_Source\PSoC5/IgnitionCounter.c **** * Return: 
+ 486:Generated_Source\PSoC5/IgnitionCounter.c **** *  (uint16) Present compare value.
+ 487:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 21
+
+
+ 488:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+ 489:Generated_Source\PSoC5/IgnitionCounter.c **** uint16 IgnitionCounter_ReadCompare(void) 
+ 490:Generated_Source\PSoC5/IgnitionCounter.c **** {
+ 654              		.loc 1 490 0
+ 655              		.cfi_startproc
+ 656              		@ args = 0, pretend = 0, frame = 0
+ 657              		@ frame_needed = 1, uses_anonymous_args = 0
+ 658              		@ link register save eliminated.
+ 659 0000 80B4     		push	{r7}
+ 660              		.cfi_def_cfa_offset 4
+ 661              		.cfi_offset 7, -4
+ 662 0002 00AF     		add	r7, sp, #0
+ 663              		.cfi_def_cfa_register 7
+ 491:Generated_Source\PSoC5/IgnitionCounter.c ****     return (CY_GET_REG16(IgnitionCounter_COMPARE_LSB_PTR));
+ 664              		.loc 1 491 0
+ 665 0004 034B     		ldr	r3, .L51
+ 666 0006 1B88     		ldrh	r3, [r3]	@ movhi
+ 667 0008 9BB2     		uxth	r3, r3
+ 492:Generated_Source\PSoC5/IgnitionCounter.c **** }
+ 668              		.loc 1 492 0
+ 669 000a 1846     		mov	r0, r3
+ 670 000c BD46     		mov	sp, r7
+ 671              		.cfi_def_cfa_register 13
+ 672              		@ sp needed
+ 673 000e 5DF8047B 		ldr	r7, [sp], #4
+ 674              		.cfi_restore 7
+ 675              		.cfi_def_cfa_offset 0
+ 676 0012 7047     		bx	lr
+ 677              	.L52:
+ 678              		.align	2
+ 679              	.L51:
+ 680 0014 68680040 		.word	1073768552
+ 681              		.cfi_endproc
+ 682              	.LFE14:
+ 683              		.size	IgnitionCounter_ReadCompare, .-IgnitionCounter_ReadCompare
+ 684              		.section	.text.IgnitionCounter_ClearFIFO,"ax",%progbits
+ 685              		.align	2
+ 686              		.global	IgnitionCounter_ClearFIFO
+ 687              		.thumb
+ 688              		.thumb_func
+ 689              		.type	IgnitionCounter_ClearFIFO, %function
+ 690              	IgnitionCounter_ClearFIFO:
+ 691              	.LFB15:
+ 493:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 494:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 495:Generated_Source\PSoC5/IgnitionCounter.c **** #if (IgnitionCounter_COMPARE_MODE_SOFTWARE)
+ 496:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+ 497:Generated_Source\PSoC5/IgnitionCounter.c **** * Function Name: IgnitionCounter_SetCompareMode
+ 498:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+ 499:Generated_Source\PSoC5/IgnitionCounter.c **** * Summary:
+ 500:Generated_Source\PSoC5/IgnitionCounter.c **** *  Sets the software controlled Compare Mode.
+ 501:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 502:Generated_Source\PSoC5/IgnitionCounter.c **** * Parameters:
+ 503:Generated_Source\PSoC5/IgnitionCounter.c **** *  compareMode:  Compare Mode Enumerated Type.
+ 504:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 505:Generated_Source\PSoC5/IgnitionCounter.c **** * Return:
+ 506:Generated_Source\PSoC5/IgnitionCounter.c **** *  void
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 22
+
+
+ 507:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 508:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+ 509:Generated_Source\PSoC5/IgnitionCounter.c **** void IgnitionCounter_SetCompareMode(uint8 compareMode) 
+ 510:Generated_Source\PSoC5/IgnitionCounter.c **** {
+ 511:Generated_Source\PSoC5/IgnitionCounter.c ****     /* Clear the compare mode bits in the control register */
+ 512:Generated_Source\PSoC5/IgnitionCounter.c ****     IgnitionCounter_CONTROL &= ((uint8)(~IgnitionCounter_CTRL_CMPMODE_MASK));
+ 513:Generated_Source\PSoC5/IgnitionCounter.c ****     
+ 514:Generated_Source\PSoC5/IgnitionCounter.c ****     /* Write the new setting */
+ 515:Generated_Source\PSoC5/IgnitionCounter.c ****     IgnitionCounter_CONTROL |= compareMode;
+ 516:Generated_Source\PSoC5/IgnitionCounter.c **** }
+ 517:Generated_Source\PSoC5/IgnitionCounter.c **** #endif  /* (IgnitionCounter_COMPARE_MODE_SOFTWARE) */
+ 518:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 519:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 520:Generated_Source\PSoC5/IgnitionCounter.c **** #if (IgnitionCounter_CAPTURE_MODE_SOFTWARE)
+ 521:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+ 522:Generated_Source\PSoC5/IgnitionCounter.c **** * Function Name: IgnitionCounter_SetCaptureMode
+ 523:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+ 524:Generated_Source\PSoC5/IgnitionCounter.c **** * Summary:
+ 525:Generated_Source\PSoC5/IgnitionCounter.c **** *  Sets the software controlled Capture Mode.
+ 526:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 527:Generated_Source\PSoC5/IgnitionCounter.c **** * Parameters:
+ 528:Generated_Source\PSoC5/IgnitionCounter.c **** *  captureMode:  Capture Mode Enumerated Type.
+ 529:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 530:Generated_Source\PSoC5/IgnitionCounter.c **** * Return:
+ 531:Generated_Source\PSoC5/IgnitionCounter.c **** *  void
+ 532:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 533:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+ 534:Generated_Source\PSoC5/IgnitionCounter.c **** void IgnitionCounter_SetCaptureMode(uint8 captureMode) 
+ 535:Generated_Source\PSoC5/IgnitionCounter.c **** {
+ 536:Generated_Source\PSoC5/IgnitionCounter.c ****     /* Clear the capture mode bits in the control register */
+ 537:Generated_Source\PSoC5/IgnitionCounter.c ****     IgnitionCounter_CONTROL &= ((uint8)(~IgnitionCounter_CTRL_CAPMODE_MASK));
+ 538:Generated_Source\PSoC5/IgnitionCounter.c ****     
+ 539:Generated_Source\PSoC5/IgnitionCounter.c ****     /* Write the new setting */
+ 540:Generated_Source\PSoC5/IgnitionCounter.c ****     IgnitionCounter_CONTROL |= ((uint8)((uint8)captureMode << IgnitionCounter_CTRL_CAPMODE0_SHIFT))
+ 541:Generated_Source\PSoC5/IgnitionCounter.c **** }
+ 542:Generated_Source\PSoC5/IgnitionCounter.c **** #endif  /* (IgnitionCounter_CAPTURE_MODE_SOFTWARE) */
+ 543:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 544:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 545:Generated_Source\PSoC5/IgnitionCounter.c **** /*******************************************************************************
+ 546:Generated_Source\PSoC5/IgnitionCounter.c **** * Function Name: IgnitionCounter_ClearFIFO
+ 547:Generated_Source\PSoC5/IgnitionCounter.c **** ********************************************************************************
+ 548:Generated_Source\PSoC5/IgnitionCounter.c **** * Summary:
+ 549:Generated_Source\PSoC5/IgnitionCounter.c **** *   This function clears all capture data from the capture FIFO
+ 550:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 551:Generated_Source\PSoC5/IgnitionCounter.c **** * Parameters:  
+ 552:Generated_Source\PSoC5/IgnitionCounter.c **** *  void:
+ 553:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 554:Generated_Source\PSoC5/IgnitionCounter.c **** * Return: 
+ 555:Generated_Source\PSoC5/IgnitionCounter.c **** *  None
+ 556:Generated_Source\PSoC5/IgnitionCounter.c **** *
+ 557:Generated_Source\PSoC5/IgnitionCounter.c **** *******************************************************************************/
+ 558:Generated_Source\PSoC5/IgnitionCounter.c **** void IgnitionCounter_ClearFIFO(void) 
+ 559:Generated_Source\PSoC5/IgnitionCounter.c **** {
+ 692              		.loc 1 559 0
+ 693              		.cfi_startproc
+ 694              		@ args = 0, pretend = 0, frame = 0
+ 695              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 23
+
+
+ 696 0000 80B5     		push	{r7, lr}
+ 697              		.cfi_def_cfa_offset 8
+ 698              		.cfi_offset 7, -8
+ 699              		.cfi_offset 14, -4
+ 700 0002 00AF     		add	r7, sp, #0
+ 701              		.cfi_def_cfa_register 7
+ 560:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 561:Generated_Source\PSoC5/IgnitionCounter.c ****     while(0u != (IgnitionCounter_ReadStatusRegister() & IgnitionCounter_STATUS_FIFONEMP))
+ 702              		.loc 1 561 0
+ 703 0004 01E0     		b	.L54
+ 704              	.L55:
+ 562:Generated_Source\PSoC5/IgnitionCounter.c ****     {
+ 563:Generated_Source\PSoC5/IgnitionCounter.c ****         (void)IgnitionCounter_ReadCapture();
+ 705              		.loc 1 563 0
+ 706 0006 FFF7FEFF 		bl	IgnitionCounter_ReadCapture
+ 707              	.L54:
+ 561:Generated_Source\PSoC5/IgnitionCounter.c ****     {
+ 708              		.loc 1 561 0
+ 709 000a FFF7FEFF 		bl	IgnitionCounter_ReadStatusRegister
+ 710 000e 0346     		mov	r3, r0
+ 711 0010 03F04003 		and	r3, r3, #64
+ 712 0014 002B     		cmp	r3, #0
+ 713 0016 F6D1     		bne	.L55
+ 564:Generated_Source\PSoC5/IgnitionCounter.c ****     }
+ 565:Generated_Source\PSoC5/IgnitionCounter.c **** 
+ 566:Generated_Source\PSoC5/IgnitionCounter.c **** }
+ 714              		.loc 1 566 0
+ 715 0018 80BD     		pop	{r7, pc}
+ 716              		.cfi_endproc
+ 717              	.LFE15:
+ 718              		.size	IgnitionCounter_ClearFIFO, .-IgnitionCounter_ClearFIFO
+ 719 001a 00BF     		.text
+ 720              	.Letext0:
+ 721              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 722              		.section	.debug_info,"",%progbits
+ 723              	.Ldebug_info0:
+ 724 0000 86020000 		.4byte	0x286
+ 725 0004 0400     		.2byte	0x4
+ 726 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 727 000a 04       		.byte	0x4
+ 728 000b 01       		.uleb128 0x1
+ 729 000c 9F010000 		.4byte	.LASF40
+ 730 0010 01       		.byte	0x1
+ 731 0011 06000000 		.4byte	.LASF41
+ 732 0015 53020000 		.4byte	.LASF42
+ 733 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 734 001d 00000000 		.4byte	0
+ 735 0021 00000000 		.4byte	.Ldebug_line0
+ 736 0025 02       		.uleb128 0x2
+ 737 0026 01       		.byte	0x1
+ 738 0027 06       		.byte	0x6
+ 739 0028 C6030000 		.4byte	.LASF0
+ 740 002c 02       		.uleb128 0x2
+ 741 002d 01       		.byte	0x1
+ 742 002e 08       		.byte	0x8
+ 743 002f 08010000 		.4byte	.LASF1
+ 744 0033 02       		.uleb128 0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 24
+
+
+ 745 0034 02       		.byte	0x2
+ 746 0035 05       		.byte	0x5
+ 747 0036 5C030000 		.4byte	.LASF2
+ 748 003a 02       		.uleb128 0x2
+ 749 003b 02       		.byte	0x2
+ 750 003c 07       		.byte	0x7
+ 751 003d 78000000 		.4byte	.LASF3
+ 752 0041 02       		.uleb128 0x2
+ 753 0042 04       		.byte	0x4
+ 754 0043 05       		.byte	0x5
+ 755 0044 BD030000 		.4byte	.LASF4
+ 756 0048 02       		.uleb128 0x2
+ 757 0049 04       		.byte	0x4
+ 758 004a 07       		.byte	0x7
+ 759 004b 3F010000 		.4byte	.LASF5
+ 760 004f 02       		.uleb128 0x2
+ 761 0050 08       		.byte	0x8
+ 762 0051 05       		.byte	0x5
+ 763 0052 18030000 		.4byte	.LASF6
+ 764 0056 02       		.uleb128 0x2
+ 765 0057 08       		.byte	0x8
+ 766 0058 07       		.byte	0x7
+ 767 0059 D8020000 		.4byte	.LASF7
+ 768 005d 03       		.uleb128 0x3
+ 769 005e 04       		.byte	0x4
+ 770 005f 05       		.byte	0x5
+ 771 0060 696E7400 		.ascii	"int\000"
+ 772 0064 02       		.uleb128 0x2
+ 773 0065 04       		.byte	0x4
+ 774 0066 07       		.byte	0x7
+ 775 0067 AC020000 		.4byte	.LASF8
+ 776 006b 04       		.uleb128 0x4
+ 777 006c 51010000 		.4byte	.LASF9
+ 778 0070 02       		.byte	0x2
+ 779 0071 3801     		.2byte	0x138
+ 780 0073 2C000000 		.4byte	0x2c
+ 781 0077 04       		.uleb128 0x4
+ 782 0078 4C020000 		.4byte	.LASF10
+ 783 007c 02       		.byte	0x2
+ 784 007d 3901     		.2byte	0x139
+ 785 007f 3A000000 		.4byte	0x3a
+ 786 0083 02       		.uleb128 0x2
+ 787 0084 04       		.byte	0x4
+ 788 0085 04       		.byte	0x4
+ 789 0086 E4000000 		.4byte	.LASF11
+ 790 008a 02       		.uleb128 0x2
+ 791 008b 08       		.byte	0x8
+ 792 008c 04       		.byte	0x4
+ 793 008d 2D020000 		.4byte	.LASF12
+ 794 0091 02       		.uleb128 0x2
+ 795 0092 01       		.byte	0x1
+ 796 0093 08       		.byte	0x8
+ 797 0094 26030000 		.4byte	.LASF13
+ 798 0098 04       		.uleb128 0x4
+ 799 0099 16010000 		.4byte	.LASF14
+ 800 009d 02       		.byte	0x2
+ 801 009e E201     		.2byte	0x1e2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 25
+
+
+ 802 00a0 A4000000 		.4byte	0xa4
+ 803 00a4 05       		.uleb128 0x5
+ 804 00a5 6B000000 		.4byte	0x6b
+ 805 00a9 04       		.uleb128 0x4
+ 806 00aa 00000000 		.4byte	.LASF15
+ 807 00ae 02       		.byte	0x2
+ 808 00af E301     		.2byte	0x1e3
+ 809 00b1 B5000000 		.4byte	0xb5
+ 810 00b5 05       		.uleb128 0x5
+ 811 00b6 77000000 		.4byte	0x77
+ 812 00ba 02       		.uleb128 0x2
+ 813 00bb 04       		.byte	0x4
+ 814 00bc 07       		.byte	0x7
+ 815 00bd F4020000 		.4byte	.LASF16
+ 816 00c1 06       		.uleb128 0x6
+ 817 00c2 8A010000 		.4byte	.LASF22
+ 818 00c6 01       		.byte	0x1
+ 819 00c7 25       		.byte	0x25
+ 820 00c8 00000000 		.4byte	.LFB0
+ 821 00cc 84000000 		.4byte	.LFE0-.LFB0
+ 822 00d0 01       		.uleb128 0x1
+ 823 00d1 9C       		.byte	0x9c
+ 824 00d2 F3000000 		.4byte	0xf3
+ 825 00d6 07       		.uleb128 0x7
+ 826 00d7 EF020000 		.4byte	.LASF17
+ 827 00db 01       		.byte	0x1
+ 828 00dc 28       		.byte	0x28
+ 829 00dd 6B000000 		.4byte	0x6b
+ 830 00e1 02       		.uleb128 0x2
+ 831 00e2 91       		.byte	0x91
+ 832 00e3 77       		.sleb128 -9
+ 833 00e4 07       		.uleb128 0x7
+ 834 00e5 B9020000 		.4byte	.LASF18
+ 835 00e9 01       		.byte	0x1
+ 836 00ea 2D       		.byte	0x2d
+ 837 00eb 6B000000 		.4byte	0x6b
+ 838 00ef 02       		.uleb128 0x2
+ 839 00f0 91       		.byte	0x91
+ 840 00f1 76       		.sleb128 -10
+ 841 00f2 00       		.byte	0
+ 842 00f3 08       		.uleb128 0x8
+ 843 00f4 66030000 		.4byte	.LASF19
+ 844 00f8 01       		.byte	0x1
+ 845 00f9 8F       		.byte	0x8f
+ 846 00fa 00000000 		.4byte	.LFB1
+ 847 00fe 20000000 		.4byte	.LFE1-.LFB1
+ 848 0102 01       		.uleb128 0x1
+ 849 0103 9C       		.byte	0x9c
+ 850 0104 09       		.uleb128 0x9
+ 851 0105 F2000000 		.4byte	.LASF20
+ 852 0109 01       		.byte	0x1
+ 853 010a B2       		.byte	0xb2
+ 854 010b 00000000 		.4byte	.LFB2
+ 855 010f 20000000 		.4byte	.LFE2-.LFB2
+ 856 0113 01       		.uleb128 0x1
+ 857 0114 9C       		.byte	0x9c
+ 858 0115 08       		.uleb128 0x8
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 26
+
+
+ 859 0116 47030000 		.4byte	.LASF21
+ 860 011a 01       		.byte	0x1
+ 861 011b D0       		.byte	0xd0
+ 862 011c 00000000 		.4byte	.LFB3
+ 863 0120 20000000 		.4byte	.LFE3-.LFB3
+ 864 0124 01       		.uleb128 0x1
+ 865 0125 9C       		.byte	0x9c
+ 866 0126 0A       		.uleb128 0xa
+ 867 0127 C3000000 		.4byte	.LASF23
+ 868 012b 01       		.byte	0x1
+ 869 012c ED       		.byte	0xed
+ 870 012d 00000000 		.4byte	.LFB4
+ 871 0131 20000000 		.4byte	.LFE4-.LFB4
+ 872 0135 01       		.uleb128 0x1
+ 873 0136 9C       		.byte	0x9c
+ 874 0137 4A010000 		.4byte	0x14a
+ 875 013b 0B       		.uleb128 0xb
+ 876 013c 5F010000 		.4byte	.LASF27
+ 877 0140 01       		.byte	0x1
+ 878 0141 ED       		.byte	0xed
+ 879 0142 6B000000 		.4byte	0x6b
+ 880 0146 02       		.uleb128 0x2
+ 881 0147 91       		.byte	0x91
+ 882 0148 77       		.sleb128 -9
+ 883 0149 00       		.byte	0
+ 884 014a 0C       		.uleb128 0xc
+ 885 014b 9A030000 		.4byte	.LASF24
+ 886 014f 01       		.byte	0x1
+ 887 0150 0501     		.2byte	0x105
+ 888 0152 6B000000 		.4byte	0x6b
+ 889 0156 00000000 		.4byte	.LFB5
+ 890 015a 18000000 		.4byte	.LFE5-.LFB5
+ 891 015e 01       		.uleb128 0x1
+ 892 015f 9C       		.byte	0x9c
+ 893 0160 0C       		.uleb128 0xc
+ 894 0161 1B010000 		.4byte	.LASF25
+ 895 0165 01       		.byte	0x1
+ 896 0166 1B01     		.2byte	0x11b
+ 897 0168 6B000000 		.4byte	0x6b
+ 898 016c 00000000 		.4byte	.LFB6
+ 899 0170 18000000 		.4byte	.LFE6-.LFB6
+ 900 0174 01       		.uleb128 0x1
+ 901 0175 9C       		.byte	0x9c
+ 902 0176 0D       		.uleb128 0xd
+ 903 0177 4C000000 		.4byte	.LASF26
+ 904 017b 01       		.byte	0x1
+ 905 017c 3001     		.2byte	0x130
+ 906 017e 00000000 		.4byte	.LFB7
+ 907 0182 20000000 		.4byte	.LFE7-.LFB7
+ 908 0186 01       		.uleb128 0x1
+ 909 0187 9C       		.byte	0x9c
+ 910 0188 9C010000 		.4byte	0x19c
+ 911 018c 0E       		.uleb128 0xe
+ 912 018d 57010000 		.4byte	.LASF28
+ 913 0191 01       		.byte	0x1
+ 914 0192 3001     		.2byte	0x130
+ 915 0194 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 27
+
+
+ 916 0198 02       		.uleb128 0x2
+ 917 0199 91       		.byte	0x91
+ 918 019a 77       		.sleb128 -9
+ 919 019b 00       		.byte	0
+ 920 019c 0D       		.uleb128 0xd
+ 921 019d 7D030000 		.4byte	.LASF29
+ 922 01a1 01       		.byte	0x1
+ 923 01a2 4601     		.2byte	0x146
+ 924 01a4 00000000 		.4byte	.LFB8
+ 925 01a8 20000000 		.4byte	.LFE8-.LFB8
+ 926 01ac 01       		.uleb128 0x1
+ 927 01ad 9C       		.byte	0x9c
+ 928 01ae C2010000 		.4byte	0x1c2
+ 929 01b2 0E       		.uleb128 0xe
+ 930 01b3 EA000000 		.4byte	.LASF30
+ 931 01b7 01       		.byte	0x1
+ 932 01b8 4601     		.2byte	0x146
+ 933 01ba 77000000 		.4byte	0x77
+ 934 01be 02       		.uleb128 0x2
+ 935 01bf 91       		.byte	0x91
+ 936 01c0 76       		.sleb128 -10
+ 937 01c1 00       		.byte	0
+ 938 01c2 0C       		.uleb128 0xc
+ 939 01c3 6E010000 		.4byte	.LASF31
+ 940 01c7 01       		.byte	0x1
+ 941 01c8 6501     		.2byte	0x165
+ 942 01ca 77000000 		.4byte	0x77
+ 943 01ce 00000000 		.4byte	.LFB9
+ 944 01d2 20000000 		.4byte	.LFE9-.LFB9
+ 945 01d6 01       		.uleb128 0x1
+ 946 01d7 9C       		.byte	0x9c
+ 947 01d8 0C       		.uleb128 0xc
+ 948 01d9 A7000000 		.4byte	.LASF32
+ 949 01dd 01       		.byte	0x1
+ 950 01de 8601     		.2byte	0x186
+ 951 01e0 77000000 		.4byte	0x77
+ 952 01e4 00000000 		.4byte	.LFB10
+ 953 01e8 18000000 		.4byte	.LFE10-.LFB10
+ 954 01ec 01       		.uleb128 0x1
+ 955 01ed 9C       		.byte	0x9c
+ 956 01ee 0D       		.uleb128 0xd
+ 957 01ef 2B030000 		.4byte	.LASF33
+ 958 01f3 01       		.byte	0x1
+ 959 01f4 9F01     		.2byte	0x19f
+ 960 01f6 00000000 		.4byte	.LFB11
+ 961 01fa 20000000 		.4byte	.LFE11-.LFB11
+ 962 01fe 01       		.uleb128 0x1
+ 963 01ff 9C       		.byte	0x9c
+ 964 0200 14020000 		.4byte	0x214
+ 965 0204 0E       		.uleb128 0xe
+ 966 0205 71000000 		.4byte	.LASF34
+ 967 0209 01       		.byte	0x1
+ 968 020a 9F01     		.2byte	0x19f
+ 969 020c 77000000 		.4byte	0x77
+ 970 0210 02       		.uleb128 0x2
+ 971 0211 91       		.byte	0x91
+ 972 0212 76       		.sleb128 -10
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 28
+
+
+ 973 0213 00       		.byte	0
+ 974 0214 0C       		.uleb128 0xc
+ 975 0215 FD020000 		.4byte	.LASF35
+ 976 0219 01       		.byte	0x1
+ 977 021a B601     		.2byte	0x1b6
+ 978 021c 77000000 		.4byte	0x77
+ 979 0220 00000000 		.4byte	.LFB12
+ 980 0224 18000000 		.4byte	.LFE12-.LFB12
+ 981 0228 01       		.uleb128 0x1
+ 982 0229 9C       		.byte	0x9c
+ 983 022a 0D       		.uleb128 0xd
+ 984 022b 2F000000 		.4byte	.LASF36
+ 985 022f 01       		.byte	0x1
+ 986 0230 D101     		.2byte	0x1d1
+ 987 0232 00000000 		.4byte	.LFB13
+ 988 0236 20000000 		.4byte	.LFE13-.LFB13
+ 989 023a 01       		.uleb128 0x1
+ 990 023b 9C       		.byte	0x9c
+ 991 023c 50020000 		.4byte	0x250
+ 992 0240 0E       		.uleb128 0xe
+ 993 0241 D2030000 		.4byte	.LASF37
+ 994 0245 01       		.byte	0x1
+ 995 0246 D101     		.2byte	0x1d1
+ 996 0248 77000000 		.4byte	0x77
+ 997 024c 02       		.uleb128 0x2
+ 998 024d 91       		.byte	0x91
+ 999 024e 76       		.sleb128 -10
+ 1000 024f 00       		.byte	0
+ 1001 0250 0C       		.uleb128 0xc
+ 1002 0251 8B000000 		.4byte	.LASF38
+ 1003 0255 01       		.byte	0x1
+ 1004 0256 E901     		.2byte	0x1e9
+ 1005 0258 77000000 		.4byte	0x77
+ 1006 025c 00000000 		.4byte	.LFB14
+ 1007 0260 18000000 		.4byte	.LFE14-.LFB14
+ 1008 0264 01       		.uleb128 0x1
+ 1009 0265 9C       		.byte	0x9c
+ 1010 0266 0F       		.uleb128 0xf
+ 1011 0267 DA030000 		.4byte	.LASF39
+ 1012 026b 01       		.byte	0x1
+ 1013 026c 2E02     		.2byte	0x22e
+ 1014 026e 00000000 		.4byte	.LFB15
+ 1015 0272 1A000000 		.4byte	.LFE15-.LFB15
+ 1016 0276 01       		.uleb128 0x1
+ 1017 0277 9C       		.byte	0x9c
+ 1018 0278 10       		.uleb128 0x10
+ 1019 0279 34020000 		.4byte	.LASF43
+ 1020 027d 01       		.byte	0x1
+ 1021 027e 15       		.byte	0x15
+ 1022 027f 6B000000 		.4byte	0x6b
+ 1023 0283 05       		.uleb128 0x5
+ 1024 0284 03       		.byte	0x3
+ 1025 0285 00000000 		.4byte	IgnitionCounter_initVar
+ 1026 0289 00       		.byte	0
+ 1027              		.section	.debug_abbrev,"",%progbits
+ 1028              	.Ldebug_abbrev0:
+ 1029 0000 01       		.uleb128 0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 29
+
+
+ 1030 0001 11       		.uleb128 0x11
+ 1031 0002 01       		.byte	0x1
+ 1032 0003 25       		.uleb128 0x25
+ 1033 0004 0E       		.uleb128 0xe
+ 1034 0005 13       		.uleb128 0x13
+ 1035 0006 0B       		.uleb128 0xb
+ 1036 0007 03       		.uleb128 0x3
+ 1037 0008 0E       		.uleb128 0xe
+ 1038 0009 1B       		.uleb128 0x1b
+ 1039 000a 0E       		.uleb128 0xe
+ 1040 000b 55       		.uleb128 0x55
+ 1041 000c 17       		.uleb128 0x17
+ 1042 000d 11       		.uleb128 0x11
+ 1043 000e 01       		.uleb128 0x1
+ 1044 000f 10       		.uleb128 0x10
+ 1045 0010 17       		.uleb128 0x17
+ 1046 0011 00       		.byte	0
+ 1047 0012 00       		.byte	0
+ 1048 0013 02       		.uleb128 0x2
+ 1049 0014 24       		.uleb128 0x24
+ 1050 0015 00       		.byte	0
+ 1051 0016 0B       		.uleb128 0xb
+ 1052 0017 0B       		.uleb128 0xb
+ 1053 0018 3E       		.uleb128 0x3e
+ 1054 0019 0B       		.uleb128 0xb
+ 1055 001a 03       		.uleb128 0x3
+ 1056 001b 0E       		.uleb128 0xe
+ 1057 001c 00       		.byte	0
+ 1058 001d 00       		.byte	0
+ 1059 001e 03       		.uleb128 0x3
+ 1060 001f 24       		.uleb128 0x24
+ 1061 0020 00       		.byte	0
+ 1062 0021 0B       		.uleb128 0xb
+ 1063 0022 0B       		.uleb128 0xb
+ 1064 0023 3E       		.uleb128 0x3e
+ 1065 0024 0B       		.uleb128 0xb
+ 1066 0025 03       		.uleb128 0x3
+ 1067 0026 08       		.uleb128 0x8
+ 1068 0027 00       		.byte	0
+ 1069 0028 00       		.byte	0
+ 1070 0029 04       		.uleb128 0x4
+ 1071 002a 16       		.uleb128 0x16
+ 1072 002b 00       		.byte	0
+ 1073 002c 03       		.uleb128 0x3
+ 1074 002d 0E       		.uleb128 0xe
+ 1075 002e 3A       		.uleb128 0x3a
+ 1076 002f 0B       		.uleb128 0xb
+ 1077 0030 3B       		.uleb128 0x3b
+ 1078 0031 05       		.uleb128 0x5
+ 1079 0032 49       		.uleb128 0x49
+ 1080 0033 13       		.uleb128 0x13
+ 1081 0034 00       		.byte	0
+ 1082 0035 00       		.byte	0
+ 1083 0036 05       		.uleb128 0x5
+ 1084 0037 35       		.uleb128 0x35
+ 1085 0038 00       		.byte	0
+ 1086 0039 49       		.uleb128 0x49
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 30
+
+
+ 1087 003a 13       		.uleb128 0x13
+ 1088 003b 00       		.byte	0
+ 1089 003c 00       		.byte	0
+ 1090 003d 06       		.uleb128 0x6
+ 1091 003e 2E       		.uleb128 0x2e
+ 1092 003f 01       		.byte	0x1
+ 1093 0040 3F       		.uleb128 0x3f
+ 1094 0041 19       		.uleb128 0x19
+ 1095 0042 03       		.uleb128 0x3
+ 1096 0043 0E       		.uleb128 0xe
+ 1097 0044 3A       		.uleb128 0x3a
+ 1098 0045 0B       		.uleb128 0xb
+ 1099 0046 3B       		.uleb128 0x3b
+ 1100 0047 0B       		.uleb128 0xb
+ 1101 0048 27       		.uleb128 0x27
+ 1102 0049 19       		.uleb128 0x19
+ 1103 004a 11       		.uleb128 0x11
+ 1104 004b 01       		.uleb128 0x1
+ 1105 004c 12       		.uleb128 0x12
+ 1106 004d 06       		.uleb128 0x6
+ 1107 004e 40       		.uleb128 0x40
+ 1108 004f 18       		.uleb128 0x18
+ 1109 0050 9642     		.uleb128 0x2116
+ 1110 0052 19       		.uleb128 0x19
+ 1111 0053 01       		.uleb128 0x1
+ 1112 0054 13       		.uleb128 0x13
+ 1113 0055 00       		.byte	0
+ 1114 0056 00       		.byte	0
+ 1115 0057 07       		.uleb128 0x7
+ 1116 0058 34       		.uleb128 0x34
+ 1117 0059 00       		.byte	0
+ 1118 005a 03       		.uleb128 0x3
+ 1119 005b 0E       		.uleb128 0xe
+ 1120 005c 3A       		.uleb128 0x3a
+ 1121 005d 0B       		.uleb128 0xb
+ 1122 005e 3B       		.uleb128 0x3b
+ 1123 005f 0B       		.uleb128 0xb
+ 1124 0060 49       		.uleb128 0x49
+ 1125 0061 13       		.uleb128 0x13
+ 1126 0062 02       		.uleb128 0x2
+ 1127 0063 18       		.uleb128 0x18
+ 1128 0064 00       		.byte	0
+ 1129 0065 00       		.byte	0
+ 1130 0066 08       		.uleb128 0x8
+ 1131 0067 2E       		.uleb128 0x2e
+ 1132 0068 00       		.byte	0
+ 1133 0069 3F       		.uleb128 0x3f
+ 1134 006a 19       		.uleb128 0x19
+ 1135 006b 03       		.uleb128 0x3
+ 1136 006c 0E       		.uleb128 0xe
+ 1137 006d 3A       		.uleb128 0x3a
+ 1138 006e 0B       		.uleb128 0xb
+ 1139 006f 3B       		.uleb128 0x3b
+ 1140 0070 0B       		.uleb128 0xb
+ 1141 0071 27       		.uleb128 0x27
+ 1142 0072 19       		.uleb128 0x19
+ 1143 0073 11       		.uleb128 0x11
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 31
+
+
+ 1144 0074 01       		.uleb128 0x1
+ 1145 0075 12       		.uleb128 0x12
+ 1146 0076 06       		.uleb128 0x6
+ 1147 0077 40       		.uleb128 0x40
+ 1148 0078 18       		.uleb128 0x18
+ 1149 0079 9742     		.uleb128 0x2117
+ 1150 007b 19       		.uleb128 0x19
+ 1151 007c 00       		.byte	0
+ 1152 007d 00       		.byte	0
+ 1153 007e 09       		.uleb128 0x9
+ 1154 007f 2E       		.uleb128 0x2e
+ 1155 0080 00       		.byte	0
+ 1156 0081 3F       		.uleb128 0x3f
+ 1157 0082 19       		.uleb128 0x19
+ 1158 0083 03       		.uleb128 0x3
+ 1159 0084 0E       		.uleb128 0xe
+ 1160 0085 3A       		.uleb128 0x3a
+ 1161 0086 0B       		.uleb128 0xb
+ 1162 0087 3B       		.uleb128 0x3b
+ 1163 0088 0B       		.uleb128 0xb
+ 1164 0089 27       		.uleb128 0x27
+ 1165 008a 19       		.uleb128 0x19
+ 1166 008b 11       		.uleb128 0x11
+ 1167 008c 01       		.uleb128 0x1
+ 1168 008d 12       		.uleb128 0x12
+ 1169 008e 06       		.uleb128 0x6
+ 1170 008f 40       		.uleb128 0x40
+ 1171 0090 18       		.uleb128 0x18
+ 1172 0091 9642     		.uleb128 0x2116
+ 1173 0093 19       		.uleb128 0x19
+ 1174 0094 00       		.byte	0
+ 1175 0095 00       		.byte	0
+ 1176 0096 0A       		.uleb128 0xa
+ 1177 0097 2E       		.uleb128 0x2e
+ 1178 0098 01       		.byte	0x1
+ 1179 0099 3F       		.uleb128 0x3f
+ 1180 009a 19       		.uleb128 0x19
+ 1181 009b 03       		.uleb128 0x3
+ 1182 009c 0E       		.uleb128 0xe
+ 1183 009d 3A       		.uleb128 0x3a
+ 1184 009e 0B       		.uleb128 0xb
+ 1185 009f 3B       		.uleb128 0x3b
+ 1186 00a0 0B       		.uleb128 0xb
+ 1187 00a1 27       		.uleb128 0x27
+ 1188 00a2 19       		.uleb128 0x19
+ 1189 00a3 11       		.uleb128 0x11
+ 1190 00a4 01       		.uleb128 0x1
+ 1191 00a5 12       		.uleb128 0x12
+ 1192 00a6 06       		.uleb128 0x6
+ 1193 00a7 40       		.uleb128 0x40
+ 1194 00a8 18       		.uleb128 0x18
+ 1195 00a9 9742     		.uleb128 0x2117
+ 1196 00ab 19       		.uleb128 0x19
+ 1197 00ac 01       		.uleb128 0x1
+ 1198 00ad 13       		.uleb128 0x13
+ 1199 00ae 00       		.byte	0
+ 1200 00af 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 32
+
+
+ 1201 00b0 0B       		.uleb128 0xb
+ 1202 00b1 05       		.uleb128 0x5
+ 1203 00b2 00       		.byte	0
+ 1204 00b3 03       		.uleb128 0x3
+ 1205 00b4 0E       		.uleb128 0xe
+ 1206 00b5 3A       		.uleb128 0x3a
+ 1207 00b6 0B       		.uleb128 0xb
+ 1208 00b7 3B       		.uleb128 0x3b
+ 1209 00b8 0B       		.uleb128 0xb
+ 1210 00b9 49       		.uleb128 0x49
+ 1211 00ba 13       		.uleb128 0x13
+ 1212 00bb 02       		.uleb128 0x2
+ 1213 00bc 18       		.uleb128 0x18
+ 1214 00bd 00       		.byte	0
+ 1215 00be 00       		.byte	0
+ 1216 00bf 0C       		.uleb128 0xc
+ 1217 00c0 2E       		.uleb128 0x2e
+ 1218 00c1 00       		.byte	0
+ 1219 00c2 3F       		.uleb128 0x3f
+ 1220 00c3 19       		.uleb128 0x19
+ 1221 00c4 03       		.uleb128 0x3
+ 1222 00c5 0E       		.uleb128 0xe
+ 1223 00c6 3A       		.uleb128 0x3a
+ 1224 00c7 0B       		.uleb128 0xb
+ 1225 00c8 3B       		.uleb128 0x3b
+ 1226 00c9 05       		.uleb128 0x5
+ 1227 00ca 27       		.uleb128 0x27
+ 1228 00cb 19       		.uleb128 0x19
+ 1229 00cc 49       		.uleb128 0x49
+ 1230 00cd 13       		.uleb128 0x13
+ 1231 00ce 11       		.uleb128 0x11
+ 1232 00cf 01       		.uleb128 0x1
+ 1233 00d0 12       		.uleb128 0x12
+ 1234 00d1 06       		.uleb128 0x6
+ 1235 00d2 40       		.uleb128 0x40
+ 1236 00d3 18       		.uleb128 0x18
+ 1237 00d4 9742     		.uleb128 0x2117
+ 1238 00d6 19       		.uleb128 0x19
+ 1239 00d7 00       		.byte	0
+ 1240 00d8 00       		.byte	0
+ 1241 00d9 0D       		.uleb128 0xd
+ 1242 00da 2E       		.uleb128 0x2e
+ 1243 00db 01       		.byte	0x1
+ 1244 00dc 3F       		.uleb128 0x3f
+ 1245 00dd 19       		.uleb128 0x19
+ 1246 00de 03       		.uleb128 0x3
+ 1247 00df 0E       		.uleb128 0xe
+ 1248 00e0 3A       		.uleb128 0x3a
+ 1249 00e1 0B       		.uleb128 0xb
+ 1250 00e2 3B       		.uleb128 0x3b
+ 1251 00e3 05       		.uleb128 0x5
+ 1252 00e4 27       		.uleb128 0x27
+ 1253 00e5 19       		.uleb128 0x19
+ 1254 00e6 11       		.uleb128 0x11
+ 1255 00e7 01       		.uleb128 0x1
+ 1256 00e8 12       		.uleb128 0x12
+ 1257 00e9 06       		.uleb128 0x6
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 33
+
+
+ 1258 00ea 40       		.uleb128 0x40
+ 1259 00eb 18       		.uleb128 0x18
+ 1260 00ec 9742     		.uleb128 0x2117
+ 1261 00ee 19       		.uleb128 0x19
+ 1262 00ef 01       		.uleb128 0x1
+ 1263 00f0 13       		.uleb128 0x13
+ 1264 00f1 00       		.byte	0
+ 1265 00f2 00       		.byte	0
+ 1266 00f3 0E       		.uleb128 0xe
+ 1267 00f4 05       		.uleb128 0x5
+ 1268 00f5 00       		.byte	0
+ 1269 00f6 03       		.uleb128 0x3
+ 1270 00f7 0E       		.uleb128 0xe
+ 1271 00f8 3A       		.uleb128 0x3a
+ 1272 00f9 0B       		.uleb128 0xb
+ 1273 00fa 3B       		.uleb128 0x3b
+ 1274 00fb 05       		.uleb128 0x5
+ 1275 00fc 49       		.uleb128 0x49
+ 1276 00fd 13       		.uleb128 0x13
+ 1277 00fe 02       		.uleb128 0x2
+ 1278 00ff 18       		.uleb128 0x18
+ 1279 0100 00       		.byte	0
+ 1280 0101 00       		.byte	0
+ 1281 0102 0F       		.uleb128 0xf
+ 1282 0103 2E       		.uleb128 0x2e
+ 1283 0104 00       		.byte	0
+ 1284 0105 3F       		.uleb128 0x3f
+ 1285 0106 19       		.uleb128 0x19
+ 1286 0107 03       		.uleb128 0x3
+ 1287 0108 0E       		.uleb128 0xe
+ 1288 0109 3A       		.uleb128 0x3a
+ 1289 010a 0B       		.uleb128 0xb
+ 1290 010b 3B       		.uleb128 0x3b
+ 1291 010c 05       		.uleb128 0x5
+ 1292 010d 27       		.uleb128 0x27
+ 1293 010e 19       		.uleb128 0x19
+ 1294 010f 11       		.uleb128 0x11
+ 1295 0110 01       		.uleb128 0x1
+ 1296 0111 12       		.uleb128 0x12
+ 1297 0112 06       		.uleb128 0x6
+ 1298 0113 40       		.uleb128 0x40
+ 1299 0114 18       		.uleb128 0x18
+ 1300 0115 9642     		.uleb128 0x2116
+ 1301 0117 19       		.uleb128 0x19
+ 1302 0118 00       		.byte	0
+ 1303 0119 00       		.byte	0
+ 1304 011a 10       		.uleb128 0x10
+ 1305 011b 34       		.uleb128 0x34
+ 1306 011c 00       		.byte	0
+ 1307 011d 03       		.uleb128 0x3
+ 1308 011e 0E       		.uleb128 0xe
+ 1309 011f 3A       		.uleb128 0x3a
+ 1310 0120 0B       		.uleb128 0xb
+ 1311 0121 3B       		.uleb128 0x3b
+ 1312 0122 0B       		.uleb128 0xb
+ 1313 0123 49       		.uleb128 0x49
+ 1314 0124 13       		.uleb128 0x13
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 34
+
+
+ 1315 0125 3F       		.uleb128 0x3f
+ 1316 0126 19       		.uleb128 0x19
+ 1317 0127 02       		.uleb128 0x2
+ 1318 0128 18       		.uleb128 0x18
+ 1319 0129 00       		.byte	0
+ 1320 012a 00       		.byte	0
+ 1321 012b 00       		.byte	0
+ 1322              		.section	.debug_aranges,"",%progbits
+ 1323 0000 94000000 		.4byte	0x94
+ 1324 0004 0200     		.2byte	0x2
+ 1325 0006 00000000 		.4byte	.Ldebug_info0
+ 1326 000a 04       		.byte	0x4
+ 1327 000b 00       		.byte	0
+ 1328 000c 0000     		.2byte	0
+ 1329 000e 0000     		.2byte	0
+ 1330 0010 00000000 		.4byte	.LFB0
+ 1331 0014 84000000 		.4byte	.LFE0-.LFB0
+ 1332 0018 00000000 		.4byte	.LFB1
+ 1333 001c 20000000 		.4byte	.LFE1-.LFB1
+ 1334 0020 00000000 		.4byte	.LFB2
+ 1335 0024 20000000 		.4byte	.LFE2-.LFB2
+ 1336 0028 00000000 		.4byte	.LFB3
+ 1337 002c 20000000 		.4byte	.LFE3-.LFB3
+ 1338 0030 00000000 		.4byte	.LFB4
+ 1339 0034 20000000 		.4byte	.LFE4-.LFB4
+ 1340 0038 00000000 		.4byte	.LFB5
+ 1341 003c 18000000 		.4byte	.LFE5-.LFB5
+ 1342 0040 00000000 		.4byte	.LFB6
+ 1343 0044 18000000 		.4byte	.LFE6-.LFB6
+ 1344 0048 00000000 		.4byte	.LFB7
+ 1345 004c 20000000 		.4byte	.LFE7-.LFB7
+ 1346 0050 00000000 		.4byte	.LFB8
+ 1347 0054 20000000 		.4byte	.LFE8-.LFB8
+ 1348 0058 00000000 		.4byte	.LFB9
+ 1349 005c 20000000 		.4byte	.LFE9-.LFB9
+ 1350 0060 00000000 		.4byte	.LFB10
+ 1351 0064 18000000 		.4byte	.LFE10-.LFB10
+ 1352 0068 00000000 		.4byte	.LFB11
+ 1353 006c 20000000 		.4byte	.LFE11-.LFB11
+ 1354 0070 00000000 		.4byte	.LFB12
+ 1355 0074 18000000 		.4byte	.LFE12-.LFB12
+ 1356 0078 00000000 		.4byte	.LFB13
+ 1357 007c 20000000 		.4byte	.LFE13-.LFB13
+ 1358 0080 00000000 		.4byte	.LFB14
+ 1359 0084 18000000 		.4byte	.LFE14-.LFB14
+ 1360 0088 00000000 		.4byte	.LFB15
+ 1361 008c 1A000000 		.4byte	.LFE15-.LFB15
+ 1362 0090 00000000 		.4byte	0
+ 1363 0094 00000000 		.4byte	0
+ 1364              		.section	.debug_ranges,"",%progbits
+ 1365              	.Ldebug_ranges0:
+ 1366 0000 00000000 		.4byte	.LFB0
+ 1367 0004 84000000 		.4byte	.LFE0
+ 1368 0008 00000000 		.4byte	.LFB1
+ 1369 000c 20000000 		.4byte	.LFE1
+ 1370 0010 00000000 		.4byte	.LFB2
+ 1371 0014 20000000 		.4byte	.LFE2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 35
+
+
+ 1372 0018 00000000 		.4byte	.LFB3
+ 1373 001c 20000000 		.4byte	.LFE3
+ 1374 0020 00000000 		.4byte	.LFB4
+ 1375 0024 20000000 		.4byte	.LFE4
+ 1376 0028 00000000 		.4byte	.LFB5
+ 1377 002c 18000000 		.4byte	.LFE5
+ 1378 0030 00000000 		.4byte	.LFB6
+ 1379 0034 18000000 		.4byte	.LFE6
+ 1380 0038 00000000 		.4byte	.LFB7
+ 1381 003c 20000000 		.4byte	.LFE7
+ 1382 0040 00000000 		.4byte	.LFB8
+ 1383 0044 20000000 		.4byte	.LFE8
+ 1384 0048 00000000 		.4byte	.LFB9
+ 1385 004c 20000000 		.4byte	.LFE9
+ 1386 0050 00000000 		.4byte	.LFB10
+ 1387 0054 18000000 		.4byte	.LFE10
+ 1388 0058 00000000 		.4byte	.LFB11
+ 1389 005c 20000000 		.4byte	.LFE11
+ 1390 0060 00000000 		.4byte	.LFB12
+ 1391 0064 18000000 		.4byte	.LFE12
+ 1392 0068 00000000 		.4byte	.LFB13
+ 1393 006c 20000000 		.4byte	.LFE13
+ 1394 0070 00000000 		.4byte	.LFB14
+ 1395 0074 18000000 		.4byte	.LFE14
+ 1396 0078 00000000 		.4byte	.LFB15
+ 1397 007c 1A000000 		.4byte	.LFE15
+ 1398 0080 00000000 		.4byte	0
+ 1399 0084 00000000 		.4byte	0
+ 1400              		.section	.debug_line,"",%progbits
+ 1401              	.Ldebug_line0:
+ 1402 0000 89010000 		.section	.debug_str,"MS",%progbits,1
+ 1402      02004C00 
+ 1402      00000201 
+ 1402      FB0E0D00 
+ 1402      01010101 
+ 1403              	.LASF15:
+ 1404 0000 72656731 		.ascii	"reg16\000"
+ 1404      3600
+ 1405              	.LASF41:
+ 1406 0006 47656E65 		.ascii	"Generated_Source\\PSoC5\\IgnitionCounter.c\000"
+ 1406      72617465 
+ 1406      645F536F 
+ 1406      75726365 
+ 1406      5C50536F 
+ 1407              	.LASF36:
+ 1408 002f 49676E69 		.ascii	"IgnitionCounter_WriteCompare\000"
+ 1408      74696F6E 
+ 1408      436F756E 
+ 1408      7465725F 
+ 1408      57726974 
+ 1409              	.LASF26:
+ 1410 004c 49676E69 		.ascii	"IgnitionCounter_WriteControlRegister\000"
+ 1410      74696F6E 
+ 1410      436F756E 
+ 1410      7465725F 
+ 1410      57726974 
+ 1411              	.LASF34:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 36
+
+
+ 1412 0071 70657269 		.ascii	"period\000"
+ 1412      6F6400
+ 1413              	.LASF3:
+ 1414 0078 73686F72 		.ascii	"short unsigned int\000"
+ 1414      7420756E 
+ 1414      7369676E 
+ 1414      65642069 
+ 1414      6E7400
+ 1415              	.LASF38:
+ 1416 008b 49676E69 		.ascii	"IgnitionCounter_ReadCompare\000"
+ 1416      74696F6E 
+ 1416      436F756E 
+ 1416      7465725F 
+ 1416      52656164 
+ 1417              	.LASF32:
+ 1418 00a7 49676E69 		.ascii	"IgnitionCounter_ReadCapture\000"
+ 1418      74696F6E 
+ 1418      436F756E 
+ 1418      7465725F 
+ 1418      52656164 
+ 1419              	.LASF23:
+ 1420 00c3 49676E69 		.ascii	"IgnitionCounter_SetInterruptMode\000"
+ 1420      74696F6E 
+ 1420      436F756E 
+ 1420      7465725F 
+ 1420      53657449 
+ 1421              	.LASF11:
+ 1422 00e4 666C6F61 		.ascii	"float\000"
+ 1422      7400
+ 1423              	.LASF30:
+ 1424 00ea 636F756E 		.ascii	"counter\000"
+ 1424      74657200 
+ 1425              	.LASF20:
+ 1426 00f2 49676E69 		.ascii	"IgnitionCounter_Start\000"
+ 1426      74696F6E 
+ 1426      436F756E 
+ 1426      7465725F 
+ 1426      53746172 
+ 1427              	.LASF1:
+ 1428 0108 756E7369 		.ascii	"unsigned char\000"
+ 1428      676E6564 
+ 1428      20636861 
+ 1428      7200
+ 1429              	.LASF14:
+ 1430 0116 72656738 		.ascii	"reg8\000"
+ 1430      00
+ 1431              	.LASF25:
+ 1432 011b 49676E69 		.ascii	"IgnitionCounter_ReadControlRegister\000"
+ 1432      74696F6E 
+ 1432      436F756E 
+ 1432      7465725F 
+ 1432      52656164 
+ 1433              	.LASF5:
+ 1434 013f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1434      20756E73 
+ 1434      69676E65 
+ 1434      6420696E 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 37
+
+
+ 1434      7400
+ 1435              	.LASF9:
+ 1436 0151 75696E74 		.ascii	"uint8\000"
+ 1436      3800
+ 1437              	.LASF28:
+ 1438 0157 636F6E74 		.ascii	"control\000"
+ 1438      726F6C00 
+ 1439              	.LASF27:
+ 1440 015f 696E7465 		.ascii	"interruptsMask\000"
+ 1440      72727570 
+ 1440      74734D61 
+ 1440      736B00
+ 1441              	.LASF31:
+ 1442 016e 49676E69 		.ascii	"IgnitionCounter_ReadCounter\000"
+ 1442      74696F6E 
+ 1442      436F756E 
+ 1442      7465725F 
+ 1442      52656164 
+ 1443              	.LASF22:
+ 1444 018a 49676E69 		.ascii	"IgnitionCounter_Init\000"
+ 1444      74696F6E 
+ 1444      436F756E 
+ 1444      7465725F 
+ 1444      496E6974 
+ 1445              	.LASF40:
+ 1446 019f 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1446      4320342E 
+ 1446      392E3320 
+ 1446      32303135 
+ 1446      30333033 
+ 1447 01d2 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1447      20726576 
+ 1447      6973696F 
+ 1447      6E203232 
+ 1447      31323230 
+ 1448 0205 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1448      66756E63 
+ 1448      74696F6E 
+ 1448      2D736563 
+ 1448      74696F6E 
+ 1449              	.LASF12:
+ 1450 022d 646F7562 		.ascii	"double\000"
+ 1450      6C6500
+ 1451              	.LASF43:
+ 1452 0234 49676E69 		.ascii	"IgnitionCounter_initVar\000"
+ 1452      74696F6E 
+ 1452      436F756E 
+ 1452      7465725F 
+ 1452      696E6974 
+ 1453              	.LASF10:
+ 1454 024c 75696E74 		.ascii	"uint16\000"
+ 1454      313600
+ 1455              	.LASF42:
+ 1456 0253 433A5C55 		.ascii	"C:\\Users\\Bruger\\Desktop\\CODE\\PSOC5\\CY8CKIT-59"
+ 1456      73657273 
+ 1456      5C427275 
+ 1456      6765725C 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 38
+
+
+ 1456      4465736B 
+ 1457 0280 2D417264 		.ascii	"-Arduino\\CY8CKIT59_Ardudino-Speeduino.cydsn\000"
+ 1457      75696E6F 
+ 1457      5C435938 
+ 1457      434B4954 
+ 1457      35395F41 
+ 1458              	.LASF8:
+ 1459 02ac 756E7369 		.ascii	"unsigned int\000"
+ 1459      676E6564 
+ 1459      20696E74 
+ 1459      00
+ 1460              	.LASF18:
+ 1461 02b9 49676E69 		.ascii	"IgnitionCounter_interruptState\000"
+ 1461      74696F6E 
+ 1461      436F756E 
+ 1461      7465725F 
+ 1461      696E7465 
+ 1462              	.LASF7:
+ 1463 02d8 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1463      206C6F6E 
+ 1463      6720756E 
+ 1463      7369676E 
+ 1463      65642069 
+ 1464              	.LASF17:
+ 1465 02ef 6374726C 		.ascii	"ctrl\000"
+ 1465      00
+ 1466              	.LASF16:
+ 1467 02f4 73697A65 		.ascii	"sizetype\000"
+ 1467      74797065 
+ 1467      00
+ 1468              	.LASF35:
+ 1469 02fd 49676E69 		.ascii	"IgnitionCounter_ReadPeriod\000"
+ 1469      74696F6E 
+ 1469      436F756E 
+ 1469      7465725F 
+ 1469      52656164 
+ 1470              	.LASF6:
+ 1471 0318 6C6F6E67 		.ascii	"long long int\000"
+ 1471      206C6F6E 
+ 1471      6720696E 
+ 1471      7400
+ 1472              	.LASF13:
+ 1473 0326 63686172 		.ascii	"char\000"
+ 1473      00
+ 1474              	.LASF33:
+ 1475 032b 49676E69 		.ascii	"IgnitionCounter_WritePeriod\000"
+ 1475      74696F6E 
+ 1475      436F756E 
+ 1475      7465725F 
+ 1475      57726974 
+ 1476              	.LASF21:
+ 1477 0347 49676E69 		.ascii	"IgnitionCounter_Stop\000"
+ 1477      74696F6E 
+ 1477      436F756E 
+ 1477      7465725F 
+ 1477      53746F70 
+ 1478              	.LASF2:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccXRnlIC.s 			page 39
+
+
+ 1479 035c 73686F72 		.ascii	"short int\000"
+ 1479      7420696E 
+ 1479      7400
+ 1480              	.LASF19:
+ 1481 0366 49676E69 		.ascii	"IgnitionCounter_Enable\000"
+ 1481      74696F6E 
+ 1481      436F756E 
+ 1481      7465725F 
+ 1481      456E6162 
+ 1482              	.LASF29:
+ 1483 037d 49676E69 		.ascii	"IgnitionCounter_WriteCounter\000"
+ 1483      74696F6E 
+ 1483      436F756E 
+ 1483      7465725F 
+ 1483      57726974 
+ 1484              	.LASF24:
+ 1485 039a 49676E69 		.ascii	"IgnitionCounter_ReadStatusRegister\000"
+ 1485      74696F6E 
+ 1485      436F756E 
+ 1485      7465725F 
+ 1485      52656164 
+ 1486              	.LASF4:
+ 1487 03bd 6C6F6E67 		.ascii	"long int\000"
+ 1487      20696E74 
+ 1487      00
+ 1488              	.LASF0:
+ 1489 03c6 7369676E 		.ascii	"signed char\000"
+ 1489      65642063 
+ 1489      68617200 
+ 1490              	.LASF37:
+ 1491 03d2 636F6D70 		.ascii	"compare\000"
+ 1491      61726500 
+ 1492              	.LASF39:
+ 1493 03da 49676E69 		.ascii	"IgnitionCounter_ClearFIFO\000"
+ 1493      74696F6E 
+ 1493      436F756E 
+ 1493      7465725F 
+ 1493      436C6561 
+ 1494              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

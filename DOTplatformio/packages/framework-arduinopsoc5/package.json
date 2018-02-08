@@ -1,0 +1,7 @@
+{
+    "name": "framework-arduinopsoc5",
+    "description": "PSOC5 Arduino Support - based on Sparkfun",
+    "system": "*",
+    "url": "https://github.com/sparkfun/PSoC_Arduino_Support",
+    "version":"0.1.2"
+}

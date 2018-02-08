@@ -1,0 +1,886 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJqrLE4.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"Arduino_eeprom.cpp"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text._Z17eeprom_initializev,"ax",%progbits
+  19              		.align	2
+  20              		.global	_Z17eeprom_initializev
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	_Z17eeprom_initializev, %function
+  24              	_Z17eeprom_initializev:
+  25              		.fnstart
+  26              	.LFB63:
+  27              		.file 1 "core\\Arduino_eeprom.cpp"
+   1:core/Arduino_eeprom.cpp **** /* 
+   2:core/Arduino_eeprom.cpp **** Simpel mapper to the EEPROM_1 functions created by PSOC Creator
+   3:core/Arduino_eeprom.cpp **** */
+   4:core/Arduino_eeprom.cpp **** 
+   5:core/Arduino_eeprom.cpp **** #include <Arduino_eeprom.h>
+   6:core/Arduino_eeprom.cpp **** 
+   7:core/Arduino_eeprom.cpp **** extern "C" {
+   8:core/Arduino_eeprom.cpp **** #include <Project.h>
+   9:core/Arduino_eeprom.cpp **** }
+  10:core/Arduino_eeprom.cpp **** 
+  11:core/Arduino_eeprom.cpp **** //#define EEPROM_SIZE EEPROM_1_EEPROM_SIZE
+  12:core/Arduino_eeprom.cpp **** 
+  13:core/Arduino_eeprom.cpp **** void eeprom_initialize(void)
+  14:core/Arduino_eeprom.cpp **** {
+  28              		.loc 1 14 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              		.save {r7, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 7, -8
+  36              		.cfi_offset 14, -4
+  37              		.setfp r7, sp, #0
+  38 0002 00AF     		add	r7, sp, #0
+  39              		.cfi_def_cfa_register 7
+  15:core/Arduino_eeprom.cpp ****     // Enable the EEPROM 
+  16:core/Arduino_eeprom.cpp ****     EEPROM_1_Enable();
+  40              		.loc 1 16 0
+  41 0004 FFF7FEFF 		bl	EEPROM_1_Enable
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJqrLE4.s 			page 2
+
+
+  17:core/Arduino_eeprom.cpp ****     
+  18:core/Arduino_eeprom.cpp ****     // Update the temperature for the EEPROM to ensure valid write
+  19:core/Arduino_eeprom.cpp ****     EEPROM_1_UpdateTemperature();
+  42              		.loc 1 19 0
+  43 0008 FFF7FEFF 		bl	EEPROM_1_UpdateTemperature
+  20:core/Arduino_eeprom.cpp **** 
+  21:core/Arduino_eeprom.cpp **** }
+  44              		.loc 1 21 0
+  45 000c 80BD     		pop	{r7, pc}
+  46              		.cfi_endproc
+  47              	.LFE63:
+  48              		.fnend
+  49              		.size	_Z17eeprom_initializev, .-_Z17eeprom_initializev
+  50 000e 00BF     		.section	.text._Z24eeprom_updatetemperaturev,"ax",%progbits
+  51              		.align	2
+  52              		.global	_Z24eeprom_updatetemperaturev
+  53              		.thumb
+  54              		.thumb_func
+  55              		.type	_Z24eeprom_updatetemperaturev, %function
+  56              	_Z24eeprom_updatetemperaturev:
+  57              		.fnstart
+  58              	.LFB64:
+  22:core/Arduino_eeprom.cpp **** 
+  23:core/Arduino_eeprom.cpp **** 
+  24:core/Arduino_eeprom.cpp **** void eeprom_updatetemperature(void)
+  25:core/Arduino_eeprom.cpp **** {
+  59              		.loc 1 25 0
+  60              		.cfi_startproc
+  61              		@ args = 0, pretend = 0, frame = 0
+  62              		@ frame_needed = 1, uses_anonymous_args = 0
+  63 0000 80B5     		push	{r7, lr}
+  64              		.save {r7, lr}
+  65              		.cfi_def_cfa_offset 8
+  66              		.cfi_offset 7, -8
+  67              		.cfi_offset 14, -4
+  68              		.setfp r7, sp, #0
+  69 0002 00AF     		add	r7, sp, #0
+  70              		.cfi_def_cfa_register 7
+  26:core/Arduino_eeprom.cpp ****     // Update the temperature for the EEPROM to ensure valid write, 
+  27:core/Arduino_eeprom.cpp ****     //      should be executed if temperature have changed more than 10 degree or just to be shure
+  28:core/Arduino_eeprom.cpp ****     EEPROM_1_UpdateTemperature();
+  71              		.loc 1 28 0
+  72 0004 FFF7FEFF 		bl	EEPROM_1_UpdateTemperature
+  29:core/Arduino_eeprom.cpp **** }
+  73              		.loc 1 29 0
+  74 0008 80BD     		pop	{r7, pc}
+  75              		.cfi_endproc
+  76              	.LFE64:
+  77              		.fnend
+  78              		.size	_Z24eeprom_updatetemperaturev, .-_Z24eeprom_updatetemperaturev
+  79 000a 00BF     		.section	.text._Z16eeprom_read_bytePh,"ax",%progbits
+  80              		.align	2
+  81              		.global	_Z16eeprom_read_bytePh
+  82              		.thumb
+  83              		.thumb_func
+  84              		.type	_Z16eeprom_read_bytePh, %function
+  85              	_Z16eeprom_read_bytePh:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJqrLE4.s 			page 3
+
+
+  86              		.fnstart
+  87              	.LFB65:
+  30:core/Arduino_eeprom.cpp **** 
+  31:core/Arduino_eeprom.cpp **** uint8_t eeprom_read_byte(uint8_t *addr)
+  32:core/Arduino_eeprom.cpp **** {
+  88              		.loc 1 32 0
+  89              		.cfi_startproc
+  90              		@ args = 0, pretend = 0, frame = 16
+  91              		@ frame_needed = 1, uses_anonymous_args = 0
+  92 0000 80B5     		push	{r7, lr}
+  93              		.save {r7, lr}
+  94              		.cfi_def_cfa_offset 8
+  95              		.cfi_offset 7, -8
+  96              		.cfi_offset 14, -4
+  97              		.pad #16
+  98 0002 84B0     		sub	sp, sp, #16
+  99              		.cfi_def_cfa_offset 24
+ 100              		.setfp r7, sp, #0
+ 101 0004 00AF     		add	r7, sp, #0
+ 102              		.cfi_def_cfa_register 7
+ 103 0006 7860     		str	r0, [r7, #4]
+ 104              	.LBB2:
+  33:core/Arduino_eeprom.cpp **** 	int intaddr = (int)(addr);
+ 105              		.loc 1 33 0
+ 106 0008 7B68     		ldr	r3, [r7, #4]
+ 107 000a FB60     		str	r3, [r7, #12]
+  34:core/Arduino_eeprom.cpp ****     return EEPROM_1_ReadByte( (uint16_t) (intaddr & 0x0000ffff) );
+ 108              		.loc 1 34 0
+ 109 000c FB68     		ldr	r3, [r7, #12]
+ 110 000e 9BB2     		uxth	r3, r3
+ 111 0010 1846     		mov	r0, r3
+ 112 0012 FFF7FEFF 		bl	EEPROM_1_ReadByte
+ 113 0016 0346     		mov	r3, r0
+ 114              	.LBE2:
+  35:core/Arduino_eeprom.cpp **** }
+ 115              		.loc 1 35 0
+ 116 0018 1846     		mov	r0, r3
+ 117 001a 1037     		adds	r7, r7, #16
+ 118              		.cfi_def_cfa_offset 8
+ 119 001c BD46     		mov	sp, r7
+ 120              		.cfi_def_cfa_register 13
+ 121              		@ sp needed
+ 122 001e 80BD     		pop	{r7, pc}
+ 123              		.cfi_endproc
+ 124              	.LFE65:
+ 125              		.fnend
+ 126              		.size	_Z16eeprom_read_bytePh, .-_Z16eeprom_read_bytePh
+ 127              		.section	.text._Z17eeprom_write_bytePhh,"ax",%progbits
+ 128              		.align	2
+ 129              		.global	_Z17eeprom_write_bytePhh
+ 130              		.thumb
+ 131              		.thumb_func
+ 132              		.type	_Z17eeprom_write_bytePhh, %function
+ 133              	_Z17eeprom_write_bytePhh:
+ 134              		.fnstart
+ 135              	.LFB66:
+  36:core/Arduino_eeprom.cpp **** 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJqrLE4.s 			page 4
+
+
+  37:core/Arduino_eeprom.cpp **** 
+  38:core/Arduino_eeprom.cpp **** void eeprom_write_byte(uint8_t *addr, uint8_t data)
+  39:core/Arduino_eeprom.cpp **** {
+ 136              		.loc 1 39 0
+ 137              		.cfi_startproc
+ 138              		@ args = 0, pretend = 0, frame = 16
+ 139              		@ frame_needed = 1, uses_anonymous_args = 0
+ 140 0000 80B5     		push	{r7, lr}
+ 141              		.save {r7, lr}
+ 142              		.cfi_def_cfa_offset 8
+ 143              		.cfi_offset 7, -8
+ 144              		.cfi_offset 14, -4
+ 145              		.pad #16
+ 146 0002 84B0     		sub	sp, sp, #16
+ 147              		.cfi_def_cfa_offset 24
+ 148              		.setfp r7, sp, #0
+ 149 0004 00AF     		add	r7, sp, #0
+ 150              		.cfi_def_cfa_register 7
+ 151 0006 7860     		str	r0, [r7, #4]
+ 152 0008 0B46     		mov	r3, r1
+ 153 000a FB70     		strb	r3, [r7, #3]
+ 154              	.LBB3:
+  40:core/Arduino_eeprom.cpp ****     int intaddr = (int)(addr);
+ 155              		.loc 1 40 0
+ 156 000c 7B68     		ldr	r3, [r7, #4]
+ 157 000e FB60     		str	r3, [r7, #12]
+  41:core/Arduino_eeprom.cpp ****     // Write byte to eeprom
+  42:core/Arduino_eeprom.cpp ****     EEPROM_1_WriteByte( data, (uint16_t) (intaddr & 0x0000ffff) );
+ 158              		.loc 1 42 0
+ 159 0010 FB68     		ldr	r3, [r7, #12]
+ 160 0012 9BB2     		uxth	r3, r3
+ 161 0014 FA78     		ldrb	r2, [r7, #3]	@ zero_extendqisi2
+ 162 0016 1046     		mov	r0, r2
+ 163 0018 1946     		mov	r1, r3
+ 164 001a FFF7FEFF 		bl	EEPROM_1_WriteByte
+ 165              	.LBE3:
+  43:core/Arduino_eeprom.cpp **** }
+ 166              		.loc 1 43 0
+ 167 001e 1037     		adds	r7, r7, #16
+ 168              		.cfi_def_cfa_offset 8
+ 169 0020 BD46     		mov	sp, r7
+ 170              		.cfi_def_cfa_register 13
+ 171              		@ sp needed
+ 172 0022 80BD     		pop	{r7, pc}
+ 173              		.cfi_endproc
+ 174              	.LFE66:
+ 175              		.fnend
+ 176              		.size	_Z17eeprom_write_bytePhh, .-_Z17eeprom_write_bytePhh
+ 177              		.text
+ 178              	.Letext0:
+ 179              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 180              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 181              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 182              		.section	.debug_info,"",%progbits
+ 183              	.Ldebug_info0:
+ 184 0000 99010000 		.4byte	0x199
+ 185 0004 0400     		.2byte	0x4
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJqrLE4.s 			page 5
+
+
+ 186 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 187 000a 04       		.byte	0x4
+ 188 000b 01       		.uleb128 0x1
+ 189 000c 7F000000 		.4byte	.LASF26
+ 190 0010 04       		.byte	0x4
+ 191 0011 77010000 		.4byte	.LASF27
+ 192 0015 D9010000 		.4byte	.LASF28
+ 193 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 194 001d 00000000 		.4byte	0
+ 195 0021 00000000 		.4byte	.Ldebug_line0
+ 196 0025 02       		.uleb128 0x2
+ 197 0026 04       		.byte	0x4
+ 198 0027 05       		.byte	0x5
+ 199 0028 696E7400 		.ascii	"int\000"
+ 200 002c 03       		.uleb128 0x3
+ 201 002d 04       		.byte	0x4
+ 202 002e 07       		.byte	0x7
+ 203 002f 32020000 		.4byte	.LASF0
+ 204 0033 03       		.uleb128 0x3
+ 205 0034 01       		.byte	0x1
+ 206 0035 06       		.byte	0x6
+ 207 0036 9E020000 		.4byte	.LASF1
+ 208 003a 04       		.uleb128 0x4
+ 209 003b 11000000 		.4byte	.LASF4
+ 210 003f 02       		.byte	0x2
+ 211 0040 1D       		.byte	0x1d
+ 212 0041 45000000 		.4byte	0x45
+ 213 0045 03       		.uleb128 0x3
+ 214 0046 01       		.byte	0x1
+ 215 0047 08       		.byte	0x8
+ 216 0048 1A010000 		.4byte	.LASF2
+ 217 004c 03       		.uleb128 0x3
+ 218 004d 02       		.byte	0x2
+ 219 004e 05       		.byte	0x5
+ 220 004f 82020000 		.4byte	.LASF3
+ 221 0053 04       		.uleb128 0x4
+ 222 0054 8F010000 		.4byte	.LASF5
+ 223 0058 02       		.byte	0x2
+ 224 0059 2B       		.byte	0x2b
+ 225 005a 5E000000 		.4byte	0x5e
+ 226 005e 03       		.uleb128 0x3
+ 227 005f 02       		.byte	0x2
+ 228 0060 07       		.byte	0x7
+ 229 0061 6C000000 		.4byte	.LASF6
+ 230 0065 04       		.uleb128 0x4
+ 231 0066 50000000 		.4byte	.LASF7
+ 232 006a 02       		.byte	0x2
+ 233 006b 3F       		.byte	0x3f
+ 234 006c 70000000 		.4byte	0x70
+ 235 0070 03       		.uleb128 0x3
+ 236 0071 04       		.byte	0x4
+ 237 0072 05       		.byte	0x5
+ 238 0073 95020000 		.4byte	.LASF8
+ 239 0077 03       		.uleb128 0x3
+ 240 0078 04       		.byte	0x4
+ 241 0079 07       		.byte	0x7
+ 242 007a 3F010000 		.4byte	.LASF9
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJqrLE4.s 			page 6
+
+
+ 243 007e 03       		.uleb128 0x3
+ 244 007f 08       		.byte	0x8
+ 245 0080 05       		.byte	0x5
+ 246 0081 6F020000 		.4byte	.LASF10
+ 247 0085 03       		.uleb128 0x3
+ 248 0086 08       		.byte	0x8
+ 249 0087 07       		.byte	0x7
+ 250 0088 3F020000 		.4byte	.LASF11
+ 251 008c 04       		.uleb128 0x4
+ 252 008d 56020000 		.4byte	.LASF12
+ 253 0091 03       		.byte	0x3
+ 254 0092 15       		.byte	0x15
+ 255 0093 3A000000 		.4byte	0x3a
+ 256 0097 04       		.uleb128 0x4
+ 257 0098 8C020000 		.4byte	.LASF13
+ 258 009c 03       		.byte	0x3
+ 259 009d 21       		.byte	0x21
+ 260 009e 53000000 		.4byte	0x53
+ 261 00a2 04       		.uleb128 0x4
+ 262 00a3 5E020000 		.4byte	.LASF14
+ 263 00a7 03       		.byte	0x3
+ 264 00a8 2C       		.byte	0x2c
+ 265 00a9 65000000 		.4byte	0x65
+ 266 00ad 03       		.uleb128 0x3
+ 267 00ae 04       		.byte	0x4
+ 268 00af 04       		.byte	0x4
+ 269 00b0 0F010000 		.4byte	.LASF15
+ 270 00b4 03       		.uleb128 0x3
+ 271 00b5 08       		.byte	0x8
+ 272 00b6 04       		.byte	0x4
+ 273 00b7 9A010000 		.4byte	.LASF16
+ 274 00bb 03       		.uleb128 0x3
+ 275 00bc 01       		.byte	0x1
+ 276 00bd 08       		.byte	0x8
+ 277 00be 7D020000 		.4byte	.LASF17
+ 278 00c2 03       		.uleb128 0x3
+ 279 00c3 04       		.byte	0x4
+ 280 00c4 07       		.byte	0x7
+ 281 00c5 66020000 		.4byte	.LASF18
+ 282 00c9 05       		.uleb128 0x5
+ 283 00ca 5A000000 		.4byte	.LASF19
+ 284 00ce 01       		.byte	0x1
+ 285 00cf 0D       		.byte	0xd
+ 286 00d0 28010000 		.4byte	.LASF21
+ 287 00d4 00000000 		.4byte	.LFB63
+ 288 00d8 0E000000 		.4byte	.LFE63-.LFB63
+ 289 00dc 01       		.uleb128 0x1
+ 290 00dd 9C       		.byte	0x9c
+ 291 00de 05       		.uleb128 0x5
+ 292 00df 51010000 		.4byte	.LASF20
+ 293 00e3 01       		.byte	0x1
+ 294 00e4 18       		.byte	0x18
+ 295 00e5 1B000000 		.4byte	.LASF22
+ 296 00e9 00000000 		.4byte	.LFB64
+ 297 00ed 0A000000 		.4byte	.LFE64-.LFB64
+ 298 00f1 01       		.uleb128 0x1
+ 299 00f2 9C       		.byte	0x9c
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJqrLE4.s 			page 7
+
+
+ 300 00f3 06       		.uleb128 0x6
+ 301 00f4 00000000 		.4byte	.LASF29
+ 302 00f8 01       		.byte	0x1
+ 303 00f9 1F       		.byte	0x1f
+ 304 00fa 39000000 		.4byte	.LASF30
+ 305 00fe 8C000000 		.4byte	0x8c
+ 306 0102 00000000 		.4byte	.LFB65
+ 307 0106 20000000 		.4byte	.LFE65-.LFB65
+ 308 010a 01       		.uleb128 0x1
+ 309 010b 9C       		.byte	0x9c
+ 310 010c 37010000 		.4byte	0x137
+ 311 0110 07       		.uleb128 0x7
+ 312 0111 6A010000 		.4byte	.LASF23
+ 313 0115 01       		.byte	0x1
+ 314 0116 1F       		.byte	0x1f
+ 315 0117 37010000 		.4byte	0x137
+ 316 011b 02       		.uleb128 0x2
+ 317 011c 91       		.byte	0x91
+ 318 011d 6C       		.sleb128 -20
+ 319 011e 08       		.uleb128 0x8
+ 320 011f 08000000 		.4byte	.LBB2
+ 321 0123 10000000 		.4byte	.LBE2-.LBB2
+ 322 0127 09       		.uleb128 0x9
+ 323 0128 6F010000 		.4byte	.LASF25
+ 324 012c 01       		.byte	0x1
+ 325 012d 21       		.byte	0x21
+ 326 012e 25000000 		.4byte	0x25
+ 327 0132 02       		.uleb128 0x2
+ 328 0133 91       		.byte	0x91
+ 329 0134 74       		.sleb128 -12
+ 330 0135 00       		.byte	0
+ 331 0136 00       		.byte	0
+ 332 0137 0A       		.uleb128 0xa
+ 333 0138 04       		.byte	0x4
+ 334 0139 8C000000 		.4byte	0x8c
+ 335 013d 0B       		.uleb128 0xb
+ 336 013e BA010000 		.4byte	.LASF31
+ 337 0142 01       		.byte	0x1
+ 338 0143 26       		.byte	0x26
+ 339 0144 A1010000 		.4byte	.LASF32
+ 340 0148 00000000 		.4byte	.LFB66
+ 341 014c 24000000 		.4byte	.LFE66-.LFB66
+ 342 0150 01       		.uleb128 0x1
+ 343 0151 9C       		.byte	0x9c
+ 344 0152 8B010000 		.4byte	0x18b
+ 345 0156 07       		.uleb128 0x7
+ 346 0157 6A010000 		.4byte	.LASF23
+ 347 015b 01       		.byte	0x1
+ 348 015c 26       		.byte	0x26
+ 349 015d 37010000 		.4byte	0x137
+ 350 0161 02       		.uleb128 0x2
+ 351 0162 91       		.byte	0x91
+ 352 0163 6C       		.sleb128 -20
+ 353 0164 07       		.uleb128 0x7
+ 354 0165 15010000 		.4byte	.LASF24
+ 355 0169 01       		.byte	0x1
+ 356 016a 26       		.byte	0x26
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJqrLE4.s 			page 8
+
+
+ 357 016b 8C000000 		.4byte	0x8c
+ 358 016f 02       		.uleb128 0x2
+ 359 0170 91       		.byte	0x91
+ 360 0171 6B       		.sleb128 -21
+ 361 0172 08       		.uleb128 0x8
+ 362 0173 0C000000 		.4byte	.LBB3
+ 363 0177 12000000 		.4byte	.LBE3-.LBB3
+ 364 017b 09       		.uleb128 0x9
+ 365 017c 6F010000 		.4byte	.LASF25
+ 366 0180 01       		.byte	0x1
+ 367 0181 28       		.byte	0x28
+ 368 0182 25000000 		.4byte	0x25
+ 369 0186 02       		.uleb128 0x2
+ 370 0187 91       		.byte	0x91
+ 371 0188 74       		.sleb128 -12
+ 372 0189 00       		.byte	0
+ 373 018a 00       		.byte	0
+ 374 018b 0C       		.uleb128 0xc
+ 375 018c CC010000 		.4byte	.LASF33
+ 376 0190 04       		.byte	0x4
+ 377 0191 5506     		.2byte	0x655
+ 378 0193 97010000 		.4byte	0x197
+ 379 0197 0D       		.uleb128 0xd
+ 380 0198 A2000000 		.4byte	0xa2
+ 381 019c 00       		.byte	0
+ 382              		.section	.debug_abbrev,"",%progbits
+ 383              	.Ldebug_abbrev0:
+ 384 0000 01       		.uleb128 0x1
+ 385 0001 11       		.uleb128 0x11
+ 386 0002 01       		.byte	0x1
+ 387 0003 25       		.uleb128 0x25
+ 388 0004 0E       		.uleb128 0xe
+ 389 0005 13       		.uleb128 0x13
+ 390 0006 0B       		.uleb128 0xb
+ 391 0007 03       		.uleb128 0x3
+ 392 0008 0E       		.uleb128 0xe
+ 393 0009 1B       		.uleb128 0x1b
+ 394 000a 0E       		.uleb128 0xe
+ 395 000b 55       		.uleb128 0x55
+ 396 000c 17       		.uleb128 0x17
+ 397 000d 11       		.uleb128 0x11
+ 398 000e 01       		.uleb128 0x1
+ 399 000f 10       		.uleb128 0x10
+ 400 0010 17       		.uleb128 0x17
+ 401 0011 00       		.byte	0
+ 402 0012 00       		.byte	0
+ 403 0013 02       		.uleb128 0x2
+ 404 0014 24       		.uleb128 0x24
+ 405 0015 00       		.byte	0
+ 406 0016 0B       		.uleb128 0xb
+ 407 0017 0B       		.uleb128 0xb
+ 408 0018 3E       		.uleb128 0x3e
+ 409 0019 0B       		.uleb128 0xb
+ 410 001a 03       		.uleb128 0x3
+ 411 001b 08       		.uleb128 0x8
+ 412 001c 00       		.byte	0
+ 413 001d 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJqrLE4.s 			page 9
+
+
+ 414 001e 03       		.uleb128 0x3
+ 415 001f 24       		.uleb128 0x24
+ 416 0020 00       		.byte	0
+ 417 0021 0B       		.uleb128 0xb
+ 418 0022 0B       		.uleb128 0xb
+ 419 0023 3E       		.uleb128 0x3e
+ 420 0024 0B       		.uleb128 0xb
+ 421 0025 03       		.uleb128 0x3
+ 422 0026 0E       		.uleb128 0xe
+ 423 0027 00       		.byte	0
+ 424 0028 00       		.byte	0
+ 425 0029 04       		.uleb128 0x4
+ 426 002a 16       		.uleb128 0x16
+ 427 002b 00       		.byte	0
+ 428 002c 03       		.uleb128 0x3
+ 429 002d 0E       		.uleb128 0xe
+ 430 002e 3A       		.uleb128 0x3a
+ 431 002f 0B       		.uleb128 0xb
+ 432 0030 3B       		.uleb128 0x3b
+ 433 0031 0B       		.uleb128 0xb
+ 434 0032 49       		.uleb128 0x49
+ 435 0033 13       		.uleb128 0x13
+ 436 0034 00       		.byte	0
+ 437 0035 00       		.byte	0
+ 438 0036 05       		.uleb128 0x5
+ 439 0037 2E       		.uleb128 0x2e
+ 440 0038 00       		.byte	0
+ 441 0039 3F       		.uleb128 0x3f
+ 442 003a 19       		.uleb128 0x19
+ 443 003b 03       		.uleb128 0x3
+ 444 003c 0E       		.uleb128 0xe
+ 445 003d 3A       		.uleb128 0x3a
+ 446 003e 0B       		.uleb128 0xb
+ 447 003f 3B       		.uleb128 0x3b
+ 448 0040 0B       		.uleb128 0xb
+ 449 0041 6E       		.uleb128 0x6e
+ 450 0042 0E       		.uleb128 0xe
+ 451 0043 11       		.uleb128 0x11
+ 452 0044 01       		.uleb128 0x1
+ 453 0045 12       		.uleb128 0x12
+ 454 0046 06       		.uleb128 0x6
+ 455 0047 40       		.uleb128 0x40
+ 456 0048 18       		.uleb128 0x18
+ 457 0049 9642     		.uleb128 0x2116
+ 458 004b 19       		.uleb128 0x19
+ 459 004c 00       		.byte	0
+ 460 004d 00       		.byte	0
+ 461 004e 06       		.uleb128 0x6
+ 462 004f 2E       		.uleb128 0x2e
+ 463 0050 01       		.byte	0x1
+ 464 0051 3F       		.uleb128 0x3f
+ 465 0052 19       		.uleb128 0x19
+ 466 0053 03       		.uleb128 0x3
+ 467 0054 0E       		.uleb128 0xe
+ 468 0055 3A       		.uleb128 0x3a
+ 469 0056 0B       		.uleb128 0xb
+ 470 0057 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJqrLE4.s 			page 10
+
+
+ 471 0058 0B       		.uleb128 0xb
+ 472 0059 6E       		.uleb128 0x6e
+ 473 005a 0E       		.uleb128 0xe
+ 474 005b 49       		.uleb128 0x49
+ 475 005c 13       		.uleb128 0x13
+ 476 005d 11       		.uleb128 0x11
+ 477 005e 01       		.uleb128 0x1
+ 478 005f 12       		.uleb128 0x12
+ 479 0060 06       		.uleb128 0x6
+ 480 0061 40       		.uleb128 0x40
+ 481 0062 18       		.uleb128 0x18
+ 482 0063 9642     		.uleb128 0x2116
+ 483 0065 19       		.uleb128 0x19
+ 484 0066 01       		.uleb128 0x1
+ 485 0067 13       		.uleb128 0x13
+ 486 0068 00       		.byte	0
+ 487 0069 00       		.byte	0
+ 488 006a 07       		.uleb128 0x7
+ 489 006b 05       		.uleb128 0x5
+ 490 006c 00       		.byte	0
+ 491 006d 03       		.uleb128 0x3
+ 492 006e 0E       		.uleb128 0xe
+ 493 006f 3A       		.uleb128 0x3a
+ 494 0070 0B       		.uleb128 0xb
+ 495 0071 3B       		.uleb128 0x3b
+ 496 0072 0B       		.uleb128 0xb
+ 497 0073 49       		.uleb128 0x49
+ 498 0074 13       		.uleb128 0x13
+ 499 0075 02       		.uleb128 0x2
+ 500 0076 18       		.uleb128 0x18
+ 501 0077 00       		.byte	0
+ 502 0078 00       		.byte	0
+ 503 0079 08       		.uleb128 0x8
+ 504 007a 0B       		.uleb128 0xb
+ 505 007b 01       		.byte	0x1
+ 506 007c 11       		.uleb128 0x11
+ 507 007d 01       		.uleb128 0x1
+ 508 007e 12       		.uleb128 0x12
+ 509 007f 06       		.uleb128 0x6
+ 510 0080 00       		.byte	0
+ 511 0081 00       		.byte	0
+ 512 0082 09       		.uleb128 0x9
+ 513 0083 34       		.uleb128 0x34
+ 514 0084 00       		.byte	0
+ 515 0085 03       		.uleb128 0x3
+ 516 0086 0E       		.uleb128 0xe
+ 517 0087 3A       		.uleb128 0x3a
+ 518 0088 0B       		.uleb128 0xb
+ 519 0089 3B       		.uleb128 0x3b
+ 520 008a 0B       		.uleb128 0xb
+ 521 008b 49       		.uleb128 0x49
+ 522 008c 13       		.uleb128 0x13
+ 523 008d 02       		.uleb128 0x2
+ 524 008e 18       		.uleb128 0x18
+ 525 008f 00       		.byte	0
+ 526 0090 00       		.byte	0
+ 527 0091 0A       		.uleb128 0xa
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJqrLE4.s 			page 11
+
+
+ 528 0092 0F       		.uleb128 0xf
+ 529 0093 00       		.byte	0
+ 530 0094 0B       		.uleb128 0xb
+ 531 0095 0B       		.uleb128 0xb
+ 532 0096 49       		.uleb128 0x49
+ 533 0097 13       		.uleb128 0x13
+ 534 0098 00       		.byte	0
+ 535 0099 00       		.byte	0
+ 536 009a 0B       		.uleb128 0xb
+ 537 009b 2E       		.uleb128 0x2e
+ 538 009c 01       		.byte	0x1
+ 539 009d 3F       		.uleb128 0x3f
+ 540 009e 19       		.uleb128 0x19
+ 541 009f 03       		.uleb128 0x3
+ 542 00a0 0E       		.uleb128 0xe
+ 543 00a1 3A       		.uleb128 0x3a
+ 544 00a2 0B       		.uleb128 0xb
+ 545 00a3 3B       		.uleb128 0x3b
+ 546 00a4 0B       		.uleb128 0xb
+ 547 00a5 6E       		.uleb128 0x6e
+ 548 00a6 0E       		.uleb128 0xe
+ 549 00a7 11       		.uleb128 0x11
+ 550 00a8 01       		.uleb128 0x1
+ 551 00a9 12       		.uleb128 0x12
+ 552 00aa 06       		.uleb128 0x6
+ 553 00ab 40       		.uleb128 0x40
+ 554 00ac 18       		.uleb128 0x18
+ 555 00ad 9642     		.uleb128 0x2116
+ 556 00af 19       		.uleb128 0x19
+ 557 00b0 01       		.uleb128 0x1
+ 558 00b1 13       		.uleb128 0x13
+ 559 00b2 00       		.byte	0
+ 560 00b3 00       		.byte	0
+ 561 00b4 0C       		.uleb128 0xc
+ 562 00b5 34       		.uleb128 0x34
+ 563 00b6 00       		.byte	0
+ 564 00b7 03       		.uleb128 0x3
+ 565 00b8 0E       		.uleb128 0xe
+ 566 00b9 3A       		.uleb128 0x3a
+ 567 00ba 0B       		.uleb128 0xb
+ 568 00bb 3B       		.uleb128 0x3b
+ 569 00bc 05       		.uleb128 0x5
+ 570 00bd 49       		.uleb128 0x49
+ 571 00be 13       		.uleb128 0x13
+ 572 00bf 3F       		.uleb128 0x3f
+ 573 00c0 19       		.uleb128 0x19
+ 574 00c1 3C       		.uleb128 0x3c
+ 575 00c2 19       		.uleb128 0x19
+ 576 00c3 00       		.byte	0
+ 577 00c4 00       		.byte	0
+ 578 00c5 0D       		.uleb128 0xd
+ 579 00c6 35       		.uleb128 0x35
+ 580 00c7 00       		.byte	0
+ 581 00c8 49       		.uleb128 0x49
+ 582 00c9 13       		.uleb128 0x13
+ 583 00ca 00       		.byte	0
+ 584 00cb 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJqrLE4.s 			page 12
+
+
+ 585 00cc 00       		.byte	0
+ 586              		.section	.debug_aranges,"",%progbits
+ 587 0000 34000000 		.4byte	0x34
+ 588 0004 0200     		.2byte	0x2
+ 589 0006 00000000 		.4byte	.Ldebug_info0
+ 590 000a 04       		.byte	0x4
+ 591 000b 00       		.byte	0
+ 592 000c 0000     		.2byte	0
+ 593 000e 0000     		.2byte	0
+ 594 0010 00000000 		.4byte	.LFB63
+ 595 0014 0E000000 		.4byte	.LFE63-.LFB63
+ 596 0018 00000000 		.4byte	.LFB64
+ 597 001c 0A000000 		.4byte	.LFE64-.LFB64
+ 598 0020 00000000 		.4byte	.LFB65
+ 599 0024 20000000 		.4byte	.LFE65-.LFB65
+ 600 0028 00000000 		.4byte	.LFB66
+ 601 002c 24000000 		.4byte	.LFE66-.LFB66
+ 602 0030 00000000 		.4byte	0
+ 603 0034 00000000 		.4byte	0
+ 604              		.section	.debug_ranges,"",%progbits
+ 605              	.Ldebug_ranges0:
+ 606 0000 00000000 		.4byte	.LFB63
+ 607 0004 0E000000 		.4byte	.LFE63
+ 608 0008 00000000 		.4byte	.LFB64
+ 609 000c 0A000000 		.4byte	.LFE64
+ 610 0010 00000000 		.4byte	.LFB65
+ 611 0014 20000000 		.4byte	.LFE65
+ 612 0018 00000000 		.4byte	.LFB66
+ 613 001c 24000000 		.4byte	.LFE66
+ 614 0020 00000000 		.4byte	0
+ 615 0024 00000000 		.4byte	0
+ 616              		.section	.debug_line,"",%progbits
+ 617              	.Ldebug_line0:
+ 618 0000 98010000 		.section	.debug_str,"MS",%progbits,1
+ 618      02004B01 
+ 618      00000201 
+ 618      FB0E0D00 
+ 618      01010101 
+ 619              	.LASF29:
+ 620 0000 65657072 		.ascii	"eeprom_read_byte\000"
+ 620      6F6D5F72 
+ 620      6561645F 
+ 620      62797465 
+ 620      00
+ 621              	.LASF4:
+ 622 0011 5F5F7569 		.ascii	"__uint8_t\000"
+ 622      6E74385F 
+ 622      7400
+ 623              	.LASF22:
+ 624 001b 5F5A3234 		.ascii	"_Z24eeprom_updatetemperaturev\000"
+ 624      65657072 
+ 624      6F6D5F75 
+ 624      70646174 
+ 624      6574656D 
+ 625              	.LASF30:
+ 626 0039 5F5A3136 		.ascii	"_Z16eeprom_read_bytePh\000"
+ 626      65657072 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJqrLE4.s 			page 13
+
+
+ 626      6F6D5F72 
+ 626      6561645F 
+ 626      62797465 
+ 627              	.LASF7:
+ 628 0050 5F5F696E 		.ascii	"__int32_t\000"
+ 628      7433325F 
+ 628      7400
+ 629              	.LASF19:
+ 630 005a 65657072 		.ascii	"eeprom_initialize\000"
+ 630      6F6D5F69 
+ 630      6E697469 
+ 630      616C697A 
+ 630      6500
+ 631              	.LASF6:
+ 632 006c 73686F72 		.ascii	"short unsigned int\000"
+ 632      7420756E 
+ 632      7369676E 
+ 632      65642069 
+ 632      6E7400
+ 633              	.LASF26:
+ 634 007f 474E5520 		.ascii	"GNU C++ 4.9.3 20150303 (release) [ARM/embedded-4_9-"
+ 634      432B2B20 
+ 634      342E392E 
+ 634      33203230 
+ 634      31353033 
+ 635 00b2 6272616E 		.ascii	"branch revision 221220] -mcpu=cortex-m3 -mthumb -g "
+ 635      63682072 
+ 635      65766973 
+ 635      696F6E20 
+ 635      32323132 
+ 636 00e5 2D4F3020 		.ascii	"-O0 -ffunction-sections -ffat-lto-objects\000"
+ 636      2D666675 
+ 636      6E637469 
+ 636      6F6E2D73 
+ 636      65637469 
+ 637              	.LASF15:
+ 638 010f 666C6F61 		.ascii	"float\000"
+ 638      7400
+ 639              	.LASF24:
+ 640 0115 64617461 		.ascii	"data\000"
+ 640      00
+ 641              	.LASF2:
+ 642 011a 756E7369 		.ascii	"unsigned char\000"
+ 642      676E6564 
+ 642      20636861 
+ 642      7200
+ 643              	.LASF21:
+ 644 0128 5F5A3137 		.ascii	"_Z17eeprom_initializev\000"
+ 644      65657072 
+ 644      6F6D5F69 
+ 644      6E697469 
+ 644      616C697A 
+ 645              	.LASF9:
+ 646 013f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 646      20756E73 
+ 646      69676E65 
+ 646      6420696E 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJqrLE4.s 			page 14
+
+
+ 646      7400
+ 647              	.LASF20:
+ 648 0151 65657072 		.ascii	"eeprom_updatetemperature\000"
+ 648      6F6D5F75 
+ 648      70646174 
+ 648      6574656D 
+ 648      70657261 
+ 649              	.LASF23:
+ 650 016a 61646472 		.ascii	"addr\000"
+ 650      00
+ 651              	.LASF25:
+ 652 016f 696E7461 		.ascii	"intaddr\000"
+ 652      64647200 
+ 653              	.LASF27:
+ 654 0177 636F7265 		.ascii	"core\\Arduino_eeprom.cpp\000"
+ 654      5C417264 
+ 654      75696E6F 
+ 654      5F656570 
+ 654      726F6D2E 
+ 655              	.LASF5:
+ 656 018f 5F5F7569 		.ascii	"__uint16_t\000"
+ 656      6E743136 
+ 656      5F7400
+ 657              	.LASF16:
+ 658 019a 646F7562 		.ascii	"double\000"
+ 658      6C6500
+ 659              	.LASF32:
+ 660 01a1 5F5A3137 		.ascii	"_Z17eeprom_write_bytePhh\000"
+ 660      65657072 
+ 660      6F6D5F77 
+ 660      72697465 
+ 660      5F627974 
+ 661              	.LASF31:
+ 662 01ba 65657072 		.ascii	"eeprom_write_byte\000"
+ 662      6F6D5F77 
+ 662      72697465 
+ 662      5F627974 
+ 662      6500
+ 663              	.LASF33:
+ 664 01cc 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 664      52784275 
+ 664      66666572 
+ 664      00
+ 665              	.LASF28:
+ 666 01d9 433A5C55 		.ascii	"C:\\Users\\Bruger\\Desktop\\CODE\\PSOC5\\CY8CKIT-59"
+ 666      73657273 
+ 666      5C427275 
+ 666      6765725C 
+ 666      4465736B 
+ 667 0206 2D417264 		.ascii	"-Arduino\\CY8CKIT59_Ardudino-Speeduino.cydsn\000"
+ 667      75696E6F 
+ 667      5C435938 
+ 667      434B4954 
+ 667      35395F41 
+ 668              	.LASF0:
+ 669 0232 756E7369 		.ascii	"unsigned int\000"
+ 669      676E6564 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccJqrLE4.s 			page 15
+
+
+ 669      20696E74 
+ 669      00
+ 670              	.LASF11:
+ 671 023f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 671      206C6F6E 
+ 671      6720756E 
+ 671      7369676E 
+ 671      65642069 
+ 672              	.LASF12:
+ 673 0256 75696E74 		.ascii	"uint8_t\000"
+ 673      385F7400 
+ 674              	.LASF14:
+ 675 025e 696E7433 		.ascii	"int32_t\000"
+ 675      325F7400 
+ 676              	.LASF18:
+ 677 0266 73697A65 		.ascii	"sizetype\000"
+ 677      74797065 
+ 677      00
+ 678              	.LASF10:
+ 679 026f 6C6F6E67 		.ascii	"long long int\000"
+ 679      206C6F6E 
+ 679      6720696E 
+ 679      7400
+ 680              	.LASF17:
+ 681 027d 63686172 		.ascii	"char\000"
+ 681      00
+ 682              	.LASF3:
+ 683 0282 73686F72 		.ascii	"short int\000"
+ 683      7420696E 
+ 683      7400
+ 684              	.LASF13:
+ 685 028c 75696E74 		.ascii	"uint16_t\000"
+ 685      31365F74 
+ 685      00
+ 686              	.LASF8:
+ 687 0295 6C6F6E67 		.ascii	"long int\000"
+ 687      20696E74 
+ 687      00
+ 688              	.LASF1:
+ 689 029e 7369676E 		.ascii	"signed char\000"
+ 689      65642063 
+ 689      68617200 
+ 690              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -1,0 +1,2325 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"CrankTriggerCaptureCounter.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	CrankTriggerCaptureCounter_initVar
+  19              		.bss
+  20              		.type	CrankTriggerCaptureCounter_initVar, %object
+  21              		.size	CrankTriggerCaptureCounter_initVar, 1
+  22              	CrankTriggerCaptureCounter_initVar:
+  23 0000 00       		.space	1
+  24              		.section	.text.CrankTriggerCaptureCounter_Init,"ax",%progbits
+  25              		.align	2
+  26              		.global	CrankTriggerCaptureCounter_Init
+  27              		.thumb
+  28              		.thumb_func
+  29              		.type	CrankTriggerCaptureCounter_Init, %function
+  30              	CrankTriggerCaptureCounter_Init:
+  31              	.LFB0:
+  32              		.file 1 "Generated_Source\\PSoC5\\CrankTriggerCaptureCounter.c"
+   1:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * File Name: CrankTriggerCaptureCounter.c  
+   3:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Version 3.0
+   4:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+   5:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  Description:
+   6:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *     The Counter component consists of a 8, 16, 24 or 32-bit counter with
+   7:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *     a selectable period between 2 and 2^Width - 1.  
+   8:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+   9:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *   Note:
+  10:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *     None
+  11:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+  12:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+  13:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  15:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  16:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+  18:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+  19:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** #include "CrankTriggerCaptureCounter.h"
+  20:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+  21:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** uint8 CrankTriggerCaptureCounter_initVar = 0u;
+  22:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+  23:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+  24:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+  25:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Function Name: CrankTriggerCaptureCounter_Init
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 2
+
+
+  26:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+  27:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Summary:
+  28:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *     Initialize to the schematic state
+  29:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * 
+  30:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Parameters:  
+  31:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void  
+  32:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+  33:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Return: 
+  34:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void
+  35:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+  36:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+  37:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** void CrankTriggerCaptureCounter_Init(void) 
+  38:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** {
+  33              		.loc 1 38 0
+  34              		.cfi_startproc
+  35              		@ args = 0, pretend = 0, frame = 8
+  36              		@ frame_needed = 1, uses_anonymous_args = 0
+  37 0000 80B5     		push	{r7, lr}
+  38              		.cfi_def_cfa_offset 8
+  39              		.cfi_offset 7, -8
+  40              		.cfi_offset 14, -4
+  41 0002 82B0     		sub	sp, sp, #8
+  42              		.cfi_def_cfa_offset 16
+  43 0004 00AF     		add	r7, sp, #0
+  44              		.cfi_def_cfa_register 7
+  39:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         #if (!CrankTriggerCaptureCounter_UsingFixedFunction && !CrankTriggerCaptureCounter_ControlR
+  40:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             uint8 ctrl;
+  41:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         #endif /* (!CrankTriggerCaptureCounter_UsingFixedFunction && !CrankTriggerCaptureCounter_Co
+  42:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         
+  43:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         #if(!CrankTriggerCaptureCounter_UsingFixedFunction) 
+  44:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             /* Interrupt State Backup for Critical Region*/
+  45:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             uint8 CrankTriggerCaptureCounter_interruptState;
+  46:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         #endif /* (!CrankTriggerCaptureCounter_UsingFixedFunction) */
+  47:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         
+  48:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         #if (CrankTriggerCaptureCounter_UsingFixedFunction)
+  49:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             /* Clear all bits but the enable bit (if it's already set for Timer operation */
+  50:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             CrankTriggerCaptureCounter_CONTROL &= CrankTriggerCaptureCounter_CTRL_ENABLE;
+  51:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             
+  52:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             /* Clear the mode bits for continuous run mode */
+  53:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             #if (CY_PSOC5A)
+  54:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****                 CrankTriggerCaptureCounter_CONTROL2 &= ((uint8)(~CrankTriggerCaptureCounter_CTRL_MO
+  55:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             #endif /* (CY_PSOC5A) */
+  56:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  57:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****                 CrankTriggerCaptureCounter_CONTROL3 &= ((uint8)(~CrankTriggerCaptureCounter_CTRL_MO
+  58:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             #endif /* (CY_PSOC3 || CY_PSOC5LP) */
+  59:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             /* Check if One Shot mode is enabled i.e. RunMode !=0*/
+  60:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             #if (CrankTriggerCaptureCounter_RunModeUsed != 0x0u)
+  61:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****                 /* Set 3rd bit of Control register to enable one shot mode */
+  62:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****                 CrankTriggerCaptureCounter_CONTROL |= CrankTriggerCaptureCounter_ONESHOT;
+  63:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             #endif /* (CrankTriggerCaptureCounter_RunModeUsed != 0x0u) */
+  64:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             
+  65:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             /* Set the IRQ to use the status register interrupts */
+  66:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             CrankTriggerCaptureCounter_CONTROL2 |= CrankTriggerCaptureCounter_CTRL2_IRQ_SEL;
+  67:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             
+  68:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+  69:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             CrankTriggerCaptureCounter_RT1 &= ((uint8)(~CrankTriggerCaptureCounter_RT1_MASK));
+  70:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             CrankTriggerCaptureCounter_RT1 |= CrankTriggerCaptureCounter_SYNC;     
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 3
+
+
+  71:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****                     
+  72:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             /*Enable DSI Sync all all inputs of the Timer*/
+  73:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             CrankTriggerCaptureCounter_RT1 &= ((uint8)(~CrankTriggerCaptureCounter_SYNCDSI_MASK));
+  74:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             CrankTriggerCaptureCounter_RT1 |= CrankTriggerCaptureCounter_SYNCDSI_EN;
+  75:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+  76:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         #else
+  77:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             #if(!CrankTriggerCaptureCounter_ControlRegRemoved)
+  78:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             /* Set the default compare mode defined in the parameter */
+  79:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             ctrl = CrankTriggerCaptureCounter_CONTROL & ((uint8)(~CrankTriggerCaptureCounter_CTRL_C
+  45              		.loc 1 79 0
+  46 0006 1E4B     		ldr	r3, .L2
+  47 0008 1B78     		ldrb	r3, [r3]
+  48 000a DBB2     		uxtb	r3, r3
+  49 000c 23F00703 		bic	r3, r3, #7
+  50 0010 FB71     		strb	r3, [r7, #7]
+  80:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             CrankTriggerCaptureCounter_CONTROL = ctrl | CrankTriggerCaptureCounter_DEFAULT_COMPARE_
+  51              		.loc 1 80 0
+  52 0012 1B4A     		ldr	r2, .L2
+  53 0014 FB79     		ldrb	r3, [r7, #7]
+  54 0016 43F00303 		orr	r3, r3, #3
+  55 001a DBB2     		uxtb	r3, r3
+  56 001c 1370     		strb	r3, [r2]
+  81:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             
+  82:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             /* Set the default capture mode defined in the parameter */
+  83:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             ctrl = CrankTriggerCaptureCounter_CONTROL & ((uint8)(~CrankTriggerCaptureCounter_CTRL_C
+  57              		.loc 1 83 0
+  58 001e 184B     		ldr	r3, .L2
+  59 0020 1B78     		ldrb	r3, [r3]
+  60 0022 DBB2     		uxtb	r3, r3
+  61 0024 23F00303 		bic	r3, r3, #3
+  62 0028 FB71     		strb	r3, [r7, #7]
+  84:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             
+  85:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             #if( 0 != CrankTriggerCaptureCounter_CAPTURE_MODE_CONF)
+  86:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****                 CrankTriggerCaptureCounter_CONTROL = ctrl | CrankTriggerCaptureCounter_DEFAULT_CAPT
+  63              		.loc 1 86 0
+  64 002a 154A     		ldr	r2, .L2
+  65 002c FB79     		ldrb	r3, [r7, #7]
+  66 002e 43F00803 		orr	r3, r3, #8
+  67 0032 DBB2     		uxtb	r3, r3
+  68 0034 1370     		strb	r3, [r2]
+  87:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             #else
+  88:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****                 CrankTriggerCaptureCounter_CONTROL = ctrl;
+  89:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             #endif /* 0 != CrankTriggerCaptureCounter_CAPTURE_MODE */ 
+  90:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             
+  91:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             #endif /* (!CrankTriggerCaptureCounter_ControlRegRemoved) */
+  92:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         #endif /* (CrankTriggerCaptureCounter_UsingFixedFunction) */
+  93:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         
+  94:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         /* Clear all data in the FIFO's */
+  95:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         #if (!CrankTriggerCaptureCounter_UsingFixedFunction)
+  96:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             CrankTriggerCaptureCounter_ClearFIFO();
+  69              		.loc 1 96 0
+  70 0036 FFF7FEFF 		bl	CrankTriggerCaptureCounter_ClearFIFO
+  97:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         #endif /* (!CrankTriggerCaptureCounter_UsingFixedFunction) */
+  98:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         
+  99:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         /* Set Initial values from Configuration */
+ 100:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CrankTriggerCaptureCounter_WritePeriod(CrankTriggerCaptureCounter_INIT_PERIOD_VALUE);
+  71              		.loc 1 100 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 4
+
+
+  72 003a 4FF6FF70 		movw	r0, #65535
+  73 003e FFF7FEFF 		bl	CrankTriggerCaptureCounter_WritePeriod
+ 101:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         #if (!(CrankTriggerCaptureCounter_UsingFixedFunction && (CY_PSOC5A)))
+ 102:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             CrankTriggerCaptureCounter_WriteCounter(CrankTriggerCaptureCounter_INIT_COUNTER_VALUE);
+  74              		.loc 1 102 0
+  75 0042 0020     		movs	r0, #0
+  76 0044 FFF7FEFF 		bl	CrankTriggerCaptureCounter_WriteCounter
+ 103:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         #endif /* (!(CrankTriggerCaptureCounter_UsingFixedFunction && (CY_PSOC5A))) */
+ 104:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CrankTriggerCaptureCounter_SetInterruptMode(CrankTriggerCaptureCounter_INIT_INTERRUPTS_MASK
+  77              		.loc 1 104 0
+  78 0048 1C20     		movs	r0, #28
+  79 004a FFF7FEFF 		bl	CrankTriggerCaptureCounter_SetInterruptMode
+ 105:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         
+ 106:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         #if (!CrankTriggerCaptureCounter_UsingFixedFunction)
+ 107:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             /* Read the status register to clear the unwanted interrupts */
+ 108:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             (void)CrankTriggerCaptureCounter_ReadStatusRegister();
+  80              		.loc 1 108 0
+  81 004e FFF7FEFF 		bl	CrankTriggerCaptureCounter_ReadStatusRegister
+ 109:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             /* Set the compare value (only available to non-fixed function implementation */
+ 110:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             CrankTriggerCaptureCounter_WriteCompare(CrankTriggerCaptureCounter_INIT_COMPARE_VALUE);
+  82              		.loc 1 110 0
+  83 0052 4FF6FF70 		movw	r0, #65535
+  84 0056 FFF7FEFF 		bl	CrankTriggerCaptureCounter_WriteCompare
+ 111:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 112:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             
+ 113:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region cri
+ 114:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             /* Enter Critical Region*/
+ 115:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             CrankTriggerCaptureCounter_interruptState = CyEnterCriticalSection();
+  85              		.loc 1 115 0
+  86 005a FFF7FEFF 		bl	CyEnterCriticalSection
+  87 005e 0346     		mov	r3, r0
+  88 0060 BB71     		strb	r3, [r7, #6]
+ 116:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             
+ 117:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             CrankTriggerCaptureCounter_STATUS_AUX_CTRL |= CrankTriggerCaptureCounter_STATUS_ACTL_IN
+  89              		.loc 1 117 0
+  90 0062 084A     		ldr	r2, .L2+4
+  91 0064 074B     		ldr	r3, .L2+4
+  92 0066 1B78     		ldrb	r3, [r3]
+  93 0068 DBB2     		uxtb	r3, r3
+  94 006a 43F01003 		orr	r3, r3, #16
+  95 006e DBB2     		uxtb	r3, r3
+  96 0070 1370     		strb	r3, [r2]
+ 118:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             
+ 119:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             /* Exit Critical Region*/
+ 120:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             CyExitCriticalSection(CrankTriggerCaptureCounter_interruptState);
+  97              		.loc 1 120 0
+  98 0072 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+  99 0074 1846     		mov	r0, r3
+ 100 0076 FFF7FEFF 		bl	CyExitCriticalSection
+ 121:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****             
+ 122:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         #endif /* (!CrankTriggerCaptureCounter_UsingFixedFunction) */
+ 123:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** }
+ 101              		.loc 1 123 0
+ 102 007a 0837     		adds	r7, r7, #8
+ 103              		.cfi_def_cfa_offset 8
+ 104 007c BD46     		mov	sp, r7
+ 105              		.cfi_def_cfa_register 13
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 5
+
+
+ 106              		@ sp needed
+ 107 007e 80BD     		pop	{r7, pc}
+ 108              	.L3:
+ 109              		.align	2
+ 110              	.L2:
+ 111 0080 78640040 		.word	1073767544
+ 112 0084 9C640040 		.word	1073767580
+ 113              		.cfi_endproc
+ 114              	.LFE0:
+ 115              		.size	CrankTriggerCaptureCounter_Init, .-CrankTriggerCaptureCounter_Init
+ 116              		.section	.text.CrankTriggerCaptureCounter_Enable,"ax",%progbits
+ 117              		.align	2
+ 118              		.global	CrankTriggerCaptureCounter_Enable
+ 119              		.thumb
+ 120              		.thumb_func
+ 121              		.type	CrankTriggerCaptureCounter_Enable, %function
+ 122              	CrankTriggerCaptureCounter_Enable:
+ 123              	.LFB1:
+ 124:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 125:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 126:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+ 127:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Function Name: CrankTriggerCaptureCounter_Enable
+ 128:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+ 129:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Summary:
+ 130:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *     Enable the Counter
+ 131:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * 
+ 132:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Parameters:  
+ 133:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void  
+ 134:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 135:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Return: 
+ 136:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void
+ 137:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 138:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Side Effects: 
+ 139:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *   If the Enable mode is set to Hardware only then this function has no effect 
+ 140:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *   on the operation of the counter.
+ 141:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 142:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+ 143:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** void CrankTriggerCaptureCounter_Enable(void) 
+ 144:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** {
+ 124              		.loc 1 144 0
+ 125              		.cfi_startproc
+ 126              		@ args = 0, pretend = 0, frame = 0
+ 127              		@ frame_needed = 1, uses_anonymous_args = 0
+ 128              		@ link register save eliminated.
+ 129 0000 80B4     		push	{r7}
+ 130              		.cfi_def_cfa_offset 4
+ 131              		.cfi_offset 7, -4
+ 132 0002 00AF     		add	r7, sp, #0
+ 133              		.cfi_def_cfa_register 7
+ 145:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 146:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #if (CrankTriggerCaptureCounter_UsingFixedFunction)
+ 147:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CrankTriggerCaptureCounter_GLOBAL_ENABLE |= CrankTriggerCaptureCounter_BLOCK_EN_MASK;
+ 148:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CrankTriggerCaptureCounter_GLOBAL_STBY_ENABLE |= CrankTriggerCaptureCounter_BLOCK_STBY_EN_M
+ 149:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #endif /* (CrankTriggerCaptureCounter_UsingFixedFunction) */  
+ 150:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         
+ 151:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     /* Enable the counter from the control register  */
+ 152:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     /* If Fixed Function then make sure Mode is set correctly */
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 6
+
+
+ 153:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     /* else make sure reset is clear */
+ 154:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #if(!CrankTriggerCaptureCounter_ControlRegRemoved || CrankTriggerCaptureCounter_UsingFixedFunct
+ 155:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CrankTriggerCaptureCounter_CONTROL |= CrankTriggerCaptureCounter_CTRL_ENABLE;              
+ 134              		.loc 1 155 0
+ 135 0004 054A     		ldr	r2, .L5
+ 136 0006 054B     		ldr	r3, .L5
+ 137 0008 1B78     		ldrb	r3, [r3]
+ 138 000a DBB2     		uxtb	r3, r3
+ 139 000c 63F07F03 		orn	r3, r3, #127
+ 140 0010 DBB2     		uxtb	r3, r3
+ 141 0012 1370     		strb	r3, [r2]
+ 156:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #endif /* (!CrankTriggerCaptureCounter_ControlRegRemoved || CrankTriggerCaptureCounter_UsingFix
+ 157:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     
+ 158:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** }
+ 142              		.loc 1 158 0
+ 143 0014 BD46     		mov	sp, r7
+ 144              		.cfi_def_cfa_register 13
+ 145              		@ sp needed
+ 146 0016 5DF8047B 		ldr	r7, [sp], #4
+ 147              		.cfi_restore 7
+ 148              		.cfi_def_cfa_offset 0
+ 149 001a 7047     		bx	lr
+ 150              	.L6:
+ 151              		.align	2
+ 152              	.L5:
+ 153 001c 78640040 		.word	1073767544
+ 154              		.cfi_endproc
+ 155              	.LFE1:
+ 156              		.size	CrankTriggerCaptureCounter_Enable, .-CrankTriggerCaptureCounter_Enable
+ 157              		.section	.text.CrankTriggerCaptureCounter_Start,"ax",%progbits
+ 158              		.align	2
+ 159              		.global	CrankTriggerCaptureCounter_Start
+ 160              		.thumb
+ 161              		.thumb_func
+ 162              		.type	CrankTriggerCaptureCounter_Start, %function
+ 163              	CrankTriggerCaptureCounter_Start:
+ 164              	.LFB2:
+ 159:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 160:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 161:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+ 162:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Function Name: CrankTriggerCaptureCounter_Start
+ 163:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+ 164:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Summary:
+ 165:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  Enables the counter for operation 
+ 166:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 167:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Parameters:  
+ 168:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void  
+ 169:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 170:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Return: 
+ 171:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void
+ 172:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 173:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Global variables:
+ 174:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  CrankTriggerCaptureCounter_initVar: Is modified when this function is called for the  
+ 175:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *   first time. Is used to ensure that initialization happens only once.
+ 176:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 177:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+ 178:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** void CrankTriggerCaptureCounter_Start(void) 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 7
+
+
+ 179:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** {
+ 165              		.loc 1 179 0
+ 166              		.cfi_startproc
+ 167              		@ args = 0, pretend = 0, frame = 0
+ 168              		@ frame_needed = 1, uses_anonymous_args = 0
+ 169 0000 80B5     		push	{r7, lr}
+ 170              		.cfi_def_cfa_offset 8
+ 171              		.cfi_offset 7, -8
+ 172              		.cfi_offset 14, -4
+ 173 0002 00AF     		add	r7, sp, #0
+ 174              		.cfi_def_cfa_register 7
+ 180:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     if(CrankTriggerCaptureCounter_initVar == 0u)
+ 175              		.loc 1 180 0
+ 176 0004 054B     		ldr	r3, .L9
+ 177 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 178 0008 002B     		cmp	r3, #0
+ 179 000a 04D1     		bne	.L8
+ 181:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     {
+ 182:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CrankTriggerCaptureCounter_Init();
+ 180              		.loc 1 182 0
+ 181 000c FFF7FEFF 		bl	CrankTriggerCaptureCounter_Init
+ 183:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         
+ 184:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CrankTriggerCaptureCounter_initVar = 1u; /* Clear this bit for Initialization */        
+ 182              		.loc 1 184 0
+ 183 0010 024B     		ldr	r3, .L9
+ 184 0012 0122     		movs	r2, #1
+ 185 0014 1A70     		strb	r2, [r3]
+ 186              	.L8:
+ 185:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     }
+ 186:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     
+ 187:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     /* Enable the Counter */
+ 188:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     CrankTriggerCaptureCounter_Enable();        
+ 187              		.loc 1 188 0
+ 188 0016 FFF7FEFF 		bl	CrankTriggerCaptureCounter_Enable
+ 189:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** }
+ 189              		.loc 1 189 0
+ 190 001a 80BD     		pop	{r7, pc}
+ 191              	.L10:
+ 192              		.align	2
+ 193              	.L9:
+ 194 001c 00000000 		.word	CrankTriggerCaptureCounter_initVar
+ 195              		.cfi_endproc
+ 196              	.LFE2:
+ 197              		.size	CrankTriggerCaptureCounter_Start, .-CrankTriggerCaptureCounter_Start
+ 198              		.section	.text.CrankTriggerCaptureCounter_Stop,"ax",%progbits
+ 199              		.align	2
+ 200              		.global	CrankTriggerCaptureCounter_Stop
+ 201              		.thumb
+ 202              		.thumb_func
+ 203              		.type	CrankTriggerCaptureCounter_Stop, %function
+ 204              	CrankTriggerCaptureCounter_Stop:
+ 205              	.LFB3:
+ 190:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 191:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 192:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+ 193:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Function Name: CrankTriggerCaptureCounter_Stop
+ 194:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 8
+
+
+ 195:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Summary:
+ 196:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Halts the counter, but does not change any modes or disable interrupts.
+ 197:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 198:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Parameters:  
+ 199:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void  
+ 200:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 201:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Return: 
+ 202:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void
+ 203:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 204:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Side Effects: If the Enable mode is set to Hardware only then this function
+ 205:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *               has no effect on the operation of the counter.
+ 206:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 207:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+ 208:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** void CrankTriggerCaptureCounter_Stop(void) 
+ 209:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** {
+ 206              		.loc 1 209 0
+ 207              		.cfi_startproc
+ 208              		@ args = 0, pretend = 0, frame = 0
+ 209              		@ frame_needed = 1, uses_anonymous_args = 0
+ 210              		@ link register save eliminated.
+ 211 0000 80B4     		push	{r7}
+ 212              		.cfi_def_cfa_offset 4
+ 213              		.cfi_offset 7, -4
+ 214 0002 00AF     		add	r7, sp, #0
+ 215              		.cfi_def_cfa_register 7
+ 210:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     /* Disable Counter */
+ 211:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #if(!CrankTriggerCaptureCounter_ControlRegRemoved || CrankTriggerCaptureCounter_UsingFixedFunct
+ 212:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CrankTriggerCaptureCounter_CONTROL &= ((uint8)(~CrankTriggerCaptureCounter_CTRL_ENABLE));  
+ 216              		.loc 1 212 0
+ 217 0004 054A     		ldr	r2, .L12
+ 218 0006 054B     		ldr	r3, .L12
+ 219 0008 1B78     		ldrb	r3, [r3]
+ 220 000a DBB2     		uxtb	r3, r3
+ 221 000c 03F07F03 		and	r3, r3, #127
+ 222 0010 DBB2     		uxtb	r3, r3
+ 223 0012 1370     		strb	r3, [r2]
+ 213:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #endif /* (!CrankTriggerCaptureCounter_ControlRegRemoved || CrankTriggerCaptureCounter_UsingFix
+ 214:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     
+ 215:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     /* Globally disable the Fixed Function Block chosen */
+ 216:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #if (CrankTriggerCaptureCounter_UsingFixedFunction)
+ 217:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CrankTriggerCaptureCounter_GLOBAL_ENABLE &= ((uint8)(~CrankTriggerCaptureCounter_BLOCK_EN_M
+ 218:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CrankTriggerCaptureCounter_GLOBAL_STBY_ENABLE &= ((uint8)(~CrankTriggerCaptureCounter_BLOCK
+ 219:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #endif /* (CrankTriggerCaptureCounter_UsingFixedFunction) */
+ 220:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** }
+ 224              		.loc 1 220 0
+ 225 0014 BD46     		mov	sp, r7
+ 226              		.cfi_def_cfa_register 13
+ 227              		@ sp needed
+ 228 0016 5DF8047B 		ldr	r7, [sp], #4
+ 229              		.cfi_restore 7
+ 230              		.cfi_def_cfa_offset 0
+ 231 001a 7047     		bx	lr
+ 232              	.L13:
+ 233              		.align	2
+ 234              	.L12:
+ 235 001c 78640040 		.word	1073767544
+ 236              		.cfi_endproc
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 9
+
+
+ 237              	.LFE3:
+ 238              		.size	CrankTriggerCaptureCounter_Stop, .-CrankTriggerCaptureCounter_Stop
+ 239              		.section	.text.CrankTriggerCaptureCounter_SetInterruptMode,"ax",%progbits
+ 240              		.align	2
+ 241              		.global	CrankTriggerCaptureCounter_SetInterruptMode
+ 242              		.thumb
+ 243              		.thumb_func
+ 244              		.type	CrankTriggerCaptureCounter_SetInterruptMode, %function
+ 245              	CrankTriggerCaptureCounter_SetInterruptMode:
+ 246              	.LFB4:
+ 221:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 222:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 223:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+ 224:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Function Name: CrankTriggerCaptureCounter_SetInterruptMode
+ 225:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+ 226:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Summary:
+ 227:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Configures which interrupt sources are enabled to generate the final interrupt
+ 228:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 229:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Parameters:  
+ 230:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  InterruptsMask: This parameter is an or'd collection of the status bits
+ 231:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *                   which will be allowed to generate the counters interrupt.   
+ 232:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 233:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Return: 
+ 234:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void
+ 235:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 236:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+ 237:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** void CrankTriggerCaptureCounter_SetInterruptMode(uint8 interruptsMask) 
+ 238:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** {
+ 247              		.loc 1 238 0
+ 248              		.cfi_startproc
+ 249              		@ args = 0, pretend = 0, frame = 8
+ 250              		@ frame_needed = 1, uses_anonymous_args = 0
+ 251              		@ link register save eliminated.
+ 252 0000 80B4     		push	{r7}
+ 253              		.cfi_def_cfa_offset 4
+ 254              		.cfi_offset 7, -4
+ 255 0002 83B0     		sub	sp, sp, #12
+ 256              		.cfi_def_cfa_offset 16
+ 257 0004 00AF     		add	r7, sp, #0
+ 258              		.cfi_def_cfa_register 7
+ 259 0006 0346     		mov	r3, r0
+ 260 0008 FB71     		strb	r3, [r7, #7]
+ 239:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     CrankTriggerCaptureCounter_STATUS_MASK = interruptsMask;
+ 261              		.loc 1 239 0
+ 262 000a 044A     		ldr	r2, .L15
+ 263 000c FB79     		ldrb	r3, [r7, #7]
+ 264 000e 1370     		strb	r3, [r2]
+ 240:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** }
+ 265              		.loc 1 240 0
+ 266 0010 0C37     		adds	r7, r7, #12
+ 267              		.cfi_def_cfa_offset 4
+ 268 0012 BD46     		mov	sp, r7
+ 269              		.cfi_def_cfa_register 13
+ 270              		@ sp needed
+ 271 0014 5DF8047B 		ldr	r7, [sp], #4
+ 272              		.cfi_restore 7
+ 273              		.cfi_def_cfa_offset 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 10
+
+
+ 274 0018 7047     		bx	lr
+ 275              	.L16:
+ 276 001a 00BF     		.align	2
+ 277              	.L15:
+ 278 001c 8C640040 		.word	1073767564
+ 279              		.cfi_endproc
+ 280              	.LFE4:
+ 281              		.size	CrankTriggerCaptureCounter_SetInterruptMode, .-CrankTriggerCaptureCounter_SetInterruptMode
+ 282              		.section	.text.CrankTriggerCaptureCounter_ReadStatusRegister,"ax",%progbits
+ 283              		.align	2
+ 284              		.global	CrankTriggerCaptureCounter_ReadStatusRegister
+ 285              		.thumb
+ 286              		.thumb_func
+ 287              		.type	CrankTriggerCaptureCounter_ReadStatusRegister, %function
+ 288              	CrankTriggerCaptureCounter_ReadStatusRegister:
+ 289              	.LFB5:
+ 241:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 242:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 243:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+ 244:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Function Name: CrankTriggerCaptureCounter_ReadStatusRegister
+ 245:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+ 246:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Summary:
+ 247:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *   Reads the status register and returns it's state. This function should use
+ 248:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *       defined types for the bit-field information as the bits in this
+ 249:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *       register may be permuteable.
+ 250:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 251:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Parameters:  
+ 252:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void
+ 253:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 254:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Return: 
+ 255:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  (uint8) The contents of the status register
+ 256:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 257:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Side Effects:
+ 258:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *   Status register bits may be clear on read. 
+ 259:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 260:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+ 261:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** uint8   CrankTriggerCaptureCounter_ReadStatusRegister(void) 
+ 262:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** {
+ 290              		.loc 1 262 0
+ 291              		.cfi_startproc
+ 292              		@ args = 0, pretend = 0, frame = 0
+ 293              		@ frame_needed = 1, uses_anonymous_args = 0
+ 294              		@ link register save eliminated.
+ 295 0000 80B4     		push	{r7}
+ 296              		.cfi_def_cfa_offset 4
+ 297              		.cfi_offset 7, -4
+ 298 0002 00AF     		add	r7, sp, #0
+ 299              		.cfi_def_cfa_register 7
+ 263:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     return CrankTriggerCaptureCounter_STATUS;
+ 300              		.loc 1 263 0
+ 301 0004 034B     		ldr	r3, .L19
+ 302 0006 1B78     		ldrb	r3, [r3]
+ 303 0008 DBB2     		uxtb	r3, r3
+ 264:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** }
+ 304              		.loc 1 264 0
+ 305 000a 1846     		mov	r0, r3
+ 306 000c BD46     		mov	sp, r7
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 11
+
+
+ 307              		.cfi_def_cfa_register 13
+ 308              		@ sp needed
+ 309 000e 5DF8047B 		ldr	r7, [sp], #4
+ 310              		.cfi_restore 7
+ 311              		.cfi_def_cfa_offset 0
+ 312 0012 7047     		bx	lr
+ 313              	.L20:
+ 314              		.align	2
+ 315              	.L19:
+ 316 0014 6C640040 		.word	1073767532
+ 317              		.cfi_endproc
+ 318              	.LFE5:
+ 319              		.size	CrankTriggerCaptureCounter_ReadStatusRegister, .-CrankTriggerCaptureCounter_ReadStatusRegist
+ 320              		.section	.text.CrankTriggerCaptureCounter_ReadControlRegister,"ax",%progbits
+ 321              		.align	2
+ 322              		.global	CrankTriggerCaptureCounter_ReadControlRegister
+ 323              		.thumb
+ 324              		.thumb_func
+ 325              		.type	CrankTriggerCaptureCounter_ReadControlRegister, %function
+ 326              	CrankTriggerCaptureCounter_ReadControlRegister:
+ 327              	.LFB6:
+ 265:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 266:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 267:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** #if(!CrankTriggerCaptureCounter_ControlRegRemoved)
+ 268:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+ 269:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Function Name: CrankTriggerCaptureCounter_ReadControlRegister
+ 270:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+ 271:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Summary:
+ 272:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *   Reads the control register and returns it's state. This function should use
+ 273:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *       defined types for the bit-field information as the bits in this
+ 274:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *       register may be permuteable.
+ 275:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 276:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Parameters:  
+ 277:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void
+ 278:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 279:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Return: 
+ 280:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  (uint8) The contents of the control register
+ 281:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 282:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+ 283:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** uint8   CrankTriggerCaptureCounter_ReadControlRegister(void) 
+ 284:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** {
+ 328              		.loc 1 284 0
+ 329              		.cfi_startproc
+ 330              		@ args = 0, pretend = 0, frame = 0
+ 331              		@ frame_needed = 1, uses_anonymous_args = 0
+ 332              		@ link register save eliminated.
+ 333 0000 80B4     		push	{r7}
+ 334              		.cfi_def_cfa_offset 4
+ 335              		.cfi_offset 7, -4
+ 336 0002 00AF     		add	r7, sp, #0
+ 337              		.cfi_def_cfa_register 7
+ 285:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     return CrankTriggerCaptureCounter_CONTROL;
+ 338              		.loc 1 285 0
+ 339 0004 034B     		ldr	r3, .L23
+ 340 0006 1B78     		ldrb	r3, [r3]
+ 341 0008 DBB2     		uxtb	r3, r3
+ 286:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** }
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 12
+
+
+ 342              		.loc 1 286 0
+ 343 000a 1846     		mov	r0, r3
+ 344 000c BD46     		mov	sp, r7
+ 345              		.cfi_def_cfa_register 13
+ 346              		@ sp needed
+ 347 000e 5DF8047B 		ldr	r7, [sp], #4
+ 348              		.cfi_restore 7
+ 349              		.cfi_def_cfa_offset 0
+ 350 0012 7047     		bx	lr
+ 351              	.L24:
+ 352              		.align	2
+ 353              	.L23:
+ 354 0014 78640040 		.word	1073767544
+ 355              		.cfi_endproc
+ 356              	.LFE6:
+ 357              		.size	CrankTriggerCaptureCounter_ReadControlRegister, .-CrankTriggerCaptureCounter_ReadControlRegi
+ 358              		.section	.text.CrankTriggerCaptureCounter_WriteControlRegister,"ax",%progbits
+ 359              		.align	2
+ 360              		.global	CrankTriggerCaptureCounter_WriteControlRegister
+ 361              		.thumb
+ 362              		.thumb_func
+ 363              		.type	CrankTriggerCaptureCounter_WriteControlRegister, %function
+ 364              	CrankTriggerCaptureCounter_WriteControlRegister:
+ 365              	.LFB7:
+ 287:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 288:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 289:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+ 290:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Function Name: CrankTriggerCaptureCounter_WriteControlRegister
+ 291:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+ 292:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Summary:
+ 293:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *   Sets the bit-field of the control register.  This function should use
+ 294:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *       defined types for the bit-field information as the bits in this
+ 295:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *       register may be permuteable.
+ 296:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 297:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Parameters:  
+ 298:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void
+ 299:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 300:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Return: 
+ 301:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  (uint8) The contents of the control register
+ 302:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 303:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+ 304:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** void    CrankTriggerCaptureCounter_WriteControlRegister(uint8 control) 
+ 305:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** {
+ 366              		.loc 1 305 0
+ 367              		.cfi_startproc
+ 368              		@ args = 0, pretend = 0, frame = 8
+ 369              		@ frame_needed = 1, uses_anonymous_args = 0
+ 370              		@ link register save eliminated.
+ 371 0000 80B4     		push	{r7}
+ 372              		.cfi_def_cfa_offset 4
+ 373              		.cfi_offset 7, -4
+ 374 0002 83B0     		sub	sp, sp, #12
+ 375              		.cfi_def_cfa_offset 16
+ 376 0004 00AF     		add	r7, sp, #0
+ 377              		.cfi_def_cfa_register 7
+ 378 0006 0346     		mov	r3, r0
+ 379 0008 FB71     		strb	r3, [r7, #7]
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 13
+
+
+ 306:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     CrankTriggerCaptureCounter_CONTROL = control;
+ 380              		.loc 1 306 0
+ 381 000a 044A     		ldr	r2, .L26
+ 382 000c FB79     		ldrb	r3, [r7, #7]
+ 383 000e 1370     		strb	r3, [r2]
+ 307:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** }
+ 384              		.loc 1 307 0
+ 385 0010 0C37     		adds	r7, r7, #12
+ 386              		.cfi_def_cfa_offset 4
+ 387 0012 BD46     		mov	sp, r7
+ 388              		.cfi_def_cfa_register 13
+ 389              		@ sp needed
+ 390 0014 5DF8047B 		ldr	r7, [sp], #4
+ 391              		.cfi_restore 7
+ 392              		.cfi_def_cfa_offset 0
+ 393 0018 7047     		bx	lr
+ 394              	.L27:
+ 395 001a 00BF     		.align	2
+ 396              	.L26:
+ 397 001c 78640040 		.word	1073767544
+ 398              		.cfi_endproc
+ 399              	.LFE7:
+ 400              		.size	CrankTriggerCaptureCounter_WriteControlRegister, .-CrankTriggerCaptureCounter_WriteControlRe
+ 401              		.section	.text.CrankTriggerCaptureCounter_WriteCounter,"ax",%progbits
+ 402              		.align	2
+ 403              		.global	CrankTriggerCaptureCounter_WriteCounter
+ 404              		.thumb
+ 405              		.thumb_func
+ 406              		.type	CrankTriggerCaptureCounter_WriteCounter, %function
+ 407              	CrankTriggerCaptureCounter_WriteCounter:
+ 408              	.LFB8:
+ 308:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 309:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** #endif  /* (!CrankTriggerCaptureCounter_ControlRegRemoved) */
+ 310:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 311:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 312:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** #if (!(CrankTriggerCaptureCounter_UsingFixedFunction && (CY_PSOC5A)))
+ 313:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+ 314:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Function Name: CrankTriggerCaptureCounter_WriteCounter
+ 315:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+ 316:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Summary:
+ 317:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *   This funtion is used to set the counter to a specific value
+ 318:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 319:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Parameters:  
+ 320:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  counter:  New counter value. 
+ 321:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 322:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Return: 
+ 323:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void 
+ 324:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 325:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+ 326:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** void CrankTriggerCaptureCounter_WriteCounter(uint16 counter) \
+ 327:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****                                    
+ 328:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** {
+ 409              		.loc 1 328 0
+ 410              		.cfi_startproc
+ 411              		@ args = 0, pretend = 0, frame = 8
+ 412              		@ frame_needed = 1, uses_anonymous_args = 0
+ 413              		@ link register save eliminated.
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 14
+
+
+ 414 0000 80B4     		push	{r7}
+ 415              		.cfi_def_cfa_offset 4
+ 416              		.cfi_offset 7, -4
+ 417 0002 83B0     		sub	sp, sp, #12
+ 418              		.cfi_def_cfa_offset 16
+ 419 0004 00AF     		add	r7, sp, #0
+ 420              		.cfi_def_cfa_register 7
+ 421 0006 0346     		mov	r3, r0
+ 422 0008 FB80     		strh	r3, [r7, #6]	@ movhi
+ 329:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #if(CrankTriggerCaptureCounter_UsingFixedFunction)
+ 330:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         /* assert if block is already enabled */
+ 331:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CYASSERT (0u == (CrankTriggerCaptureCounter_GLOBAL_ENABLE & CrankTriggerCaptureCounter_BLOC
+ 332:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         /* If block is disabled, enable it and then write the counter */
+ 333:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CrankTriggerCaptureCounter_GLOBAL_ENABLE |= CrankTriggerCaptureCounter_BLOCK_EN_MASK;
+ 334:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CY_SET_REG16(CrankTriggerCaptureCounter_COUNTER_LSB_PTR, (uint16)counter);
+ 335:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CrankTriggerCaptureCounter_GLOBAL_ENABLE &= ((uint8)(~CrankTriggerCaptureCounter_BLOCK_EN_M
+ 336:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #else
+ 337:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CY_SET_REG16(CrankTriggerCaptureCounter_COUNTER_LSB_PTR, counter);
+ 423              		.loc 1 337 0
+ 424 000a 044A     		ldr	r2, .L29
+ 425 000c FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 426 000e 1380     		strh	r3, [r2]	@ movhi
+ 338:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #endif /* (CrankTriggerCaptureCounter_UsingFixedFunction) */
+ 339:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** }
+ 427              		.loc 1 339 0
+ 428 0010 0C37     		adds	r7, r7, #12
+ 429              		.cfi_def_cfa_offset 4
+ 430 0012 BD46     		mov	sp, r7
+ 431              		.cfi_def_cfa_register 13
+ 432              		@ sp needed
+ 433 0014 5DF8047B 		ldr	r7, [sp], #4
+ 434              		.cfi_restore 7
+ 435              		.cfi_def_cfa_offset 0
+ 436 0018 7047     		bx	lr
+ 437              	.L30:
+ 438 001a 00BF     		.align	2
+ 439              	.L29:
+ 440 001c 1C680040 		.word	1073768476
+ 441              		.cfi_endproc
+ 442              	.LFE8:
+ 443              		.size	CrankTriggerCaptureCounter_WriteCounter, .-CrankTriggerCaptureCounter_WriteCounter
+ 444              		.section	.text.CrankTriggerCaptureCounter_ReadCounter,"ax",%progbits
+ 445              		.align	2
+ 446              		.global	CrankTriggerCaptureCounter_ReadCounter
+ 447              		.thumb
+ 448              		.thumb_func
+ 449              		.type	CrankTriggerCaptureCounter_ReadCounter, %function
+ 450              	CrankTriggerCaptureCounter_ReadCounter:
+ 451              	.LFB9:
+ 340:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** #endif /* (!(CrankTriggerCaptureCounter_UsingFixedFunction && (CY_PSOC5A))) */
+ 341:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 342:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 343:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+ 344:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Function Name: CrankTriggerCaptureCounter_ReadCounter
+ 345:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+ 346:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Summary:
+ 347:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Returns the current value of the counter.  It doesn't matter
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 15
+
+
+ 348:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * if the counter is enabled or running.
+ 349:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 350:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Parameters:  
+ 351:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void:  
+ 352:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 353:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Return: 
+ 354:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  (uint16) The present value of the counter.
+ 355:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 356:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+ 357:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** uint16 CrankTriggerCaptureCounter_ReadCounter(void) 
+ 358:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** {
+ 452              		.loc 1 358 0
+ 453              		.cfi_startproc
+ 454              		@ args = 0, pretend = 0, frame = 0
+ 455              		@ frame_needed = 1, uses_anonymous_args = 0
+ 456              		@ link register save eliminated.
+ 457 0000 80B4     		push	{r7}
+ 458              		.cfi_def_cfa_offset 4
+ 459              		.cfi_offset 7, -4
+ 460 0002 00AF     		add	r7, sp, #0
+ 461              		.cfi_def_cfa_register 7
+ 359:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     /* Force capture by reading Accumulator */
+ 360:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     /* Must first do a software capture to be able to read the counter */
+ 361:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 362:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #if(CrankTriggerCaptureCounter_UsingFixedFunction)
+ 363:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 		(void)CY_GET_REG16(CrankTriggerCaptureCounter_COUNTER_LSB_PTR);
+ 364:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 	#else
+ 365:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 		(void)CY_GET_REG8(CrankTriggerCaptureCounter_COUNTER_LSB_PTR_8BIT);
+ 462              		.loc 1 365 0
+ 463 0004 044B     		ldr	r3, .L33
+ 464 0006 1B78     		ldrb	r3, [r3]
+ 366:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 	#endif/* (CrankTriggerCaptureCounter_UsingFixedFunction) */
+ 367:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     
+ 368:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
+ 369:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #if(CrankTriggerCaptureCounter_UsingFixedFunction)
+ 370:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         return ((uint16)CY_GET_REG16(CrankTriggerCaptureCounter_STATICCOUNT_LSB_PTR));
+ 371:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #else
+ 372:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         return (CY_GET_REG16(CrankTriggerCaptureCounter_STATICCOUNT_LSB_PTR));
+ 465              		.loc 1 372 0
+ 466 0008 044B     		ldr	r3, .L33+4
+ 467 000a 1B88     		ldrh	r3, [r3]	@ movhi
+ 468 000c 9BB2     		uxth	r3, r3
+ 373:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #endif /* (CrankTriggerCaptureCounter_UsingFixedFunction) */
+ 374:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** }
+ 469              		.loc 1 374 0
+ 470 000e 1846     		mov	r0, r3
+ 471 0010 BD46     		mov	sp, r7
+ 472              		.cfi_def_cfa_register 13
+ 473              		@ sp needed
+ 474 0012 5DF8047B 		ldr	r7, [sp], #4
+ 475              		.cfi_restore 7
+ 476              		.cfi_def_cfa_offset 0
+ 477 0016 7047     		bx	lr
+ 478              	.L34:
+ 479              		.align	2
+ 480              	.L33:
+ 481 0018 0E640040 		.word	1073767438
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 16
+
+
+ 482 001c 9C680040 		.word	1073768604
+ 483              		.cfi_endproc
+ 484              	.LFE9:
+ 485              		.size	CrankTriggerCaptureCounter_ReadCounter, .-CrankTriggerCaptureCounter_ReadCounter
+ 486              		.section	.text.CrankTriggerCaptureCounter_ReadCapture,"ax",%progbits
+ 487              		.align	2
+ 488              		.global	CrankTriggerCaptureCounter_ReadCapture
+ 489              		.thumb
+ 490              		.thumb_func
+ 491              		.type	CrankTriggerCaptureCounter_ReadCapture, %function
+ 492              	CrankTriggerCaptureCounter_ReadCapture:
+ 493              	.LFB10:
+ 375:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 376:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 377:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+ 378:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Function Name: CrankTriggerCaptureCounter_ReadCapture
+ 379:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+ 380:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Summary:
+ 381:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *   This function returns the last value captured.
+ 382:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 383:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Parameters:  
+ 384:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void
+ 385:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 386:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Return: 
+ 387:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  (uint16) Present Capture value.
+ 388:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 389:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+ 390:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** uint16 CrankTriggerCaptureCounter_ReadCapture(void) 
+ 391:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** {
+ 494              		.loc 1 391 0
+ 495              		.cfi_startproc
+ 496              		@ args = 0, pretend = 0, frame = 0
+ 497              		@ frame_needed = 1, uses_anonymous_args = 0
+ 498              		@ link register save eliminated.
+ 499 0000 80B4     		push	{r7}
+ 500              		.cfi_def_cfa_offset 4
+ 501              		.cfi_offset 7, -4
+ 502 0002 00AF     		add	r7, sp, #0
+ 503              		.cfi_def_cfa_register 7
+ 392:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #if(CrankTriggerCaptureCounter_UsingFixedFunction)
+ 393:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         return ((uint16)CY_GET_REG16(CrankTriggerCaptureCounter_STATICCOUNT_LSB_PTR));
+ 394:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #else
+ 395:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         return (CY_GET_REG16(CrankTriggerCaptureCounter_STATICCOUNT_LSB_PTR));
+ 504              		.loc 1 395 0
+ 505 0004 034B     		ldr	r3, .L37
+ 506 0006 1B88     		ldrh	r3, [r3]	@ movhi
+ 507 0008 9BB2     		uxth	r3, r3
+ 396:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #endif /* (CrankTriggerCaptureCounter_UsingFixedFunction) */
+ 397:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** }
+ 508              		.loc 1 397 0
+ 509 000a 1846     		mov	r0, r3
+ 510 000c BD46     		mov	sp, r7
+ 511              		.cfi_def_cfa_register 13
+ 512              		@ sp needed
+ 513 000e 5DF8047B 		ldr	r7, [sp], #4
+ 514              		.cfi_restore 7
+ 515              		.cfi_def_cfa_offset 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 17
+
+
+ 516 0012 7047     		bx	lr
+ 517              	.L38:
+ 518              		.align	2
+ 519              	.L37:
+ 520 0014 9C680040 		.word	1073768604
+ 521              		.cfi_endproc
+ 522              	.LFE10:
+ 523              		.size	CrankTriggerCaptureCounter_ReadCapture, .-CrankTriggerCaptureCounter_ReadCapture
+ 524              		.section	.text.CrankTriggerCaptureCounter_WritePeriod,"ax",%progbits
+ 525              		.align	2
+ 526              		.global	CrankTriggerCaptureCounter_WritePeriod
+ 527              		.thumb
+ 528              		.thumb_func
+ 529              		.type	CrankTriggerCaptureCounter_WritePeriod, %function
+ 530              	CrankTriggerCaptureCounter_WritePeriod:
+ 531              	.LFB11:
+ 398:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 399:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 400:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+ 401:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Function Name: CrankTriggerCaptureCounter_WritePeriod
+ 402:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+ 403:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Summary:
+ 404:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Changes the period of the counter.  The new period 
+ 405:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * will be loaded the next time terminal count is detected.
+ 406:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 407:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Parameters:  
+ 408:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  period: (uint16) A value of 0 will result in
+ 409:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *         the counter remaining at zero.  
+ 410:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 411:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Return: 
+ 412:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void
+ 413:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 414:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+ 415:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** void CrankTriggerCaptureCounter_WritePeriod(uint16 period) 
+ 416:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** {
+ 532              		.loc 1 416 0
+ 533              		.cfi_startproc
+ 534              		@ args = 0, pretend = 0, frame = 8
+ 535              		@ frame_needed = 1, uses_anonymous_args = 0
+ 536              		@ link register save eliminated.
+ 537 0000 80B4     		push	{r7}
+ 538              		.cfi_def_cfa_offset 4
+ 539              		.cfi_offset 7, -4
+ 540 0002 83B0     		sub	sp, sp, #12
+ 541              		.cfi_def_cfa_offset 16
+ 542 0004 00AF     		add	r7, sp, #0
+ 543              		.cfi_def_cfa_register 7
+ 544 0006 0346     		mov	r3, r0
+ 545 0008 FB80     		strh	r3, [r7, #6]	@ movhi
+ 417:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #if(CrankTriggerCaptureCounter_UsingFixedFunction)
+ 418:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CY_SET_REG16(CrankTriggerCaptureCounter_PERIOD_LSB_PTR,(uint16)period);
+ 419:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #else
+ 420:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CY_SET_REG16(CrankTriggerCaptureCounter_PERIOD_LSB_PTR, period);
+ 546              		.loc 1 420 0
+ 547 000a 044A     		ldr	r2, .L40
+ 548 000c FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 549 000e 1380     		strh	r3, [r2]	@ movhi
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 18
+
+
+ 421:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #endif /* (CrankTriggerCaptureCounter_UsingFixedFunction) */
+ 422:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** }
+ 550              		.loc 1 422 0
+ 551 0010 0C37     		adds	r7, r7, #12
+ 552              		.cfi_def_cfa_offset 4
+ 553 0012 BD46     		mov	sp, r7
+ 554              		.cfi_def_cfa_register 13
+ 555              		@ sp needed
+ 556 0014 5DF8047B 		ldr	r7, [sp], #4
+ 557              		.cfi_restore 7
+ 558              		.cfi_def_cfa_offset 0
+ 559 0018 7047     		bx	lr
+ 560              	.L41:
+ 561 001a 00BF     		.align	2
+ 562              	.L40:
+ 563 001c 5C680040 		.word	1073768540
+ 564              		.cfi_endproc
+ 565              	.LFE11:
+ 566              		.size	CrankTriggerCaptureCounter_WritePeriod, .-CrankTriggerCaptureCounter_WritePeriod
+ 567              		.section	.text.CrankTriggerCaptureCounter_ReadPeriod,"ax",%progbits
+ 568              		.align	2
+ 569              		.global	CrankTriggerCaptureCounter_ReadPeriod
+ 570              		.thumb
+ 571              		.thumb_func
+ 572              		.type	CrankTriggerCaptureCounter_ReadPeriod, %function
+ 573              	CrankTriggerCaptureCounter_ReadPeriod:
+ 574              	.LFB12:
+ 423:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 424:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 425:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+ 426:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Function Name: CrankTriggerCaptureCounter_ReadPeriod
+ 427:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+ 428:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Summary:
+ 429:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Reads the current period value without affecting counter operation.
+ 430:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 431:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Parameters:  
+ 432:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void:  
+ 433:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 434:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Return: 
+ 435:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  (uint16) Present period value.
+ 436:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 437:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+ 438:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** uint16 CrankTriggerCaptureCounter_ReadPeriod(void) 
+ 439:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** {
+ 575              		.loc 1 439 0
+ 576              		.cfi_startproc
+ 577              		@ args = 0, pretend = 0, frame = 0
+ 578              		@ frame_needed = 1, uses_anonymous_args = 0
+ 579              		@ link register save eliminated.
+ 580 0000 80B4     		push	{r7}
+ 581              		.cfi_def_cfa_offset 4
+ 582              		.cfi_offset 7, -4
+ 583 0002 00AF     		add	r7, sp, #0
+ 584              		.cfi_def_cfa_register 7
+ 440:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #if(CrankTriggerCaptureCounter_UsingFixedFunction)
+ 441:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         return ((uint16)CY_GET_REG16(CrankTriggerCaptureCounter_PERIOD_LSB_PTR));
+ 442:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #else
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 19
+
+
+ 443:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         return (CY_GET_REG16(CrankTriggerCaptureCounter_PERIOD_LSB_PTR));
+ 585              		.loc 1 443 0
+ 586 0004 034B     		ldr	r3, .L44
+ 587 0006 1B88     		ldrh	r3, [r3]	@ movhi
+ 588 0008 9BB2     		uxth	r3, r3
+ 444:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #endif /* (CrankTriggerCaptureCounter_UsingFixedFunction) */
+ 445:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** }
+ 589              		.loc 1 445 0
+ 590 000a 1846     		mov	r0, r3
+ 591 000c BD46     		mov	sp, r7
+ 592              		.cfi_def_cfa_register 13
+ 593              		@ sp needed
+ 594 000e 5DF8047B 		ldr	r7, [sp], #4
+ 595              		.cfi_restore 7
+ 596              		.cfi_def_cfa_offset 0
+ 597 0012 7047     		bx	lr
+ 598              	.L45:
+ 599              		.align	2
+ 600              	.L44:
+ 601 0014 5C680040 		.word	1073768540
+ 602              		.cfi_endproc
+ 603              	.LFE12:
+ 604              		.size	CrankTriggerCaptureCounter_ReadPeriod, .-CrankTriggerCaptureCounter_ReadPeriod
+ 605              		.section	.text.CrankTriggerCaptureCounter_WriteCompare,"ax",%progbits
+ 606              		.align	2
+ 607              		.global	CrankTriggerCaptureCounter_WriteCompare
+ 608              		.thumb
+ 609              		.thumb_func
+ 610              		.type	CrankTriggerCaptureCounter_WriteCompare, %function
+ 611              	CrankTriggerCaptureCounter_WriteCompare:
+ 612              	.LFB13:
+ 446:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 447:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 448:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** #if (!CrankTriggerCaptureCounter_UsingFixedFunction)
+ 449:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+ 450:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Function Name: CrankTriggerCaptureCounter_WriteCompare
+ 451:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+ 452:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Summary:
+ 453:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Changes the compare value.  The compare output will 
+ 454:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * reflect the new value on the next UDB clock.  The compare output will be 
+ 455:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * driven high when the present counter value compares true based on the 
+ 456:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * configured compare mode setting. 
+ 457:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 458:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Parameters:  
+ 459:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  Compare:  New compare value. 
+ 460:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 461:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Return: 
+ 462:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void
+ 463:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 464:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+ 465:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** void CrankTriggerCaptureCounter_WriteCompare(uint16 compare) \
+ 466:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****                                    
+ 467:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** {
+ 613              		.loc 1 467 0
+ 614              		.cfi_startproc
+ 615              		@ args = 0, pretend = 0, frame = 8
+ 616              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 20
+
+
+ 617              		@ link register save eliminated.
+ 618 0000 80B4     		push	{r7}
+ 619              		.cfi_def_cfa_offset 4
+ 620              		.cfi_offset 7, -4
+ 621 0002 83B0     		sub	sp, sp, #12
+ 622              		.cfi_def_cfa_offset 16
+ 623 0004 00AF     		add	r7, sp, #0
+ 624              		.cfi_def_cfa_register 7
+ 625 0006 0346     		mov	r3, r0
+ 626 0008 FB80     		strh	r3, [r7, #6]	@ movhi
+ 468:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #if(CrankTriggerCaptureCounter_UsingFixedFunction)
+ 469:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CY_SET_REG16(CrankTriggerCaptureCounter_COMPARE_LSB_PTR, (uint16)compare);
+ 470:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #else
+ 471:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         CY_SET_REG16(CrankTriggerCaptureCounter_COMPARE_LSB_PTR, compare);
+ 627              		.loc 1 471 0
+ 628 000a 044A     		ldr	r2, .L47
+ 629 000c FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 630 000e 1380     		strh	r3, [r2]	@ movhi
+ 472:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     #endif /* (CrankTriggerCaptureCounter_UsingFixedFunction) */
+ 473:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** }
+ 631              		.loc 1 473 0
+ 632 0010 0C37     		adds	r7, r7, #12
+ 633              		.cfi_def_cfa_offset 4
+ 634 0012 BD46     		mov	sp, r7
+ 635              		.cfi_def_cfa_register 13
+ 636              		@ sp needed
+ 637 0014 5DF8047B 		ldr	r7, [sp], #4
+ 638              		.cfi_restore 7
+ 639              		.cfi_def_cfa_offset 0
+ 640 0018 7047     		bx	lr
+ 641              	.L48:
+ 642 001a 00BF     		.align	2
+ 643              	.L47:
+ 644 001c 7C680040 		.word	1073768572
+ 645              		.cfi_endproc
+ 646              	.LFE13:
+ 647              		.size	CrankTriggerCaptureCounter_WriteCompare, .-CrankTriggerCaptureCounter_WriteCompare
+ 648              		.section	.text.CrankTriggerCaptureCounter_ReadCompare,"ax",%progbits
+ 649              		.align	2
+ 650              		.global	CrankTriggerCaptureCounter_ReadCompare
+ 651              		.thumb
+ 652              		.thumb_func
+ 653              		.type	CrankTriggerCaptureCounter_ReadCompare, %function
+ 654              	CrankTriggerCaptureCounter_ReadCompare:
+ 655              	.LFB14:
+ 474:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 475:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 476:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+ 477:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Function Name: CrankTriggerCaptureCounter_ReadCompare
+ 478:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+ 479:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Summary:
+ 480:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Returns the compare value.
+ 481:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 482:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Parameters:  
+ 483:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void:
+ 484:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 485:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Return: 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 21
+
+
+ 486:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  (uint16) Present compare value.
+ 487:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 488:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+ 489:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** uint16 CrankTriggerCaptureCounter_ReadCompare(void) 
+ 490:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** {
+ 656              		.loc 1 490 0
+ 657              		.cfi_startproc
+ 658              		@ args = 0, pretend = 0, frame = 0
+ 659              		@ frame_needed = 1, uses_anonymous_args = 0
+ 660              		@ link register save eliminated.
+ 661 0000 80B4     		push	{r7}
+ 662              		.cfi_def_cfa_offset 4
+ 663              		.cfi_offset 7, -4
+ 664 0002 00AF     		add	r7, sp, #0
+ 665              		.cfi_def_cfa_register 7
+ 491:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     return (CY_GET_REG16(CrankTriggerCaptureCounter_COMPARE_LSB_PTR));
+ 666              		.loc 1 491 0
+ 667 0004 034B     		ldr	r3, .L51
+ 668 0006 1B88     		ldrh	r3, [r3]	@ movhi
+ 669 0008 9BB2     		uxth	r3, r3
+ 492:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** }
+ 670              		.loc 1 492 0
+ 671 000a 1846     		mov	r0, r3
+ 672 000c BD46     		mov	sp, r7
+ 673              		.cfi_def_cfa_register 13
+ 674              		@ sp needed
+ 675 000e 5DF8047B 		ldr	r7, [sp], #4
+ 676              		.cfi_restore 7
+ 677              		.cfi_def_cfa_offset 0
+ 678 0012 7047     		bx	lr
+ 679              	.L52:
+ 680              		.align	2
+ 681              	.L51:
+ 682 0014 7C680040 		.word	1073768572
+ 683              		.cfi_endproc
+ 684              	.LFE14:
+ 685              		.size	CrankTriggerCaptureCounter_ReadCompare, .-CrankTriggerCaptureCounter_ReadCompare
+ 686              		.section	.text.CrankTriggerCaptureCounter_ClearFIFO,"ax",%progbits
+ 687              		.align	2
+ 688              		.global	CrankTriggerCaptureCounter_ClearFIFO
+ 689              		.thumb
+ 690              		.thumb_func
+ 691              		.type	CrankTriggerCaptureCounter_ClearFIFO, %function
+ 692              	CrankTriggerCaptureCounter_ClearFIFO:
+ 693              	.LFB15:
+ 493:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 494:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 495:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** #if (CrankTriggerCaptureCounter_COMPARE_MODE_SOFTWARE)
+ 496:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+ 497:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Function Name: CrankTriggerCaptureCounter_SetCompareMode
+ 498:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+ 499:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Summary:
+ 500:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  Sets the software controlled Compare Mode.
+ 501:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 502:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Parameters:
+ 503:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  compareMode:  Compare Mode Enumerated Type.
+ 504:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 22
+
+
+ 505:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Return:
+ 506:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void
+ 507:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 508:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+ 509:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** void CrankTriggerCaptureCounter_SetCompareMode(uint8 compareMode) 
+ 510:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** {
+ 511:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     /* Clear the compare mode bits in the control register */
+ 512:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     CrankTriggerCaptureCounter_CONTROL &= ((uint8)(~CrankTriggerCaptureCounter_CTRL_CMPMODE_MASK));
+ 513:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     
+ 514:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     /* Write the new setting */
+ 515:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     CrankTriggerCaptureCounter_CONTROL |= compareMode;
+ 516:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** }
+ 517:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** #endif  /* (CrankTriggerCaptureCounter_COMPARE_MODE_SOFTWARE) */
+ 518:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 519:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 520:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** #if (CrankTriggerCaptureCounter_CAPTURE_MODE_SOFTWARE)
+ 521:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+ 522:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Function Name: CrankTriggerCaptureCounter_SetCaptureMode
+ 523:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+ 524:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Summary:
+ 525:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  Sets the software controlled Capture Mode.
+ 526:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 527:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Parameters:
+ 528:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  captureMode:  Capture Mode Enumerated Type.
+ 529:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 530:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Return:
+ 531:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void
+ 532:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 533:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+ 534:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** void CrankTriggerCaptureCounter_SetCaptureMode(uint8 captureMode) 
+ 535:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** {
+ 536:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     /* Clear the capture mode bits in the control register */
+ 537:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     CrankTriggerCaptureCounter_CONTROL &= ((uint8)(~CrankTriggerCaptureCounter_CTRL_CAPMODE_MASK));
+ 538:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     
+ 539:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     /* Write the new setting */
+ 540:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     CrankTriggerCaptureCounter_CONTROL |= ((uint8)((uint8)captureMode << CrankTriggerCaptureCounter
+ 541:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** }
+ 542:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** #endif  /* (CrankTriggerCaptureCounter_CAPTURE_MODE_SOFTWARE) */
+ 543:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 544:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 545:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** /*******************************************************************************
+ 546:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Function Name: CrankTriggerCaptureCounter_ClearFIFO
+ 547:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** ********************************************************************************
+ 548:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Summary:
+ 549:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *   This function clears all capture data from the capture FIFO
+ 550:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 551:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Parameters:  
+ 552:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  void:
+ 553:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 554:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** * Return: 
+ 555:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *  None
+ 556:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *
+ 557:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** *******************************************************************************/
+ 558:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** void CrankTriggerCaptureCounter_ClearFIFO(void) 
+ 559:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** {
+ 694              		.loc 1 559 0
+ 695              		.cfi_startproc
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 23
+
+
+ 696              		@ args = 0, pretend = 0, frame = 0
+ 697              		@ frame_needed = 1, uses_anonymous_args = 0
+ 698 0000 80B5     		push	{r7, lr}
+ 699              		.cfi_def_cfa_offset 8
+ 700              		.cfi_offset 7, -8
+ 701              		.cfi_offset 14, -4
+ 702 0002 00AF     		add	r7, sp, #0
+ 703              		.cfi_def_cfa_register 7
+ 560:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 561:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     while(0u != (CrankTriggerCaptureCounter_ReadStatusRegister() & CrankTriggerCaptureCounter_STATU
+ 704              		.loc 1 561 0
+ 705 0004 01E0     		b	.L54
+ 706              	.L55:
+ 562:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     {
+ 563:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****         (void)CrankTriggerCaptureCounter_ReadCapture();
+ 707              		.loc 1 563 0
+ 708 0006 FFF7FEFF 		bl	CrankTriggerCaptureCounter_ReadCapture
+ 709              	.L54:
+ 561:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     {
+ 710              		.loc 1 561 0
+ 711 000a FFF7FEFF 		bl	CrankTriggerCaptureCounter_ReadStatusRegister
+ 712 000e 0346     		mov	r3, r0
+ 713 0010 03F04003 		and	r3, r3, #64
+ 714 0014 002B     		cmp	r3, #0
+ 715 0016 F6D1     		bne	.L55
+ 564:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c ****     }
+ 565:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** 
+ 566:Generated_Source\PSoC5/CrankTriggerCaptureCounter.c **** }
+ 716              		.loc 1 566 0
+ 717 0018 80BD     		pop	{r7, pc}
+ 718              		.cfi_endproc
+ 719              	.LFE15:
+ 720              		.size	CrankTriggerCaptureCounter_ClearFIFO, .-CrankTriggerCaptureCounter_ClearFIFO
+ 721 001a 00BF     		.text
+ 722              	.Letext0:
+ 723              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 724              		.section	.debug_info,"",%progbits
+ 725              	.Ldebug_info0:
+ 726 0000 86020000 		.4byte	0x286
+ 727 0004 0400     		.2byte	0x4
+ 728 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 729 000a 04       		.byte	0x4
+ 730 000b 01       		.uleb128 0x1
+ 731 000c 87010000 		.4byte	.LASF40
+ 732 0010 01       		.byte	0x1
+ 733 0011 DD030000 		.4byte	.LASF41
+ 734 0015 94020000 		.4byte	.LASF42
+ 735 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 736 001d 00000000 		.4byte	0
+ 737 0021 00000000 		.4byte	.Ldebug_line0
+ 738 0025 02       		.uleb128 0x2
+ 739 0026 01       		.byte	0x1
+ 740 0027 06       		.byte	0x6
+ 741 0028 90040000 		.4byte	.LASF0
+ 742 002c 02       		.uleb128 0x2
+ 743 002d 01       		.byte	0x1
+ 744 002e 08       		.byte	0x8
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 24
+
+
+ 745 002f 17010000 		.4byte	.LASF1
+ 746 0033 02       		.uleb128 0x2
+ 747 0034 02       		.byte	0x2
+ 748 0035 05       		.byte	0x5
+ 749 0036 5C020000 		.4byte	.LASF2
+ 750 003a 02       		.uleb128 0x2
+ 751 003b 02       		.byte	0x2
+ 752 003c 07       		.byte	0x7
+ 753 003d 57000000 		.4byte	.LASF3
+ 754 0041 02       		.uleb128 0x2
+ 755 0042 04       		.byte	0x4
+ 756 0043 05       		.byte	0x5
+ 757 0044 62040000 		.4byte	.LASF4
+ 758 0048 02       		.uleb128 0x2
+ 759 0049 04       		.byte	0x4
+ 760 004a 07       		.byte	0x7
+ 761 004b 2A010000 		.4byte	.LASF5
+ 762 004f 02       		.uleb128 0x2
+ 763 0050 08       		.byte	0x8
+ 764 0051 05       		.byte	0x5
+ 765 0052 9E030000 		.4byte	.LASF6
+ 766 0056 02       		.uleb128 0x2
+ 767 0057 08       		.byte	0x8
+ 768 0058 07       		.byte	0x7
+ 769 0059 FA020000 		.4byte	.LASF7
+ 770 005d 03       		.uleb128 0x3
+ 771 005e 04       		.byte	0x4
+ 772 005f 05       		.byte	0x5
+ 773 0060 696E7400 		.ascii	"int\000"
+ 774 0064 02       		.uleb128 0x2
+ 775 0065 04       		.byte	0x4
+ 776 0066 07       		.byte	0x7
+ 777 0067 ED020000 		.4byte	.LASF8
+ 778 006b 04       		.uleb128 0x4
+ 779 006c 3C010000 		.4byte	.LASF9
+ 780 0070 02       		.byte	0x2
+ 781 0071 3801     		.2byte	0x138
+ 782 0073 2C000000 		.4byte	0x2c
+ 783 0077 04       		.uleb128 0x4
+ 784 0078 8D020000 		.4byte	.LASF10
+ 785 007c 02       		.byte	0x2
+ 786 007d 3901     		.2byte	0x139
+ 787 007f 3A000000 		.4byte	0x3a
+ 788 0083 02       		.uleb128 0x2
+ 789 0084 04       		.byte	0x4
+ 790 0085 04       		.byte	0x4
+ 791 0086 E6000000 		.4byte	.LASF11
+ 792 008a 02       		.uleb128 0x2
+ 793 008b 08       		.byte	0x8
+ 794 008c 04       		.byte	0x4
+ 795 008d 15020000 		.4byte	.LASF12
+ 796 0091 02       		.uleb128 0x2
+ 797 0092 01       		.byte	0x1
+ 798 0093 08       		.byte	0x8
+ 799 0094 D8030000 		.4byte	.LASF13
+ 800 0098 04       		.uleb128 0x4
+ 801 0099 25010000 		.4byte	.LASF14
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 25
+
+
+ 802 009d 02       		.byte	0x2
+ 803 009e E201     		.2byte	0x1e2
+ 804 00a0 A4000000 		.4byte	0xa4
+ 805 00a4 05       		.uleb128 0x5
+ 806 00a5 6B000000 		.4byte	0x6b
+ 807 00a9 04       		.uleb128 0x4
+ 808 00aa 00000000 		.4byte	.LASF15
+ 809 00ae 02       		.byte	0x2
+ 810 00af E301     		.2byte	0x1e3
+ 811 00b1 B5000000 		.4byte	0xb5
+ 812 00b5 05       		.uleb128 0x5
+ 813 00b6 77000000 		.4byte	0x77
+ 814 00ba 02       		.uleb128 0x2
+ 815 00bb 04       		.byte	0x4
+ 816 00bc 07       		.byte	0x7
+ 817 00bd 6D030000 		.4byte	.LASF16
+ 818 00c1 06       		.uleb128 0x6
+ 819 00c2 1C020000 		.4byte	.LASF22
+ 820 00c6 01       		.byte	0x1
+ 821 00c7 25       		.byte	0x25
+ 822 00c8 00000000 		.4byte	.LFB0
+ 823 00cc 88000000 		.4byte	.LFE0-.LFB0
+ 824 00d0 01       		.uleb128 0x1
+ 825 00d1 9C       		.byte	0x9c
+ 826 00d2 F3000000 		.4byte	0xf3
+ 827 00d6 07       		.uleb128 0x7
+ 828 00d7 41030000 		.4byte	.LASF17
+ 829 00db 01       		.byte	0x1
+ 830 00dc 28       		.byte	0x28
+ 831 00dd 6B000000 		.4byte	0x6b
+ 832 00e1 02       		.uleb128 0x2
+ 833 00e2 91       		.byte	0x91
+ 834 00e3 77       		.sleb128 -9
+ 835 00e4 07       		.uleb128 0x7
+ 836 00e5 11040000 		.4byte	.LASF18
+ 837 00e9 01       		.byte	0x1
+ 838 00ea 2D       		.byte	0x2d
+ 839 00eb 6B000000 		.4byte	0x6b
+ 840 00ef 02       		.uleb128 0x2
+ 841 00f0 91       		.byte	0x91
+ 842 00f1 76       		.sleb128 -10
+ 843 00f2 00       		.byte	0
+ 844 00f3 08       		.uleb128 0x8
+ 845 00f4 06000000 		.4byte	.LASF19
+ 846 00f8 01       		.byte	0x1
+ 847 00f9 8F       		.byte	0x8f
+ 848 00fa 00000000 		.4byte	.LFB1
+ 849 00fe 20000000 		.4byte	.LFE1-.LFB1
+ 850 0102 01       		.uleb128 0x1
+ 851 0103 9C       		.byte	0x9c
+ 852 0104 09       		.uleb128 0x9
+ 853 0105 A4040000 		.4byte	.LASF20
+ 854 0109 01       		.byte	0x1
+ 855 010a B2       		.byte	0xb2
+ 856 010b 00000000 		.4byte	.LFB2
+ 857 010f 20000000 		.4byte	.LFE2-.LFB2
+ 858 0113 01       		.uleb128 0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 26
+
+
+ 859 0114 9C       		.byte	0x9c
+ 860 0115 08       		.uleb128 0x8
+ 861 0116 3C020000 		.4byte	.LASF21
+ 862 011a 01       		.byte	0x1
+ 863 011b D0       		.byte	0xd0
+ 864 011c 00000000 		.4byte	.LFB3
+ 865 0120 20000000 		.4byte	.LFE3-.LFB3
+ 866 0124 01       		.uleb128 0x1
+ 867 0125 9C       		.byte	0x9c
+ 868 0126 0A       		.uleb128 0xa
+ 869 0127 AC030000 		.4byte	.LASF23
+ 870 012b 01       		.byte	0x1
+ 871 012c ED       		.byte	0xed
+ 872 012d 00000000 		.4byte	.LFB4
+ 873 0131 20000000 		.4byte	.LFE4-.LFB4
+ 874 0135 01       		.uleb128 0x1
+ 875 0136 9C       		.byte	0x9c
+ 876 0137 4A010000 		.4byte	0x14a
+ 877 013b 0B       		.uleb128 0xb
+ 878 013c 4A010000 		.4byte	.LASF27
+ 879 0140 01       		.byte	0x1
+ 880 0141 ED       		.byte	0xed
+ 881 0142 6B000000 		.4byte	0x6b
+ 882 0146 02       		.uleb128 0x2
+ 883 0147 91       		.byte	0x91
+ 884 0148 77       		.sleb128 -9
+ 885 0149 00       		.byte	0
+ 886 014a 0C       		.uleb128 0xc
+ 887 014b 59010000 		.4byte	.LASF24
+ 888 014f 01       		.byte	0x1
+ 889 0150 0501     		.2byte	0x105
+ 890 0152 6B000000 		.4byte	0x6b
+ 891 0156 00000000 		.4byte	.LFB5
+ 892 015a 18000000 		.4byte	.LFE5-.LFB5
+ 893 015e 01       		.uleb128 0x1
+ 894 015f 9C       		.byte	0x9c
+ 895 0160 0C       		.uleb128 0xc
+ 896 0161 B7000000 		.4byte	.LASF25
+ 897 0165 01       		.byte	0x1
+ 898 0166 1B01     		.2byte	0x11b
+ 899 0168 6B000000 		.4byte	0x6b
+ 900 016c 00000000 		.4byte	.LFB6
+ 901 0170 18000000 		.4byte	.LFE6-.LFB6
+ 902 0174 01       		.uleb128 0x1
+ 903 0175 9C       		.byte	0x9c
+ 904 0176 0D       		.uleb128 0xd
+ 905 0177 11030000 		.4byte	.LASF26
+ 906 017b 01       		.byte	0x1
+ 907 017c 3001     		.2byte	0x130
+ 908 017e 00000000 		.4byte	.LFB7
+ 909 0182 20000000 		.4byte	.LFE7-.LFB7
+ 910 0186 01       		.uleb128 0x1
+ 911 0187 9C       		.byte	0x9c
+ 912 0188 9C010000 		.4byte	0x19c
+ 913 018c 0E       		.uleb128 0xe
+ 914 018d 42010000 		.4byte	.LASF28
+ 915 0191 01       		.byte	0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 27
+
+
+ 916 0192 3001     		.2byte	0x130
+ 917 0194 6B000000 		.4byte	0x6b
+ 918 0198 02       		.uleb128 0x2
+ 919 0199 91       		.byte	0x91
+ 920 019a 77       		.sleb128 -9
+ 921 019b 00       		.byte	0
+ 922 019c 0D       		.uleb128 0xd
+ 923 019d 28000000 		.4byte	.LASF29
+ 924 01a1 01       		.byte	0x1
+ 925 01a2 4601     		.2byte	0x146
+ 926 01a4 00000000 		.4byte	.LFB8
+ 927 01a8 20000000 		.4byte	.LFE8-.LFB8
+ 928 01ac 01       		.uleb128 0x1
+ 929 01ad 9C       		.byte	0x9c
+ 930 01ae C2010000 		.4byte	0x1c2
+ 931 01b2 0E       		.uleb128 0xe
+ 932 01b3 EC000000 		.4byte	.LASF30
+ 933 01b7 01       		.byte	0x1
+ 934 01b8 4601     		.2byte	0x146
+ 935 01ba 77000000 		.4byte	0x77
+ 936 01be 02       		.uleb128 0x2
+ 937 01bf 91       		.byte	0x91
+ 938 01c0 76       		.sleb128 -10
+ 939 01c1 00       		.byte	0
+ 940 01c2 0C       		.uleb128 0xc
+ 941 01c3 3B040000 		.4byte	.LASF31
+ 942 01c7 01       		.byte	0x1
+ 943 01c8 6501     		.2byte	0x165
+ 944 01ca 77000000 		.4byte	0x77
+ 945 01ce 00000000 		.4byte	.LFB9
+ 946 01d2 20000000 		.4byte	.LFE9-.LFB9
+ 947 01d6 01       		.uleb128 0x1
+ 948 01d7 9C       		.byte	0x9c
+ 949 01d8 0C       		.uleb128 0xc
+ 950 01d9 46030000 		.4byte	.LASF32
+ 951 01dd 01       		.byte	0x1
+ 952 01de 8601     		.2byte	0x186
+ 953 01e0 77000000 		.4byte	0x77
+ 954 01e4 00000000 		.4byte	.LFB10
+ 955 01e8 18000000 		.4byte	.LFE10-.LFB10
+ 956 01ec 01       		.uleb128 0x1
+ 957 01ed 9C       		.byte	0x9c
+ 958 01ee 0D       		.uleb128 0xd
+ 959 01ef 6A000000 		.4byte	.LASF33
+ 960 01f3 01       		.byte	0x1
+ 961 01f4 9F01     		.2byte	0x19f
+ 962 01f6 00000000 		.4byte	.LFB11
+ 963 01fa 20000000 		.4byte	.LFE11-.LFB11
+ 964 01fe 01       		.uleb128 0x1
+ 965 01ff 9C       		.byte	0x9c
+ 966 0200 14020000 		.4byte	0x214
+ 967 0204 0E       		.uleb128 0xe
+ 968 0205 50000000 		.4byte	.LASF34
+ 969 0209 01       		.byte	0x1
+ 970 020a 9F01     		.2byte	0x19f
+ 971 020c 77000000 		.4byte	0x77
+ 972 0210 02       		.uleb128 0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 28
+
+
+ 973 0211 91       		.byte	0x91
+ 974 0212 76       		.sleb128 -10
+ 975 0213 00       		.byte	0
+ 976 0214 0C       		.uleb128 0xc
+ 977 0215 91000000 		.4byte	.LASF35
+ 978 0219 01       		.byte	0x1
+ 979 021a B601     		.2byte	0x1b6
+ 980 021c 77000000 		.4byte	0x77
+ 981 0220 00000000 		.4byte	.LFB12
+ 982 0224 18000000 		.4byte	.LFE12-.LFB12
+ 983 0228 01       		.uleb128 0x1
+ 984 0229 9C       		.byte	0x9c
+ 985 022a 0D       		.uleb128 0xd
+ 986 022b 76030000 		.4byte	.LASF36
+ 987 022f 01       		.byte	0x1
+ 988 0230 D101     		.2byte	0x1d1
+ 989 0232 00000000 		.4byte	.LFB13
+ 990 0236 20000000 		.4byte	.LFE13-.LFB13
+ 991 023a 01       		.uleb128 0x1
+ 992 023b 9C       		.byte	0x9c
+ 993 023c 50020000 		.4byte	0x250
+ 994 0240 0E       		.uleb128 0xe
+ 995 0241 9C040000 		.4byte	.LASF37
+ 996 0245 01       		.byte	0x1
+ 997 0246 D101     		.2byte	0x1d1
+ 998 0248 77000000 		.4byte	0x77
+ 999 024c 02       		.uleb128 0x2
+ 1000 024d 91       		.byte	0x91
+ 1001 024e 76       		.sleb128 -10
+ 1002 024f 00       		.byte	0
+ 1003 0250 0C       		.uleb128 0xc
+ 1004 0251 66020000 		.4byte	.LASF38
+ 1005 0255 01       		.byte	0x1
+ 1006 0256 E901     		.2byte	0x1e9
+ 1007 0258 77000000 		.4byte	0x77
+ 1008 025c 00000000 		.4byte	.LFB14
+ 1009 0260 18000000 		.4byte	.LFE14-.LFB14
+ 1010 0264 01       		.uleb128 0x1
+ 1011 0265 9C       		.byte	0x9c
+ 1012 0266 0F       		.uleb128 0xf
+ 1013 0267 6B040000 		.4byte	.LASF39
+ 1014 026b 01       		.byte	0x1
+ 1015 026c 2E02     		.2byte	0x22e
+ 1016 026e 00000000 		.4byte	.LFB15
+ 1017 0272 1A000000 		.4byte	.LFE15-.LFB15
+ 1018 0276 01       		.uleb128 0x1
+ 1019 0277 9C       		.byte	0x9c
+ 1020 0278 10       		.uleb128 0x10
+ 1021 0279 F4000000 		.4byte	.LASF43
+ 1022 027d 01       		.byte	0x1
+ 1023 027e 15       		.byte	0x15
+ 1024 027f 6B000000 		.4byte	0x6b
+ 1025 0283 05       		.uleb128 0x5
+ 1026 0284 03       		.byte	0x3
+ 1027 0285 00000000 		.4byte	CrankTriggerCaptureCounter_initVar
+ 1028 0289 00       		.byte	0
+ 1029              		.section	.debug_abbrev,"",%progbits
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 29
+
+
+ 1030              	.Ldebug_abbrev0:
+ 1031 0000 01       		.uleb128 0x1
+ 1032 0001 11       		.uleb128 0x11
+ 1033 0002 01       		.byte	0x1
+ 1034 0003 25       		.uleb128 0x25
+ 1035 0004 0E       		.uleb128 0xe
+ 1036 0005 13       		.uleb128 0x13
+ 1037 0006 0B       		.uleb128 0xb
+ 1038 0007 03       		.uleb128 0x3
+ 1039 0008 0E       		.uleb128 0xe
+ 1040 0009 1B       		.uleb128 0x1b
+ 1041 000a 0E       		.uleb128 0xe
+ 1042 000b 55       		.uleb128 0x55
+ 1043 000c 17       		.uleb128 0x17
+ 1044 000d 11       		.uleb128 0x11
+ 1045 000e 01       		.uleb128 0x1
+ 1046 000f 10       		.uleb128 0x10
+ 1047 0010 17       		.uleb128 0x17
+ 1048 0011 00       		.byte	0
+ 1049 0012 00       		.byte	0
+ 1050 0013 02       		.uleb128 0x2
+ 1051 0014 24       		.uleb128 0x24
+ 1052 0015 00       		.byte	0
+ 1053 0016 0B       		.uleb128 0xb
+ 1054 0017 0B       		.uleb128 0xb
+ 1055 0018 3E       		.uleb128 0x3e
+ 1056 0019 0B       		.uleb128 0xb
+ 1057 001a 03       		.uleb128 0x3
+ 1058 001b 0E       		.uleb128 0xe
+ 1059 001c 00       		.byte	0
+ 1060 001d 00       		.byte	0
+ 1061 001e 03       		.uleb128 0x3
+ 1062 001f 24       		.uleb128 0x24
+ 1063 0020 00       		.byte	0
+ 1064 0021 0B       		.uleb128 0xb
+ 1065 0022 0B       		.uleb128 0xb
+ 1066 0023 3E       		.uleb128 0x3e
+ 1067 0024 0B       		.uleb128 0xb
+ 1068 0025 03       		.uleb128 0x3
+ 1069 0026 08       		.uleb128 0x8
+ 1070 0027 00       		.byte	0
+ 1071 0028 00       		.byte	0
+ 1072 0029 04       		.uleb128 0x4
+ 1073 002a 16       		.uleb128 0x16
+ 1074 002b 00       		.byte	0
+ 1075 002c 03       		.uleb128 0x3
+ 1076 002d 0E       		.uleb128 0xe
+ 1077 002e 3A       		.uleb128 0x3a
+ 1078 002f 0B       		.uleb128 0xb
+ 1079 0030 3B       		.uleb128 0x3b
+ 1080 0031 05       		.uleb128 0x5
+ 1081 0032 49       		.uleb128 0x49
+ 1082 0033 13       		.uleb128 0x13
+ 1083 0034 00       		.byte	0
+ 1084 0035 00       		.byte	0
+ 1085 0036 05       		.uleb128 0x5
+ 1086 0037 35       		.uleb128 0x35
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 30
+
+
+ 1087 0038 00       		.byte	0
+ 1088 0039 49       		.uleb128 0x49
+ 1089 003a 13       		.uleb128 0x13
+ 1090 003b 00       		.byte	0
+ 1091 003c 00       		.byte	0
+ 1092 003d 06       		.uleb128 0x6
+ 1093 003e 2E       		.uleb128 0x2e
+ 1094 003f 01       		.byte	0x1
+ 1095 0040 3F       		.uleb128 0x3f
+ 1096 0041 19       		.uleb128 0x19
+ 1097 0042 03       		.uleb128 0x3
+ 1098 0043 0E       		.uleb128 0xe
+ 1099 0044 3A       		.uleb128 0x3a
+ 1100 0045 0B       		.uleb128 0xb
+ 1101 0046 3B       		.uleb128 0x3b
+ 1102 0047 0B       		.uleb128 0xb
+ 1103 0048 27       		.uleb128 0x27
+ 1104 0049 19       		.uleb128 0x19
+ 1105 004a 11       		.uleb128 0x11
+ 1106 004b 01       		.uleb128 0x1
+ 1107 004c 12       		.uleb128 0x12
+ 1108 004d 06       		.uleb128 0x6
+ 1109 004e 40       		.uleb128 0x40
+ 1110 004f 18       		.uleb128 0x18
+ 1111 0050 9642     		.uleb128 0x2116
+ 1112 0052 19       		.uleb128 0x19
+ 1113 0053 01       		.uleb128 0x1
+ 1114 0054 13       		.uleb128 0x13
+ 1115 0055 00       		.byte	0
+ 1116 0056 00       		.byte	0
+ 1117 0057 07       		.uleb128 0x7
+ 1118 0058 34       		.uleb128 0x34
+ 1119 0059 00       		.byte	0
+ 1120 005a 03       		.uleb128 0x3
+ 1121 005b 0E       		.uleb128 0xe
+ 1122 005c 3A       		.uleb128 0x3a
+ 1123 005d 0B       		.uleb128 0xb
+ 1124 005e 3B       		.uleb128 0x3b
+ 1125 005f 0B       		.uleb128 0xb
+ 1126 0060 49       		.uleb128 0x49
+ 1127 0061 13       		.uleb128 0x13
+ 1128 0062 02       		.uleb128 0x2
+ 1129 0063 18       		.uleb128 0x18
+ 1130 0064 00       		.byte	0
+ 1131 0065 00       		.byte	0
+ 1132 0066 08       		.uleb128 0x8
+ 1133 0067 2E       		.uleb128 0x2e
+ 1134 0068 00       		.byte	0
+ 1135 0069 3F       		.uleb128 0x3f
+ 1136 006a 19       		.uleb128 0x19
+ 1137 006b 03       		.uleb128 0x3
+ 1138 006c 0E       		.uleb128 0xe
+ 1139 006d 3A       		.uleb128 0x3a
+ 1140 006e 0B       		.uleb128 0xb
+ 1141 006f 3B       		.uleb128 0x3b
+ 1142 0070 0B       		.uleb128 0xb
+ 1143 0071 27       		.uleb128 0x27
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 31
+
+
+ 1144 0072 19       		.uleb128 0x19
+ 1145 0073 11       		.uleb128 0x11
+ 1146 0074 01       		.uleb128 0x1
+ 1147 0075 12       		.uleb128 0x12
+ 1148 0076 06       		.uleb128 0x6
+ 1149 0077 40       		.uleb128 0x40
+ 1150 0078 18       		.uleb128 0x18
+ 1151 0079 9742     		.uleb128 0x2117
+ 1152 007b 19       		.uleb128 0x19
+ 1153 007c 00       		.byte	0
+ 1154 007d 00       		.byte	0
+ 1155 007e 09       		.uleb128 0x9
+ 1156 007f 2E       		.uleb128 0x2e
+ 1157 0080 00       		.byte	0
+ 1158 0081 3F       		.uleb128 0x3f
+ 1159 0082 19       		.uleb128 0x19
+ 1160 0083 03       		.uleb128 0x3
+ 1161 0084 0E       		.uleb128 0xe
+ 1162 0085 3A       		.uleb128 0x3a
+ 1163 0086 0B       		.uleb128 0xb
+ 1164 0087 3B       		.uleb128 0x3b
+ 1165 0088 0B       		.uleb128 0xb
+ 1166 0089 27       		.uleb128 0x27
+ 1167 008a 19       		.uleb128 0x19
+ 1168 008b 11       		.uleb128 0x11
+ 1169 008c 01       		.uleb128 0x1
+ 1170 008d 12       		.uleb128 0x12
+ 1171 008e 06       		.uleb128 0x6
+ 1172 008f 40       		.uleb128 0x40
+ 1173 0090 18       		.uleb128 0x18
+ 1174 0091 9642     		.uleb128 0x2116
+ 1175 0093 19       		.uleb128 0x19
+ 1176 0094 00       		.byte	0
+ 1177 0095 00       		.byte	0
+ 1178 0096 0A       		.uleb128 0xa
+ 1179 0097 2E       		.uleb128 0x2e
+ 1180 0098 01       		.byte	0x1
+ 1181 0099 3F       		.uleb128 0x3f
+ 1182 009a 19       		.uleb128 0x19
+ 1183 009b 03       		.uleb128 0x3
+ 1184 009c 0E       		.uleb128 0xe
+ 1185 009d 3A       		.uleb128 0x3a
+ 1186 009e 0B       		.uleb128 0xb
+ 1187 009f 3B       		.uleb128 0x3b
+ 1188 00a0 0B       		.uleb128 0xb
+ 1189 00a1 27       		.uleb128 0x27
+ 1190 00a2 19       		.uleb128 0x19
+ 1191 00a3 11       		.uleb128 0x11
+ 1192 00a4 01       		.uleb128 0x1
+ 1193 00a5 12       		.uleb128 0x12
+ 1194 00a6 06       		.uleb128 0x6
+ 1195 00a7 40       		.uleb128 0x40
+ 1196 00a8 18       		.uleb128 0x18
+ 1197 00a9 9742     		.uleb128 0x2117
+ 1198 00ab 19       		.uleb128 0x19
+ 1199 00ac 01       		.uleb128 0x1
+ 1200 00ad 13       		.uleb128 0x13
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 32
+
+
+ 1201 00ae 00       		.byte	0
+ 1202 00af 00       		.byte	0
+ 1203 00b0 0B       		.uleb128 0xb
+ 1204 00b1 05       		.uleb128 0x5
+ 1205 00b2 00       		.byte	0
+ 1206 00b3 03       		.uleb128 0x3
+ 1207 00b4 0E       		.uleb128 0xe
+ 1208 00b5 3A       		.uleb128 0x3a
+ 1209 00b6 0B       		.uleb128 0xb
+ 1210 00b7 3B       		.uleb128 0x3b
+ 1211 00b8 0B       		.uleb128 0xb
+ 1212 00b9 49       		.uleb128 0x49
+ 1213 00ba 13       		.uleb128 0x13
+ 1214 00bb 02       		.uleb128 0x2
+ 1215 00bc 18       		.uleb128 0x18
+ 1216 00bd 00       		.byte	0
+ 1217 00be 00       		.byte	0
+ 1218 00bf 0C       		.uleb128 0xc
+ 1219 00c0 2E       		.uleb128 0x2e
+ 1220 00c1 00       		.byte	0
+ 1221 00c2 3F       		.uleb128 0x3f
+ 1222 00c3 19       		.uleb128 0x19
+ 1223 00c4 03       		.uleb128 0x3
+ 1224 00c5 0E       		.uleb128 0xe
+ 1225 00c6 3A       		.uleb128 0x3a
+ 1226 00c7 0B       		.uleb128 0xb
+ 1227 00c8 3B       		.uleb128 0x3b
+ 1228 00c9 05       		.uleb128 0x5
+ 1229 00ca 27       		.uleb128 0x27
+ 1230 00cb 19       		.uleb128 0x19
+ 1231 00cc 49       		.uleb128 0x49
+ 1232 00cd 13       		.uleb128 0x13
+ 1233 00ce 11       		.uleb128 0x11
+ 1234 00cf 01       		.uleb128 0x1
+ 1235 00d0 12       		.uleb128 0x12
+ 1236 00d1 06       		.uleb128 0x6
+ 1237 00d2 40       		.uleb128 0x40
+ 1238 00d3 18       		.uleb128 0x18
+ 1239 00d4 9742     		.uleb128 0x2117
+ 1240 00d6 19       		.uleb128 0x19
+ 1241 00d7 00       		.byte	0
+ 1242 00d8 00       		.byte	0
+ 1243 00d9 0D       		.uleb128 0xd
+ 1244 00da 2E       		.uleb128 0x2e
+ 1245 00db 01       		.byte	0x1
+ 1246 00dc 3F       		.uleb128 0x3f
+ 1247 00dd 19       		.uleb128 0x19
+ 1248 00de 03       		.uleb128 0x3
+ 1249 00df 0E       		.uleb128 0xe
+ 1250 00e0 3A       		.uleb128 0x3a
+ 1251 00e1 0B       		.uleb128 0xb
+ 1252 00e2 3B       		.uleb128 0x3b
+ 1253 00e3 05       		.uleb128 0x5
+ 1254 00e4 27       		.uleb128 0x27
+ 1255 00e5 19       		.uleb128 0x19
+ 1256 00e6 11       		.uleb128 0x11
+ 1257 00e7 01       		.uleb128 0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 33
+
+
+ 1258 00e8 12       		.uleb128 0x12
+ 1259 00e9 06       		.uleb128 0x6
+ 1260 00ea 40       		.uleb128 0x40
+ 1261 00eb 18       		.uleb128 0x18
+ 1262 00ec 9742     		.uleb128 0x2117
+ 1263 00ee 19       		.uleb128 0x19
+ 1264 00ef 01       		.uleb128 0x1
+ 1265 00f0 13       		.uleb128 0x13
+ 1266 00f1 00       		.byte	0
+ 1267 00f2 00       		.byte	0
+ 1268 00f3 0E       		.uleb128 0xe
+ 1269 00f4 05       		.uleb128 0x5
+ 1270 00f5 00       		.byte	0
+ 1271 00f6 03       		.uleb128 0x3
+ 1272 00f7 0E       		.uleb128 0xe
+ 1273 00f8 3A       		.uleb128 0x3a
+ 1274 00f9 0B       		.uleb128 0xb
+ 1275 00fa 3B       		.uleb128 0x3b
+ 1276 00fb 05       		.uleb128 0x5
+ 1277 00fc 49       		.uleb128 0x49
+ 1278 00fd 13       		.uleb128 0x13
+ 1279 00fe 02       		.uleb128 0x2
+ 1280 00ff 18       		.uleb128 0x18
+ 1281 0100 00       		.byte	0
+ 1282 0101 00       		.byte	0
+ 1283 0102 0F       		.uleb128 0xf
+ 1284 0103 2E       		.uleb128 0x2e
+ 1285 0104 00       		.byte	0
+ 1286 0105 3F       		.uleb128 0x3f
+ 1287 0106 19       		.uleb128 0x19
+ 1288 0107 03       		.uleb128 0x3
+ 1289 0108 0E       		.uleb128 0xe
+ 1290 0109 3A       		.uleb128 0x3a
+ 1291 010a 0B       		.uleb128 0xb
+ 1292 010b 3B       		.uleb128 0x3b
+ 1293 010c 05       		.uleb128 0x5
+ 1294 010d 27       		.uleb128 0x27
+ 1295 010e 19       		.uleb128 0x19
+ 1296 010f 11       		.uleb128 0x11
+ 1297 0110 01       		.uleb128 0x1
+ 1298 0111 12       		.uleb128 0x12
+ 1299 0112 06       		.uleb128 0x6
+ 1300 0113 40       		.uleb128 0x40
+ 1301 0114 18       		.uleb128 0x18
+ 1302 0115 9642     		.uleb128 0x2116
+ 1303 0117 19       		.uleb128 0x19
+ 1304 0118 00       		.byte	0
+ 1305 0119 00       		.byte	0
+ 1306 011a 10       		.uleb128 0x10
+ 1307 011b 34       		.uleb128 0x34
+ 1308 011c 00       		.byte	0
+ 1309 011d 03       		.uleb128 0x3
+ 1310 011e 0E       		.uleb128 0xe
+ 1311 011f 3A       		.uleb128 0x3a
+ 1312 0120 0B       		.uleb128 0xb
+ 1313 0121 3B       		.uleb128 0x3b
+ 1314 0122 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 34
+
+
+ 1315 0123 49       		.uleb128 0x49
+ 1316 0124 13       		.uleb128 0x13
+ 1317 0125 3F       		.uleb128 0x3f
+ 1318 0126 19       		.uleb128 0x19
+ 1319 0127 02       		.uleb128 0x2
+ 1320 0128 18       		.uleb128 0x18
+ 1321 0129 00       		.byte	0
+ 1322 012a 00       		.byte	0
+ 1323 012b 00       		.byte	0
+ 1324              		.section	.debug_aranges,"",%progbits
+ 1325 0000 94000000 		.4byte	0x94
+ 1326 0004 0200     		.2byte	0x2
+ 1327 0006 00000000 		.4byte	.Ldebug_info0
+ 1328 000a 04       		.byte	0x4
+ 1329 000b 00       		.byte	0
+ 1330 000c 0000     		.2byte	0
+ 1331 000e 0000     		.2byte	0
+ 1332 0010 00000000 		.4byte	.LFB0
+ 1333 0014 88000000 		.4byte	.LFE0-.LFB0
+ 1334 0018 00000000 		.4byte	.LFB1
+ 1335 001c 20000000 		.4byte	.LFE1-.LFB1
+ 1336 0020 00000000 		.4byte	.LFB2
+ 1337 0024 20000000 		.4byte	.LFE2-.LFB2
+ 1338 0028 00000000 		.4byte	.LFB3
+ 1339 002c 20000000 		.4byte	.LFE3-.LFB3
+ 1340 0030 00000000 		.4byte	.LFB4
+ 1341 0034 20000000 		.4byte	.LFE4-.LFB4
+ 1342 0038 00000000 		.4byte	.LFB5
+ 1343 003c 18000000 		.4byte	.LFE5-.LFB5
+ 1344 0040 00000000 		.4byte	.LFB6
+ 1345 0044 18000000 		.4byte	.LFE6-.LFB6
+ 1346 0048 00000000 		.4byte	.LFB7
+ 1347 004c 20000000 		.4byte	.LFE7-.LFB7
+ 1348 0050 00000000 		.4byte	.LFB8
+ 1349 0054 20000000 		.4byte	.LFE8-.LFB8
+ 1350 0058 00000000 		.4byte	.LFB9
+ 1351 005c 20000000 		.4byte	.LFE9-.LFB9
+ 1352 0060 00000000 		.4byte	.LFB10
+ 1353 0064 18000000 		.4byte	.LFE10-.LFB10
+ 1354 0068 00000000 		.4byte	.LFB11
+ 1355 006c 20000000 		.4byte	.LFE11-.LFB11
+ 1356 0070 00000000 		.4byte	.LFB12
+ 1357 0074 18000000 		.4byte	.LFE12-.LFB12
+ 1358 0078 00000000 		.4byte	.LFB13
+ 1359 007c 20000000 		.4byte	.LFE13-.LFB13
+ 1360 0080 00000000 		.4byte	.LFB14
+ 1361 0084 18000000 		.4byte	.LFE14-.LFB14
+ 1362 0088 00000000 		.4byte	.LFB15
+ 1363 008c 1A000000 		.4byte	.LFE15-.LFB15
+ 1364 0090 00000000 		.4byte	0
+ 1365 0094 00000000 		.4byte	0
+ 1366              		.section	.debug_ranges,"",%progbits
+ 1367              	.Ldebug_ranges0:
+ 1368 0000 00000000 		.4byte	.LFB0
+ 1369 0004 88000000 		.4byte	.LFE0
+ 1370 0008 00000000 		.4byte	.LFB1
+ 1371 000c 20000000 		.4byte	.LFE1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 35
+
+
+ 1372 0010 00000000 		.4byte	.LFB2
+ 1373 0014 20000000 		.4byte	.LFE2
+ 1374 0018 00000000 		.4byte	.LFB3
+ 1375 001c 20000000 		.4byte	.LFE3
+ 1376 0020 00000000 		.4byte	.LFB4
+ 1377 0024 20000000 		.4byte	.LFE4
+ 1378 0028 00000000 		.4byte	.LFB5
+ 1379 002c 18000000 		.4byte	.LFE5
+ 1380 0030 00000000 		.4byte	.LFB6
+ 1381 0034 18000000 		.4byte	.LFE6
+ 1382 0038 00000000 		.4byte	.LFB7
+ 1383 003c 20000000 		.4byte	.LFE7
+ 1384 0040 00000000 		.4byte	.LFB8
+ 1385 0044 20000000 		.4byte	.LFE8
+ 1386 0048 00000000 		.4byte	.LFB9
+ 1387 004c 20000000 		.4byte	.LFE9
+ 1388 0050 00000000 		.4byte	.LFB10
+ 1389 0054 18000000 		.4byte	.LFE10
+ 1390 0058 00000000 		.4byte	.LFB11
+ 1391 005c 20000000 		.4byte	.LFE11
+ 1392 0060 00000000 		.4byte	.LFB12
+ 1393 0064 18000000 		.4byte	.LFE12
+ 1394 0068 00000000 		.4byte	.LFB13
+ 1395 006c 20000000 		.4byte	.LFE13
+ 1396 0070 00000000 		.4byte	.LFB14
+ 1397 0074 18000000 		.4byte	.LFE14
+ 1398 0078 00000000 		.4byte	.LFB15
+ 1399 007c 1A000000 		.4byte	.LFE15
+ 1400 0080 00000000 		.4byte	0
+ 1401 0084 00000000 		.4byte	0
+ 1402              		.section	.debug_line,"",%progbits
+ 1403              	.Ldebug_line0:
+ 1404 0000 96010000 		.section	.debug_str,"MS",%progbits,1
+ 1404      02005700 
+ 1404      00000201 
+ 1404      FB0E0D00 
+ 1404      01010101 
+ 1405              	.LASF15:
+ 1406 0000 72656731 		.ascii	"reg16\000"
+ 1406      3600
+ 1407              	.LASF19:
+ 1408 0006 4372616E 		.ascii	"CrankTriggerCaptureCounter_Enable\000"
+ 1408      6B547269 
+ 1408      67676572 
+ 1408      43617074 
+ 1408      75726543 
+ 1409              	.LASF29:
+ 1410 0028 4372616E 		.ascii	"CrankTriggerCaptureCounter_WriteCounter\000"
+ 1410      6B547269 
+ 1410      67676572 
+ 1410      43617074 
+ 1410      75726543 
+ 1411              	.LASF34:
+ 1412 0050 70657269 		.ascii	"period\000"
+ 1412      6F6400
+ 1413              	.LASF3:
+ 1414 0057 73686F72 		.ascii	"short unsigned int\000"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 36
+
+
+ 1414      7420756E 
+ 1414      7369676E 
+ 1414      65642069 
+ 1414      6E7400
+ 1415              	.LASF33:
+ 1416 006a 4372616E 		.ascii	"CrankTriggerCaptureCounter_WritePeriod\000"
+ 1416      6B547269 
+ 1416      67676572 
+ 1416      43617074 
+ 1416      75726543 
+ 1417              	.LASF35:
+ 1418 0091 4372616E 		.ascii	"CrankTriggerCaptureCounter_ReadPeriod\000"
+ 1418      6B547269 
+ 1418      67676572 
+ 1418      43617074 
+ 1418      75726543 
+ 1419              	.LASF25:
+ 1420 00b7 4372616E 		.ascii	"CrankTriggerCaptureCounter_ReadControlRegister\000"
+ 1420      6B547269 
+ 1420      67676572 
+ 1420      43617074 
+ 1420      75726543 
+ 1421              	.LASF11:
+ 1422 00e6 666C6F61 		.ascii	"float\000"
+ 1422      7400
+ 1423              	.LASF30:
+ 1424 00ec 636F756E 		.ascii	"counter\000"
+ 1424      74657200 
+ 1425              	.LASF43:
+ 1426 00f4 4372616E 		.ascii	"CrankTriggerCaptureCounter_initVar\000"
+ 1426      6B547269 
+ 1426      67676572 
+ 1426      43617074 
+ 1426      75726543 
+ 1427              	.LASF1:
+ 1428 0117 756E7369 		.ascii	"unsigned char\000"
+ 1428      676E6564 
+ 1428      20636861 
+ 1428      7200
+ 1429              	.LASF14:
+ 1430 0125 72656738 		.ascii	"reg8\000"
+ 1430      00
+ 1431              	.LASF5:
+ 1432 012a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1432      20756E73 
+ 1432      69676E65 
+ 1432      6420696E 
+ 1432      7400
+ 1433              	.LASF9:
+ 1434 013c 75696E74 		.ascii	"uint8\000"
+ 1434      3800
+ 1435              	.LASF28:
+ 1436 0142 636F6E74 		.ascii	"control\000"
+ 1436      726F6C00 
+ 1437              	.LASF27:
+ 1438 014a 696E7465 		.ascii	"interruptsMask\000"
+ 1438      72727570 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 37
+
+
+ 1438      74734D61 
+ 1438      736B00
+ 1439              	.LASF24:
+ 1440 0159 4372616E 		.ascii	"CrankTriggerCaptureCounter_ReadStatusRegister\000"
+ 1440      6B547269 
+ 1440      67676572 
+ 1440      43617074 
+ 1440      75726543 
+ 1441              	.LASF40:
+ 1442 0187 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1442      4320342E 
+ 1442      392E3320 
+ 1442      32303135 
+ 1442      30333033 
+ 1443 01ba 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1443      20726576 
+ 1443      6973696F 
+ 1443      6E203232 
+ 1443      31323230 
+ 1444 01ed 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1444      66756E63 
+ 1444      74696F6E 
+ 1444      2D736563 
+ 1444      74696F6E 
+ 1445              	.LASF12:
+ 1446 0215 646F7562 		.ascii	"double\000"
+ 1446      6C6500
+ 1447              	.LASF22:
+ 1448 021c 4372616E 		.ascii	"CrankTriggerCaptureCounter_Init\000"
+ 1448      6B547269 
+ 1448      67676572 
+ 1448      43617074 
+ 1448      75726543 
+ 1449              	.LASF21:
+ 1450 023c 4372616E 		.ascii	"CrankTriggerCaptureCounter_Stop\000"
+ 1450      6B547269 
+ 1450      67676572 
+ 1450      43617074 
+ 1450      75726543 
+ 1451              	.LASF2:
+ 1452 025c 73686F72 		.ascii	"short int\000"
+ 1452      7420696E 
+ 1452      7400
+ 1453              	.LASF38:
+ 1454 0266 4372616E 		.ascii	"CrankTriggerCaptureCounter_ReadCompare\000"
+ 1454      6B547269 
+ 1454      67676572 
+ 1454      43617074 
+ 1454      75726543 
+ 1455              	.LASF10:
+ 1456 028d 75696E74 		.ascii	"uint16\000"
+ 1456      313600
+ 1457              	.LASF42:
+ 1458 0294 433A5C55 		.ascii	"C:\\Users\\Bruger\\Desktop\\CODE\\PSOC5\\CY8CKIT-59"
+ 1458      73657273 
+ 1458      5C427275 
+ 1458      6765725C 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 38
+
+
+ 1458      4465736B 
+ 1459 02c1 2D417264 		.ascii	"-Arduino\\CY8CKIT59_Ardudino-Speeduino.cydsn\000"
+ 1459      75696E6F 
+ 1459      5C435938 
+ 1459      434B4954 
+ 1459      35395F41 
+ 1460              	.LASF8:
+ 1461 02ed 756E7369 		.ascii	"unsigned int\000"
+ 1461      676E6564 
+ 1461      20696E74 
+ 1461      00
+ 1462              	.LASF7:
+ 1463 02fa 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1463      206C6F6E 
+ 1463      6720756E 
+ 1463      7369676E 
+ 1463      65642069 
+ 1464              	.LASF26:
+ 1465 0311 4372616E 		.ascii	"CrankTriggerCaptureCounter_WriteControlRegister\000"
+ 1465      6B547269 
+ 1465      67676572 
+ 1465      43617074 
+ 1465      75726543 
+ 1466              	.LASF17:
+ 1467 0341 6374726C 		.ascii	"ctrl\000"
+ 1467      00
+ 1468              	.LASF32:
+ 1469 0346 4372616E 		.ascii	"CrankTriggerCaptureCounter_ReadCapture\000"
+ 1469      6B547269 
+ 1469      67676572 
+ 1469      43617074 
+ 1469      75726543 
+ 1470              	.LASF16:
+ 1471 036d 73697A65 		.ascii	"sizetype\000"
+ 1471      74797065 
+ 1471      00
+ 1472              	.LASF36:
+ 1473 0376 4372616E 		.ascii	"CrankTriggerCaptureCounter_WriteCompare\000"
+ 1473      6B547269 
+ 1473      67676572 
+ 1473      43617074 
+ 1473      75726543 
+ 1474              	.LASF6:
+ 1475 039e 6C6F6E67 		.ascii	"long long int\000"
+ 1475      206C6F6E 
+ 1475      6720696E 
+ 1475      7400
+ 1476              	.LASF23:
+ 1477 03ac 4372616E 		.ascii	"CrankTriggerCaptureCounter_SetInterruptMode\000"
+ 1477      6B547269 
+ 1477      67676572 
+ 1477      43617074 
+ 1477      75726543 
+ 1478              	.LASF13:
+ 1479 03d8 63686172 		.ascii	"char\000"
+ 1479      00
+ 1480              	.LASF41:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc4KdDNK.s 			page 39
+
+
+ 1481 03dd 47656E65 		.ascii	"Generated_Source\\PSoC5\\CrankTriggerCaptureCounter"
+ 1481      72617465 
+ 1481      645F536F 
+ 1481      75726365 
+ 1481      5C50536F 
+ 1482 040e 2E6300   		.ascii	".c\000"
+ 1483              	.LASF18:
+ 1484 0411 4372616E 		.ascii	"CrankTriggerCaptureCounter_interruptState\000"
+ 1484      6B547269 
+ 1484      67676572 
+ 1484      43617074 
+ 1484      75726543 
+ 1485              	.LASF31:
+ 1486 043b 4372616E 		.ascii	"CrankTriggerCaptureCounter_ReadCounter\000"
+ 1486      6B547269 
+ 1486      67676572 
+ 1486      43617074 
+ 1486      75726543 
+ 1487              	.LASF4:
+ 1488 0462 6C6F6E67 		.ascii	"long int\000"
+ 1488      20696E74 
+ 1488      00
+ 1489              	.LASF39:
+ 1490 046b 4372616E 		.ascii	"CrankTriggerCaptureCounter_ClearFIFO\000"
+ 1490      6B547269 
+ 1490      67676572 
+ 1490      43617074 
+ 1490      75726543 
+ 1491              	.LASF0:
+ 1492 0490 7369676E 		.ascii	"signed char\000"
+ 1492      65642063 
+ 1492      68617200 
+ 1493              	.LASF37:
+ 1494 049c 636F6D70 		.ascii	"compare\000"
+ 1494      61726500 
+ 1495              	.LASF20:
+ 1496 04a4 4372616E 		.ascii	"CrankTriggerCaptureCounter_Start\000"
+ 1496      6B547269 
+ 1496      67676572 
+ 1496      43617074 
+ 1496      75726543 
+ 1497              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -1,0 +1,2510 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"Arduino_Serial.cpp"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text._Z12enableUSBCDCv,"ax",%progbits
+  19              		.align	2
+  20              		.global	_Z12enableUSBCDCv
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	_Z12enableUSBCDCv, %function
+  24              	_Z12enableUSBCDCv:
+  25              		.fnstart
+  26              	.LFB147:
+  27              		.file 1 "core\\Arduino_Serial.cpp"
+   1:core/Arduino_Serial.cpp **** extern "C" {
+   2:core/Arduino_Serial.cpp **** #include <project.h>
+   3:core/Arduino_Serial.cpp **** }
+   4:core/Arduino_Serial.cpp **** #include "Arduino.h"
+   5:core/Arduino_Serial.cpp **** #include "Arduino_Serial.h"
+   6:core/Arduino_Serial.cpp **** #include "UARTClass.h"
+   7:core/Arduino_Serial.cpp **** 
+   8:core/Arduino_Serial.cpp **** /*******************************************************
+   9:core/Arduino_Serial.cpp ****  * This file includes the middle-man functions which lie between the UART
+  10:core/Arduino_Serial.cpp ****  * class and the Cypress API.
+  11:core/Arduino_Serial.cpp ****  * We'll add to it as needed to support additional hardware in other virtual
+  12:core/Arduino_Serial.cpp ****  * boards.
+  13:core/Arduino_Serial.cpp ****  ******************************************************/
+  14:core/Arduino_Serial.cpp **** 
+  15:core/Arduino_Serial.cpp **** extern struct SerialHelperFuncs USBUART_Helpers;
+  16:core/Arduino_Serial.cpp **** extern struct SerialHelperFuncs UART_Helpers;
+  17:core/Arduino_Serial.cpp **** 
+  18:core/Arduino_Serial.cpp **** // Wait for PC to configure USB for CONFIG_DELAY * CONFIG_LOOPS milliseconds
+  19:core/Arduino_Serial.cpp **** #define CONFIG_DELAY 10
+  20:core/Arduino_Serial.cpp **** #define CONFIG_LOOPS 200
+  21:core/Arduino_Serial.cpp **** 
+  22:core/Arduino_Serial.cpp **** bool enableUSBCDC()
+  23:core/Arduino_Serial.cpp **** {
+  28              		.loc 1 23 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              		.save {r7, lr}
+  34              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 2
+
+
+  35              		.cfi_offset 7, -8
+  36              		.cfi_offset 14, -4
+  37              		.pad #8
+  38 0002 82B0     		sub	sp, sp, #8
+  39              		.cfi_def_cfa_offset 16
+  40              		.setfp r7, sp, #0
+  41 0004 00AF     		add	r7, sp, #0
+  42              		.cfi_def_cfa_register 7
+  43              	.LBB2:
+  24:core/Arduino_Serial.cpp ****   USBUART_Start(0, USBUART_5V_OPERATION);
+  44              		.loc 1 24 0
+  45 0006 0020     		movs	r0, #0
+  46 0008 0121     		movs	r1, #1
+  47 000a FFF7FEFF 		bl	USBUART_Start
+  25:core/Arduino_Serial.cpp ****   uint8_t delayCounter = 0;
+  48              		.loc 1 25 0
+  49 000e 0023     		movs	r3, #0
+  50 0010 FB71     		strb	r3, [r7, #7]
+  26:core/Arduino_Serial.cpp ****   /* It's important that we not loop forever here, or we'll never leave in
+  27:core/Arduino_Serial.cpp ****    * cases where the device isn't plugged into a PC. We do, however, want to
+  28:core/Arduino_Serial.cpp ****    * provide enough time for the PC to do its thing. */  
+  29:core/Arduino_Serial.cpp ****   while(USBUART_GetConfiguration() == 0)
+  51              		.loc 1 29 0
+  52 0012 0AE0     		b	.L2
+  53              	.L4:
+  30:core/Arduino_Serial.cpp ****   {  
+  31:core/Arduino_Serial.cpp ****     CyDelay(100);
+  54              		.loc 1 31 0
+  55 0014 6420     		movs	r0, #100
+  56 0016 FFF7FEFF 		bl	CyDelay
+  32:core/Arduino_Serial.cpp ****     delayCounter++;
+  57              		.loc 1 32 0
+  58 001a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  59 001c 0133     		adds	r3, r3, #1
+  60 001e FB71     		strb	r3, [r7, #7]
+  33:core/Arduino_Serial.cpp ****     if (delayCounter > 20)
+  61              		.loc 1 33 0
+  62 0020 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  63 0022 142B     		cmp	r3, #20
+  64 0024 01D9     		bls	.L2
+  34:core/Arduino_Serial.cpp ****     {
+  35:core/Arduino_Serial.cpp ****       return false;
+  65              		.loc 1 35 0
+  66 0026 0023     		movs	r3, #0
+  67 0028 0CE0     		b	.L3
+  68              	.L2:
+  29:core/Arduino_Serial.cpp ****   {  
+  69              		.loc 1 29 0
+  70 002a FFF7FEFF 		bl	USBUART_GetConfiguration
+  71 002e 0346     		mov	r3, r0
+  72 0030 002B     		cmp	r3, #0
+  73 0032 0CBF     		ite	eq
+  74 0034 0123     		moveq	r3, #1
+  75 0036 0023     		movne	r3, #0
+  76 0038 DBB2     		uxtb	r3, r3
+  77 003a 002B     		cmp	r3, #0
+  78 003c EAD1     		bne	.L4
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 3
+
+
+  36:core/Arduino_Serial.cpp ****     }
+  37:core/Arduino_Serial.cpp ****   }
+  38:core/Arduino_Serial.cpp ****   USBUART_CDC_Init();
+  79              		.loc 1 38 0
+  80 003e FFF7FEFF 		bl	USBUART_CDC_Init
+  39:core/Arduino_Serial.cpp ****   return true;
+  81              		.loc 1 39 0
+  82 0042 0123     		movs	r3, #1
+  83              	.L3:
+  84              	.LBE2:
+  40:core/Arduino_Serial.cpp **** }
+  85              		.loc 1 40 0
+  86 0044 1846     		mov	r0, r3
+  87 0046 0837     		adds	r7, r7, #8
+  88              		.cfi_def_cfa_offset 8
+  89 0048 BD46     		mov	sp, r7
+  90              		.cfi_def_cfa_register 13
+  91              		@ sp needed
+  92 004a 80BD     		pop	{r7, pc}
+  93              		.cfi_endproc
+  94              	.LFE147:
+  95              		.fnend
+  96              		.size	_Z12enableUSBCDCv, .-_Z12enableUSBCDCv
+  97              		.section	.text._Z22USBUART_FunctionAttachv,"ax",%progbits
+  98              		.align	2
+  99              		.global	_Z22USBUART_FunctionAttachv
+ 100              		.thumb
+ 101              		.thumb_func
+ 102              		.type	_Z22USBUART_FunctionAttachv, %function
+ 103              	_Z22USBUART_FunctionAttachv:
+ 104              		.fnstart
+ 105              	.LFB148:
+  41:core/Arduino_Serial.cpp **** 
+  42:core/Arduino_Serial.cpp **** /**********************************************************************
+  43:core/Arduino_Serial.cpp ****  * FunctionAttach() functions should point these to some implementation
+  44:core/Arduino_Serial.cpp ****  * for the particular interface. Not all of them have to be implemented
+  45:core/Arduino_Serial.cpp ****  * for all types of interface, as noted.
+  46:core/Arduino_Serial.cpp ****   uint16_t (*bufferSize)(void); - Return number of bytes in the peripheral
+  47:core/Arduino_Serial.cpp ****     buffer.
+  48:core/Arduino_Serial.cpp ****   void (*sendData)(const uint8_t* buffer, uint16_t size);
+  49:core/Arduino_Serial.cpp ****   uint16_t (*getData)(uint8_t* buffer, uint16_t size);
+  50:core/Arduino_Serial.cpp ****   bool (*blockForReadyToWrite)(void); 
+  51:core/Arduino_Serial.cpp **** 
+  52:core/Arduino_Serial.cpp **** These are for non-USB UARTs only:
+  53:core/Arduino_Serial.cpp ****   void (*clockAdjust)(uint16_t newDivider); - Changes the clock divider on
+  54:core/Arduino_Serial.cpp ****     the UART clock input to provide the new baudrate output.
+  55:core/Arduino_Serial.cpp ****   bool (*portEnable)(void);
+  56:core/Arduino_Serial.cpp ****   void (*portDisable)(void);
+  57:core/Arduino_Serial.cpp ****   void (*blockForWriteComplete)(void);
+  58:core/Arduino_Serial.cpp **** **********************************************************************/
+  59:core/Arduino_Serial.cpp **** 
+  60:core/Arduino_Serial.cpp **** void Serial_CustomPutArray(const uint8_t* buffer, uint16_t size);
+  61:core/Arduino_Serial.cpp **** int16_t USBUART_CustomGetCount();
+  62:core/Arduino_Serial.cpp **** 
+  63:core/Arduino_Serial.cpp **** void USBUART_FunctionAttach()
+  64:core/Arduino_Serial.cpp **** {
+ 106              		.loc 1 64 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 4
+
+
+ 107              		.cfi_startproc
+ 108              		@ args = 0, pretend = 0, frame = 0
+ 109              		@ frame_needed = 1, uses_anonymous_args = 0
+ 110              		@ link register save eliminated.
+ 111 0000 80B4     		push	{r7}
+ 112              		.cfi_def_cfa_offset 4
+ 113              		.cfi_offset 7, -4
+ 114 0002 00AF     		add	r7, sp, #0
+ 115              		.cfi_def_cfa_register 7
+  65:core/Arduino_Serial.cpp ****   USBUART_Helpers.bufferSize = USBUART_CustomGetCount;
+ 116              		.loc 1 65 0
+ 117 0004 074B     		ldr	r3, .L6
+ 118 0006 084A     		ldr	r2, .L6+4
+ 119 0008 1A60     		str	r2, [r3]
+  66:core/Arduino_Serial.cpp ****   USBUART_Helpers.sendData = USBUART_PutData;
+ 120              		.loc 1 66 0
+ 121 000a 064B     		ldr	r3, .L6
+ 122 000c 074A     		ldr	r2, .L6+8
+ 123 000e 1A61     		str	r2, [r3, #16]
+  67:core/Arduino_Serial.cpp ****   USBUART_Helpers.getData = USBUART_GetData;
+ 124              		.loc 1 67 0
+ 125 0010 044B     		ldr	r3, .L6
+ 126 0012 074A     		ldr	r2, .L6+12
+ 127 0014 5A61     		str	r2, [r3, #20]
+  68:core/Arduino_Serial.cpp ****   USBUART_Helpers.blockForReadyToWrite = USBUART_CDCIsReady;
+ 128              		.loc 1 68 0
+ 129 0016 034B     		ldr	r3, .L6
+ 130 0018 064A     		ldr	r2, .L6+16
+ 131 001a 1A62     		str	r2, [r3, #32]
+  69:core/Arduino_Serial.cpp **** }
+ 132              		.loc 1 69 0
+ 133 001c BD46     		mov	sp, r7
+ 134              		.cfi_def_cfa_register 13
+ 135              		@ sp needed
+ 136 001e 5DF8047B 		ldr	r7, [sp], #4
+ 137              		.cfi_restore 7
+ 138              		.cfi_def_cfa_offset 0
+ 139 0022 7047     		bx	lr
+ 140              	.L7:
+ 141              		.align	2
+ 142              	.L6:
+ 143 0024 00000000 		.word	USBUART_Helpers
+ 144 0028 00000000 		.word	_Z22USBUART_CustomGetCountv
+ 145 002c 00000000 		.word	USBUART_PutData
+ 146 0030 00000000 		.word	USBUART_GetData
+ 147 0034 00000000 		.word	USBUART_CDCIsReady
+ 148              		.cfi_endproc
+ 149              	.LFE148:
+ 150              		.cantunwind
+ 151              		.fnend
+ 152              		.size	_Z22USBUART_FunctionAttachv, .-_Z22USBUART_FunctionAttachv
+ 153              		.section	.text._Z19UART_FunctionAttachv,"ax",%progbits
+ 154              		.align	2
+ 155              		.global	_Z19UART_FunctionAttachv
+ 156              		.thumb
+ 157              		.thumb_func
+ 158              		.type	_Z19UART_FunctionAttachv, %function
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 5
+
+
+ 159              	_Z19UART_FunctionAttachv:
+ 160              		.fnstart
+ 161              	.LFB149:
+  70:core/Arduino_Serial.cpp **** 
+  71:core/Arduino_Serial.cpp **** uint16_t UART_CustomGetDataArray(uint8_t* buffer, uint16_t size);
+  72:core/Arduino_Serial.cpp **** int16_t UART_CustomGetBufferSize(void);
+  73:core/Arduino_Serial.cpp **** void     UART_CustomPutArray(const uint8_t* buffer, uint16_t size);
+  74:core/Arduino_Serial.cpp **** bool     UART_CustomPortEnable(void);
+  75:core/Arduino_Serial.cpp **** void     UART_CustomPortDisable(void);
+  76:core/Arduino_Serial.cpp **** void     UART1Clock_CustomSetDivider(uint16_t newDivider);
+  77:core/Arduino_Serial.cpp **** uint8_t  UART_CustomIsReady(void);
+  78:core/Arduino_Serial.cpp **** 
+  79:core/Arduino_Serial.cpp **** void UART_FunctionAttach()
+  80:core/Arduino_Serial.cpp **** {
+ 162              		.loc 1 80 0
+ 163              		.cfi_startproc
+ 164              		@ args = 0, pretend = 0, frame = 0
+ 165              		@ frame_needed = 1, uses_anonymous_args = 0
+ 166              		@ link register save eliminated.
+ 167 0000 80B4     		push	{r7}
+ 168              		.cfi_def_cfa_offset 4
+ 169              		.cfi_offset 7, -4
+ 170 0002 00AF     		add	r7, sp, #0
+ 171              		.cfi_def_cfa_register 7
+  81:core/Arduino_Serial.cpp ****   UART_Helpers.bufferSize = UART_CustomGetBufferSize;
+ 172              		.loc 1 81 0
+ 173 0004 0C4B     		ldr	r3, .L9
+ 174 0006 0D4A     		ldr	r2, .L9+4
+ 175 0008 1A60     		str	r2, [r3]
+  82:core/Arduino_Serial.cpp ****   UART_Helpers.sendData = UART_CustomPutArray;
+ 176              		.loc 1 82 0
+ 177 000a 0B4B     		ldr	r3, .L9
+ 178 000c 0C4A     		ldr	r2, .L9+8
+ 179 000e 1A61     		str	r2, [r3, #16]
+  83:core/Arduino_Serial.cpp ****   UART_Helpers.getData = UART_CustomGetDataArray;
+ 180              		.loc 1 83 0
+ 181 0010 094B     		ldr	r3, .L9
+ 182 0012 0C4A     		ldr	r2, .L9+12
+ 183 0014 5A61     		str	r2, [r3, #20]
+  84:core/Arduino_Serial.cpp ****   UART_Helpers.portEnable = UART_CustomPortEnable;
+ 184              		.loc 1 84 0
+ 185 0016 084B     		ldr	r3, .L9
+ 186 0018 0B4A     		ldr	r2, .L9+16
+ 187 001a 5A60     		str	r2, [r3, #4]
+  85:core/Arduino_Serial.cpp ****   UART_Helpers.portDisable = UART_CustomPortDisable;
+ 188              		.loc 1 85 0
+ 189 001c 064B     		ldr	r3, .L9
+ 190 001e 0B4A     		ldr	r2, .L9+20
+ 191 0020 9A60     		str	r2, [r3, #8]
+  86:core/Arduino_Serial.cpp ****   UART_Helpers.clockAdjust = UART1Clock_CustomSetDivider;
+ 192              		.loc 1 86 0
+ 193 0022 054B     		ldr	r3, .L9
+ 194 0024 0A4A     		ldr	r2, .L9+24
+ 195 0026 DA60     		str	r2, [r3, #12]
+  87:core/Arduino_Serial.cpp ****   UART_Helpers.blockForReadyToWrite = UART_CustomIsReady;
+ 196              		.loc 1 87 0
+ 197 0028 034B     		ldr	r3, .L9
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 6
+
+
+ 198 002a 0A4A     		ldr	r2, .L9+28
+ 199 002c 1A62     		str	r2, [r3, #32]
+  88:core/Arduino_Serial.cpp **** }
+ 200              		.loc 1 88 0
+ 201 002e BD46     		mov	sp, r7
+ 202              		.cfi_def_cfa_register 13
+ 203              		@ sp needed
+ 204 0030 5DF8047B 		ldr	r7, [sp], #4
+ 205              		.cfi_restore 7
+ 206              		.cfi_def_cfa_offset 0
+ 207 0034 7047     		bx	lr
+ 208              	.L10:
+ 209 0036 00BF     		.align	2
+ 210              	.L9:
+ 211 0038 00000000 		.word	UART_Helpers
+ 212 003c 00000000 		.word	_Z24UART_CustomGetBufferSizev
+ 213 0040 00000000 		.word	_Z19UART_CustomPutArrayPKht
+ 214 0044 00000000 		.word	_Z23UART_CustomGetDataArrayPht
+ 215 0048 00000000 		.word	_Z21UART_CustomPortEnablev
+ 216 004c 00000000 		.word	_Z22UART_CustomPortDisablev
+ 217 0050 00000000 		.word	_Z27UART1Clock_CustomSetDividert
+ 218 0054 00000000 		.word	_Z18UART_CustomIsReadyv
+ 219              		.cfi_endproc
+ 220              	.LFE149:
+ 221              		.cantunwind
+ 222              		.fnend
+ 223              		.size	_Z19UART_FunctionAttachv, .-_Z19UART_FunctionAttachv
+ 224              		.global	readByte
+ 225              		.bss
+ 226              		.align	2
+ 227              		.type	readByte, %object
+ 228              		.size	readByte, 4
+ 229              	readByte:
+ 230 0000 00000000 		.space	4
+ 231              		.global	readBufSize
+ 232              		.align	2
+ 233              		.type	readBufSize, %object
+ 234              		.size	readBufSize, 4
+ 235              	readBufSize:
+ 236 0004 00000000 		.space	4
+ 237              		.section	.text._Z23UART_CustomGetDataArrayPht,"ax",%progbits
+ 238              		.align	2
+ 239              		.global	_Z23UART_CustomGetDataArrayPht
+ 240              		.thumb
+ 241              		.thumb_func
+ 242              		.type	_Z23UART_CustomGetDataArrayPht, %function
+ 243              	_Z23UART_CustomGetDataArrayPht:
+ 244              		.fnstart
+ 245              	.LFB150:
+  89:core/Arduino_Serial.cpp **** 
+  90:core/Arduino_Serial.cpp **** 
+  91:core/Arduino_Serial.cpp **** /**********************************************************************
+  92:core/Arduino_Serial.cpp ****  * Sometimes, it's not possible to make a 1:1 conversion between the needs
+  93:core/Arduino_Serial.cpp ****  * of the UART class and the available functions in the Cypress API. Below
+  94:core/Arduino_Serial.cpp ****  * are the functions which implement that conversion.
+  95:core/Arduino_Serial.cpp ****  * *******************************************************************/
+  96:core/Arduino_Serial.cpp **** 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 7
+
+
+  97:core/Arduino_Serial.cpp **** typedef uint8_t (*UART_getDataFunc)(void);
+  98:core/Arduino_Serial.cpp **** typedef uint8_t (*UART_getBufferSize)(void);
+  99:core/Arduino_Serial.cpp **** 
+ 100:core/Arduino_Serial.cpp **** UART_getDataFunc readByte;
+ 101:core/Arduino_Serial.cpp **** UART_getBufferSize readBufSize;
+ 102:core/Arduino_Serial.cpp **** 
+ 103:core/Arduino_Serial.cpp **** uint16_t UART_GetDataArray(uint8_t* buffer, uint8_t size);
+ 104:core/Arduino_Serial.cpp **** 
+ 105:core/Arduino_Serial.cpp **** uint16_t UART_CustomGetDataArray(uint8_t* buffer, uint16_t size)
+ 106:core/Arduino_Serial.cpp **** {
+ 246              		.loc 1 106 0
+ 247              		.cfi_startproc
+ 248              		@ args = 0, pretend = 0, frame = 8
+ 249              		@ frame_needed = 1, uses_anonymous_args = 0
+ 250 0000 80B5     		push	{r7, lr}
+ 251              		.save {r7, lr}
+ 252              		.cfi_def_cfa_offset 8
+ 253              		.cfi_offset 7, -8
+ 254              		.cfi_offset 14, -4
+ 255              		.pad #8
+ 256 0002 82B0     		sub	sp, sp, #8
+ 257              		.cfi_def_cfa_offset 16
+ 258              		.setfp r7, sp, #0
+ 259 0004 00AF     		add	r7, sp, #0
+ 260              		.cfi_def_cfa_register 7
+ 261 0006 7860     		str	r0, [r7, #4]
+ 262 0008 0B46     		mov	r3, r1
+ 263 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 107:core/Arduino_Serial.cpp ****   readByte = UART_ReadRxData;
+ 264              		.loc 1 107 0
+ 265 000c 084B     		ldr	r3, .L13
+ 266 000e 094A     		ldr	r2, .L13+4
+ 267 0010 1A60     		str	r2, [r3]
+ 108:core/Arduino_Serial.cpp ****   readBufSize = UART_GetRxBufferSize;
+ 268              		.loc 1 108 0
+ 269 0012 094B     		ldr	r3, .L13+8
+ 270 0014 094A     		ldr	r2, .L13+12
+ 271 0016 1A60     		str	r2, [r3]
+ 109:core/Arduino_Serial.cpp ****   return UART_GetDataArray(buffer, size);
+ 272              		.loc 1 109 0
+ 273 0018 7B88     		ldrh	r3, [r7, #2]	@ movhi
+ 274 001a DBB2     		uxtb	r3, r3
+ 275 001c 7868     		ldr	r0, [r7, #4]
+ 276 001e 1946     		mov	r1, r3
+ 277 0020 FFF7FEFF 		bl	_Z17UART_GetDataArrayPhh
+ 278 0024 0346     		mov	r3, r0
+ 110:core/Arduino_Serial.cpp **** }
+ 279              		.loc 1 110 0
+ 280 0026 1846     		mov	r0, r3
+ 281 0028 0837     		adds	r7, r7, #8
+ 282              		.cfi_def_cfa_offset 8
+ 283 002a BD46     		mov	sp, r7
+ 284              		.cfi_def_cfa_register 13
+ 285              		@ sp needed
+ 286 002c 80BD     		pop	{r7, pc}
+ 287              	.L14:
+ 288 002e 00BF     		.align	2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 8
+
+
+ 289              	.L13:
+ 290 0030 00000000 		.word	readByte
+ 291 0034 00000000 		.word	UART_ReadRxData
+ 292 0038 00000000 		.word	readBufSize
+ 293 003c 00000000 		.word	UART_GetRxBufferSize
+ 294              		.cfi_endproc
+ 295              	.LFE150:
+ 296              		.fnend
+ 297              		.size	_Z23UART_CustomGetDataArrayPht, .-_Z23UART_CustomGetDataArrayPht
+ 298              		.section	.text._Z24UART_CustomGetBufferSizev,"ax",%progbits
+ 299              		.align	2
+ 300              		.global	_Z24UART_CustomGetBufferSizev
+ 301              		.thumb
+ 302              		.thumb_func
+ 303              		.type	_Z24UART_CustomGetBufferSizev, %function
+ 304              	_Z24UART_CustomGetBufferSizev:
+ 305              		.fnstart
+ 306              	.LFB151:
+ 111:core/Arduino_Serial.cpp **** 
+ 112:core/Arduino_Serial.cpp **** int16_t UART_CustomGetBufferSize(void)
+ 113:core/Arduino_Serial.cpp **** {
+ 307              		.loc 1 113 0
+ 308              		.cfi_startproc
+ 309              		@ args = 0, pretend = 0, frame = 0
+ 310              		@ frame_needed = 1, uses_anonymous_args = 0
+ 311 0000 80B5     		push	{r7, lr}
+ 312              		.save {r7, lr}
+ 313              		.cfi_def_cfa_offset 8
+ 314              		.cfi_offset 7, -8
+ 315              		.cfi_offset 14, -4
+ 316              		.setfp r7, sp, #0
+ 317 0002 00AF     		add	r7, sp, #0
+ 318              		.cfi_def_cfa_register 7
+ 114:core/Arduino_Serial.cpp ****   return (int16_t)UART_GetRxBufferSize();
+ 319              		.loc 1 114 0
+ 320 0004 FFF7FEFF 		bl	UART_GetRxBufferSize
+ 321 0008 0346     		mov	r3, r0
+ 322 000a 9BB2     		uxth	r3, r3
+ 323 000c 1BB2     		sxth	r3, r3
+ 115:core/Arduino_Serial.cpp **** }
+ 324              		.loc 1 115 0
+ 325 000e 1846     		mov	r0, r3
+ 326 0010 80BD     		pop	{r7, pc}
+ 327              		.cfi_endproc
+ 328              	.LFE151:
+ 329              		.fnend
+ 330              		.size	_Z24UART_CustomGetBufferSizev, .-_Z24UART_CustomGetBufferSizev
+ 331 0012 00BF     		.section	.text._Z19UART_CustomPutArrayPKht,"ax",%progbits
+ 332              		.align	2
+ 333              		.global	_Z19UART_CustomPutArrayPKht
+ 334              		.thumb
+ 335              		.thumb_func
+ 336              		.type	_Z19UART_CustomPutArrayPKht, %function
+ 337              	_Z19UART_CustomPutArrayPKht:
+ 338              		.fnstart
+ 339              	.LFB152:
+ 116:core/Arduino_Serial.cpp **** 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 9
+
+
+ 117:core/Arduino_Serial.cpp **** void UART_CustomPutArray(const uint8_t* buffer, uint16_t size)
+ 118:core/Arduino_Serial.cpp **** {
+ 340              		.loc 1 118 0
+ 341              		.cfi_startproc
+ 342              		@ args = 0, pretend = 0, frame = 8
+ 343              		@ frame_needed = 1, uses_anonymous_args = 0
+ 344 0000 80B5     		push	{r7, lr}
+ 345              		.save {r7, lr}
+ 346              		.cfi_def_cfa_offset 8
+ 347              		.cfi_offset 7, -8
+ 348              		.cfi_offset 14, -4
+ 349              		.pad #8
+ 350 0002 82B0     		sub	sp, sp, #8
+ 351              		.cfi_def_cfa_offset 16
+ 352              		.setfp r7, sp, #0
+ 353 0004 00AF     		add	r7, sp, #0
+ 354              		.cfi_def_cfa_register 7
+ 355 0006 7860     		str	r0, [r7, #4]
+ 356 0008 0B46     		mov	r3, r1
+ 357 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 119:core/Arduino_Serial.cpp ****   UART_PutArray(buffer, size);
+ 358              		.loc 1 119 0
+ 359 000c 7B88     		ldrh	r3, [r7, #2]	@ movhi
+ 360 000e DBB2     		uxtb	r3, r3
+ 361 0010 7868     		ldr	r0, [r7, #4]
+ 362 0012 1946     		mov	r1, r3
+ 363 0014 FFF7FEFF 		bl	UART_PutArray
+ 120:core/Arduino_Serial.cpp **** }
+ 364              		.loc 1 120 0
+ 365 0018 0837     		adds	r7, r7, #8
+ 366              		.cfi_def_cfa_offset 8
+ 367 001a BD46     		mov	sp, r7
+ 368              		.cfi_def_cfa_register 13
+ 369              		@ sp needed
+ 370 001c 80BD     		pop	{r7, pc}
+ 371              		.cfi_endproc
+ 372              	.LFE152:
+ 373              		.fnend
+ 374              		.size	_Z19UART_CustomPutArrayPKht, .-_Z19UART_CustomPutArrayPKht
+ 375 001e 00BF     		.section	.text._Z21UART_CustomPortEnablev,"ax",%progbits
+ 376              		.align	2
+ 377              		.global	_Z21UART_CustomPortEnablev
+ 378              		.thumb
+ 379              		.thumb_func
+ 380              		.type	_Z21UART_CustomPortEnablev, %function
+ 381              	_Z21UART_CustomPortEnablev:
+ 382              		.fnstart
+ 383              	.LFB153:
+ 121:core/Arduino_Serial.cpp **** 
+ 122:core/Arduino_Serial.cpp **** bool UART_CustomPortEnable(void)
+ 123:core/Arduino_Serial.cpp **** {
+ 384              		.loc 1 123 0
+ 385              		.cfi_startproc
+ 386              		@ args = 0, pretend = 0, frame = 0
+ 387              		@ frame_needed = 1, uses_anonymous_args = 0
+ 388 0000 80B5     		push	{r7, lr}
+ 389              		.save {r7, lr}
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 10
+
+
+ 390              		.cfi_def_cfa_offset 8
+ 391              		.cfi_offset 7, -8
+ 392              		.cfi_offset 14, -4
+ 393              		.setfp r7, sp, #0
+ 394 0002 00AF     		add	r7, sp, #0
+ 395              		.cfi_def_cfa_register 7
+ 124:core/Arduino_Serial.cpp ****   UART_Start();
+ 396              		.loc 1 124 0
+ 397 0004 FFF7FEFF 		bl	UART_Start
+ 125:core/Arduino_Serial.cpp ****   pinMode(D0, PERIPHERAL_IN);
+ 398              		.loc 1 125 0
+ 399 0008 0548     		ldr	r0, .L20
+ 400 000a 0521     		movs	r1, #5
+ 401 000c FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+ 126:core/Arduino_Serial.cpp ****   pinMode(D1, PERIPHERAL_OUT);
+ 402              		.loc 1 126 0
+ 403 0010 0448     		ldr	r0, .L20+4
+ 404 0012 0421     		movs	r1, #4
+ 405 0014 FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+ 127:core/Arduino_Serial.cpp ****   return true; 
+ 406              		.loc 1 127 0
+ 407 0018 0123     		movs	r3, #1
+ 128:core/Arduino_Serial.cpp **** }
+ 408              		.loc 1 128 0
+ 409 001a 1846     		mov	r0, r3
+ 410 001c 80BD     		pop	{r7, pc}
+ 411              	.L21:
+ 412 001e 00BF     		.align	2
+ 413              	.L20:
+ 414 0020 10500040 		.word	1073762320
+ 415 0024 11500040 		.word	1073762321
+ 416              		.cfi_endproc
+ 417              	.LFE153:
+ 418              		.fnend
+ 419              		.size	_Z21UART_CustomPortEnablev, .-_Z21UART_CustomPortEnablev
+ 420              		.section	.text._Z22UART_CustomPortDisablev,"ax",%progbits
+ 421              		.align	2
+ 422              		.global	_Z22UART_CustomPortDisablev
+ 423              		.thumb
+ 424              		.thumb_func
+ 425              		.type	_Z22UART_CustomPortDisablev, %function
+ 426              	_Z22UART_CustomPortDisablev:
+ 427              		.fnstart
+ 428              	.LFB154:
+ 129:core/Arduino_Serial.cpp **** 
+ 130:core/Arduino_Serial.cpp **** void UART_CustomPortDisable(void)
+ 131:core/Arduino_Serial.cpp **** {
+ 429              		.loc 1 131 0
+ 430              		.cfi_startproc
+ 431              		@ args = 0, pretend = 0, frame = 0
+ 432              		@ frame_needed = 1, uses_anonymous_args = 0
+ 433 0000 80B5     		push	{r7, lr}
+ 434              		.save {r7, lr}
+ 435              		.cfi_def_cfa_offset 8
+ 436              		.cfi_offset 7, -8
+ 437              		.cfi_offset 14, -4
+ 438              		.setfp r7, sp, #0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 11
+
+
+ 439 0002 00AF     		add	r7, sp, #0
+ 440              		.cfi_def_cfa_register 7
+ 132:core/Arduino_Serial.cpp ****   UART_Stop();
+ 441              		.loc 1 132 0
+ 442 0004 FFF7FEFF 		bl	UART_Stop
+ 133:core/Arduino_Serial.cpp ****   pinMode(D0, INPUT);
+ 443              		.loc 1 133 0
+ 444 0008 0448     		ldr	r0, .L23
+ 445 000a 0121     		movs	r1, #1
+ 446 000c FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+ 134:core/Arduino_Serial.cpp ****   pinMode(D1, INPUT);
+ 447              		.loc 1 134 0
+ 448 0010 0348     		ldr	r0, .L23+4
+ 449 0012 0121     		movs	r1, #1
+ 450 0014 FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+ 135:core/Arduino_Serial.cpp **** }
+ 451              		.loc 1 135 0
+ 452 0018 80BD     		pop	{r7, pc}
+ 453              	.L24:
+ 454 001a 00BF     		.align	2
+ 455              	.L23:
+ 456 001c 10500040 		.word	1073762320
+ 457 0020 11500040 		.word	1073762321
+ 458              		.cfi_endproc
+ 459              	.LFE154:
+ 460              		.fnend
+ 461              		.size	_Z22UART_CustomPortDisablev, .-_Z22UART_CustomPortDisablev
+ 462              		.section	.text._Z17UART_GetDataArrayPhh,"ax",%progbits
+ 463              		.align	2
+ 464              		.global	_Z17UART_GetDataArrayPhh
+ 465              		.thumb
+ 466              		.thumb_func
+ 467              		.type	_Z17UART_GetDataArrayPhh, %function
+ 468              	_Z17UART_GetDataArrayPhh:
+ 469              		.fnstart
+ 470              	.LFB155:
+ 136:core/Arduino_Serial.cpp **** 
+ 137:core/Arduino_Serial.cpp **** uint16_t UART_GetDataArray(uint8_t* buffer, uint8_t size)
+ 138:core/Arduino_Serial.cpp **** {
+ 471              		.loc 1 138 0
+ 472              		.cfi_startproc
+ 473              		@ args = 0, pretend = 0, frame = 16
+ 474              		@ frame_needed = 1, uses_anonymous_args = 0
+ 475 0000 90B5     		push	{r4, r7, lr}
+ 476              		.save {r4, r7, lr}
+ 477              		.cfi_def_cfa_offset 12
+ 478              		.cfi_offset 4, -12
+ 479              		.cfi_offset 7, -8
+ 480              		.cfi_offset 14, -4
+ 481              		.pad #20
+ 482 0002 85B0     		sub	sp, sp, #20
+ 483              		.cfi_def_cfa_offset 32
+ 484              		.setfp r7, sp, #0
+ 485 0004 00AF     		add	r7, sp, #0
+ 486              		.cfi_def_cfa_register 7
+ 487 0006 7860     		str	r0, [r7, #4]
+ 488 0008 0B46     		mov	r3, r1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 12
+
+
+ 489 000a FB70     		strb	r3, [r7, #3]
+ 490              	.LBB3:
+ 139:core/Arduino_Serial.cpp ****   uint16_t bytesRead = 0;
+ 491              		.loc 1 139 0
+ 492 000c 0023     		movs	r3, #0
+ 493 000e FB81     		strh	r3, [r7, #14]	@ movhi
+ 494              	.LBB4:
+ 140:core/Arduino_Serial.cpp ****   for (int i = 0; i < size; ++i)
+ 495              		.loc 1 140 0
+ 496 0010 0023     		movs	r3, #0
+ 497 0012 BB60     		str	r3, [r7, #8]
+ 498 0014 1AE0     		b	.L26
+ 499              	.L30:
+ 141:core/Arduino_Serial.cpp ****   {
+ 142:core/Arduino_Serial.cpp ****     if (readBufSize() > 0)
+ 500              		.loc 1 142 0
+ 501 0016 124B     		ldr	r3, .L33
+ 502 0018 1B68     		ldr	r3, [r3]
+ 503 001a 9847     		blx	r3
+ 504 001c 0346     		mov	r3, r0
+ 505 001e 002B     		cmp	r3, #0
+ 506 0020 14BF     		ite	ne
+ 507 0022 0123     		movne	r3, #1
+ 508 0024 0023     		moveq	r3, #0
+ 509 0026 DBB2     		uxtb	r3, r3
+ 510 0028 002B     		cmp	r3, #0
+ 511 002a 0BD0     		beq	.L27
+ 143:core/Arduino_Serial.cpp ****     {
+ 144:core/Arduino_Serial.cpp ****       buffer[i] = readByte();
+ 512              		.loc 1 144 0
+ 513 002c BB68     		ldr	r3, [r7, #8]
+ 514 002e 7A68     		ldr	r2, [r7, #4]
+ 515 0030 D418     		adds	r4, r2, r3
+ 516 0032 0C4B     		ldr	r3, .L33+4
+ 517 0034 1B68     		ldr	r3, [r3]
+ 518 0036 9847     		blx	r3
+ 519 0038 0346     		mov	r3, r0
+ 520 003a 2370     		strb	r3, [r4]
+ 145:core/Arduino_Serial.cpp ****       ++bytesRead;
+ 521              		.loc 1 145 0
+ 522 003c FB89     		ldrh	r3, [r7, #14]	@ movhi
+ 523 003e 0133     		adds	r3, r3, #1
+ 524 0040 FB81     		strh	r3, [r7, #14]	@ movhi
+ 525 0042 00E0     		b	.L32
+ 526              	.L27:
+ 146:core/Arduino_Serial.cpp ****     }
+ 147:core/Arduino_Serial.cpp ****     else
+ 148:core/Arduino_Serial.cpp ****     {
+ 149:core/Arduino_Serial.cpp ****       break;
+ 527              		.loc 1 149 0
+ 528 0044 06E0     		b	.L29
+ 529              	.L32:
+ 140:core/Arduino_Serial.cpp ****   {
+ 530              		.loc 1 140 0 discriminator 2
+ 531 0046 BB68     		ldr	r3, [r7, #8]
+ 532 0048 0133     		adds	r3, r3, #1
+ 533 004a BB60     		str	r3, [r7, #8]
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 13
+
+
+ 534              	.L26:
+ 140:core/Arduino_Serial.cpp ****   {
+ 535              		.loc 1 140 0 is_stmt 0 discriminator 1
+ 536 004c FA78     		ldrb	r2, [r7, #3]	@ zero_extendqisi2
+ 537 004e BB68     		ldr	r3, [r7, #8]
+ 538 0050 9A42     		cmp	r2, r3
+ 539 0052 E0DC     		bgt	.L30
+ 540              	.L29:
+ 541              	.LBE4:
+ 150:core/Arduino_Serial.cpp ****     }
+ 151:core/Arduino_Serial.cpp ****   }
+ 152:core/Arduino_Serial.cpp ****   return bytesRead;
+ 542              		.loc 1 152 0 is_stmt 1
+ 543 0054 FB89     		ldrh	r3, [r7, #14]
+ 544              	.LBE3:
+ 153:core/Arduino_Serial.cpp **** }
+ 545              		.loc 1 153 0
+ 546 0056 1846     		mov	r0, r3
+ 547 0058 1437     		adds	r7, r7, #20
+ 548              		.cfi_def_cfa_offset 12
+ 549 005a BD46     		mov	sp, r7
+ 550              		.cfi_def_cfa_register 13
+ 551              		@ sp needed
+ 552 005c 90BD     		pop	{r4, r7, pc}
+ 553              	.L34:
+ 554 005e 00BF     		.align	2
+ 555              	.L33:
+ 556 0060 00000000 		.word	readBufSize
+ 557 0064 00000000 		.word	readByte
+ 558              		.cfi_endproc
+ 559              	.LFE155:
+ 560              		.fnend
+ 561              		.size	_Z17UART_GetDataArrayPhh, .-_Z17UART_GetDataArrayPhh
+ 562              		.section	.text._Z22USBUART_CustomGetCountv,"ax",%progbits
+ 563              		.align	2
+ 564              		.global	_Z22USBUART_CustomGetCountv
+ 565              		.thumb
+ 566              		.thumb_func
+ 567              		.type	_Z22USBUART_CustomGetCountv, %function
+ 568              	_Z22USBUART_CustomGetCountv:
+ 569              		.fnstart
+ 570              	.LFB156:
+ 154:core/Arduino_Serial.cpp **** 
+ 155:core/Arduino_Serial.cpp **** 
+ 156:core/Arduino_Serial.cpp **** int16_t USBUART_CustomGetCount()
+ 157:core/Arduino_Serial.cpp **** {
+ 571              		.loc 1 157 0
+ 572              		.cfi_startproc
+ 573              		@ args = 0, pretend = 0, frame = 0
+ 574              		@ frame_needed = 1, uses_anonymous_args = 0
+ 575 0000 80B5     		push	{r7, lr}
+ 576              		.save {r7, lr}
+ 577              		.cfi_def_cfa_offset 8
+ 578              		.cfi_offset 7, -8
+ 579              		.cfi_offset 14, -4
+ 580              		.setfp r7, sp, #0
+ 581 0002 00AF     		add	r7, sp, #0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 14
+
+
+ 582              		.cfi_def_cfa_register 7
+ 158:core/Arduino_Serial.cpp ****   if (USBUART_DataIsReady() == 0)
+ 583              		.loc 1 158 0
+ 584 0004 FFF7FEFF 		bl	USBUART_DataIsReady
+ 585 0008 0346     		mov	r3, r0
+ 586 000a 002B     		cmp	r3, #0
+ 587 000c 0CBF     		ite	eq
+ 588 000e 0123     		moveq	r3, #1
+ 589 0010 0023     		movne	r3, #0
+ 590 0012 DBB2     		uxtb	r3, r3
+ 591 0014 002B     		cmp	r3, #0
+ 592 0016 01D0     		beq	.L36
+ 159:core/Arduino_Serial.cpp ****   {
+ 160:core/Arduino_Serial.cpp ****     return 0;
+ 593              		.loc 1 160 0
+ 594 0018 0023     		movs	r3, #0
+ 595 001a 03E0     		b	.L37
+ 596              	.L36:
+ 161:core/Arduino_Serial.cpp ****   }
+ 162:core/Arduino_Serial.cpp ****   else
+ 163:core/Arduino_Serial.cpp ****   {
+ 164:core/Arduino_Serial.cpp ****     return USBUART_GetCount();
+ 597              		.loc 1 164 0
+ 598 001c FFF7FEFF 		bl	USBUART_GetCount
+ 599 0020 0346     		mov	r3, r0
+ 600 0022 9BB2     		uxth	r3, r3
+ 601              	.L37:
+ 602 0024 1BB2     		sxth	r3, r3
+ 165:core/Arduino_Serial.cpp ****   }
+ 166:core/Arduino_Serial.cpp **** }
+ 603              		.loc 1 166 0
+ 604 0026 1846     		mov	r0, r3
+ 605 0028 80BD     		pop	{r7, pc}
+ 606              		.cfi_endproc
+ 607              	.LFE156:
+ 608              		.fnend
+ 609              		.size	_Z22USBUART_CustomGetCountv, .-_Z22USBUART_CustomGetCountv
+ 610 002a 00BF     		.section	.text._Z27UART1Clock_CustomSetDividert,"ax",%progbits
+ 611              		.align	2
+ 612              		.global	_Z27UART1Clock_CustomSetDividert
+ 613              		.thumb
+ 614              		.thumb_func
+ 615              		.type	_Z27UART1Clock_CustomSetDividert, %function
+ 616              	_Z27UART1Clock_CustomSetDividert:
+ 617              		.fnstart
+ 618              	.LFB157:
+ 167:core/Arduino_Serial.cpp **** /***************************************************************************
+ 168:core/Arduino_Serial.cpp ****  * WHY!?!?!
+ 169:core/Arduino_Serial.cpp ****  * Why have a function which calls a seemingly identical function? It's not
+ 170:core/Arduino_Serial.cpp ****  * even abstracted or anything?!?!?!
+ 171:core/Arduino_Serial.cpp ****  * Because, SetDividerValue isn't a function, it's a macro for a function
+ 172:core/Arduino_Serial.cpp ****  * which is incompatible, so trying to use a pointer that's compatible with
+ 173:core/Arduino_Serial.cpp ****  * SetDividerValue doesn't work. Blech.
+ 174:core/Arduino_Serial.cpp ****  * ***********************************************************************/
+ 175:core/Arduino_Serial.cpp **** 
+ 176:core/Arduino_Serial.cpp **** void UART1Clock_CustomSetDivider(uint16_t newDivider)
+ 177:core/Arduino_Serial.cpp **** {
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 15
+
+
+ 619              		.loc 1 177 0
+ 620              		.cfi_startproc
+ 621              		@ args = 0, pretend = 0, frame = 8
+ 622              		@ frame_needed = 1, uses_anonymous_args = 0
+ 623 0000 80B5     		push	{r7, lr}
+ 624              		.save {r7, lr}
+ 625              		.cfi_def_cfa_offset 8
+ 626              		.cfi_offset 7, -8
+ 627              		.cfi_offset 14, -4
+ 628              		.pad #8
+ 629 0002 82B0     		sub	sp, sp, #8
+ 630              		.cfi_def_cfa_offset 16
+ 631              		.setfp r7, sp, #0
+ 632 0004 00AF     		add	r7, sp, #0
+ 633              		.cfi_def_cfa_register 7
+ 634 0006 0346     		mov	r3, r0
+ 635 0008 FB80     		strh	r3, [r7, #6]	@ movhi
+ 178:core/Arduino_Serial.cpp ****   UART_Clock_SetDividerValue(newDivider);
+ 636              		.loc 1 178 0
+ 637 000a FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 638 000c 013B     		subs	r3, r3, #1
+ 639 000e 9BB2     		uxth	r3, r3
+ 640 0010 1846     		mov	r0, r3
+ 641 0012 0121     		movs	r1, #1
+ 642 0014 FFF7FEFF 		bl	UART_Clock_SetDividerRegister
+ 179:core/Arduino_Serial.cpp **** }
+ 643              		.loc 1 179 0
+ 644 0018 0837     		adds	r7, r7, #8
+ 645              		.cfi_def_cfa_offset 8
+ 646 001a BD46     		mov	sp, r7
+ 647              		.cfi_def_cfa_register 13
+ 648              		@ sp needed
+ 649 001c 80BD     		pop	{r7, pc}
+ 650              		.cfi_endproc
+ 651              	.LFE157:
+ 652              		.fnend
+ 653              		.size	_Z27UART1Clock_CustomSetDividert, .-_Z27UART1Clock_CustomSetDividert
+ 654 001e 00BF     		.section	.text._Z18UART_CustomIsReadyv,"ax",%progbits
+ 655              		.align	2
+ 656              		.global	_Z18UART_CustomIsReadyv
+ 657              		.thumb
+ 658              		.thumb_func
+ 659              		.type	_Z18UART_CustomIsReadyv, %function
+ 660              	_Z18UART_CustomIsReadyv:
+ 661              		.fnstart
+ 662              	.LFB158:
+ 180:core/Arduino_Serial.cpp **** 
+ 181:core/Arduino_Serial.cpp **** uint8_t  UART_CustomIsReady( void )
+ 182:core/Arduino_Serial.cpp **** {
+ 663              		.loc 1 182 0
+ 664              		.cfi_startproc
+ 665              		@ args = 0, pretend = 0, frame = 0
+ 666              		@ frame_needed = 1, uses_anonymous_args = 0
+ 667 0000 80B5     		push	{r7, lr}
+ 668              		.save {r7, lr}
+ 669              		.cfi_def_cfa_offset 8
+ 670              		.cfi_offset 7, -8
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 16
+
+
+ 671              		.cfi_offset 14, -4
+ 672              		.setfp r7, sp, #0
+ 673 0002 00AF     		add	r7, sp, #0
+ 674              		.cfi_def_cfa_register 7
+ 183:core/Arduino_Serial.cpp ****   return (UART_ReadTxStatus() != UART_TX_STS_FIFO_FULL);
+ 675              		.loc 1 183 0
+ 676 0004 FFF7FEFF 		bl	UART_ReadTxStatus
+ 677 0008 0346     		mov	r3, r0
+ 678 000a 042B     		cmp	r3, #4
+ 679 000c 14BF     		ite	ne
+ 680 000e 0123     		movne	r3, #1
+ 681 0010 0023     		moveq	r3, #0
+ 682 0012 DBB2     		uxtb	r3, r3
+ 184:core/Arduino_Serial.cpp **** }
+ 683              		.loc 1 184 0
+ 684 0014 1846     		mov	r0, r3
+ 685 0016 80BD     		pop	{r7, pc}
+ 686              		.cfi_endproc
+ 687              	.LFE158:
+ 688              		.fnend
+ 689              		.size	_Z18UART_CustomIsReadyv, .-_Z18UART_CustomIsReadyv
+ 690              		.section	.rodata
+ 691              		.type	_ZL2SS, %object
+ 692              		.size	_ZL2SS, 1
+ 693              	_ZL2SS:
+ 694 0000 0A       		.byte	10
+ 695              		.type	_ZL4MOSI, %object
+ 696              		.size	_ZL4MOSI, 1
+ 697              	_ZL4MOSI:
+ 698 0001 0B       		.byte	11
+ 699              		.type	_ZL4MISO, %object
+ 700              		.size	_ZL4MISO, 1
+ 701              	_ZL4MISO:
+ 702 0002 0C       		.byte	12
+ 703              		.type	_ZL3SCK, %object
+ 704              		.size	_ZL3SCK, 1
+ 705              	_ZL3SCK:
+ 706 0003 0D       		.byte	13
+ 707              		.type	_ZL3SDA, %object
+ 708              		.size	_ZL3SDA, 1
+ 709              	_ZL3SDA:
+ 710 0004 15       		.byte	21
+ 711              		.type	_ZL3SCL, %object
+ 712              		.size	_ZL3SCL, 1
+ 713              	_ZL3SCL:
+ 714 0005 14       		.byte	20
+ 715              		.text
+ 716              	.Letext0:
+ 717              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 718              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 719              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 720              		.file 5 "core\\UARTClass.h"
+ 721              		.file 6 ".\\core/pins_arduino.h"
+ 722              		.file 7 "Generated_Source\\PSoC5/core_cm3.h"
+ 723              		.file 8 "core\\Arduino_Pins.h"
+ 724              		.section	.debug_info,"",%progbits
+ 725              	.Ldebug_info0:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 17
+
+
+ 726 0000 C8040000 		.4byte	0x4c8
+ 727 0004 0400     		.2byte	0x4
+ 728 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 729 000a 04       		.byte	0x4
+ 730 000b 01       		.uleb128 0x1
+ 731 000c 31050000 		.4byte	.LASF78
+ 732 0010 04       		.byte	0x4
+ 733 0011 39000000 		.4byte	.LASF79
+ 734 0015 3D040000 		.4byte	.LASF80
+ 735 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 736 001d 00000000 		.4byte	0
+ 737 0021 00000000 		.4byte	.Ldebug_line0
+ 738 0025 02       		.uleb128 0x2
+ 739 0026 01       		.byte	0x1
+ 740 0027 06       		.byte	0x6
+ 741 0028 B9020000 		.4byte	.LASF0
+ 742 002c 03       		.uleb128 0x3
+ 743 002d F6010000 		.4byte	.LASF2
+ 744 0031 02       		.byte	0x2
+ 745 0032 1D       		.byte	0x1d
+ 746 0033 37000000 		.4byte	0x37
+ 747 0037 02       		.uleb128 0x2
+ 748 0038 01       		.byte	0x1
+ 749 0039 08       		.byte	0x8
+ 750 003a 8F020000 		.4byte	.LASF1
+ 751 003e 03       		.uleb128 0x3
+ 752 003f 1C040000 		.4byte	.LASF3
+ 753 0043 02       		.byte	0x2
+ 754 0044 29       		.byte	0x29
+ 755 0045 49000000 		.4byte	0x49
+ 756 0049 02       		.uleb128 0x2
+ 757 004a 02       		.byte	0x2
+ 758 004b 05       		.byte	0x5
+ 759 004c 85000000 		.4byte	.LASF4
+ 760 0050 03       		.uleb128 0x3
+ 761 0051 E8000000 		.4byte	.LASF5
+ 762 0055 02       		.byte	0x2
+ 763 0056 2B       		.byte	0x2b
+ 764 0057 5B000000 		.4byte	0x5b
+ 765 005b 02       		.uleb128 0x2
+ 766 005c 02       		.byte	0x2
+ 767 005d 07       		.byte	0x7
+ 768 005e 1A030000 		.4byte	.LASF6
+ 769 0062 03       		.uleb128 0x3
+ 770 0063 FF030000 		.4byte	.LASF7
+ 771 0067 02       		.byte	0x2
+ 772 0068 3F       		.byte	0x3f
+ 773 0069 6D000000 		.4byte	0x6d
+ 774 006d 02       		.uleb128 0x2
+ 775 006e 04       		.byte	0x4
+ 776 006f 05       		.byte	0x5
+ 777 0070 B4010000 		.4byte	.LASF8
+ 778 0074 02       		.uleb128 0x2
+ 779 0075 04       		.byte	0x4
+ 780 0076 07       		.byte	0x7
+ 781 0077 03030000 		.4byte	.LASF9
+ 782 007b 02       		.uleb128 0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 18
+
+
+ 783 007c 08       		.byte	0x8
+ 784 007d 05       		.byte	0x5
+ 785 007e 6A010000 		.4byte	.LASF10
+ 786 0082 02       		.uleb128 0x2
+ 787 0083 08       		.byte	0x8
+ 788 0084 07       		.byte	0x7
+ 789 0085 78010000 		.4byte	.LASF11
+ 790 0089 04       		.uleb128 0x4
+ 791 008a 04       		.byte	0x4
+ 792 008b 05       		.byte	0x5
+ 793 008c 696E7400 		.ascii	"int\000"
+ 794 0090 02       		.uleb128 0x2
+ 795 0091 04       		.byte	0x4
+ 796 0092 07       		.byte	0x7
+ 797 0093 DE040000 		.4byte	.LASF12
+ 798 0097 03       		.uleb128 0x3
+ 799 0098 24010000 		.4byte	.LASF13
+ 800 009c 03       		.byte	0x3
+ 801 009d 15       		.byte	0x15
+ 802 009e 2C000000 		.4byte	0x2c
+ 803 00a2 03       		.uleb128 0x3
+ 804 00a3 B4000000 		.4byte	.LASF14
+ 805 00a7 03       		.byte	0x3
+ 806 00a8 20       		.byte	0x20
+ 807 00a9 3E000000 		.4byte	0x3e
+ 808 00ad 03       		.uleb128 0x3
+ 809 00ae 54030000 		.4byte	.LASF15
+ 810 00b2 03       		.byte	0x3
+ 811 00b3 21       		.byte	0x21
+ 812 00b4 50000000 		.4byte	0x50
+ 813 00b8 03       		.uleb128 0x3
+ 814 00b9 76030000 		.4byte	.LASF16
+ 815 00bd 03       		.byte	0x3
+ 816 00be 2C       		.byte	0x2c
+ 817 00bf 62000000 		.4byte	0x62
+ 818 00c3 05       		.uleb128 0x5
+ 819 00c4 2C010000 		.4byte	.LASF17
+ 820 00c8 04       		.byte	0x4
+ 821 00c9 3801     		.2byte	0x138
+ 822 00cb 37000000 		.4byte	0x37
+ 823 00cf 02       		.uleb128 0x2
+ 824 00d0 04       		.byte	0x4
+ 825 00d1 04       		.byte	0x4
+ 826 00d2 4D010000 		.4byte	.LASF18
+ 827 00d6 02       		.uleb128 0x2
+ 828 00d7 08       		.byte	0x8
+ 829 00d8 04       		.byte	0x4
+ 830 00d9 B1040000 		.4byte	.LASF19
+ 831 00dd 02       		.uleb128 0x2
+ 832 00de 01       		.byte	0x1
+ 833 00df 08       		.byte	0x8
+ 834 00e0 4F030000 		.4byte	.LASF20
+ 835 00e4 06       		.uleb128 0x6
+ 836 00e5 04       		.byte	0x4
+ 837 00e6 EA000000 		.4byte	0xea
+ 838 00ea 07       		.uleb128 0x7
+ 839 00eb 02       		.uleb128 0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 19
+
+
+ 840 00ec 04       		.byte	0x4
+ 841 00ed 07       		.byte	0x7
+ 842 00ee AB000000 		.4byte	.LASF21
+ 843 00f2 08       		.uleb128 0x8
+ 844 00f3 37010000 		.4byte	.LASF81
+ 845 00f7 01       		.byte	0x1
+ 846 00f8 08       		.byte	0x8
+ 847 00f9 51       		.byte	0x51
+ 848 00fa 29010000 		.4byte	0x129
+ 849 00fe 09       		.uleb128 0x9
+ 850 00ff 48030000 		.4byte	.LASF22
+ 851 0103 00       		.sleb128 0
+ 852 0104 09       		.uleb128 0x9
+ 853 0105 AB040000 		.4byte	.LASF23
+ 854 0109 01       		.sleb128 1
+ 855 010a 09       		.uleb128 0x9
+ 856 010b D6010000 		.4byte	.LASF24
+ 857 010f 02       		.sleb128 2
+ 858 0110 09       		.uleb128 0x9
+ 859 0111 08050000 		.4byte	.LASF25
+ 860 0115 03       		.sleb128 3
+ 861 0116 09       		.uleb128 0x9
+ 862 0117 8F010000 		.4byte	.LASF26
+ 863 011b 04       		.sleb128 4
+ 864 011c 09       		.uleb128 0x9
+ 865 011d D9020000 		.4byte	.LASF27
+ 866 0121 05       		.sleb128 5
+ 867 0122 09       		.uleb128 0x9
+ 868 0123 BC000000 		.4byte	.LASF28
+ 869 0127 06       		.sleb128 6
+ 870 0128 00       		.byte	0
+ 871 0129 0A       		.uleb128 0xa
+ 872 012a B9030000 		.4byte	.LASF82
+ 873 012e 24       		.byte	0x24
+ 874 012f 05       		.byte	0x5
+ 875 0130 1A       		.byte	0x1a
+ 876 0131 A2010000 		.4byte	0x1a2
+ 877 0135 0B       		.uleb128 0xb
+ 878 0136 F4030000 		.4byte	.LASF29
+ 879 013a 05       		.byte	0x5
+ 880 013b 1C       		.byte	0x1c
+ 881 013c A7010000 		.4byte	0x1a7
+ 882 0140 00       		.byte	0
+ 883 0141 0B       		.uleb128 0xb
+ 884 0142 FD040000 		.4byte	.LASF30
+ 885 0146 05       		.byte	0x5
+ 886 0147 1D       		.byte	0x1d
+ 887 0148 B9010000 		.4byte	0x1b9
+ 888 014c 04       		.byte	0x4
+ 889 014d 0B       		.uleb128 0xb
+ 890 014e 2D000000 		.4byte	.LASF31
+ 891 0152 05       		.byte	0x5
+ 892 0153 1E       		.byte	0x1e
+ 893 0154 E4000000 		.4byte	0xe4
+ 894 0158 08       		.byte	0x8
+ 895 0159 0B       		.uleb128 0xb
+ 896 015a E3030000 		.4byte	.LASF32
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 20
+
+
+ 897 015e 05       		.byte	0x5
+ 898 015f 1F       		.byte	0x1f
+ 899 0160 CA010000 		.4byte	0x1ca
+ 900 0164 0C       		.byte	0xc
+ 901 0165 0B       		.uleb128 0xb
+ 902 0166 51000000 		.4byte	.LASF33
+ 903 016a 05       		.byte	0x5
+ 904 016b 20       		.byte	0x20
+ 905 016c EB010000 		.4byte	0x1eb
+ 906 0170 10       		.byte	0x10
+ 907 0171 0B       		.uleb128 0xb
+ 908 0172 CA000000 		.4byte	.LASF34
+ 909 0176 05       		.byte	0x5
+ 910 0177 21       		.byte	0x21
+ 911 0178 0B020000 		.4byte	0x20b
+ 912 017c 14       		.byte	0x14
+ 913 017d 0B       		.uleb128 0xb
+ 914 017e D0020000 		.4byte	.LASF35
+ 915 0182 05       		.byte	0x5
+ 916 0183 22       		.byte	0x22
+ 917 0184 16020000 		.4byte	0x216
+ 918 0188 18       		.byte	0x18
+ 919 0189 0B       		.uleb128 0xb
+ 920 018a 79020000 		.4byte	.LASF36
+ 921 018e 05       		.byte	0x5
+ 922 018f 23       		.byte	0x23
+ 923 0190 E4000000 		.4byte	0xe4
+ 924 0194 1C       		.byte	0x1c
+ 925 0195 0B       		.uleb128 0xb
+ 926 0196 96040000 		.4byte	.LASF37
+ 927 019a 05       		.byte	0x5
+ 928 019b 24       		.byte	0x24
+ 929 019c 21020000 		.4byte	0x221
+ 930 01a0 20       		.byte	0x20
+ 931 01a1 00       		.byte	0
+ 932 01a2 0C       		.uleb128 0xc
+ 933 01a3 A2000000 		.4byte	0xa2
+ 934 01a7 06       		.uleb128 0x6
+ 935 01a8 04       		.byte	0x4
+ 936 01a9 A2010000 		.4byte	0x1a2
+ 937 01ad 0C       		.uleb128 0xc
+ 938 01ae B2010000 		.4byte	0x1b2
+ 939 01b2 02       		.uleb128 0x2
+ 940 01b3 01       		.byte	0x1
+ 941 01b4 02       		.byte	0x2
+ 942 01b5 32010000 		.4byte	.LASF38
+ 943 01b9 06       		.uleb128 0x6
+ 944 01ba 04       		.byte	0x4
+ 945 01bb AD010000 		.4byte	0x1ad
+ 946 01bf 0D       		.uleb128 0xd
+ 947 01c0 CA010000 		.4byte	0x1ca
+ 948 01c4 0E       		.uleb128 0xe
+ 949 01c5 AD000000 		.4byte	0xad
+ 950 01c9 00       		.byte	0
+ 951 01ca 06       		.uleb128 0x6
+ 952 01cb 04       		.byte	0x4
+ 953 01cc BF010000 		.4byte	0x1bf
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 21
+
+
+ 954 01d0 0D       		.uleb128 0xd
+ 955 01d1 E0010000 		.4byte	0x1e0
+ 956 01d5 0E       		.uleb128 0xe
+ 957 01d6 E0010000 		.4byte	0x1e0
+ 958 01da 0E       		.uleb128 0xe
+ 959 01db AD000000 		.4byte	0xad
+ 960 01df 00       		.byte	0
+ 961 01e0 06       		.uleb128 0x6
+ 962 01e1 04       		.byte	0x4
+ 963 01e2 E6010000 		.4byte	0x1e6
+ 964 01e6 0F       		.uleb128 0xf
+ 965 01e7 97000000 		.4byte	0x97
+ 966 01eb 06       		.uleb128 0x6
+ 967 01ec 04       		.byte	0x4
+ 968 01ed D0010000 		.4byte	0x1d0
+ 969 01f1 10       		.uleb128 0x10
+ 970 01f2 AD000000 		.4byte	0xad
+ 971 01f6 05020000 		.4byte	0x205
+ 972 01fa 0E       		.uleb128 0xe
+ 973 01fb 05020000 		.4byte	0x205
+ 974 01ff 0E       		.uleb128 0xe
+ 975 0200 AD000000 		.4byte	0xad
+ 976 0204 00       		.byte	0
+ 977 0205 06       		.uleb128 0x6
+ 978 0206 04       		.byte	0x4
+ 979 0207 97000000 		.4byte	0x97
+ 980 020b 06       		.uleb128 0x6
+ 981 020c 04       		.byte	0x4
+ 982 020d F1010000 		.4byte	0x1f1
+ 983 0211 0C       		.uleb128 0xc
+ 984 0212 DD000000 		.4byte	0xdd
+ 985 0216 06       		.uleb128 0x6
+ 986 0217 04       		.byte	0x4
+ 987 0218 11020000 		.4byte	0x211
+ 988 021c 0C       		.uleb128 0xc
+ 989 021d 97000000 		.4byte	0x97
+ 990 0221 06       		.uleb128 0x6
+ 991 0222 04       		.byte	0x4
+ 992 0223 1C020000 		.4byte	0x21c
+ 993 0227 02       		.uleb128 0x2
+ 994 0228 08       		.byte	0x8
+ 995 0229 04       		.byte	0x4
+ 996 022a 6D020000 		.4byte	.LASF39
+ 997 022e 03       		.uleb128 0x3
+ 998 022f 00020000 		.4byte	.LASF40
+ 999 0233 01       		.byte	0x1
+ 1000 0234 61       		.byte	0x61
+ 1001 0235 21020000 		.4byte	0x221
+ 1002 0239 03       		.uleb128 0x3
+ 1003 023a 09040000 		.4byte	.LASF41
+ 1004 023e 01       		.byte	0x1
+ 1005 023f 62       		.byte	0x62
+ 1006 0240 21020000 		.4byte	0x221
+ 1007 0244 11       		.uleb128 0x11
+ 1008 0245 40010000 		.4byte	.LASF46
+ 1009 0249 01       		.byte	0x1
+ 1010 024a 16       		.byte	0x16
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 22
+
+
+ 1011 024b EB040000 		.4byte	.LASF48
+ 1012 024f B2010000 		.4byte	0x1b2
+ 1013 0253 00000000 		.4byte	.LFB147
+ 1014 0257 4C000000 		.4byte	.LFE147-.LFB147
+ 1015 025b 01       		.uleb128 0x1
+ 1016 025c 9C       		.byte	0x9c
+ 1017 025d 7A020000 		.4byte	0x27a
+ 1018 0261 12       		.uleb128 0x12
+ 1019 0262 06000000 		.4byte	.LBB2
+ 1020 0266 3E000000 		.4byte	.LBE2-.LBB2
+ 1021 026a 13       		.uleb128 0x13
+ 1022 026b 17010000 		.4byte	.LASF60
+ 1023 026f 01       		.byte	0x1
+ 1024 0270 19       		.byte	0x19
+ 1025 0271 97000000 		.4byte	0x97
+ 1026 0275 02       		.uleb128 0x2
+ 1027 0276 91       		.byte	0x91
+ 1028 0277 77       		.sleb128 -9
+ 1029 0278 00       		.byte	0
+ 1030 0279 00       		.byte	0
+ 1031 027a 14       		.uleb128 0x14
+ 1032 027b 0D000000 		.4byte	.LASF42
+ 1033 027f 01       		.byte	0x1
+ 1034 0280 3F       		.byte	0x3f
+ 1035 0281 32020000 		.4byte	.LASF44
+ 1036 0285 00000000 		.4byte	.LFB148
+ 1037 0289 38000000 		.4byte	.LFE148-.LFB148
+ 1038 028d 01       		.uleb128 0x1
+ 1039 028e 9C       		.byte	0x9c
+ 1040 028f 14       		.uleb128 0x14
+ 1041 0290 62030000 		.4byte	.LASF43
+ 1042 0294 01       		.byte	0x1
+ 1043 0295 4F       		.byte	0x4f
+ 1044 0296 BD010000 		.4byte	.LASF45
+ 1045 029a 00000000 		.4byte	.LFB149
+ 1046 029e 58000000 		.4byte	.LFE149-.LFB149
+ 1047 02a2 01       		.uleb128 0x1
+ 1048 02a3 9C       		.byte	0x9c
+ 1049 02a4 11       		.uleb128 0x11
+ 1050 02a5 85030000 		.4byte	.LASF47
+ 1051 02a9 01       		.byte	0x1
+ 1052 02aa 69       		.byte	0x69
+ 1053 02ab 4E020000 		.4byte	.LASF49
+ 1054 02af AD000000 		.4byte	0xad
+ 1055 02b3 00000000 		.4byte	.LFB150
+ 1056 02b7 40000000 		.4byte	.LFE150-.LFB150
+ 1057 02bb 01       		.uleb128 0x1
+ 1058 02bc 9C       		.byte	0x9c
+ 1059 02bd DE020000 		.4byte	0x2de
+ 1060 02c1 15       		.uleb128 0x15
+ 1061 02c2 7E030000 		.4byte	.LASF50
+ 1062 02c6 01       		.byte	0x1
+ 1063 02c7 69       		.byte	0x69
+ 1064 02c8 05020000 		.4byte	0x205
+ 1065 02cc 02       		.uleb128 0x2
+ 1066 02cd 91       		.byte	0x91
+ 1067 02ce 74       		.sleb128 -12
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 23
+
+
+ 1068 02cf 15       		.uleb128 0x15
+ 1069 02d0 EF030000 		.4byte	.LASF51
+ 1070 02d4 01       		.byte	0x1
+ 1071 02d5 69       		.byte	0x69
+ 1072 02d6 AD000000 		.4byte	0xad
+ 1073 02da 02       		.uleb128 0x2
+ 1074 02db 91       		.byte	0x91
+ 1075 02dc 72       		.sleb128 -14
+ 1076 02dd 00       		.byte	0
+ 1077 02de 16       		.uleb128 0x16
+ 1078 02df 5A000000 		.4byte	.LASF52
+ 1079 02e3 01       		.byte	0x1
+ 1080 02e4 70       		.byte	0x70
+ 1081 02e5 13050000 		.4byte	.LASF54
+ 1082 02e9 A2000000 		.4byte	0xa2
+ 1083 02ed 00000000 		.4byte	.LFB151
+ 1084 02f1 12000000 		.4byte	.LFE151-.LFB151
+ 1085 02f5 01       		.uleb128 0x1
+ 1086 02f6 9C       		.byte	0x9c
+ 1087 02f7 17       		.uleb128 0x17
+ 1088 02f8 03010000 		.4byte	.LASF64
+ 1089 02fc 01       		.byte	0x1
+ 1090 02fd 75       		.byte	0x75
+ 1091 02fe 9D020000 		.4byte	.LASF66
+ 1092 0302 00000000 		.4byte	.LFB152
+ 1093 0306 1E000000 		.4byte	.LFE152-.LFB152
+ 1094 030a 01       		.uleb128 0x1
+ 1095 030b 9C       		.byte	0x9c
+ 1096 030c 2D030000 		.4byte	0x32d
+ 1097 0310 15       		.uleb128 0x15
+ 1098 0311 7E030000 		.4byte	.LASF50
+ 1099 0315 01       		.byte	0x1
+ 1100 0316 75       		.byte	0x75
+ 1101 0317 E0010000 		.4byte	0x1e0
+ 1102 031b 02       		.uleb128 0x2
+ 1103 031c 91       		.byte	0x91
+ 1104 031d 74       		.sleb128 -12
+ 1105 031e 15       		.uleb128 0x15
+ 1106 031f EF030000 		.4byte	.LASF51
+ 1107 0323 01       		.byte	0x1
+ 1108 0324 75       		.byte	0x75
+ 1109 0325 AD000000 		.4byte	0xad
+ 1110 0329 02       		.uleb128 0x2
+ 1111 032a 91       		.byte	0x91
+ 1112 032b 72       		.sleb128 -14
+ 1113 032c 00       		.byte	0
+ 1114 032d 16       		.uleb128 0x16
+ 1115 032e 9E010000 		.4byte	.LASF53
+ 1116 0332 01       		.byte	0x1
+ 1117 0333 7A       		.byte	0x7a
+ 1118 0334 2D030000 		.4byte	.LASF55
+ 1119 0338 B2010000 		.4byte	0x1b2
+ 1120 033c 00000000 		.4byte	.LFB153
+ 1121 0340 28000000 		.4byte	.LFE153-.LFB153
+ 1122 0344 01       		.uleb128 0x1
+ 1123 0345 9C       		.byte	0x9c
+ 1124 0346 18       		.uleb128 0x18
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 24
+
+
+ 1125 0347 26040000 		.4byte	.LASF56
+ 1126 034b 01       		.byte	0x1
+ 1127 034c 82       		.byte	0x82
+ 1128 034d 9D030000 		.4byte	.LASF57
+ 1129 0351 00000000 		.4byte	.LFB154
+ 1130 0355 24000000 		.4byte	.LFE154-.LFB154
+ 1131 0359 01       		.uleb128 0x1
+ 1132 035a 9C       		.byte	0x9c
+ 1133 035b 11       		.uleb128 0x11
+ 1134 035c 73000000 		.4byte	.LASF58
+ 1135 0360 01       		.byte	0x1
+ 1136 0361 89       		.byte	0x89
+ 1137 0362 B8040000 		.4byte	.LASF59
+ 1138 0366 AD000000 		.4byte	0xad
+ 1139 036a 00000000 		.4byte	.LFB155
+ 1140 036e 68000000 		.4byte	.LFE155-.LFB155
+ 1141 0372 01       		.uleb128 0x1
+ 1142 0373 9C       		.byte	0x9c
+ 1143 0374 C3030000 		.4byte	0x3c3
+ 1144 0378 15       		.uleb128 0x15
+ 1145 0379 7E030000 		.4byte	.LASF50
+ 1146 037d 01       		.byte	0x1
+ 1147 037e 89       		.byte	0x89
+ 1148 037f 05020000 		.4byte	0x205
+ 1149 0383 02       		.uleb128 0x2
+ 1150 0384 91       		.byte	0x91
+ 1151 0385 64       		.sleb128 -28
+ 1152 0386 15       		.uleb128 0x15
+ 1153 0387 EF030000 		.4byte	.LASF51
+ 1154 038b 01       		.byte	0x1
+ 1155 038c 89       		.byte	0x89
+ 1156 038d 97000000 		.4byte	0x97
+ 1157 0391 02       		.uleb128 0x2
+ 1158 0392 91       		.byte	0x91
+ 1159 0393 63       		.sleb128 -29
+ 1160 0394 12       		.uleb128 0x12
+ 1161 0395 0C000000 		.4byte	.LBB3
+ 1162 0399 4A000000 		.4byte	.LBE3-.LBB3
+ 1163 039d 13       		.uleb128 0x13
+ 1164 039e D2000000 		.4byte	.LASF61
+ 1165 03a2 01       		.byte	0x1
+ 1166 03a3 8B       		.byte	0x8b
+ 1167 03a4 AD000000 		.4byte	0xad
+ 1168 03a8 02       		.uleb128 0x2
+ 1169 03a9 91       		.byte	0x91
+ 1170 03aa 6E       		.sleb128 -18
+ 1171 03ab 12       		.uleb128 0x12
+ 1172 03ac 10000000 		.4byte	.LBB4
+ 1173 03b0 44000000 		.4byte	.LBE4-.LBB4
+ 1174 03b4 19       		.uleb128 0x19
+ 1175 03b5 6900     		.ascii	"i\000"
+ 1176 03b7 01       		.byte	0x1
+ 1177 03b8 8C       		.byte	0x8c
+ 1178 03b9 89000000 		.4byte	0x89
+ 1179 03bd 02       		.uleb128 0x2
+ 1180 03be 91       		.byte	0x91
+ 1181 03bf 68       		.sleb128 -24
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 25
+
+
+ 1182 03c0 00       		.byte	0
+ 1183 03c1 00       		.byte	0
+ 1184 03c2 00       		.byte	0
+ 1185 03c3 16       		.uleb128 0x16
+ 1186 03c4 53010000 		.4byte	.LASF62
+ 1187 03c8 01       		.byte	0x1
+ 1188 03c9 9C       		.byte	0x9c
+ 1189 03ca E7020000 		.4byte	.LASF63
+ 1190 03ce A2000000 		.4byte	0xa2
+ 1191 03d2 00000000 		.4byte	.LFB156
+ 1192 03d6 2A000000 		.4byte	.LFE156-.LFB156
+ 1193 03da 01       		.uleb128 0x1
+ 1194 03db 9C       		.byte	0x9c
+ 1195 03dc 17       		.uleb128 0x17
+ 1196 03dd 8F000000 		.4byte	.LASF65
+ 1197 03e1 01       		.byte	0x1
+ 1198 03e2 B0       		.byte	0xb0
+ 1199 03e3 11020000 		.4byte	.LASF67
+ 1200 03e7 00000000 		.4byte	.LFB157
+ 1201 03eb 1E000000 		.4byte	.LFE157-.LFB157
+ 1202 03ef 01       		.uleb128 0x1
+ 1203 03f0 9C       		.byte	0x9c
+ 1204 03f1 04040000 		.4byte	0x404
+ 1205 03f5 15       		.uleb128 0x15
+ 1206 03f6 C5020000 		.4byte	.LASF68
+ 1207 03fa 01       		.byte	0x1
+ 1208 03fb B0       		.byte	0xb0
+ 1209 03fc AD000000 		.4byte	0xad
+ 1210 0400 02       		.uleb128 0x2
+ 1211 0401 91       		.byte	0x91
+ 1212 0402 76       		.sleb128 -10
+ 1213 0403 00       		.byte	0
+ 1214 0404 16       		.uleb128 0x16
+ 1215 0405 E3010000 		.4byte	.LASF69
+ 1216 0409 01       		.byte	0x1
+ 1217 040a B5       		.byte	0xb5
+ 1218 040b CB030000 		.4byte	.LASF70
+ 1219 040f 97000000 		.4byte	0x97
+ 1220 0413 00000000 		.4byte	.LFB158
+ 1221 0417 18000000 		.4byte	.LFE158-.LFB158
+ 1222 041b 01       		.uleb128 0x1
+ 1223 041c 9C       		.byte	0x9c
+ 1224 041d 1A       		.uleb128 0x1a
+ 1225 041e D1040000 		.4byte	.LASF73
+ 1226 0422 07       		.byte	0x7
+ 1227 0423 5506     		.2byte	0x655
+ 1228 0425 29040000 		.4byte	0x429
+ 1229 0429 1B       		.uleb128 0x1b
+ 1230 042a B8000000 		.4byte	0xb8
+ 1231 042e 19       		.uleb128 0x19
+ 1232 042f 535300   		.ascii	"SS\000"
+ 1233 0432 06       		.byte	0x6
+ 1234 0433 26       		.byte	0x26
+ 1235 0434 E6010000 		.4byte	0x1e6
+ 1236 0438 05       		.uleb128 0x5
+ 1237 0439 03       		.byte	0x3
+ 1238 043a 00000000 		.4byte	_ZL2SS
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 26
+
+
+ 1239 043e 13       		.uleb128 0x13
+ 1240 043f 15030000 		.4byte	.LASF71
+ 1241 0443 06       		.byte	0x6
+ 1242 0444 27       		.byte	0x27
+ 1243 0445 E6010000 		.4byte	0x1e6
+ 1244 0449 05       		.uleb128 0x5
+ 1245 044a 03       		.byte	0x3
+ 1246 044b 01000000 		.4byte	_ZL4MOSI
+ 1247 044f 13       		.uleb128 0x13
+ 1248 0450 5D030000 		.4byte	.LASF72
+ 1249 0454 06       		.byte	0x6
+ 1250 0455 28       		.byte	0x28
+ 1251 0456 E6010000 		.4byte	0x1e6
+ 1252 045a 05       		.uleb128 0x5
+ 1253 045b 03       		.byte	0x3
+ 1254 045c 02000000 		.4byte	_ZL4MISO
+ 1255 0460 19       		.uleb128 0x19
+ 1256 0461 53434B00 		.ascii	"SCK\000"
+ 1257 0465 06       		.byte	0x6
+ 1258 0466 29       		.byte	0x29
+ 1259 0467 E6010000 		.4byte	0x1e6
+ 1260 046b 05       		.uleb128 0x5
+ 1261 046c 03       		.byte	0x3
+ 1262 046d 03000000 		.4byte	_ZL3SCK
+ 1263 0471 19       		.uleb128 0x19
+ 1264 0472 53444100 		.ascii	"SDA\000"
+ 1265 0476 06       		.byte	0x6
+ 1266 0477 2B       		.byte	0x2b
+ 1267 0478 E6010000 		.4byte	0x1e6
+ 1268 047c 05       		.uleb128 0x5
+ 1269 047d 03       		.byte	0x3
+ 1270 047e 04000000 		.4byte	_ZL3SDA
+ 1271 0482 19       		.uleb128 0x19
+ 1272 0483 53434C00 		.ascii	"SCL\000"
+ 1273 0487 06       		.byte	0x6
+ 1274 0488 2C       		.byte	0x2c
+ 1275 0489 E6010000 		.4byte	0x1e6
+ 1276 048d 05       		.uleb128 0x5
+ 1277 048e 03       		.byte	0x3
+ 1278 048f 05000000 		.4byte	_ZL3SCL
+ 1279 0493 1C       		.uleb128 0x1c
+ 1280 0494 F3000000 		.4byte	.LASF74
+ 1281 0498 01       		.byte	0x1
+ 1282 0499 0F       		.byte	0xf
+ 1283 049a 29010000 		.4byte	0x129
+ 1284 049e 1C       		.uleb128 0x1c
+ 1285 049f 00000000 		.4byte	.LASF75
+ 1286 04a3 01       		.byte	0x1
+ 1287 04a4 10       		.byte	0x10
+ 1288 04a5 29010000 		.4byte	0x129
+ 1289 04a9 1D       		.uleb128 0x1d
+ 1290 04aa 24000000 		.4byte	.LASF76
+ 1291 04ae 01       		.byte	0x1
+ 1292 04af 64       		.byte	0x64
+ 1293 04b0 2E020000 		.4byte	0x22e
+ 1294 04b4 05       		.uleb128 0x5
+ 1295 04b5 03       		.byte	0x3
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 27
+
+
+ 1296 04b6 00000000 		.4byte	readByte
+ 1297 04ba 1D       		.uleb128 0x1d
+ 1298 04bb DC000000 		.4byte	.LASF77
+ 1299 04bf 01       		.byte	0x1
+ 1300 04c0 65       		.byte	0x65
+ 1301 04c1 39020000 		.4byte	0x239
+ 1302 04c5 05       		.uleb128 0x5
+ 1303 04c6 03       		.byte	0x3
+ 1304 04c7 00000000 		.4byte	readBufSize
+ 1305 04cb 00       		.byte	0
+ 1306              		.section	.debug_abbrev,"",%progbits
+ 1307              	.Ldebug_abbrev0:
+ 1308 0000 01       		.uleb128 0x1
+ 1309 0001 11       		.uleb128 0x11
+ 1310 0002 01       		.byte	0x1
+ 1311 0003 25       		.uleb128 0x25
+ 1312 0004 0E       		.uleb128 0xe
+ 1313 0005 13       		.uleb128 0x13
+ 1314 0006 0B       		.uleb128 0xb
+ 1315 0007 03       		.uleb128 0x3
+ 1316 0008 0E       		.uleb128 0xe
+ 1317 0009 1B       		.uleb128 0x1b
+ 1318 000a 0E       		.uleb128 0xe
+ 1319 000b 55       		.uleb128 0x55
+ 1320 000c 17       		.uleb128 0x17
+ 1321 000d 11       		.uleb128 0x11
+ 1322 000e 01       		.uleb128 0x1
+ 1323 000f 10       		.uleb128 0x10
+ 1324 0010 17       		.uleb128 0x17
+ 1325 0011 00       		.byte	0
+ 1326 0012 00       		.byte	0
+ 1327 0013 02       		.uleb128 0x2
+ 1328 0014 24       		.uleb128 0x24
+ 1329 0015 00       		.byte	0
+ 1330 0016 0B       		.uleb128 0xb
+ 1331 0017 0B       		.uleb128 0xb
+ 1332 0018 3E       		.uleb128 0x3e
+ 1333 0019 0B       		.uleb128 0xb
+ 1334 001a 03       		.uleb128 0x3
+ 1335 001b 0E       		.uleb128 0xe
+ 1336 001c 00       		.byte	0
+ 1337 001d 00       		.byte	0
+ 1338 001e 03       		.uleb128 0x3
+ 1339 001f 16       		.uleb128 0x16
+ 1340 0020 00       		.byte	0
+ 1341 0021 03       		.uleb128 0x3
+ 1342 0022 0E       		.uleb128 0xe
+ 1343 0023 3A       		.uleb128 0x3a
+ 1344 0024 0B       		.uleb128 0xb
+ 1345 0025 3B       		.uleb128 0x3b
+ 1346 0026 0B       		.uleb128 0xb
+ 1347 0027 49       		.uleb128 0x49
+ 1348 0028 13       		.uleb128 0x13
+ 1349 0029 00       		.byte	0
+ 1350 002a 00       		.byte	0
+ 1351 002b 04       		.uleb128 0x4
+ 1352 002c 24       		.uleb128 0x24
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 28
+
+
+ 1353 002d 00       		.byte	0
+ 1354 002e 0B       		.uleb128 0xb
+ 1355 002f 0B       		.uleb128 0xb
+ 1356 0030 3E       		.uleb128 0x3e
+ 1357 0031 0B       		.uleb128 0xb
+ 1358 0032 03       		.uleb128 0x3
+ 1359 0033 08       		.uleb128 0x8
+ 1360 0034 00       		.byte	0
+ 1361 0035 00       		.byte	0
+ 1362 0036 05       		.uleb128 0x5
+ 1363 0037 16       		.uleb128 0x16
+ 1364 0038 00       		.byte	0
+ 1365 0039 03       		.uleb128 0x3
+ 1366 003a 0E       		.uleb128 0xe
+ 1367 003b 3A       		.uleb128 0x3a
+ 1368 003c 0B       		.uleb128 0xb
+ 1369 003d 3B       		.uleb128 0x3b
+ 1370 003e 05       		.uleb128 0x5
+ 1371 003f 49       		.uleb128 0x49
+ 1372 0040 13       		.uleb128 0x13
+ 1373 0041 00       		.byte	0
+ 1374 0042 00       		.byte	0
+ 1375 0043 06       		.uleb128 0x6
+ 1376 0044 0F       		.uleb128 0xf
+ 1377 0045 00       		.byte	0
+ 1378 0046 0B       		.uleb128 0xb
+ 1379 0047 0B       		.uleb128 0xb
+ 1380 0048 49       		.uleb128 0x49
+ 1381 0049 13       		.uleb128 0x13
+ 1382 004a 00       		.byte	0
+ 1383 004b 00       		.byte	0
+ 1384 004c 07       		.uleb128 0x7
+ 1385 004d 15       		.uleb128 0x15
+ 1386 004e 00       		.byte	0
+ 1387 004f 00       		.byte	0
+ 1388 0050 00       		.byte	0
+ 1389 0051 08       		.uleb128 0x8
+ 1390 0052 04       		.uleb128 0x4
+ 1391 0053 01       		.byte	0x1
+ 1392 0054 03       		.uleb128 0x3
+ 1393 0055 0E       		.uleb128 0xe
+ 1394 0056 0B       		.uleb128 0xb
+ 1395 0057 0B       		.uleb128 0xb
+ 1396 0058 3A       		.uleb128 0x3a
+ 1397 0059 0B       		.uleb128 0xb
+ 1398 005a 3B       		.uleb128 0x3b
+ 1399 005b 0B       		.uleb128 0xb
+ 1400 005c 01       		.uleb128 0x1
+ 1401 005d 13       		.uleb128 0x13
+ 1402 005e 00       		.byte	0
+ 1403 005f 00       		.byte	0
+ 1404 0060 09       		.uleb128 0x9
+ 1405 0061 28       		.uleb128 0x28
+ 1406 0062 00       		.byte	0
+ 1407 0063 03       		.uleb128 0x3
+ 1408 0064 0E       		.uleb128 0xe
+ 1409 0065 1C       		.uleb128 0x1c
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 29
+
+
+ 1410 0066 0D       		.uleb128 0xd
+ 1411 0067 00       		.byte	0
+ 1412 0068 00       		.byte	0
+ 1413 0069 0A       		.uleb128 0xa
+ 1414 006a 13       		.uleb128 0x13
+ 1415 006b 01       		.byte	0x1
+ 1416 006c 03       		.uleb128 0x3
+ 1417 006d 0E       		.uleb128 0xe
+ 1418 006e 0B       		.uleb128 0xb
+ 1419 006f 0B       		.uleb128 0xb
+ 1420 0070 3A       		.uleb128 0x3a
+ 1421 0071 0B       		.uleb128 0xb
+ 1422 0072 3B       		.uleb128 0x3b
+ 1423 0073 0B       		.uleb128 0xb
+ 1424 0074 01       		.uleb128 0x1
+ 1425 0075 13       		.uleb128 0x13
+ 1426 0076 00       		.byte	0
+ 1427 0077 00       		.byte	0
+ 1428 0078 0B       		.uleb128 0xb
+ 1429 0079 0D       		.uleb128 0xd
+ 1430 007a 00       		.byte	0
+ 1431 007b 03       		.uleb128 0x3
+ 1432 007c 0E       		.uleb128 0xe
+ 1433 007d 3A       		.uleb128 0x3a
+ 1434 007e 0B       		.uleb128 0xb
+ 1435 007f 3B       		.uleb128 0x3b
+ 1436 0080 0B       		.uleb128 0xb
+ 1437 0081 49       		.uleb128 0x49
+ 1438 0082 13       		.uleb128 0x13
+ 1439 0083 38       		.uleb128 0x38
+ 1440 0084 0B       		.uleb128 0xb
+ 1441 0085 00       		.byte	0
+ 1442 0086 00       		.byte	0
+ 1443 0087 0C       		.uleb128 0xc
+ 1444 0088 15       		.uleb128 0x15
+ 1445 0089 00       		.byte	0
+ 1446 008a 49       		.uleb128 0x49
+ 1447 008b 13       		.uleb128 0x13
+ 1448 008c 00       		.byte	0
+ 1449 008d 00       		.byte	0
+ 1450 008e 0D       		.uleb128 0xd
+ 1451 008f 15       		.uleb128 0x15
+ 1452 0090 01       		.byte	0x1
+ 1453 0091 01       		.uleb128 0x1
+ 1454 0092 13       		.uleb128 0x13
+ 1455 0093 00       		.byte	0
+ 1456 0094 00       		.byte	0
+ 1457 0095 0E       		.uleb128 0xe
+ 1458 0096 05       		.uleb128 0x5
+ 1459 0097 00       		.byte	0
+ 1460 0098 49       		.uleb128 0x49
+ 1461 0099 13       		.uleb128 0x13
+ 1462 009a 00       		.byte	0
+ 1463 009b 00       		.byte	0
+ 1464 009c 0F       		.uleb128 0xf
+ 1465 009d 26       		.uleb128 0x26
+ 1466 009e 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 30
+
+
+ 1467 009f 49       		.uleb128 0x49
+ 1468 00a0 13       		.uleb128 0x13
+ 1469 00a1 00       		.byte	0
+ 1470 00a2 00       		.byte	0
+ 1471 00a3 10       		.uleb128 0x10
+ 1472 00a4 15       		.uleb128 0x15
+ 1473 00a5 01       		.byte	0x1
+ 1474 00a6 49       		.uleb128 0x49
+ 1475 00a7 13       		.uleb128 0x13
+ 1476 00a8 01       		.uleb128 0x1
+ 1477 00a9 13       		.uleb128 0x13
+ 1478 00aa 00       		.byte	0
+ 1479 00ab 00       		.byte	0
+ 1480 00ac 11       		.uleb128 0x11
+ 1481 00ad 2E       		.uleb128 0x2e
+ 1482 00ae 01       		.byte	0x1
+ 1483 00af 3F       		.uleb128 0x3f
+ 1484 00b0 19       		.uleb128 0x19
+ 1485 00b1 03       		.uleb128 0x3
+ 1486 00b2 0E       		.uleb128 0xe
+ 1487 00b3 3A       		.uleb128 0x3a
+ 1488 00b4 0B       		.uleb128 0xb
+ 1489 00b5 3B       		.uleb128 0x3b
+ 1490 00b6 0B       		.uleb128 0xb
+ 1491 00b7 6E       		.uleb128 0x6e
+ 1492 00b8 0E       		.uleb128 0xe
+ 1493 00b9 49       		.uleb128 0x49
+ 1494 00ba 13       		.uleb128 0x13
+ 1495 00bb 11       		.uleb128 0x11
+ 1496 00bc 01       		.uleb128 0x1
+ 1497 00bd 12       		.uleb128 0x12
+ 1498 00be 06       		.uleb128 0x6
+ 1499 00bf 40       		.uleb128 0x40
+ 1500 00c0 18       		.uleb128 0x18
+ 1501 00c1 9642     		.uleb128 0x2116
+ 1502 00c3 19       		.uleb128 0x19
+ 1503 00c4 01       		.uleb128 0x1
+ 1504 00c5 13       		.uleb128 0x13
+ 1505 00c6 00       		.byte	0
+ 1506 00c7 00       		.byte	0
+ 1507 00c8 12       		.uleb128 0x12
+ 1508 00c9 0B       		.uleb128 0xb
+ 1509 00ca 01       		.byte	0x1
+ 1510 00cb 11       		.uleb128 0x11
+ 1511 00cc 01       		.uleb128 0x1
+ 1512 00cd 12       		.uleb128 0x12
+ 1513 00ce 06       		.uleb128 0x6
+ 1514 00cf 00       		.byte	0
+ 1515 00d0 00       		.byte	0
+ 1516 00d1 13       		.uleb128 0x13
+ 1517 00d2 34       		.uleb128 0x34
+ 1518 00d3 00       		.byte	0
+ 1519 00d4 03       		.uleb128 0x3
+ 1520 00d5 0E       		.uleb128 0xe
+ 1521 00d6 3A       		.uleb128 0x3a
+ 1522 00d7 0B       		.uleb128 0xb
+ 1523 00d8 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 31
+
+
+ 1524 00d9 0B       		.uleb128 0xb
+ 1525 00da 49       		.uleb128 0x49
+ 1526 00db 13       		.uleb128 0x13
+ 1527 00dc 02       		.uleb128 0x2
+ 1528 00dd 18       		.uleb128 0x18
+ 1529 00de 00       		.byte	0
+ 1530 00df 00       		.byte	0
+ 1531 00e0 14       		.uleb128 0x14
+ 1532 00e1 2E       		.uleb128 0x2e
+ 1533 00e2 00       		.byte	0
+ 1534 00e3 3F       		.uleb128 0x3f
+ 1535 00e4 19       		.uleb128 0x19
+ 1536 00e5 03       		.uleb128 0x3
+ 1537 00e6 0E       		.uleb128 0xe
+ 1538 00e7 3A       		.uleb128 0x3a
+ 1539 00e8 0B       		.uleb128 0xb
+ 1540 00e9 3B       		.uleb128 0x3b
+ 1541 00ea 0B       		.uleb128 0xb
+ 1542 00eb 6E       		.uleb128 0x6e
+ 1543 00ec 0E       		.uleb128 0xe
+ 1544 00ed 11       		.uleb128 0x11
+ 1545 00ee 01       		.uleb128 0x1
+ 1546 00ef 12       		.uleb128 0x12
+ 1547 00f0 06       		.uleb128 0x6
+ 1548 00f1 40       		.uleb128 0x40
+ 1549 00f2 18       		.uleb128 0x18
+ 1550 00f3 9742     		.uleb128 0x2117
+ 1551 00f5 19       		.uleb128 0x19
+ 1552 00f6 00       		.byte	0
+ 1553 00f7 00       		.byte	0
+ 1554 00f8 15       		.uleb128 0x15
+ 1555 00f9 05       		.uleb128 0x5
+ 1556 00fa 00       		.byte	0
+ 1557 00fb 03       		.uleb128 0x3
+ 1558 00fc 0E       		.uleb128 0xe
+ 1559 00fd 3A       		.uleb128 0x3a
+ 1560 00fe 0B       		.uleb128 0xb
+ 1561 00ff 3B       		.uleb128 0x3b
+ 1562 0100 0B       		.uleb128 0xb
+ 1563 0101 49       		.uleb128 0x49
+ 1564 0102 13       		.uleb128 0x13
+ 1565 0103 02       		.uleb128 0x2
+ 1566 0104 18       		.uleb128 0x18
+ 1567 0105 00       		.byte	0
+ 1568 0106 00       		.byte	0
+ 1569 0107 16       		.uleb128 0x16
+ 1570 0108 2E       		.uleb128 0x2e
+ 1571 0109 00       		.byte	0
+ 1572 010a 3F       		.uleb128 0x3f
+ 1573 010b 19       		.uleb128 0x19
+ 1574 010c 03       		.uleb128 0x3
+ 1575 010d 0E       		.uleb128 0xe
+ 1576 010e 3A       		.uleb128 0x3a
+ 1577 010f 0B       		.uleb128 0xb
+ 1578 0110 3B       		.uleb128 0x3b
+ 1579 0111 0B       		.uleb128 0xb
+ 1580 0112 6E       		.uleb128 0x6e
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 32
+
+
+ 1581 0113 0E       		.uleb128 0xe
+ 1582 0114 49       		.uleb128 0x49
+ 1583 0115 13       		.uleb128 0x13
+ 1584 0116 11       		.uleb128 0x11
+ 1585 0117 01       		.uleb128 0x1
+ 1586 0118 12       		.uleb128 0x12
+ 1587 0119 06       		.uleb128 0x6
+ 1588 011a 40       		.uleb128 0x40
+ 1589 011b 18       		.uleb128 0x18
+ 1590 011c 9642     		.uleb128 0x2116
+ 1591 011e 19       		.uleb128 0x19
+ 1592 011f 00       		.byte	0
+ 1593 0120 00       		.byte	0
+ 1594 0121 17       		.uleb128 0x17
+ 1595 0122 2E       		.uleb128 0x2e
+ 1596 0123 01       		.byte	0x1
+ 1597 0124 3F       		.uleb128 0x3f
+ 1598 0125 19       		.uleb128 0x19
+ 1599 0126 03       		.uleb128 0x3
+ 1600 0127 0E       		.uleb128 0xe
+ 1601 0128 3A       		.uleb128 0x3a
+ 1602 0129 0B       		.uleb128 0xb
+ 1603 012a 3B       		.uleb128 0x3b
+ 1604 012b 0B       		.uleb128 0xb
+ 1605 012c 6E       		.uleb128 0x6e
+ 1606 012d 0E       		.uleb128 0xe
+ 1607 012e 11       		.uleb128 0x11
+ 1608 012f 01       		.uleb128 0x1
+ 1609 0130 12       		.uleb128 0x12
+ 1610 0131 06       		.uleb128 0x6
+ 1611 0132 40       		.uleb128 0x40
+ 1612 0133 18       		.uleb128 0x18
+ 1613 0134 9642     		.uleb128 0x2116
+ 1614 0136 19       		.uleb128 0x19
+ 1615 0137 01       		.uleb128 0x1
+ 1616 0138 13       		.uleb128 0x13
+ 1617 0139 00       		.byte	0
+ 1618 013a 00       		.byte	0
+ 1619 013b 18       		.uleb128 0x18
+ 1620 013c 2E       		.uleb128 0x2e
+ 1621 013d 00       		.byte	0
+ 1622 013e 3F       		.uleb128 0x3f
+ 1623 013f 19       		.uleb128 0x19
+ 1624 0140 03       		.uleb128 0x3
+ 1625 0141 0E       		.uleb128 0xe
+ 1626 0142 3A       		.uleb128 0x3a
+ 1627 0143 0B       		.uleb128 0xb
+ 1628 0144 3B       		.uleb128 0x3b
+ 1629 0145 0B       		.uleb128 0xb
+ 1630 0146 6E       		.uleb128 0x6e
+ 1631 0147 0E       		.uleb128 0xe
+ 1632 0148 11       		.uleb128 0x11
+ 1633 0149 01       		.uleb128 0x1
+ 1634 014a 12       		.uleb128 0x12
+ 1635 014b 06       		.uleb128 0x6
+ 1636 014c 40       		.uleb128 0x40
+ 1637 014d 18       		.uleb128 0x18
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 33
+
+
+ 1638 014e 9642     		.uleb128 0x2116
+ 1639 0150 19       		.uleb128 0x19
+ 1640 0151 00       		.byte	0
+ 1641 0152 00       		.byte	0
+ 1642 0153 19       		.uleb128 0x19
+ 1643 0154 34       		.uleb128 0x34
+ 1644 0155 00       		.byte	0
+ 1645 0156 03       		.uleb128 0x3
+ 1646 0157 08       		.uleb128 0x8
+ 1647 0158 3A       		.uleb128 0x3a
+ 1648 0159 0B       		.uleb128 0xb
+ 1649 015a 3B       		.uleb128 0x3b
+ 1650 015b 0B       		.uleb128 0xb
+ 1651 015c 49       		.uleb128 0x49
+ 1652 015d 13       		.uleb128 0x13
+ 1653 015e 02       		.uleb128 0x2
+ 1654 015f 18       		.uleb128 0x18
+ 1655 0160 00       		.byte	0
+ 1656 0161 00       		.byte	0
+ 1657 0162 1A       		.uleb128 0x1a
+ 1658 0163 34       		.uleb128 0x34
+ 1659 0164 00       		.byte	0
+ 1660 0165 03       		.uleb128 0x3
+ 1661 0166 0E       		.uleb128 0xe
+ 1662 0167 3A       		.uleb128 0x3a
+ 1663 0168 0B       		.uleb128 0xb
+ 1664 0169 3B       		.uleb128 0x3b
+ 1665 016a 05       		.uleb128 0x5
+ 1666 016b 49       		.uleb128 0x49
+ 1667 016c 13       		.uleb128 0x13
+ 1668 016d 3F       		.uleb128 0x3f
+ 1669 016e 19       		.uleb128 0x19
+ 1670 016f 3C       		.uleb128 0x3c
+ 1671 0170 19       		.uleb128 0x19
+ 1672 0171 00       		.byte	0
+ 1673 0172 00       		.byte	0
+ 1674 0173 1B       		.uleb128 0x1b
+ 1675 0174 35       		.uleb128 0x35
+ 1676 0175 00       		.byte	0
+ 1677 0176 49       		.uleb128 0x49
+ 1678 0177 13       		.uleb128 0x13
+ 1679 0178 00       		.byte	0
+ 1680 0179 00       		.byte	0
+ 1681 017a 1C       		.uleb128 0x1c
+ 1682 017b 34       		.uleb128 0x34
+ 1683 017c 00       		.byte	0
+ 1684 017d 03       		.uleb128 0x3
+ 1685 017e 0E       		.uleb128 0xe
+ 1686 017f 3A       		.uleb128 0x3a
+ 1687 0180 0B       		.uleb128 0xb
+ 1688 0181 3B       		.uleb128 0x3b
+ 1689 0182 0B       		.uleb128 0xb
+ 1690 0183 49       		.uleb128 0x49
+ 1691 0184 13       		.uleb128 0x13
+ 1692 0185 3F       		.uleb128 0x3f
+ 1693 0186 19       		.uleb128 0x19
+ 1694 0187 3C       		.uleb128 0x3c
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 34
+
+
+ 1695 0188 19       		.uleb128 0x19
+ 1696 0189 00       		.byte	0
+ 1697 018a 00       		.byte	0
+ 1698 018b 1D       		.uleb128 0x1d
+ 1699 018c 34       		.uleb128 0x34
+ 1700 018d 00       		.byte	0
+ 1701 018e 03       		.uleb128 0x3
+ 1702 018f 0E       		.uleb128 0xe
+ 1703 0190 3A       		.uleb128 0x3a
+ 1704 0191 0B       		.uleb128 0xb
+ 1705 0192 3B       		.uleb128 0x3b
+ 1706 0193 0B       		.uleb128 0xb
+ 1707 0194 49       		.uleb128 0x49
+ 1708 0195 13       		.uleb128 0x13
+ 1709 0196 3F       		.uleb128 0x3f
+ 1710 0197 19       		.uleb128 0x19
+ 1711 0198 02       		.uleb128 0x2
+ 1712 0199 18       		.uleb128 0x18
+ 1713 019a 00       		.byte	0
+ 1714 019b 00       		.byte	0
+ 1715 019c 00       		.byte	0
+ 1716              		.section	.debug_aranges,"",%progbits
+ 1717 0000 74000000 		.4byte	0x74
+ 1718 0004 0200     		.2byte	0x2
+ 1719 0006 00000000 		.4byte	.Ldebug_info0
+ 1720 000a 04       		.byte	0x4
+ 1721 000b 00       		.byte	0
+ 1722 000c 0000     		.2byte	0
+ 1723 000e 0000     		.2byte	0
+ 1724 0010 00000000 		.4byte	.LFB147
+ 1725 0014 4C000000 		.4byte	.LFE147-.LFB147
+ 1726 0018 00000000 		.4byte	.LFB148
+ 1727 001c 38000000 		.4byte	.LFE148-.LFB148
+ 1728 0020 00000000 		.4byte	.LFB149
+ 1729 0024 58000000 		.4byte	.LFE149-.LFB149
+ 1730 0028 00000000 		.4byte	.LFB150
+ 1731 002c 40000000 		.4byte	.LFE150-.LFB150
+ 1732 0030 00000000 		.4byte	.LFB151
+ 1733 0034 12000000 		.4byte	.LFE151-.LFB151
+ 1734 0038 00000000 		.4byte	.LFB152
+ 1735 003c 1E000000 		.4byte	.LFE152-.LFB152
+ 1736 0040 00000000 		.4byte	.LFB153
+ 1737 0044 28000000 		.4byte	.LFE153-.LFB153
+ 1738 0048 00000000 		.4byte	.LFB154
+ 1739 004c 24000000 		.4byte	.LFE154-.LFB154
+ 1740 0050 00000000 		.4byte	.LFB155
+ 1741 0054 68000000 		.4byte	.LFE155-.LFB155
+ 1742 0058 00000000 		.4byte	.LFB156
+ 1743 005c 2A000000 		.4byte	.LFE156-.LFB156
+ 1744 0060 00000000 		.4byte	.LFB157
+ 1745 0064 1E000000 		.4byte	.LFE157-.LFB157
+ 1746 0068 00000000 		.4byte	.LFB158
+ 1747 006c 18000000 		.4byte	.LFE158-.LFB158
+ 1748 0070 00000000 		.4byte	0
+ 1749 0074 00000000 		.4byte	0
+ 1750              		.section	.debug_ranges,"",%progbits
+ 1751              	.Ldebug_ranges0:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 35
+
+
+ 1752 0000 00000000 		.4byte	.LFB147
+ 1753 0004 4C000000 		.4byte	.LFE147
+ 1754 0008 00000000 		.4byte	.LFB148
+ 1755 000c 38000000 		.4byte	.LFE148
+ 1756 0010 00000000 		.4byte	.LFB149
+ 1757 0014 58000000 		.4byte	.LFE149
+ 1758 0018 00000000 		.4byte	.LFB150
+ 1759 001c 40000000 		.4byte	.LFE150
+ 1760 0020 00000000 		.4byte	.LFB151
+ 1761 0024 12000000 		.4byte	.LFE151
+ 1762 0028 00000000 		.4byte	.LFB152
+ 1763 002c 1E000000 		.4byte	.LFE152
+ 1764 0030 00000000 		.4byte	.LFB153
+ 1765 0034 28000000 		.4byte	.LFE153
+ 1766 0038 00000000 		.4byte	.LFB154
+ 1767 003c 24000000 		.4byte	.LFE154
+ 1768 0040 00000000 		.4byte	.LFB155
+ 1769 0044 68000000 		.4byte	.LFE155
+ 1770 0048 00000000 		.4byte	.LFB156
+ 1771 004c 2A000000 		.4byte	.LFE156
+ 1772 0050 00000000 		.4byte	.LFB157
+ 1773 0054 1E000000 		.4byte	.LFE157
+ 1774 0058 00000000 		.4byte	.LFB158
+ 1775 005c 18000000 		.4byte	.LFE158
+ 1776 0060 00000000 		.4byte	0
+ 1777 0064 00000000 		.4byte	0
+ 1778              		.section	.debug_line,"",%progbits
+ 1779              	.Ldebug_line0:
+ 1780 0000 A3020000 		.section	.debug_str,"MS",%progbits,1
+ 1780      02009201 
+ 1780      00000201 
+ 1780      FB0E0D00 
+ 1780      01010101 
+ 1781              	.LASF75:
+ 1782 0000 55415254 		.ascii	"UART_Helpers\000"
+ 1782      5F48656C 
+ 1782      70657273 
+ 1782      00
+ 1783              	.LASF42:
+ 1784 000d 55534255 		.ascii	"USBUART_FunctionAttach\000"
+ 1784      4152545F 
+ 1784      46756E63 
+ 1784      74696F6E 
+ 1784      41747461 
+ 1785              	.LASF76:
+ 1786 0024 72656164 		.ascii	"readByte\000"
+ 1786      42797465 
+ 1786      00
+ 1787              	.LASF31:
+ 1788 002d 706F7274 		.ascii	"portDisable\000"
+ 1788      44697361 
+ 1788      626C6500 
+ 1789              	.LASF79:
+ 1790 0039 636F7265 		.ascii	"core\\Arduino_Serial.cpp\000"
+ 1790      5C417264 
+ 1790      75696E6F 
+ 1790      5F536572 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 36
+
+
+ 1790      69616C2E 
+ 1791              	.LASF33:
+ 1792 0051 73656E64 		.ascii	"sendData\000"
+ 1792      44617461 
+ 1792      00
+ 1793              	.LASF52:
+ 1794 005a 55415254 		.ascii	"UART_CustomGetBufferSize\000"
+ 1794      5F437573 
+ 1794      746F6D47 
+ 1794      65744275 
+ 1794      66666572 
+ 1795              	.LASF58:
+ 1796 0073 55415254 		.ascii	"UART_GetDataArray\000"
+ 1796      5F476574 
+ 1796      44617461 
+ 1796      41727261 
+ 1796      7900
+ 1797              	.LASF4:
+ 1798 0085 73686F72 		.ascii	"short int\000"
+ 1798      7420696E 
+ 1798      7400
+ 1799              	.LASF65:
+ 1800 008f 55415254 		.ascii	"UART1Clock_CustomSetDivider\000"
+ 1800      31436C6F 
+ 1800      636B5F43 
+ 1800      7573746F 
+ 1800      6D536574 
+ 1801              	.LASF21:
+ 1802 00ab 73697A65 		.ascii	"sizetype\000"
+ 1802      74797065 
+ 1802      00
+ 1803              	.LASF14:
+ 1804 00b4 696E7431 		.ascii	"int16_t\000"
+ 1804      365F7400 
+ 1805              	.LASF28:
+ 1806 00bc 50455249 		.ascii	"PERIPHERAL_OD\000"
+ 1806      50484552 
+ 1806      414C5F4F 
+ 1806      4400
+ 1807              	.LASF34:
+ 1808 00ca 67657444 		.ascii	"getData\000"
+ 1808      61746100 
+ 1809              	.LASF61:
+ 1810 00d2 62797465 		.ascii	"bytesRead\000"
+ 1810      73526561 
+ 1810      6400
+ 1811              	.LASF77:
+ 1812 00dc 72656164 		.ascii	"readBufSize\000"
+ 1812      42756653 
+ 1812      697A6500 
+ 1813              	.LASF5:
+ 1814 00e8 5F5F7569 		.ascii	"__uint16_t\000"
+ 1814      6E743136 
+ 1814      5F7400
+ 1815              	.LASF74:
+ 1816 00f3 55534255 		.ascii	"USBUART_Helpers\000"
+ 1816      4152545F 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 37
+
+
+ 1816      48656C70 
+ 1816      65727300 
+ 1817              	.LASF64:
+ 1818 0103 55415254 		.ascii	"UART_CustomPutArray\000"
+ 1818      5F437573 
+ 1818      746F6D50 
+ 1818      75744172 
+ 1818      72617900 
+ 1819              	.LASF60:
+ 1820 0117 64656C61 		.ascii	"delayCounter\000"
+ 1820      79436F75 
+ 1820      6E746572 
+ 1820      00
+ 1821              	.LASF13:
+ 1822 0124 75696E74 		.ascii	"uint8_t\000"
+ 1822      385F7400 
+ 1823              	.LASF17:
+ 1824 012c 75696E74 		.ascii	"uint8\000"
+ 1824      3800
+ 1825              	.LASF38:
+ 1826 0132 626F6F6C 		.ascii	"bool\000"
+ 1826      00
+ 1827              	.LASF81:
+ 1828 0137 50494E5F 		.ascii	"PIN_MODE\000"
+ 1828      4D4F4445 
+ 1828      00
+ 1829              	.LASF46:
+ 1830 0140 656E6162 		.ascii	"enableUSBCDC\000"
+ 1830      6C655553 
+ 1830      42434443 
+ 1830      00
+ 1831              	.LASF18:
+ 1832 014d 666C6F61 		.ascii	"float\000"
+ 1832      7400
+ 1833              	.LASF62:
+ 1834 0153 55534255 		.ascii	"USBUART_CustomGetCount\000"
+ 1834      4152545F 
+ 1834      43757374 
+ 1834      6F6D4765 
+ 1834      74436F75 
+ 1835              	.LASF10:
+ 1836 016a 6C6F6E67 		.ascii	"long long int\000"
+ 1836      206C6F6E 
+ 1836      6720696E 
+ 1836      7400
+ 1837              	.LASF11:
+ 1838 0178 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1838      206C6F6E 
+ 1838      6720756E 
+ 1838      7369676E 
+ 1838      65642069 
+ 1839              	.LASF26:
+ 1840 018f 50455249 		.ascii	"PERIPHERAL_OUT\000"
+ 1840      50484552 
+ 1840      414C5F4F 
+ 1840      555400
+ 1841              	.LASF53:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 38
+
+
+ 1842 019e 55415254 		.ascii	"UART_CustomPortEnable\000"
+ 1842      5F437573 
+ 1842      746F6D50 
+ 1842      6F727445 
+ 1842      6E61626C 
+ 1843              	.LASF8:
+ 1844 01b4 6C6F6E67 		.ascii	"long int\000"
+ 1844      20696E74 
+ 1844      00
+ 1845              	.LASF45:
+ 1846 01bd 5F5A3139 		.ascii	"_Z19UART_FunctionAttachv\000"
+ 1846      55415254 
+ 1846      5F46756E 
+ 1846      6374696F 
+ 1846      6E417474 
+ 1847              	.LASF24:
+ 1848 01d6 494E5055 		.ascii	"INPUT_PULLUP\000"
+ 1848      545F5055 
+ 1848      4C4C5550 
+ 1848      00
+ 1849              	.LASF69:
+ 1850 01e3 55415254 		.ascii	"UART_CustomIsReady\000"
+ 1850      5F437573 
+ 1850      746F6D49 
+ 1850      73526561 
+ 1850      647900
+ 1851              	.LASF2:
+ 1852 01f6 5F5F7569 		.ascii	"__uint8_t\000"
+ 1852      6E74385F 
+ 1852      7400
+ 1853              	.LASF40:
+ 1854 0200 55415254 		.ascii	"UART_getDataFunc\000"
+ 1854      5F676574 
+ 1854      44617461 
+ 1854      46756E63 
+ 1854      00
+ 1855              	.LASF67:
+ 1856 0211 5F5A3237 		.ascii	"_Z27UART1Clock_CustomSetDividert\000"
+ 1856      55415254 
+ 1856      31436C6F 
+ 1856      636B5F43 
+ 1856      7573746F 
+ 1857              	.LASF44:
+ 1858 0232 5F5A3232 		.ascii	"_Z22USBUART_FunctionAttachv\000"
+ 1858      55534255 
+ 1858      4152545F 
+ 1858      46756E63 
+ 1858      74696F6E 
+ 1859              	.LASF49:
+ 1860 024e 5F5A3233 		.ascii	"_Z23UART_CustomGetDataArrayPht\000"
+ 1860      55415254 
+ 1860      5F437573 
+ 1860      746F6D47 
+ 1860      65744461 
+ 1861              	.LASF39:
+ 1862 026d 6C6F6E67 		.ascii	"long double\000"
+ 1862      20646F75 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 39
+
+
+ 1862      626C6500 
+ 1863              	.LASF36:
+ 1864 0279 626C6F63 		.ascii	"blockForWriteComplete\000"
+ 1864      6B466F72 
+ 1864      57726974 
+ 1864      65436F6D 
+ 1864      706C6574 
+ 1865              	.LASF1:
+ 1866 028f 756E7369 		.ascii	"unsigned char\000"
+ 1866      676E6564 
+ 1866      20636861 
+ 1866      7200
+ 1867              	.LASF66:
+ 1868 029d 5F5A3139 		.ascii	"_Z19UART_CustomPutArrayPKht\000"
+ 1868      55415254 
+ 1868      5F437573 
+ 1868      746F6D50 
+ 1868      75744172 
+ 1869              	.LASF0:
+ 1870 02b9 7369676E 		.ascii	"signed char\000"
+ 1870      65642063 
+ 1870      68617200 
+ 1871              	.LASF68:
+ 1872 02c5 6E657744 		.ascii	"newDivider\000"
+ 1872      69766964 
+ 1872      657200
+ 1873              	.LASF35:
+ 1874 02d0 7065656B 		.ascii	"peekData\000"
+ 1874      44617461 
+ 1874      00
+ 1875              	.LASF27:
+ 1876 02d9 50455249 		.ascii	"PERIPHERAL_IN\000"
+ 1876      50484552 
+ 1876      414C5F49 
+ 1876      4E00
+ 1877              	.LASF63:
+ 1878 02e7 5F5A3232 		.ascii	"_Z22USBUART_CustomGetCountv\000"
+ 1878      55534255 
+ 1878      4152545F 
+ 1878      43757374 
+ 1878      6F6D4765 
+ 1879              	.LASF9:
+ 1880 0303 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1880      20756E73 
+ 1880      69676E65 
+ 1880      6420696E 
+ 1880      7400
+ 1881              	.LASF71:
+ 1882 0315 4D4F5349 		.ascii	"MOSI\000"
+ 1882      00
+ 1883              	.LASF6:
+ 1884 031a 73686F72 		.ascii	"short unsigned int\000"
+ 1884      7420756E 
+ 1884      7369676E 
+ 1884      65642069 
+ 1884      6E7400
+ 1885              	.LASF55:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 40
+
+
+ 1886 032d 5F5A3231 		.ascii	"_Z21UART_CustomPortEnablev\000"
+ 1886      55415254 
+ 1886      5F437573 
+ 1886      746F6D50 
+ 1886      6F727445 
+ 1887              	.LASF22:
+ 1888 0348 4F555450 		.ascii	"OUTPUT\000"
+ 1888      555400
+ 1889              	.LASF20:
+ 1890 034f 63686172 		.ascii	"char\000"
+ 1890      00
+ 1891              	.LASF15:
+ 1892 0354 75696E74 		.ascii	"uint16_t\000"
+ 1892      31365F74 
+ 1892      00
+ 1893              	.LASF72:
+ 1894 035d 4D49534F 		.ascii	"MISO\000"
+ 1894      00
+ 1895              	.LASF43:
+ 1896 0362 55415254 		.ascii	"UART_FunctionAttach\000"
+ 1896      5F46756E 
+ 1896      6374696F 
+ 1896      6E417474 
+ 1896      61636800 
+ 1897              	.LASF16:
+ 1898 0376 696E7433 		.ascii	"int32_t\000"
+ 1898      325F7400 
+ 1899              	.LASF50:
+ 1900 037e 62756666 		.ascii	"buffer\000"
+ 1900      657200
+ 1901              	.LASF47:
+ 1902 0385 55415254 		.ascii	"UART_CustomGetDataArray\000"
+ 1902      5F437573 
+ 1902      746F6D47 
+ 1902      65744461 
+ 1902      74614172 
+ 1903              	.LASF57:
+ 1904 039d 5F5A3232 		.ascii	"_Z22UART_CustomPortDisablev\000"
+ 1904      55415254 
+ 1904      5F437573 
+ 1904      746F6D50 
+ 1904      6F727444 
+ 1905              	.LASF82:
+ 1906 03b9 53657269 		.ascii	"SerialHelperFuncs\000"
+ 1906      616C4865 
+ 1906      6C706572 
+ 1906      46756E63 
+ 1906      7300
+ 1907              	.LASF70:
+ 1908 03cb 5F5A3138 		.ascii	"_Z18UART_CustomIsReadyv\000"
+ 1908      55415254 
+ 1908      5F437573 
+ 1908      746F6D49 
+ 1908      73526561 
+ 1909              	.LASF32:
+ 1910 03e3 636C6F63 		.ascii	"clockAdjust\000"
+ 1910      6B41646A 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 41
+
+
+ 1910      75737400 
+ 1911              	.LASF51:
+ 1912 03ef 73697A65 		.ascii	"size\000"
+ 1912      00
+ 1913              	.LASF29:
+ 1914 03f4 62756666 		.ascii	"bufferSize\000"
+ 1914      65725369 
+ 1914      7A6500
+ 1915              	.LASF7:
+ 1916 03ff 5F5F696E 		.ascii	"__int32_t\000"
+ 1916      7433325F 
+ 1916      7400
+ 1917              	.LASF41:
+ 1918 0409 55415254 		.ascii	"UART_getBufferSize\000"
+ 1918      5F676574 
+ 1918      42756666 
+ 1918      65725369 
+ 1918      7A6500
+ 1919              	.LASF3:
+ 1920 041c 5F5F696E 		.ascii	"__int16_t\000"
+ 1920      7431365F 
+ 1920      7400
+ 1921              	.LASF56:
+ 1922 0426 55415254 		.ascii	"UART_CustomPortDisable\000"
+ 1922      5F437573 
+ 1922      746F6D50 
+ 1922      6F727444 
+ 1922      69736162 
+ 1923              	.LASF80:
+ 1924 043d 433A5C55 		.ascii	"C:\\Users\\Bruger\\Desktop\\CODE\\PSOC5\\CY8CKIT-59"
+ 1924      73657273 
+ 1924      5C427275 
+ 1924      6765725C 
+ 1924      4465736B 
+ 1925 046a 2D417264 		.ascii	"-Arduino\\CY8CKIT59_Ardudino-Speeduino.cydsn\000"
+ 1925      75696E6F 
+ 1925      5C435938 
+ 1925      434B4954 
+ 1925      35395F41 
+ 1926              	.LASF37:
+ 1927 0496 626C6F63 		.ascii	"blockForReadyToWrite\000"
+ 1927      6B466F72 
+ 1927      52656164 
+ 1927      79546F57 
+ 1927      72697465 
+ 1928              	.LASF23:
+ 1929 04ab 494E5055 		.ascii	"INPUT\000"
+ 1929      5400
+ 1930              	.LASF19:
+ 1931 04b1 646F7562 		.ascii	"double\000"
+ 1931      6C6500
+ 1932              	.LASF59:
+ 1933 04b8 5F5A3137 		.ascii	"_Z17UART_GetDataArrayPhh\000"
+ 1933      55415254 
+ 1933      5F476574 
+ 1933      44617461 
+ 1933      41727261 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccy0JOmx.s 			page 42
+
+
+ 1934              	.LASF73:
+ 1935 04d1 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1935      52784275 
+ 1935      66666572 
+ 1935      00
+ 1936              	.LASF12:
+ 1937 04de 756E7369 		.ascii	"unsigned int\000"
+ 1937      676E6564 
+ 1937      20696E74 
+ 1937      00
+ 1938              	.LASF48:
+ 1939 04eb 5F5A3132 		.ascii	"_Z12enableUSBCDCv\000"
+ 1939      656E6162 
+ 1939      6C655553 
+ 1939      42434443 
+ 1939      7600
+ 1940              	.LASF30:
+ 1941 04fd 706F7274 		.ascii	"portEnable\000"
+ 1941      456E6162 
+ 1941      6C6500
+ 1942              	.LASF25:
+ 1943 0508 50455249 		.ascii	"PERIPHERAL\000"
+ 1943      50484552 
+ 1943      414C00
+ 1944              	.LASF54:
+ 1945 0513 5F5A3234 		.ascii	"_Z24UART_CustomGetBufferSizev\000"
+ 1945      55415254 
+ 1945      5F437573 
+ 1945      746F6D47 
+ 1945      65744275 
+ 1946              	.LASF78:
+ 1947 0531 474E5520 		.ascii	"GNU C++ 4.9.3 20150303 (release) [ARM/embedded-4_9-"
+ 1947      432B2B20 
+ 1947      342E392E 
+ 1947      33203230 
+ 1947      31353033 
+ 1948 0564 6272616E 		.ascii	"branch revision 221220] -mcpu=cortex-m3 -mthumb -g "
+ 1948      63682072 
+ 1948      65766973 
+ 1948      696F6E20 
+ 1948      32323132 
+ 1949 0597 2D4F3020 		.ascii	"-O0 -ffunction-sections -ffat-lto-objects\000"
+ 1949      2D666675 
+ 1949      6E637469 
+ 1949      6F6E2D73 
+ 1949      65637469 
+ 1950              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

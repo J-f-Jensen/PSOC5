@@ -1,0 +1,1471 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"SPI_SS_Stretch_PM.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.section	.gnu.lto_.profile.ec5a170a,"",%progbits
+  18 0000 789C6366 		.ascii	"x\234cf```a\200\000F\006\005.\000\000\276\0003"
+  18      60606061 
+  18      80004606 
+  18      052E0000 
+  18      BE0033
+  19              		.text
+  20              		.section	.gnu.lto_.jmpfuncs.ec5a170a,"",%progbits
+  21 0000 789C6366 		.ascii	"x\234cf\300\016\004\2404\013\0203100C\231\014\000\002"
+  21      C00E04A0 
+  21      340B1033 
+  21      31303043 
+  21      990C0002 
+  22 0014 C70021   		.ascii	"\307\000!"
+  23              		.text
+  24              		.section	.gnu.lto_.inline.ec5a170a,"",%progbits
+  25 0000 789C6366 		.ascii	"x\234cf\300\016\302\2404\013\003\003+\013#\003\023\313"
+  25      C00EC2A0 
+  25      340B0303 
+  25      2B0B2303 
+  25      13CB
+  26 0012 027906B6 		.ascii	"\002y\006\266\005\362L 1&L!f\006\026\036\240\020\220"
+  26      05F24C20 
+  26      31264C21 
+  26      6606161E 
+  26      A01090
+  27 0025 051361E4 		.ascii	"\005\023a\344\002\353\306*\314\000\000 A\005]"
+  27      02EBC62A 
+  27      CC000020 
+  27      41055D
+  28              		.text
+  29              		.section	.gnu.lto_.pureconst.ec5a170a,"",%progbits
+  30 0000 789C6366 		.ascii	"x\234cf``\340d\200\000\026\006)&)f\011\026\011\000\002"
+  30      6060E064 
+  30      80001606 
+  30      29262966 
+  30      09160900 
+  31 0015 C9007E   		.ascii	"\311\000~"
+  32              		.text
+  33              		.section	.gnu.lto_SPI_SS_Stretch_SaveConfig.ec5a170a,"",%progbits
+  34 0000 789C654F 		.ascii	"x\234eO\277KBa\024\275\347>}\010.\321\350?\340P\266"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 2
+
+
+  34      BF4B4261 
+  34      14BDE73E 
+  34      7D082ED1 
+  34      E83FE050 
+  35 0015 B5B43434 		.ascii	"\265\26444DC\360\340\255\302#\354AS\202\330(\276g\016"
+  35      4443F0E0 
+  35      ADC223EC 
+  35      415382D8 
+  35      28BE670E 
+  36 0029 D1501204 		.ascii	"\321P\022\004A? H\2544\205\240\032{5\005A\021\205\201"
+  36      413F2048 
+  36      AC3485A0 
+  36      1A7B3505 
+  36      41118581 
+  37 003d 432D06B5 		.ascii	"C-\006\265eB\361\010\263\373\351\022\364\301\307\375"
+  37      6542F108 
+  37      B3FBE912 
+  37      F4C1C7FD 
+  38 004d EEB9E73B 		.ascii	"\356\271\347;\347\036\215\376\237\210\334q\020\305\244"
+  38      E71E8DFE 
+  38      9F88DC71 
+  38      10C5A4
+  39 005c 422370E1 		.ascii	"B#p\341\206\310\0151\240\036\004\3122\262x\343\026\243"
+  39      86C80D31 
+  39      A01E04CA 
+  39      32B278E3 
+  39      16A3
+  40 006e E09537C2 		.ascii	"\340\2257\302\321\242\3438\357\271k\327\360\3403Q\233"
+  40      D1A2E338 
+  40      EFB96BD7 
+  40      F0E03351 
+  40      9B
+  41 007f FB3A2821 		.ascii	"\373:(!JBj\345;\217a=/\244\201\376\014\373\320E\237"
+  41      4A426AE5 
+  41      3B8F613D 
+  41      2FA481FE 
+  41      0CFBD045 
+  42 0094 6A839ED3 		.ascii	"j\203\236\323\355\266+\027\247\0100\371,XS\346\312\345"
+  42      EDB62B17 
+  42      A70830F9 
+  42      2C5853E6 
+  42      CAE5
+  43 00a6 855955AD 		.ascii	"\205YU\255\201\313\317\345z1\254\276|\261\262|X?\257"
+  43      81CBCFE5 
+  43      7A31ACBE 
+  43      7CB1B27C 
+  43      583FAF
+  44 00b9 875ED967 		.ascii	"\207^\331g\356\\\271N@\031<7o\357\372\020\251\366d\257"
+  44      EE5CB94E 
+  44      40193C37 
+  44      6FEFFA10 
+  44      A9F664AF 
+  45 00cd B4886D6C 		.ascii	"\264\210ml\272yYG\303\001\"8\204\204BYPj \267\266;\254"
+  45      BA795947 
+  45      C3012238 
+  45      84844259 
+  45      506A20B7 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 3
+
+
+  46 00e4 F484BA73 		.ascii	"\364\204\272s\277R\345\314\267\263\344\204|\016t\324"
+  46      BF52E5CC 
+  46      B7B3E484 
+  46      7C0E74D4 
+  47 00f4 727FF502 		.ascii	"r\177\365\002\275v\337\315o\365\364\034\305\012\242"
+  47      BD76DFCD 
+  47      6FF5F41C 
+  47      C50AA2
+  48 0103 820C8E94 		.ascii	"\202\014\216\224\240\314~*\253\307z\254,\331\2741\237"
+  48      A0CC7E2A 
+  48      ABC77AAC 
+  48      2CD9BC31 
+  48      9F
+  49 0114 755485F8 		.ascii	"uT\205\370\321\313\217\032b\2621=\301\365\316\202\312"
+  49      D1CB8F1A 
+  49      62B2313D 
+  49      C1F5CE82 
+  49      CA
+  50 0125 4FA14D09 		.ascii	"O\241M\011)\271\20414i\317\333\251\231\264=k\231\311"
+  50      29B98431 
+  50      3469CFDB 
+  50      A999B43D 
+  50      6B99C9
+  51 0138 8554C28E 		.ascii	"\205T\302\216\033frb4n\032S\226iZf:e\247\023s\2261="
+  51      1B667262 
+  51      346E1A53 
+  51      96695A66 
+  51      3A65A713 
+  52 0150 92A05F8D 		.ascii	"\222\240_\215J\202\253"
+  52      4A82AB
+  53              		.text
+  54              		.section	.gnu.lto_SPI_SS_Stretch_RestoreConfig.ec5a170a,"",%progbits
+  55 0000 789C658F 		.ascii	"x\234e\217=H\003A\020\205\347\315%G \215X\246\260M\021"
+  55      3D480341 
+  55      1085E7CD 
+  55      2547208D 
+  55      58A6B04D 
+  56 0015 62676529 		.ascii	"bge)(\026\302\301\265\201C\342\201\205\030\010\261\014"
+  56      2816C2C1 
+  56      B58143E2 
+  56      81851808 
+  56      B10C
+  57 0027 D9D32BAC 		.ascii	"\331\323+\2544\012\202\340O\245$\232\230\200\242mN+"
+  57      340A82E0 
+  57      4FA5249A 
+  57      9880A26D 
+  57      4E2B
+  58 0039 2B833F28 		.ascii	"+\203?(\244P\204\010\332\031-\344\220\030w/\225\270"
+  58      A4508408 
+  58      DA192DE4 
+  58      9018772F 
+  58      95B8
+  59 004b B0ECEE9B 		.ascii	"\260\354\356\233\267\357\233\321\350\377\212\311=\012"
+  59      B7EF9BD1 
+  59      E8FF8AC9 
+  59      3D0A
+  60 0059 A2A43CA1 		.ascii	"\242\244<\241\021\270xE\344D\030P\027\002\025\030\005"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 4
+
+
+  60      11B87845 
+  60      E4441850 
+  60      17021518 
+  60      05
+  61 006a BC718751 		.ascii	"\274q\207Q\364*\233\321\370\276\020\342\375\246\351"
+  61      F42A9BD1 
+  61      F8BE10E2 
+  61      FDA6E9
+  62 0079 181E7C26 		.ascii	"\030\036|&\372\344~\016J\210\2234u\334\356CTw\245i\240"
+  62      FAE47E0E 
+  62      4A889334 
+  62      75DCEE43 
+  62      5477A569 
+  63 008e 5F4319BA 		.ascii	"_C\031\272\314\247\372\240'z\275\223\306yQ\0171\371"
+  63      CCA7FAA0 
+  63      277ABD93 
+  63      C679510F 
+  63      31F9
+  64 00a0 2CB5B6AC 		.ascii	",\265\266\254+\312\013\263:\265\026\026\317:\2159\365"
+  64      2BCA0BB3 
+  64      3AB51616 
+  64      CF3A8D39 
+  64      F5
+  65 00b1 E38B1571 		.ascii	"\343\213\025q\367v\245\306\371o\261,\">sW\305I\365\251"
+  65      F776A5C6 
+  65      F96FB12C 
+  65      223E7357 
+  65      C549F5A9 
+  66 00c5 DDBC8EBC 		.ascii	"\335\274\216\274\262T\202g\331q\267\261\203-G(\227\206"
+  66      B2548267 
+  66      D971B7B1 
+  66      832D4728 
+  66      9786
+  67 00d7 03E47188 		.ascii	"\003\344q\210XP\373\251\256\036\353\311\204\317!T\244"
+  67      5850FBA9 
+  67      AE1EEBC9 
+  67      84CF2154 
+  67      A4
+  68 00e8 E7236816 		.ascii	"\347#h\026U$\251\205\213\365\347!\205\222\266\273\215"
+  68      5524A985 
+  68      8BF5E721 
+  68      8592B6BB 
+  68      8D
+  69 00f9 C67D9018 		.ascii	"\306}\220\030\356^:\"\364\007\022\016\202N\367JK\001"
+  69      EE5E3A22 
+  69      F407120E 
+  69      824EF74A 
+  69      4B01
+  70 010b C4753CDD 		.ascii	"\304u<\335g\035G\210\241\246(\250K]\266K\217p\274\265"
+  70      671D4788 
+  70      A1A628A8 
+  70      4B5DB64B 
+  70      8F70BCB5 
+  71 011f 7195A820 		.ascii	"q\225\250 m9\240\234I\002\023\023\366\274\235\235\316"
+  71      6D39A09C 
+  71      49021313 
+  71      F6BC9D9D 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 5
+
+
+  71      CE
+  72 0130 D9339699 		.ascii	"\3313\226\231Y\310\246\355\224af\306FR\2461i\231\246"
+  72      59C8A6ED 
+  72      946166C6 
+  72      4652A631 
+  72      6999A6
+  73 0143 65E6B276 		.ascii	"e\346\262v.=k\031S\303i\372\005\330\243\201\023"
+  73      2E3D6B19 
+  73      53C369FA 
+  73      05D8A381 
+  73      13
+  74              		.text
+  75              		.section	.gnu.lto_SPI_SS_Stretch_Sleep.ec5a170a,"",%progbits
+  76 0000 789C6366 		.ascii	"x\234cf\300\004R@\274\030\210u\201\230\221\231\201\221"
+  76      C0045240 
+  76      BC188875 
+  76      81989199 
+  76      8191
+  77 0012 69C23906 		.ascii	"i\3029\006\206F\016&FF\020\203\201\221\241\236\211\261"
+  77      86460E26 
+  77      46461083 
+  77      8191A19E 
+  77      89B1
+  78 0024 9EF125D3 		.ascii	"\236\361%\323G&\306\011\007V\317\340V_\332\320\320\360"
+  78      4726C609 
+  78      0756CFE0 
+  78      565FDAD0 
+  78      D0F0
+  79 0036 61D25689 		.ascii	"a\322V\211V\211\237L\014\014\237\231 \3060.gTg\000\252"
+  79      56899F4C 
+  79      0C0C9F99 
+  79      20C6302E 
+  79      67546700 
+  80 004b F9D8F2F7 		.ascii	"\371\330\362\367:7[\013P\215\000D\216q\005#\033#\220"
+  80      3A375B0B 
+  80      508D0044 
+  80      8E710523 
+  80      1B2390
+  81 005e 5E2F74A0 		.ascii	"^/t\240\341\377\377\315W'vh\003\255ax\002\224\003Y\360"
+  81      E1FFFFCD 
+  81      57277668 
+  81      03AD6178 
+  81      02940359 
+  82 0073 94890944 		.ascii	"\224\211\011D3\337al>p\375\030\023H5\310\230y\227\373"
+  82      33DF616C 
+  82      3E70FD18 
+  82      134835C8 
+  82      987997FB 
+  83 0087 D631D5FE 		.ascii	"\3261\325\376n\350h\340\370\311\304\370\231\011h\002"
+  83      6EE868E0 
+  83      F8C9C4F8 
+  83      99096802 
+  84 0097 E34AC65A 		.ascii	"\343J\306Z\206\237@\345\367\030\033\017\334t\003\253"
+  84      869F40E5 
+  84      F7181B0F 
+  84      DC7403AB 
+  85 00a7 640019C4 		.ascii	"d\000\031\304\0102\000h\234\266{j^jQbIjJ|p~iQrjL@p\276"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 6
+
+
+  85      08320068 
+  85      9CB67B6A 
+  85      5E6A5162 
+  85      496A4A7C 
+  86 00c5 B3694C70 		.ascii	"\263iLp\200g|pp|pIQjIrF|\200\257^2\003\000U6J\010"
+  86      80677C70 
+  86      707C7049 
+  86      516A4972 
+  86      467C80AF 
+  87              		.text
+  88              		.section	.gnu.lto_SPI_SS_Stretch_Wakeup.ec5a170a,"",%progbits
+  89 0000 789C6366 		.ascii	"x\234cf\300\004R@\274\030\210u\201\230\221\231\201\221"
+  89      C0045240 
+  89      BC188875 
+  89      81989199 
+  89      8191
+  90 0012 69C23906 		.ascii	"i\3029\006\206F\016&FF\020\203\201\221\241\236\211\261"
+  90      86460E26 
+  90      46461083 
+  90      8191A19E 
+  90      89B1
+  91 0024 9EF125D3 		.ascii	"\236\361%\323G&\306\011\007V\317\340V_\332\320\320\360"
+  91      4726C609 
+  91      0756CFE0 
+  91      565FDAD0 
+  91      D0F0
+  92 0036 E1D24E89 		.ascii	"\341\322N\211V\211\237L\014\014\237\231 \3060.gTg\000"
+  92      56899F4C 
+  92      0C0C9F99 
+  92      20C6302E 
+  92      67546700 
+  93 004a AAF9D8F2 		.ascii	"\252\371\330\362\367:7[\013P\215\000D\216q\005#\033"
+  93      F73A375B 
+  93      0B508D00 
+  93      448E7105 
+  93      231B
+  94 005c 23905E2F 		.ascii	"#\220^/t\240\341\377\377\315\317'v\230\001\255ax\002"
+  94      74A0E1FF 
+  94      FFCDCF27 
+  94      769801AD 
+  94      617802
+  95 006f 940359F0 		.ascii	"\224\003Y\360\224\211\011D3\337al>0\3778\023H5\310\230"
+  95      94890944 
+  95      33DF616C 
+  95      3E30FF38 
+  95      134835C8 
+  96 0084 7997FBD6 		.ascii	"y\227\373\3261\325\376n\350h\340\370\311\304\370\231"
+  96      31D5FE6E 
+  96      E868E0F8 
+  96      C9C4F899 
+  97 0094 096802E3 		.ascii	"\011h\002\343J\306Z\206\237@\345\367\030\033\017lt\007"
+  97      4AC65A86 
+  97      9F40E5F7 
+  97      181B0F6C 
+  97      7407
+  98 00a6 AB640019 		.ascii	"\253d\000\031\304\0102\000h\234\266{j^jQbIjJ|p~iQrj"
+  98      C4083200 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 7
+
+
+  98      689CB67B 
+  98      6A5E6A51 
+  98      62496A4A 
+  99 00c1 4C4070BE 		.ascii	"L@p\276\263iLp\200g|pp|pIQjIrF|\200\257^2\003\000v\235"
+  99      B3694C70 
+  99      80677C70 
+  99      707C7049 
+  99      516A4972 
+ 100 00df 4A0B     		.ascii	"J\013"
+ 101              		.text
+ 102              		.section	.gnu.lto_.symbol_nodes.ec5a170a,"",%progbits
+ 103 0000 789C5588 		.ascii	"x\234U\210\321\011\2000\024\304\362\356*\270\242\323"
+ 103      D1098030 
+ 103      14C4F2EE 
+ 103      2AB8A2D3 
+ 104 0010 DC0A4E20 		.ascii	"\334\012N \305\201\234\301I\212 ~\324\374\204\304\300"
+ 104      C5819CC1 
+ 104      498A207E 
+ 104      D4FC84C4 
+ 104      C0
+ 105 0021 C6872AB0 		.ascii	"\306\207*\260_\220p\364\225\005\272b)5o9\372u\213\347"
+ 105      5F9070F4 
+ 105      9505BA62 
+ 105      29356F39 
+ 105      FA758BE7 
+ 106 0035 B6E1BC47 		.ascii	"\266\341\274G\271\3515\017\341m\0273"
+ 106      B9E9350F 
+ 106      E16D1733 
+ 107              		.text
+ 108              		.section	.gnu.lto_.refs.ec5a170a,"",%progbits
+ 109 0000 789C6366 		.ascii	"x\234cf``\340f\200\000F\006FF&F& \311\000\000\001l\000"
+ 109      6060E066 
+ 109      80004606 
+ 109      46462646 
+ 109      2620C900 
+ 110 0018 19       		.ascii	"\031"
+ 111              		.text
+ 112              		.section	.gnu.lto_.decls.ec5a170a,"",%progbits
+ 113 0000 789C8D53 		.ascii	"x\234\215S]lL[\024\336\353\3541m\307\264$\275\212\306"
+ 113      5D6C4C5B 
+ 113      14DEEBEC 
+ 113      316DC7B4 
+ 113      24BD8AC6 
+ 114 0014 439134B8 		.ascii	"C\2214\270\215\310M\2107e\022\202`\322\243\361@2\251"
+ 114      8DC84D88 
+ 114      37651282 
+ 114      60D2A3F1 
+ 114      4032A9
+ 115 0027 712EA2E9 		.ascii	"q.\242\351\364\216\251\204\247\255\255\364\307\315\015"
+ 115      F48EA984 
+ 115      A7ADADF4 
+ 115      C7CD0D
+ 116 0036 45CA3C30 		.ascii	"E\312<0M\335\253e:\235\216\252\376\320\037\224i\233"
+ 116      4DDDAB65 
+ 116      3A9D8EAA 
+ 116      FED01F94 
+ 116      699B
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 8
+
+
+ 117 0048 BA0F577A 		.ascii	"\272\017WzS\021\246\022\341A\030\224 8\326\336\347\214"
+ 117      5311A612 
+ 117      E1411894 
+ 117      2038D6DE 
+ 117      E78C
+ 118 005a 991E8A9D 		.ascii	"\231\036\212\235\254s\366\317\367}\353;k\235M\011!K"
+ 118      AC73F6CF 
+ 118      F77DEB3B 
+ 118      6B9D4D09 
+ 118      214B
+ 119 006c 801015C7 		.ascii	"\200\020\025\307\001\023!98\237\202{v\022\037\270M\374"
+ 119      01132139 
+ 119      389F827B 
+ 119      76121FB8 
+ 119      4DFC
+ 120 007e 18018C20 		.ascii	"\030\001\214 F\010\003a\244\217L\034\034\223\244s30"
+ 120      46080361 
+ 120      A48F4C1C 
+ 120      1C93A473 
+ 120      3330
+ 121 0090 C2183730 		.ascii	"\302\03070\0060\2721.\353\274.\375\355\237D'`\320I\344"
+ 121      0630BA31 
+ 121      2EEBBC2E 
+ 121      FDED9F44 
+ 121      2760D049 
+ 122 00a5 C7341375 		.ascii	"\3074\023u\002\223\350p\257T\327\031\304h\324\367%\375"
+ 122      0293E870 
+ 122      AF54D719 
+ 122      C468D4F7 
+ 122      25FD
+ 123 00b7 CC4FBE1E 		.ascii	"\314O\276\036\241\357pBz.\343x!\301\320\303\267\257"
+ 123      A1EF7042 
+ 123      7A2EE378 
+ 123      21C1D0C3 
+ 123      B7AF
+ 124 00c9 AC4F2448 		.ascii	"\254O$H\263L\347K\357\377\217\306).\255\026\211/\333"
+ 124      B34CE74B 
+ 124      EFFF8FC6 
+ 124      292EAD16 
+ 124      892FDB
+ 125 00dc DEBD6936 		.ascii	"\336\275i6\317<\301\370(c\323%\260g\3009\310\204\006"
+ 125      CF3CC1F8 
+ 125      2863D325 
+ 125      B067C039 
+ 125      C88406
+ 126 00ef C844E78D 		.ascii	"\310D\347\2150\023\237[M\232\322X\244\275J\242\022\360"
+ 126      30139F5B 
+ 126      4D9AD258 
+ 126      A4BD4AA2 
+ 126      12F0
+ 127 0101 79FDC9B1 		.ascii	"y\375\311\261;\226\234\363\310\252d\275\021\032O\367"
+ 127      3B969CF3 
+ 127      C8AA64BD 
+ 127      111A4FF7 
+ 128 0111 E0AAFAD8 		.ascii	"\340\252\372\330\222u\232E\202\321\241\340\250\2255"
+ 128      92759A45 
+ 128      82D1A1E0 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 9
+
+
+ 128      A89535
+ 129 0120 B05E555D 		.ascii	"\260^U]!\244\340<P\270\0009\034\311\347\202\002~\310"
+ 129      21A4E03C 
+ 129      50B80039 
+ 129      1CC9E782 
+ 129      027EC8
+ 130 0133 425ADDA9 		.ascii	"BZ\335\251\372\233\323\350&\241\355\277\335W\236\"$"
+ 130      FA9BD3E8 
+ 130      26A1EDBF 
+ 130      DD579E22 
+ 130      24
+ 131 0144 7C1F432C 		.ascii	"|\037C,\267\224}PU*\004\232\022\004\232b\002\001!\360"
+ 131      B7947D50 
+ 131      552A049A 
+ 131      12049A62 
+ 131      020121F0 
+ 132 0158 B4AAE7A9 		.ascii	"\264\252\347\251\211\026\012\201\027g\236{%\024\360"
+ 132      89160A81 
+ 132      17679E7B 
+ 132      2514F0
+ 133 0167 057D8DF5 		.ascii	"\005}\215\365f\315\201\3407'\360\233c\374\240\340\253"
+ 133      66CD81E0 
+ 133      3727F09B 
+ 133      63FCA0E0 
+ 133      AB
+ 134 0178 837FAFA6 		.ascii	"\203\177\257\246\007A3\360v\354Y\222\306\037\236\300"
+ 134      074133F0 
+ 134      76EC5992 
+ 134      C61F9EC0 
+ 135 0188 6F49E0B7 		.ascii	"oI\340\267\304\370!\301o\253{\336i\242\265\232\300H"
+ 135      C4F821C1 
+ 135      6FAB7BDE 
+ 135      69A2B59A 
+ 135      C048
+ 136 019a 4F454532 		.ascii	"OEE2m\325\026\007\377\351\3723\011+\236a\021\005\372"
+ 136      6DD51607 
+ 136      FFE9FA33 
+ 136      092B9E61 
+ 136      1105FA
+ 137 01ad 6BC8DB47 		.ascii	"k\310\333G\305R\345\307\322\350\350\361w\024,\331\225"
+ 137      C552E5C7 
+ 137      D2E8E8F1 
+ 137      77142CD9 
+ 137      95
+ 138 01be 8C95B268 		.ascii	"\214\225\262h\015\243\263\010\344d\302\302L\002\355"
+ 138      0DA3B308 
+ 138      E464C2C2 
+ 138      4C02ED
+ 139 01cd 908D3091 		.ascii	"\220\2150\221\021.aS\332\260)g\261\344\321\367\207\272"
+ 139      112E6153 
+ 139      DAB02967 
+ 139      B1E4D1F7 
+ 139      87BA
+ 140 01df D795B15C 		.ascii	"\327\225\261\\\270\014\026h\375\342Id\320\333\340UG"
+ 140      B80C1668 
+ 140      FDE24964 
+ 140      D0DBE055 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 10
+
+
+ 140      47
+ 141 01f0 5AD3E83D 		.ascii	"Z\323\350=\341\200\036\377\364!\230\006\351\363\262"
+ 141      E1801EFF 
+ 141      F4219806 
+ 141      E9F3B2
+ 142 01ff 8FF23647 		.ascii	"\217\3626GKY\356\037\261\034\004:!\235\363\341\012&"
+ 142      4B59EE1F 
+ 142      B11C043A 
+ 142      219DF3E1 
+ 142      0A26
+ 143 0211 EB827942 		.ascii	"\353\202yB\300\207^\242\243\267\376M\255e\221^\020i"
+ 143      C0875EA2 
+ 143      A3B7FE4D 
+ 143      AD65915E 
+ 143      1069
+ 144 0223 3A300D87 		.ascii	":0\015\207\352\326\026p\352\"|\010C\221+\277%\363S\022"
+ 144      EAD61670 
+ 144      EA227C08 
+ 144      43912BBF 
+ 144      25F35312 
+ 145 0237 AB4ECC87 		.ascii	"\253N\314\207\324t\367\277k\251\220\235.Pa3@7j\\\214"
+ 145      D474F7BF 
+ 145      6BA9909D 
+ 145      2E506133 
+ 145      40376A5C 
+ 146 024c 5BE62431 		.ascii	"[\346$1\276\266\006W\321\321\267\334\361nW\364\007("
+ 146      BEB60657 
+ 146      D1D1B7DC 
+ 146      F16E57F4 
+ 146      0728
+ 147 025e ADD1FEC5 		.ascii	"\255\321\376\305ccey\313ZY\245/Y\250#\214W\213\237<"
+ 147      63636579 
+ 147      CB5A59A5 
+ 147      2F59A823 
+ 147      8C578B9F 
+ 148 0273 09BE3E61 		.ascii	"\011\276>a\232_\307\230/:t\277]\302\257\301$\274\231"
+ 148      9A5FC798 
+ 148      2F3A74BF 
+ 148      5DC2AFC1 
+ 148      24BC99
+ 149 0286 02D8A3D9 		.ascii	"\002\330\243\331\370R\211\036\336Q\350\205e\004\372"
+ 149      F852891E 
+ 149      DE51E885 
+ 149      6504FA
+ 150 0295 603ED259 		.ascii	"`>\322Y\355\341\263\311\264A\313r\351MuG\252\245\222"
+ 150      EDE1B3C9 
+ 150      B441CB72 
+ 150      E94D7547 
+ 150      AAA592
+ 151 02a8 5F931F77 		.ascii	"_\223\037w\011\277\374\316\355\352\221\024\255\257F"
+ 151      09BFFCCE 
+ 151      EDEA9114 
+ 151      ADAF46
+ 152 02b7 46FFA47D 		.ascii	"F\377\244}\355\177\271\276\034\373z\003\013~-^\244\353"
+ 152      ED7FB9BE 
+ 152      1CFB7A03 
+ 152      0B7E2D5E 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 11
+
+
+ 152      A4EB
+ 153 02c9 106F6C47 		.ascii	"\020olG`|x\252\270\316Y|\331Y\023>i\026\327\331\304"
+ 153      607C78AA 
+ 153      B8CE597C 
+ 153      D959133E 
+ 153      6916D7D9 
+ 154 02de 97550FBD 		.ascii	"\227U\017\275\303Vk5\377\225\216\224\261\224p\232\220"
+ 154      C3566B35 
+ 154      FF958E94 
+ 154      B194709A 
+ 154      90
+ 155 02ef BA89396E 		.ascii	"\272\2119n\211\013\035\006\253\370g\361\215\350\361"
+ 155      890B1D06 
+ 155      ABF867F1 
+ 155      8DE8F1
+ 156 02fe F2C7EF4D 		.ascii	"\362\307\357M\023\320\274,q\364\200\216\036\020\350"
+ 156      13D0BC2C 
+ 156      71F4808E 
+ 156      1E10E8
+ 157 030d 0BCD872A 		.ascii	"\013\315\207*\246M@\363+\021G\017\2025f\030\247d\266"
+ 157      A64D40F3 
+ 157      2B11470F 
+ 157      82356618 
+ 157      A764B6
+ 158 0320 6C5FEB90 		.ascii	"l_\353\220e\207\354q+\036\347.\207\\\260O\261\271\212"
+ 158      6587EC71 
+ 158      2B1EE72E 
+ 158      875CB04F 
+ 158      B1B98A
+ 159 0333 7EDFBDD3 		.ascii	"~\337\275\323\274fc~\226\215\374\272F)R\334\005\036"
+ 159      BC66637E 
+ 159      968DFCBA 
+ 159      462952DC 
+ 159      051E
+ 160 0345 65874376 		.ascii	"e\207Cv\225\270\235\3126\273\354\262-\335f\340\3317"
+ 160      95B89DCA 
+ 160      36BBECB2 
+ 160      2DDD66E0 
+ 160      D937
+ 161 0357 2C769239 		.ascii	",v\2229\206\315<e\257\307\345\326\365~1f*T\224\342\031"
+ 161      86CD3C65 
+ 161      AFC7E5D6 
+ 161      F57E3166 
+ 161      2A5494E2 
+ 162 036c 86CD2D05 		.ascii	"\206\315-\005{\224\222b\243\316\252\225\266\365\371"
+ 162      7B949262 
+ 162      A3CEAA95 
+ 162      B6F5F9
+ 163 037b 7687BC39 		.ascii	"v\207\2749/\337\266yJ\311\356\"\317\362\271\223\330"
+ 163      2FDFB679 
+ 163      4AC9EE22 
+ 163      CFF2B993 
+ 163      D8
+ 164 038c 72EEF7EC 		.ascii	"r\356\367\354/V\366.\336E\254NW\221\307\355*\224=\210"
+ 164      2F56F62E 
+ 164      DE45AC4E 
+ 164      5791C7ED 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 12
+
+
+ 164      2A943D88 
+ 165 03a0 5AF0535F 		.ascii	"Z\360S_\201,\243\241\355\005\316=%\305&\267\262s\371"
+ 165      812CA3A1 
+ 165      ED05CE3D 
+ 165      25C526B7 
+ 165      B273F9
+ 166 03b3 671C99DE 		.ascii	"g\034\231\336."
+ 166      2E
+ 167              		.text
+ 168              		.section	.gnu.lto_.symtab.ec5a170a,"",%progbits
+ 169 0000 5350495F 		.ascii	"SPI_SS_Stretch_SaveConfig\000\000\000\000\000\000\000"
+ 169      53535F53 
+ 169      74726574 
+ 169      63685F53 
+ 169      61766543 
+ 170 0020 00000000 		.ascii	"\000\000\000\000\000\254\000\000\000SPI_SS_Stretch_"
+ 170      00AC0000 
+ 170      00535049 
+ 170      5F53535F 
+ 170      53747265 
+ 171 0038 52657374 		.ascii	"RestoreConfig\000\000\000\000\000\000\000\000\000\000"
+ 171      6F726543 
+ 171      6F6E6669 
+ 171      67000000 
+ 171      00000000 
+ 172 004f 0000AE00 		.ascii	"\000\000\256\000\000\000SPI_SS_Stretch_Sleep\000\000"
+ 172      00005350 
+ 172      495F5353 
+ 172      5F537472 
+ 172      65746368 
+ 173 006b 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\260\000\000"
+ 173      00000000 
+ 173      0000B000 
+ 173      00
+ 174 0078 00535049 		.ascii	"\000SPI_SS_Stretch_Wakeup\000\000\000\000\000\000\000"
+ 174      5F53535F 
+ 174      53747265 
+ 174      7463685F 
+ 174      57616B65 
+ 175 0095 00000000 		.ascii	"\000\000\000\000\000\262\000\000\000"
+ 175      00B20000 
+ 175      00
+ 176              		.text
+ 177              		.section	.gnu.lto_.opts,"",%progbits
+ 178 0000 272D666E 		.ascii	"'-fno-trapv' '-mcpu=cortex-m3' '-mthumb' '-g' '-Os'"
+ 178      6F2D7472 
+ 178      61707627 
+ 178      20272D6D 
+ 178      6370753D 
+ 179 0033 20272D66 		.ascii	" '-ffunction-sections' '-finline-functions' '-flto'"
+ 179      66756E63 
+ 179      74696F6E 
+ 179      2D736563 
+ 179      74696F6E 
+ 180 0066 20272D66 		.ascii	" '-ffat-lto-objects'\000"
+ 180      6661742D 
+ 180      6C746F2D 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 13
+
+
+ 180      6F626A65 
+ 180      63747327 
+ 181              		.text
+ 182              		.cfi_sections	.debug_frame
+ 183              		.section	.text.SPI_SS_Stretch_SaveConfig,"ax",%progbits
+ 184              		.align	1
+ 185              		.global	SPI_SS_Stretch_SaveConfig
+ 186              		.thumb
+ 187              		.thumb_func
+ 188              		.type	SPI_SS_Stretch_SaveConfig, %function
+ 189              	SPI_SS_Stretch_SaveConfig:
+ 190              	.LFB0:
+ 191              		.file 1 "Generated_Source\\PSoC5\\SPI_SS_Stretch_PM.c"
+   1:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * File Name: SPI_SS_Stretch_PM.c
+   3:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Version 1.80
+   4:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+   5:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Description:
+   6:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *  This file contains the setup, control, and status commands to support 
+   7:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *  the component operation in the low power mode. 
+   8:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+   9:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Note:
+  10:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+  11:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Copyright 2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** 
+  18:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** #include "SPI_SS_Stretch.h"
+  19:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** 
+  20:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** /* Check for removal by optimization */
+  21:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** #if !defined(SPI_SS_Stretch_Sync_ctrl_reg__REMOVED)
+  22:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** 
+  23:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** static SPI_SS_Stretch_BACKUP_STRUCT  SPI_SS_Stretch_backup = {0u};
+  24:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** 
+  25:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c ****     
+  26:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** /*******************************************************************************
+  27:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Function Name: SPI_SS_Stretch_SaveConfig
+  28:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** ********************************************************************************
+  29:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+  30:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Summary:
+  31:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *  Saves the control register value.
+  32:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+  33:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Parameters:
+  34:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *  None
+  35:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+  36:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Return:
+  37:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *  None
+  38:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+  39:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *******************************************************************************/
+  40:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** void SPI_SS_Stretch_SaveConfig(void) 
+  41:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** {
+ 192              		.loc 1 41 0
+ 193              		.cfi_startproc
+ 194              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 14
+
+
+ 195              		@ frame_needed = 0, uses_anonymous_args = 0
+ 196              		@ link register save eliminated.
+  42:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c ****     SPI_SS_Stretch_backup.controlState = SPI_SS_Stretch_Control;
+ 197              		.loc 1 42 0
+ 198 0000 024B     		ldr	r3, .L2
+ 199 0002 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 200 0004 024B     		ldr	r3, .L2+4
+ 201 0006 1A70     		strb	r2, [r3]
+ 202 0008 7047     		bx	lr
+ 203              	.L3:
+ 204 000a 00BF     		.align	2
+ 205              	.L2:
+ 206 000c 7D640040 		.word	1073767549
+ 207 0010 00000000 		.word	.LANCHOR0
+ 208              		.cfi_endproc
+ 209              	.LFE0:
+ 210              		.size	SPI_SS_Stretch_SaveConfig, .-SPI_SS_Stretch_SaveConfig
+ 211              		.section	.text.SPI_SS_Stretch_RestoreConfig,"ax",%progbits
+ 212              		.align	1
+ 213              		.global	SPI_SS_Stretch_RestoreConfig
+ 214              		.thumb
+ 215              		.thumb_func
+ 216              		.type	SPI_SS_Stretch_RestoreConfig, %function
+ 217              	SPI_SS_Stretch_RestoreConfig:
+ 218              	.LFB1:
+  43:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** }
+  44:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** 
+  45:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** 
+  46:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** /*******************************************************************************
+  47:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Function Name: SPI_SS_Stretch_RestoreConfig
+  48:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** ********************************************************************************
+  49:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+  50:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Summary:
+  51:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *  Restores the control register value.
+  52:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+  53:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Parameters:
+  54:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *  None
+  55:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+  56:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Return:
+  57:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *  None
+  58:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+  59:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+  60:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *******************************************************************************/
+  61:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** void SPI_SS_Stretch_RestoreConfig(void) 
+  62:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** {
+ 219              		.loc 1 62 0
+ 220              		.cfi_startproc
+ 221              		@ args = 0, pretend = 0, frame = 0
+ 222              		@ frame_needed = 0, uses_anonymous_args = 0
+ 223              		@ link register save eliminated.
+  63:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c ****      SPI_SS_Stretch_Control = SPI_SS_Stretch_backup.controlState;
+ 224              		.loc 1 63 0
+ 225 0000 024B     		ldr	r3, .L5
+ 226 0002 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 227 0004 024B     		ldr	r3, .L5+4
+ 228 0006 1A70     		strb	r2, [r3]
+ 229 0008 7047     		bx	lr
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 15
+
+
+ 230              	.L6:
+ 231 000a 00BF     		.align	2
+ 232              	.L5:
+ 233 000c 00000000 		.word	.LANCHOR0
+ 234 0010 7D640040 		.word	1073767549
+ 235              		.cfi_endproc
+ 236              	.LFE1:
+ 237              		.size	SPI_SS_Stretch_RestoreConfig, .-SPI_SS_Stretch_RestoreConfig
+ 238              		.section	.text.SPI_SS_Stretch_Sleep,"ax",%progbits
+ 239              		.align	1
+ 240              		.global	SPI_SS_Stretch_Sleep
+ 241              		.thumb
+ 242              		.thumb_func
+ 243              		.type	SPI_SS_Stretch_Sleep, %function
+ 244              	SPI_SS_Stretch_Sleep:
+ 245              	.LFB2:
+  64:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** }
+  65:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** 
+  66:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** 
+  67:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** /*******************************************************************************
+  68:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Function Name: SPI_SS_Stretch_Sleep
+  69:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** ********************************************************************************
+  70:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+  71:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Summary:
+  72:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *  Prepares the component for entering the low power mode.
+  73:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+  74:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Parameters:
+  75:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *  None
+  76:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+  77:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Return:
+  78:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *  None
+  79:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+  80:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *******************************************************************************/
+  81:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** void SPI_SS_Stretch_Sleep(void) 
+  82:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** {
+ 246              		.loc 1 82 0
+ 247              		.cfi_startproc
+ 248              		@ args = 0, pretend = 0, frame = 0
+ 249              		@ frame_needed = 0, uses_anonymous_args = 0
+ 250              		@ link register save eliminated.
+  83:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c ****     SPI_SS_Stretch_SaveConfig();
+ 251              		.loc 1 83 0
+ 252 0000 FFF7FEBF 		b	SPI_SS_Stretch_SaveConfig
+ 253              	.LVL0:
+ 254              		.cfi_endproc
+ 255              	.LFE2:
+ 256              		.size	SPI_SS_Stretch_Sleep, .-SPI_SS_Stretch_Sleep
+ 257              		.section	.text.SPI_SS_Stretch_Wakeup,"ax",%progbits
+ 258              		.align	1
+ 259              		.global	SPI_SS_Stretch_Wakeup
+ 260              		.thumb
+ 261              		.thumb_func
+ 262              		.type	SPI_SS_Stretch_Wakeup, %function
+ 263              	SPI_SS_Stretch_Wakeup:
+ 264              	.LFB3:
+  84:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** }
+  85:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 16
+
+
+  86:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** 
+  87:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** /*******************************************************************************
+  88:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Function Name: SPI_SS_Stretch_Wakeup
+  89:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** ********************************************************************************
+  90:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+  91:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Summary:
+  92:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *  Restores the component after waking up from the low power mode.
+  93:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+  94:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Parameters:
+  95:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *  None
+  96:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+  97:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** * Return:
+  98:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *  None
+  99:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *
+ 100:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** *******************************************************************************/
+ 101:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** void SPI_SS_Stretch_Wakeup(void)  
+ 102:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c **** {
+ 265              		.loc 1 102 0
+ 266              		.cfi_startproc
+ 267              		@ args = 0, pretend = 0, frame = 0
+ 268              		@ frame_needed = 0, uses_anonymous_args = 0
+ 269              		@ link register save eliminated.
+ 103:Generated_Source\PSoC5/SPI_SS_Stretch_PM.c ****     SPI_SS_Stretch_RestoreConfig();
+ 270              		.loc 1 103 0
+ 271 0000 FFF7FEBF 		b	SPI_SS_Stretch_RestoreConfig
+ 272              	.LVL1:
+ 273              		.cfi_endproc
+ 274              	.LFE3:
+ 275              		.size	SPI_SS_Stretch_Wakeup, .-SPI_SS_Stretch_Wakeup
+ 276              		.bss
+ 277              		.set	.LANCHOR0,. + 0
+ 278              		.type	SPI_SS_Stretch_backup, %object
+ 279              		.size	SPI_SS_Stretch_backup, 1
+ 280              	SPI_SS_Stretch_backup:
+ 281 0000 00       		.space	1
+ 282              		.text
+ 283              	.Letext0:
+ 284              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 285              		.file 3 "Generated_Source\\PSoC5\\SPI_SS_Stretch.h"
+ 286              		.section	.debug_info,"",%progbits
+ 287              	.Ldebug_info0:
+ 288 0000 2B010000 		.4byte	0x12b
+ 289 0004 0400     		.2byte	0x4
+ 290 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 291 000a 04       		.byte	0x4
+ 292 000b 01       		.uleb128 0x1
+ 293 000c 44000000 		.4byte	.LASF19
+ 294 0010 01       		.byte	0x1
+ 295 0011 B9010000 		.4byte	.LASF20
+ 296 0015 29010000 		.4byte	.LASF21
+ 297 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 298 001d 00000000 		.4byte	0
+ 299 0021 00000000 		.4byte	.Ldebug_line0
+ 300 0025 02       		.uleb128 0x2
+ 301 0026 01       		.byte	0x1
+ 302 0027 06       		.byte	0x6
+ 303 0028 2F020000 		.4byte	.LASF0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 17
+
+
+ 304 002c 02       		.uleb128 0x2
+ 305 002d 01       		.byte	0x1
+ 306 002e 08       		.byte	0x8
+ 307 002f 36000000 		.4byte	.LASF1
+ 308 0033 02       		.uleb128 0x2
+ 309 0034 02       		.byte	0x2
+ 310 0035 05       		.byte	0x5
+ 311 0036 E4010000 		.4byte	.LASF2
+ 312 003a 02       		.uleb128 0x2
+ 313 003b 02       		.byte	0x2
+ 314 003c 07       		.byte	0x7
+ 315 003d 02010000 		.4byte	.LASF3
+ 316 0041 02       		.uleb128 0x2
+ 317 0042 04       		.byte	0x4
+ 318 0043 05       		.byte	0x5
+ 319 0044 11020000 		.4byte	.LASF4
+ 320 0048 02       		.uleb128 0x2
+ 321 0049 04       		.byte	0x4
+ 322 004a 07       		.byte	0x7
+ 323 004b F0000000 		.4byte	.LASF5
+ 324 004f 02       		.uleb128 0x2
+ 325 0050 08       		.byte	0x8
+ 326 0051 05       		.byte	0x5
+ 327 0052 A6010000 		.4byte	.LASF6
+ 328 0056 02       		.uleb128 0x2
+ 329 0057 08       		.byte	0x8
+ 330 0058 07       		.byte	0x7
+ 331 0059 8F010000 		.4byte	.LASF7
+ 332 005d 03       		.uleb128 0x3
+ 333 005e 04       		.byte	0x4
+ 334 005f 05       		.byte	0x5
+ 335 0060 696E7400 		.ascii	"int\000"
+ 336 0064 02       		.uleb128 0x2
+ 337 0065 04       		.byte	0x4
+ 338 0066 07       		.byte	0x7
+ 339 0067 82010000 		.4byte	.LASF8
+ 340 006b 04       		.uleb128 0x4
+ 341 006c EE010000 		.4byte	.LASF12
+ 342 0070 02       		.byte	0x2
+ 343 0071 3801     		.2byte	0x138
+ 344 0073 2C000000 		.4byte	0x2c
+ 345 0077 02       		.uleb128 0x2
+ 346 0078 04       		.byte	0x4
+ 347 0079 04       		.byte	0x4
+ 348 007a 30000000 		.4byte	.LASF9
+ 349 007e 02       		.uleb128 0x2
+ 350 007f 08       		.byte	0x8
+ 351 0080 04       		.byte	0x4
+ 352 0081 22010000 		.4byte	.LASF10
+ 353 0085 02       		.uleb128 0x2
+ 354 0086 01       		.byte	0x1
+ 355 0087 08       		.byte	0x8
+ 356 0088 B4010000 		.4byte	.LASF11
+ 357 008c 04       		.uleb128 0x4
+ 358 008d EB000000 		.4byte	.LASF13
+ 359 0091 02       		.byte	0x2
+ 360 0092 E201     		.2byte	0x1e2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 18
+
+
+ 361 0094 98000000 		.4byte	0x98
+ 362 0098 05       		.uleb128 0x5
+ 363 0099 6B000000 		.4byte	0x6b
+ 364 009d 06       		.uleb128 0x6
+ 365 009e 01       		.byte	0x1
+ 366 009f 03       		.byte	0x3
+ 367 00a0 1C       		.byte	0x1c
+ 368 00a1 B2000000 		.4byte	0xb2
+ 369 00a5 07       		.uleb128 0x7
+ 370 00a6 15010000 		.4byte	.LASF22
+ 371 00aa 03       		.byte	0x3
+ 372 00ab 1E       		.byte	0x1e
+ 373 00ac 6B000000 		.4byte	0x6b
+ 374 00b0 00       		.byte	0
+ 375 00b1 00       		.byte	0
+ 376 00b2 08       		.uleb128 0x8
+ 377 00b3 F4010000 		.4byte	.LASF14
+ 378 00b7 03       		.byte	0x3
+ 379 00b8 20       		.byte	0x20
+ 380 00b9 9D000000 		.4byte	0x9d
+ 381 00bd 09       		.uleb128 0x9
+ 382 00be 16000000 		.4byte	.LASF15
+ 383 00c2 01       		.byte	0x1
+ 384 00c3 28       		.byte	0x28
+ 385 00c4 00000000 		.4byte	.LFB0
+ 386 00c8 14000000 		.4byte	.LFE0-.LFB0
+ 387 00cc 01       		.uleb128 0x1
+ 388 00cd 9C       		.byte	0x9c
+ 389 00ce 09       		.uleb128 0x9
+ 390 00cf 51020000 		.4byte	.LASF16
+ 391 00d3 01       		.byte	0x1
+ 392 00d4 3D       		.byte	0x3d
+ 393 00d5 00000000 		.4byte	.LFB1
+ 394 00d9 14000000 		.4byte	.LFE1-.LFB1
+ 395 00dd 01       		.uleb128 0x1
+ 396 00de 9C       		.byte	0x9c
+ 397 00df 0A       		.uleb128 0xa
+ 398 00e0 1A020000 		.4byte	.LASF17
+ 399 00e4 01       		.byte	0x1
+ 400 00e5 51       		.byte	0x51
+ 401 00e6 00000000 		.4byte	.LFB2
+ 402 00ea 04000000 		.4byte	.LFE2-.LFB2
+ 403 00ee 01       		.uleb128 0x1
+ 404 00ef 9C       		.byte	0x9c
+ 405 00f0 FE000000 		.4byte	0xfe
+ 406 00f4 0B       		.uleb128 0xb
+ 407 00f5 04000000 		.4byte	.LVL0
+ 408 00f9 BD000000 		.4byte	0xbd
+ 409 00fd 00       		.byte	0
+ 410 00fe 0A       		.uleb128 0xa
+ 411 00ff 00000000 		.4byte	.LASF18
+ 412 0103 01       		.byte	0x1
+ 413 0104 65       		.byte	0x65
+ 414 0105 00000000 		.4byte	.LFB3
+ 415 0109 04000000 		.4byte	.LFE3-.LFB3
+ 416 010d 01       		.uleb128 0x1
+ 417 010e 9C       		.byte	0x9c
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 19
+
+
+ 418 010f 1D010000 		.4byte	0x11d
+ 419 0113 0B       		.uleb128 0xb
+ 420 0114 04000000 		.4byte	.LVL1
+ 421 0118 CE000000 		.4byte	0xce
+ 422 011c 00       		.byte	0
+ 423 011d 0C       		.uleb128 0xc
+ 424 011e 3B020000 		.4byte	.LASF23
+ 425 0122 01       		.byte	0x1
+ 426 0123 17       		.byte	0x17
+ 427 0124 B2000000 		.4byte	0xb2
+ 428 0128 05       		.uleb128 0x5
+ 429 0129 03       		.byte	0x3
+ 430 012a 00000000 		.4byte	SPI_SS_Stretch_backup
+ 431 012e 00       		.byte	0
+ 432              		.section	.debug_abbrev,"",%progbits
+ 433              	.Ldebug_abbrev0:
+ 434 0000 01       		.uleb128 0x1
+ 435 0001 11       		.uleb128 0x11
+ 436 0002 01       		.byte	0x1
+ 437 0003 25       		.uleb128 0x25
+ 438 0004 0E       		.uleb128 0xe
+ 439 0005 13       		.uleb128 0x13
+ 440 0006 0B       		.uleb128 0xb
+ 441 0007 03       		.uleb128 0x3
+ 442 0008 0E       		.uleb128 0xe
+ 443 0009 1B       		.uleb128 0x1b
+ 444 000a 0E       		.uleb128 0xe
+ 445 000b 55       		.uleb128 0x55
+ 446 000c 17       		.uleb128 0x17
+ 447 000d 11       		.uleb128 0x11
+ 448 000e 01       		.uleb128 0x1
+ 449 000f 10       		.uleb128 0x10
+ 450 0010 17       		.uleb128 0x17
+ 451 0011 00       		.byte	0
+ 452 0012 00       		.byte	0
+ 453 0013 02       		.uleb128 0x2
+ 454 0014 24       		.uleb128 0x24
+ 455 0015 00       		.byte	0
+ 456 0016 0B       		.uleb128 0xb
+ 457 0017 0B       		.uleb128 0xb
+ 458 0018 3E       		.uleb128 0x3e
+ 459 0019 0B       		.uleb128 0xb
+ 460 001a 03       		.uleb128 0x3
+ 461 001b 0E       		.uleb128 0xe
+ 462 001c 00       		.byte	0
+ 463 001d 00       		.byte	0
+ 464 001e 03       		.uleb128 0x3
+ 465 001f 24       		.uleb128 0x24
+ 466 0020 00       		.byte	0
+ 467 0021 0B       		.uleb128 0xb
+ 468 0022 0B       		.uleb128 0xb
+ 469 0023 3E       		.uleb128 0x3e
+ 470 0024 0B       		.uleb128 0xb
+ 471 0025 03       		.uleb128 0x3
+ 472 0026 08       		.uleb128 0x8
+ 473 0027 00       		.byte	0
+ 474 0028 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 20
+
+
+ 475 0029 04       		.uleb128 0x4
+ 476 002a 16       		.uleb128 0x16
+ 477 002b 00       		.byte	0
+ 478 002c 03       		.uleb128 0x3
+ 479 002d 0E       		.uleb128 0xe
+ 480 002e 3A       		.uleb128 0x3a
+ 481 002f 0B       		.uleb128 0xb
+ 482 0030 3B       		.uleb128 0x3b
+ 483 0031 05       		.uleb128 0x5
+ 484 0032 49       		.uleb128 0x49
+ 485 0033 13       		.uleb128 0x13
+ 486 0034 00       		.byte	0
+ 487 0035 00       		.byte	0
+ 488 0036 05       		.uleb128 0x5
+ 489 0037 35       		.uleb128 0x35
+ 490 0038 00       		.byte	0
+ 491 0039 49       		.uleb128 0x49
+ 492 003a 13       		.uleb128 0x13
+ 493 003b 00       		.byte	0
+ 494 003c 00       		.byte	0
+ 495 003d 06       		.uleb128 0x6
+ 496 003e 13       		.uleb128 0x13
+ 497 003f 01       		.byte	0x1
+ 498 0040 0B       		.uleb128 0xb
+ 499 0041 0B       		.uleb128 0xb
+ 500 0042 3A       		.uleb128 0x3a
+ 501 0043 0B       		.uleb128 0xb
+ 502 0044 3B       		.uleb128 0x3b
+ 503 0045 0B       		.uleb128 0xb
+ 504 0046 01       		.uleb128 0x1
+ 505 0047 13       		.uleb128 0x13
+ 506 0048 00       		.byte	0
+ 507 0049 00       		.byte	0
+ 508 004a 07       		.uleb128 0x7
+ 509 004b 0D       		.uleb128 0xd
+ 510 004c 00       		.byte	0
+ 511 004d 03       		.uleb128 0x3
+ 512 004e 0E       		.uleb128 0xe
+ 513 004f 3A       		.uleb128 0x3a
+ 514 0050 0B       		.uleb128 0xb
+ 515 0051 3B       		.uleb128 0x3b
+ 516 0052 0B       		.uleb128 0xb
+ 517 0053 49       		.uleb128 0x49
+ 518 0054 13       		.uleb128 0x13
+ 519 0055 38       		.uleb128 0x38
+ 520 0056 0B       		.uleb128 0xb
+ 521 0057 00       		.byte	0
+ 522 0058 00       		.byte	0
+ 523 0059 08       		.uleb128 0x8
+ 524 005a 16       		.uleb128 0x16
+ 525 005b 00       		.byte	0
+ 526 005c 03       		.uleb128 0x3
+ 527 005d 0E       		.uleb128 0xe
+ 528 005e 3A       		.uleb128 0x3a
+ 529 005f 0B       		.uleb128 0xb
+ 530 0060 3B       		.uleb128 0x3b
+ 531 0061 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 21
+
+
+ 532 0062 49       		.uleb128 0x49
+ 533 0063 13       		.uleb128 0x13
+ 534 0064 00       		.byte	0
+ 535 0065 00       		.byte	0
+ 536 0066 09       		.uleb128 0x9
+ 537 0067 2E       		.uleb128 0x2e
+ 538 0068 00       		.byte	0
+ 539 0069 3F       		.uleb128 0x3f
+ 540 006a 19       		.uleb128 0x19
+ 541 006b 03       		.uleb128 0x3
+ 542 006c 0E       		.uleb128 0xe
+ 543 006d 3A       		.uleb128 0x3a
+ 544 006e 0B       		.uleb128 0xb
+ 545 006f 3B       		.uleb128 0x3b
+ 546 0070 0B       		.uleb128 0xb
+ 547 0071 27       		.uleb128 0x27
+ 548 0072 19       		.uleb128 0x19
+ 549 0073 11       		.uleb128 0x11
+ 550 0074 01       		.uleb128 0x1
+ 551 0075 12       		.uleb128 0x12
+ 552 0076 06       		.uleb128 0x6
+ 553 0077 40       		.uleb128 0x40
+ 554 0078 18       		.uleb128 0x18
+ 555 0079 9742     		.uleb128 0x2117
+ 556 007b 19       		.uleb128 0x19
+ 557 007c 00       		.byte	0
+ 558 007d 00       		.byte	0
+ 559 007e 0A       		.uleb128 0xa
+ 560 007f 2E       		.uleb128 0x2e
+ 561 0080 01       		.byte	0x1
+ 562 0081 3F       		.uleb128 0x3f
+ 563 0082 19       		.uleb128 0x19
+ 564 0083 03       		.uleb128 0x3
+ 565 0084 0E       		.uleb128 0xe
+ 566 0085 3A       		.uleb128 0x3a
+ 567 0086 0B       		.uleb128 0xb
+ 568 0087 3B       		.uleb128 0x3b
+ 569 0088 0B       		.uleb128 0xb
+ 570 0089 27       		.uleb128 0x27
+ 571 008a 19       		.uleb128 0x19
+ 572 008b 11       		.uleb128 0x11
+ 573 008c 01       		.uleb128 0x1
+ 574 008d 12       		.uleb128 0x12
+ 575 008e 06       		.uleb128 0x6
+ 576 008f 40       		.uleb128 0x40
+ 577 0090 18       		.uleb128 0x18
+ 578 0091 9742     		.uleb128 0x2117
+ 579 0093 19       		.uleb128 0x19
+ 580 0094 01       		.uleb128 0x1
+ 581 0095 13       		.uleb128 0x13
+ 582 0096 00       		.byte	0
+ 583 0097 00       		.byte	0
+ 584 0098 0B       		.uleb128 0xb
+ 585 0099 898201   		.uleb128 0x4109
+ 586 009c 00       		.byte	0
+ 587 009d 11       		.uleb128 0x11
+ 588 009e 01       		.uleb128 0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 22
+
+
+ 589 009f 9542     		.uleb128 0x2115
+ 590 00a1 19       		.uleb128 0x19
+ 591 00a2 31       		.uleb128 0x31
+ 592 00a3 13       		.uleb128 0x13
+ 593 00a4 00       		.byte	0
+ 594 00a5 00       		.byte	0
+ 595 00a6 0C       		.uleb128 0xc
+ 596 00a7 34       		.uleb128 0x34
+ 597 00a8 00       		.byte	0
+ 598 00a9 03       		.uleb128 0x3
+ 599 00aa 0E       		.uleb128 0xe
+ 600 00ab 3A       		.uleb128 0x3a
+ 601 00ac 0B       		.uleb128 0xb
+ 602 00ad 3B       		.uleb128 0x3b
+ 603 00ae 0B       		.uleb128 0xb
+ 604 00af 49       		.uleb128 0x49
+ 605 00b0 13       		.uleb128 0x13
+ 606 00b1 02       		.uleb128 0x2
+ 607 00b2 18       		.uleb128 0x18
+ 608 00b3 00       		.byte	0
+ 609 00b4 00       		.byte	0
+ 610 00b5 00       		.byte	0
+ 611              		.section	.debug_aranges,"",%progbits
+ 612 0000 34000000 		.4byte	0x34
+ 613 0004 0200     		.2byte	0x2
+ 614 0006 00000000 		.4byte	.Ldebug_info0
+ 615 000a 04       		.byte	0x4
+ 616 000b 00       		.byte	0
+ 617 000c 0000     		.2byte	0
+ 618 000e 0000     		.2byte	0
+ 619 0010 00000000 		.4byte	.LFB0
+ 620 0014 14000000 		.4byte	.LFE0-.LFB0
+ 621 0018 00000000 		.4byte	.LFB1
+ 622 001c 14000000 		.4byte	.LFE1-.LFB1
+ 623 0020 00000000 		.4byte	.LFB2
+ 624 0024 04000000 		.4byte	.LFE2-.LFB2
+ 625 0028 00000000 		.4byte	.LFB3
+ 626 002c 04000000 		.4byte	.LFE3-.LFB3
+ 627 0030 00000000 		.4byte	0
+ 628 0034 00000000 		.4byte	0
+ 629              		.section	.debug_ranges,"",%progbits
+ 630              	.Ldebug_ranges0:
+ 631 0000 00000000 		.4byte	.LFB0
+ 632 0004 14000000 		.4byte	.LFE0
+ 633 0008 00000000 		.4byte	.LFB1
+ 634 000c 14000000 		.4byte	.LFE1
+ 635 0010 00000000 		.4byte	.LFB2
+ 636 0014 04000000 		.4byte	.LFE2
+ 637 0018 00000000 		.4byte	.LFB3
+ 638 001c 04000000 		.4byte	.LFE3
+ 639 0020 00000000 		.4byte	0
+ 640 0024 00000000 		.4byte	0
+ 641              		.section	.debug_line,"",%progbits
+ 642              	.Ldebug_line0:
+ 643 0000 AA000000 		.section	.debug_str,"MS",%progbits,1
+ 643      02006200 
+ 643      00000201 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 23
+
+
+ 643      FB0E0D00 
+ 643      01010101 
+ 644              	.LASF18:
+ 645 0000 5350495F 		.ascii	"SPI_SS_Stretch_Wakeup\000"
+ 645      53535F53 
+ 645      74726574 
+ 645      63685F57 
+ 645      616B6575 
+ 646              	.LASF15:
+ 647 0016 5350495F 		.ascii	"SPI_SS_Stretch_SaveConfig\000"
+ 647      53535F53 
+ 647      74726574 
+ 647      63685F53 
+ 647      61766543 
+ 648              	.LASF9:
+ 649 0030 666C6F61 		.ascii	"float\000"
+ 649      7400
+ 650              	.LASF1:
+ 651 0036 756E7369 		.ascii	"unsigned char\000"
+ 651      676E6564 
+ 651      20636861 
+ 651      7200
+ 652              	.LASF19:
+ 653 0044 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 653      4320342E 
+ 653      392E3320 
+ 653      32303135 
+ 653      30333033 
+ 654 0077 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 654      20726576 
+ 654      6973696F 
+ 654      6E203232 
+ 654      31323230 
+ 655 00aa 73202D66 		.ascii	"s -ffunction-sections -finline-functions -flto -ffa"
+ 655      66756E63 
+ 655      74696F6E 
+ 655      2D736563 
+ 655      74696F6E 
+ 656 00dd 742D6C74 		.ascii	"t-lto-objects\000"
+ 656      6F2D6F62 
+ 656      6A656374 
+ 656      7300
+ 657              	.LASF13:
+ 658 00eb 72656738 		.ascii	"reg8\000"
+ 658      00
+ 659              	.LASF5:
+ 660 00f0 6C6F6E67 		.ascii	"long unsigned int\000"
+ 660      20756E73 
+ 660      69676E65 
+ 660      6420696E 
+ 660      7400
+ 661              	.LASF3:
+ 662 0102 73686F72 		.ascii	"short unsigned int\000"
+ 662      7420756E 
+ 662      7369676E 
+ 662      65642069 
+ 662      6E7400
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 24
+
+
+ 663              	.LASF22:
+ 664 0115 636F6E74 		.ascii	"controlState\000"
+ 664      726F6C53 
+ 664      74617465 
+ 664      00
+ 665              	.LASF10:
+ 666 0122 646F7562 		.ascii	"double\000"
+ 666      6C6500
+ 667              	.LASF21:
+ 668 0129 433A5C55 		.ascii	"C:\\Users\\Bruger\\Desktop\\CODE\\PSOC5\\CY8CKIT-59"
+ 668      73657273 
+ 668      5C427275 
+ 668      6765725C 
+ 668      4465736B 
+ 669 0156 2D417264 		.ascii	"-Arduino\\CY8CKIT59_Ardudino-Speeduino.cydsn\000"
+ 669      75696E6F 
+ 669      5C435938 
+ 669      434B4954 
+ 669      35395F41 
+ 670              	.LASF8:
+ 671 0182 756E7369 		.ascii	"unsigned int\000"
+ 671      676E6564 
+ 671      20696E74 
+ 671      00
+ 672              	.LASF7:
+ 673 018f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 673      206C6F6E 
+ 673      6720756E 
+ 673      7369676E 
+ 673      65642069 
+ 674              	.LASF6:
+ 675 01a6 6C6F6E67 		.ascii	"long long int\000"
+ 675      206C6F6E 
+ 675      6720696E 
+ 675      7400
+ 676              	.LASF11:
+ 677 01b4 63686172 		.ascii	"char\000"
+ 677      00
+ 678              	.LASF20:
+ 679 01b9 47656E65 		.ascii	"Generated_Source\\PSoC5\\SPI_SS_Stretch_PM.c\000"
+ 679      72617465 
+ 679      645F536F 
+ 679      75726365 
+ 679      5C50536F 
+ 680              	.LASF2:
+ 681 01e4 73686F72 		.ascii	"short int\000"
+ 681      7420696E 
+ 681      7400
+ 682              	.LASF12:
+ 683 01ee 75696E74 		.ascii	"uint8\000"
+ 683      3800
+ 684              	.LASF14:
+ 685 01f4 5350495F 		.ascii	"SPI_SS_Stretch_BACKUP_STRUCT\000"
+ 685      53535F53 
+ 685      74726574 
+ 685      63685F42 
+ 685      41434B55 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGqmuNG.s 			page 25
+
+
+ 686              	.LASF4:
+ 687 0211 6C6F6E67 		.ascii	"long int\000"
+ 687      20696E74 
+ 687      00
+ 688              	.LASF17:
+ 689 021a 5350495F 		.ascii	"SPI_SS_Stretch_Sleep\000"
+ 689      53535F53 
+ 689      74726574 
+ 689      63685F53 
+ 689      6C656570 
+ 690              	.LASF0:
+ 691 022f 7369676E 		.ascii	"signed char\000"
+ 691      65642063 
+ 691      68617200 
+ 692              	.LASF23:
+ 693 023b 5350495F 		.ascii	"SPI_SS_Stretch_backup\000"
+ 693      53535F53 
+ 693      74726574 
+ 693      63685F62 
+ 693      61636B75 
+ 694              	.LASF16:
+ 695 0251 5350495F 		.ascii	"SPI_SS_Stretch_RestoreConfig\000"
+ 695      53535F53 
+ 695      74726574 
+ 695      63685F52 
+ 695      6573746F 
+ 696              		.comm	__gnu_lto_v1,1,1
+ 697              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

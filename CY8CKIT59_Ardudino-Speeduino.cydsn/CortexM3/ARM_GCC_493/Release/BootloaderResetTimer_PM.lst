@@ -1,0 +1,1684 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"BootloaderResetTimer_PM.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.section	.gnu.lto_.profile.24c0264a,"",%progbits
+  18 0000 789C6366 		.ascii	"x\234cf```a\200\000F\006U~\000\000\315\000="
+  18      60606061 
+  18      80004606 
+  18      557E0000 
+  18      CD003D
+  19              		.text
+  20              		.section	.gnu.lto_.jmpfuncs.24c0264a,"",%progbits
+  21 0000 789C6366 		.ascii	"x\234cf\300\016\004\2404\013\0203200A\231\014\000\002"
+  21      C00E04A0 
+  21      340B1033 
+  21      32303041 
+  21      990C0002 
+  22 0014 B2001F   		.ascii	"\262\000\037"
+  23              		.text
+  24              		.section	.gnu.lto_.inline.24c0264a,"",%progbits
+  25 0000 789C6366 		.ascii	"x\234cf\300\016\302\2404\013\003\0033\023#\003\023\220"
+  25      C00EC2A0 
+  25      340B0303 
+  25      33132303 
+  25      1390
+  26 0012 C9B6401E 		.ascii	"\311\266@\036D10b\21001p\011\002Ex&\370!\024q\2015\263"
+  26      44313062 
+  26      88303170 
+  26      09024578 
+  26      26F82114 
+  27 002a B303C5D9 		.ascii	"\263\003\305\331>\350\241\2123\000\000\364\226\005\344"
+  27      3EE8A18A 
+  27      330000F4 
+  27      9605E4
+  28              		.text
+  29              		.section	.gnu.lto_.pureconst.24c0264a,"",%progbits
+  30 0000 789C6366 		.ascii	"x\234cf``\340d\200\000\026\006\006F\006&)\026\011\000"
+  30      6060E064 
+  30      80001606 
+  30      06460626 
+  30      29160900 
+  31 0014 018D004A 		.ascii	"\001\215\000J"
+  32              		.text
+  33              		.section	.gnu.lto_BootloaderResetTimer_SaveConfig.24c0264a,"",%progbits
+  34 0000 789C6366 		.ascii	"x\234cf\300\004R@\\\012\304\306@\314\310\314\300\310"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 2
+
+
+  34      C0045240 
+  34      5C0AC4C6 
+  34      40CCC8CC 
+  34      C0C8
+  35 0012 34E11C03 		.ascii	"4\341\034\003C#\007\023##\210\301\300\310P\317\304X"
+  35      43230713 
+  35      232388C1 
+  35      C0C850CF 
+  35      C458
+  36 0024 CFF892E9 		.ascii	"\317\370\222\351#\023\343\204\003\253gp\253/mhh\370"
+  36      2313E384 
+  36      03AB6770 
+  36      AB2F6D68 
+  36      68F8
+  37 0036 B0E97463 		.ascii	"\260\351tc\300\001\306\237L\014\014\237\231 \3460.g"
+  37      C001C69F 
+  37      4C0C0C9F 
+  37      9920E630 
+  37      2E67
+  38 0048 5467002A 		.ascii	"Tg\000*\372\330\362\367:7[\013P\221\000D\216q\005#\033"
+  38      FAD8F2F7 
+  38      3A375B0B 
+  38      50910044 
+  38      8E710523 
+  39 005d 23905E2F 		.ascii	"#\220^/t\240\341\377\377\315\353\016~`\004\012?\001"
+  39      74A0E1FF 
+  39      FFCDEB0E 
+  39      7E60040A 
+  39      3F01
+  40 006f 6290054F 		.ascii	"b\220\005O\231\230@4\363=FF\220B\220IO\230\030AB@\005"
+  40      99984034 
+  40      F33D4646 
+  40      90429049 
+  40      4F981841 
+  41 0086 86EEA979 		.ascii	"\206\356\251y\251E\211%\251)\361\301\371\245E\311\251"
+  41      A9458925 
+  41      A929F1C1 
+  41      F9A545C9 
+  41      A9
+  42 0097 3101C1F9 		.ascii	"1\001\301\371\316\2461N\371\371%9\371\211)\251EA\251"
+  42      CEA6314E 
+  42      F9F92539 
+  42      F98929A9 
+  42      4541A9
+  43 00aa C5A92521 		.ascii	"\305\251%!\231\271\251E\361\001\276z\311\014\000{i<"
+  43      99B9A945 
+  43      F101BE7A 
+  43      C90C007B 
+  43      693C
+  44 00bc 90       		.ascii	"\220"
+  45              		.text
+  46              		.section	.gnu.lto_BootloaderResetTimer_RestoreConfig.24c0264a,"",%progbits
+  47 0000 789C6366 		.ascii	"x\234cf\300\004R@\\\012\304\306@\314\310\314\300\310"
+  47      C0045240 
+  47      5C0AC4C6 
+  47      40CCC8CC 
+  47      C0C8
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 3
+
+
+  48 0012 34E11C03 		.ascii	"4\341\034\003C#\007\023##\210\301\300\310P\317\304X"
+  48      43230713 
+  48      232388C1 
+  48      C0C850CF 
+  48      C458
+  49 0024 CFF892E9 		.ascii	"\317\370\222\351#\023\343\204\003\253gp\253/mhh\370"
+  49      2313E384 
+  49      03AB6770 
+  49      AB2F6D68 
+  49      68F8
+  50 0036 7069B344 		.ascii	"pi\263D\253\304O&\006\206\317L\020c\030\2273\2523\000"
+  50      ABC44F26 
+  50      0686CF4C 
+  50      10631897 
+  50      33AA3300 
+  51 004a D57C6CF9 		.ascii	"\325|l\371{\235\233\255\005\250F\000\"\307\270\202\221"
+  51      7B9D9BAD 
+  51      05A84600 
+  51      22C7B882 
+  51      91
+  52 005b 8D1148AF 		.ascii	"\215\021H\257\027:\320\360\377\377\346\363\023_\350"
+  52      173AD0F0 
+  52      FFFFE6F3 
+  52      135FE8
+  53 006a 3102C59F 		.ascii	"1\002\305\237\0001\310\202\247LL \232\371\036##H%\310"
+  53      0031C882 
+  53      A74C4C20 
+  53      9AF91E23 
+  53      234825C8 
+  54 007e A8274C8C 		.ascii	"\250'L\214 !\240\002C\367\324\274\324\242\304\222\324"
+  54      2021A002 
+  54      43F7D4BC 
+  54      D4A2C492 
+  54      D4
+  55 008f 94F8E0FC 		.ascii	"\224\370\340\374\322\242\344\324\230\200\340|g\323\030"
+  55      D2A2E4D4 
+  55      9880E07C 
+  55      67D318
+  56 009e A7FCFC92 		.ascii	"\247\374\374\222\234\374\304\224\324\242\240\324\342"
+  56      9CFCC494 
+  56      D4A2A0D4 
+  56      E2
+  57 00ab D49290CC 		.ascii	"\324\222\220\314\334\324\242\370\000_\275d\006\000\031"
+  57      DCD4A2F8 
+  57      005FBD64 
+  57      060019
+  58 00ba F93BD2   		.ascii	"\371;\322"
+  59              		.text
+  60              		.section	.gnu.lto_BootloaderResetTimer_Sleep.24c0264a,"",%progbits
+  61 0000 789C8591 		.ascii	"x\234\205\221OH\024a\030\306\337\347\235?\016Y\030\235"
+  61      4F481461 
+  61      18C6DFE7 
+  61      9D3F0E59 
+  61      189D
+  62 0012 CC83872E 		.ascii	"\314\203\207.\236L\":v\251C\020\004\222\035\012\004"
+  62      9E4C223A 
+  62      76A94310 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 4
+
+
+  62      04921D0A 
+  62      04
+  63 0023 119D4350 		.ascii	"\021\235CP\016l\333q\361\033w\212\210(\243KT\273\020"
+  63      0E6CDB71 
+  63      F11B778A 
+  63      8828A34B 
+  63      54BB10
+  64 0036 916DEDA6 		.ascii	"\221m\355\246\353\226u\310`\250\203\267\3022\"\211\272"
+  64      EB9675C8 
+  64      60A883B7 
+  64      C2322289 
+  64      BA
+  65 0047 68D82158 		.ascii	"h\330!X[\311\206\322\355\375f\354\017\00650\363~\177"
+  65      5BC986D2 
+  65      EDFD66EC 
+  65      0F063530 
+  65      F37E7F
+  66 005a 7EF33CCF 		.ascii	"~\363<\317\367~\006\375\375\354\226\367\010\023\355"
+  66      F77E06FD 
+  66      FDEC96F7 
+  66      0813ED
+  67 0069 940A9BC0 		.ascii	"\224\012\233\300\303\317\210|\207\331\230l%\265\301"
+  67      C3CF887C 
+  67      87D9986C 
+  67      25B5C1
+  68 0078 9CE920B5 		.ascii	"\234\351 \265\321\200\225,\233?\007\026\240\007\004"
+  68      D180952C 
+  68      9B3F0716 
+  68      A00704
+  69 0087 1A64C3B4 		.ascii	"\032d\303\2640\210\217\274\310\030\016\213\227\033\333"
+  69      30888FBC 
+  69      C8180E8B 
+  69      971BDB
+  70 0096 6E2AA5AA 		.ascii	"n*\245\252C\217\233O5G\242\\\343\304\011\267\320F\302"
+  70      438F9B4F 
+  70      3547A25C 
+  70      E3C409B7 
+  70      D046C2
+  71 00a9 2C062BAF 		.ascii	",\006+\257\033\355@\230\315\311\036\012\260!ulK\250"
+  71      1BED4098 
+  71      CDC91E0A 
+  71      B021756C 
+  71      4BA8
+  72 00bb EAF5DAD2 		.ascii	"\352\365\332\322\305\3026v\230\"\206\251?DsBi\267yf"
+  72      C5C23676 
+  72      982286A9 
+  72      3F447342 
+  72      69B77966 
+  73 00cf 5D8D593C 		.ascii	"]\215Y<\371r\366C\376\005\364\237\313l\212\350\370\247"
+  73      F972F643 
+  73      FE05F49F 
+  73      CB6C8AE8 
+  73      F8A7
+  74 00e1 72090B1C 		.ascii	"r\011\013\0341\253\274\257L\355\363~\356\371\264\023"
+  74      31ABBCAF 
+  74      4CEDF37E 
+  74      EEF9B413 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 5
+
+
+  75 00f1 2F919E4E 		.ascii	"/\221\236N\334x\372}S\016W\375\000\021\033\270\215\026"
+  75      DC78FA7D 
+  75      530E57FD 
+  75      00111BB8 
+  75      8D16
+  76 0103 DC418BB8 		.ascii	"\334A\213\270\027\221\003\315\"\373\365\364\322\326"
+  76      179103CD 
+  76      22FBF5F4 
+  76      D2D6
+  77 0111 449013CD 		.ascii	"D\220\023\315\251\334B\305\324\002\000\241$\354+\004"
+  77      A9DC42C5 
+  77      D40200A1 
+  77      24EC2B04 
+  78 0121 6FB2036B 		.ascii	"o\262\003k\214\000\376\310\243s\0151 2w\265\030\351"
+  78      8C00FEC8 
+  78      A3730D31 
+  78      203277B5 
+  78      18E9
+  79 0133 90064DB6 		.ascii	"\220\006M\266J\306\241ju\371z\223\246\005\315\277<?"
+  79      4AC6A16A 
+  79      75F97A93 
+  79      A605CDBF 
+  79      3C3F
+  80 0145 CA996FEA 		.ascii	"\312\231o\352\214r\"6W\364\261\377\214h\306\323\202"
+  80      8C722236 
+  80      57F4B1FF 
+  80      8C68C6D3 
+  80      82
+  81 0156 1F5C838E 		.ascii	"\037\\\203\216\2504ea\024\031\214iY\331[-]\250\330\355"
+  81      A8346561 
+  81      14198C69 
+  81      59D95B2D 
+  81      5DA8D8ED 
+  82 016a 45E95A78 		.ascii	"E\351Zx8b\033e\001?\307\235\3058\332\005\230\2762\222"
+  82      38621B65 
+  82      013FC79D 
+  82      C538DA05 
+  82      98BE3292 
+  83 017e 6DD25AD2 		.ascii	"m\322Z\322KT\3420\363\242;\323\021G)\257\376'\312z\357"
+  83      4B54E230 
+  83      F3A23BD3 
+  83      114729AF 
+  83      FE27CA7A 
+  84 0193 7BFFF0BE 		.ascii	"{\377\360\276\377\333{\"\366\376u\016[\226\036\254y"
+  84      FFDB7B22 
+  84      F6FE750E 
+  84      5B961EAC 
+  84      79
+  85 01a4 5BF15DBD 		.ascii	"[\361]\275E6\254O\261\366\246\365\346\015\265\270s\017"
+  85      4536AC4F 
+  85      B1F6A6F5 
+  85      E60DB5B8 
+  85      730F
+  86 01b6 91917B76 		.ascii	"\221\221{v\350\035\374\360\322\376\230$}\351\320\002"
+  86      E81DFCF0 
+  86      D2FE9824 
+  86      7DE9D002 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 6
+
+
+  87 01c6 62B3639F 		.ascii	"b\263c\237;\340\246z\323n\177O\227w2\325\347vwvy{wu"
+  87      3BE0A67A 
+  87      D36E7F4F 
+  87      977732D5 
+  87      E7767776 
+  88 01de EFF1BCF4 		.ascii	"\357\361\274\3641\257\267\337M\035tO\270\351CG\217\273"
+  88      31AFB7DF 
+  88      4D1D744F 
+  88      B8E94347 
+  88      8FBB
+  89 01f0 A99ECE03 		.ascii	"\251\236\316\003\333\373\350\007=\202\354\311"
+  89      DBFBE807 
+  89      3D82ECC9 
+  90              		.text
+  91              		.section	.gnu.lto_BootloaderResetTimer_Wakeup.24c0264a,"",%progbits
+  92 0000 789C654F 		.ascii	"x\234eO\277K\202Q\024\275\347\276O\261\037PD\203\364"
+  92      BF4B8251 
+  92      14BDE7BE 
+  92      4FB11F50 
+  92      4483F4
+  93 0013 0F388445 		.ascii	"\0178\204EDkC\015A\021H6\012\"\365\015A\365\201\331"
+  93      446B430D 
+  93      41114836 
+  93      0A22F50D 
+  93      41F581D9 
+  94 0027 283ECBA0 		.ascii	"(>\313\240\251\244)(\333\242_f\324\320\354T\320PDH\021"
+  94      A9A42928 
+  94      DBA25F66 
+  94      D4D0EC54 
+  94      D0504448 
+  95 003c FD8030B0 		.ascii	"\375\2000\260-u\210\217({\357s\010\352\301\343\276w"
+  95      2D75888F 
+  95      287BEF73 
+  95      08EAC1E3 
+  95      BE77
+  96 004e EE39E7DE 		.ascii	"\3569\347\336#\350\377\351Uw\004\365\012\027\201\323"
+  96      23E8FFE9 
+  96      557704F5 
+  96      0A1781D3 
+  97 005e 9744490F 		.ascii	"\227DI\017\2638k!\331h\\\364\223l\0260\352\260\001\350"
+  97      B3386B21 
+  97      D9685CF4 
+  97      936C1630 
+  97      EAB001E8 
+  98 0072 0781122C 		.ascii	"\007\201\022,\014$\360\306eF:\177\260\336\344\333\226"
+  98      0C24F0C6 
+  98      65463A7F 
+  98      B0DEE4DB 
+  98      96
+  99 0083 52BEBF14 		.ascii	"R\276\277\024\274K^\233\211\252\\\367\307\016|\2448"
+  99      BC4B5E9B 
+  99      89AA5CF7 
+  99      C70E7CA4 
+  99      38
+ 100 0094 E5D4D76D 		.ascii	"\345\324\327m\223;\2458\255\365\036v\341Vs\351\250-"
+ 100      933BA538 
+ 100      ADF51E76 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 7
+
+
+ 100      E15673E9 
+ 100      A82D
+ 101 00a6 2F6BB5EA 		.ascii	"/k\265\352\355Z\251\233]\202lV`Q\021\364\234Wf]\305"
+ 101      ED5AA99B 
+ 101      5D826C56 
+ 101      605111F4 
+ 101      9C57665D 
+ 102 00bb 3D164E8F 		.ascii	"=\026N\217\037+\015Z\363\301B\331m\335\254\3448\376"
+ 102      1F2B0D5A 
+ 102      F3C142D9 
+ 102      6DDDACE4 
+ 102      38FE
+ 103 00cd 2997A5C7 		.ascii	")\227\245\307f\376\322\206\012}.^]{J\254\020\347\273"
+ 103      66FED286 
+ 103      0A7D2E5E 
+ 103      5D7B4AAC 
+ 103      10E7BB
+ 104 00e0 9B4C6D22 		.ascii	"\233Lm\"\203\215\244\324,\201=\304\261\217\016\247\367"
+ 104      838DA4D4 
+ 104      2C813DC4 
+ 104      B18F0EA7 
+ 104      F7
+ 105 00f1 9D5D3D71 		.ascii	"\235]=q\373;m6p\2408\025g]d\341\247\002Rw\213\263\277"
+ 105      FB3B6D36 
+ 105      70A03815 
+ 105      675D64E1 
+ 105      A7025277 
+ 106 0108 A3CE33A5 		.ascii	"\243\3163\245\023C\233\002\204C-'\275\231\240\263\026"
+ 106      13439B02 
+ 106      84432D27 
+ 106      BD99A0B3 
+ 106      16
+ 107 0119 F180C5BC 		.ascii	"\361\200\305\274}\321\256\311\364w+WUGA\016q\025\312"
+ 107      7DD1AEC9 
+ 107      F4772B57 
+ 107      5547410E 
+ 107      7115CA
+ 108 012c ED680C27 		.ascii	"\355h\014'\315\023\222\371\332\260\243!\235\025\032"
+ 108      CD1392F9 
+ 108      DAB0A321 
+ 108      9D151A
+ 109 013b 55F37B86 		.ascii	"U\363{\206\314Y3\032\211\231\223\341\2405\037\2350C"
+ 109      CC59331A 
+ 109      899993E1 
+ 109      A0351F9D 
+ 109      3043
+ 110 014d 81A035D8 		.ascii	"\201\2405\330\027\032\260\254\330\264\025\2314\243c"
+ 110      171AB0AC 
+ 110      D8B41599 
+ 110      34A363
+ 111 015c E69C191B 		.ascii	"\346\234\031\033\237\2321\243\341\300h\327\004\375\000"
+ 111      9F9A31A3 
+ 111      E1C068D7 
+ 111      04FD00
+ 112 016b 59708A32 		.ascii	"Yp\2122"
+ 113              		.text
+ 114              		.section	.gnu.lto_.symbol_nodes.24c0264a,"",%progbits
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 8
+
+
+ 115 0000 789C55C8 		.ascii	"x\234U\310\261\015\2000\014\005\321\213\035G\014\301"
+ 115      B10D8030 
+ 115      0C05D18B 
+ 115      1D470CC1 
+ 116 0010 9CB43F23 		.ascii	"\234\264?#0\001\312 \224\324\354\200\304\034\010$(\302"
+ 116      3001CA20 
+ 116      94D4EC80 
+ 116      C41C0824 
+ 116      28C2
+ 117 0022 75EF1C98 		.ascii	"u\357\034\230\370\262$\230w\220X\332\200\231\322\317"
+ 117      F8B22498 
+ 117      779058DA 
+ 117      8099D2CF 
+ 118 0032 2EEB1DD0 		.ascii	".\353\035\320LnY\336\357\024\312\257\251\365aQtt\013"
+ 118      4C6E59DE 
+ 118      EF14CAAF 
+ 118      A9F56151 
+ 118      74740B
+ 119 0045 B6E34A9E 		.ascii	"\266\343J\236\013\347:r\003\344\240\035\224"
+ 119      0BE73A72 
+ 119      03E4A01D 
+ 119      94
+ 120              		.text
+ 121              		.section	.gnu.lto_.refs.24c0264a,"",%progbits
+ 122 0000 789C6366 		.ascii	"x\234cf``\340c\200\000&&Ff\026FfVF\026\006fF\006\000"
+ 122      6060E063 
+ 122      80002626 
+ 122      46661646 
+ 122      66564616 
+ 123 0019 02900030 		.ascii	"\002\220\0000"
+ 124              		.text
+ 125              		.section	.gnu.lto_.decls.24c0264a,"",%progbits
+ 126 0000 789C9594 		.ascii	"x\234\225\224\177hSW\024\307\357\311\215\261y\213A("
+ 126      7F685357 
+ 126      14C7EFC9 
+ 126      8DB1798B 
+ 126      4128
+ 127 0012 54CDFEB0 		.ascii	"T\315\376\260V(*\245l\177\010\376\247\254\014ec\243"
+ 127      56282AA5 
+ 127      6C7F08FE 
+ 127      A7AC0C65 
+ 127      63A3
+ 128 0024 2C1B0A0A 		.ascii	",\033\012\012\022\343\323uv}Y|\031\370\317\2706:5\255"
+ 128      12E3D375 
+ 128      767D597C 
+ 128      19F8CFB8 
+ 128      363A35AD 
+ 129 0038 AE15A55D 		.ascii	"\256\025\245]\2535\322\272\254\332\306Z\333\256?RS\353"
+ 129      AB35D2BA 
+ 129      ACDAC65A 
+ 129      DBAE3F52 
+ 129      53EB
+ 130 004a AFD8A04C 		.ascii	"\257\330\240L(\305\014&\255\333\\E\267\245\242\033C"
+ 130      28C50C26 
+ 130      ADDB5C45 
+ 130      B7A5A21B 
+ 130      43
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 9
+
+
+ 131 005b E7DB79F7 		.ascii	"\347\333y\367\275gR\367\252\356\302y\357\336w\277\347"
+ 131      BD6752F7 
+ 131      AAEEC279 
+ 131      EFDE77BF 
+ 131      E7
+ 132 006c 73CEBDE7 		.ascii	"s\316\275\347\360(!\344\015 D\301\221\264\022r\030\347"
+ 132      F02821E4 
+ 132      0D2044C1 
+ 132      91B41272 
+ 132      18E7
+ 133 007e B3F05B29 		.ascii	"\263\360[)\311\014\033Z\033Z\024\255\003\255\023\255"
+ 133      C90C1B5A 
+ 133      1B5A14AD 
+ 133      03AD13AD 
+ 134 008e 0BAD070D 		.ascii	"\013\255\007\015\345\344\"\231>\332\364\357\006\003"
+ 134      E5E42299 
+ 134      3EDAF4EF 
+ 134      0603
+ 135 009c F46FCF8F 		.ascii	"\364o\317\217\250\211.j\242Sc\332u]\036\332U\264+h#"
+ 135      A8892E6A 
+ 135      A25363DA 
+ 135      755D1EDA 
+ 135      55B42B68 
+ 136 00b1 68C36803 		.ascii	"h\303h\003hI\264V\235\021G\263\350~]3\344\250\236av"
+ 136      6849B456 
+ 136      9D1147B3 
+ 136      E87E5D33 
+ 136      E4A89E61 
+ 137 00c6 16F365AC 		.ascii	"\026\363e\254\316\027\234w\312\002}\321\207\327^\233"
+ 137      CE179C77 
+ 137      CA027DD1 
+ 137      87D75E9B 
+ 138 00d6 B48053C8 		.ascii	"\264\200S\310W\227\375\007\023\3656\\:\004\253\272\034"
+ 138      5797FD07 
+ 138      13F5365C 
+ 138      3A04ABBA 
+ 138      1C
+ 139 00e7 787C7BD4 		.ascii	"x|{\324:\3570\303Q\023ds\255P\232\007\021p\301\267\340"
+ 139      3AEF30C3 
+ 139      51136473 
+ 139      AD509A07 
+ 139      1170C1B7 
+ 140 00fc 42622BCC 		.ascii	"Bb+\314\303\347z\253F\372\245\361N\265\235Z@\2357\327"
+ 140      C3E77AAB 
+ 140      46FAA5F1 
+ 140      4EB59D5A 
+ 140      409D37D7 
+ 141 0110 4F8C0A45 		.ascii	"O\214\012E'\321m/\033\372\336\232\011\367\270N\312o"
+ 141      27D16D2F 
+ 141      1BFADE9A 
+ 141      09F7B84E 
+ 141      CA6F
+ 142 0122 62E98E74 		.ascii	"b\351\216t\252'\345`\0116\244(q\006\034\005'\201\302"
+ 142      AA27E560 
+ 142      0936A428 
+ 142      71061C05 
+ 142      2781C2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 10
+
+
+ 143 0135 2928E217 		.ascii	")(\342\027\212s\355f\333 \037\335\016\354\354U\004\272"
+ 143      8A73ED66 
+ 143      DB201FDD 
+ 143      0EECEC55 
+ 143      04BA
+ 144 0147 9EB37F7C 		.ascii	"\236\263\177|R\037srH\370h\263\315@pB{\026\241\335 "
+ 144      521F7372 
+ 144      48F868B3 
+ 144      CD407042 
+ 144      7B16A1DD 
+ 145 015c 4439E1AB 		.ascii	"D9\341\253X\313\3239\364\013-\273x\323'\010\010w\204"
+ 145      58CBD339 
+ 145      F40B2DBB 
+ 145      78D32708 
+ 145      087784
+ 146 016f 2775C04A 		.ascii	"'u\300J\356~:\313\375\264\341\336\301\335\023\221/\203"
+ 146      EE7E3ACB 
+ 146      FDB4E1DE 
+ 146      C1DD1391 
+ 146      2F83
+ 147 0181 40BF06EE 		.ascii	"@\277\006\356\337\030\232\370\315\251\001\242'\262\001"
+ 147      DF189AF8 
+ 147      CDA901A2 
+ 147      27B201
+ 148 0190 67B20067 		.ascii	"g\262\000g\014@'\007\334\254\231\270a\247\335\032\340"
+ 148      0C402707 
+ 148      DCAC99B8 
+ 148      61A7DD1A 
+ 148      E0
+ 149 01a1 EEBDA6EB 		.ascii	"\356\275\246\3539\010\030g\351c\277\376\276\2466X\323"
+ 149      39081867 
+ 149      E963BFFE 
+ 149      BEA63658 
+ 149      D3
+ 150 01b2 C2C61565 		.ascii	"\302\306\025e\241v\017g\263(g\015J\027\247\264F\366"
+ 150      A1760F67 
+ 150      B328670D 
+ 150      4A17A7B4 
+ 150      46F6
+ 151 01c4 FF41E953 		.ascii	"\377A\351S\215r\277\367\257\030p\312x\343%qx\027{\242"
+ 151      8D72BFF7 
+ 151      AF1870CA 
+ 151      78E32571 
+ 151      78177BA2 
+ 152 01d8 28544374 		.ascii	"(TCtg!\272\015D\017G${v\377\003\264A\253\323X|\317\236"
+ 152      6721BA0D 
+ 152      440F4724 
+ 152      7B76FF03 
+ 152      B441ABD3 
+ 153 01f0 1C1AD316 		.ascii	"\034\032\323\026;\277\031\250\236\215\265\317\023x\251"
+ 153      3BBF19A8 
+ 153      9E8DB5CF 
+ 153      1378A9
+ 154 01ff 0E241BCE 		.ascii	"\016$\033\316S\276T\324mK*u\350o\012B\341^\306*Y\372"
+ 154      53BE54D4 
+ 154      6D4B2A75 
+ 154      E86F0A42 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 11
+
+
+ 154      E15EC62A 
+ 155 0215 20A3F309 		.ascii	" \243\363\011\024\271`\251\213@\014\012Q\306#B\037\266"
+ 155      14B960A9 
+ 155      8B400C0A 
+ 155      51C62342 
+ 155      1FB6
+ 156 0227 473FB647 		.ascii	"G?\266G\013\026?\035\252:\367N\220\255\202\001\020\240"
+ 156      0B163F1D 
+ 156      AA3AF74E 
+ 156      90AD8201 
+ 156      10A0
+ 157 0239 F7594E3C 		.ascii	"\367YN<\202\336\020S\203\373\233\005\3723\317\200\216"
+ 157      82DE1053 
+ 157      83FB9B05 
+ 157      FA33CF80 
+ 157      8E
+ 158 024a D61C6A77 		.ascii	"\326\034jwBnAa\255\332q\351J\266\3523#\006\201s\220"
+ 158      426E4161 
+ 158      ADDA71E9 
+ 158      4AB6EA33 
+ 158      23068173 
+ 159 025f ABFAC310 		.ascii	"\253\372\303\020\006\213C\001\007\2041\227\364\261\310"
+ 159      068B4301 
+ 159      07843197 
+ 159      F4B1C8
+ 160 026e 4FEBA62A 		.ascii	"O\353\246*Y\365|\036f\020\303\250R=\265%\252\3532|\360"
+ 160      59F57C1E 
+ 160      6610C3A8 
+ 160      523DB525 
+ 160      AAEB327C 
+ 161 0283 84C6AB9A 		.ascii	"\204\306\253\232m\330+\270O\214\37312\261\034\251>:"
+ 161      6DD82BB8 
+ 161      4F8CFB31 
+ 161      32B11CA9 
+ 161      3E3A
+ 162 0295 6883C25C 		.ascii	"h\203\302\\\256;U\222\003\303H\371.\223\264\352\304"
+ 162      AE3B5592 
+ 162      03C348F9 
+ 162      2E93B4EA 
+ 162      C4
+ 163 02a6 C77F9383 		.ascii	"\307\177\223\203\363\230\223Y~x\300[w\306\372\201>\322"
+ 163      F3989359 
+ 163      7E78C05B 
+ 163      77C6FA81 
+ 163      3ED2
+ 164 02b8 AEB87DE4 		.ascii	"\256\270}\344\341\015\347\342\343\214\205\323\251\037"
+ 164      E10DE7E2 
+ 164      E38C85D3 
+ 164      A91F
+ 165 02c6 262D752C 		.ascii	"&-u,\\\311\230\332=<\330\005-\330\263\023_\320*\007"
+ 165      5CC998DA 
+ 165      3D3CD805 
+ 165      2DD8B313 
+ 165      5FD02A07 
+ 166 02da 176131FA 		.ascii	"\027a1\372\262\272\252\226\034ZK9\250\373\317P\337\034"
+ 166      B2BAAA96 
+ 166      1C5A4B39 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 12
+
+
+ 166      A8FBCF50 
+ 166      DF1C
+ 167 02ec 014B117C 		.ascii	"\001K\021|\205R\340\341F\257\207\306\354Z\361\236\367"
+ 167      8552E0E1 
+ 167      46AF87C6 
+ 167      EC5AF19E 
+ 167      F7
+ 168 02fd 48CC58BC 		.ascii	"H\314X\274\344\203wwa\361\256\340\255^\312\334\303e"
+ 168      E4837777 
+ 168      61F1AEE0 
+ 168      AD5ECADC 
+ 168      C365
+ 169 030f C8546FDF 		.ascii	"\310To\337\355\206k\016GH\355\010\374?\330\023N.\316"
+ 169      ED866B0E 
+ 169      4748ED08 
+ 169      FC3FD813 
+ 169      4E2ECE
+ 170 0322 FC21AE82 		.ascii	"\374!\256\202\203\237\000\337\252:|?b\237\246VO\235"
+ 170      839F00DF 
+ 170      AA3A7C3F 
+ 170      629FA656 
+ 170      4F9D
+ 171 0334 518FE8EA 		.ascii	"Q\217\350\352\021\256\276U?\024\262NS\253\235\235Q'"
+ 171      11AEBE55 
+ 171      3F14B24E 
+ 171      53AB9D9D 
+ 171      5127
+ 172 0346 C161A484 		.ascii	"\301a\244\204S\262\360-I\222\313%\317f\321\377\201\270"
+ 172      53B2F02D 
+ 172      4992CB25 
+ 172      CF66D1FF 
+ 172      81B8
+ 173 0358 5D943F2C 		.ascii	"]\224?,\373T\364ot{>\027K\244\212-e[m\253\337\377(\277"
+ 173      FB54F46F 
+ 173      747B3E17 
+ 173      4BA48A2D 
+ 173      655B6DAB 
+ 174 0370 84BCB95A 		.ascii	"\204\274\271Z\254\020\375\036Y\334\274\321-\005\374"
+ 174      AC10FD1E 
+ 174      59DCBCD1 
+ 174      2D05FC
+ 175 037f 5E7143A9 		.ascii	"^qC\251[*Y\276\301\324\273\364\275b/)0\335\302\251,"
+ 175      5B2A59BE 
+ 175      C1D4BBF4 
+ 175      BD622F29 
+ 175      30DDC2A9 
+ 176 0394 F975B6CB 		.ascii	"\371u\266\313<v\271(\372^7\335Z\353\331&\006|\013\314"
+ 176      3C76B928 
+ 176      FA5E37DD 
+ 176      5AEBD926 
+ 176      067C0BCC 
+ 177 03a8 DD64C957 		.ascii	"\335d\311W\374?\262,\376\230\230\007y\273\302\263\251"
+ 177      FC3FB22C 
+ 177      FE989807 
+ 177      79BBC2B3 
+ 177      A9
+ 178 03b9 5C5C64BA 		.ascii	"\\\\d\272\267\311\343\335\026\360\271e\177\300+\317"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 13
+
+
+ 178      B7C9E3DD 
+ 178      16F0B965 
+ 178      7FC02BCF 
+ 179 03c9 0A9455C8 		.ascii	"\012\224U\310+\026\315\020\322\273C\336\341\023\267"
+ 179      2B16CD10 
+ 179      D2BB43DE 
+ 179      E113B7
+ 180 03d8 6394B9DC 		.ascii	"c\224\271\334U\243\272eT\232\207\325\320V\277\270u\305"
+ 180      55A3BA65 
+ 180      549A87D5 
+ 180      D056BFB8 
+ 180      75C5
+ 181 03ea BF425827 		.ascii	"\277BX'\312"
+ 181      CA
+ 182              		.text
+ 183              		.section	.gnu.lto_.symtab.24c0264a,"",%progbits
+ 184 0000 426F6F74 		.ascii	"BootloaderResetTimer_SaveConfig\000\000\000\000\000"
+ 184      6C6F6164 
+ 184      65725265 
+ 184      73657454 
+ 184      696D6572 
+ 185 0024 00000000 		.ascii	"\000\000\000\000\000\000\000\254\000\000\000Bootloa"
+ 185      000000AC 
+ 185      00000042 
+ 185      6F6F746C 
+ 185      6F61
+ 186 0036 64657252 		.ascii	"derResetTimer_RestoreConfig\000\000\000\000\000\000"
+ 186      65736574 
+ 186      54696D65 
+ 186      725F5265 
+ 186      73746F72 
+ 187 0057 00000000 		.ascii	"\000\000\000\000\000\000\256\000\000\000BootloaderR"
+ 187      0000AE00 
+ 187      0000426F 
+ 187      6F746C6F 
+ 187      61646572 
+ 188 006c 65736574 		.ascii	"esetTimer_Sleep\000\000\000\000\000\000\000\000\000"
+ 188      54696D65 
+ 188      725F536C 
+ 188      65657000 
+ 188      00000000 
+ 189 0084 000000B0 		.ascii	"\000\000\000\260\000\000\000BootloaderResetTimer_Wa"
+ 189      00000042 
+ 189      6F6F746C 
+ 189      6F616465 
+ 189      72526573 
+ 190 00a2 6B657570 		.ascii	"keup\000\000\000\000\000\000\000\000\000\000\000\000"
+ 190      00000000 
+ 190      00000000 
+ 190      00000000 
+ 191 00b2 B2000000 		.ascii	"\262\000\000\000BootloaderResetTimer_Stop\000\000\002"
+ 191      426F6F74 
+ 191      6C6F6164 
+ 191      65725265 
+ 191      73657454 
+ 192 00d2 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\264\000\000\000"
+ 192      00000000 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 14
+
+
+ 192      00B40000 
+ 192      00
+ 193 00df 426F6F74 		.ascii	"BootloaderResetTimer_Enable\000\000\002\000\000\000"
+ 193      6C6F6164 
+ 193      65725265 
+ 193      73657454 
+ 193      696D6572 
+ 194 0100 00000000 		.ascii	"\000\000\000\000\000\000\266\000\000\000"
+ 194      0000B600 
+ 194      0000
+ 195              		.text
+ 196              		.section	.gnu.lto_.opts,"",%progbits
+ 197 0000 272D666E 		.ascii	"'-fno-trapv' '-mcpu=cortex-m3' '-mthumb' '-g' '-O3'"
+ 197      6F2D7472 
+ 197      61707627 
+ 197      20272D6D 
+ 197      6370753D 
+ 198 0033 20272D66 		.ascii	" '-ffunction-sections' '-finline-functions' '-flto'"
+ 198      66756E63 
+ 198      74696F6E 
+ 198      2D736563 
+ 198      74696F6E 
+ 199 0066 20272D66 		.ascii	" '-ffat-lto-objects'\000"
+ 199      6661742D 
+ 199      6C746F2D 
+ 199      6F626A65 
+ 199      63747327 
+ 200              		.text
+ 201              		.cfi_sections	.debug_frame
+ 202              		.section	.text.BootloaderResetTimer_SaveConfig,"ax",%progbits
+ 203              		.align	2
+ 204              		.global	BootloaderResetTimer_SaveConfig
+ 205              		.thumb
+ 206              		.thumb_func
+ 207              		.type	BootloaderResetTimer_SaveConfig, %function
+ 208              	BootloaderResetTimer_SaveConfig:
+ 209              	.LFB0:
+ 210              		.file 1 "Generated_Source\\PSoC5\\BootloaderResetTimer_PM.c"
+   1:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * File Name: BootloaderResetTimer_PM.c
+   3:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Version 2.70
+   4:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+   5:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  Description:
+   6:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *     This file provides the power management source code to API for the
+   7:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *     Timer.
+   8:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+   9:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *   Note:
+  10:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *     None
+  11:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+  12:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *******************************************************************************
+  13:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** ********************************************************************************/
+  18:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** 
+  19:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** #include "BootloaderResetTimer.h"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 15
+
+
+  20:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** 
+  21:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** static BootloaderResetTimer_backupStruct BootloaderResetTimer_backup;
+  22:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** 
+  23:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** 
+  24:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** /*******************************************************************************
+  25:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Function Name: BootloaderResetTimer_SaveConfig
+  26:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** ********************************************************************************
+  27:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+  28:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Summary:
+  29:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *     Save the current user configuration
+  30:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+  31:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Parameters:
+  32:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  void
+  33:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+  34:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Return:
+  35:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  void
+  36:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+  37:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Global variables:
+  38:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  BootloaderResetTimer_backup:  Variables of this global structure are modified to
+  39:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  store the values of non retention configuration registers when Sleep() API is
+  40:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  called.
+  41:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+  42:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *******************************************************************************/
+  43:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** void BootloaderResetTimer_SaveConfig(void) 
+  44:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** {
+ 211              		.loc 1 44 0
+ 212              		.cfi_startproc
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215              		@ link register save eliminated.
+ 216 0000 7047     		bx	lr
+ 217              		.cfi_endproc
+ 218              	.LFE0:
+ 219              		.size	BootloaderResetTimer_SaveConfig, .-BootloaderResetTimer_SaveConfig
+ 220 0002 00BF     		.section	.text.BootloaderResetTimer_RestoreConfig,"ax",%progbits
+ 221              		.align	2
+ 222              		.global	BootloaderResetTimer_RestoreConfig
+ 223              		.thumb
+ 224              		.thumb_func
+ 225              		.type	BootloaderResetTimer_RestoreConfig, %function
+ 226              	BootloaderResetTimer_RestoreConfig:
+ 227              	.LFB1:
+  45:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****     #if (!BootloaderResetTimer_UsingFixedFunction)
+  46:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         BootloaderResetTimer_backup.TimerUdb = BootloaderResetTimer_ReadCounter();
+  47:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         BootloaderResetTimer_backup.InterruptMaskValue = BootloaderResetTimer_STATUS_MASK;
+  48:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         #if (BootloaderResetTimer_UsingHWCaptureCounter)
+  49:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****             BootloaderResetTimer_backup.TimerCaptureCounter = BootloaderResetTimer_ReadCaptureCount
+  50:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         #endif /* Back Up capture counter register  */
+  51:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** 
+  52:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         #if(!BootloaderResetTimer_UDB_CONTROL_REG_REMOVED)
+  53:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****             BootloaderResetTimer_backup.TimerControlRegister = BootloaderResetTimer_ReadControlRegi
+  54:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         #endif /* Backup the enable state of the Timer component */
+  55:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****     #endif /* Backup non retention registers in UDB implementation. All fixed function registers ar
+  56:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** }
+  57:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** 
+  58:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** 
+  59:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** /*******************************************************************************
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 16
+
+
+  60:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Function Name: BootloaderResetTimer_RestoreConfig
+  61:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** ********************************************************************************
+  62:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+  63:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Summary:
+  64:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  Restores the current user configuration.
+  65:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+  66:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Parameters:
+  67:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  void
+  68:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+  69:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Return:
+  70:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  void
+  71:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+  72:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Global variables:
+  73:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  BootloaderResetTimer_backup:  Variables of this global structure are used to
+  74:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  restore the values of non retention registers on wakeup from sleep mode.
+  75:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+  76:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *******************************************************************************/
+  77:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** void BootloaderResetTimer_RestoreConfig(void) 
+  78:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** {   
+ 228              		.loc 1 78 0
+ 229              		.cfi_startproc
+ 230              		@ args = 0, pretend = 0, frame = 0
+ 231              		@ frame_needed = 0, uses_anonymous_args = 0
+ 232              		@ link register save eliminated.
+ 233 0000 7047     		bx	lr
+ 234              		.cfi_endproc
+ 235              	.LFE1:
+ 236              		.size	BootloaderResetTimer_RestoreConfig, .-BootloaderResetTimer_RestoreConfig
+ 237 0002 00BF     		.section	.text.BootloaderResetTimer_Sleep,"ax",%progbits
+ 238              		.align	2
+ 239              		.global	BootloaderResetTimer_Sleep
+ 240              		.thumb
+ 241              		.thumb_func
+ 242              		.type	BootloaderResetTimer_Sleep, %function
+ 243              	BootloaderResetTimer_Sleep:
+ 244              	.LFB2:
+  79:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****     #if (!BootloaderResetTimer_UsingFixedFunction)
+  80:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** 
+  81:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         BootloaderResetTimer_WriteCounter(BootloaderResetTimer_backup.TimerUdb);
+  82:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         BootloaderResetTimer_STATUS_MASK =BootloaderResetTimer_backup.InterruptMaskValue;
+  83:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         #if (BootloaderResetTimer_UsingHWCaptureCounter)
+  84:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****             BootloaderResetTimer_SetCaptureCount(BootloaderResetTimer_backup.TimerCaptureCounter);
+  85:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         #endif /* Restore Capture counter register*/
+  86:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** 
+  87:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         #if(!BootloaderResetTimer_UDB_CONTROL_REG_REMOVED)
+  88:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****             BootloaderResetTimer_WriteControlRegister(BootloaderResetTimer_backup.TimerControlRegis
+  89:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         #endif /* Restore the enable state of the Timer component */
+  90:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****     #endif /* Restore non retention registers in the UDB implementation only */
+  91:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** }
+  92:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** 
+  93:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** 
+  94:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** /*******************************************************************************
+  95:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Function Name: BootloaderResetTimer_Sleep
+  96:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** ********************************************************************************
+  97:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+  98:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Summary:
+  99:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *     Stop and Save the user configuration
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 17
+
+
+ 100:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+ 101:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Parameters:
+ 102:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  void
+ 103:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+ 104:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Return:
+ 105:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  void
+ 106:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+ 107:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Global variables:
+ 108:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  BootloaderResetTimer_backup.TimerEnableState:  Is modified depending on the
+ 109:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  enable state of the block before entering sleep mode.
+ 110:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+ 111:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *******************************************************************************/
+ 112:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** void BootloaderResetTimer_Sleep(void) 
+ 113:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** {
+ 245              		.loc 1 113 0
+ 246              		.cfi_startproc
+ 247              		@ args = 0, pretend = 0, frame = 0
+ 248              		@ frame_needed = 0, uses_anonymous_args = 0
+ 249              		@ link register save eliminated.
+ 114:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****     #if(!BootloaderResetTimer_UDB_CONTROL_REG_REMOVED)
+ 115:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         /* Save Counter's enable state */
+ 116:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         if(BootloaderResetTimer_CTRL_ENABLE == (BootloaderResetTimer_CONTROL & BootloaderResetTimer
+ 250              		.loc 1 116 0
+ 251 0000 034B     		ldr	r3, .L4
+ 252 0002 044A     		ldr	r2, .L4+4
+ 253 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 254 0006 03F00103 		and	r3, r3, #1
+ 255 000a 1370     		strb	r3, [r2]
+ 117:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         {
+ 118:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****             /* Timer is enabled */
+ 119:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****             BootloaderResetTimer_backup.TimerEnableState = 1u;
+ 120:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         }
+ 121:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         else
+ 122:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         {
+ 123:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****             /* Timer is disabled */
+ 124:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****             BootloaderResetTimer_backup.TimerEnableState = 0u;
+ 125:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         }
+ 126:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****     #endif /* Back up enable state from the Timer control register */
+ 127:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****     BootloaderResetTimer_Stop();
+ 256              		.loc 1 127 0
+ 257 000c FFF7FEBF 		b	BootloaderResetTimer_Stop
+ 258              	.LVL0:
+ 259              	.L5:
+ 260              		.align	2
+ 261              	.L4:
+ 262 0010 004F0040 		.word	1073762048
+ 263 0014 00000000 		.word	.LANCHOR0
+ 264              		.cfi_endproc
+ 265              	.LFE2:
+ 266              		.size	BootloaderResetTimer_Sleep, .-BootloaderResetTimer_Sleep
+ 267              		.section	.text.BootloaderResetTimer_Wakeup,"ax",%progbits
+ 268              		.align	2
+ 269              		.global	BootloaderResetTimer_Wakeup
+ 270              		.thumb
+ 271              		.thumb_func
+ 272              		.type	BootloaderResetTimer_Wakeup, %function
+ 273              	BootloaderResetTimer_Wakeup:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 18
+
+
+ 274              	.LFB3:
+ 128:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****     BootloaderResetTimer_SaveConfig();
+ 129:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** }
+ 130:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** 
+ 131:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** 
+ 132:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** /*******************************************************************************
+ 133:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Function Name: BootloaderResetTimer_Wakeup
+ 134:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** ********************************************************************************
+ 135:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+ 136:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Summary:
+ 137:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  Restores and enables the user configuration
+ 138:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+ 139:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Parameters:
+ 140:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  void
+ 141:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+ 142:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Return:
+ 143:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  void
+ 144:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+ 145:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** * Global variables:
+ 146:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  BootloaderResetTimer_backup.enableState:  Is used to restore the enable state of
+ 147:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *  block on wakeup from sleep mode.
+ 148:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *
+ 149:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** *******************************************************************************/
+ 150:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** void BootloaderResetTimer_Wakeup(void) 
+ 151:Generated_Source\PSoC5/BootloaderResetTimer_PM.c **** {
+ 275              		.loc 1 151 0
+ 276              		.cfi_startproc
+ 277              		@ args = 0, pretend = 0, frame = 0
+ 278              		@ frame_needed = 0, uses_anonymous_args = 0
+ 279              		@ link register save eliminated.
+ 152:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****     BootloaderResetTimer_RestoreConfig();
+ 153:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****     #if(!BootloaderResetTimer_UDB_CONTROL_REG_REMOVED)
+ 154:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         if(BootloaderResetTimer_backup.TimerEnableState == 1u)
+ 280              		.loc 1 154 0
+ 281 0000 034B     		ldr	r3, .L10
+ 282 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 283 0004 012B     		cmp	r3, #1
+ 284 0006 00D0     		beq	.L9
+ 285 0008 7047     		bx	lr
+ 286              	.L9:
+ 155:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****         {     /* Enable Timer's operation */
+ 156:Generated_Source\PSoC5/BootloaderResetTimer_PM.c ****                 BootloaderResetTimer_Enable();
+ 287              		.loc 1 156 0
+ 288 000a FFF7FEBF 		b	BootloaderResetTimer_Enable
+ 289              	.LVL1:
+ 290              	.L11:
+ 291 000e 00BF     		.align	2
+ 292              	.L10:
+ 293 0010 00000000 		.word	.LANCHOR0
+ 294              		.cfi_endproc
+ 295              	.LFE3:
+ 296              		.size	BootloaderResetTimer_Wakeup, .-BootloaderResetTimer_Wakeup
+ 297              		.bss
+ 298              		.align	2
+ 299              		.set	.LANCHOR0,. + 0
+ 300              		.type	BootloaderResetTimer_backup, %object
+ 301              		.size	BootloaderResetTimer_backup, 1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 19
+
+
+ 302              	BootloaderResetTimer_backup:
+ 303 0000 00       		.space	1
+ 304 0001 000000   		.text
+ 305              	.Letext0:
+ 306              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 307              		.file 3 "Generated_Source\\PSoC5\\BootloaderResetTimer.h"
+ 308              		.section	.debug_info,"",%progbits
+ 309              	.Ldebug_info0:
+ 310 0000 4C010000 		.4byte	0x14c
+ 311 0004 0400     		.2byte	0x4
+ 312 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 313 000a 04       		.byte	0x4
+ 314 000b 01       		.uleb128 0x1
+ 315 000c 3F020000 		.4byte	.LASF22
+ 316 0010 01       		.byte	0x1
+ 317 0011 78010000 		.4byte	.LASF23
+ 318 0015 C3000000 		.4byte	.LASF24
+ 319 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 320 001d 00000000 		.4byte	0
+ 321 0021 00000000 		.4byte	.Ldebug_line0
+ 322 0025 02       		.uleb128 0x2
+ 323 0026 01       		.byte	0x1
+ 324 0027 06       		.byte	0x6
+ 325 0028 BC010000 		.4byte	.LASF0
+ 326 002c 02       		.uleb128 0x2
+ 327 002d 01       		.byte	0x1
+ 328 002e 08       		.byte	0x8
+ 329 002f 39010000 		.4byte	.LASF1
+ 330 0033 02       		.uleb128 0x2
+ 331 0034 02       		.byte	0x2
+ 332 0035 05       		.byte	0x5
+ 333 0036 0C020000 		.4byte	.LASF2
+ 334 003a 02       		.uleb128 0x2
+ 335 003b 02       		.byte	0x2
+ 336 003c 07       		.byte	0x7
+ 337 003d A9010000 		.4byte	.LASF3
+ 338 0041 02       		.uleb128 0x2
+ 339 0042 04       		.byte	0x4
+ 340 0043 05       		.byte	0x5
+ 341 0044 4C010000 		.4byte	.LASF4
+ 342 0048 02       		.uleb128 0x2
+ 343 0049 04       		.byte	0x4
+ 344 004a 07       		.byte	0x7
+ 345 004b 9A000000 		.4byte	.LASF5
+ 346 004f 02       		.uleb128 0x2
+ 347 0050 08       		.byte	0x8
+ 348 0051 05       		.byte	0x5
+ 349 0052 00000000 		.4byte	.LASF6
+ 350 0056 02       		.uleb128 0x2
+ 351 0057 08       		.byte	0x8
+ 352 0058 07       		.byte	0x7
+ 353 0059 AC000000 		.4byte	.LASF7
+ 354 005d 03       		.uleb128 0x3
+ 355 005e 04       		.byte	0x4
+ 356 005f 05       		.byte	0x5
+ 357 0060 696E7400 		.ascii	"int\000"
+ 358 0064 02       		.uleb128 0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 20
+
+
+ 359 0065 04       		.byte	0x4
+ 360 0066 07       		.byte	0x7
+ 361 0067 2E000000 		.4byte	.LASF8
+ 362 006b 04       		.uleb128 0x4
+ 363 006c 94000000 		.4byte	.LASF12
+ 364 0070 02       		.byte	0x2
+ 365 0071 3801     		.2byte	0x138
+ 366 0073 2C000000 		.4byte	0x2c
+ 367 0077 02       		.uleb128 0x2
+ 368 0078 04       		.byte	0x4
+ 369 0079 04       		.byte	0x4
+ 370 007a EA010000 		.4byte	.LASF9
+ 371 007e 02       		.uleb128 0x2
+ 372 007f 08       		.byte	0x8
+ 373 0080 04       		.byte	0x4
+ 374 0081 71010000 		.4byte	.LASF10
+ 375 0085 02       		.uleb128 0x2
+ 376 0086 01       		.byte	0x1
+ 377 0087 08       		.byte	0x8
+ 378 0088 47010000 		.4byte	.LASF11
+ 379 008c 04       		.uleb128 0x4
+ 380 008d 16020000 		.4byte	.LASF13
+ 381 0091 02       		.byte	0x2
+ 382 0092 E201     		.2byte	0x1e2
+ 383 0094 98000000 		.4byte	0x98
+ 384 0098 05       		.uleb128 0x5
+ 385 0099 6B000000 		.4byte	0x6b
+ 386 009d 02       		.uleb128 0x2
+ 387 009e 04       		.byte	0x4
+ 388 009f 07       		.byte	0x7
+ 389 00a0 36020000 		.4byte	.LASF14
+ 390 00a4 06       		.uleb128 0x6
+ 391 00a5 01       		.byte	0x1
+ 392 00a6 03       		.byte	0x3
+ 393 00a7 43       		.byte	0x43
+ 394 00a8 B9000000 		.4byte	0xb9
+ 395 00ac 07       		.uleb128 0x7
+ 396 00ad 28010000 		.4byte	.LASF25
+ 397 00b1 03       		.byte	0x3
+ 398 00b2 45       		.byte	0x45
+ 399 00b3 6B000000 		.4byte	0x6b
+ 400 00b7 00       		.byte	0
+ 401 00b8 00       		.byte	0
+ 402 00b9 08       		.uleb128 0x8
+ 403 00ba C8010000 		.4byte	.LASF15
+ 404 00be 03       		.byte	0x3
+ 405 00bf 53       		.byte	0x53
+ 406 00c0 A4000000 		.4byte	0xa4
+ 407 00c4 09       		.uleb128 0x9
+ 408 00c5 0E000000 		.4byte	.LASF16
+ 409 00c9 01       		.byte	0x1
+ 410 00ca 2B       		.byte	0x2b
+ 411 00cb 01       		.byte	0x1
+ 412 00cc 09       		.uleb128 0x9
+ 413 00cd 55000000 		.4byte	.LASF17
+ 414 00d1 01       		.byte	0x1
+ 415 00d2 4D       		.byte	0x4d
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 21
+
+
+ 416 00d3 01       		.byte	0x1
+ 417 00d4 0A       		.uleb128 0xa
+ 418 00d5 C4000000 		.4byte	0xc4
+ 419 00d9 00000000 		.4byte	.LFB0
+ 420 00dd 02000000 		.4byte	.LFE0-.LFB0
+ 421 00e1 01       		.uleb128 0x1
+ 422 00e2 9C       		.byte	0x9c
+ 423 00e3 0A       		.uleb128 0xa
+ 424 00e4 CC000000 		.4byte	0xcc
+ 425 00e8 00000000 		.4byte	.LFB1
+ 426 00ec 02000000 		.4byte	.LFE1-.LFB1
+ 427 00f0 01       		.uleb128 0x1
+ 428 00f1 9C       		.byte	0x9c
+ 429 00f2 0B       		.uleb128 0xb
+ 430 00f3 1B020000 		.4byte	.LASF18
+ 431 00f7 01       		.byte	0x1
+ 432 00f8 70       		.byte	0x70
+ 433 00f9 00000000 		.4byte	.LFB2
+ 434 00fd 18000000 		.4byte	.LFE2-.LFB2
+ 435 0101 01       		.uleb128 0x1
+ 436 0102 9C       		.byte	0x9c
+ 437 0103 11010000 		.4byte	0x111
+ 438 0107 0C       		.uleb128 0xc
+ 439 0108 10000000 		.4byte	.LVL0
+ 440 010c 41010000 		.4byte	0x141
+ 441 0110 00       		.byte	0
+ 442 0111 0B       		.uleb128 0xb
+ 443 0112 F0010000 		.4byte	.LASF19
+ 444 0116 01       		.byte	0x1
+ 445 0117 96       		.byte	0x96
+ 446 0118 00000000 		.4byte	.LFB3
+ 447 011c 14000000 		.4byte	.LFE3-.LFB3
+ 448 0120 01       		.uleb128 0x1
+ 449 0121 9C       		.byte	0x9c
+ 450 0122 30010000 		.4byte	0x130
+ 451 0126 0C       		.uleb128 0xc
+ 452 0127 0E000000 		.4byte	.LVL1
+ 453 012b 48010000 		.4byte	0x148
+ 454 012f 00       		.byte	0
+ 455 0130 0D       		.uleb128 0xd
+ 456 0131 78000000 		.4byte	.LASF26
+ 457 0135 01       		.byte	0x1
+ 458 0136 15       		.byte	0x15
+ 459 0137 B9000000 		.4byte	0xb9
+ 460 013b 05       		.uleb128 0x5
+ 461 013c 03       		.byte	0x3
+ 462 013d 00000000 		.4byte	BootloaderResetTimer_backup
+ 463 0141 0E       		.uleb128 0xe
+ 464 0142 3B000000 		.4byte	.LASF20
+ 465 0146 03       		.byte	0x3
+ 466 0147 5B       		.byte	0x5b
+ 467 0148 0E       		.uleb128 0xe
+ 468 0149 55010000 		.4byte	.LASF21
+ 469 014d 03       		.byte	0x3
+ 470 014e 8B       		.byte	0x8b
+ 471 014f 00       		.byte	0
+ 472              		.section	.debug_abbrev,"",%progbits
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 22
+
+
+ 473              	.Ldebug_abbrev0:
+ 474 0000 01       		.uleb128 0x1
+ 475 0001 11       		.uleb128 0x11
+ 476 0002 01       		.byte	0x1
+ 477 0003 25       		.uleb128 0x25
+ 478 0004 0E       		.uleb128 0xe
+ 479 0005 13       		.uleb128 0x13
+ 480 0006 0B       		.uleb128 0xb
+ 481 0007 03       		.uleb128 0x3
+ 482 0008 0E       		.uleb128 0xe
+ 483 0009 1B       		.uleb128 0x1b
+ 484 000a 0E       		.uleb128 0xe
+ 485 000b 55       		.uleb128 0x55
+ 486 000c 17       		.uleb128 0x17
+ 487 000d 11       		.uleb128 0x11
+ 488 000e 01       		.uleb128 0x1
+ 489 000f 10       		.uleb128 0x10
+ 490 0010 17       		.uleb128 0x17
+ 491 0011 00       		.byte	0
+ 492 0012 00       		.byte	0
+ 493 0013 02       		.uleb128 0x2
+ 494 0014 24       		.uleb128 0x24
+ 495 0015 00       		.byte	0
+ 496 0016 0B       		.uleb128 0xb
+ 497 0017 0B       		.uleb128 0xb
+ 498 0018 3E       		.uleb128 0x3e
+ 499 0019 0B       		.uleb128 0xb
+ 500 001a 03       		.uleb128 0x3
+ 501 001b 0E       		.uleb128 0xe
+ 502 001c 00       		.byte	0
+ 503 001d 00       		.byte	0
+ 504 001e 03       		.uleb128 0x3
+ 505 001f 24       		.uleb128 0x24
+ 506 0020 00       		.byte	0
+ 507 0021 0B       		.uleb128 0xb
+ 508 0022 0B       		.uleb128 0xb
+ 509 0023 3E       		.uleb128 0x3e
+ 510 0024 0B       		.uleb128 0xb
+ 511 0025 03       		.uleb128 0x3
+ 512 0026 08       		.uleb128 0x8
+ 513 0027 00       		.byte	0
+ 514 0028 00       		.byte	0
+ 515 0029 04       		.uleb128 0x4
+ 516 002a 16       		.uleb128 0x16
+ 517 002b 00       		.byte	0
+ 518 002c 03       		.uleb128 0x3
+ 519 002d 0E       		.uleb128 0xe
+ 520 002e 3A       		.uleb128 0x3a
+ 521 002f 0B       		.uleb128 0xb
+ 522 0030 3B       		.uleb128 0x3b
+ 523 0031 05       		.uleb128 0x5
+ 524 0032 49       		.uleb128 0x49
+ 525 0033 13       		.uleb128 0x13
+ 526 0034 00       		.byte	0
+ 527 0035 00       		.byte	0
+ 528 0036 05       		.uleb128 0x5
+ 529 0037 35       		.uleb128 0x35
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 23
+
+
+ 530 0038 00       		.byte	0
+ 531 0039 49       		.uleb128 0x49
+ 532 003a 13       		.uleb128 0x13
+ 533 003b 00       		.byte	0
+ 534 003c 00       		.byte	0
+ 535 003d 06       		.uleb128 0x6
+ 536 003e 13       		.uleb128 0x13
+ 537 003f 01       		.byte	0x1
+ 538 0040 0B       		.uleb128 0xb
+ 539 0041 0B       		.uleb128 0xb
+ 540 0042 3A       		.uleb128 0x3a
+ 541 0043 0B       		.uleb128 0xb
+ 542 0044 3B       		.uleb128 0x3b
+ 543 0045 0B       		.uleb128 0xb
+ 544 0046 01       		.uleb128 0x1
+ 545 0047 13       		.uleb128 0x13
+ 546 0048 00       		.byte	0
+ 547 0049 00       		.byte	0
+ 548 004a 07       		.uleb128 0x7
+ 549 004b 0D       		.uleb128 0xd
+ 550 004c 00       		.byte	0
+ 551 004d 03       		.uleb128 0x3
+ 552 004e 0E       		.uleb128 0xe
+ 553 004f 3A       		.uleb128 0x3a
+ 554 0050 0B       		.uleb128 0xb
+ 555 0051 3B       		.uleb128 0x3b
+ 556 0052 0B       		.uleb128 0xb
+ 557 0053 49       		.uleb128 0x49
+ 558 0054 13       		.uleb128 0x13
+ 559 0055 38       		.uleb128 0x38
+ 560 0056 0B       		.uleb128 0xb
+ 561 0057 00       		.byte	0
+ 562 0058 00       		.byte	0
+ 563 0059 08       		.uleb128 0x8
+ 564 005a 16       		.uleb128 0x16
+ 565 005b 00       		.byte	0
+ 566 005c 03       		.uleb128 0x3
+ 567 005d 0E       		.uleb128 0xe
+ 568 005e 3A       		.uleb128 0x3a
+ 569 005f 0B       		.uleb128 0xb
+ 570 0060 3B       		.uleb128 0x3b
+ 571 0061 0B       		.uleb128 0xb
+ 572 0062 49       		.uleb128 0x49
+ 573 0063 13       		.uleb128 0x13
+ 574 0064 00       		.byte	0
+ 575 0065 00       		.byte	0
+ 576 0066 09       		.uleb128 0x9
+ 577 0067 2E       		.uleb128 0x2e
+ 578 0068 00       		.byte	0
+ 579 0069 3F       		.uleb128 0x3f
+ 580 006a 19       		.uleb128 0x19
+ 581 006b 03       		.uleb128 0x3
+ 582 006c 0E       		.uleb128 0xe
+ 583 006d 3A       		.uleb128 0x3a
+ 584 006e 0B       		.uleb128 0xb
+ 585 006f 3B       		.uleb128 0x3b
+ 586 0070 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 24
+
+
+ 587 0071 27       		.uleb128 0x27
+ 588 0072 19       		.uleb128 0x19
+ 589 0073 20       		.uleb128 0x20
+ 590 0074 0B       		.uleb128 0xb
+ 591 0075 00       		.byte	0
+ 592 0076 00       		.byte	0
+ 593 0077 0A       		.uleb128 0xa
+ 594 0078 2E       		.uleb128 0x2e
+ 595 0079 00       		.byte	0
+ 596 007a 31       		.uleb128 0x31
+ 597 007b 13       		.uleb128 0x13
+ 598 007c 11       		.uleb128 0x11
+ 599 007d 01       		.uleb128 0x1
+ 600 007e 12       		.uleb128 0x12
+ 601 007f 06       		.uleb128 0x6
+ 602 0080 40       		.uleb128 0x40
+ 603 0081 18       		.uleb128 0x18
+ 604 0082 9742     		.uleb128 0x2117
+ 605 0084 19       		.uleb128 0x19
+ 606 0085 00       		.byte	0
+ 607 0086 00       		.byte	0
+ 608 0087 0B       		.uleb128 0xb
+ 609 0088 2E       		.uleb128 0x2e
+ 610 0089 01       		.byte	0x1
+ 611 008a 3F       		.uleb128 0x3f
+ 612 008b 19       		.uleb128 0x19
+ 613 008c 03       		.uleb128 0x3
+ 614 008d 0E       		.uleb128 0xe
+ 615 008e 3A       		.uleb128 0x3a
+ 616 008f 0B       		.uleb128 0xb
+ 617 0090 3B       		.uleb128 0x3b
+ 618 0091 0B       		.uleb128 0xb
+ 619 0092 27       		.uleb128 0x27
+ 620 0093 19       		.uleb128 0x19
+ 621 0094 11       		.uleb128 0x11
+ 622 0095 01       		.uleb128 0x1
+ 623 0096 12       		.uleb128 0x12
+ 624 0097 06       		.uleb128 0x6
+ 625 0098 40       		.uleb128 0x40
+ 626 0099 18       		.uleb128 0x18
+ 627 009a 9742     		.uleb128 0x2117
+ 628 009c 19       		.uleb128 0x19
+ 629 009d 01       		.uleb128 0x1
+ 630 009e 13       		.uleb128 0x13
+ 631 009f 00       		.byte	0
+ 632 00a0 00       		.byte	0
+ 633 00a1 0C       		.uleb128 0xc
+ 634 00a2 898201   		.uleb128 0x4109
+ 635 00a5 00       		.byte	0
+ 636 00a6 11       		.uleb128 0x11
+ 637 00a7 01       		.uleb128 0x1
+ 638 00a8 9542     		.uleb128 0x2115
+ 639 00aa 19       		.uleb128 0x19
+ 640 00ab 31       		.uleb128 0x31
+ 641 00ac 13       		.uleb128 0x13
+ 642 00ad 00       		.byte	0
+ 643 00ae 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 25
+
+
+ 644 00af 0D       		.uleb128 0xd
+ 645 00b0 34       		.uleb128 0x34
+ 646 00b1 00       		.byte	0
+ 647 00b2 03       		.uleb128 0x3
+ 648 00b3 0E       		.uleb128 0xe
+ 649 00b4 3A       		.uleb128 0x3a
+ 650 00b5 0B       		.uleb128 0xb
+ 651 00b6 3B       		.uleb128 0x3b
+ 652 00b7 0B       		.uleb128 0xb
+ 653 00b8 49       		.uleb128 0x49
+ 654 00b9 13       		.uleb128 0x13
+ 655 00ba 02       		.uleb128 0x2
+ 656 00bb 18       		.uleb128 0x18
+ 657 00bc 00       		.byte	0
+ 658 00bd 00       		.byte	0
+ 659 00be 0E       		.uleb128 0xe
+ 660 00bf 2E       		.uleb128 0x2e
+ 661 00c0 00       		.byte	0
+ 662 00c1 3F       		.uleb128 0x3f
+ 663 00c2 19       		.uleb128 0x19
+ 664 00c3 03       		.uleb128 0x3
+ 665 00c4 0E       		.uleb128 0xe
+ 666 00c5 3A       		.uleb128 0x3a
+ 667 00c6 0B       		.uleb128 0xb
+ 668 00c7 3B       		.uleb128 0x3b
+ 669 00c8 0B       		.uleb128 0xb
+ 670 00c9 27       		.uleb128 0x27
+ 671 00ca 19       		.uleb128 0x19
+ 672 00cb 3C       		.uleb128 0x3c
+ 673 00cc 19       		.uleb128 0x19
+ 674 00cd 00       		.byte	0
+ 675 00ce 00       		.byte	0
+ 676 00cf 00       		.byte	0
+ 677              		.section	.debug_aranges,"",%progbits
+ 678 0000 34000000 		.4byte	0x34
+ 679 0004 0200     		.2byte	0x2
+ 680 0006 00000000 		.4byte	.Ldebug_info0
+ 681 000a 04       		.byte	0x4
+ 682 000b 00       		.byte	0
+ 683 000c 0000     		.2byte	0
+ 684 000e 0000     		.2byte	0
+ 685 0010 00000000 		.4byte	.LFB0
+ 686 0014 02000000 		.4byte	.LFE0-.LFB0
+ 687 0018 00000000 		.4byte	.LFB1
+ 688 001c 02000000 		.4byte	.LFE1-.LFB1
+ 689 0020 00000000 		.4byte	.LFB2
+ 690 0024 18000000 		.4byte	.LFE2-.LFB2
+ 691 0028 00000000 		.4byte	.LFB3
+ 692 002c 14000000 		.4byte	.LFE3-.LFB3
+ 693 0030 00000000 		.4byte	0
+ 694 0034 00000000 		.4byte	0
+ 695              		.section	.debug_ranges,"",%progbits
+ 696              	.Ldebug_ranges0:
+ 697 0000 00000000 		.4byte	.LFB0
+ 698 0004 02000000 		.4byte	.LFE0
+ 699 0008 00000000 		.4byte	.LFB1
+ 700 000c 02000000 		.4byte	.LFE1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 26
+
+
+ 701 0010 00000000 		.4byte	.LFB2
+ 702 0014 18000000 		.4byte	.LFE2
+ 703 0018 00000000 		.4byte	.LFB3
+ 704 001c 14000000 		.4byte	.LFE3
+ 705 0020 00000000 		.4byte	0
+ 706 0024 00000000 		.4byte	0
+ 707              		.section	.debug_line,"",%progbits
+ 708              	.Ldebug_line0:
+ 709 0000 B9000000 		.section	.debug_str,"MS",%progbits,1
+ 709      02006E00 
+ 709      00000201 
+ 709      FB0E0D00 
+ 709      01010101 
+ 710              	.LASF6:
+ 711 0000 6C6F6E67 		.ascii	"long long int\000"
+ 711      206C6F6E 
+ 711      6720696E 
+ 711      7400
+ 712              	.LASF16:
+ 713 000e 426F6F74 		.ascii	"BootloaderResetTimer_SaveConfig\000"
+ 713      6C6F6164 
+ 713      65725265 
+ 713      73657454 
+ 713      696D6572 
+ 714              	.LASF8:
+ 715 002e 756E7369 		.ascii	"unsigned int\000"
+ 715      676E6564 
+ 715      20696E74 
+ 715      00
+ 716              	.LASF20:
+ 717 003b 426F6F74 		.ascii	"BootloaderResetTimer_Stop\000"
+ 717      6C6F6164 
+ 717      65725265 
+ 717      73657454 
+ 717      696D6572 
+ 718              	.LASF17:
+ 719 0055 426F6F74 		.ascii	"BootloaderResetTimer_RestoreConfig\000"
+ 719      6C6F6164 
+ 719      65725265 
+ 719      73657454 
+ 719      696D6572 
+ 720              	.LASF26:
+ 721 0078 426F6F74 		.ascii	"BootloaderResetTimer_backup\000"
+ 721      6C6F6164 
+ 721      65725265 
+ 721      73657454 
+ 721      696D6572 
+ 722              	.LASF12:
+ 723 0094 75696E74 		.ascii	"uint8\000"
+ 723      3800
+ 724              	.LASF5:
+ 725 009a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 725      20756E73 
+ 725      69676E65 
+ 725      6420696E 
+ 725      7400
+ 726              	.LASF7:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 27
+
+
+ 727 00ac 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 727      206C6F6E 
+ 727      6720756E 
+ 727      7369676E 
+ 727      65642069 
+ 728              	.LASF24:
+ 729 00c3 433A5C55 		.ascii	"C:\\Users\\Bruger\\OneDrive\\Skrivebord\\CODE\\PSOC"
+ 729      73657273 
+ 729      5C427275 
+ 729      6765725C 
+ 729      4F6E6544 
+ 730 00f0 355C4359 		.ascii	"5\\CY8CKIT-59-Arduino\\CY8CKIT59_Ardudino-Speeduino"
+ 730      38434B49 
+ 730      542D3539 
+ 730      2D417264 
+ 730      75696E6F 
+ 731 0121 2E637964 		.ascii	".cydsn\000"
+ 731      736E00
+ 732              	.LASF25:
+ 733 0128 54696D65 		.ascii	"TimerEnableState\000"
+ 733      72456E61 
+ 733      626C6553 
+ 733      74617465 
+ 733      00
+ 734              	.LASF1:
+ 735 0139 756E7369 		.ascii	"unsigned char\000"
+ 735      676E6564 
+ 735      20636861 
+ 735      7200
+ 736              	.LASF11:
+ 737 0147 63686172 		.ascii	"char\000"
+ 737      00
+ 738              	.LASF4:
+ 739 014c 6C6F6E67 		.ascii	"long int\000"
+ 739      20696E74 
+ 739      00
+ 740              	.LASF21:
+ 741 0155 426F6F74 		.ascii	"BootloaderResetTimer_Enable\000"
+ 741      6C6F6164 
+ 741      65725265 
+ 741      73657454 
+ 741      696D6572 
+ 742              	.LASF10:
+ 743 0171 646F7562 		.ascii	"double\000"
+ 743      6C6500
+ 744              	.LASF23:
+ 745 0178 47656E65 		.ascii	"Generated_Source\\PSoC5\\BootloaderResetTimer_PM.c\000"
+ 745      72617465 
+ 745      645F536F 
+ 745      75726365 
+ 745      5C50536F 
+ 746              	.LASF3:
+ 747 01a9 73686F72 		.ascii	"short unsigned int\000"
+ 747      7420756E 
+ 747      7369676E 
+ 747      65642069 
+ 747      6E7400
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 28
+
+
+ 748              	.LASF0:
+ 749 01bc 7369676E 		.ascii	"signed char\000"
+ 749      65642063 
+ 749      68617200 
+ 750              	.LASF15:
+ 751 01c8 426F6F74 		.ascii	"BootloaderResetTimer_backupStruct\000"
+ 751      6C6F6164 
+ 751      65725265 
+ 751      73657454 
+ 751      696D6572 
+ 752              	.LASF9:
+ 753 01ea 666C6F61 		.ascii	"float\000"
+ 753      7400
+ 754              	.LASF19:
+ 755 01f0 426F6F74 		.ascii	"BootloaderResetTimer_Wakeup\000"
+ 755      6C6F6164 
+ 755      65725265 
+ 755      73657454 
+ 755      696D6572 
+ 756              	.LASF2:
+ 757 020c 73686F72 		.ascii	"short int\000"
+ 757      7420696E 
+ 757      7400
+ 758              	.LASF13:
+ 759 0216 72656738 		.ascii	"reg8\000"
+ 759      00
+ 760              	.LASF18:
+ 761 021b 426F6F74 		.ascii	"BootloaderResetTimer_Sleep\000"
+ 761      6C6F6164 
+ 761      65725265 
+ 761      73657454 
+ 761      696D6572 
+ 762              	.LASF14:
+ 763 0236 73697A65 		.ascii	"sizetype\000"
+ 763      74797065 
+ 763      00
+ 764              	.LASF22:
+ 765 023f 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 765      4320342E 
+ 765      392E3320 
+ 765      32303135 
+ 765      30333033 
+ 766 0272 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 766      20726576 
+ 766      6973696F 
+ 766      6E203232 
+ 766      31323230 
+ 767 02a5 33202D66 		.ascii	"3 -ffunction-sections -finline-functions -flto -ffa"
+ 767      66756E63 
+ 767      74696F6E 
+ 767      2D736563 
+ 767      74696F6E 
+ 768 02d8 742D6C74 		.ascii	"t-lto-objects\000"
+ 768      6F2D6F62 
+ 768      6A656374 
+ 768      7300
+ 769              		.comm	__gnu_lto_v1,1,1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccgCbO1g.s 			page 29
+
+
+ 770              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

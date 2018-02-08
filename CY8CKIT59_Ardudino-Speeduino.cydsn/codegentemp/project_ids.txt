@@ -1,0 +1,5 @@
+C:\Users\Bruger\OneDrive\Skrivebord\CODE\PSOC5\CY8CKIT-59-Arduino\CY8CKIT59_Ardudino-Speeduino.cydsn\CY8CKIT59_Ardudino-Speeduino.cyprj|d1488311-ba58-4a6a-b610-fe1954a15b16
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|ae770bf4-15ec-4cbe-a3d3-221620036dee
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|a2ec4689-6a44-4acd-846e-a8f1df5cdf5b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|ba93527d-4180-4800-8eda-8fa29813a756
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|9b3f202c-b1a1-40d6-86ac-d2239f1ddeb8

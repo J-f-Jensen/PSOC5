@@ -1,0 +1,568 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccqW5eze.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"ADC_INT.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.section	.gnu.lto_.profile.24bfcadd,"",%progbits
+  18 0000 789C6366 		.ascii	"x\234cf```a\200\000F\006&F\000\000y\000\014"
+  18      60606061 
+  18      80004606 
+  18      26460000 
+  18      79000C
+  19              		.text
+  20              		.section	.gnu.lto_.jmpfuncs.24bfcadd,"",%progbits
+  21 0000 789C6366 		.ascii	"x\234cf\300\016X\2414#\210\000\000\000\332\000\012"
+  21      C00E58A1 
+  21      34238800 
+  21      0000DA00 
+  21      0A
+  22              		.text
+  23              		.section	.gnu.lto_.inline.24bfcadd,"",%progbits
+  24 0000 789C6366 		.ascii	"x\234cf\300\016D\2404#\003\0033\023#\003\023\220\311"
+  24      C00E44A0 
+  24      34230303 
+  24      33132303 
+  24      1390C9
+  25 0013 B6409E09 		.ascii	"\266@\236\011,\006\000\011\253\000\350"
+  25      2C060009 
+  25      AB00E8
+  26              		.text
+  27              		.section	.gnu.lto_.pureconst.24bfcadd,"",%progbits
+  28 0000 789C6366 		.ascii	"x\234cf```f\200\000F\006\006\000\000`\000\010"
+  28      60606066 
+  28      80004606 
+  28      06000060 
+  28      0008
+  29              		.text
+  30              		.section	.gnu.lto_ADC_ISR.24bfcadd,"",%progbits
+  31 0000 789C6366 		.ascii	"x\234cf\300\004R@\\\002\304\312@\314\310\314\300\310"
+  31      C0045240 
+  31      5C02C4CA 
+  31      40CCC8CC 
+  31      C0C8
+  32 0012 34E11C03 		.ascii	"4\341\034\003C#\007\023##\210\301\300\310P\317\304X"
+  32      43230713 
+  32      232388C1 
+  32      C0C850CF 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccqW5eze.s 			page 2
+
+
+  32      C458
+  33 0024 CFF892E9 		.ascii	"\317\370\222\351#\023\343\204\003\253gp\253/mhh\370"
+  33      2313E384 
+  33      03AB6770 
+  33      AB2F6D68 
+  33      68F8
+  34 0036 B0696D63 		.ascii	"\260imc\300\001\306\237L\014\014\237\231 \3460.gTg\000"
+  34      C001C69F 
+  34      4C0C0C9F 
+  34      9920E630 
+  34      2E675467 
+  35 004b 2AFAD8F2 		.ascii	"*\372\330\362\367:7[\013P\221\000D\216q\005#\033#\220"
+  35      F73A375B 
+  35      0B509100 
+  35      448E7105 
+  35      231B2390 
+  36 005f 5E2F74A0 		.ascii	"^/t\240\341\377\377\311\333\246\030\002E\237\0001\310"
+  36      E1FFFFC9 
+  36      DBA61802 
+  36      459F0031 
+  36      C8
+  37 0070 FCA74C4C 		.ascii	"\374\247LL \232\371\036##H\035\310\240'L\214 !\240\002"
+  37      209AF91E 
+  37      2323481D 
+  37      C8A0274C 
+  37      8C2021A0 
+  38 0085 45F7D4BC 		.ascii	"E\367\324\274\324\242\304\222\324\224\370\340\374\322"
+  38      D4A2C492 
+  38      D494F8E0 
+  38      FCD2
+  39 0093 A2E4D498 		.ascii	"\242\344\324\230\200\340|g\323\030G\027\347xO\277\020"
+  39      80E07C67 
+  39      D3184717 
+  39      E7784FBF 
+  39      10
+  40 00a4 BD640600 		.ascii	"\275d\006\000Dj4S"
+  40      446A3453 
+  41              		.text
+  42              		.section	.gnu.lto_.symbol_nodes.24bfcadd,"",%progbits
+  43 0000 789C6366 		.ascii	"x\234cf``\020b\200\002&\206z\006\206\011\347\030\030"
+  43      60601062 
+  43      80022686 
+  43      7A068609 
+  43      E71818
+  44 0013 EAEB19E6 		.ascii	"\352\353\031\346-\340``\000\000&\230\0049"
+  44      2DE06060 
+  44      00002698 
+  44      0439
+  45              		.text
+  46              		.section	.gnu.lto_.refs.24bfcadd,"",%progbits
+  47 0000 789C6366 		.ascii	"x\234cf```d\200\002\000\000=\000\005"
+  47      60606064 
+  47      80020000 
+  47      3D0005
+  48              		.text
+  49              		.section	.gnu.lto_.decls.24bfcadd,"",%progbits
+  50 0000 789C6366 		.ascii	"x\234cf``\010\000\342\377@\260\014H\033\0011\023T\014"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccqW5eze.s 			page 3
+
+
+  50      60600800 
+  50      E2FF40B0 
+  50      0C481B01 
+  50      3113540C 
+  51 0014 06188178 		.ascii	"\006\030\201x\015\003&X\003\225\013 \240\356#\023\343"
+  51      0D032658 
+  51      03950B20 
+  51      A0EE2313 
+  51      E3
+  52 0025 CE755FCE 		.ascii	"\316u_\316r\277`b\344\343R\000qwM:1\203\015\310\345"
+  52      72BF6062 
+  52      E4E35200 
+  52      71774D3A 
+  52      31830DC8 
+  53 003a E1620171 		.ascii	"\341b\001qw\377~t\205E|j\003\020Lhn\020`a\014\020c\\"
+  53      77FF7E74 
+  53      85457C6A 
+  53      03104C68 
+  53      6E106061 
+  54 0052 CE28C5B8 		.ascii	"\316(\305\270\202Q\012h\352JFq \031\315\0021\351\344"
+  54      82510A68 
+  54      EA4A4671 
+  54      2019CD02 
+  54      31E9E4
+  55 0065 C6A52BF9 		.ascii	"\306\245+\371\230\231\030A\354\3053\036^\341\322Y\005"
+  55      98991841 
+  55      ECC5331E 
+  55      5EE1D259 
+  55      05
+  56 0076 D4D6D170 		.ascii	"\324\326\321p\340\002#\302\272Y\217>\337\340R\230\327"
+  56      E00223C2 
+  56      BA598F3E 
+  56      DFE05298 
+  56      D7
+  57 0087 B061C387 		.ascii	"\260a\303\207\225\327\256\3624\234h8\360\377\277=\330"
+  57      95D7AEF2 
+  57      349C6838 
+  57      F0FFBF3D 
+  57      D8
+  58 0098 28C6558C 		.ascii	"(\306U\214\314\214\253\031u\300\016\006\262!._\303\250"
+  58      CC8CAB19 
+  58      75C00E06 
+  58      B2212E5F 
+  58      C3A8
+  59 00aa C0C0EEE8 		.ascii	"\300\300\356\350\342\034\357\031\034\304\346\356\027"
+  59      E21CEF19 
+  59      1CC4E6EE 
+  59      17
+  60 00b7 AAE0CCA0 		.ascii	"\252\340\314\240\350\236\232\227Z\224X\222\232\022\037"
+  60      E89E9A97 
+  60      5A945892 
+  60      9A121F
+  61 00c6 9C5F5A94 		.ascii	"\234_Z\224\234\032\023\020\234\357l\032\003V\345\027"
+  61      9C1A1310 
+  61      9CEF6C1A 
+  61      0356E517 
+  62 00d6 A297CC00 		.ascii	"\242\227\314\000\000\322\200K\315"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccqW5eze.s 			page 4
+
+
+  62      00D2804B 
+  62      CD
+  63              		.text
+  64              		.section	.gnu.lto_.symtab.24bfcadd,"",%progbits
+  65 0000 4144435F 		.ascii	"ADC_ISR\000\000\000\000\000\000\000\000\000\000\000"
+  65      49535200 
+  65      00000000 
+  65      00000000 
+  65      0000
+  66 0012 00AC0000 		.ascii	"\000\254\000\000\000"
+  66      00
+  67              		.text
+  68              		.section	.gnu.lto_.opts,"",%progbits
+  69 0000 272D666E 		.ascii	"'-fno-trapv' '-mcpu=cortex-m3' '-mthumb' '-g' '-O3'"
+  69      6F2D7472 
+  69      61707627 
+  69      20272D6D 
+  69      6370753D 
+  70 0033 20272D66 		.ascii	" '-ffunction-sections' '-finline-functions' '-flto'"
+  70      66756E63 
+  70      74696F6E 
+  70      2D736563 
+  70      74696F6E 
+  71 0066 20272D66 		.ascii	" '-ffat-lto-objects'\000"
+  71      6661742D 
+  71      6C746F2D 
+  71      6F626A65 
+  71      63747327 
+  72              		.text
+  73              		.cfi_sections	.debug_frame
+  74              		.section	.text.ADC_ISR,"ax",%progbits
+  75              		.align	2
+  76              		.global	ADC_ISR
+  77              		.thumb
+  78              		.thumb_func
+  79              		.type	ADC_ISR, %function
+  80              	ADC_ISR:
+  81              	.LFB0:
+  82              		.file 1 "Generated_Source\\PSoC5\\ADC_INT.c"
+   1:Generated_Source\PSoC5/ADC_INT.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/ADC_INT.c **** * File Name: ADC_INT.c
+   3:Generated_Source\PSoC5/ADC_INT.c **** * Version 3.0
+   4:Generated_Source\PSoC5/ADC_INT.c **** *
+   5:Generated_Source\PSoC5/ADC_INT.c **** *  Description:
+   6:Generated_Source\PSoC5/ADC_INT.c **** *    This file contains the code that operates during the ADC_SAR interrupt
+   7:Generated_Source\PSoC5/ADC_INT.c **** *    service routine.
+   8:Generated_Source\PSoC5/ADC_INT.c **** *
+   9:Generated_Source\PSoC5/ADC_INT.c **** *   Note:
+  10:Generated_Source\PSoC5/ADC_INT.c **** *
+  11:Generated_Source\PSoC5/ADC_INT.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/ADC_INT.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/ADC_INT.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC5/ADC_INT.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC5/ADC_INT.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/ADC_INT.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/ADC_INT.c **** 
+  18:Generated_Source\PSoC5/ADC_INT.c **** #include "ADC.h"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccqW5eze.s 			page 5
+
+
+  19:Generated_Source\PSoC5/ADC_INT.c **** 
+  20:Generated_Source\PSoC5/ADC_INT.c **** 
+  21:Generated_Source\PSoC5/ADC_INT.c **** 
+  22:Generated_Source\PSoC5/ADC_INT.c **** /******************************************************************************
+  23:Generated_Source\PSoC5/ADC_INT.c **** * Custom Declarations and Variables
+  24:Generated_Source\PSoC5/ADC_INT.c **** * - add user inlcude files, prototypes and variables between the following
+  25:Generated_Source\PSoC5/ADC_INT.c **** *   #START and #END tags
+  26:Generated_Source\PSoC5/ADC_INT.c **** ******************************************************************************/
+  27:Generated_Source\PSoC5/ADC_INT.c **** /* `#START ADC_SYS_VAR`  */
+  28:Generated_Source\PSoC5/ADC_INT.c **** 
+  29:Generated_Source\PSoC5/ADC_INT.c **** /* `#END`  */
+  30:Generated_Source\PSoC5/ADC_INT.c **** 
+  31:Generated_Source\PSoC5/ADC_INT.c **** #if(ADC_IRQ_REMOVE == 0u)
+  32:Generated_Source\PSoC5/ADC_INT.c **** 
+  33:Generated_Source\PSoC5/ADC_INT.c **** 
+  34:Generated_Source\PSoC5/ADC_INT.c ****     /******************************************************************************
+  35:Generated_Source\PSoC5/ADC_INT.c ****     * Function Name: ADC_ISR
+  36:Generated_Source\PSoC5/ADC_INT.c ****     *******************************************************************************
+  37:Generated_Source\PSoC5/ADC_INT.c ****     *
+  38:Generated_Source\PSoC5/ADC_INT.c ****     * Summary:
+  39:Generated_Source\PSoC5/ADC_INT.c ****     *  Handle Interrupt Service Routine.
+  40:Generated_Source\PSoC5/ADC_INT.c ****     *
+  41:Generated_Source\PSoC5/ADC_INT.c ****     * Parameters:
+  42:Generated_Source\PSoC5/ADC_INT.c ****     *  None.
+  43:Generated_Source\PSoC5/ADC_INT.c ****     *
+  44:Generated_Source\PSoC5/ADC_INT.c ****     * Return:
+  45:Generated_Source\PSoC5/ADC_INT.c ****     *  None.
+  46:Generated_Source\PSoC5/ADC_INT.c ****     *
+  47:Generated_Source\PSoC5/ADC_INT.c ****     * Reentrant:
+  48:Generated_Source\PSoC5/ADC_INT.c ****     *  No.
+  49:Generated_Source\PSoC5/ADC_INT.c ****     *
+  50:Generated_Source\PSoC5/ADC_INT.c ****     ******************************************************************************/
+  51:Generated_Source\PSoC5/ADC_INT.c ****     CY_ISR( ADC_ISR )
+  52:Generated_Source\PSoC5/ADC_INT.c ****     {
+  83              		.loc 1 52 0
+  84              		.cfi_startproc
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87              		@ link register save eliminated.
+  88 0000 7047     		bx	lr
+  89              		.cfi_endproc
+  90              	.LFE0:
+  91              		.size	ADC_ISR, .-ADC_ISR
+  92 0002 00BF     		.text
+  93              	.Letext0:
+  94              		.section	.debug_info,"",%progbits
+  95              	.Ldebug_info0:
+  96 0000 8E000000 		.4byte	0x8e
+  97 0004 0400     		.2byte	0x4
+  98 0006 00000000 		.4byte	.Ldebug_abbrev0
+  99 000a 04       		.byte	0x4
+ 100 000b 01       		.uleb128 0x1
+ 101 000c 9B000000 		.4byte	.LASF12
+ 102 0010 01       		.byte	0x1
+ 103 0011 39000000 		.4byte	.LASF13
+ 104 0015 5A010000 		.4byte	.LASF14
+ 105 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccqW5eze.s 			page 6
+
+
+ 106 001d 00000000 		.4byte	0
+ 107 0021 00000000 		.4byte	.Ldebug_line0
+ 108 0025 02       		.uleb128 0x2
+ 109 0026 01       		.byte	0x1
+ 110 0027 06       		.byte	0x6
+ 111 0028 BF010000 		.4byte	.LASF0
+ 112 002c 02       		.uleb128 0x2
+ 113 002d 01       		.byte	0x1
+ 114 002e 08       		.byte	0x8
+ 115 002f 06000000 		.4byte	.LASF1
+ 116 0033 02       		.uleb128 0x2
+ 117 0034 02       		.byte	0x2
+ 118 0035 05       		.byte	0x5
+ 119 0036 47010000 		.4byte	.LASF2
+ 120 003a 02       		.uleb128 0x2
+ 121 003b 02       		.byte	0x2
+ 122 003c 07       		.byte	0x7
+ 123 003d 26000000 		.4byte	.LASF3
+ 124 0041 02       		.uleb128 0x2
+ 125 0042 04       		.byte	0x4
+ 126 0043 05       		.byte	0x5
+ 127 0044 51010000 		.4byte	.LASF4
+ 128 0048 02       		.uleb128 0x2
+ 129 0049 04       		.byte	0x4
+ 130 004a 07       		.byte	0x7
+ 131 004b 14000000 		.4byte	.LASF5
+ 132 004f 02       		.uleb128 0x2
+ 133 0050 08       		.byte	0x8
+ 134 0051 05       		.byte	0x5
+ 135 0052 8D000000 		.4byte	.LASF6
+ 136 0056 02       		.uleb128 0x2
+ 137 0057 08       		.byte	0x8
+ 138 0058 07       		.byte	0x7
+ 139 0059 6E000000 		.4byte	.LASF7
+ 140 005d 03       		.uleb128 0x3
+ 141 005e 04       		.byte	0x4
+ 142 005f 05       		.byte	0x5
+ 143 0060 696E7400 		.ascii	"int\000"
+ 144 0064 02       		.uleb128 0x2
+ 145 0065 04       		.byte	0x4
+ 146 0066 07       		.byte	0x7
+ 147 0067 61000000 		.4byte	.LASF8
+ 148 006b 02       		.uleb128 0x2
+ 149 006c 04       		.byte	0x4
+ 150 006d 04       		.byte	0x4
+ 151 006e 00000000 		.4byte	.LASF9
+ 152 0072 02       		.uleb128 0x2
+ 153 0073 08       		.byte	0x8
+ 154 0074 04       		.byte	0x4
+ 155 0075 5A000000 		.4byte	.LASF10
+ 156 0079 02       		.uleb128 0x2
+ 157 007a 01       		.byte	0x1
+ 158 007b 08       		.byte	0x8
+ 159 007c 42010000 		.4byte	.LASF11
+ 160 0080 04       		.uleb128 0x4
+ 161 0081 85000000 		.4byte	.LASF15
+ 162 0085 01       		.byte	0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccqW5eze.s 			page 7
+
+
+ 163 0086 33       		.byte	0x33
+ 164 0087 00000000 		.4byte	.LFB0
+ 165 008b 02000000 		.4byte	.LFE0-.LFB0
+ 166 008f 01       		.uleb128 0x1
+ 167 0090 9C       		.byte	0x9c
+ 168 0091 00       		.byte	0
+ 169              		.section	.debug_abbrev,"",%progbits
+ 170              	.Ldebug_abbrev0:
+ 171 0000 01       		.uleb128 0x1
+ 172 0001 11       		.uleb128 0x11
+ 173 0002 01       		.byte	0x1
+ 174 0003 25       		.uleb128 0x25
+ 175 0004 0E       		.uleb128 0xe
+ 176 0005 13       		.uleb128 0x13
+ 177 0006 0B       		.uleb128 0xb
+ 178 0007 03       		.uleb128 0x3
+ 179 0008 0E       		.uleb128 0xe
+ 180 0009 1B       		.uleb128 0x1b
+ 181 000a 0E       		.uleb128 0xe
+ 182 000b 55       		.uleb128 0x55
+ 183 000c 17       		.uleb128 0x17
+ 184 000d 11       		.uleb128 0x11
+ 185 000e 01       		.uleb128 0x1
+ 186 000f 10       		.uleb128 0x10
+ 187 0010 17       		.uleb128 0x17
+ 188 0011 00       		.byte	0
+ 189 0012 00       		.byte	0
+ 190 0013 02       		.uleb128 0x2
+ 191 0014 24       		.uleb128 0x24
+ 192 0015 00       		.byte	0
+ 193 0016 0B       		.uleb128 0xb
+ 194 0017 0B       		.uleb128 0xb
+ 195 0018 3E       		.uleb128 0x3e
+ 196 0019 0B       		.uleb128 0xb
+ 197 001a 03       		.uleb128 0x3
+ 198 001b 0E       		.uleb128 0xe
+ 199 001c 00       		.byte	0
+ 200 001d 00       		.byte	0
+ 201 001e 03       		.uleb128 0x3
+ 202 001f 24       		.uleb128 0x24
+ 203 0020 00       		.byte	0
+ 204 0021 0B       		.uleb128 0xb
+ 205 0022 0B       		.uleb128 0xb
+ 206 0023 3E       		.uleb128 0x3e
+ 207 0024 0B       		.uleb128 0xb
+ 208 0025 03       		.uleb128 0x3
+ 209 0026 08       		.uleb128 0x8
+ 210 0027 00       		.byte	0
+ 211 0028 00       		.byte	0
+ 212 0029 04       		.uleb128 0x4
+ 213 002a 2E       		.uleb128 0x2e
+ 214 002b 00       		.byte	0
+ 215 002c 3F       		.uleb128 0x3f
+ 216 002d 19       		.uleb128 0x19
+ 217 002e 03       		.uleb128 0x3
+ 218 002f 0E       		.uleb128 0xe
+ 219 0030 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccqW5eze.s 			page 8
+
+
+ 220 0031 0B       		.uleb128 0xb
+ 221 0032 3B       		.uleb128 0x3b
+ 222 0033 0B       		.uleb128 0xb
+ 223 0034 27       		.uleb128 0x27
+ 224 0035 19       		.uleb128 0x19
+ 225 0036 11       		.uleb128 0x11
+ 226 0037 01       		.uleb128 0x1
+ 227 0038 12       		.uleb128 0x12
+ 228 0039 06       		.uleb128 0x6
+ 229 003a 40       		.uleb128 0x40
+ 230 003b 18       		.uleb128 0x18
+ 231 003c 9742     		.uleb128 0x2117
+ 232 003e 19       		.uleb128 0x19
+ 233 003f 00       		.byte	0
+ 234 0040 00       		.byte	0
+ 235 0041 00       		.byte	0
+ 236              		.section	.debug_aranges,"",%progbits
+ 237 0000 1C000000 		.4byte	0x1c
+ 238 0004 0200     		.2byte	0x2
+ 239 0006 00000000 		.4byte	.Ldebug_info0
+ 240 000a 04       		.byte	0x4
+ 241 000b 00       		.byte	0
+ 242 000c 0000     		.2byte	0
+ 243 000e 0000     		.2byte	0
+ 244 0010 00000000 		.4byte	.LFB0
+ 245 0014 02000000 		.4byte	.LFE0-.LFB0
+ 246 0018 00000000 		.4byte	0
+ 247 001c 00000000 		.4byte	0
+ 248              		.section	.debug_ranges,"",%progbits
+ 249              	.Ldebug_ranges0:
+ 250 0000 00000000 		.4byte	.LFB0
+ 251 0004 02000000 		.4byte	.LFE0
+ 252 0008 00000000 		.4byte	0
+ 253 000c 00000000 		.4byte	0
+ 254              		.section	.debug_line,"",%progbits
+ 255              	.Ldebug_line0:
+ 256 0000 4C000000 		.section	.debug_str,"MS",%progbits,1
+ 256      02003700 
+ 256      00000201 
+ 256      FB0E0D00 
+ 256      01010101 
+ 257              	.LASF9:
+ 258 0000 666C6F61 		.ascii	"float\000"
+ 258      7400
+ 259              	.LASF1:
+ 260 0006 756E7369 		.ascii	"unsigned char\000"
+ 260      676E6564 
+ 260      20636861 
+ 260      7200
+ 261              	.LASF5:
+ 262 0014 6C6F6E67 		.ascii	"long unsigned int\000"
+ 262      20756E73 
+ 262      69676E65 
+ 262      6420696E 
+ 262      7400
+ 263              	.LASF3:
+ 264 0026 73686F72 		.ascii	"short unsigned int\000"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccqW5eze.s 			page 9
+
+
+ 264      7420756E 
+ 264      7369676E 
+ 264      65642069 
+ 264      6E7400
+ 265              	.LASF13:
+ 266 0039 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_INT.c\000"
+ 266      72617465 
+ 266      645F536F 
+ 266      75726365 
+ 266      5C50536F 
+ 267              	.LASF10:
+ 268 005a 646F7562 		.ascii	"double\000"
+ 268      6C6500
+ 269              	.LASF8:
+ 270 0061 756E7369 		.ascii	"unsigned int\000"
+ 270      676E6564 
+ 270      20696E74 
+ 270      00
+ 271              	.LASF7:
+ 272 006e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 272      206C6F6E 
+ 272      6720756E 
+ 272      7369676E 
+ 272      65642069 
+ 273              	.LASF15:
+ 274 0085 4144435F 		.ascii	"ADC_ISR\000"
+ 274      49535200 
+ 275              	.LASF6:
+ 276 008d 6C6F6E67 		.ascii	"long long int\000"
+ 276      206C6F6E 
+ 276      6720696E 
+ 276      7400
+ 277              	.LASF12:
+ 278 009b 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 278      4320342E 
+ 278      392E3320 
+ 278      32303135 
+ 278      30333033 
+ 279 00ce 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 279      20726576 
+ 279      6973696F 
+ 279      6E203232 
+ 279      31323230 
+ 280 0101 33202D66 		.ascii	"3 -ffunction-sections -finline-functions -flto -ffa"
+ 280      66756E63 
+ 280      74696F6E 
+ 280      2D736563 
+ 280      74696F6E 
+ 281 0134 742D6C74 		.ascii	"t-lto-objects\000"
+ 281      6F2D6F62 
+ 281      6A656374 
+ 281      7300
+ 282              	.LASF11:
+ 283 0142 63686172 		.ascii	"char\000"
+ 283      00
+ 284              	.LASF2:
+ 285 0147 73686F72 		.ascii	"short int\000"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccqW5eze.s 			page 10
+
+
+ 285      7420696E 
+ 285      7400
+ 286              	.LASF4:
+ 287 0151 6C6F6E67 		.ascii	"long int\000"
+ 287      20696E74 
+ 287      00
+ 288              	.LASF14:
+ 289 015a 433A5C55 		.ascii	"C:\\Users\\Bruger\\OneDrive\\Skrivebord\\CODE\\PSOC"
+ 289      73657273 
+ 289      5C427275 
+ 289      6765725C 
+ 289      4F6E6544 
+ 290 0187 355C4359 		.ascii	"5\\CY8CKIT-59-Arduino\\CY8CKIT59_Ardudino-Speeduino"
+ 290      38434B49 
+ 290      542D3539 
+ 290      2D417264 
+ 290      75696E6F 
+ 291 01b8 2E637964 		.ascii	".cydsn\000"
+ 291      736E00
+ 292              	.LASF0:
+ 293 01bf 7369676E 		.ascii	"signed char\000"
+ 293      65642063 
+ 293      68617200 
+ 294              		.comm	__gnu_lto_v1,1,1
+ 295              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

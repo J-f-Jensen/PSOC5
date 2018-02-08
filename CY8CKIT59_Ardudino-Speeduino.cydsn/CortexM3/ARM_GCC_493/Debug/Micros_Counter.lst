@@ -1,0 +1,2313 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"Micros_Counter.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	Micros_Counter_initVar
+  19              		.bss
+  20              		.type	Micros_Counter_initVar, %object
+  21              		.size	Micros_Counter_initVar, 1
+  22              	Micros_Counter_initVar:
+  23 0000 00       		.space	1
+  24              		.section	.text.Micros_Counter_Init,"ax",%progbits
+  25              		.align	2
+  26              		.global	Micros_Counter_Init
+  27              		.thumb
+  28              		.thumb_func
+  29              		.type	Micros_Counter_Init, %function
+  30              	Micros_Counter_Init:
+  31              	.LFB0:
+  32              		.file 1 "Generated_Source\\PSoC5\\Micros_Counter.c"
+   1:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/Micros_Counter.c **** * File Name: Micros_Counter.c  
+   3:Generated_Source\PSoC5/Micros_Counter.c **** * Version 3.0
+   4:Generated_Source\PSoC5/Micros_Counter.c **** *
+   5:Generated_Source\PSoC5/Micros_Counter.c **** *  Description:
+   6:Generated_Source\PSoC5/Micros_Counter.c **** *     The Counter component consists of a 8, 16, 24 or 32-bit counter with
+   7:Generated_Source\PSoC5/Micros_Counter.c **** *     a selectable period between 2 and 2^Width - 1.  
+   8:Generated_Source\PSoC5/Micros_Counter.c **** *
+   9:Generated_Source\PSoC5/Micros_Counter.c **** *   Note:
+  10:Generated_Source\PSoC5/Micros_Counter.c **** *     None
+  11:Generated_Source\PSoC5/Micros_Counter.c **** *
+  12:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+  13:Generated_Source\PSoC5/Micros_Counter.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC5/Micros_Counter.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  15:Generated_Source\PSoC5/Micros_Counter.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  16:Generated_Source\PSoC5/Micros_Counter.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+  18:Generated_Source\PSoC5/Micros_Counter.c **** 
+  19:Generated_Source\PSoC5/Micros_Counter.c **** #include "Micros_Counter.h"
+  20:Generated_Source\PSoC5/Micros_Counter.c **** 
+  21:Generated_Source\PSoC5/Micros_Counter.c **** uint8 Micros_Counter_initVar = 0u;
+  22:Generated_Source\PSoC5/Micros_Counter.c **** 
+  23:Generated_Source\PSoC5/Micros_Counter.c **** 
+  24:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+  25:Generated_Source\PSoC5/Micros_Counter.c **** * Function Name: Micros_Counter_Init
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 2
+
+
+  26:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+  27:Generated_Source\PSoC5/Micros_Counter.c **** * Summary:
+  28:Generated_Source\PSoC5/Micros_Counter.c **** *     Initialize to the schematic state
+  29:Generated_Source\PSoC5/Micros_Counter.c **** * 
+  30:Generated_Source\PSoC5/Micros_Counter.c **** * Parameters:  
+  31:Generated_Source\PSoC5/Micros_Counter.c **** *  void  
+  32:Generated_Source\PSoC5/Micros_Counter.c **** *
+  33:Generated_Source\PSoC5/Micros_Counter.c **** * Return: 
+  34:Generated_Source\PSoC5/Micros_Counter.c **** *  void
+  35:Generated_Source\PSoC5/Micros_Counter.c **** *
+  36:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+  37:Generated_Source\PSoC5/Micros_Counter.c **** void Micros_Counter_Init(void) 
+  38:Generated_Source\PSoC5/Micros_Counter.c **** {
+  33              		.loc 1 38 0
+  34              		.cfi_startproc
+  35              		@ args = 0, pretend = 0, frame = 8
+  36              		@ frame_needed = 1, uses_anonymous_args = 0
+  37 0000 80B5     		push	{r7, lr}
+  38              		.cfi_def_cfa_offset 8
+  39              		.cfi_offset 7, -8
+  40              		.cfi_offset 14, -4
+  41 0002 82B0     		sub	sp, sp, #8
+  42              		.cfi_def_cfa_offset 16
+  43 0004 00AF     		add	r7, sp, #0
+  44              		.cfi_def_cfa_register 7
+  39:Generated_Source\PSoC5/Micros_Counter.c ****         #if (!Micros_Counter_UsingFixedFunction && !Micros_Counter_ControlRegRemoved)
+  40:Generated_Source\PSoC5/Micros_Counter.c ****             uint8 ctrl;
+  41:Generated_Source\PSoC5/Micros_Counter.c ****         #endif /* (!Micros_Counter_UsingFixedFunction && !Micros_Counter_ControlRegRemoved) */
+  42:Generated_Source\PSoC5/Micros_Counter.c ****         
+  43:Generated_Source\PSoC5/Micros_Counter.c ****         #if(!Micros_Counter_UsingFixedFunction) 
+  44:Generated_Source\PSoC5/Micros_Counter.c ****             /* Interrupt State Backup for Critical Region*/
+  45:Generated_Source\PSoC5/Micros_Counter.c ****             uint8 Micros_Counter_interruptState;
+  46:Generated_Source\PSoC5/Micros_Counter.c ****         #endif /* (!Micros_Counter_UsingFixedFunction) */
+  47:Generated_Source\PSoC5/Micros_Counter.c ****         
+  48:Generated_Source\PSoC5/Micros_Counter.c ****         #if (Micros_Counter_UsingFixedFunction)
+  49:Generated_Source\PSoC5/Micros_Counter.c ****             /* Clear all bits but the enable bit (if it's already set for Timer operation */
+  50:Generated_Source\PSoC5/Micros_Counter.c ****             Micros_Counter_CONTROL &= Micros_Counter_CTRL_ENABLE;
+  51:Generated_Source\PSoC5/Micros_Counter.c ****             
+  52:Generated_Source\PSoC5/Micros_Counter.c ****             /* Clear the mode bits for continuous run mode */
+  53:Generated_Source\PSoC5/Micros_Counter.c ****             #if (CY_PSOC5A)
+  54:Generated_Source\PSoC5/Micros_Counter.c ****                 Micros_Counter_CONTROL2 &= ((uint8)(~Micros_Counter_CTRL_MODE_MASK));
+  55:Generated_Source\PSoC5/Micros_Counter.c ****             #endif /* (CY_PSOC5A) */
+  56:Generated_Source\PSoC5/Micros_Counter.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  57:Generated_Source\PSoC5/Micros_Counter.c ****                 Micros_Counter_CONTROL3 &= ((uint8)(~Micros_Counter_CTRL_MODE_MASK));              
+  58:Generated_Source\PSoC5/Micros_Counter.c ****             #endif /* (CY_PSOC3 || CY_PSOC5LP) */
+  59:Generated_Source\PSoC5/Micros_Counter.c ****             /* Check if One Shot mode is enabled i.e. RunMode !=0*/
+  60:Generated_Source\PSoC5/Micros_Counter.c ****             #if (Micros_Counter_RunModeUsed != 0x0u)
+  61:Generated_Source\PSoC5/Micros_Counter.c ****                 /* Set 3rd bit of Control register to enable one shot mode */
+  62:Generated_Source\PSoC5/Micros_Counter.c ****                 Micros_Counter_CONTROL |= Micros_Counter_ONESHOT;
+  63:Generated_Source\PSoC5/Micros_Counter.c ****             #endif /* (Micros_Counter_RunModeUsed != 0x0u) */
+  64:Generated_Source\PSoC5/Micros_Counter.c ****             
+  65:Generated_Source\PSoC5/Micros_Counter.c ****             /* Set the IRQ to use the status register interrupts */
+  66:Generated_Source\PSoC5/Micros_Counter.c ****             Micros_Counter_CONTROL2 |= Micros_Counter_CTRL2_IRQ_SEL;
+  67:Generated_Source\PSoC5/Micros_Counter.c ****             
+  68:Generated_Source\PSoC5/Micros_Counter.c ****             /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+  69:Generated_Source\PSoC5/Micros_Counter.c ****             Micros_Counter_RT1 &= ((uint8)(~Micros_Counter_RT1_MASK));
+  70:Generated_Source\PSoC5/Micros_Counter.c ****             Micros_Counter_RT1 |= Micros_Counter_SYNC;     
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 3
+
+
+  71:Generated_Source\PSoC5/Micros_Counter.c ****                     
+  72:Generated_Source\PSoC5/Micros_Counter.c ****             /*Enable DSI Sync all all inputs of the Timer*/
+  73:Generated_Source\PSoC5/Micros_Counter.c ****             Micros_Counter_RT1 &= ((uint8)(~Micros_Counter_SYNCDSI_MASK));
+  74:Generated_Source\PSoC5/Micros_Counter.c ****             Micros_Counter_RT1 |= Micros_Counter_SYNCDSI_EN;
+  75:Generated_Source\PSoC5/Micros_Counter.c **** 
+  76:Generated_Source\PSoC5/Micros_Counter.c ****         #else
+  77:Generated_Source\PSoC5/Micros_Counter.c ****             #if(!Micros_Counter_ControlRegRemoved)
+  78:Generated_Source\PSoC5/Micros_Counter.c ****             /* Set the default compare mode defined in the parameter */
+  79:Generated_Source\PSoC5/Micros_Counter.c ****             ctrl = Micros_Counter_CONTROL & ((uint8)(~Micros_Counter_CTRL_CMPMODE_MASK));
+  45              		.loc 1 79 0
+  46 0006 1B4B     		ldr	r3, .L2
+  47 0008 1B78     		ldrb	r3, [r3]
+  48 000a DBB2     		uxtb	r3, r3
+  49 000c 23F00703 		bic	r3, r3, #7
+  50 0010 FB71     		strb	r3, [r7, #7]
+  80:Generated_Source\PSoC5/Micros_Counter.c ****             Micros_Counter_CONTROL = ctrl | Micros_Counter_DEFAULT_COMPARE_MODE;
+  51              		.loc 1 80 0
+  52 0012 184A     		ldr	r2, .L2
+  53 0014 FB79     		ldrb	r3, [r7, #7]
+  54 0016 1370     		strb	r3, [r2]
+  81:Generated_Source\PSoC5/Micros_Counter.c ****             
+  82:Generated_Source\PSoC5/Micros_Counter.c ****             /* Set the default capture mode defined in the parameter */
+  83:Generated_Source\PSoC5/Micros_Counter.c ****             ctrl = Micros_Counter_CONTROL & ((uint8)(~Micros_Counter_CTRL_CAPMODE_MASK));
+  55              		.loc 1 83 0
+  56 0018 164B     		ldr	r3, .L2
+  57 001a 1B78     		ldrb	r3, [r3]
+  58 001c DBB2     		uxtb	r3, r3
+  59 001e 23F00303 		bic	r3, r3, #3
+  60 0022 FB71     		strb	r3, [r7, #7]
+  84:Generated_Source\PSoC5/Micros_Counter.c ****             
+  85:Generated_Source\PSoC5/Micros_Counter.c ****             #if( 0 != Micros_Counter_CAPTURE_MODE_CONF)
+  86:Generated_Source\PSoC5/Micros_Counter.c ****                 Micros_Counter_CONTROL = ctrl | Micros_Counter_DEFAULT_CAPTURE_MODE;
+  87:Generated_Source\PSoC5/Micros_Counter.c ****             #else
+  88:Generated_Source\PSoC5/Micros_Counter.c ****                 Micros_Counter_CONTROL = ctrl;
+  61              		.loc 1 88 0
+  62 0024 134A     		ldr	r2, .L2
+  63 0026 FB79     		ldrb	r3, [r7, #7]
+  64 0028 1370     		strb	r3, [r2]
+  89:Generated_Source\PSoC5/Micros_Counter.c ****             #endif /* 0 != Micros_Counter_CAPTURE_MODE */ 
+  90:Generated_Source\PSoC5/Micros_Counter.c ****             
+  91:Generated_Source\PSoC5/Micros_Counter.c ****             #endif /* (!Micros_Counter_ControlRegRemoved) */
+  92:Generated_Source\PSoC5/Micros_Counter.c ****         #endif /* (Micros_Counter_UsingFixedFunction) */
+  93:Generated_Source\PSoC5/Micros_Counter.c ****         
+  94:Generated_Source\PSoC5/Micros_Counter.c ****         /* Clear all data in the FIFO's */
+  95:Generated_Source\PSoC5/Micros_Counter.c ****         #if (!Micros_Counter_UsingFixedFunction)
+  96:Generated_Source\PSoC5/Micros_Counter.c ****             Micros_Counter_ClearFIFO();
+  65              		.loc 1 96 0
+  66 002a FFF7FEFF 		bl	Micros_Counter_ClearFIFO
+  97:Generated_Source\PSoC5/Micros_Counter.c ****         #endif /* (!Micros_Counter_UsingFixedFunction) */
+  98:Generated_Source\PSoC5/Micros_Counter.c ****         
+  99:Generated_Source\PSoC5/Micros_Counter.c ****         /* Set Initial values from Configuration */
+ 100:Generated_Source\PSoC5/Micros_Counter.c ****         Micros_Counter_WritePeriod(Micros_Counter_INIT_PERIOD_VALUE);
+  67              		.loc 1 100 0
+  68 002e 4FF0FF30 		mov	r0, #-1
+  69 0032 FFF7FEFF 		bl	Micros_Counter_WritePeriod
+ 101:Generated_Source\PSoC5/Micros_Counter.c ****         #if (!(Micros_Counter_UsingFixedFunction && (CY_PSOC5A)))
+ 102:Generated_Source\PSoC5/Micros_Counter.c ****             Micros_Counter_WriteCounter(Micros_Counter_INIT_COUNTER_VALUE);
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 4
+
+
+  70              		.loc 1 102 0
+  71 0036 0020     		movs	r0, #0
+  72 0038 FFF7FEFF 		bl	Micros_Counter_WriteCounter
+ 103:Generated_Source\PSoC5/Micros_Counter.c ****         #endif /* (!(Micros_Counter_UsingFixedFunction && (CY_PSOC5A))) */
+ 104:Generated_Source\PSoC5/Micros_Counter.c ****         Micros_Counter_SetInterruptMode(Micros_Counter_INIT_INTERRUPTS_MASK);
+  73              		.loc 1 104 0
+  74 003c 0020     		movs	r0, #0
+  75 003e FFF7FEFF 		bl	Micros_Counter_SetInterruptMode
+ 105:Generated_Source\PSoC5/Micros_Counter.c ****         
+ 106:Generated_Source\PSoC5/Micros_Counter.c ****         #if (!Micros_Counter_UsingFixedFunction)
+ 107:Generated_Source\PSoC5/Micros_Counter.c ****             /* Read the status register to clear the unwanted interrupts */
+ 108:Generated_Source\PSoC5/Micros_Counter.c ****             (void)Micros_Counter_ReadStatusRegister();
+  76              		.loc 1 108 0
+  77 0042 FFF7FEFF 		bl	Micros_Counter_ReadStatusRegister
+ 109:Generated_Source\PSoC5/Micros_Counter.c ****             /* Set the compare value (only available to non-fixed function implementation */
+ 110:Generated_Source\PSoC5/Micros_Counter.c ****             Micros_Counter_WriteCompare(Micros_Counter_INIT_COMPARE_VALUE);
+  78              		.loc 1 110 0
+  79 0046 4FF0FF30 		mov	r0, #-1
+  80 004a FFF7FEFF 		bl	Micros_Counter_WriteCompare
+ 111:Generated_Source\PSoC5/Micros_Counter.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 112:Generated_Source\PSoC5/Micros_Counter.c ****             
+ 113:Generated_Source\PSoC5/Micros_Counter.c ****             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region cri
+ 114:Generated_Source\PSoC5/Micros_Counter.c ****             /* Enter Critical Region*/
+ 115:Generated_Source\PSoC5/Micros_Counter.c ****             Micros_Counter_interruptState = CyEnterCriticalSection();
+  81              		.loc 1 115 0
+  82 004e FFF7FEFF 		bl	CyEnterCriticalSection
+  83 0052 0346     		mov	r3, r0
+  84 0054 BB71     		strb	r3, [r7, #6]
+ 116:Generated_Source\PSoC5/Micros_Counter.c ****             
+ 117:Generated_Source\PSoC5/Micros_Counter.c ****             Micros_Counter_STATUS_AUX_CTRL |= Micros_Counter_STATUS_ACTL_INT_EN_MASK;
+  85              		.loc 1 117 0
+  86 0056 084A     		ldr	r2, .L2+4
+  87 0058 074B     		ldr	r3, .L2+4
+  88 005a 1B78     		ldrb	r3, [r3]
+  89 005c DBB2     		uxtb	r3, r3
+  90 005e 43F01003 		orr	r3, r3, #16
+  91 0062 DBB2     		uxtb	r3, r3
+  92 0064 1370     		strb	r3, [r2]
+ 118:Generated_Source\PSoC5/Micros_Counter.c ****             
+ 119:Generated_Source\PSoC5/Micros_Counter.c ****             /* Exit Critical Region*/
+ 120:Generated_Source\PSoC5/Micros_Counter.c ****             CyExitCriticalSection(Micros_Counter_interruptState);
+  93              		.loc 1 120 0
+  94 0066 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+  95 0068 1846     		mov	r0, r3
+  96 006a FFF7FEFF 		bl	CyExitCriticalSection
+ 121:Generated_Source\PSoC5/Micros_Counter.c ****             
+ 122:Generated_Source\PSoC5/Micros_Counter.c ****         #endif /* (!Micros_Counter_UsingFixedFunction) */
+ 123:Generated_Source\PSoC5/Micros_Counter.c **** }
+  97              		.loc 1 123 0
+  98 006e 0837     		adds	r7, r7, #8
+  99              		.cfi_def_cfa_offset 8
+ 100 0070 BD46     		mov	sp, r7
+ 101              		.cfi_def_cfa_register 13
+ 102              		@ sp needed
+ 103 0072 80BD     		pop	{r7, pc}
+ 104              	.L3:
+ 105              		.align	2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 5
+
+
+ 106              	.L2:
+ 107 0074 78650040 		.word	1073767800
+ 108 0078 9A650040 		.word	1073767834
+ 109              		.cfi_endproc
+ 110              	.LFE0:
+ 111              		.size	Micros_Counter_Init, .-Micros_Counter_Init
+ 112              		.section	.text.Micros_Counter_Enable,"ax",%progbits
+ 113              		.align	2
+ 114              		.global	Micros_Counter_Enable
+ 115              		.thumb
+ 116              		.thumb_func
+ 117              		.type	Micros_Counter_Enable, %function
+ 118              	Micros_Counter_Enable:
+ 119              	.LFB1:
+ 124:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 125:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 126:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+ 127:Generated_Source\PSoC5/Micros_Counter.c **** * Function Name: Micros_Counter_Enable
+ 128:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+ 129:Generated_Source\PSoC5/Micros_Counter.c **** * Summary:
+ 130:Generated_Source\PSoC5/Micros_Counter.c **** *     Enable the Counter
+ 131:Generated_Source\PSoC5/Micros_Counter.c **** * 
+ 132:Generated_Source\PSoC5/Micros_Counter.c **** * Parameters:  
+ 133:Generated_Source\PSoC5/Micros_Counter.c **** *  void  
+ 134:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 135:Generated_Source\PSoC5/Micros_Counter.c **** * Return: 
+ 136:Generated_Source\PSoC5/Micros_Counter.c **** *  void
+ 137:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 138:Generated_Source\PSoC5/Micros_Counter.c **** * Side Effects: 
+ 139:Generated_Source\PSoC5/Micros_Counter.c **** *   If the Enable mode is set to Hardware only then this function has no effect 
+ 140:Generated_Source\PSoC5/Micros_Counter.c **** *   on the operation of the counter.
+ 141:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 142:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+ 143:Generated_Source\PSoC5/Micros_Counter.c **** void Micros_Counter_Enable(void) 
+ 144:Generated_Source\PSoC5/Micros_Counter.c **** {
+ 120              		.loc 1 144 0
+ 121              		.cfi_startproc
+ 122              		@ args = 0, pretend = 0, frame = 0
+ 123              		@ frame_needed = 1, uses_anonymous_args = 0
+ 124              		@ link register save eliminated.
+ 125 0000 80B4     		push	{r7}
+ 126              		.cfi_def_cfa_offset 4
+ 127              		.cfi_offset 7, -4
+ 128 0002 00AF     		add	r7, sp, #0
+ 129              		.cfi_def_cfa_register 7
+ 145:Generated_Source\PSoC5/Micros_Counter.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 146:Generated_Source\PSoC5/Micros_Counter.c ****     #if (Micros_Counter_UsingFixedFunction)
+ 147:Generated_Source\PSoC5/Micros_Counter.c ****         Micros_Counter_GLOBAL_ENABLE |= Micros_Counter_BLOCK_EN_MASK;
+ 148:Generated_Source\PSoC5/Micros_Counter.c ****         Micros_Counter_GLOBAL_STBY_ENABLE |= Micros_Counter_BLOCK_STBY_EN_MASK;
+ 149:Generated_Source\PSoC5/Micros_Counter.c ****     #endif /* (Micros_Counter_UsingFixedFunction) */  
+ 150:Generated_Source\PSoC5/Micros_Counter.c ****         
+ 151:Generated_Source\PSoC5/Micros_Counter.c ****     /* Enable the counter from the control register  */
+ 152:Generated_Source\PSoC5/Micros_Counter.c ****     /* If Fixed Function then make sure Mode is set correctly */
+ 153:Generated_Source\PSoC5/Micros_Counter.c ****     /* else make sure reset is clear */
+ 154:Generated_Source\PSoC5/Micros_Counter.c ****     #if(!Micros_Counter_ControlRegRemoved || Micros_Counter_UsingFixedFunction)
+ 155:Generated_Source\PSoC5/Micros_Counter.c ****         Micros_Counter_CONTROL |= Micros_Counter_CTRL_ENABLE;                
+ 130              		.loc 1 155 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 6
+
+
+ 131 0004 054A     		ldr	r2, .L5
+ 132 0006 054B     		ldr	r3, .L5
+ 133 0008 1B78     		ldrb	r3, [r3]
+ 134 000a DBB2     		uxtb	r3, r3
+ 135 000c 63F07F03 		orn	r3, r3, #127
+ 136 0010 DBB2     		uxtb	r3, r3
+ 137 0012 1370     		strb	r3, [r2]
+ 156:Generated_Source\PSoC5/Micros_Counter.c ****     #endif /* (!Micros_Counter_ControlRegRemoved || Micros_Counter_UsingFixedFunction) */
+ 157:Generated_Source\PSoC5/Micros_Counter.c ****     
+ 158:Generated_Source\PSoC5/Micros_Counter.c **** }
+ 138              		.loc 1 158 0
+ 139 0014 BD46     		mov	sp, r7
+ 140              		.cfi_def_cfa_register 13
+ 141              		@ sp needed
+ 142 0016 5DF8047B 		ldr	r7, [sp], #4
+ 143              		.cfi_restore 7
+ 144              		.cfi_def_cfa_offset 0
+ 145 001a 7047     		bx	lr
+ 146              	.L6:
+ 147              		.align	2
+ 148              	.L5:
+ 149 001c 78650040 		.word	1073767800
+ 150              		.cfi_endproc
+ 151              	.LFE1:
+ 152              		.size	Micros_Counter_Enable, .-Micros_Counter_Enable
+ 153              		.section	.text.Micros_Counter_Start,"ax",%progbits
+ 154              		.align	2
+ 155              		.global	Micros_Counter_Start
+ 156              		.thumb
+ 157              		.thumb_func
+ 158              		.type	Micros_Counter_Start, %function
+ 159              	Micros_Counter_Start:
+ 160              	.LFB2:
+ 159:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 160:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 161:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+ 162:Generated_Source\PSoC5/Micros_Counter.c **** * Function Name: Micros_Counter_Start
+ 163:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+ 164:Generated_Source\PSoC5/Micros_Counter.c **** * Summary:
+ 165:Generated_Source\PSoC5/Micros_Counter.c **** *  Enables the counter for operation 
+ 166:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 167:Generated_Source\PSoC5/Micros_Counter.c **** * Parameters:  
+ 168:Generated_Source\PSoC5/Micros_Counter.c **** *  void  
+ 169:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 170:Generated_Source\PSoC5/Micros_Counter.c **** * Return: 
+ 171:Generated_Source\PSoC5/Micros_Counter.c **** *  void
+ 172:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 173:Generated_Source\PSoC5/Micros_Counter.c **** * Global variables:
+ 174:Generated_Source\PSoC5/Micros_Counter.c **** *  Micros_Counter_initVar: Is modified when this function is called for the  
+ 175:Generated_Source\PSoC5/Micros_Counter.c **** *   first time. Is used to ensure that initialization happens only once.
+ 176:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 177:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+ 178:Generated_Source\PSoC5/Micros_Counter.c **** void Micros_Counter_Start(void) 
+ 179:Generated_Source\PSoC5/Micros_Counter.c **** {
+ 161              		.loc 1 179 0
+ 162              		.cfi_startproc
+ 163              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 7
+
+
+ 164              		@ frame_needed = 1, uses_anonymous_args = 0
+ 165 0000 80B5     		push	{r7, lr}
+ 166              		.cfi_def_cfa_offset 8
+ 167              		.cfi_offset 7, -8
+ 168              		.cfi_offset 14, -4
+ 169 0002 00AF     		add	r7, sp, #0
+ 170              		.cfi_def_cfa_register 7
+ 180:Generated_Source\PSoC5/Micros_Counter.c ****     if(Micros_Counter_initVar == 0u)
+ 171              		.loc 1 180 0
+ 172 0004 054B     		ldr	r3, .L9
+ 173 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 174 0008 002B     		cmp	r3, #0
+ 175 000a 04D1     		bne	.L8
+ 181:Generated_Source\PSoC5/Micros_Counter.c ****     {
+ 182:Generated_Source\PSoC5/Micros_Counter.c ****         Micros_Counter_Init();
+ 176              		.loc 1 182 0
+ 177 000c FFF7FEFF 		bl	Micros_Counter_Init
+ 183:Generated_Source\PSoC5/Micros_Counter.c ****         
+ 184:Generated_Source\PSoC5/Micros_Counter.c ****         Micros_Counter_initVar = 1u; /* Clear this bit for Initialization */        
+ 178              		.loc 1 184 0
+ 179 0010 024B     		ldr	r3, .L9
+ 180 0012 0122     		movs	r2, #1
+ 181 0014 1A70     		strb	r2, [r3]
+ 182              	.L8:
+ 185:Generated_Source\PSoC5/Micros_Counter.c ****     }
+ 186:Generated_Source\PSoC5/Micros_Counter.c ****     
+ 187:Generated_Source\PSoC5/Micros_Counter.c ****     /* Enable the Counter */
+ 188:Generated_Source\PSoC5/Micros_Counter.c ****     Micros_Counter_Enable();        
+ 183              		.loc 1 188 0
+ 184 0016 FFF7FEFF 		bl	Micros_Counter_Enable
+ 189:Generated_Source\PSoC5/Micros_Counter.c **** }
+ 185              		.loc 1 189 0
+ 186 001a 80BD     		pop	{r7, pc}
+ 187              	.L10:
+ 188              		.align	2
+ 189              	.L9:
+ 190 001c 00000000 		.word	Micros_Counter_initVar
+ 191              		.cfi_endproc
+ 192              	.LFE2:
+ 193              		.size	Micros_Counter_Start, .-Micros_Counter_Start
+ 194              		.section	.text.Micros_Counter_Stop,"ax",%progbits
+ 195              		.align	2
+ 196              		.global	Micros_Counter_Stop
+ 197              		.thumb
+ 198              		.thumb_func
+ 199              		.type	Micros_Counter_Stop, %function
+ 200              	Micros_Counter_Stop:
+ 201              	.LFB3:
+ 190:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 191:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 192:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+ 193:Generated_Source\PSoC5/Micros_Counter.c **** * Function Name: Micros_Counter_Stop
+ 194:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+ 195:Generated_Source\PSoC5/Micros_Counter.c **** * Summary:
+ 196:Generated_Source\PSoC5/Micros_Counter.c **** * Halts the counter, but does not change any modes or disable interrupts.
+ 197:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 198:Generated_Source\PSoC5/Micros_Counter.c **** * Parameters:  
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 8
+
+
+ 199:Generated_Source\PSoC5/Micros_Counter.c **** *  void  
+ 200:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 201:Generated_Source\PSoC5/Micros_Counter.c **** * Return: 
+ 202:Generated_Source\PSoC5/Micros_Counter.c **** *  void
+ 203:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 204:Generated_Source\PSoC5/Micros_Counter.c **** * Side Effects: If the Enable mode is set to Hardware only then this function
+ 205:Generated_Source\PSoC5/Micros_Counter.c **** *               has no effect on the operation of the counter.
+ 206:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 207:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+ 208:Generated_Source\PSoC5/Micros_Counter.c **** void Micros_Counter_Stop(void) 
+ 209:Generated_Source\PSoC5/Micros_Counter.c **** {
+ 202              		.loc 1 209 0
+ 203              		.cfi_startproc
+ 204              		@ args = 0, pretend = 0, frame = 0
+ 205              		@ frame_needed = 1, uses_anonymous_args = 0
+ 206              		@ link register save eliminated.
+ 207 0000 80B4     		push	{r7}
+ 208              		.cfi_def_cfa_offset 4
+ 209              		.cfi_offset 7, -4
+ 210 0002 00AF     		add	r7, sp, #0
+ 211              		.cfi_def_cfa_register 7
+ 210:Generated_Source\PSoC5/Micros_Counter.c ****     /* Disable Counter */
+ 211:Generated_Source\PSoC5/Micros_Counter.c ****     #if(!Micros_Counter_ControlRegRemoved || Micros_Counter_UsingFixedFunction)
+ 212:Generated_Source\PSoC5/Micros_Counter.c ****         Micros_Counter_CONTROL &= ((uint8)(~Micros_Counter_CTRL_ENABLE));        
+ 212              		.loc 1 212 0
+ 213 0004 054A     		ldr	r2, .L12
+ 214 0006 054B     		ldr	r3, .L12
+ 215 0008 1B78     		ldrb	r3, [r3]
+ 216 000a DBB2     		uxtb	r3, r3
+ 217 000c 03F07F03 		and	r3, r3, #127
+ 218 0010 DBB2     		uxtb	r3, r3
+ 219 0012 1370     		strb	r3, [r2]
+ 213:Generated_Source\PSoC5/Micros_Counter.c ****     #endif /* (!Micros_Counter_ControlRegRemoved || Micros_Counter_UsingFixedFunction) */
+ 214:Generated_Source\PSoC5/Micros_Counter.c ****     
+ 215:Generated_Source\PSoC5/Micros_Counter.c ****     /* Globally disable the Fixed Function Block chosen */
+ 216:Generated_Source\PSoC5/Micros_Counter.c ****     #if (Micros_Counter_UsingFixedFunction)
+ 217:Generated_Source\PSoC5/Micros_Counter.c ****         Micros_Counter_GLOBAL_ENABLE &= ((uint8)(~Micros_Counter_BLOCK_EN_MASK));
+ 218:Generated_Source\PSoC5/Micros_Counter.c ****         Micros_Counter_GLOBAL_STBY_ENABLE &= ((uint8)(~Micros_Counter_BLOCK_STBY_EN_MASK));
+ 219:Generated_Source\PSoC5/Micros_Counter.c ****     #endif /* (Micros_Counter_UsingFixedFunction) */
+ 220:Generated_Source\PSoC5/Micros_Counter.c **** }
+ 220              		.loc 1 220 0
+ 221 0014 BD46     		mov	sp, r7
+ 222              		.cfi_def_cfa_register 13
+ 223              		@ sp needed
+ 224 0016 5DF8047B 		ldr	r7, [sp], #4
+ 225              		.cfi_restore 7
+ 226              		.cfi_def_cfa_offset 0
+ 227 001a 7047     		bx	lr
+ 228              	.L13:
+ 229              		.align	2
+ 230              	.L12:
+ 231 001c 78650040 		.word	1073767800
+ 232              		.cfi_endproc
+ 233              	.LFE3:
+ 234              		.size	Micros_Counter_Stop, .-Micros_Counter_Stop
+ 235              		.section	.text.Micros_Counter_SetInterruptMode,"ax",%progbits
+ 236              		.align	2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 9
+
+
+ 237              		.global	Micros_Counter_SetInterruptMode
+ 238              		.thumb
+ 239              		.thumb_func
+ 240              		.type	Micros_Counter_SetInterruptMode, %function
+ 241              	Micros_Counter_SetInterruptMode:
+ 242              	.LFB4:
+ 221:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 222:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 223:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+ 224:Generated_Source\PSoC5/Micros_Counter.c **** * Function Name: Micros_Counter_SetInterruptMode
+ 225:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+ 226:Generated_Source\PSoC5/Micros_Counter.c **** * Summary:
+ 227:Generated_Source\PSoC5/Micros_Counter.c **** * Configures which interrupt sources are enabled to generate the final interrupt
+ 228:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 229:Generated_Source\PSoC5/Micros_Counter.c **** * Parameters:  
+ 230:Generated_Source\PSoC5/Micros_Counter.c **** *  InterruptsMask: This parameter is an or'd collection of the status bits
+ 231:Generated_Source\PSoC5/Micros_Counter.c **** *                   which will be allowed to generate the counters interrupt.   
+ 232:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 233:Generated_Source\PSoC5/Micros_Counter.c **** * Return: 
+ 234:Generated_Source\PSoC5/Micros_Counter.c **** *  void
+ 235:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 236:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+ 237:Generated_Source\PSoC5/Micros_Counter.c **** void Micros_Counter_SetInterruptMode(uint8 interruptsMask) 
+ 238:Generated_Source\PSoC5/Micros_Counter.c **** {
+ 243              		.loc 1 238 0
+ 244              		.cfi_startproc
+ 245              		@ args = 0, pretend = 0, frame = 8
+ 246              		@ frame_needed = 1, uses_anonymous_args = 0
+ 247              		@ link register save eliminated.
+ 248 0000 80B4     		push	{r7}
+ 249              		.cfi_def_cfa_offset 4
+ 250              		.cfi_offset 7, -4
+ 251 0002 83B0     		sub	sp, sp, #12
+ 252              		.cfi_def_cfa_offset 16
+ 253 0004 00AF     		add	r7, sp, #0
+ 254              		.cfi_def_cfa_register 7
+ 255 0006 0346     		mov	r3, r0
+ 256 0008 FB71     		strb	r3, [r7, #7]
+ 239:Generated_Source\PSoC5/Micros_Counter.c ****     Micros_Counter_STATUS_MASK = interruptsMask;
+ 257              		.loc 1 239 0
+ 258 000a 044A     		ldr	r2, .L15
+ 259 000c FB79     		ldrb	r3, [r7, #7]
+ 260 000e 1370     		strb	r3, [r2]
+ 240:Generated_Source\PSoC5/Micros_Counter.c **** }
+ 261              		.loc 1 240 0
+ 262 0010 0C37     		adds	r7, r7, #12
+ 263              		.cfi_def_cfa_offset 4
+ 264 0012 BD46     		mov	sp, r7
+ 265              		.cfi_def_cfa_register 13
+ 266              		@ sp needed
+ 267 0014 5DF8047B 		ldr	r7, [sp], #4
+ 268              		.cfi_restore 7
+ 269              		.cfi_def_cfa_offset 0
+ 270 0018 7047     		bx	lr
+ 271              	.L16:
+ 272 001a 00BF     		.align	2
+ 273              	.L15:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 10
+
+
+ 274 001c 8A650040 		.word	1073767818
+ 275              		.cfi_endproc
+ 276              	.LFE4:
+ 277              		.size	Micros_Counter_SetInterruptMode, .-Micros_Counter_SetInterruptMode
+ 278              		.section	.text.Micros_Counter_ReadStatusRegister,"ax",%progbits
+ 279              		.align	2
+ 280              		.global	Micros_Counter_ReadStatusRegister
+ 281              		.thumb
+ 282              		.thumb_func
+ 283              		.type	Micros_Counter_ReadStatusRegister, %function
+ 284              	Micros_Counter_ReadStatusRegister:
+ 285              	.LFB5:
+ 241:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 242:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 243:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+ 244:Generated_Source\PSoC5/Micros_Counter.c **** * Function Name: Micros_Counter_ReadStatusRegister
+ 245:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+ 246:Generated_Source\PSoC5/Micros_Counter.c **** * Summary:
+ 247:Generated_Source\PSoC5/Micros_Counter.c **** *   Reads the status register and returns it's state. This function should use
+ 248:Generated_Source\PSoC5/Micros_Counter.c **** *       defined types for the bit-field information as the bits in this
+ 249:Generated_Source\PSoC5/Micros_Counter.c **** *       register may be permuteable.
+ 250:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 251:Generated_Source\PSoC5/Micros_Counter.c **** * Parameters:  
+ 252:Generated_Source\PSoC5/Micros_Counter.c **** *  void
+ 253:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 254:Generated_Source\PSoC5/Micros_Counter.c **** * Return: 
+ 255:Generated_Source\PSoC5/Micros_Counter.c **** *  (uint8) The contents of the status register
+ 256:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 257:Generated_Source\PSoC5/Micros_Counter.c **** * Side Effects:
+ 258:Generated_Source\PSoC5/Micros_Counter.c **** *   Status register bits may be clear on read. 
+ 259:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 260:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+ 261:Generated_Source\PSoC5/Micros_Counter.c **** uint8   Micros_Counter_ReadStatusRegister(void) 
+ 262:Generated_Source\PSoC5/Micros_Counter.c **** {
+ 286              		.loc 1 262 0
+ 287              		.cfi_startproc
+ 288              		@ args = 0, pretend = 0, frame = 0
+ 289              		@ frame_needed = 1, uses_anonymous_args = 0
+ 290              		@ link register save eliminated.
+ 291 0000 80B4     		push	{r7}
+ 292              		.cfi_def_cfa_offset 4
+ 293              		.cfi_offset 7, -4
+ 294 0002 00AF     		add	r7, sp, #0
+ 295              		.cfi_def_cfa_register 7
+ 263:Generated_Source\PSoC5/Micros_Counter.c ****     return Micros_Counter_STATUS;
+ 296              		.loc 1 263 0
+ 297 0004 034B     		ldr	r3, .L19
+ 298 0006 1B78     		ldrb	r3, [r3]
+ 299 0008 DBB2     		uxtb	r3, r3
+ 264:Generated_Source\PSoC5/Micros_Counter.c **** }
+ 300              		.loc 1 264 0
+ 301 000a 1846     		mov	r0, r3
+ 302 000c BD46     		mov	sp, r7
+ 303              		.cfi_def_cfa_register 13
+ 304              		@ sp needed
+ 305 000e 5DF8047B 		ldr	r7, [sp], #4
+ 306              		.cfi_restore 7
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 11
+
+
+ 307              		.cfi_def_cfa_offset 0
+ 308 0012 7047     		bx	lr
+ 309              	.L20:
+ 310              		.align	2
+ 311              	.L19:
+ 312 0014 6A650040 		.word	1073767786
+ 313              		.cfi_endproc
+ 314              	.LFE5:
+ 315              		.size	Micros_Counter_ReadStatusRegister, .-Micros_Counter_ReadStatusRegister
+ 316              		.section	.text.Micros_Counter_ReadControlRegister,"ax",%progbits
+ 317              		.align	2
+ 318              		.global	Micros_Counter_ReadControlRegister
+ 319              		.thumb
+ 320              		.thumb_func
+ 321              		.type	Micros_Counter_ReadControlRegister, %function
+ 322              	Micros_Counter_ReadControlRegister:
+ 323              	.LFB6:
+ 265:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 266:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 267:Generated_Source\PSoC5/Micros_Counter.c **** #if(!Micros_Counter_ControlRegRemoved)
+ 268:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+ 269:Generated_Source\PSoC5/Micros_Counter.c **** * Function Name: Micros_Counter_ReadControlRegister
+ 270:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+ 271:Generated_Source\PSoC5/Micros_Counter.c **** * Summary:
+ 272:Generated_Source\PSoC5/Micros_Counter.c **** *   Reads the control register and returns it's state. This function should use
+ 273:Generated_Source\PSoC5/Micros_Counter.c **** *       defined types for the bit-field information as the bits in this
+ 274:Generated_Source\PSoC5/Micros_Counter.c **** *       register may be permuteable.
+ 275:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 276:Generated_Source\PSoC5/Micros_Counter.c **** * Parameters:  
+ 277:Generated_Source\PSoC5/Micros_Counter.c **** *  void
+ 278:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 279:Generated_Source\PSoC5/Micros_Counter.c **** * Return: 
+ 280:Generated_Source\PSoC5/Micros_Counter.c **** *  (uint8) The contents of the control register
+ 281:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 282:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+ 283:Generated_Source\PSoC5/Micros_Counter.c **** uint8   Micros_Counter_ReadControlRegister(void) 
+ 284:Generated_Source\PSoC5/Micros_Counter.c **** {
+ 324              		.loc 1 284 0
+ 325              		.cfi_startproc
+ 326              		@ args = 0, pretend = 0, frame = 0
+ 327              		@ frame_needed = 1, uses_anonymous_args = 0
+ 328              		@ link register save eliminated.
+ 329 0000 80B4     		push	{r7}
+ 330              		.cfi_def_cfa_offset 4
+ 331              		.cfi_offset 7, -4
+ 332 0002 00AF     		add	r7, sp, #0
+ 333              		.cfi_def_cfa_register 7
+ 285:Generated_Source\PSoC5/Micros_Counter.c ****     return Micros_Counter_CONTROL;
+ 334              		.loc 1 285 0
+ 335 0004 034B     		ldr	r3, .L23
+ 336 0006 1B78     		ldrb	r3, [r3]
+ 337 0008 DBB2     		uxtb	r3, r3
+ 286:Generated_Source\PSoC5/Micros_Counter.c **** }
+ 338              		.loc 1 286 0
+ 339 000a 1846     		mov	r0, r3
+ 340 000c BD46     		mov	sp, r7
+ 341              		.cfi_def_cfa_register 13
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 12
+
+
+ 342              		@ sp needed
+ 343 000e 5DF8047B 		ldr	r7, [sp], #4
+ 344              		.cfi_restore 7
+ 345              		.cfi_def_cfa_offset 0
+ 346 0012 7047     		bx	lr
+ 347              	.L24:
+ 348              		.align	2
+ 349              	.L23:
+ 350 0014 78650040 		.word	1073767800
+ 351              		.cfi_endproc
+ 352              	.LFE6:
+ 353              		.size	Micros_Counter_ReadControlRegister, .-Micros_Counter_ReadControlRegister
+ 354              		.section	.text.Micros_Counter_WriteControlRegister,"ax",%progbits
+ 355              		.align	2
+ 356              		.global	Micros_Counter_WriteControlRegister
+ 357              		.thumb
+ 358              		.thumb_func
+ 359              		.type	Micros_Counter_WriteControlRegister, %function
+ 360              	Micros_Counter_WriteControlRegister:
+ 361              	.LFB7:
+ 287:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 288:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 289:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+ 290:Generated_Source\PSoC5/Micros_Counter.c **** * Function Name: Micros_Counter_WriteControlRegister
+ 291:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+ 292:Generated_Source\PSoC5/Micros_Counter.c **** * Summary:
+ 293:Generated_Source\PSoC5/Micros_Counter.c **** *   Sets the bit-field of the control register.  This function should use
+ 294:Generated_Source\PSoC5/Micros_Counter.c **** *       defined types for the bit-field information as the bits in this
+ 295:Generated_Source\PSoC5/Micros_Counter.c **** *       register may be permuteable.
+ 296:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 297:Generated_Source\PSoC5/Micros_Counter.c **** * Parameters:  
+ 298:Generated_Source\PSoC5/Micros_Counter.c **** *  void
+ 299:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 300:Generated_Source\PSoC5/Micros_Counter.c **** * Return: 
+ 301:Generated_Source\PSoC5/Micros_Counter.c **** *  (uint8) The contents of the control register
+ 302:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 303:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+ 304:Generated_Source\PSoC5/Micros_Counter.c **** void    Micros_Counter_WriteControlRegister(uint8 control) 
+ 305:Generated_Source\PSoC5/Micros_Counter.c **** {
+ 362              		.loc 1 305 0
+ 363              		.cfi_startproc
+ 364              		@ args = 0, pretend = 0, frame = 8
+ 365              		@ frame_needed = 1, uses_anonymous_args = 0
+ 366              		@ link register save eliminated.
+ 367 0000 80B4     		push	{r7}
+ 368              		.cfi_def_cfa_offset 4
+ 369              		.cfi_offset 7, -4
+ 370 0002 83B0     		sub	sp, sp, #12
+ 371              		.cfi_def_cfa_offset 16
+ 372 0004 00AF     		add	r7, sp, #0
+ 373              		.cfi_def_cfa_register 7
+ 374 0006 0346     		mov	r3, r0
+ 375 0008 FB71     		strb	r3, [r7, #7]
+ 306:Generated_Source\PSoC5/Micros_Counter.c ****     Micros_Counter_CONTROL = control;
+ 376              		.loc 1 306 0
+ 377 000a 044A     		ldr	r2, .L26
+ 378 000c FB79     		ldrb	r3, [r7, #7]
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 13
+
+
+ 379 000e 1370     		strb	r3, [r2]
+ 307:Generated_Source\PSoC5/Micros_Counter.c **** }
+ 380              		.loc 1 307 0
+ 381 0010 0C37     		adds	r7, r7, #12
+ 382              		.cfi_def_cfa_offset 4
+ 383 0012 BD46     		mov	sp, r7
+ 384              		.cfi_def_cfa_register 13
+ 385              		@ sp needed
+ 386 0014 5DF8047B 		ldr	r7, [sp], #4
+ 387              		.cfi_restore 7
+ 388              		.cfi_def_cfa_offset 0
+ 389 0018 7047     		bx	lr
+ 390              	.L27:
+ 391 001a 00BF     		.align	2
+ 392              	.L26:
+ 393 001c 78650040 		.word	1073767800
+ 394              		.cfi_endproc
+ 395              	.LFE7:
+ 396              		.size	Micros_Counter_WriteControlRegister, .-Micros_Counter_WriteControlRegister
+ 397              		.section	.text.Micros_Counter_WriteCounter,"ax",%progbits
+ 398              		.align	2
+ 399              		.global	Micros_Counter_WriteCounter
+ 400              		.thumb
+ 401              		.thumb_func
+ 402              		.type	Micros_Counter_WriteCounter, %function
+ 403              	Micros_Counter_WriteCounter:
+ 404              	.LFB8:
+ 308:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 309:Generated_Source\PSoC5/Micros_Counter.c **** #endif  /* (!Micros_Counter_ControlRegRemoved) */
+ 310:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 311:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 312:Generated_Source\PSoC5/Micros_Counter.c **** #if (!(Micros_Counter_UsingFixedFunction && (CY_PSOC5A)))
+ 313:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+ 314:Generated_Source\PSoC5/Micros_Counter.c **** * Function Name: Micros_Counter_WriteCounter
+ 315:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+ 316:Generated_Source\PSoC5/Micros_Counter.c **** * Summary:
+ 317:Generated_Source\PSoC5/Micros_Counter.c **** *   This funtion is used to set the counter to a specific value
+ 318:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 319:Generated_Source\PSoC5/Micros_Counter.c **** * Parameters:  
+ 320:Generated_Source\PSoC5/Micros_Counter.c **** *  counter:  New counter value. 
+ 321:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 322:Generated_Source\PSoC5/Micros_Counter.c **** * Return: 
+ 323:Generated_Source\PSoC5/Micros_Counter.c **** *  void 
+ 324:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 325:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+ 326:Generated_Source\PSoC5/Micros_Counter.c **** void Micros_Counter_WriteCounter(uint32 counter) \
+ 327:Generated_Source\PSoC5/Micros_Counter.c ****                                    
+ 328:Generated_Source\PSoC5/Micros_Counter.c **** {
+ 405              		.loc 1 328 0
+ 406              		.cfi_startproc
+ 407              		@ args = 0, pretend = 0, frame = 8
+ 408              		@ frame_needed = 1, uses_anonymous_args = 0
+ 409              		@ link register save eliminated.
+ 410 0000 80B4     		push	{r7}
+ 411              		.cfi_def_cfa_offset 4
+ 412              		.cfi_offset 7, -4
+ 413 0002 83B0     		sub	sp, sp, #12
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 14
+
+
+ 414              		.cfi_def_cfa_offset 16
+ 415 0004 00AF     		add	r7, sp, #0
+ 416              		.cfi_def_cfa_register 7
+ 417 0006 7860     		str	r0, [r7, #4]
+ 329:Generated_Source\PSoC5/Micros_Counter.c ****     #if(Micros_Counter_UsingFixedFunction)
+ 330:Generated_Source\PSoC5/Micros_Counter.c ****         /* assert if block is already enabled */
+ 331:Generated_Source\PSoC5/Micros_Counter.c ****         CYASSERT (0u == (Micros_Counter_GLOBAL_ENABLE & Micros_Counter_BLOCK_EN_MASK));
+ 332:Generated_Source\PSoC5/Micros_Counter.c ****         /* If block is disabled, enable it and then write the counter */
+ 333:Generated_Source\PSoC5/Micros_Counter.c ****         Micros_Counter_GLOBAL_ENABLE |= Micros_Counter_BLOCK_EN_MASK;
+ 334:Generated_Source\PSoC5/Micros_Counter.c ****         CY_SET_REG16(Micros_Counter_COUNTER_LSB_PTR, (uint16)counter);
+ 335:Generated_Source\PSoC5/Micros_Counter.c ****         Micros_Counter_GLOBAL_ENABLE &= ((uint8)(~Micros_Counter_BLOCK_EN_MASK));
+ 336:Generated_Source\PSoC5/Micros_Counter.c ****     #else
+ 337:Generated_Source\PSoC5/Micros_Counter.c ****         CY_SET_REG32(Micros_Counter_COUNTER_LSB_PTR, counter);
+ 418              		.loc 1 337 0
+ 419 0008 034A     		ldr	r2, .L29
+ 420 000a 7B68     		ldr	r3, [r7, #4]
+ 421 000c 1360     		str	r3, [r2]
+ 338:Generated_Source\PSoC5/Micros_Counter.c ****     #endif /* (Micros_Counter_UsingFixedFunction) */
+ 339:Generated_Source\PSoC5/Micros_Counter.c **** }
+ 422              		.loc 1 339 0
+ 423 000e 0C37     		adds	r7, r7, #12
+ 424              		.cfi_def_cfa_offset 4
+ 425 0010 BD46     		mov	sp, r7
+ 426              		.cfi_def_cfa_register 13
+ 427              		@ sp needed
+ 428 0012 5DF8047B 		ldr	r7, [sp], #4
+ 429              		.cfi_restore 7
+ 430              		.cfi_def_cfa_offset 0
+ 431 0016 7047     		bx	lr
+ 432              	.L30:
+ 433              		.align	2
+ 434              	.L29:
+ 435 0018 08650040 		.word	1073767688
+ 436              		.cfi_endproc
+ 437              	.LFE8:
+ 438              		.size	Micros_Counter_WriteCounter, .-Micros_Counter_WriteCounter
+ 439              		.section	.text.Micros_Counter_ReadCounter,"ax",%progbits
+ 440              		.align	2
+ 441              		.global	Micros_Counter_ReadCounter
+ 442              		.thumb
+ 443              		.thumb_func
+ 444              		.type	Micros_Counter_ReadCounter, %function
+ 445              	Micros_Counter_ReadCounter:
+ 446              	.LFB9:
+ 340:Generated_Source\PSoC5/Micros_Counter.c **** #endif /* (!(Micros_Counter_UsingFixedFunction && (CY_PSOC5A))) */
+ 341:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 342:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 343:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+ 344:Generated_Source\PSoC5/Micros_Counter.c **** * Function Name: Micros_Counter_ReadCounter
+ 345:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+ 346:Generated_Source\PSoC5/Micros_Counter.c **** * Summary:
+ 347:Generated_Source\PSoC5/Micros_Counter.c **** * Returns the current value of the counter.  It doesn't matter
+ 348:Generated_Source\PSoC5/Micros_Counter.c **** * if the counter is enabled or running.
+ 349:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 350:Generated_Source\PSoC5/Micros_Counter.c **** * Parameters:  
+ 351:Generated_Source\PSoC5/Micros_Counter.c **** *  void:  
+ 352:Generated_Source\PSoC5/Micros_Counter.c **** *
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 15
+
+
+ 353:Generated_Source\PSoC5/Micros_Counter.c **** * Return: 
+ 354:Generated_Source\PSoC5/Micros_Counter.c **** *  (uint32) The present value of the counter.
+ 355:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 356:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+ 357:Generated_Source\PSoC5/Micros_Counter.c **** uint32 Micros_Counter_ReadCounter(void) 
+ 358:Generated_Source\PSoC5/Micros_Counter.c **** {
+ 447              		.loc 1 358 0
+ 448              		.cfi_startproc
+ 449              		@ args = 0, pretend = 0, frame = 0
+ 450              		@ frame_needed = 1, uses_anonymous_args = 0
+ 451              		@ link register save eliminated.
+ 452 0000 80B4     		push	{r7}
+ 453              		.cfi_def_cfa_offset 4
+ 454              		.cfi_offset 7, -4
+ 455 0002 00AF     		add	r7, sp, #0
+ 456              		.cfi_def_cfa_register 7
+ 359:Generated_Source\PSoC5/Micros_Counter.c ****     /* Force capture by reading Accumulator */
+ 360:Generated_Source\PSoC5/Micros_Counter.c ****     /* Must first do a software capture to be able to read the counter */
+ 361:Generated_Source\PSoC5/Micros_Counter.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 362:Generated_Source\PSoC5/Micros_Counter.c ****     #if(Micros_Counter_UsingFixedFunction)
+ 363:Generated_Source\PSoC5/Micros_Counter.c **** 		(void)CY_GET_REG16(Micros_Counter_COUNTER_LSB_PTR);
+ 364:Generated_Source\PSoC5/Micros_Counter.c **** 	#else
+ 365:Generated_Source\PSoC5/Micros_Counter.c **** 		(void)CY_GET_REG8(Micros_Counter_COUNTER_LSB_PTR_8BIT);
+ 457              		.loc 1 365 0
+ 458 0004 044B     		ldr	r3, .L33
+ 459 0006 1B78     		ldrb	r3, [r3]
+ 366:Generated_Source\PSoC5/Micros_Counter.c **** 	#endif/* (Micros_Counter_UsingFixedFunction) */
+ 367:Generated_Source\PSoC5/Micros_Counter.c ****     
+ 368:Generated_Source\PSoC5/Micros_Counter.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
+ 369:Generated_Source\PSoC5/Micros_Counter.c ****     #if(Micros_Counter_UsingFixedFunction)
+ 370:Generated_Source\PSoC5/Micros_Counter.c ****         return ((uint32)CY_GET_REG16(Micros_Counter_STATICCOUNT_LSB_PTR));
+ 371:Generated_Source\PSoC5/Micros_Counter.c ****     #else
+ 372:Generated_Source\PSoC5/Micros_Counter.c ****         return (CY_GET_REG32(Micros_Counter_STATICCOUNT_LSB_PTR));
+ 460              		.loc 1 372 0
+ 461 0008 044B     		ldr	r3, .L33+4
+ 462 000a 1B68     		ldr	r3, [r3]
+ 373:Generated_Source\PSoC5/Micros_Counter.c ****     #endif /* (Micros_Counter_UsingFixedFunction) */
+ 374:Generated_Source\PSoC5/Micros_Counter.c **** }
+ 463              		.loc 1 374 0
+ 464 000c 1846     		mov	r0, r3
+ 465 000e BD46     		mov	sp, r7
+ 466              		.cfi_def_cfa_register 13
+ 467              		@ sp needed
+ 468 0010 5DF8047B 		ldr	r7, [sp], #4
+ 469              		.cfi_restore 7
+ 470              		.cfi_def_cfa_offset 0
+ 471 0014 7047     		bx	lr
+ 472              	.L34:
+ 473 0016 00BF     		.align	2
+ 474              	.L33:
+ 475 0018 08650040 		.word	1073767688
+ 476 001c 48650040 		.word	1073767752
+ 477              		.cfi_endproc
+ 478              	.LFE9:
+ 479              		.size	Micros_Counter_ReadCounter, .-Micros_Counter_ReadCounter
+ 480              		.section	.text.Micros_Counter_ReadCapture,"ax",%progbits
+ 481              		.align	2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 16
+
+
+ 482              		.global	Micros_Counter_ReadCapture
+ 483              		.thumb
+ 484              		.thumb_func
+ 485              		.type	Micros_Counter_ReadCapture, %function
+ 486              	Micros_Counter_ReadCapture:
+ 487              	.LFB10:
+ 375:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 376:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 377:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+ 378:Generated_Source\PSoC5/Micros_Counter.c **** * Function Name: Micros_Counter_ReadCapture
+ 379:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+ 380:Generated_Source\PSoC5/Micros_Counter.c **** * Summary:
+ 381:Generated_Source\PSoC5/Micros_Counter.c **** *   This function returns the last value captured.
+ 382:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 383:Generated_Source\PSoC5/Micros_Counter.c **** * Parameters:  
+ 384:Generated_Source\PSoC5/Micros_Counter.c **** *  void
+ 385:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 386:Generated_Source\PSoC5/Micros_Counter.c **** * Return: 
+ 387:Generated_Source\PSoC5/Micros_Counter.c **** *  (uint32) Present Capture value.
+ 388:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 389:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+ 390:Generated_Source\PSoC5/Micros_Counter.c **** uint32 Micros_Counter_ReadCapture(void) 
+ 391:Generated_Source\PSoC5/Micros_Counter.c **** {
+ 488              		.loc 1 391 0
+ 489              		.cfi_startproc
+ 490              		@ args = 0, pretend = 0, frame = 0
+ 491              		@ frame_needed = 1, uses_anonymous_args = 0
+ 492              		@ link register save eliminated.
+ 493 0000 80B4     		push	{r7}
+ 494              		.cfi_def_cfa_offset 4
+ 495              		.cfi_offset 7, -4
+ 496 0002 00AF     		add	r7, sp, #0
+ 497              		.cfi_def_cfa_register 7
+ 392:Generated_Source\PSoC5/Micros_Counter.c ****     #if(Micros_Counter_UsingFixedFunction)
+ 393:Generated_Source\PSoC5/Micros_Counter.c ****         return ((uint32)CY_GET_REG16(Micros_Counter_STATICCOUNT_LSB_PTR));
+ 394:Generated_Source\PSoC5/Micros_Counter.c ****     #else
+ 395:Generated_Source\PSoC5/Micros_Counter.c ****         return (CY_GET_REG32(Micros_Counter_STATICCOUNT_LSB_PTR));
+ 498              		.loc 1 395 0
+ 499 0004 034B     		ldr	r3, .L37
+ 500 0006 1B68     		ldr	r3, [r3]
+ 396:Generated_Source\PSoC5/Micros_Counter.c ****     #endif /* (Micros_Counter_UsingFixedFunction) */
+ 397:Generated_Source\PSoC5/Micros_Counter.c **** }
+ 501              		.loc 1 397 0
+ 502 0008 1846     		mov	r0, r3
+ 503 000a BD46     		mov	sp, r7
+ 504              		.cfi_def_cfa_register 13
+ 505              		@ sp needed
+ 506 000c 5DF8047B 		ldr	r7, [sp], #4
+ 507              		.cfi_restore 7
+ 508              		.cfi_def_cfa_offset 0
+ 509 0010 7047     		bx	lr
+ 510              	.L38:
+ 511 0012 00BF     		.align	2
+ 512              	.L37:
+ 513 0014 48650040 		.word	1073767752
+ 514              		.cfi_endproc
+ 515              	.LFE10:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 17
+
+
+ 516              		.size	Micros_Counter_ReadCapture, .-Micros_Counter_ReadCapture
+ 517              		.section	.text.Micros_Counter_WritePeriod,"ax",%progbits
+ 518              		.align	2
+ 519              		.global	Micros_Counter_WritePeriod
+ 520              		.thumb
+ 521              		.thumb_func
+ 522              		.type	Micros_Counter_WritePeriod, %function
+ 523              	Micros_Counter_WritePeriod:
+ 524              	.LFB11:
+ 398:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 399:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 400:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+ 401:Generated_Source\PSoC5/Micros_Counter.c **** * Function Name: Micros_Counter_WritePeriod
+ 402:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+ 403:Generated_Source\PSoC5/Micros_Counter.c **** * Summary:
+ 404:Generated_Source\PSoC5/Micros_Counter.c **** * Changes the period of the counter.  The new period 
+ 405:Generated_Source\PSoC5/Micros_Counter.c **** * will be loaded the next time terminal count is detected.
+ 406:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 407:Generated_Source\PSoC5/Micros_Counter.c **** * Parameters:  
+ 408:Generated_Source\PSoC5/Micros_Counter.c **** *  period: (uint32) A value of 0 will result in
+ 409:Generated_Source\PSoC5/Micros_Counter.c **** *         the counter remaining at zero.  
+ 410:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 411:Generated_Source\PSoC5/Micros_Counter.c **** * Return: 
+ 412:Generated_Source\PSoC5/Micros_Counter.c **** *  void
+ 413:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 414:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+ 415:Generated_Source\PSoC5/Micros_Counter.c **** void Micros_Counter_WritePeriod(uint32 period) 
+ 416:Generated_Source\PSoC5/Micros_Counter.c **** {
+ 525              		.loc 1 416 0
+ 526              		.cfi_startproc
+ 527              		@ args = 0, pretend = 0, frame = 8
+ 528              		@ frame_needed = 1, uses_anonymous_args = 0
+ 529              		@ link register save eliminated.
+ 530 0000 80B4     		push	{r7}
+ 531              		.cfi_def_cfa_offset 4
+ 532              		.cfi_offset 7, -4
+ 533 0002 83B0     		sub	sp, sp, #12
+ 534              		.cfi_def_cfa_offset 16
+ 535 0004 00AF     		add	r7, sp, #0
+ 536              		.cfi_def_cfa_register 7
+ 537 0006 7860     		str	r0, [r7, #4]
+ 417:Generated_Source\PSoC5/Micros_Counter.c ****     #if(Micros_Counter_UsingFixedFunction)
+ 418:Generated_Source\PSoC5/Micros_Counter.c ****         CY_SET_REG16(Micros_Counter_PERIOD_LSB_PTR,(uint16)period);
+ 419:Generated_Source\PSoC5/Micros_Counter.c ****     #else
+ 420:Generated_Source\PSoC5/Micros_Counter.c ****         CY_SET_REG32(Micros_Counter_PERIOD_LSB_PTR, period);
+ 538              		.loc 1 420 0
+ 539 0008 034A     		ldr	r2, .L40
+ 540 000a 7B68     		ldr	r3, [r7, #4]
+ 541 000c 1360     		str	r3, [r2]
+ 421:Generated_Source\PSoC5/Micros_Counter.c ****     #endif /* (Micros_Counter_UsingFixedFunction) */
+ 422:Generated_Source\PSoC5/Micros_Counter.c **** }
+ 542              		.loc 1 422 0
+ 543 000e 0C37     		adds	r7, r7, #12
+ 544              		.cfi_def_cfa_offset 4
+ 545 0010 BD46     		mov	sp, r7
+ 546              		.cfi_def_cfa_register 13
+ 547              		@ sp needed
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 18
+
+
+ 548 0012 5DF8047B 		ldr	r7, [sp], #4
+ 549              		.cfi_restore 7
+ 550              		.cfi_def_cfa_offset 0
+ 551 0016 7047     		bx	lr
+ 552              	.L41:
+ 553              		.align	2
+ 554              	.L40:
+ 555 0018 28650040 		.word	1073767720
+ 556              		.cfi_endproc
+ 557              	.LFE11:
+ 558              		.size	Micros_Counter_WritePeriod, .-Micros_Counter_WritePeriod
+ 559              		.section	.text.Micros_Counter_ReadPeriod,"ax",%progbits
+ 560              		.align	2
+ 561              		.global	Micros_Counter_ReadPeriod
+ 562              		.thumb
+ 563              		.thumb_func
+ 564              		.type	Micros_Counter_ReadPeriod, %function
+ 565              	Micros_Counter_ReadPeriod:
+ 566              	.LFB12:
+ 423:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 424:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 425:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+ 426:Generated_Source\PSoC5/Micros_Counter.c **** * Function Name: Micros_Counter_ReadPeriod
+ 427:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+ 428:Generated_Source\PSoC5/Micros_Counter.c **** * Summary:
+ 429:Generated_Source\PSoC5/Micros_Counter.c **** * Reads the current period value without affecting counter operation.
+ 430:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 431:Generated_Source\PSoC5/Micros_Counter.c **** * Parameters:  
+ 432:Generated_Source\PSoC5/Micros_Counter.c **** *  void:  
+ 433:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 434:Generated_Source\PSoC5/Micros_Counter.c **** * Return: 
+ 435:Generated_Source\PSoC5/Micros_Counter.c **** *  (uint32) Present period value.
+ 436:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 437:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+ 438:Generated_Source\PSoC5/Micros_Counter.c **** uint32 Micros_Counter_ReadPeriod(void) 
+ 439:Generated_Source\PSoC5/Micros_Counter.c **** {
+ 567              		.loc 1 439 0
+ 568              		.cfi_startproc
+ 569              		@ args = 0, pretend = 0, frame = 0
+ 570              		@ frame_needed = 1, uses_anonymous_args = 0
+ 571              		@ link register save eliminated.
+ 572 0000 80B4     		push	{r7}
+ 573              		.cfi_def_cfa_offset 4
+ 574              		.cfi_offset 7, -4
+ 575 0002 00AF     		add	r7, sp, #0
+ 576              		.cfi_def_cfa_register 7
+ 440:Generated_Source\PSoC5/Micros_Counter.c ****     #if(Micros_Counter_UsingFixedFunction)
+ 441:Generated_Source\PSoC5/Micros_Counter.c ****         return ((uint32)CY_GET_REG16(Micros_Counter_PERIOD_LSB_PTR));
+ 442:Generated_Source\PSoC5/Micros_Counter.c ****     #else
+ 443:Generated_Source\PSoC5/Micros_Counter.c ****         return (CY_GET_REG32(Micros_Counter_PERIOD_LSB_PTR));
+ 577              		.loc 1 443 0
+ 578 0004 034B     		ldr	r3, .L44
+ 579 0006 1B68     		ldr	r3, [r3]
+ 444:Generated_Source\PSoC5/Micros_Counter.c ****     #endif /* (Micros_Counter_UsingFixedFunction) */
+ 445:Generated_Source\PSoC5/Micros_Counter.c **** }
+ 580              		.loc 1 445 0
+ 581 0008 1846     		mov	r0, r3
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 19
+
+
+ 582 000a BD46     		mov	sp, r7
+ 583              		.cfi_def_cfa_register 13
+ 584              		@ sp needed
+ 585 000c 5DF8047B 		ldr	r7, [sp], #4
+ 586              		.cfi_restore 7
+ 587              		.cfi_def_cfa_offset 0
+ 588 0010 7047     		bx	lr
+ 589              	.L45:
+ 590 0012 00BF     		.align	2
+ 591              	.L44:
+ 592 0014 28650040 		.word	1073767720
+ 593              		.cfi_endproc
+ 594              	.LFE12:
+ 595              		.size	Micros_Counter_ReadPeriod, .-Micros_Counter_ReadPeriod
+ 596              		.section	.text.Micros_Counter_WriteCompare,"ax",%progbits
+ 597              		.align	2
+ 598              		.global	Micros_Counter_WriteCompare
+ 599              		.thumb
+ 600              		.thumb_func
+ 601              		.type	Micros_Counter_WriteCompare, %function
+ 602              	Micros_Counter_WriteCompare:
+ 603              	.LFB13:
+ 446:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 447:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 448:Generated_Source\PSoC5/Micros_Counter.c **** #if (!Micros_Counter_UsingFixedFunction)
+ 449:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+ 450:Generated_Source\PSoC5/Micros_Counter.c **** * Function Name: Micros_Counter_WriteCompare
+ 451:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+ 452:Generated_Source\PSoC5/Micros_Counter.c **** * Summary:
+ 453:Generated_Source\PSoC5/Micros_Counter.c **** * Changes the compare value.  The compare output will 
+ 454:Generated_Source\PSoC5/Micros_Counter.c **** * reflect the new value on the next UDB clock.  The compare output will be 
+ 455:Generated_Source\PSoC5/Micros_Counter.c **** * driven high when the present counter value compares true based on the 
+ 456:Generated_Source\PSoC5/Micros_Counter.c **** * configured compare mode setting. 
+ 457:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 458:Generated_Source\PSoC5/Micros_Counter.c **** * Parameters:  
+ 459:Generated_Source\PSoC5/Micros_Counter.c **** *  Compare:  New compare value. 
+ 460:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 461:Generated_Source\PSoC5/Micros_Counter.c **** * Return: 
+ 462:Generated_Source\PSoC5/Micros_Counter.c **** *  void
+ 463:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 464:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+ 465:Generated_Source\PSoC5/Micros_Counter.c **** void Micros_Counter_WriteCompare(uint32 compare) \
+ 466:Generated_Source\PSoC5/Micros_Counter.c ****                                    
+ 467:Generated_Source\PSoC5/Micros_Counter.c **** {
+ 604              		.loc 1 467 0
+ 605              		.cfi_startproc
+ 606              		@ args = 0, pretend = 0, frame = 8
+ 607              		@ frame_needed = 1, uses_anonymous_args = 0
+ 608              		@ link register save eliminated.
+ 609 0000 80B4     		push	{r7}
+ 610              		.cfi_def_cfa_offset 4
+ 611              		.cfi_offset 7, -4
+ 612 0002 83B0     		sub	sp, sp, #12
+ 613              		.cfi_def_cfa_offset 16
+ 614 0004 00AF     		add	r7, sp, #0
+ 615              		.cfi_def_cfa_register 7
+ 616 0006 7860     		str	r0, [r7, #4]
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 20
+
+
+ 468:Generated_Source\PSoC5/Micros_Counter.c ****     #if(Micros_Counter_UsingFixedFunction)
+ 469:Generated_Source\PSoC5/Micros_Counter.c ****         CY_SET_REG16(Micros_Counter_COMPARE_LSB_PTR, (uint16)compare);
+ 470:Generated_Source\PSoC5/Micros_Counter.c ****     #else
+ 471:Generated_Source\PSoC5/Micros_Counter.c ****         CY_SET_REG32(Micros_Counter_COMPARE_LSB_PTR, compare);
+ 617              		.loc 1 471 0
+ 618 0008 034A     		ldr	r2, .L47
+ 619 000a 7B68     		ldr	r3, [r7, #4]
+ 620 000c 1360     		str	r3, [r2]
+ 472:Generated_Source\PSoC5/Micros_Counter.c ****     #endif /* (Micros_Counter_UsingFixedFunction) */
+ 473:Generated_Source\PSoC5/Micros_Counter.c **** }
+ 621              		.loc 1 473 0
+ 622 000e 0C37     		adds	r7, r7, #12
+ 623              		.cfi_def_cfa_offset 4
+ 624 0010 BD46     		mov	sp, r7
+ 625              		.cfi_def_cfa_register 13
+ 626              		@ sp needed
+ 627 0012 5DF8047B 		ldr	r7, [sp], #4
+ 628              		.cfi_restore 7
+ 629              		.cfi_def_cfa_offset 0
+ 630 0016 7047     		bx	lr
+ 631              	.L48:
+ 632              		.align	2
+ 633              	.L47:
+ 634 0018 38650040 		.word	1073767736
+ 635              		.cfi_endproc
+ 636              	.LFE13:
+ 637              		.size	Micros_Counter_WriteCompare, .-Micros_Counter_WriteCompare
+ 638              		.section	.text.Micros_Counter_ReadCompare,"ax",%progbits
+ 639              		.align	2
+ 640              		.global	Micros_Counter_ReadCompare
+ 641              		.thumb
+ 642              		.thumb_func
+ 643              		.type	Micros_Counter_ReadCompare, %function
+ 644              	Micros_Counter_ReadCompare:
+ 645              	.LFB14:
+ 474:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 475:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 476:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+ 477:Generated_Source\PSoC5/Micros_Counter.c **** * Function Name: Micros_Counter_ReadCompare
+ 478:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+ 479:Generated_Source\PSoC5/Micros_Counter.c **** * Summary:
+ 480:Generated_Source\PSoC5/Micros_Counter.c **** * Returns the compare value.
+ 481:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 482:Generated_Source\PSoC5/Micros_Counter.c **** * Parameters:  
+ 483:Generated_Source\PSoC5/Micros_Counter.c **** *  void:
+ 484:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 485:Generated_Source\PSoC5/Micros_Counter.c **** * Return: 
+ 486:Generated_Source\PSoC5/Micros_Counter.c **** *  (uint32) Present compare value.
+ 487:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 488:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+ 489:Generated_Source\PSoC5/Micros_Counter.c **** uint32 Micros_Counter_ReadCompare(void) 
+ 490:Generated_Source\PSoC5/Micros_Counter.c **** {
+ 646              		.loc 1 490 0
+ 647              		.cfi_startproc
+ 648              		@ args = 0, pretend = 0, frame = 0
+ 649              		@ frame_needed = 1, uses_anonymous_args = 0
+ 650              		@ link register save eliminated.
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 21
+
+
+ 651 0000 80B4     		push	{r7}
+ 652              		.cfi_def_cfa_offset 4
+ 653              		.cfi_offset 7, -4
+ 654 0002 00AF     		add	r7, sp, #0
+ 655              		.cfi_def_cfa_register 7
+ 491:Generated_Source\PSoC5/Micros_Counter.c ****     return (CY_GET_REG32(Micros_Counter_COMPARE_LSB_PTR));
+ 656              		.loc 1 491 0
+ 657 0004 034B     		ldr	r3, .L51
+ 658 0006 1B68     		ldr	r3, [r3]
+ 492:Generated_Source\PSoC5/Micros_Counter.c **** }
+ 659              		.loc 1 492 0
+ 660 0008 1846     		mov	r0, r3
+ 661 000a BD46     		mov	sp, r7
+ 662              		.cfi_def_cfa_register 13
+ 663              		@ sp needed
+ 664 000c 5DF8047B 		ldr	r7, [sp], #4
+ 665              		.cfi_restore 7
+ 666              		.cfi_def_cfa_offset 0
+ 667 0010 7047     		bx	lr
+ 668              	.L52:
+ 669 0012 00BF     		.align	2
+ 670              	.L51:
+ 671 0014 38650040 		.word	1073767736
+ 672              		.cfi_endproc
+ 673              	.LFE14:
+ 674              		.size	Micros_Counter_ReadCompare, .-Micros_Counter_ReadCompare
+ 675              		.section	.text.Micros_Counter_ClearFIFO,"ax",%progbits
+ 676              		.align	2
+ 677              		.global	Micros_Counter_ClearFIFO
+ 678              		.thumb
+ 679              		.thumb_func
+ 680              		.type	Micros_Counter_ClearFIFO, %function
+ 681              	Micros_Counter_ClearFIFO:
+ 682              	.LFB15:
+ 493:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 494:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 495:Generated_Source\PSoC5/Micros_Counter.c **** #if (Micros_Counter_COMPARE_MODE_SOFTWARE)
+ 496:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+ 497:Generated_Source\PSoC5/Micros_Counter.c **** * Function Name: Micros_Counter_SetCompareMode
+ 498:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+ 499:Generated_Source\PSoC5/Micros_Counter.c **** * Summary:
+ 500:Generated_Source\PSoC5/Micros_Counter.c **** *  Sets the software controlled Compare Mode.
+ 501:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 502:Generated_Source\PSoC5/Micros_Counter.c **** * Parameters:
+ 503:Generated_Source\PSoC5/Micros_Counter.c **** *  compareMode:  Compare Mode Enumerated Type.
+ 504:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 505:Generated_Source\PSoC5/Micros_Counter.c **** * Return:
+ 506:Generated_Source\PSoC5/Micros_Counter.c **** *  void
+ 507:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 508:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+ 509:Generated_Source\PSoC5/Micros_Counter.c **** void Micros_Counter_SetCompareMode(uint8 compareMode) 
+ 510:Generated_Source\PSoC5/Micros_Counter.c **** {
+ 511:Generated_Source\PSoC5/Micros_Counter.c ****     /* Clear the compare mode bits in the control register */
+ 512:Generated_Source\PSoC5/Micros_Counter.c ****     Micros_Counter_CONTROL &= ((uint8)(~Micros_Counter_CTRL_CMPMODE_MASK));
+ 513:Generated_Source\PSoC5/Micros_Counter.c ****     
+ 514:Generated_Source\PSoC5/Micros_Counter.c ****     /* Write the new setting */
+ 515:Generated_Source\PSoC5/Micros_Counter.c ****     Micros_Counter_CONTROL |= compareMode;
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 22
+
+
+ 516:Generated_Source\PSoC5/Micros_Counter.c **** }
+ 517:Generated_Source\PSoC5/Micros_Counter.c **** #endif  /* (Micros_Counter_COMPARE_MODE_SOFTWARE) */
+ 518:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 519:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 520:Generated_Source\PSoC5/Micros_Counter.c **** #if (Micros_Counter_CAPTURE_MODE_SOFTWARE)
+ 521:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+ 522:Generated_Source\PSoC5/Micros_Counter.c **** * Function Name: Micros_Counter_SetCaptureMode
+ 523:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+ 524:Generated_Source\PSoC5/Micros_Counter.c **** * Summary:
+ 525:Generated_Source\PSoC5/Micros_Counter.c **** *  Sets the software controlled Capture Mode.
+ 526:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 527:Generated_Source\PSoC5/Micros_Counter.c **** * Parameters:
+ 528:Generated_Source\PSoC5/Micros_Counter.c **** *  captureMode:  Capture Mode Enumerated Type.
+ 529:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 530:Generated_Source\PSoC5/Micros_Counter.c **** * Return:
+ 531:Generated_Source\PSoC5/Micros_Counter.c **** *  void
+ 532:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 533:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+ 534:Generated_Source\PSoC5/Micros_Counter.c **** void Micros_Counter_SetCaptureMode(uint8 captureMode) 
+ 535:Generated_Source\PSoC5/Micros_Counter.c **** {
+ 536:Generated_Source\PSoC5/Micros_Counter.c ****     /* Clear the capture mode bits in the control register */
+ 537:Generated_Source\PSoC5/Micros_Counter.c ****     Micros_Counter_CONTROL &= ((uint8)(~Micros_Counter_CTRL_CAPMODE_MASK));
+ 538:Generated_Source\PSoC5/Micros_Counter.c ****     
+ 539:Generated_Source\PSoC5/Micros_Counter.c ****     /* Write the new setting */
+ 540:Generated_Source\PSoC5/Micros_Counter.c ****     Micros_Counter_CONTROL |= ((uint8)((uint8)captureMode << Micros_Counter_CTRL_CAPMODE0_SHIFT));
+ 541:Generated_Source\PSoC5/Micros_Counter.c **** }
+ 542:Generated_Source\PSoC5/Micros_Counter.c **** #endif  /* (Micros_Counter_CAPTURE_MODE_SOFTWARE) */
+ 543:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 544:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 545:Generated_Source\PSoC5/Micros_Counter.c **** /*******************************************************************************
+ 546:Generated_Source\PSoC5/Micros_Counter.c **** * Function Name: Micros_Counter_ClearFIFO
+ 547:Generated_Source\PSoC5/Micros_Counter.c **** ********************************************************************************
+ 548:Generated_Source\PSoC5/Micros_Counter.c **** * Summary:
+ 549:Generated_Source\PSoC5/Micros_Counter.c **** *   This function clears all capture data from the capture FIFO
+ 550:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 551:Generated_Source\PSoC5/Micros_Counter.c **** * Parameters:  
+ 552:Generated_Source\PSoC5/Micros_Counter.c **** *  void:
+ 553:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 554:Generated_Source\PSoC5/Micros_Counter.c **** * Return: 
+ 555:Generated_Source\PSoC5/Micros_Counter.c **** *  None
+ 556:Generated_Source\PSoC5/Micros_Counter.c **** *
+ 557:Generated_Source\PSoC5/Micros_Counter.c **** *******************************************************************************/
+ 558:Generated_Source\PSoC5/Micros_Counter.c **** void Micros_Counter_ClearFIFO(void) 
+ 559:Generated_Source\PSoC5/Micros_Counter.c **** {
+ 683              		.loc 1 559 0
+ 684              		.cfi_startproc
+ 685              		@ args = 0, pretend = 0, frame = 0
+ 686              		@ frame_needed = 1, uses_anonymous_args = 0
+ 687 0000 80B5     		push	{r7, lr}
+ 688              		.cfi_def_cfa_offset 8
+ 689              		.cfi_offset 7, -8
+ 690              		.cfi_offset 14, -4
+ 691 0002 00AF     		add	r7, sp, #0
+ 692              		.cfi_def_cfa_register 7
+ 560:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 561:Generated_Source\PSoC5/Micros_Counter.c ****     while(0u != (Micros_Counter_ReadStatusRegister() & Micros_Counter_STATUS_FIFONEMP))
+ 693              		.loc 1 561 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 23
+
+
+ 694 0004 01E0     		b	.L54
+ 695              	.L55:
+ 562:Generated_Source\PSoC5/Micros_Counter.c ****     {
+ 563:Generated_Source\PSoC5/Micros_Counter.c ****         (void)Micros_Counter_ReadCapture();
+ 696              		.loc 1 563 0
+ 697 0006 FFF7FEFF 		bl	Micros_Counter_ReadCapture
+ 698              	.L54:
+ 561:Generated_Source\PSoC5/Micros_Counter.c ****     {
+ 699              		.loc 1 561 0
+ 700 000a FFF7FEFF 		bl	Micros_Counter_ReadStatusRegister
+ 701 000e 0346     		mov	r3, r0
+ 702 0010 03F04003 		and	r3, r3, #64
+ 703 0014 002B     		cmp	r3, #0
+ 704 0016 F6D1     		bne	.L55
+ 564:Generated_Source\PSoC5/Micros_Counter.c ****     }
+ 565:Generated_Source\PSoC5/Micros_Counter.c **** 
+ 566:Generated_Source\PSoC5/Micros_Counter.c **** }
+ 705              		.loc 1 566 0
+ 706 0018 80BD     		pop	{r7, pc}
+ 707              		.cfi_endproc
+ 708              	.LFE15:
+ 709              		.size	Micros_Counter_ClearFIFO, .-Micros_Counter_ClearFIFO
+ 710 001a 00BF     		.text
+ 711              	.Letext0:
+ 712              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 713              		.section	.debug_info,"",%progbits
+ 714              	.Ldebug_info0:
+ 715 0000 86020000 		.4byte	0x286
+ 716 0004 0400     		.2byte	0x4
+ 717 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 718 000a 04       		.byte	0x4
+ 719 000b 01       		.uleb128 0x1
+ 720 000c 73010000 		.4byte	.LASF40
+ 721 0010 01       		.byte	0x1
+ 722 0011 E5020000 		.4byte	.LASF41
+ 723 0015 46020000 		.4byte	.LASF42
+ 724 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 725 001d 00000000 		.4byte	0
+ 726 0021 00000000 		.4byte	.Ldebug_line0
+ 727 0025 02       		.uleb128 0x2
+ 728 0026 01       		.byte	0x1
+ 729 0027 06       		.byte	0x6
+ 730 0028 9F030000 		.4byte	.LASF0
+ 731 002c 02       		.uleb128 0x2
+ 732 002d 01       		.byte	0x1
+ 733 002e 08       		.byte	0x8
+ 734 002f FD000000 		.4byte	.LASF1
+ 735 0033 02       		.uleb128 0x2
+ 736 0034 02       		.byte	0x2
+ 737 0035 05       		.byte	0x5
+ 738 0036 43030000 		.4byte	.LASF2
+ 739 003a 02       		.uleb128 0x2
+ 740 003b 02       		.byte	0x2
+ 741 003c 07       		.byte	0x7
+ 742 003d B3030000 		.4byte	.LASF3
+ 743 0041 02       		.uleb128 0x2
+ 744 0042 04       		.byte	0x4
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 24
+
+
+ 745 0043 05       		.byte	0x5
+ 746 0044 7C030000 		.4byte	.LASF4
+ 747 0048 02       		.uleb128 0x2
+ 748 0049 04       		.byte	0x4
+ 749 004a 07       		.byte	0x7
+ 750 004b 24010000 		.4byte	.LASF5
+ 751 004f 02       		.uleb128 0x2
+ 752 0050 08       		.byte	0x8
+ 753 0051 05       		.byte	0x5
+ 754 0052 30030000 		.4byte	.LASF6
+ 755 0056 02       		.uleb128 0x2
+ 756 0057 08       		.byte	0x8
+ 757 0058 07       		.byte	0x7
+ 758 0059 CE020000 		.4byte	.LASF7
+ 759 005d 03       		.uleb128 0x3
+ 760 005e 04       		.byte	0x4
+ 761 005f 05       		.byte	0x5
+ 762 0060 696E7400 		.ascii	"int\000"
+ 763 0064 02       		.uleb128 0x2
+ 764 0065 04       		.byte	0x4
+ 765 0066 07       		.byte	0x7
+ 766 0067 C1020000 		.4byte	.LASF8
+ 767 006b 04       		.uleb128 0x4
+ 768 006c 36010000 		.4byte	.LASF9
+ 769 0070 02       		.byte	0x2
+ 770 0071 3801     		.2byte	0x138
+ 771 0073 2C000000 		.4byte	0x2c
+ 772 0077 04       		.uleb128 0x4
+ 773 0078 3F020000 		.4byte	.LASF10
+ 774 007c 02       		.byte	0x2
+ 775 007d 3A01     		.2byte	0x13a
+ 776 007f 48000000 		.4byte	0x48
+ 777 0083 02       		.uleb128 0x2
+ 778 0084 04       		.byte	0x4
+ 779 0085 04       		.byte	0x4
+ 780 0086 EF000000 		.4byte	.LASF11
+ 781 008a 02       		.uleb128 0x2
+ 782 008b 08       		.byte	0x8
+ 783 008c 04       		.byte	0x4
+ 784 008d 01020000 		.4byte	.LASF12
+ 785 0091 02       		.uleb128 0x2
+ 786 0092 01       		.byte	0x1
+ 787 0093 08       		.byte	0x8
+ 788 0094 3E030000 		.4byte	.LASF13
+ 789 0098 04       		.uleb128 0x4
+ 790 0099 1F010000 		.4byte	.LASF14
+ 791 009d 02       		.byte	0x2
+ 792 009e E201     		.2byte	0x1e2
+ 793 00a0 A4000000 		.4byte	0xa4
+ 794 00a4 05       		.uleb128 0x5
+ 795 00a5 6B000000 		.4byte	0x6b
+ 796 00a9 04       		.uleb128 0x4
+ 797 00aa 24000000 		.4byte	.LASF15
+ 798 00ae 02       		.byte	0x2
+ 799 00af E401     		.2byte	0x1e4
+ 800 00b1 B5000000 		.4byte	0xb5
+ 801 00b5 05       		.uleb128 0x5
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 25
+
+
+ 802 00b6 77000000 		.4byte	0x77
+ 803 00ba 02       		.uleb128 0x2
+ 804 00bb 04       		.byte	0x4
+ 805 00bc 07       		.byte	0x7
+ 806 00bd 27030000 		.4byte	.LASF16
+ 807 00c1 06       		.uleb128 0x6
+ 808 00c2 C4000000 		.4byte	.LASF22
+ 809 00c6 01       		.byte	0x1
+ 810 00c7 25       		.byte	0x25
+ 811 00c8 00000000 		.4byte	.LFB0
+ 812 00cc 7C000000 		.4byte	.LFE0-.LFB0
+ 813 00d0 01       		.uleb128 0x1
+ 814 00d1 9C       		.byte	0x9c
+ 815 00d2 F3000000 		.4byte	0xf3
+ 816 00d6 07       		.uleb128 0x7
+ 817 00d7 22030000 		.4byte	.LASF17
+ 818 00db 01       		.byte	0x1
+ 819 00dc 28       		.byte	0x28
+ 820 00dd 6B000000 		.4byte	0x6b
+ 821 00e1 02       		.uleb128 0x2
+ 822 00e2 91       		.byte	0x91
+ 823 00e3 77       		.sleb128 -9
+ 824 00e4 07       		.uleb128 0x7
+ 825 00e5 6F000000 		.4byte	.LASF18
+ 826 00e9 01       		.byte	0x1
+ 827 00ea 2D       		.byte	0x2d
+ 828 00eb 6B000000 		.4byte	0x6b
+ 829 00ef 02       		.uleb128 0x2
+ 830 00f0 91       		.byte	0x91
+ 831 00f1 76       		.sleb128 -10
+ 832 00f2 00       		.byte	0
+ 833 00f3 08       		.uleb128 0x8
+ 834 00f4 4D030000 		.4byte	.LASF19
+ 835 00f8 01       		.byte	0x1
+ 836 00f9 8F       		.byte	0x8f
+ 837 00fa 00000000 		.4byte	.LFB1
+ 838 00fe 20000000 		.4byte	.LFE1-.LFB1
+ 839 0102 01       		.uleb128 0x1
+ 840 0103 9C       		.byte	0x9c
+ 841 0104 09       		.uleb128 0x9
+ 842 0105 0D030000 		.4byte	.LASF20
+ 843 0109 01       		.byte	0x1
+ 844 010a B2       		.byte	0xb2
+ 845 010b 00000000 		.4byte	.LFB2
+ 846 010f 20000000 		.4byte	.LFE2-.LFB2
+ 847 0113 01       		.uleb128 0x1
+ 848 0114 9C       		.byte	0x9c
+ 849 0115 08       		.uleb128 0x8
+ 850 0116 0B010000 		.4byte	.LASF21
+ 851 011a 01       		.byte	0x1
+ 852 011b D0       		.byte	0xd0
+ 853 011c 00000000 		.4byte	.LFB3
+ 854 0120 20000000 		.4byte	.LFE3-.LFB3
+ 855 0124 01       		.uleb128 0x1
+ 856 0125 9C       		.byte	0x9c
+ 857 0126 0A       		.uleb128 0xa
+ 858 0127 53010000 		.4byte	.LASF23
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 26
+
+
+ 859 012b 01       		.byte	0x1
+ 860 012c ED       		.byte	0xed
+ 861 012d 00000000 		.4byte	.LFB4
+ 862 0131 20000000 		.4byte	.LFE4-.LFB4
+ 863 0135 01       		.uleb128 0x1
+ 864 0136 9C       		.byte	0x9c
+ 865 0137 4A010000 		.4byte	0x14a
+ 866 013b 0B       		.uleb128 0xb
+ 867 013c 44010000 		.4byte	.LASF27
+ 868 0140 01       		.byte	0x1
+ 869 0141 ED       		.byte	0xed
+ 870 0142 6B000000 		.4byte	0x6b
+ 871 0146 02       		.uleb128 0x2
+ 872 0147 91       		.byte	0x91
+ 873 0148 77       		.sleb128 -9
+ 874 0149 00       		.byte	0
+ 875 014a 0C       		.uleb128 0xc
+ 876 014b 9F020000 		.4byte	.LASF24
+ 877 014f 01       		.byte	0x1
+ 878 0150 0501     		.2byte	0x105
+ 879 0152 6B000000 		.4byte	0x6b
+ 880 0156 00000000 		.4byte	.LFB5
+ 881 015a 18000000 		.4byte	.LFE5-.LFB5
+ 882 015e 01       		.uleb128 0x1
+ 883 015f 9C       		.byte	0x9c
+ 884 0160 0C       		.uleb128 0xc
+ 885 0161 45000000 		.4byte	.LASF25
+ 886 0165 01       		.byte	0x1
+ 887 0166 1B01     		.2byte	0x11b
+ 888 0168 6B000000 		.4byte	0x6b
+ 889 016c 00000000 		.4byte	.LFB6
+ 890 0170 18000000 		.4byte	.LFE6-.LFB6
+ 891 0174 01       		.uleb128 0x1
+ 892 0175 9C       		.byte	0x9c
+ 893 0176 0D       		.uleb128 0xd
+ 894 0177 00000000 		.4byte	.LASF26
+ 895 017b 01       		.byte	0x1
+ 896 017c 3001     		.2byte	0x130
+ 897 017e 00000000 		.4byte	.LFB7
+ 898 0182 20000000 		.4byte	.LFE7-.LFB7
+ 899 0186 01       		.uleb128 0x1
+ 900 0187 9C       		.byte	0x9c
+ 901 0188 9C010000 		.4byte	0x19c
+ 902 018c 0E       		.uleb128 0xe
+ 903 018d 3C010000 		.4byte	.LASF28
+ 904 0191 01       		.byte	0x1
+ 905 0192 3001     		.2byte	0x130
+ 906 0194 6B000000 		.4byte	0x6b
+ 907 0198 02       		.uleb128 0x2
+ 908 0199 91       		.byte	0x91
+ 909 019a 77       		.sleb128 -9
+ 910 019b 00       		.byte	0
+ 911 019c 0D       		.uleb128 0xd
+ 912 019d 23020000 		.4byte	.LASF29
+ 913 01a1 01       		.byte	0x1
+ 914 01a2 4601     		.2byte	0x146
+ 915 01a4 00000000 		.4byte	.LFB8
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 27
+
+
+ 916 01a8 1C000000 		.4byte	.LFE8-.LFB8
+ 917 01ac 01       		.uleb128 0x1
+ 918 01ad 9C       		.byte	0x9c
+ 919 01ae C2010000 		.4byte	0x1c2
+ 920 01b2 0E       		.uleb128 0xe
+ 921 01b3 F5000000 		.4byte	.LASF30
+ 922 01b7 01       		.byte	0x1
+ 923 01b8 4601     		.2byte	0x146
+ 924 01ba 77000000 		.4byte	0x77
+ 925 01be 02       		.uleb128 0x2
+ 926 01bf 91       		.byte	0x91
+ 927 01c0 74       		.sleb128 -12
+ 928 01c1 00       		.byte	0
+ 929 01c2 0C       		.uleb128 0xc
+ 930 01c3 A9000000 		.4byte	.LASF31
+ 931 01c7 01       		.byte	0x1
+ 932 01c8 6501     		.2byte	0x165
+ 933 01ca 77000000 		.4byte	0x77
+ 934 01ce 00000000 		.4byte	.LFB9
+ 935 01d2 20000000 		.4byte	.LFE9-.LFB9
+ 936 01d6 01       		.uleb128 0x1
+ 937 01d7 9C       		.byte	0x9c
+ 938 01d8 0C       		.uleb128 0xc
+ 939 01d9 2A000000 		.4byte	.LASF32
+ 940 01dd 01       		.byte	0x1
+ 941 01de 8601     		.2byte	0x186
+ 942 01e0 77000000 		.4byte	0x77
+ 943 01e4 00000000 		.4byte	.LFB10
+ 944 01e8 18000000 		.4byte	.LFE10-.LFB10
+ 945 01ec 01       		.uleb128 0x1
+ 946 01ed 9C       		.byte	0x9c
+ 947 01ee 0D       		.uleb128 0xd
+ 948 01ef 08020000 		.4byte	.LASF33
+ 949 01f3 01       		.byte	0x1
+ 950 01f4 9F01     		.2byte	0x19f
+ 951 01f6 00000000 		.4byte	.LFB11
+ 952 01fa 1C000000 		.4byte	.LFE11-.LFB11
+ 953 01fe 01       		.uleb128 0x1
+ 954 01ff 9C       		.byte	0x9c
+ 955 0200 14020000 		.4byte	0x214
+ 956 0204 0E       		.uleb128 0xe
+ 957 0205 68000000 		.4byte	.LASF34
+ 958 0209 01       		.byte	0x1
+ 959 020a 9F01     		.2byte	0x19f
+ 960 020c 77000000 		.4byte	0x77
+ 961 0210 02       		.uleb128 0x2
+ 962 0211 91       		.byte	0x91
+ 963 0212 74       		.sleb128 -12
+ 964 0213 00       		.byte	0
+ 965 0214 0C       		.uleb128 0xc
+ 966 0215 85030000 		.4byte	.LASF35
+ 967 0219 01       		.byte	0x1
+ 968 021a B601     		.2byte	0x1b6
+ 969 021c 77000000 		.4byte	0x77
+ 970 0220 00000000 		.4byte	.LFB12
+ 971 0224 18000000 		.4byte	.LFE12-.LFB12
+ 972 0228 01       		.uleb128 0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 28
+
+
+ 973 0229 9C       		.byte	0x9c
+ 974 022a 0D       		.uleb128 0xd
+ 975 022b 8D000000 		.4byte	.LASF36
+ 976 022f 01       		.byte	0x1
+ 977 0230 D101     		.2byte	0x1d1
+ 978 0232 00000000 		.4byte	.LFB13
+ 979 0236 1C000000 		.4byte	.LFE13-.LFB13
+ 980 023a 01       		.uleb128 0x1
+ 981 023b 9C       		.byte	0x9c
+ 982 023c 50020000 		.4byte	0x250
+ 983 0240 0E       		.uleb128 0xe
+ 984 0241 AB030000 		.4byte	.LASF37
+ 985 0245 01       		.byte	0x1
+ 986 0246 D101     		.2byte	0x1d1
+ 987 0248 77000000 		.4byte	0x77
+ 988 024c 02       		.uleb128 0x2
+ 989 024d 91       		.byte	0x91
+ 990 024e 74       		.sleb128 -12
+ 991 024f 00       		.byte	0
+ 992 0250 0C       		.uleb128 0xc
+ 993 0251 C6030000 		.4byte	.LASF38
+ 994 0255 01       		.byte	0x1
+ 995 0256 E901     		.2byte	0x1e9
+ 996 0258 77000000 		.4byte	0x77
+ 997 025c 00000000 		.4byte	.LFB14
+ 998 0260 18000000 		.4byte	.LFE14-.LFB14
+ 999 0264 01       		.uleb128 0x1
+ 1000 0265 9C       		.byte	0x9c
+ 1001 0266 0F       		.uleb128 0xf
+ 1002 0267 63030000 		.4byte	.LASF39
+ 1003 026b 01       		.byte	0x1
+ 1004 026c 2E02     		.2byte	0x22e
+ 1005 026e 00000000 		.4byte	.LFB15
+ 1006 0272 1A000000 		.4byte	.LFE15-.LFB15
+ 1007 0276 01       		.uleb128 0x1
+ 1008 0277 9C       		.byte	0x9c
+ 1009 0278 10       		.uleb128 0x10
+ 1010 0279 D8000000 		.4byte	.LASF43
+ 1011 027d 01       		.byte	0x1
+ 1012 027e 15       		.byte	0x15
+ 1013 027f 6B000000 		.4byte	0x6b
+ 1014 0283 05       		.uleb128 0x5
+ 1015 0284 03       		.byte	0x3
+ 1016 0285 00000000 		.4byte	Micros_Counter_initVar
+ 1017 0289 00       		.byte	0
+ 1018              		.section	.debug_abbrev,"",%progbits
+ 1019              	.Ldebug_abbrev0:
+ 1020 0000 01       		.uleb128 0x1
+ 1021 0001 11       		.uleb128 0x11
+ 1022 0002 01       		.byte	0x1
+ 1023 0003 25       		.uleb128 0x25
+ 1024 0004 0E       		.uleb128 0xe
+ 1025 0005 13       		.uleb128 0x13
+ 1026 0006 0B       		.uleb128 0xb
+ 1027 0007 03       		.uleb128 0x3
+ 1028 0008 0E       		.uleb128 0xe
+ 1029 0009 1B       		.uleb128 0x1b
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 29
+
+
+ 1030 000a 0E       		.uleb128 0xe
+ 1031 000b 55       		.uleb128 0x55
+ 1032 000c 17       		.uleb128 0x17
+ 1033 000d 11       		.uleb128 0x11
+ 1034 000e 01       		.uleb128 0x1
+ 1035 000f 10       		.uleb128 0x10
+ 1036 0010 17       		.uleb128 0x17
+ 1037 0011 00       		.byte	0
+ 1038 0012 00       		.byte	0
+ 1039 0013 02       		.uleb128 0x2
+ 1040 0014 24       		.uleb128 0x24
+ 1041 0015 00       		.byte	0
+ 1042 0016 0B       		.uleb128 0xb
+ 1043 0017 0B       		.uleb128 0xb
+ 1044 0018 3E       		.uleb128 0x3e
+ 1045 0019 0B       		.uleb128 0xb
+ 1046 001a 03       		.uleb128 0x3
+ 1047 001b 0E       		.uleb128 0xe
+ 1048 001c 00       		.byte	0
+ 1049 001d 00       		.byte	0
+ 1050 001e 03       		.uleb128 0x3
+ 1051 001f 24       		.uleb128 0x24
+ 1052 0020 00       		.byte	0
+ 1053 0021 0B       		.uleb128 0xb
+ 1054 0022 0B       		.uleb128 0xb
+ 1055 0023 3E       		.uleb128 0x3e
+ 1056 0024 0B       		.uleb128 0xb
+ 1057 0025 03       		.uleb128 0x3
+ 1058 0026 08       		.uleb128 0x8
+ 1059 0027 00       		.byte	0
+ 1060 0028 00       		.byte	0
+ 1061 0029 04       		.uleb128 0x4
+ 1062 002a 16       		.uleb128 0x16
+ 1063 002b 00       		.byte	0
+ 1064 002c 03       		.uleb128 0x3
+ 1065 002d 0E       		.uleb128 0xe
+ 1066 002e 3A       		.uleb128 0x3a
+ 1067 002f 0B       		.uleb128 0xb
+ 1068 0030 3B       		.uleb128 0x3b
+ 1069 0031 05       		.uleb128 0x5
+ 1070 0032 49       		.uleb128 0x49
+ 1071 0033 13       		.uleb128 0x13
+ 1072 0034 00       		.byte	0
+ 1073 0035 00       		.byte	0
+ 1074 0036 05       		.uleb128 0x5
+ 1075 0037 35       		.uleb128 0x35
+ 1076 0038 00       		.byte	0
+ 1077 0039 49       		.uleb128 0x49
+ 1078 003a 13       		.uleb128 0x13
+ 1079 003b 00       		.byte	0
+ 1080 003c 00       		.byte	0
+ 1081 003d 06       		.uleb128 0x6
+ 1082 003e 2E       		.uleb128 0x2e
+ 1083 003f 01       		.byte	0x1
+ 1084 0040 3F       		.uleb128 0x3f
+ 1085 0041 19       		.uleb128 0x19
+ 1086 0042 03       		.uleb128 0x3
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 30
+
+
+ 1087 0043 0E       		.uleb128 0xe
+ 1088 0044 3A       		.uleb128 0x3a
+ 1089 0045 0B       		.uleb128 0xb
+ 1090 0046 3B       		.uleb128 0x3b
+ 1091 0047 0B       		.uleb128 0xb
+ 1092 0048 27       		.uleb128 0x27
+ 1093 0049 19       		.uleb128 0x19
+ 1094 004a 11       		.uleb128 0x11
+ 1095 004b 01       		.uleb128 0x1
+ 1096 004c 12       		.uleb128 0x12
+ 1097 004d 06       		.uleb128 0x6
+ 1098 004e 40       		.uleb128 0x40
+ 1099 004f 18       		.uleb128 0x18
+ 1100 0050 9642     		.uleb128 0x2116
+ 1101 0052 19       		.uleb128 0x19
+ 1102 0053 01       		.uleb128 0x1
+ 1103 0054 13       		.uleb128 0x13
+ 1104 0055 00       		.byte	0
+ 1105 0056 00       		.byte	0
+ 1106 0057 07       		.uleb128 0x7
+ 1107 0058 34       		.uleb128 0x34
+ 1108 0059 00       		.byte	0
+ 1109 005a 03       		.uleb128 0x3
+ 1110 005b 0E       		.uleb128 0xe
+ 1111 005c 3A       		.uleb128 0x3a
+ 1112 005d 0B       		.uleb128 0xb
+ 1113 005e 3B       		.uleb128 0x3b
+ 1114 005f 0B       		.uleb128 0xb
+ 1115 0060 49       		.uleb128 0x49
+ 1116 0061 13       		.uleb128 0x13
+ 1117 0062 02       		.uleb128 0x2
+ 1118 0063 18       		.uleb128 0x18
+ 1119 0064 00       		.byte	0
+ 1120 0065 00       		.byte	0
+ 1121 0066 08       		.uleb128 0x8
+ 1122 0067 2E       		.uleb128 0x2e
+ 1123 0068 00       		.byte	0
+ 1124 0069 3F       		.uleb128 0x3f
+ 1125 006a 19       		.uleb128 0x19
+ 1126 006b 03       		.uleb128 0x3
+ 1127 006c 0E       		.uleb128 0xe
+ 1128 006d 3A       		.uleb128 0x3a
+ 1129 006e 0B       		.uleb128 0xb
+ 1130 006f 3B       		.uleb128 0x3b
+ 1131 0070 0B       		.uleb128 0xb
+ 1132 0071 27       		.uleb128 0x27
+ 1133 0072 19       		.uleb128 0x19
+ 1134 0073 11       		.uleb128 0x11
+ 1135 0074 01       		.uleb128 0x1
+ 1136 0075 12       		.uleb128 0x12
+ 1137 0076 06       		.uleb128 0x6
+ 1138 0077 40       		.uleb128 0x40
+ 1139 0078 18       		.uleb128 0x18
+ 1140 0079 9742     		.uleb128 0x2117
+ 1141 007b 19       		.uleb128 0x19
+ 1142 007c 00       		.byte	0
+ 1143 007d 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 31
+
+
+ 1144 007e 09       		.uleb128 0x9
+ 1145 007f 2E       		.uleb128 0x2e
+ 1146 0080 00       		.byte	0
+ 1147 0081 3F       		.uleb128 0x3f
+ 1148 0082 19       		.uleb128 0x19
+ 1149 0083 03       		.uleb128 0x3
+ 1150 0084 0E       		.uleb128 0xe
+ 1151 0085 3A       		.uleb128 0x3a
+ 1152 0086 0B       		.uleb128 0xb
+ 1153 0087 3B       		.uleb128 0x3b
+ 1154 0088 0B       		.uleb128 0xb
+ 1155 0089 27       		.uleb128 0x27
+ 1156 008a 19       		.uleb128 0x19
+ 1157 008b 11       		.uleb128 0x11
+ 1158 008c 01       		.uleb128 0x1
+ 1159 008d 12       		.uleb128 0x12
+ 1160 008e 06       		.uleb128 0x6
+ 1161 008f 40       		.uleb128 0x40
+ 1162 0090 18       		.uleb128 0x18
+ 1163 0091 9642     		.uleb128 0x2116
+ 1164 0093 19       		.uleb128 0x19
+ 1165 0094 00       		.byte	0
+ 1166 0095 00       		.byte	0
+ 1167 0096 0A       		.uleb128 0xa
+ 1168 0097 2E       		.uleb128 0x2e
+ 1169 0098 01       		.byte	0x1
+ 1170 0099 3F       		.uleb128 0x3f
+ 1171 009a 19       		.uleb128 0x19
+ 1172 009b 03       		.uleb128 0x3
+ 1173 009c 0E       		.uleb128 0xe
+ 1174 009d 3A       		.uleb128 0x3a
+ 1175 009e 0B       		.uleb128 0xb
+ 1176 009f 3B       		.uleb128 0x3b
+ 1177 00a0 0B       		.uleb128 0xb
+ 1178 00a1 27       		.uleb128 0x27
+ 1179 00a2 19       		.uleb128 0x19
+ 1180 00a3 11       		.uleb128 0x11
+ 1181 00a4 01       		.uleb128 0x1
+ 1182 00a5 12       		.uleb128 0x12
+ 1183 00a6 06       		.uleb128 0x6
+ 1184 00a7 40       		.uleb128 0x40
+ 1185 00a8 18       		.uleb128 0x18
+ 1186 00a9 9742     		.uleb128 0x2117
+ 1187 00ab 19       		.uleb128 0x19
+ 1188 00ac 01       		.uleb128 0x1
+ 1189 00ad 13       		.uleb128 0x13
+ 1190 00ae 00       		.byte	0
+ 1191 00af 00       		.byte	0
+ 1192 00b0 0B       		.uleb128 0xb
+ 1193 00b1 05       		.uleb128 0x5
+ 1194 00b2 00       		.byte	0
+ 1195 00b3 03       		.uleb128 0x3
+ 1196 00b4 0E       		.uleb128 0xe
+ 1197 00b5 3A       		.uleb128 0x3a
+ 1198 00b6 0B       		.uleb128 0xb
+ 1199 00b7 3B       		.uleb128 0x3b
+ 1200 00b8 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 32
+
+
+ 1201 00b9 49       		.uleb128 0x49
+ 1202 00ba 13       		.uleb128 0x13
+ 1203 00bb 02       		.uleb128 0x2
+ 1204 00bc 18       		.uleb128 0x18
+ 1205 00bd 00       		.byte	0
+ 1206 00be 00       		.byte	0
+ 1207 00bf 0C       		.uleb128 0xc
+ 1208 00c0 2E       		.uleb128 0x2e
+ 1209 00c1 00       		.byte	0
+ 1210 00c2 3F       		.uleb128 0x3f
+ 1211 00c3 19       		.uleb128 0x19
+ 1212 00c4 03       		.uleb128 0x3
+ 1213 00c5 0E       		.uleb128 0xe
+ 1214 00c6 3A       		.uleb128 0x3a
+ 1215 00c7 0B       		.uleb128 0xb
+ 1216 00c8 3B       		.uleb128 0x3b
+ 1217 00c9 05       		.uleb128 0x5
+ 1218 00ca 27       		.uleb128 0x27
+ 1219 00cb 19       		.uleb128 0x19
+ 1220 00cc 49       		.uleb128 0x49
+ 1221 00cd 13       		.uleb128 0x13
+ 1222 00ce 11       		.uleb128 0x11
+ 1223 00cf 01       		.uleb128 0x1
+ 1224 00d0 12       		.uleb128 0x12
+ 1225 00d1 06       		.uleb128 0x6
+ 1226 00d2 40       		.uleb128 0x40
+ 1227 00d3 18       		.uleb128 0x18
+ 1228 00d4 9742     		.uleb128 0x2117
+ 1229 00d6 19       		.uleb128 0x19
+ 1230 00d7 00       		.byte	0
+ 1231 00d8 00       		.byte	0
+ 1232 00d9 0D       		.uleb128 0xd
+ 1233 00da 2E       		.uleb128 0x2e
+ 1234 00db 01       		.byte	0x1
+ 1235 00dc 3F       		.uleb128 0x3f
+ 1236 00dd 19       		.uleb128 0x19
+ 1237 00de 03       		.uleb128 0x3
+ 1238 00df 0E       		.uleb128 0xe
+ 1239 00e0 3A       		.uleb128 0x3a
+ 1240 00e1 0B       		.uleb128 0xb
+ 1241 00e2 3B       		.uleb128 0x3b
+ 1242 00e3 05       		.uleb128 0x5
+ 1243 00e4 27       		.uleb128 0x27
+ 1244 00e5 19       		.uleb128 0x19
+ 1245 00e6 11       		.uleb128 0x11
+ 1246 00e7 01       		.uleb128 0x1
+ 1247 00e8 12       		.uleb128 0x12
+ 1248 00e9 06       		.uleb128 0x6
+ 1249 00ea 40       		.uleb128 0x40
+ 1250 00eb 18       		.uleb128 0x18
+ 1251 00ec 9742     		.uleb128 0x2117
+ 1252 00ee 19       		.uleb128 0x19
+ 1253 00ef 01       		.uleb128 0x1
+ 1254 00f0 13       		.uleb128 0x13
+ 1255 00f1 00       		.byte	0
+ 1256 00f2 00       		.byte	0
+ 1257 00f3 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 33
+
+
+ 1258 00f4 05       		.uleb128 0x5
+ 1259 00f5 00       		.byte	0
+ 1260 00f6 03       		.uleb128 0x3
+ 1261 00f7 0E       		.uleb128 0xe
+ 1262 00f8 3A       		.uleb128 0x3a
+ 1263 00f9 0B       		.uleb128 0xb
+ 1264 00fa 3B       		.uleb128 0x3b
+ 1265 00fb 05       		.uleb128 0x5
+ 1266 00fc 49       		.uleb128 0x49
+ 1267 00fd 13       		.uleb128 0x13
+ 1268 00fe 02       		.uleb128 0x2
+ 1269 00ff 18       		.uleb128 0x18
+ 1270 0100 00       		.byte	0
+ 1271 0101 00       		.byte	0
+ 1272 0102 0F       		.uleb128 0xf
+ 1273 0103 2E       		.uleb128 0x2e
+ 1274 0104 00       		.byte	0
+ 1275 0105 3F       		.uleb128 0x3f
+ 1276 0106 19       		.uleb128 0x19
+ 1277 0107 03       		.uleb128 0x3
+ 1278 0108 0E       		.uleb128 0xe
+ 1279 0109 3A       		.uleb128 0x3a
+ 1280 010a 0B       		.uleb128 0xb
+ 1281 010b 3B       		.uleb128 0x3b
+ 1282 010c 05       		.uleb128 0x5
+ 1283 010d 27       		.uleb128 0x27
+ 1284 010e 19       		.uleb128 0x19
+ 1285 010f 11       		.uleb128 0x11
+ 1286 0110 01       		.uleb128 0x1
+ 1287 0111 12       		.uleb128 0x12
+ 1288 0112 06       		.uleb128 0x6
+ 1289 0113 40       		.uleb128 0x40
+ 1290 0114 18       		.uleb128 0x18
+ 1291 0115 9642     		.uleb128 0x2116
+ 1292 0117 19       		.uleb128 0x19
+ 1293 0118 00       		.byte	0
+ 1294 0119 00       		.byte	0
+ 1295 011a 10       		.uleb128 0x10
+ 1296 011b 34       		.uleb128 0x34
+ 1297 011c 00       		.byte	0
+ 1298 011d 03       		.uleb128 0x3
+ 1299 011e 0E       		.uleb128 0xe
+ 1300 011f 3A       		.uleb128 0x3a
+ 1301 0120 0B       		.uleb128 0xb
+ 1302 0121 3B       		.uleb128 0x3b
+ 1303 0122 0B       		.uleb128 0xb
+ 1304 0123 49       		.uleb128 0x49
+ 1305 0124 13       		.uleb128 0x13
+ 1306 0125 3F       		.uleb128 0x3f
+ 1307 0126 19       		.uleb128 0x19
+ 1308 0127 02       		.uleb128 0x2
+ 1309 0128 18       		.uleb128 0x18
+ 1310 0129 00       		.byte	0
+ 1311 012a 00       		.byte	0
+ 1312 012b 00       		.byte	0
+ 1313              		.section	.debug_aranges,"",%progbits
+ 1314 0000 94000000 		.4byte	0x94
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 34
+
+
+ 1315 0004 0200     		.2byte	0x2
+ 1316 0006 00000000 		.4byte	.Ldebug_info0
+ 1317 000a 04       		.byte	0x4
+ 1318 000b 00       		.byte	0
+ 1319 000c 0000     		.2byte	0
+ 1320 000e 0000     		.2byte	0
+ 1321 0010 00000000 		.4byte	.LFB0
+ 1322 0014 7C000000 		.4byte	.LFE0-.LFB0
+ 1323 0018 00000000 		.4byte	.LFB1
+ 1324 001c 20000000 		.4byte	.LFE1-.LFB1
+ 1325 0020 00000000 		.4byte	.LFB2
+ 1326 0024 20000000 		.4byte	.LFE2-.LFB2
+ 1327 0028 00000000 		.4byte	.LFB3
+ 1328 002c 20000000 		.4byte	.LFE3-.LFB3
+ 1329 0030 00000000 		.4byte	.LFB4
+ 1330 0034 20000000 		.4byte	.LFE4-.LFB4
+ 1331 0038 00000000 		.4byte	.LFB5
+ 1332 003c 18000000 		.4byte	.LFE5-.LFB5
+ 1333 0040 00000000 		.4byte	.LFB6
+ 1334 0044 18000000 		.4byte	.LFE6-.LFB6
+ 1335 0048 00000000 		.4byte	.LFB7
+ 1336 004c 20000000 		.4byte	.LFE7-.LFB7
+ 1337 0050 00000000 		.4byte	.LFB8
+ 1338 0054 1C000000 		.4byte	.LFE8-.LFB8
+ 1339 0058 00000000 		.4byte	.LFB9
+ 1340 005c 20000000 		.4byte	.LFE9-.LFB9
+ 1341 0060 00000000 		.4byte	.LFB10
+ 1342 0064 18000000 		.4byte	.LFE10-.LFB10
+ 1343 0068 00000000 		.4byte	.LFB11
+ 1344 006c 1C000000 		.4byte	.LFE11-.LFB11
+ 1345 0070 00000000 		.4byte	.LFB12
+ 1346 0074 18000000 		.4byte	.LFE12-.LFB12
+ 1347 0078 00000000 		.4byte	.LFB13
+ 1348 007c 1C000000 		.4byte	.LFE13-.LFB13
+ 1349 0080 00000000 		.4byte	.LFB14
+ 1350 0084 18000000 		.4byte	.LFE14-.LFB14
+ 1351 0088 00000000 		.4byte	.LFB15
+ 1352 008c 1A000000 		.4byte	.LFE15-.LFB15
+ 1353 0090 00000000 		.4byte	0
+ 1354 0094 00000000 		.4byte	0
+ 1355              		.section	.debug_ranges,"",%progbits
+ 1356              	.Ldebug_ranges0:
+ 1357 0000 00000000 		.4byte	.LFB0
+ 1358 0004 7C000000 		.4byte	.LFE0
+ 1359 0008 00000000 		.4byte	.LFB1
+ 1360 000c 20000000 		.4byte	.LFE1
+ 1361 0010 00000000 		.4byte	.LFB2
+ 1362 0014 20000000 		.4byte	.LFE2
+ 1363 0018 00000000 		.4byte	.LFB3
+ 1364 001c 20000000 		.4byte	.LFE3
+ 1365 0020 00000000 		.4byte	.LFB4
+ 1366 0024 20000000 		.4byte	.LFE4
+ 1367 0028 00000000 		.4byte	.LFB5
+ 1368 002c 18000000 		.4byte	.LFE5
+ 1369 0030 00000000 		.4byte	.LFB6
+ 1370 0034 18000000 		.4byte	.LFE6
+ 1371 0038 00000000 		.4byte	.LFB7
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 35
+
+
+ 1372 003c 20000000 		.4byte	.LFE7
+ 1373 0040 00000000 		.4byte	.LFB8
+ 1374 0044 1C000000 		.4byte	.LFE8
+ 1375 0048 00000000 		.4byte	.LFB9
+ 1376 004c 20000000 		.4byte	.LFE9
+ 1377 0050 00000000 		.4byte	.LFB10
+ 1378 0054 18000000 		.4byte	.LFE10
+ 1379 0058 00000000 		.4byte	.LFB11
+ 1380 005c 1C000000 		.4byte	.LFE11
+ 1381 0060 00000000 		.4byte	.LFB12
+ 1382 0064 18000000 		.4byte	.LFE12
+ 1383 0068 00000000 		.4byte	.LFB13
+ 1384 006c 1C000000 		.4byte	.LFE13
+ 1385 0070 00000000 		.4byte	.LFB14
+ 1386 0074 18000000 		.4byte	.LFE14
+ 1387 0078 00000000 		.4byte	.LFB15
+ 1388 007c 1A000000 		.4byte	.LFE15
+ 1389 0080 00000000 		.4byte	0
+ 1390 0084 00000000 		.4byte	0
+ 1391              		.section	.debug_line,"",%progbits
+ 1392              	.Ldebug_line0:
+ 1393 0000 88010000 		.section	.debug_str,"MS",%progbits,1
+ 1393      02004B00 
+ 1393      00000201 
+ 1393      FB0E0D00 
+ 1393      01010101 
+ 1394              	.LASF26:
+ 1395 0000 4D696372 		.ascii	"Micros_Counter_WriteControlRegister\000"
+ 1395      6F735F43 
+ 1395      6F756E74 
+ 1395      65725F57 
+ 1395      72697465 
+ 1396              	.LASF15:
+ 1397 0024 72656733 		.ascii	"reg32\000"
+ 1397      3200
+ 1398              	.LASF32:
+ 1399 002a 4D696372 		.ascii	"Micros_Counter_ReadCapture\000"
+ 1399      6F735F43 
+ 1399      6F756E74 
+ 1399      65725F52 
+ 1399      65616443 
+ 1400              	.LASF25:
+ 1401 0045 4D696372 		.ascii	"Micros_Counter_ReadControlRegister\000"
+ 1401      6F735F43 
+ 1401      6F756E74 
+ 1401      65725F52 
+ 1401      65616443 
+ 1402              	.LASF34:
+ 1403 0068 70657269 		.ascii	"period\000"
+ 1403      6F6400
+ 1404              	.LASF18:
+ 1405 006f 4D696372 		.ascii	"Micros_Counter_interruptState\000"
+ 1405      6F735F43 
+ 1405      6F756E74 
+ 1405      65725F69 
+ 1405      6E746572 
+ 1406              	.LASF36:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 36
+
+
+ 1407 008d 4D696372 		.ascii	"Micros_Counter_WriteCompare\000"
+ 1407      6F735F43 
+ 1407      6F756E74 
+ 1407      65725F57 
+ 1407      72697465 
+ 1408              	.LASF31:
+ 1409 00a9 4D696372 		.ascii	"Micros_Counter_ReadCounter\000"
+ 1409      6F735F43 
+ 1409      6F756E74 
+ 1409      65725F52 
+ 1409      65616443 
+ 1410              	.LASF22:
+ 1411 00c4 4D696372 		.ascii	"Micros_Counter_Init\000"
+ 1411      6F735F43 
+ 1411      6F756E74 
+ 1411      65725F49 
+ 1411      6E697400 
+ 1412              	.LASF43:
+ 1413 00d8 4D696372 		.ascii	"Micros_Counter_initVar\000"
+ 1413      6F735F43 
+ 1413      6F756E74 
+ 1413      65725F69 
+ 1413      6E697456 
+ 1414              	.LASF11:
+ 1415 00ef 666C6F61 		.ascii	"float\000"
+ 1415      7400
+ 1416              	.LASF30:
+ 1417 00f5 636F756E 		.ascii	"counter\000"
+ 1417      74657200 
+ 1418              	.LASF1:
+ 1419 00fd 756E7369 		.ascii	"unsigned char\000"
+ 1419      676E6564 
+ 1419      20636861 
+ 1419      7200
+ 1420              	.LASF21:
+ 1421 010b 4D696372 		.ascii	"Micros_Counter_Stop\000"
+ 1421      6F735F43 
+ 1421      6F756E74 
+ 1421      65725F53 
+ 1421      746F7000 
+ 1422              	.LASF14:
+ 1423 011f 72656738 		.ascii	"reg8\000"
+ 1423      00
+ 1424              	.LASF5:
+ 1425 0124 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1425      20756E73 
+ 1425      69676E65 
+ 1425      6420696E 
+ 1425      7400
+ 1426              	.LASF9:
+ 1427 0136 75696E74 		.ascii	"uint8\000"
+ 1427      3800
+ 1428              	.LASF28:
+ 1429 013c 636F6E74 		.ascii	"control\000"
+ 1429      726F6C00 
+ 1430              	.LASF27:
+ 1431 0144 696E7465 		.ascii	"interruptsMask\000"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 37
+
+
+ 1431      72727570 
+ 1431      74734D61 
+ 1431      736B00
+ 1432              	.LASF23:
+ 1433 0153 4D696372 		.ascii	"Micros_Counter_SetInterruptMode\000"
+ 1433      6F735F43 
+ 1433      6F756E74 
+ 1433      65725F53 
+ 1433      6574496E 
+ 1434              	.LASF40:
+ 1435 0173 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1435      4320342E 
+ 1435      392E3320 
+ 1435      32303135 
+ 1435      30333033 
+ 1436 01a6 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1436      20726576 
+ 1436      6973696F 
+ 1436      6E203232 
+ 1436      31323230 
+ 1437 01d9 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1437      66756E63 
+ 1437      74696F6E 
+ 1437      2D736563 
+ 1437      74696F6E 
+ 1438              	.LASF12:
+ 1439 0201 646F7562 		.ascii	"double\000"
+ 1439      6C6500
+ 1440              	.LASF33:
+ 1441 0208 4D696372 		.ascii	"Micros_Counter_WritePeriod\000"
+ 1441      6F735F43 
+ 1441      6F756E74 
+ 1441      65725F57 
+ 1441      72697465 
+ 1442              	.LASF29:
+ 1443 0223 4D696372 		.ascii	"Micros_Counter_WriteCounter\000"
+ 1443      6F735F43 
+ 1443      6F756E74 
+ 1443      65725F57 
+ 1443      72697465 
+ 1444              	.LASF10:
+ 1445 023f 75696E74 		.ascii	"uint32\000"
+ 1445      333200
+ 1446              	.LASF42:
+ 1447 0246 433A5C55 		.ascii	"C:\\Users\\Bruger\\Desktop\\CODE\\PSOC5\\CY8CKIT-59"
+ 1447      73657273 
+ 1447      5C427275 
+ 1447      6765725C 
+ 1447      4465736B 
+ 1448 0273 2D417264 		.ascii	"-Arduino\\CY8CKIT59_Ardudino-Speeduino.cydsn\000"
+ 1448      75696E6F 
+ 1448      5C435938 
+ 1448      434B4954 
+ 1448      35395F41 
+ 1449              	.LASF24:
+ 1450 029f 4D696372 		.ascii	"Micros_Counter_ReadStatusRegister\000"
+ 1450      6F735F43 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 38
+
+
+ 1450      6F756E74 
+ 1450      65725F52 
+ 1450      65616453 
+ 1451              	.LASF8:
+ 1452 02c1 756E7369 		.ascii	"unsigned int\000"
+ 1452      676E6564 
+ 1452      20696E74 
+ 1452      00
+ 1453              	.LASF7:
+ 1454 02ce 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1454      206C6F6E 
+ 1454      6720756E 
+ 1454      7369676E 
+ 1454      65642069 
+ 1455              	.LASF41:
+ 1456 02e5 47656E65 		.ascii	"Generated_Source\\PSoC5\\Micros_Counter.c\000"
+ 1456      72617465 
+ 1456      645F536F 
+ 1456      75726365 
+ 1456      5C50536F 
+ 1457              	.LASF20:
+ 1458 030d 4D696372 		.ascii	"Micros_Counter_Start\000"
+ 1458      6F735F43 
+ 1458      6F756E74 
+ 1458      65725F53 
+ 1458      74617274 
+ 1459              	.LASF17:
+ 1460 0322 6374726C 		.ascii	"ctrl\000"
+ 1460      00
+ 1461              	.LASF16:
+ 1462 0327 73697A65 		.ascii	"sizetype\000"
+ 1462      74797065 
+ 1462      00
+ 1463              	.LASF6:
+ 1464 0330 6C6F6E67 		.ascii	"long long int\000"
+ 1464      206C6F6E 
+ 1464      6720696E 
+ 1464      7400
+ 1465              	.LASF13:
+ 1466 033e 63686172 		.ascii	"char\000"
+ 1466      00
+ 1467              	.LASF2:
+ 1468 0343 73686F72 		.ascii	"short int\000"
+ 1468      7420696E 
+ 1468      7400
+ 1469              	.LASF19:
+ 1470 034d 4D696372 		.ascii	"Micros_Counter_Enable\000"
+ 1470      6F735F43 
+ 1470      6F756E74 
+ 1470      65725F45 
+ 1470      6E61626C 
+ 1471              	.LASF39:
+ 1472 0363 4D696372 		.ascii	"Micros_Counter_ClearFIFO\000"
+ 1472      6F735F43 
+ 1472      6F756E74 
+ 1472      65725F43 
+ 1472      6C656172 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccf0vUSk.s 			page 39
+
+
+ 1473              	.LASF4:
+ 1474 037c 6C6F6E67 		.ascii	"long int\000"
+ 1474      20696E74 
+ 1474      00
+ 1475              	.LASF35:
+ 1476 0385 4D696372 		.ascii	"Micros_Counter_ReadPeriod\000"
+ 1476      6F735F43 
+ 1476      6F756E74 
+ 1476      65725F52 
+ 1476      65616450 
+ 1477              	.LASF0:
+ 1478 039f 7369676E 		.ascii	"signed char\000"
+ 1478      65642063 
+ 1478      68617200 
+ 1479              	.LASF37:
+ 1480 03ab 636F6D70 		.ascii	"compare\000"
+ 1480      61726500 
+ 1481              	.LASF3:
+ 1482 03b3 73686F72 		.ascii	"short unsigned int\000"
+ 1482      7420756E 
+ 1482      7369676E 
+ 1482      65642069 
+ 1482      6E7400
+ 1483              	.LASF38:
+ 1484 03c6 4D696372 		.ascii	"Micros_Counter_ReadCompare\000"
+ 1484      6F735F43 
+ 1484      6F756E74 
+ 1484      65725F52 
+ 1484      65616443 
+ 1485              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

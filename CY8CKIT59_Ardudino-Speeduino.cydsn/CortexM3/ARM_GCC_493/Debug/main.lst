@@ -1,0 +1,5662 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"main.cpp"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text._ZN5PrintD2Ev,"axG",%progbits,_ZN5PrintD5Ev,comdat
+  19              		.align	2
+  20              		.weak	_ZN5PrintD2Ev
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	_ZN5PrintD2Ev, %function
+  24              	_ZN5PrintD2Ev:
+  25              		.fnstart
+  26              	.LFB119:
+  27              		.file 1 "core\\Print.h"
+   1:core/Print.h  **** /*
+   2:core/Print.h  ****   Print.h - Base class that provides print() and println()
+   3:core/Print.h  ****   Copyright (c) 2008 David A. Mellis.  All right reserved.
+   4:core/Print.h  **** 
+   5:core/Print.h  ****   This library is free software; you can redistribute it and/or
+   6:core/Print.h  ****   modify it under the terms of the GNU Lesser General Public
+   7:core/Print.h  ****   License as published by the Free Software Foundation; either
+   8:core/Print.h  ****   version 2.1 of the License, or (at your option) any later version.
+   9:core/Print.h  **** 
+  10:core/Print.h  ****   This library is distributed in the hope that it will be useful,
+  11:core/Print.h  ****   but WITHOUT ANY WARRANTY; without even the implied warranty of
+  12:core/Print.h  ****   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  13:core/Print.h  ****   Lesser General Public License for more details.
+  14:core/Print.h  **** 
+  15:core/Print.h  ****   You should have received a copy of the GNU Lesser General Public
+  16:core/Print.h  ****   License along with this library; if not, write to the Free Software
+  17:core/Print.h  ****   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+  18:core/Print.h  **** */
+  19:core/Print.h  **** 
+  20:core/Print.h  **** #ifndef Print_h
+  21:core/Print.h  **** #define Print_h
+  22:core/Print.h  **** 
+  23:core/Print.h  **** #include <inttypes.h>
+  24:core/Print.h  **** #include <stdio.h> // for size_t
+  25:core/Print.h  **** 
+  26:core/Print.h  **** #include "WString.h"
+  27:core/Print.h  **** #include "Printable.h"
+  28:core/Print.h  **** 
+  29:core/Print.h  **** #define DEC 10
+  30:core/Print.h  **** #define HEX 16
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 2
+
+
+  31:core/Print.h  **** #define OCT 8
+  32:core/Print.h  **** #define BIN 2
+  33:core/Print.h  **** 
+  34:core/Print.h  **** class Print
+  35:core/Print.h  **** {
+  36:core/Print.h  ****   private:
+  37:core/Print.h  ****     int write_error;
+  38:core/Print.h  ****     size_t printNumber(unsigned long, uint8_t);
+  39:core/Print.h  ****     size_t printFloat(double, uint8_t);
+  40:core/Print.h  ****   protected:
+  41:core/Print.h  ****     void setWriteError(int err = 1) { write_error = err; }
+  42:core/Print.h  ****   public:
+  43:core/Print.h  ****     Print() : write_error(0) {}
+  44:core/Print.h  ****     ~Print(){}
+  28              		.loc 1 44 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33 0000 80B4     		push	{r7}
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 7, -4
+  36 0002 83B0     		sub	sp, sp, #12
+  37              		.cfi_def_cfa_offset 16
+  38 0004 00AF     		add	r7, sp, #0
+  39              		.cfi_def_cfa_register 7
+  40 0006 7860     		str	r0, [r7, #4]
+  41              	.LBB2:
+  42              		.loc 1 44 0
+  43 0008 7B68     		ldr	r3, [r7, #4]
+  44 000a 044A     		ldr	r2, .L4
+  45 000c 1A60     		str	r2, [r3]
+  46              	.LBE2:
+  47 000e 7B68     		ldr	r3, [r7, #4]
+  48 0010 1846     		mov	r0, r3
+  49 0012 0C37     		adds	r7, r7, #12
+  50              		.cfi_def_cfa_offset 4
+  51 0014 BD46     		mov	sp, r7
+  52              		.cfi_def_cfa_register 13
+  53              		@ sp needed
+  54 0016 5DF8047B 		ldr	r7, [sp], #4
+  55              		.cfi_restore 7
+  56              		.cfi_def_cfa_offset 0
+  57 001a 7047     		bx	lr
+  58              	.L5:
+  59              		.align	2
+  60              	.L4:
+  61 001c 08000000 		.word	_ZTV5Print+8
+  62              		.cfi_endproc
+  63              	.LFE119:
+  64              		.cantunwind
+  65              		.fnend
+  66              		.size	_ZN5PrintD2Ev, .-_ZN5PrintD2Ev
+  67              		.weak	_ZN5PrintD1Ev
+  68              		.thumb_set _ZN5PrintD1Ev,_ZN5PrintD2Ev
+  69              		.section	.text._ZN6StreamD2Ev,"axG",%progbits,_ZN6StreamD5Ev,comdat
+  70              		.align	2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 3
+
+
+  71              		.weak	_ZN6StreamD2Ev
+  72              		.thumb
+  73              		.thumb_func
+  74              		.type	_ZN6StreamD2Ev, %function
+  75              	_ZN6StreamD2Ev:
+  76              		.fnstart
+  77              	.LFB126:
+  78              		.file 2 "core\\Stream.h"
+   1:core/Stream.h **** /*
+   2:core/Stream.h ****   Stream.h - base class for character-based streams.
+   3:core/Stream.h ****   Copyright (c) 2010 David A. Mellis.  All right reserved.
+   4:core/Stream.h **** 
+   5:core/Stream.h ****   This library is free software; you can redistribute it and/or
+   6:core/Stream.h ****   modify it under the terms of the GNU Lesser General Public
+   7:core/Stream.h ****   License as published by the Free Software Foundation; either
+   8:core/Stream.h ****   version 2.1 of the License, or (at your option) any later version.
+   9:core/Stream.h **** 
+  10:core/Stream.h ****   This library is distributed in the hope that it will be useful,
+  11:core/Stream.h ****   but WITHOUT ANY WARRANTY; without even the implied warranty of
+  12:core/Stream.h ****   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  13:core/Stream.h ****   Lesser General Public License for more details.
+  14:core/Stream.h **** 
+  15:core/Stream.h ****   You should have received a copy of the GNU Lesser General Public
+  16:core/Stream.h ****   License along with this library; if not, write to the Free Software
+  17:core/Stream.h ****   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+  18:core/Stream.h **** 
+  19:core/Stream.h ****   parsing functions based on TextFinder library by Michael Margolis
+  20:core/Stream.h **** */
+  21:core/Stream.h **** 
+  22:core/Stream.h **** #ifndef Stream_h
+  23:core/Stream.h **** #define Stream_h
+  24:core/Stream.h **** 
+  25:core/Stream.h **** #include <inttypes.h>
+  26:core/Stream.h **** #include "Print.h"
+  27:core/Stream.h **** 
+  28:core/Stream.h **** // compatability macros for testing
+  29:core/Stream.h **** /*
+  30:core/Stream.h **** #define   getInt()            parseInt()
+  31:core/Stream.h **** #define   getInt(skipChar)    parseInt(skipchar)
+  32:core/Stream.h **** #define   getFloat()          parseFloat()
+  33:core/Stream.h **** #define   getFloat(skipChar)  parseFloat(skipChar)
+  34:core/Stream.h **** #define   getString( pre_string, post_string, buffer, length)
+  35:core/Stream.h **** readBytesBetween( pre_string, terminator, buffer, length)
+  36:core/Stream.h **** */
+  37:core/Stream.h **** 
+  38:core/Stream.h **** class Stream : public Print
+  39:core/Stream.h **** {
+  40:core/Stream.h ****   protected:
+  41:core/Stream.h ****     unsigned long _timeout;      // number of milliseconds to wait for the next char before abortin
+  42:core/Stream.h ****     unsigned long _startMillis;  // used for timeout measurement
+  43:core/Stream.h ****     int timedRead();    // private method to read stream with timeout
+  44:core/Stream.h ****     int timedPeek();    // private method to peek stream with timeout
+  45:core/Stream.h ****     int peekNextDigit(); // returns the next numeric digit in the stream or -1 if timeout
+  46:core/Stream.h **** 
+  47:core/Stream.h ****   public:
+  48:core/Stream.h ****     ~Stream(){}
+  79              		.loc 2 48 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 4
+
+
+  80              		.cfi_startproc
+  81              		@ args = 0, pretend = 0, frame = 8
+  82              		@ frame_needed = 1, uses_anonymous_args = 0
+  83 0000 80B5     		push	{r7, lr}
+  84              		.cfi_def_cfa_offset 8
+  85              		.cfi_offset 7, -8
+  86              		.cfi_offset 14, -4
+  87 0002 82B0     		sub	sp, sp, #8
+  88              		.cfi_def_cfa_offset 16
+  89 0004 00AF     		add	r7, sp, #0
+  90              		.cfi_def_cfa_register 7
+  91 0006 7860     		str	r0, [r7, #4]
+  92              	.LBB3:
+  93              		.loc 2 48 0
+  94 0008 7B68     		ldr	r3, [r7, #4]
+  95 000a 054A     		ldr	r2, .L9
+  96 000c 1A60     		str	r2, [r3]
+  97 000e 7B68     		ldr	r3, [r7, #4]
+  98 0010 1846     		mov	r0, r3
+  99 0012 FFF7FEFF 		bl	_ZN5PrintD2Ev
+ 100              	.LBE3:
+ 101 0016 7B68     		ldr	r3, [r7, #4]
+ 102 0018 1846     		mov	r0, r3
+ 103 001a 0837     		adds	r7, r7, #8
+ 104              		.cfi_def_cfa_offset 8
+ 105 001c BD46     		mov	sp, r7
+ 106              		.cfi_def_cfa_register 13
+ 107              		@ sp needed
+ 108 001e 80BD     		pop	{r7, pc}
+ 109              	.L10:
+ 110              		.align	2
+ 111              	.L9:
+ 112 0020 08000000 		.word	_ZTV6Stream+8
+ 113              		.cfi_endproc
+ 114              	.LFE126:
+ 115              		.cantunwind
+ 116              		.fnend
+ 117              		.size	_ZN6StreamD2Ev, .-_ZN6StreamD2Ev
+ 118              		.weak	_ZN6StreamD1Ev
+ 119              		.thumb_set _ZN6StreamD1Ev,_ZN6StreamD2Ev
+ 120              		.section	.text._ZN14HardwareSerialD2Ev,"axG",%progbits,_ZN14HardwareSerialD5Ev,comdat
+ 121              		.align	2
+ 122              		.weak	_ZN14HardwareSerialD2Ev
+ 123              		.thumb
+ 124              		.thumb_func
+ 125              		.type	_ZN14HardwareSerialD2Ev, %function
+ 126              	_ZN14HardwareSerialD2Ev:
+ 127              		.fnstart
+ 128              	.LFB141:
+ 129              		.file 3 "core\\HardwareSerial.h"
+   1:core/HardwareSerial.h **** /*
+   2:core/HardwareSerial.h ****   Copyright (c) 2011 Arduino.  All right reserved.
+   3:core/HardwareSerial.h **** 
+   4:core/HardwareSerial.h ****   This library is free software; you can redistribute it and/or
+   5:core/HardwareSerial.h ****   modify it under the terms of the GNU Lesser General Public
+   6:core/HardwareSerial.h ****   License as published by the Free Software Foundation; either
+   7:core/HardwareSerial.h ****   version 2.1 of the License, or (at your option) any later version.
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 5
+
+
+   8:core/HardwareSerial.h **** 
+   9:core/HardwareSerial.h ****   This library is distributed in the hope that it will be useful,
+  10:core/HardwareSerial.h ****   but WITHOUT ANY WARRANTY; without even the implied warranty of
+  11:core/HardwareSerial.h ****   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+  12:core/HardwareSerial.h ****   See the GNU Lesser General Public License for more details.
+  13:core/HardwareSerial.h **** 
+  14:core/HardwareSerial.h ****   You should have received a copy of the GNU Lesser General Public
+  15:core/HardwareSerial.h ****   License along with this library; if not, write to the Free Software
+  16:core/HardwareSerial.h ****   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+  17:core/HardwareSerial.h **** */
+  18:core/HardwareSerial.h **** 
+  19:core/HardwareSerial.h **** #ifndef HardwareSerial_h
+  20:core/HardwareSerial.h **** #define HardwareSerial_h
+  21:core/HardwareSerial.h **** 
+  22:core/HardwareSerial.h **** #include <inttypes.h>
+  23:core/HardwareSerial.h **** 
+  24:core/HardwareSerial.h **** #include "Stream.h"
+  25:core/HardwareSerial.h **** 
+  26:core/HardwareSerial.h **** class HardwareSerial : public Stream
+  27:core/HardwareSerial.h **** {
+  28:core/HardwareSerial.h ****   public:
+  29:core/HardwareSerial.h ****     HardwareSerial(){}
+  30:core/HardwareSerial.h ****     ~HardwareSerial(){}
+ 130              		.loc 3 30 0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 8
+ 133              		@ frame_needed = 1, uses_anonymous_args = 0
+ 134 0000 80B5     		push	{r7, lr}
+ 135              		.cfi_def_cfa_offset 8
+ 136              		.cfi_offset 7, -8
+ 137              		.cfi_offset 14, -4
+ 138 0002 82B0     		sub	sp, sp, #8
+ 139              		.cfi_def_cfa_offset 16
+ 140 0004 00AF     		add	r7, sp, #0
+ 141              		.cfi_def_cfa_register 7
+ 142 0006 7860     		str	r0, [r7, #4]
+ 143              	.LBB4:
+ 144              		.loc 3 30 0
+ 145 0008 7B68     		ldr	r3, [r7, #4]
+ 146 000a 054A     		ldr	r2, .L14
+ 147 000c 1A60     		str	r2, [r3]
+ 148 000e 7B68     		ldr	r3, [r7, #4]
+ 149 0010 1846     		mov	r0, r3
+ 150 0012 FFF7FEFF 		bl	_ZN6StreamD2Ev
+ 151              	.LBE4:
+ 152 0016 7B68     		ldr	r3, [r7, #4]
+ 153 0018 1846     		mov	r0, r3
+ 154 001a 0837     		adds	r7, r7, #8
+ 155              		.cfi_def_cfa_offset 8
+ 156 001c BD46     		mov	sp, r7
+ 157              		.cfi_def_cfa_register 13
+ 158              		@ sp needed
+ 159 001e 80BD     		pop	{r7, pc}
+ 160              	.L15:
+ 161              		.align	2
+ 162              	.L14:
+ 163 0020 08000000 		.word	_ZTV14HardwareSerial+8
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 6
+
+
+ 164              		.cfi_endproc
+ 165              	.LFE141:
+ 166              		.cantunwind
+ 167              		.fnend
+ 168              		.size	_ZN14HardwareSerialD2Ev, .-_ZN14HardwareSerialD2Ev
+ 169              		.weak	_ZN14HardwareSerialD1Ev
+ 170              		.thumb_set _ZN14HardwareSerialD1Ev,_ZN14HardwareSerialD2Ev
+ 171              		.section	.text._ZN9UARTClassD2Ev,"axG",%progbits,_ZN9UARTClassD5Ev,comdat
+ 172              		.align	2
+ 173              		.weak	_ZN9UARTClassD2Ev
+ 174              		.thumb
+ 175              		.thumb_func
+ 176              		.type	_ZN9UARTClassD2Ev, %function
+ 177              	_ZN9UARTClassD2Ev:
+ 178              		.fnstart
+ 179              	.LFB144:
+ 180              		.file 4 "core\\UARTClass.h"
+   1:core/UARTClass.h **** /*
+   2:core/UARTClass.h ****   Copyright (c) 2011 Arduino.  All right reserved.
+   3:core/UARTClass.h **** 
+   4:core/UARTClass.h ****   This library is free software; you can redistribute it and/or
+   5:core/UARTClass.h ****   modify it under the terms of the GNU Lesser General Public
+   6:core/UARTClass.h ****   License as published by the Free Software Foundation; either
+   7:core/UARTClass.h ****   version 2.1 of the License, or (at your option) any later version.
+   8:core/UARTClass.h **** 
+   9:core/UARTClass.h ****   This library is distributed in the hope that it will be useful,
+  10:core/UARTClass.h ****   but WITHOUT ANY WARRANTY; without even the implied warranty of
+  11:core/UARTClass.h ****   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+  12:core/UARTClass.h ****   See the GNU Lesser General Public License for more details.
+  13:core/UARTClass.h **** 
+  14:core/UARTClass.h ****   You should have received a copy of the GNU Lesser General Public
+  15:core/UARTClass.h ****   License along with this library; if not, write to the Free Software
+  16:core/UARTClass.h ****   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+  17:core/UARTClass.h **** */
+  18:core/UARTClass.h **** 
+  19:core/UARTClass.h **** #ifndef _UART_CLASS_
+  20:core/UARTClass.h **** #define _UART_CLASS_
+  21:core/UARTClass.h **** 
+  22:core/UARTClass.h **** #include "HardwareSerial.h"
+  23:core/UARTClass.h **** #include <stdbool.h>
+  24:core/UARTClass.h **** #include <Project.h>
+  25:core/UARTClass.h **** 
+  26:core/UARTClass.h **** struct SerialHelperFuncs
+  27:core/UARTClass.h **** {
+  28:core/UARTClass.h ****   int16_t (*bufferSize)(void);
+  29:core/UARTClass.h ****   bool (*portEnable)(void);
+  30:core/UARTClass.h ****   void (*portDisable)(void);
+  31:core/UARTClass.h ****   void (*clockAdjust)(uint16_t newDivider);
+  32:core/UARTClass.h ****   void (*sendData)(const uint8_t* buffer, uint16_t size);
+  33:core/UARTClass.h ****   uint16_t (*getData)(uint8_t* buffer, uint16_t size);
+  34:core/UARTClass.h ****   char (*peekData)(void);
+  35:core/UARTClass.h ****   void (*blockForWriteComplete)(void);
+  36:core/UARTClass.h ****   uint8_t (*blockForReadyToWrite)(void);
+  37:core/UARTClass.h **** };
+  38:core/UARTClass.h ****   
+  39:core/UARTClass.h **** 
+  40:core/UARTClass.h **** class UARTClass : public HardwareSerial
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 7
+
+
+  41:core/UARTClass.h **** {
+  42:core/UARTClass.h ****   public:
+  43:core/UARTClass.h ****     UARTClass(bool isUSB, SerialHelperFuncs *helpers);
+  44:core/UARTClass.h ****     ~UARTClass(){}
+ 181              		.loc 4 44 0
+ 182              		.cfi_startproc
+ 183              		@ args = 0, pretend = 0, frame = 8
+ 184              		@ frame_needed = 1, uses_anonymous_args = 0
+ 185 0000 80B5     		push	{r7, lr}
+ 186              		.cfi_def_cfa_offset 8
+ 187              		.cfi_offset 7, -8
+ 188              		.cfi_offset 14, -4
+ 189 0002 82B0     		sub	sp, sp, #8
+ 190              		.cfi_def_cfa_offset 16
+ 191 0004 00AF     		add	r7, sp, #0
+ 192              		.cfi_def_cfa_register 7
+ 193 0006 7860     		str	r0, [r7, #4]
+ 194              	.LBB5:
+ 195              		.loc 4 44 0
+ 196 0008 7B68     		ldr	r3, [r7, #4]
+ 197 000a 054A     		ldr	r2, .L19
+ 198 000c 1A60     		str	r2, [r3]
+ 199 000e 7B68     		ldr	r3, [r7, #4]
+ 200 0010 1846     		mov	r0, r3
+ 201 0012 FFF7FEFF 		bl	_ZN14HardwareSerialD2Ev
+ 202              	.LBE5:
+ 203 0016 7B68     		ldr	r3, [r7, #4]
+ 204 0018 1846     		mov	r0, r3
+ 205 001a 0837     		adds	r7, r7, #8
+ 206              		.cfi_def_cfa_offset 8
+ 207 001c BD46     		mov	sp, r7
+ 208              		.cfi_def_cfa_register 13
+ 209              		@ sp needed
+ 210 001e 80BD     		pop	{r7, pc}
+ 211              	.L20:
+ 212              		.align	2
+ 213              	.L19:
+ 214 0020 08000000 		.word	_ZTV9UARTClass+8
+ 215              		.cfi_endproc
+ 216              	.LFE144:
+ 217              		.cantunwind
+ 218              		.fnend
+ 219              		.size	_ZN9UARTClassD2Ev, .-_ZN9UARTClassD2Ev
+ 220              		.weak	_ZN9UARTClassD1Ev
+ 221              		.thumb_set _ZN9UARTClassD1Ev,_ZN9UARTClassD2Ev
+ 222              		.global	USBUART_Helpers
+ 223              		.bss
+ 224              		.align	2
+ 225              		.type	USBUART_Helpers, %object
+ 226              		.size	USBUART_Helpers, 36
+ 227              	USBUART_Helpers:
+ 228 0000 00000000 		.space	36
+ 228      00000000 
+ 228      00000000 
+ 228      00000000 
+ 228      00000000 
+ 229              		.global	UART_Helpers
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 8
+
+
+ 230              		.align	2
+ 231              		.type	UART_Helpers, %object
+ 232              		.size	UART_Helpers, 36
+ 233              	UART_Helpers:
+ 234 0024 00000000 		.space	36
+ 234      00000000 
+ 234      00000000 
+ 234      00000000 
+ 234      00000000 
+ 235              		.global	Serial
+ 236              		.align	2
+ 237              		.type	Serial, %object
+ 238              		.size	Serial, 100
+ 239              	Serial:
+ 240 0048 00000000 		.space	100
+ 240      00000000 
+ 240      00000000 
+ 240      00000000 
+ 240      00000000 
+ 241              		.global	Serial1
+ 242              		.align	2
+ 243              		.type	Serial1, %object
+ 244              		.size	Serial1, 100
+ 245              	Serial1:
+ 246 00ac 00000000 		.space	100
+ 246      00000000 
+ 246      00000000 
+ 246      00000000 
+ 246      00000000 
+ 247              		.section	.text.main,"ax",%progbits
+ 248              		.align	2
+ 249              		.global	main
+ 250              		.thumb
+ 251              		.thumb_func
+ 252              		.type	main, %function
+ 253              	main:
+ 254              		.fnstart
+ 255              	.LFB147:
+ 256              		.file 5 "core\\main.cpp"
+   1:core/main.cpp **** extern "C" {
+   2:core/main.cpp **** #include <project.h>
+   3:core/main.cpp **** }
+   4:core/main.cpp **** 
+   5:core/main.cpp **** #include "Arduino.h"
+   6:core/main.cpp **** 
+   7:core/main.cpp **** //#define I2C      0
+   8:core/main.cpp **** //#define ANALOG   1
+   9:core/main.cpp **** //#define DIGITAL  2
+  10:core/main.cpp **** 
+  11:core/main.cpp **** struct SerialHelperFuncs USBUART_Helpers;
+  12:core/main.cpp **** struct SerialHelperFuncs UART_Helpers;
+  13:core/main.cpp **** UARTClass Serial(true, &USBUART_Helpers);
+  14:core/main.cpp **** UARTClass Serial1(false, &UART_Helpers);
+  15:core/main.cpp **** 
+  16:core/main.cpp **** int main()
+  17:core/main.cpp **** {
+ 257              		.loc 5 17 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 9
+
+
+ 258              		.cfi_startproc
+ 259              		@ args = 0, pretend = 0, frame = 0
+ 260              		@ frame_needed = 1, uses_anonymous_args = 0
+ 261 0000 80B5     		push	{r7, lr}
+ 262              		.save {r7, lr}
+ 263              		.cfi_def_cfa_offset 8
+ 264              		.cfi_offset 7, -8
+ 265              		.cfi_offset 14, -4
+ 266              		.setfp r7, sp, #0
+ 267 0002 00AF     		add	r7, sp, #0
+ 268              		.cfi_def_cfa_register 7
+  18:core/main.cpp ****     
+  19:core/main.cpp ****   CyGlobalIntEnable;  
+ 269              		.loc 5 19 0
+ 270              	@ 19 "core\main.cpp" 1
+ 271 0004 62B6     		CPSIE   i
+ 272              	@ 0 "" 2
+  20:core/main.cpp ****   Bootloader_SET_RUN_TYPE(Bootloader_SCHEDULE_BTLDB);
+ 273              		.loc 5 20 0
+ 274              		.thumb
+ 275 0006 084B     		ldr	r3, .L23
+ 276 0008 8022     		movs	r2, #128
+ 277 000a 1A70     		strb	r2, [r3]
+  21:core/main.cpp ****   USBUART_FunctionAttach();
+ 278              		.loc 5 21 0
+ 279 000c FFF7FEFF 		bl	_Z22USBUART_FunctionAttachv
+  22:core/main.cpp ****   enableUSBCDC();
+ 280              		.loc 5 22 0
+ 281 0010 FFF7FEFF 		bl	_Z12enableUSBCDCv
+  23:core/main.cpp ****   UART_FunctionAttach();
+ 282              		.loc 5 23 0
+ 283 0014 FFF7FEFF 		bl	_Z19UART_FunctionAttachv
+  24:core/main.cpp ****   initTimebase();
+ 284              		.loc 5 24 0
+ 285 0018 FFF7FEFF 		bl	_Z12initTimebasev
+  25:core/main.cpp ****   
+  26:core/main.cpp ****   setup();
+ 286              		.loc 5 26 0
+ 287 001c FFF7FEFF 		bl	_Z5setupv
+ 288              	.L22:
+  27:core/main.cpp ****     
+  28:core/main.cpp ****   for(;;)
+  29:core/main.cpp ****   {
+  30:core/main.cpp ****     loop();    
+ 289              		.loc 5 30 0 discriminator 1
+ 290 0020 FFF7FEFF 		bl	_Z4loopv
+  16:core/main.cpp **** {
+ 291              		.loc 5 16 0 discriminator 1
+ 292 0024 FCE7     		b	.L22
+ 293              	.L24:
+ 294 0026 00BF     		.align	2
+ 295              	.L23:
+ 296 0028 FA460040 		.word	1073759994
+ 297              		.cfi_endproc
+ 298              	.LFE147:
+ 299              		.fnend
+ 300              		.size	main, .-main
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 10
+
+
+ 301              		.weak	_ZTV14HardwareSerial
+ 302              		.section	.rodata._ZTV14HardwareSerial,"aG",%progbits,_ZTV14HardwareSerial,comdat
+ 303              		.align	3
+ 304              		.type	_ZTV14HardwareSerial, %object
+ 305              		.size	_ZTV14HardwareSerial, 44
+ 306              	_ZTV14HardwareSerial:
+ 307 0000 00000000 		.word	0
+ 308 0004 00000000 		.word	_ZTI14HardwareSerial
+ 309 0008 00000000 		.word	__cxa_pure_virtual
+ 310 000c 00000000 		.word	_ZN5Print5writeEPKhj
+ 311 0010 00000000 		.word	__cxa_pure_virtual
+ 312 0014 00000000 		.word	__cxa_pure_virtual
+ 313 0018 00000000 		.word	__cxa_pure_virtual
+ 314 001c 00000000 		.word	__cxa_pure_virtual
+ 315 0020 00000000 		.word	__cxa_pure_virtual
+ 316 0024 00000000 		.word	__cxa_pure_virtual
+ 317 0028 00000000 		.word	__cxa_pure_virtual
+ 318              		.weak	_ZTV6Stream
+ 319 002c 00000000 		.section	.rodata._ZTV6Stream,"aG",%progbits,_ZTV6Stream,comdat
+ 320              		.align	3
+ 321              		.type	_ZTV6Stream, %object
+ 322              		.size	_ZTV6Stream, 32
+ 323              	_ZTV6Stream:
+ 324 0000 00000000 		.word	0
+ 325 0004 00000000 		.word	_ZTI6Stream
+ 326 0008 00000000 		.word	__cxa_pure_virtual
+ 327 000c 00000000 		.word	_ZN5Print5writeEPKhj
+ 328 0010 00000000 		.word	__cxa_pure_virtual
+ 329 0014 00000000 		.word	__cxa_pure_virtual
+ 330 0018 00000000 		.word	__cxa_pure_virtual
+ 331 001c 00000000 		.word	__cxa_pure_virtual
+ 332              		.weak	_ZTS14HardwareSerial
+ 333              		.section	.rodata._ZTS14HardwareSerial,"aG",%progbits,_ZTS14HardwareSerial,comdat
+ 334              		.align	2
+ 335              		.type	_ZTS14HardwareSerial, %object
+ 336              		.size	_ZTS14HardwareSerial, 17
+ 337              	_ZTS14HardwareSerial:
+ 338 0000 31344861 		.ascii	"14HardwareSerial\000"
+ 338      72647761 
+ 338      72655365 
+ 338      7269616C 
+ 338      00
+ 339              		.weak	_ZTI14HardwareSerial
+ 340 0011 000000   		.section	.rodata._ZTI14HardwareSerial,"aG",%progbits,_ZTI14HardwareSerial,comdat
+ 341              		.align	2
+ 342              		.type	_ZTI14HardwareSerial, %object
+ 343              		.size	_ZTI14HardwareSerial, 12
+ 344              	_ZTI14HardwareSerial:
+ 345 0000 08000000 		.word	_ZTVN10__cxxabiv120__si_class_type_infoE+8
+ 346 0004 00000000 		.word	_ZTS14HardwareSerial
+ 347 0008 00000000 		.word	_ZTI6Stream
+ 348              		.weak	_ZTS6Stream
+ 349              		.section	.rodata._ZTS6Stream,"aG",%progbits,_ZTS6Stream,comdat
+ 350              		.align	2
+ 351              		.type	_ZTS6Stream, %object
+ 352              		.size	_ZTS6Stream, 8
+ 353              	_ZTS6Stream:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 11
+
+
+ 354 0000 36537472 		.ascii	"6Stream\000"
+ 354      65616D00 
+ 355              		.weak	_ZTI6Stream
+ 356              		.section	.rodata._ZTI6Stream,"aG",%progbits,_ZTI6Stream,comdat
+ 357              		.align	2
+ 358              		.type	_ZTI6Stream, %object
+ 359              		.size	_ZTI6Stream, 12
+ 360              	_ZTI6Stream:
+ 361 0000 08000000 		.word	_ZTVN10__cxxabiv120__si_class_type_infoE+8
+ 362 0004 00000000 		.word	_ZTS6Stream
+ 363 0008 00000000 		.word	_ZTI5Print
+ 364              		.section	.text._Z41__static_initialization_and_destruction_0ii,"ax",%progbits
+ 365              		.align	2
+ 366              		.thumb
+ 367              		.thumb_func
+ 368              		.type	_Z41__static_initialization_and_destruction_0ii, %function
+ 369              	_Z41__static_initialization_and_destruction_0ii:
+ 370              		.fnstart
+ 371              	.LFB148:
+  31:core/main.cpp ****   }
+  32:core/main.cpp **** }
+ 372              		.loc 5 32 0
+ 373              		.cfi_startproc
+ 374              		@ args = 0, pretend = 0, frame = 8
+ 375              		@ frame_needed = 1, uses_anonymous_args = 0
+ 376 0000 80B5     		push	{r7, lr}
+ 377              		.cfi_def_cfa_offset 8
+ 378              		.cfi_offset 7, -8
+ 379              		.cfi_offset 14, -4
+ 380 0002 82B0     		sub	sp, sp, #8
+ 381              		.cfi_def_cfa_offset 16
+ 382 0004 00AF     		add	r7, sp, #0
+ 383              		.cfi_def_cfa_register 7
+ 384 0006 7860     		str	r0, [r7, #4]
+ 385 0008 3960     		str	r1, [r7]
+ 386              		.loc 5 32 0
+ 387 000a 7B68     		ldr	r3, [r7, #4]
+ 388 000c 012B     		cmp	r3, #1
+ 389 000e 18D1     		bne	.L25
+ 390              		.loc 5 32 0 is_stmt 0 discriminator 1
+ 391 0010 3B68     		ldr	r3, [r7]
+ 392 0012 4FF6FF72 		movw	r2, #65535
+ 393 0016 9342     		cmp	r3, r2
+ 394 0018 13D1     		bne	.L25
+  13:core/main.cpp **** UARTClass Serial1(false, &UART_Helpers);
+ 395              		.loc 5 13 0 is_stmt 1
+ 396 001a 0B48     		ldr	r0, .L27
+ 397 001c 0121     		movs	r1, #1
+ 398 001e 0B4A     		ldr	r2, .L27+4
+ 399 0020 FFF7FEFF 		bl	_ZN9UARTClassC1EbP17SerialHelperFuncs
+ 400 0024 0848     		ldr	r0, .L27
+ 401 0026 0A49     		ldr	r1, .L27+8
+ 402 0028 0A4A     		ldr	r2, .L27+12
+ 403 002a FFF7FEFF 		bl	__aeabi_atexit
+  14:core/main.cpp **** 
+ 404              		.loc 5 14 0
+ 405 002e 0A48     		ldr	r0, .L27+16
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 12
+
+
+ 406 0030 0021     		movs	r1, #0
+ 407 0032 0A4A     		ldr	r2, .L27+20
+ 408 0034 FFF7FEFF 		bl	_ZN9UARTClassC1EbP17SerialHelperFuncs
+ 409 0038 0748     		ldr	r0, .L27+16
+ 410 003a 0549     		ldr	r1, .L27+8
+ 411 003c 054A     		ldr	r2, .L27+12
+ 412 003e FFF7FEFF 		bl	__aeabi_atexit
+ 413              	.L25:
+ 414              		.loc 5 32 0
+ 415 0042 0837     		adds	r7, r7, #8
+ 416              		.cfi_def_cfa_offset 8
+ 417 0044 BD46     		mov	sp, r7
+ 418              		.cfi_def_cfa_register 13
+ 419              		@ sp needed
+ 420 0046 80BD     		pop	{r7, pc}
+ 421              	.L28:
+ 422              		.align	2
+ 423              	.L27:
+ 424 0048 00000000 		.word	Serial
+ 425 004c 00000000 		.word	USBUART_Helpers
+ 426 0050 00000000 		.word	_ZN9UARTClassD1Ev
+ 427 0054 00000000 		.word	__dso_handle
+ 428 0058 00000000 		.word	Serial1
+ 429 005c 00000000 		.word	UART_Helpers
+ 430              		.cfi_endproc
+ 431              	.LFE148:
+ 432              		.cantunwind
+ 433              		.fnend
+ 434              		.size	_Z41__static_initialization_and_destruction_0ii, .-_Z41__static_initialization_and_destructi
+ 435              		.section	.rodata
+ 436              		.type	_ZL2SS, %object
+ 437              		.size	_ZL2SS, 1
+ 438              	_ZL2SS:
+ 439 0000 0A       		.byte	10
+ 440              		.type	_ZL4MOSI, %object
+ 441              		.size	_ZL4MOSI, 1
+ 442              	_ZL4MOSI:
+ 443 0001 0B       		.byte	11
+ 444              		.type	_ZL4MISO, %object
+ 445              		.size	_ZL4MISO, 1
+ 446              	_ZL4MISO:
+ 447 0002 0C       		.byte	12
+ 448              		.type	_ZL3SCK, %object
+ 449              		.size	_ZL3SCK, 1
+ 450              	_ZL3SCK:
+ 451 0003 0D       		.byte	13
+ 452              		.type	_ZL3SDA, %object
+ 453              		.size	_ZL3SDA, 1
+ 454              	_ZL3SDA:
+ 455 0004 15       		.byte	21
+ 456              		.type	_ZL3SCL, %object
+ 457              		.size	_ZL3SCL, 1
+ 458              	_ZL3SCL:
+ 459 0005 14       		.byte	20
+ 460              		.section	.text._GLOBAL__sub_I_USBUART_Helpers,"ax",%progbits
+ 461              		.align	2
+ 462              		.thumb
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 13
+
+
+ 463              		.thumb_func
+ 464              		.type	_GLOBAL__sub_I_USBUART_Helpers, %function
+ 465              	_GLOBAL__sub_I_USBUART_Helpers:
+ 466              		.fnstart
+ 467              	.LFB149:
+ 468              		.loc 5 32 0
+ 469              		.cfi_startproc
+ 470              		@ args = 0, pretend = 0, frame = 0
+ 471              		@ frame_needed = 1, uses_anonymous_args = 0
+ 472 0000 80B5     		push	{r7, lr}
+ 473              		.cfi_def_cfa_offset 8
+ 474              		.cfi_offset 7, -8
+ 475              		.cfi_offset 14, -4
+ 476 0002 00AF     		add	r7, sp, #0
+ 477              		.cfi_def_cfa_register 7
+ 478              		.loc 5 32 0
+ 479 0004 0120     		movs	r0, #1
+ 480 0006 4FF6FF71 		movw	r1, #65535
+ 481 000a FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 482 000e 80BD     		pop	{r7, pc}
+ 483              		.cfi_endproc
+ 484              	.LFE149:
+ 485              		.cantunwind
+ 486              		.fnend
+ 487              		.size	_GLOBAL__sub_I_USBUART_Helpers, .-_GLOBAL__sub_I_USBUART_Helpers
+ 488              		.section	.init_array,"aw",%init_array
+ 489              		.align	2
+ 490 0000 00000000 		.word	_GLOBAL__sub_I_USBUART_Helpers(target1)
+ 491              		.text
+ 492              	.Letext0:
+ 493              		.file 6 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 494              		.file 7 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 495              		.file 8 "Generated_Source\\PSoC5/cytypes.h"
+ 496              		.file 9 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 497              		.file 10 "core\\WString.h"
+ 498              		.file 11 ".\\core/pins_arduino.h"
+ 499              		.file 12 "Generated_Source\\PSoC5/core_cm3.h"
+ 500              		.file 13 "<built-in>"
+ 501              		.section	.debug_info,"",%progbits
+ 502              	.Ldebug_info0:
+ 503 0000 92170000 		.4byte	0x1792
+ 504 0004 0400     		.2byte	0x4
+ 505 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 506 000a 04       		.byte	0x4
+ 507 000b 01       		.uleb128 0x1
+ 508 000c 79040000 		.4byte	.LASF234
+ 509 0010 04       		.byte	0x4
+ 510 0011 7F090000 		.4byte	.LASF235
+ 511 0015 030C0000 		.4byte	.LASF236
+ 512 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 513 001d 00000000 		.4byte	0
+ 514 0021 00000000 		.4byte	.Ldebug_line0
+ 515 0025 02       		.uleb128 0x2
+ 516 0026 01       		.byte	0x1
+ 517 0027 06       		.byte	0x6
+ 518 0028 61020000 		.4byte	.LASF0
+ 519 002c 03       		.uleb128 0x3
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 14
+
+
+ 520 002d 96000000 		.4byte	.LASF2
+ 521 0031 06       		.byte	0x6
+ 522 0032 1D       		.byte	0x1d
+ 523 0033 37000000 		.4byte	0x37
+ 524 0037 02       		.uleb128 0x2
+ 525 0038 01       		.byte	0x1
+ 526 0039 08       		.byte	0x8
+ 527 003a 800B0000 		.4byte	.LASF1
+ 528 003e 03       		.uleb128 0x3
+ 529 003f 980F0000 		.4byte	.LASF3
+ 530 0043 06       		.byte	0x6
+ 531 0044 29       		.byte	0x29
+ 532 0045 49000000 		.4byte	0x49
+ 533 0049 02       		.uleb128 0x2
+ 534 004a 02       		.byte	0x2
+ 535 004b 05       		.byte	0x5
+ 536 004c DD0B0000 		.4byte	.LASF4
+ 537 0050 03       		.uleb128 0x3
+ 538 0051 560D0000 		.4byte	.LASF5
+ 539 0055 06       		.byte	0x6
+ 540 0056 2B       		.byte	0x2b
+ 541 0057 5B000000 		.4byte	0x5b
+ 542 005b 02       		.uleb128 0x2
+ 543 005c 02       		.byte	0x2
+ 544 005d 07       		.byte	0x7
+ 545 005e 43040000 		.4byte	.LASF6
+ 546 0062 03       		.uleb128 0x3
+ 547 0063 48080000 		.4byte	.LASF7
+ 548 0067 06       		.byte	0x6
+ 549 0068 3F       		.byte	0x3f
+ 550 0069 6D000000 		.4byte	0x6d
+ 551 006d 02       		.uleb128 0x2
+ 552 006e 04       		.byte	0x4
+ 553 006f 05       		.byte	0x5
+ 554 0070 1F010000 		.4byte	.LASF8
+ 555 0074 02       		.uleb128 0x2
+ 556 0075 04       		.byte	0x4
+ 557 0076 07       		.byte	0x7
+ 558 0077 62060000 		.4byte	.LASF9
+ 559 007b 02       		.uleb128 0x2
+ 560 007c 08       		.byte	0x8
+ 561 007d 05       		.byte	0x5
+ 562 007e 53020000 		.4byte	.LASF10
+ 563 0082 02       		.uleb128 0x2
+ 564 0083 08       		.byte	0x8
+ 565 0084 07       		.byte	0x7
+ 566 0085 88010000 		.4byte	.LASF11
+ 567 0089 04       		.uleb128 0x4
+ 568 008a 04       		.byte	0x4
+ 569 008b 05       		.byte	0x5
+ 570 008c 696E7400 		.ascii	"int\000"
+ 571 0090 02       		.uleb128 0x2
+ 572 0091 04       		.byte	0x4
+ 573 0092 07       		.byte	0x7
+ 574 0093 DD050000 		.4byte	.LASF12
+ 575 0097 03       		.uleb128 0x3
+ 576 0098 6E0F0000 		.4byte	.LASF13
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 15
+
+
+ 577 009c 07       		.byte	0x7
+ 578 009d 15       		.byte	0x15
+ 579 009e 2C000000 		.4byte	0x2c
+ 580 00a2 03       		.uleb128 0x3
+ 581 00a3 69100000 		.4byte	.LASF14
+ 582 00a7 07       		.byte	0x7
+ 583 00a8 20       		.byte	0x20
+ 584 00a9 3E000000 		.4byte	0x3e
+ 585 00ad 03       		.uleb128 0x3
+ 586 00ae C0030000 		.4byte	.LASF15
+ 587 00b2 07       		.byte	0x7
+ 588 00b3 21       		.byte	0x21
+ 589 00b4 50000000 		.4byte	0x50
+ 590 00b8 03       		.uleb128 0x3
+ 591 00b9 780B0000 		.4byte	.LASF16
+ 592 00bd 07       		.byte	0x7
+ 593 00be 2C       		.byte	0x2c
+ 594 00bf 62000000 		.4byte	0x62
+ 595 00c3 05       		.uleb128 0x5
+ 596 00c4 A9030000 		.4byte	.LASF17
+ 597 00c8 08       		.byte	0x8
+ 598 00c9 3801     		.2byte	0x138
+ 599 00cb 37000000 		.4byte	0x37
+ 600 00cf 02       		.uleb128 0x2
+ 601 00d0 04       		.byte	0x4
+ 602 00d1 04       		.byte	0x4
+ 603 00d2 ED0C0000 		.4byte	.LASF18
+ 604 00d6 02       		.uleb128 0x2
+ 605 00d7 08       		.byte	0x8
+ 606 00d8 04       		.byte	0x4
+ 607 00d9 E7030000 		.4byte	.LASF19
+ 608 00dd 02       		.uleb128 0x2
+ 609 00de 01       		.byte	0x1
+ 610 00df 08       		.byte	0x8
+ 611 00e0 0D0D0000 		.4byte	.LASF20
+ 612 00e4 05       		.uleb128 0x5
+ 613 00e5 8B0C0000 		.4byte	.LASF21
+ 614 00e9 08       		.byte	0x8
+ 615 00ea E201     		.2byte	0x1e2
+ 616 00ec F0000000 		.4byte	0xf0
+ 617 00f0 06       		.uleb128 0x6
+ 618 00f1 C3000000 		.4byte	0xc3
+ 619 00f5 07       		.uleb128 0x7
+ 620 00f6 04       		.byte	0x4
+ 621 00f7 FB000000 		.4byte	0xfb
+ 622 00fb 08       		.uleb128 0x8
+ 623 00fc 03       		.uleb128 0x3
+ 624 00fd 52000000 		.4byte	.LASF22
+ 625 0101 09       		.byte	0x9
+ 626 0102 D4       		.byte	0xd4
+ 627 0103 90000000 		.4byte	0x90
+ 628 0107 02       		.uleb128 0x2
+ 629 0108 04       		.byte	0x4
+ 630 0109 07       		.byte	0x7
+ 631 010a 0D090000 		.4byte	.LASF23
+ 632 010e 09       		.uleb128 0x9
+ 633 010f 04       		.byte	0x4
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 16
+
+
+ 634 0110 07       		.uleb128 0x7
+ 635 0111 04       		.byte	0x4
+ 636 0112 37000000 		.4byte	0x37
+ 637 0116 07       		.uleb128 0x7
+ 638 0117 04       		.byte	0x4
+ 639 0118 DD000000 		.4byte	0xdd
+ 640 011c 07       		.uleb128 0x7
+ 641 011d 04       		.byte	0x4
+ 642 011e 22010000 		.4byte	0x122
+ 643 0122 0A       		.uleb128 0xa
+ 644 0123 DD000000 		.4byte	0xdd
+ 645 0127 0B       		.uleb128 0xb
+ 646 0128 11020000 		.4byte	.LASF27
+ 647 012c 0C       		.byte	0xc
+ 648 012d 0A       		.byte	0xa
+ 649 012e 2D       		.byte	0x2d
+ 650 012f 460D0000 		.4byte	0xd46
+ 651 0133 0C       		.uleb128 0xc
+ 652 0134 9D0D0000 		.4byte	.LASF24
+ 653 0138 0A       		.byte	0xa
+ 654 0139 BF       		.byte	0xbf
+ 655 013a 16010000 		.4byte	0x116
+ 656 013e 00       		.byte	0
+ 657 013f 02       		.byte	0x2
+ 658 0140 0C       		.uleb128 0xc
+ 659 0141 00000000 		.4byte	.LASF25
+ 660 0145 0A       		.byte	0xa
+ 661 0146 C0       		.byte	0xc0
+ 662 0147 90000000 		.4byte	0x90
+ 663 014b 04       		.byte	0x4
+ 664 014c 02       		.byte	0x2
+ 665 014d 0D       		.uleb128 0xd
+ 666 014e 6C656E00 		.ascii	"len\000"
+ 667 0152 0A       		.byte	0xa
+ 668 0153 C1       		.byte	0xc1
+ 669 0154 90000000 		.4byte	0x90
+ 670 0158 08       		.byte	0x8
+ 671 0159 02       		.byte	0x2
+ 672 015a 03       		.uleb128 0x3
+ 673 015b 4F060000 		.4byte	.LASF26
+ 674 015f 0A       		.byte	0xa
+ 675 0160 32       		.byte	0x32
+ 676 0161 460D0000 		.4byte	0xd46
+ 677 0165 0E       		.uleb128 0xe
+ 678 0166 BF000000 		.4byte	.LASF143
+ 679 016a 0A       		.byte	0xa
+ 680 016b 33       		.byte	0x33
+ 681 016c 9F010000 		.4byte	.LASF237
+ 682 0170 78010000 		.4byte	0x178
+ 683 0174 7E010000 		.4byte	0x17e
+ 684 0178 0F       		.uleb128 0xf
+ 685 0179 760D0000 		.4byte	0xd76
+ 686 017d 00       		.byte	0
+ 687 017e 10       		.uleb128 0x10
+ 688 017f 11020000 		.4byte	.LASF27
+ 689 0183 0A       		.byte	0xa
+ 690 0184 3B       		.byte	0x3b
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 17
+
+
+ 691 0185 870D0000 		.4byte	0xd87
+ 692 0189 01       		.byte	0x1
+ 693 018a 92010000 		.4byte	0x192
+ 694 018e 9D010000 		.4byte	0x19d
+ 695 0192 0F       		.uleb128 0xf
+ 696 0193 870D0000 		.4byte	0xd87
+ 697 0197 11       		.uleb128 0x11
+ 698 0198 1C010000 		.4byte	0x11c
+ 699 019c 00       		.byte	0
+ 700 019d 10       		.uleb128 0x10
+ 701 019e 11020000 		.4byte	.LASF27
+ 702 01a2 0A       		.byte	0xa
+ 703 01a3 3C       		.byte	0x3c
+ 704 01a4 870D0000 		.4byte	0xd87
+ 705 01a8 01       		.byte	0x1
+ 706 01a9 B1010000 		.4byte	0x1b1
+ 707 01ad BC010000 		.4byte	0x1bc
+ 708 01b1 0F       		.uleb128 0xf
+ 709 01b2 870D0000 		.4byte	0xd87
+ 710 01b6 11       		.uleb128 0x11
+ 711 01b7 8D0D0000 		.4byte	0xd8d
+ 712 01bb 00       		.byte	0
+ 713 01bc 10       		.uleb128 0x10
+ 714 01bd 11020000 		.4byte	.LASF27
+ 715 01c1 0A       		.byte	0xa
+ 716 01c2 3D       		.byte	0x3d
+ 717 01c3 870D0000 		.4byte	0xd87
+ 718 01c7 01       		.byte	0x1
+ 719 01c8 D0010000 		.4byte	0x1d0
+ 720 01cc DB010000 		.4byte	0x1db
+ 721 01d0 0F       		.uleb128 0xf
+ 722 01d1 870D0000 		.4byte	0xd87
+ 723 01d5 11       		.uleb128 0x11
+ 724 01d6 930D0000 		.4byte	0xd93
+ 725 01da 00       		.byte	0
+ 726 01db 12       		.uleb128 0x12
+ 727 01dc 11020000 		.4byte	.LASF27
+ 728 01e0 0A       		.byte	0xa
+ 729 01e1 42       		.byte	0x42
+ 730 01e2 870D0000 		.4byte	0xd87
+ 731 01e6 01       		.byte	0x1
+ 732 01e7 EF010000 		.4byte	0x1ef
+ 733 01eb FA010000 		.4byte	0x1fa
+ 734 01ef 0F       		.uleb128 0xf
+ 735 01f0 870D0000 		.4byte	0xd87
+ 736 01f4 11       		.uleb128 0x11
+ 737 01f5 DD000000 		.4byte	0xdd
+ 738 01f9 00       		.byte	0
+ 739 01fa 12       		.uleb128 0x12
+ 740 01fb 11020000 		.4byte	.LASF27
+ 741 01ff 0A       		.byte	0xa
+ 742 0200 43       		.byte	0x43
+ 743 0201 870D0000 		.4byte	0xd87
+ 744 0205 01       		.byte	0x1
+ 745 0206 0E020000 		.4byte	0x20e
+ 746 020a 1E020000 		.4byte	0x21e
+ 747 020e 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 18
+
+
+ 748 020f 870D0000 		.4byte	0xd87
+ 749 0213 11       		.uleb128 0x11
+ 750 0214 37000000 		.4byte	0x37
+ 751 0218 11       		.uleb128 0x11
+ 752 0219 37000000 		.4byte	0x37
+ 753 021d 00       		.byte	0
+ 754 021e 12       		.uleb128 0x12
+ 755 021f 11020000 		.4byte	.LASF27
+ 756 0223 0A       		.byte	0xa
+ 757 0224 44       		.byte	0x44
+ 758 0225 870D0000 		.4byte	0xd87
+ 759 0229 01       		.byte	0x1
+ 760 022a 32020000 		.4byte	0x232
+ 761 022e 42020000 		.4byte	0x242
+ 762 0232 0F       		.uleb128 0xf
+ 763 0233 870D0000 		.4byte	0xd87
+ 764 0237 11       		.uleb128 0x11
+ 765 0238 89000000 		.4byte	0x89
+ 766 023c 11       		.uleb128 0x11
+ 767 023d 37000000 		.4byte	0x37
+ 768 0241 00       		.byte	0
+ 769 0242 12       		.uleb128 0x12
+ 770 0243 11020000 		.4byte	.LASF27
+ 771 0247 0A       		.byte	0xa
+ 772 0248 45       		.byte	0x45
+ 773 0249 870D0000 		.4byte	0xd87
+ 774 024d 01       		.byte	0x1
+ 775 024e 56020000 		.4byte	0x256
+ 776 0252 66020000 		.4byte	0x266
+ 777 0256 0F       		.uleb128 0xf
+ 778 0257 870D0000 		.4byte	0xd87
+ 779 025b 11       		.uleb128 0x11
+ 780 025c 90000000 		.4byte	0x90
+ 781 0260 11       		.uleb128 0x11
+ 782 0261 37000000 		.4byte	0x37
+ 783 0265 00       		.byte	0
+ 784 0266 12       		.uleb128 0x12
+ 785 0267 11020000 		.4byte	.LASF27
+ 786 026b 0A       		.byte	0xa
+ 787 026c 46       		.byte	0x46
+ 788 026d 870D0000 		.4byte	0xd87
+ 789 0271 01       		.byte	0x1
+ 790 0272 7A020000 		.4byte	0x27a
+ 791 0276 8A020000 		.4byte	0x28a
+ 792 027a 0F       		.uleb128 0xf
+ 793 027b 870D0000 		.4byte	0xd87
+ 794 027f 11       		.uleb128 0x11
+ 795 0280 6D000000 		.4byte	0x6d
+ 796 0284 11       		.uleb128 0x11
+ 797 0285 37000000 		.4byte	0x37
+ 798 0289 00       		.byte	0
+ 799 028a 12       		.uleb128 0x12
+ 800 028b 11020000 		.4byte	.LASF27
+ 801 028f 0A       		.byte	0xa
+ 802 0290 47       		.byte	0x47
+ 803 0291 870D0000 		.4byte	0xd87
+ 804 0295 01       		.byte	0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 19
+
+
+ 805 0296 9E020000 		.4byte	0x29e
+ 806 029a AE020000 		.4byte	0x2ae
+ 807 029e 0F       		.uleb128 0xf
+ 808 029f 870D0000 		.4byte	0xd87
+ 809 02a3 11       		.uleb128 0x11
+ 810 02a4 74000000 		.4byte	0x74
+ 811 02a8 11       		.uleb128 0x11
+ 812 02a9 37000000 		.4byte	0x37
+ 813 02ad 00       		.byte	0
+ 814 02ae 12       		.uleb128 0x12
+ 815 02af 11020000 		.4byte	.LASF27
+ 816 02b3 0A       		.byte	0xa
+ 817 02b4 48       		.byte	0x48
+ 818 02b5 870D0000 		.4byte	0xd87
+ 819 02b9 01       		.byte	0x1
+ 820 02ba C2020000 		.4byte	0x2c2
+ 821 02be D2020000 		.4byte	0x2d2
+ 822 02c2 0F       		.uleb128 0xf
+ 823 02c3 870D0000 		.4byte	0xd87
+ 824 02c7 11       		.uleb128 0x11
+ 825 02c8 CF000000 		.4byte	0xcf
+ 826 02cc 11       		.uleb128 0x11
+ 827 02cd 37000000 		.4byte	0x37
+ 828 02d1 00       		.byte	0
+ 829 02d2 12       		.uleb128 0x12
+ 830 02d3 11020000 		.4byte	.LASF27
+ 831 02d7 0A       		.byte	0xa
+ 832 02d8 49       		.byte	0x49
+ 833 02d9 870D0000 		.4byte	0xd87
+ 834 02dd 01       		.byte	0x1
+ 835 02de E6020000 		.4byte	0x2e6
+ 836 02e2 F6020000 		.4byte	0x2f6
+ 837 02e6 0F       		.uleb128 0xf
+ 838 02e7 870D0000 		.4byte	0xd87
+ 839 02eb 11       		.uleb128 0x11
+ 840 02ec D6000000 		.4byte	0xd6
+ 841 02f0 11       		.uleb128 0x11
+ 842 02f1 37000000 		.4byte	0x37
+ 843 02f5 00       		.byte	0
+ 844 02f6 10       		.uleb128 0x10
+ 845 02f7 ED010000 		.4byte	.LASF28
+ 846 02fb 0A       		.byte	0xa
+ 847 02fc 4A       		.byte	0x4a
+ 848 02fd 0E010000 		.4byte	0x10e
+ 849 0301 01       		.byte	0x1
+ 850 0302 0A030000 		.4byte	0x30a
+ 851 0306 15030000 		.4byte	0x315
+ 852 030a 0F       		.uleb128 0xf
+ 853 030b 870D0000 		.4byte	0xd87
+ 854 030f 0F       		.uleb128 0xf
+ 855 0310 89000000 		.4byte	0x89
+ 856 0314 00       		.byte	0
+ 857 0315 13       		.uleb128 0x13
+ 858 0316 EA050000 		.4byte	.LASF29
+ 859 031a 0A       		.byte	0xa
+ 860 031b 50       		.byte	0x50
+ 861 031c 7C050000 		.4byte	.LASF31
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 20
+
+
+ 862 0320 37000000 		.4byte	0x37
+ 863 0324 01       		.byte	0x1
+ 864 0325 2D030000 		.4byte	0x32d
+ 865 0329 38030000 		.4byte	0x338
+ 866 032d 0F       		.uleb128 0xf
+ 867 032e 870D0000 		.4byte	0xd87
+ 868 0332 11       		.uleb128 0x11
+ 869 0333 90000000 		.4byte	0x90
+ 870 0337 00       		.byte	0
+ 871 0338 13       		.uleb128 0x13
+ 872 0339 F30C0000 		.4byte	.LASF30
+ 873 033d 0A       		.byte	0xa
+ 874 033e 51       		.byte	0x51
+ 875 033f 22050000 		.4byte	.LASF32
+ 876 0343 90000000 		.4byte	0x90
+ 877 0347 01       		.byte	0x1
+ 878 0348 50030000 		.4byte	0x350
+ 879 034c 56030000 		.4byte	0x356
+ 880 0350 0F       		.uleb128 0xf
+ 881 0351 760D0000 		.4byte	0xd76
+ 882 0355 00       		.byte	0
+ 883 0356 13       		.uleb128 0x13
+ 884 0357 980B0000 		.4byte	.LASF33
+ 885 035b 0A       		.byte	0xa
+ 886 035c 56       		.byte	0x56
+ 887 035d 30100000 		.4byte	.LASF34
+ 888 0361 A30D0000 		.4byte	0xda3
+ 889 0365 01       		.byte	0x1
+ 890 0366 6E030000 		.4byte	0x36e
+ 891 036a 79030000 		.4byte	0x379
+ 892 036e 0F       		.uleb128 0xf
+ 893 036f 870D0000 		.4byte	0xd87
+ 894 0373 11       		.uleb128 0x11
+ 895 0374 8D0D0000 		.4byte	0xd8d
+ 896 0378 00       		.byte	0
+ 897 0379 13       		.uleb128 0x13
+ 898 037a 980B0000 		.4byte	.LASF33
+ 899 037e 0A       		.byte	0xa
+ 900 037f 57       		.byte	0x57
+ 901 0380 CC050000 		.4byte	.LASF35
+ 902 0384 A30D0000 		.4byte	0xda3
+ 903 0388 01       		.byte	0x1
+ 904 0389 91030000 		.4byte	0x391
+ 905 038d 9C030000 		.4byte	0x39c
+ 906 0391 0F       		.uleb128 0xf
+ 907 0392 870D0000 		.4byte	0xd87
+ 908 0396 11       		.uleb128 0x11
+ 909 0397 1C010000 		.4byte	0x11c
+ 910 039b 00       		.byte	0
+ 911 039c 13       		.uleb128 0x13
+ 912 039d 980B0000 		.4byte	.LASF33
+ 913 03a1 0A       		.byte	0xa
+ 914 03a2 58       		.byte	0x58
+ 915 03a3 530B0000 		.4byte	.LASF36
+ 916 03a7 A30D0000 		.4byte	0xda3
+ 917 03ab 01       		.byte	0x1
+ 918 03ac B4030000 		.4byte	0x3b4
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 21
+
+
+ 919 03b0 BF030000 		.4byte	0x3bf
+ 920 03b4 0F       		.uleb128 0xf
+ 921 03b5 870D0000 		.4byte	0xd87
+ 922 03b9 11       		.uleb128 0x11
+ 923 03ba 930D0000 		.4byte	0xd93
+ 924 03be 00       		.byte	0
+ 925 03bf 13       		.uleb128 0x13
+ 926 03c0 5E050000 		.4byte	.LASF37
+ 927 03c4 0A       		.byte	0xa
+ 928 03c5 63       		.byte	0x63
+ 929 03c6 8D090000 		.4byte	.LASF38
+ 930 03ca 37000000 		.4byte	0x37
+ 931 03ce 01       		.byte	0x1
+ 932 03cf D7030000 		.4byte	0x3d7
+ 933 03d3 E2030000 		.4byte	0x3e2
+ 934 03d7 0F       		.uleb128 0xf
+ 935 03d8 870D0000 		.4byte	0xd87
+ 936 03dc 11       		.uleb128 0x11
+ 937 03dd 8D0D0000 		.4byte	0xd8d
+ 938 03e1 00       		.byte	0
+ 939 03e2 13       		.uleb128 0x13
+ 940 03e3 5E050000 		.4byte	.LASF37
+ 941 03e7 0A       		.byte	0xa
+ 942 03e8 64       		.byte	0x64
+ 943 03e9 FE030000 		.4byte	.LASF39
+ 944 03ed 37000000 		.4byte	0x37
+ 945 03f1 01       		.byte	0x1
+ 946 03f2 FA030000 		.4byte	0x3fa
+ 947 03f6 05040000 		.4byte	0x405
+ 948 03fa 0F       		.uleb128 0xf
+ 949 03fb 870D0000 		.4byte	0xd87
+ 950 03ff 11       		.uleb128 0x11
+ 951 0400 1C010000 		.4byte	0x11c
+ 952 0404 00       		.byte	0
+ 953 0405 13       		.uleb128 0x13
+ 954 0406 5E050000 		.4byte	.LASF37
+ 955 040a 0A       		.byte	0xa
+ 956 040b 65       		.byte	0x65
+ 957 040c 90070000 		.4byte	.LASF40
+ 958 0410 37000000 		.4byte	0x37
+ 959 0414 01       		.byte	0x1
+ 960 0415 1D040000 		.4byte	0x41d
+ 961 0419 28040000 		.4byte	0x428
+ 962 041d 0F       		.uleb128 0xf
+ 963 041e 870D0000 		.4byte	0xd87
+ 964 0422 11       		.uleb128 0x11
+ 965 0423 DD000000 		.4byte	0xdd
+ 966 0427 00       		.byte	0
+ 967 0428 13       		.uleb128 0x13
+ 968 0429 5E050000 		.4byte	.LASF37
+ 969 042d 0A       		.byte	0xa
+ 970 042e 66       		.byte	0x66
+ 971 042f D9070000 		.4byte	.LASF41
+ 972 0433 37000000 		.4byte	0x37
+ 973 0437 01       		.byte	0x1
+ 974 0438 40040000 		.4byte	0x440
+ 975 043c 4B040000 		.4byte	0x44b
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 22
+
+
+ 976 0440 0F       		.uleb128 0xf
+ 977 0441 870D0000 		.4byte	0xd87
+ 978 0445 11       		.uleb128 0x11
+ 979 0446 37000000 		.4byte	0x37
+ 980 044a 00       		.byte	0
+ 981 044b 13       		.uleb128 0x13
+ 982 044c 5E050000 		.4byte	.LASF37
+ 983 0450 0A       		.byte	0xa
+ 984 0451 67       		.byte	0x67
+ 985 0452 ED070000 		.4byte	.LASF42
+ 986 0456 37000000 		.4byte	0x37
+ 987 045a 01       		.byte	0x1
+ 988 045b 63040000 		.4byte	0x463
+ 989 045f 6E040000 		.4byte	0x46e
+ 990 0463 0F       		.uleb128 0xf
+ 991 0464 870D0000 		.4byte	0xd87
+ 992 0468 11       		.uleb128 0x11
+ 993 0469 89000000 		.4byte	0x89
+ 994 046d 00       		.byte	0
+ 995 046e 13       		.uleb128 0x13
+ 996 046f 5E050000 		.4byte	.LASF37
+ 997 0473 0A       		.byte	0xa
+ 998 0474 68       		.byte	0x68
+ 999 0475 01080000 		.4byte	.LASF43
+ 1000 0479 37000000 		.4byte	0x37
+ 1001 047d 01       		.byte	0x1
+ 1002 047e 86040000 		.4byte	0x486
+ 1003 0482 91040000 		.4byte	0x491
+ 1004 0486 0F       		.uleb128 0xf
+ 1005 0487 870D0000 		.4byte	0xd87
+ 1006 048b 11       		.uleb128 0x11
+ 1007 048c 90000000 		.4byte	0x90
+ 1008 0490 00       		.byte	0
+ 1009 0491 13       		.uleb128 0x13
+ 1010 0492 5E050000 		.4byte	.LASF37
+ 1011 0496 0A       		.byte	0xa
+ 1012 0497 69       		.byte	0x69
+ 1013 0498 20080000 		.4byte	.LASF44
+ 1014 049c 37000000 		.4byte	0x37
+ 1015 04a0 01       		.byte	0x1
+ 1016 04a1 A9040000 		.4byte	0x4a9
+ 1017 04a5 B4040000 		.4byte	0x4b4
+ 1018 04a9 0F       		.uleb128 0xf
+ 1019 04aa 870D0000 		.4byte	0xd87
+ 1020 04ae 11       		.uleb128 0x11
+ 1021 04af 6D000000 		.4byte	0x6d
+ 1022 04b3 00       		.byte	0
+ 1023 04b4 13       		.uleb128 0x13
+ 1024 04b5 5E050000 		.4byte	.LASF37
+ 1025 04b9 0A       		.byte	0xa
+ 1026 04ba 6A       		.byte	0x6a
+ 1027 04bb 34080000 		.4byte	.LASF45
+ 1028 04bf 37000000 		.4byte	0x37
+ 1029 04c3 01       		.byte	0x1
+ 1030 04c4 CC040000 		.4byte	0x4cc
+ 1031 04c8 D7040000 		.4byte	0x4d7
+ 1032 04cc 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 23
+
+
+ 1033 04cd 870D0000 		.4byte	0xd87
+ 1034 04d1 11       		.uleb128 0x11
+ 1035 04d2 74000000 		.4byte	0x74
+ 1036 04d6 00       		.byte	0
+ 1037 04d7 13       		.uleb128 0x13
+ 1038 04d8 5E050000 		.4byte	.LASF37
+ 1039 04dc 0A       		.byte	0xa
+ 1040 04dd 6B       		.byte	0x6b
+ 1041 04de C5070000 		.4byte	.LASF46
+ 1042 04e2 37000000 		.4byte	0x37
+ 1043 04e6 01       		.byte	0x1
+ 1044 04e7 EF040000 		.4byte	0x4ef
+ 1045 04eb FA040000 		.4byte	0x4fa
+ 1046 04ef 0F       		.uleb128 0xf
+ 1047 04f0 870D0000 		.4byte	0xd87
+ 1048 04f4 11       		.uleb128 0x11
+ 1049 04f5 CF000000 		.4byte	0xcf
+ 1050 04f9 00       		.byte	0
+ 1051 04fa 13       		.uleb128 0x13
+ 1052 04fb 5E050000 		.4byte	.LASF37
+ 1053 04ff 0A       		.byte	0xa
+ 1054 0500 6C       		.byte	0x6c
+ 1055 0501 A4070000 		.4byte	.LASF47
+ 1056 0505 37000000 		.4byte	0x37
+ 1057 0509 01       		.byte	0x1
+ 1058 050a 12050000 		.4byte	0x512
+ 1059 050e 1D050000 		.4byte	0x51d
+ 1060 0512 0F       		.uleb128 0xf
+ 1061 0513 870D0000 		.4byte	0xd87
+ 1062 0517 11       		.uleb128 0x11
+ 1063 0518 D6000000 		.4byte	0xd6
+ 1064 051c 00       		.byte	0
+ 1065 051d 13       		.uleb128 0x13
+ 1066 051e 5E050000 		.4byte	.LASF37
+ 1067 0522 0A       		.byte	0xa
+ 1068 0523 6D       		.byte	0x6d
+ 1069 0524 A80A0000 		.4byte	.LASF48
+ 1070 0528 37000000 		.4byte	0x37
+ 1071 052c 01       		.byte	0x1
+ 1072 052d 35050000 		.4byte	0x535
+ 1073 0531 40050000 		.4byte	0x540
+ 1074 0535 0F       		.uleb128 0xf
+ 1075 0536 870D0000 		.4byte	0xd87
+ 1076 053a 11       		.uleb128 0x11
+ 1077 053b 930D0000 		.4byte	0xd93
+ 1078 053f 00       		.byte	0
+ 1079 0540 13       		.uleb128 0x13
+ 1080 0541 800C0000 		.4byte	.LASF49
+ 1081 0545 0A       		.byte	0xa
+ 1082 0546 71       		.byte	0x71
+ 1083 0547 6D090000 		.4byte	.LASF50
+ 1084 054b A30D0000 		.4byte	0xda3
+ 1085 054f 01       		.byte	0x1
+ 1086 0550 58050000 		.4byte	0x558
+ 1087 0554 63050000 		.4byte	0x563
+ 1088 0558 0F       		.uleb128 0xf
+ 1089 0559 870D0000 		.4byte	0xd87
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 24
+
+
+ 1090 055d 11       		.uleb128 0x11
+ 1091 055e 8D0D0000 		.4byte	0xd8d
+ 1092 0562 00       		.byte	0
+ 1093 0563 13       		.uleb128 0x13
+ 1094 0564 800C0000 		.4byte	.LASF49
+ 1095 0568 0A       		.byte	0xa
+ 1096 0569 72       		.byte	0x72
+ 1097 056a 37000000 		.4byte	.LASF51
+ 1098 056e A30D0000 		.4byte	0xda3
+ 1099 0572 01       		.byte	0x1
+ 1100 0573 7B050000 		.4byte	0x57b
+ 1101 0577 86050000 		.4byte	0x586
+ 1102 057b 0F       		.uleb128 0xf
+ 1103 057c 870D0000 		.4byte	0xd87
+ 1104 0580 11       		.uleb128 0x11
+ 1105 0581 1C010000 		.4byte	0x11c
+ 1106 0585 00       		.byte	0
+ 1107 0586 13       		.uleb128 0x13
+ 1108 0587 800C0000 		.4byte	.LASF49
+ 1109 058b 0A       		.byte	0xa
+ 1110 058c 73       		.byte	0x73
+ 1111 058d CB090000 		.4byte	.LASF52
+ 1112 0591 A30D0000 		.4byte	0xda3
+ 1113 0595 01       		.byte	0x1
+ 1114 0596 9E050000 		.4byte	0x59e
+ 1115 059a A9050000 		.4byte	0x5a9
+ 1116 059e 0F       		.uleb128 0xf
+ 1117 059f 870D0000 		.4byte	0xd87
+ 1118 05a3 11       		.uleb128 0x11
+ 1119 05a4 DD000000 		.4byte	0xdd
+ 1120 05a8 00       		.byte	0
+ 1121 05a9 13       		.uleb128 0x13
+ 1122 05aa 800C0000 		.4byte	.LASF49
+ 1123 05ae 0A       		.byte	0xa
+ 1124 05af 74       		.byte	0x74
+ 1125 05b0 F8090000 		.4byte	.LASF53
+ 1126 05b4 A30D0000 		.4byte	0xda3
+ 1127 05b8 01       		.byte	0x1
+ 1128 05b9 C1050000 		.4byte	0x5c1
+ 1129 05bd CC050000 		.4byte	0x5cc
+ 1130 05c1 0F       		.uleb128 0xf
+ 1131 05c2 870D0000 		.4byte	0xd87
+ 1132 05c6 11       		.uleb128 0x11
+ 1133 05c7 37000000 		.4byte	0x37
+ 1134 05cb 00       		.byte	0
+ 1135 05cc 13       		.uleb128 0x13
+ 1136 05cd 800C0000 		.4byte	.LASF49
+ 1137 05d1 0A       		.byte	0xa
+ 1138 05d2 75       		.byte	0x75
+ 1139 05d3 070A0000 		.4byte	.LASF54
+ 1140 05d7 A30D0000 		.4byte	0xda3
+ 1141 05db 01       		.byte	0x1
+ 1142 05dc E4050000 		.4byte	0x5e4
+ 1143 05e0 EF050000 		.4byte	0x5ef
+ 1144 05e4 0F       		.uleb128 0xf
+ 1145 05e5 870D0000 		.4byte	0xd87
+ 1146 05e9 11       		.uleb128 0x11
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 25
+
+
+ 1147 05ea 89000000 		.4byte	0x89
+ 1148 05ee 00       		.byte	0
+ 1149 05ef 13       		.uleb128 0x13
+ 1150 05f0 800C0000 		.4byte	.LASF49
+ 1151 05f4 0A       		.byte	0xa
+ 1152 05f5 76       		.byte	0x76
+ 1153 05f6 160A0000 		.4byte	.LASF55
+ 1154 05fa A30D0000 		.4byte	0xda3
+ 1155 05fe 01       		.byte	0x1
+ 1156 05ff 07060000 		.4byte	0x607
+ 1157 0603 12060000 		.4byte	0x612
+ 1158 0607 0F       		.uleb128 0xf
+ 1159 0608 870D0000 		.4byte	0xd87
+ 1160 060c 11       		.uleb128 0x11
+ 1161 060d 90000000 		.4byte	0x90
+ 1162 0611 00       		.byte	0
+ 1163 0612 13       		.uleb128 0x13
+ 1164 0613 800C0000 		.4byte	.LASF49
+ 1165 0617 0A       		.byte	0xa
+ 1166 0618 77       		.byte	0x77
+ 1167 0619 250A0000 		.4byte	.LASF56
+ 1168 061d A30D0000 		.4byte	0xda3
+ 1169 0621 01       		.byte	0x1
+ 1170 0622 2A060000 		.4byte	0x62a
+ 1171 0626 35060000 		.4byte	0x635
+ 1172 062a 0F       		.uleb128 0xf
+ 1173 062b 870D0000 		.4byte	0xd87
+ 1174 062f 11       		.uleb128 0x11
+ 1175 0630 6D000000 		.4byte	0x6d
+ 1176 0634 00       		.byte	0
+ 1177 0635 13       		.uleb128 0x13
+ 1178 0636 800C0000 		.4byte	.LASF49
+ 1179 063a 0A       		.byte	0xa
+ 1180 063b 78       		.byte	0x78
+ 1181 063c EE060000 		.4byte	.LASF57
+ 1182 0640 A30D0000 		.4byte	0xda3
+ 1183 0644 01       		.byte	0x1
+ 1184 0645 4D060000 		.4byte	0x64d
+ 1185 0649 58060000 		.4byte	0x658
+ 1186 064d 0F       		.uleb128 0xf
+ 1187 064e 870D0000 		.4byte	0xd87
+ 1188 0652 11       		.uleb128 0x11
+ 1189 0653 74000000 		.4byte	0x74
+ 1190 0657 00       		.byte	0
+ 1191 0658 13       		.uleb128 0x13
+ 1192 0659 800C0000 		.4byte	.LASF49
+ 1193 065d 0A       		.byte	0xa
+ 1194 065e 79       		.byte	0x79
+ 1195 065f E9090000 		.4byte	.LASF58
+ 1196 0663 A30D0000 		.4byte	0xda3
+ 1197 0667 01       		.byte	0x1
+ 1198 0668 70060000 		.4byte	0x670
+ 1199 066c 7B060000 		.4byte	0x67b
+ 1200 0670 0F       		.uleb128 0xf
+ 1201 0671 870D0000 		.4byte	0xd87
+ 1202 0675 11       		.uleb128 0x11
+ 1203 0676 CF000000 		.4byte	0xcf
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 26
+
+
+ 1204 067a 00       		.byte	0
+ 1205 067b 13       		.uleb128 0x13
+ 1206 067c 800C0000 		.4byte	.LASF49
+ 1207 0680 0A       		.byte	0xa
+ 1208 0681 7A       		.byte	0x7a
+ 1209 0682 DA090000 		.4byte	.LASF59
+ 1210 0686 A30D0000 		.4byte	0xda3
+ 1211 068a 01       		.byte	0x1
+ 1212 068b 93060000 		.4byte	0x693
+ 1213 068f 9E060000 		.4byte	0x69e
+ 1214 0693 0F       		.uleb128 0xf
+ 1215 0694 870D0000 		.4byte	0xd87
+ 1216 0698 11       		.uleb128 0x11
+ 1217 0699 D6000000 		.4byte	0xd6
+ 1218 069d 00       		.byte	0
+ 1219 069e 13       		.uleb128 0x13
+ 1220 069f 800C0000 		.4byte	.LASF49
+ 1221 06a3 0A       		.byte	0xa
+ 1222 06a4 7B       		.byte	0x7b
+ 1223 06a5 1E040000 		.4byte	.LASF60
+ 1224 06a9 A30D0000 		.4byte	0xda3
+ 1225 06ad 01       		.byte	0x1
+ 1226 06ae B6060000 		.4byte	0x6b6
+ 1227 06b2 C1060000 		.4byte	0x6c1
+ 1228 06b6 0F       		.uleb128 0xf
+ 1229 06b7 870D0000 		.4byte	0xd87
+ 1230 06bb 11       		.uleb128 0x11
+ 1231 06bc 930D0000 		.4byte	0xd93
+ 1232 06c0 00       		.byte	0
+ 1233 06c1 13       		.uleb128 0x13
+ 1234 06c2 660A0000 		.4byte	.LASF61
+ 1235 06c6 0A       		.byte	0xa
+ 1236 06c7 8A       		.byte	0x8a
+ 1237 06c8 F00A0000 		.4byte	.LASF62
+ 1238 06cc 5A010000 		.4byte	0x15a
+ 1239 06d0 01       		.byte	0x1
+ 1240 06d1 D9060000 		.4byte	0x6d9
+ 1241 06d5 DF060000 		.4byte	0x6df
+ 1242 06d9 0F       		.uleb128 0xf
+ 1243 06da 760D0000 		.4byte	0xd76
+ 1244 06de 00       		.byte	0
+ 1245 06df 13       		.uleb128 0x13
+ 1246 06e0 62030000 		.4byte	.LASF63
+ 1247 06e4 0A       		.byte	0xa
+ 1248 06e5 8B       		.byte	0x8b
+ 1249 06e6 09000000 		.4byte	.LASF64
+ 1250 06ea 89000000 		.4byte	0x89
+ 1251 06ee 01       		.byte	0x1
+ 1252 06ef F7060000 		.4byte	0x6f7
+ 1253 06f3 02070000 		.4byte	0x702
+ 1254 06f7 0F       		.uleb128 0xf
+ 1255 06f8 760D0000 		.4byte	0xd76
+ 1256 06fc 11       		.uleb128 0x11
+ 1257 06fd 8D0D0000 		.4byte	0xd8d
+ 1258 0701 00       		.byte	0
+ 1259 0702 13       		.uleb128 0x13
+ 1260 0703 48070000 		.4byte	.LASF65
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 27
+
+
+ 1261 0707 0A       		.byte	0xa
+ 1262 0708 8C       		.byte	0x8c
+ 1263 0709 3B0B0000 		.4byte	.LASF66
+ 1264 070d 37000000 		.4byte	0x37
+ 1265 0711 01       		.byte	0x1
+ 1266 0712 1A070000 		.4byte	0x71a
+ 1267 0716 25070000 		.4byte	0x725
+ 1268 071a 0F       		.uleb128 0xf
+ 1269 071b 760D0000 		.4byte	0xd76
+ 1270 071f 11       		.uleb128 0x11
+ 1271 0720 8D0D0000 		.4byte	0xd8d
+ 1272 0724 00       		.byte	0
+ 1273 0725 13       		.uleb128 0x13
+ 1274 0726 48070000 		.4byte	.LASF65
+ 1275 072a 0A       		.byte	0xa
+ 1276 072b 8D       		.byte	0x8d
+ 1277 072c 5D010000 		.4byte	.LASF67
+ 1278 0730 37000000 		.4byte	0x37
+ 1279 0734 01       		.byte	0x1
+ 1280 0735 3D070000 		.4byte	0x73d
+ 1281 0739 48070000 		.4byte	0x748
+ 1282 073d 0F       		.uleb128 0xf
+ 1283 073e 760D0000 		.4byte	0xd76
+ 1284 0742 11       		.uleb128 0x11
+ 1285 0743 1C010000 		.4byte	0x11c
+ 1286 0747 00       		.byte	0
+ 1287 0748 13       		.uleb128 0x13
+ 1288 0749 A4090000 		.4byte	.LASF68
+ 1289 074d 0A       		.byte	0xa
+ 1290 074e 8E       		.byte	0x8e
+ 1291 074f DD0A0000 		.4byte	.LASF69
+ 1292 0753 37000000 		.4byte	0x37
+ 1293 0757 01       		.byte	0x1
+ 1294 0758 60070000 		.4byte	0x760
+ 1295 075c 6B070000 		.4byte	0x76b
+ 1296 0760 0F       		.uleb128 0xf
+ 1297 0761 760D0000 		.4byte	0xd76
+ 1298 0765 11       		.uleb128 0x11
+ 1299 0766 8D0D0000 		.4byte	0xd8d
+ 1300 076a 00       		.byte	0
+ 1301 076b 13       		.uleb128 0x13
+ 1302 076c A4090000 		.4byte	.LASF68
+ 1303 0770 0A       		.byte	0xa
+ 1304 0771 8F       		.byte	0x8f
+ 1305 0772 6E0C0000 		.4byte	.LASF70
+ 1306 0776 37000000 		.4byte	0x37
+ 1307 077a 01       		.byte	0x1
+ 1308 077b 83070000 		.4byte	0x783
+ 1309 077f 8E070000 		.4byte	0x78e
+ 1310 0783 0F       		.uleb128 0xf
+ 1311 0784 760D0000 		.4byte	0xd76
+ 1312 0788 11       		.uleb128 0x11
+ 1313 0789 1C010000 		.4byte	0x11c
+ 1314 078d 00       		.byte	0
+ 1315 078e 13       		.uleb128 0x13
+ 1316 078f 6C030000 		.4byte	.LASF71
+ 1317 0793 0A       		.byte	0xa
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 28
+
+
+ 1318 0794 90       		.byte	0x90
+ 1319 0795 CE0E0000 		.4byte	.LASF72
+ 1320 0799 37000000 		.4byte	0x37
+ 1321 079d 01       		.byte	0x1
+ 1322 079e A6070000 		.4byte	0x7a6
+ 1323 07a2 B1070000 		.4byte	0x7b1
+ 1324 07a6 0F       		.uleb128 0xf
+ 1325 07a7 760D0000 		.4byte	0xd76
+ 1326 07ab 11       		.uleb128 0x11
+ 1327 07ac 8D0D0000 		.4byte	0xd8d
+ 1328 07b0 00       		.byte	0
+ 1329 07b1 13       		.uleb128 0x13
+ 1330 07b2 6C030000 		.4byte	.LASF71
+ 1331 07b6 0A       		.byte	0xa
+ 1332 07b7 91       		.byte	0x91
+ 1333 07b8 90020000 		.4byte	.LASF73
+ 1334 07bc 37000000 		.4byte	0x37
+ 1335 07c0 01       		.byte	0x1
+ 1336 07c1 C9070000 		.4byte	0x7c9
+ 1337 07c5 D4070000 		.4byte	0x7d4
+ 1338 07c9 0F       		.uleb128 0xf
+ 1339 07ca 760D0000 		.4byte	0xd76
+ 1340 07ce 11       		.uleb128 0x11
+ 1341 07cf 1C010000 		.4byte	0x11c
+ 1342 07d3 00       		.byte	0
+ 1343 07d4 13       		.uleb128 0x13
+ 1344 07d5 8E0B0000 		.4byte	.LASF74
+ 1345 07d9 0A       		.byte	0xa
+ 1346 07da 92       		.byte	0x92
+ 1347 07db EF0E0000 		.4byte	.LASF75
+ 1348 07df 37000000 		.4byte	0x37
+ 1349 07e3 01       		.byte	0x1
+ 1350 07e4 EC070000 		.4byte	0x7ec
+ 1351 07e8 F7070000 		.4byte	0x7f7
+ 1352 07ec 0F       		.uleb128 0xf
+ 1353 07ed 760D0000 		.4byte	0xd76
+ 1354 07f1 11       		.uleb128 0x11
+ 1355 07f2 8D0D0000 		.4byte	0xd8d
+ 1356 07f6 00       		.byte	0
+ 1357 07f7 13       		.uleb128 0x13
+ 1358 07f8 A20B0000 		.4byte	.LASF76
+ 1359 07fc 0A       		.byte	0xa
+ 1360 07fd 93       		.byte	0x93
+ 1361 07fe 7A080000 		.4byte	.LASF77
+ 1362 0802 37000000 		.4byte	0x37
+ 1363 0806 01       		.byte	0x1
+ 1364 0807 0F080000 		.4byte	0x80f
+ 1365 080b 1A080000 		.4byte	0x81a
+ 1366 080f 0F       		.uleb128 0xf
+ 1367 0810 760D0000 		.4byte	0xd76
+ 1368 0814 11       		.uleb128 0x11
+ 1369 0815 8D0D0000 		.4byte	0xd8d
+ 1370 0819 00       		.byte	0
+ 1371 081a 13       		.uleb128 0x13
+ 1372 081b 1D0D0000 		.4byte	.LASF78
+ 1373 081f 0A       		.byte	0xa
+ 1374 0820 94       		.byte	0x94
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 29
+
+
+ 1375 0821 240E0000 		.4byte	.LASF79
+ 1376 0825 37000000 		.4byte	0x37
+ 1377 0829 01       		.byte	0x1
+ 1378 082a 32080000 		.4byte	0x832
+ 1379 082e 3D080000 		.4byte	0x83d
+ 1380 0832 0F       		.uleb128 0xf
+ 1381 0833 760D0000 		.4byte	0xd76
+ 1382 0837 11       		.uleb128 0x11
+ 1383 0838 8D0D0000 		.4byte	0xd8d
+ 1384 083c 00       		.byte	0
+ 1385 083d 13       		.uleb128 0x13
+ 1386 083e 900C0000 		.4byte	.LASF80
+ 1387 0842 0A       		.byte	0xa
+ 1388 0843 95       		.byte	0x95
+ 1389 0844 280D0000 		.4byte	.LASF81
+ 1390 0848 37000000 		.4byte	0x37
+ 1391 084c 01       		.byte	0x1
+ 1392 084d 55080000 		.4byte	0x855
+ 1393 0851 60080000 		.4byte	0x860
+ 1394 0855 0F       		.uleb128 0xf
+ 1395 0856 760D0000 		.4byte	0xd76
+ 1396 085a 11       		.uleb128 0x11
+ 1397 085b 8D0D0000 		.4byte	0xd8d
+ 1398 085f 00       		.byte	0
+ 1399 0860 13       		.uleb128 0x13
+ 1400 0861 AF030000 		.4byte	.LASF82
+ 1401 0865 0A       		.byte	0xa
+ 1402 0866 96       		.byte	0x96
+ 1403 0867 4A090000 		.4byte	.LASF83
+ 1404 086b 37000000 		.4byte	0x37
+ 1405 086f 01       		.byte	0x1
+ 1406 0870 78080000 		.4byte	0x878
+ 1407 0874 83080000 		.4byte	0x883
+ 1408 0878 0F       		.uleb128 0xf
+ 1409 0879 760D0000 		.4byte	0xd76
+ 1410 087d 11       		.uleb128 0x11
+ 1411 087e 8D0D0000 		.4byte	0xd8d
+ 1412 0882 00       		.byte	0
+ 1413 0883 13       		.uleb128 0x13
+ 1414 0884 16090000 		.4byte	.LASF84
+ 1415 0888 0A       		.byte	0xa
+ 1416 0889 97       		.byte	0x97
+ 1417 088a 610D0000 		.4byte	.LASF85
+ 1418 088e 37000000 		.4byte	0x37
+ 1419 0892 01       		.byte	0x1
+ 1420 0893 9B080000 		.4byte	0x89b
+ 1421 0897 A6080000 		.4byte	0x8a6
+ 1422 089b 0F       		.uleb128 0xf
+ 1423 089c 760D0000 		.4byte	0xd76
+ 1424 08a0 11       		.uleb128 0x11
+ 1425 08a1 8D0D0000 		.4byte	0xd8d
+ 1426 08a5 00       		.byte	0
+ 1427 08a6 13       		.uleb128 0x13
+ 1428 08a7 16090000 		.4byte	.LASF84
+ 1429 08ab 0A       		.byte	0xa
+ 1430 08ac 98       		.byte	0x98
+ 1431 08ad A3080000 		.4byte	.LASF86
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 30
+
+
+ 1432 08b1 37000000 		.4byte	0x37
+ 1433 08b5 01       		.byte	0x1
+ 1434 08b6 BE080000 		.4byte	0x8be
+ 1435 08ba CE080000 		.4byte	0x8ce
+ 1436 08be 0F       		.uleb128 0xf
+ 1437 08bf 760D0000 		.4byte	0xd76
+ 1438 08c3 11       		.uleb128 0x11
+ 1439 08c4 8D0D0000 		.4byte	0xd8d
+ 1440 08c8 11       		.uleb128 0x11
+ 1441 08c9 90000000 		.4byte	0x90
+ 1442 08cd 00       		.byte	0
+ 1443 08ce 13       		.uleb128 0x13
+ 1444 08cf 1F0B0000 		.4byte	.LASF87
+ 1445 08d3 0A       		.byte	0xa
+ 1446 08d4 99       		.byte	0x99
+ 1447 08d5 9B060000 		.4byte	.LASF88
+ 1448 08d9 37000000 		.4byte	0x37
+ 1449 08dd 01       		.byte	0x1
+ 1450 08de E6080000 		.4byte	0x8e6
+ 1451 08e2 F1080000 		.4byte	0x8f1
+ 1452 08e6 0F       		.uleb128 0xf
+ 1453 08e7 760D0000 		.4byte	0xd76
+ 1454 08eb 11       		.uleb128 0x11
+ 1455 08ec 8D0D0000 		.4byte	0xd8d
+ 1456 08f0 00       		.byte	0
+ 1457 08f1 13       		.uleb128 0x13
+ 1458 08f2 15070000 		.4byte	.LASF89
+ 1459 08f6 0A       		.byte	0xa
+ 1460 08f7 9C       		.byte	0x9c
+ 1461 08f8 81000000 		.4byte	.LASF90
+ 1462 08fc DD000000 		.4byte	0xdd
+ 1463 0900 01       		.byte	0x1
+ 1464 0901 09090000 		.4byte	0x909
+ 1465 0905 14090000 		.4byte	0x914
+ 1466 0909 0F       		.uleb128 0xf
+ 1467 090a 760D0000 		.4byte	0xd76
+ 1468 090e 11       		.uleb128 0x11
+ 1469 090f 90000000 		.4byte	0x90
+ 1470 0913 00       		.byte	0
+ 1471 0914 14       		.uleb128 0x14
+ 1472 0915 14040000 		.4byte	.LASF91
+ 1473 0919 0A       		.byte	0xa
+ 1474 091a 9D       		.byte	0x9d
+ 1475 091b CE020000 		.4byte	.LASF96
+ 1476 091f 01       		.byte	0x1
+ 1477 0920 28090000 		.4byte	0x928
+ 1478 0924 38090000 		.4byte	0x938
+ 1479 0928 0F       		.uleb128 0xf
+ 1480 0929 870D0000 		.4byte	0xd87
+ 1481 092d 11       		.uleb128 0x11
+ 1482 092e 90000000 		.4byte	0x90
+ 1483 0932 11       		.uleb128 0x11
+ 1484 0933 DD000000 		.4byte	0xdd
+ 1485 0937 00       		.byte	0
+ 1486 0938 13       		.uleb128 0x13
+ 1487 0939 F2080000 		.4byte	.LASF92
+ 1488 093d 0A       		.byte	0xa
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 31
+
+
+ 1489 093e 9E       		.byte	0x9e
+ 1490 093f B40B0000 		.4byte	.LASF93
+ 1491 0943 DD000000 		.4byte	0xdd
+ 1492 0947 01       		.byte	0x1
+ 1493 0948 50090000 		.4byte	0x950
+ 1494 094c 5B090000 		.4byte	0x95b
+ 1495 0950 0F       		.uleb128 0xf
+ 1496 0951 760D0000 		.4byte	0xd76
+ 1497 0955 11       		.uleb128 0x11
+ 1498 0956 90000000 		.4byte	0x90
+ 1499 095a 00       		.byte	0
+ 1500 095b 13       		.uleb128 0x13
+ 1501 095c F2080000 		.4byte	.LASF92
+ 1502 0960 0A       		.byte	0xa
+ 1503 0961 9F       		.byte	0x9f
+ 1504 0962 CA060000 		.4byte	.LASF94
+ 1505 0966 A90D0000 		.4byte	0xda9
+ 1506 096a 01       		.byte	0x1
+ 1507 096b 73090000 		.4byte	0x973
+ 1508 096f 7E090000 		.4byte	0x97e
+ 1509 0973 0F       		.uleb128 0xf
+ 1510 0974 870D0000 		.4byte	0xd87
+ 1511 0978 11       		.uleb128 0x11
+ 1512 0979 90000000 		.4byte	0x90
+ 1513 097d 00       		.byte	0
+ 1514 097e 14       		.uleb128 0x14
+ 1515 097f CE000000 		.4byte	.LASF95
+ 1516 0983 0A       		.byte	0xa
+ 1517 0984 A0       		.byte	0xa0
+ 1518 0985 33030000 		.4byte	.LASF97
+ 1519 0989 01       		.byte	0x1
+ 1520 098a 92090000 		.4byte	0x992
+ 1521 098e A7090000 		.4byte	0x9a7
+ 1522 0992 0F       		.uleb128 0xf
+ 1523 0993 760D0000 		.4byte	0xd76
+ 1524 0997 11       		.uleb128 0x11
+ 1525 0998 10010000 		.4byte	0x110
+ 1526 099c 11       		.uleb128 0x11
+ 1527 099d 90000000 		.4byte	0x90
+ 1528 09a1 11       		.uleb128 0x11
+ 1529 09a2 90000000 		.4byte	0x90
+ 1530 09a6 00       		.byte	0
+ 1531 09a7 14       		.uleb128 0x14
+ 1532 09a8 2D060000 		.4byte	.LASF98
+ 1533 09ac 0A       		.byte	0xa
+ 1534 09ad A1       		.byte	0xa1
+ 1535 09ae C9030000 		.4byte	.LASF99
+ 1536 09b2 01       		.byte	0x1
+ 1537 09b3 BB090000 		.4byte	0x9bb
+ 1538 09b7 D0090000 		.4byte	0x9d0
+ 1539 09bb 0F       		.uleb128 0xf
+ 1540 09bc 760D0000 		.4byte	0xd76
+ 1541 09c0 11       		.uleb128 0x11
+ 1542 09c1 16010000 		.4byte	0x116
+ 1543 09c5 11       		.uleb128 0x11
+ 1544 09c6 90000000 		.4byte	0x90
+ 1545 09ca 11       		.uleb128 0x11
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 32
+
+
+ 1546 09cb 90000000 		.4byte	0x90
+ 1547 09cf 00       		.byte	0
+ 1548 09d0 13       		.uleb128 0x13
+ 1549 09d1 760F0000 		.4byte	.LASF100
+ 1550 09d5 0A       		.byte	0xa
+ 1551 09d6 A3       		.byte	0xa3
+ 1552 09d7 4F070000 		.4byte	.LASF101
+ 1553 09db 1C010000 		.4byte	0x11c
+ 1554 09df 01       		.byte	0x1
+ 1555 09e0 E8090000 		.4byte	0x9e8
+ 1556 09e4 EE090000 		.4byte	0x9ee
+ 1557 09e8 0F       		.uleb128 0xf
+ 1558 09e9 760D0000 		.4byte	0xd76
+ 1559 09ed 00       		.byte	0
+ 1560 09ee 13       		.uleb128 0x13
+ 1561 09ef 74050000 		.4byte	.LASF102
+ 1562 09f3 0A       		.byte	0xa
+ 1563 09f4 A6       		.byte	0xa6
+ 1564 09f5 B6050000 		.4byte	.LASF103
+ 1565 09f9 89000000 		.4byte	0x89
+ 1566 09fd 01       		.byte	0x1
+ 1567 09fe 060A0000 		.4byte	0xa06
+ 1568 0a02 110A0000 		.4byte	0xa11
+ 1569 0a06 0F       		.uleb128 0xf
+ 1570 0a07 760D0000 		.4byte	0xd76
+ 1571 0a0b 11       		.uleb128 0x11
+ 1572 0a0c DD000000 		.4byte	0xdd
+ 1573 0a10 00       		.byte	0
+ 1574 0a11 13       		.uleb128 0x13
+ 1575 0a12 74050000 		.4byte	.LASF102
+ 1576 0a16 0A       		.byte	0xa
+ 1577 0a17 A7       		.byte	0xa7
+ 1578 0a18 56040000 		.4byte	.LASF104
+ 1579 0a1c 89000000 		.4byte	0x89
+ 1580 0a20 01       		.byte	0x1
+ 1581 0a21 290A0000 		.4byte	0xa29
+ 1582 0a25 390A0000 		.4byte	0xa39
+ 1583 0a29 0F       		.uleb128 0xf
+ 1584 0a2a 760D0000 		.4byte	0xd76
+ 1585 0a2e 11       		.uleb128 0x11
+ 1586 0a2f DD000000 		.4byte	0xdd
+ 1587 0a33 11       		.uleb128 0x11
+ 1588 0a34 90000000 		.4byte	0x90
+ 1589 0a38 00       		.byte	0
+ 1590 0a39 13       		.uleb128 0x13
+ 1591 0a3a 74050000 		.4byte	.LASF102
+ 1592 0a3e 0A       		.byte	0xa
+ 1593 0a3f A8       		.byte	0xa8
+ 1594 0a40 F8020000 		.4byte	.LASF105
+ 1595 0a44 89000000 		.4byte	0x89
+ 1596 0a48 01       		.byte	0x1
+ 1597 0a49 510A0000 		.4byte	0xa51
+ 1598 0a4d 5C0A0000 		.4byte	0xa5c
+ 1599 0a51 0F       		.uleb128 0xf
+ 1600 0a52 760D0000 		.4byte	0xd76
+ 1601 0a56 11       		.uleb128 0x11
+ 1602 0a57 8D0D0000 		.4byte	0xd8d
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 33
+
+
+ 1603 0a5b 00       		.byte	0
+ 1604 0a5c 13       		.uleb128 0x13
+ 1605 0a5d 74050000 		.4byte	.LASF102
+ 1606 0a61 0A       		.byte	0xa
+ 1607 0a62 A9       		.byte	0xa9
+ 1608 0a63 16100000 		.4byte	.LASF106
+ 1609 0a67 89000000 		.4byte	0x89
+ 1610 0a6b 01       		.byte	0x1
+ 1611 0a6c 740A0000 		.4byte	0xa74
+ 1612 0a70 840A0000 		.4byte	0xa84
+ 1613 0a74 0F       		.uleb128 0xf
+ 1614 0a75 760D0000 		.4byte	0xd76
+ 1615 0a79 11       		.uleb128 0x11
+ 1616 0a7a 8D0D0000 		.4byte	0xd8d
+ 1617 0a7e 11       		.uleb128 0x11
+ 1618 0a7f 90000000 		.4byte	0x90
+ 1619 0a83 00       		.byte	0
+ 1620 0a84 13       		.uleb128 0x13
+ 1621 0a85 AA050000 		.4byte	.LASF107
+ 1622 0a89 0A       		.byte	0xa
+ 1623 0a8a AA       		.byte	0xaa
+ 1624 0a8b D60F0000 		.4byte	.LASF108
+ 1625 0a8f 89000000 		.4byte	0x89
+ 1626 0a93 01       		.byte	0x1
+ 1627 0a94 9C0A0000 		.4byte	0xa9c
+ 1628 0a98 A70A0000 		.4byte	0xaa7
+ 1629 0a9c 0F       		.uleb128 0xf
+ 1630 0a9d 760D0000 		.4byte	0xd76
+ 1631 0aa1 11       		.uleb128 0x11
+ 1632 0aa2 DD000000 		.4byte	0xdd
+ 1633 0aa6 00       		.byte	0
+ 1634 0aa7 13       		.uleb128 0x13
+ 1635 0aa8 AA050000 		.4byte	.LASF107
+ 1636 0aac 0A       		.byte	0xa
+ 1637 0aad AB       		.byte	0xab
+ 1638 0aae 18020000 		.4byte	.LASF109
+ 1639 0ab2 89000000 		.4byte	0x89
+ 1640 0ab6 01       		.byte	0x1
+ 1641 0ab7 BF0A0000 		.4byte	0xabf
+ 1642 0abb CF0A0000 		.4byte	0xacf
+ 1643 0abf 0F       		.uleb128 0xf
+ 1644 0ac0 760D0000 		.4byte	0xd76
+ 1645 0ac4 11       		.uleb128 0x11
+ 1646 0ac5 DD000000 		.4byte	0xdd
+ 1647 0ac9 11       		.uleb128 0x11
+ 1648 0aca 90000000 		.4byte	0x90
+ 1649 0ace 00       		.byte	0
+ 1650 0acf 13       		.uleb128 0x13
+ 1651 0ad0 AA050000 		.4byte	.LASF107
+ 1652 0ad4 0A       		.byte	0xa
+ 1653 0ad5 AC       		.byte	0xac
+ 1654 0ad6 01010000 		.4byte	.LASF110
+ 1655 0ada 89000000 		.4byte	0x89
+ 1656 0ade 01       		.byte	0x1
+ 1657 0adf E70A0000 		.4byte	0xae7
+ 1658 0ae3 F20A0000 		.4byte	0xaf2
+ 1659 0ae7 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 34
+
+
+ 1660 0ae8 760D0000 		.4byte	0xd76
+ 1661 0aec 11       		.uleb128 0x11
+ 1662 0aed 8D0D0000 		.4byte	0xd8d
+ 1663 0af1 00       		.byte	0
+ 1664 0af2 13       		.uleb128 0x13
+ 1665 0af3 AA050000 		.4byte	.LASF107
+ 1666 0af7 0A       		.byte	0xa
+ 1667 0af8 AD       		.byte	0xad
+ 1668 0af9 C1080000 		.4byte	.LASF111
+ 1669 0afd 89000000 		.4byte	0x89
+ 1670 0b01 01       		.byte	0x1
+ 1671 0b02 0A0B0000 		.4byte	0xb0a
+ 1672 0b06 1A0B0000 		.4byte	0xb1a
+ 1673 0b0a 0F       		.uleb128 0xf
+ 1674 0b0b 760D0000 		.4byte	0xd76
+ 1675 0b0f 11       		.uleb128 0x11
+ 1676 0b10 8D0D0000 		.4byte	0xd8d
+ 1677 0b14 11       		.uleb128 0x11
+ 1678 0b15 90000000 		.4byte	0x90
+ 1679 0b19 00       		.byte	0
+ 1680 0b1a 13       		.uleb128 0x13
+ 1681 0b1b 7A070000 		.4byte	.LASF112
+ 1682 0b1f 0A       		.byte	0xa
+ 1683 0b20 AE       		.byte	0xae
+ 1684 0b21 91030000 		.4byte	.LASF113
+ 1685 0b25 27010000 		.4byte	0x127
+ 1686 0b29 01       		.byte	0x1
+ 1687 0b2a 320B0000 		.4byte	0xb32
+ 1688 0b2e 3D0B0000 		.4byte	0xb3d
+ 1689 0b32 0F       		.uleb128 0xf
+ 1690 0b33 760D0000 		.4byte	0xd76
+ 1691 0b37 11       		.uleb128 0x11
+ 1692 0b38 90000000 		.4byte	0x90
+ 1693 0b3c 00       		.byte	0
+ 1694 0b3d 13       		.uleb128 0x13
+ 1695 0b3e 7A070000 		.4byte	.LASF112
+ 1696 0b42 0A       		.byte	0xa
+ 1697 0b43 AF       		.byte	0xaf
+ 1698 0b44 BD0F0000 		.4byte	.LASF114
+ 1699 0b48 27010000 		.4byte	0x127
+ 1700 0b4c 01       		.byte	0x1
+ 1701 0b4d 550B0000 		.4byte	0xb55
+ 1702 0b51 650B0000 		.4byte	0xb65
+ 1703 0b55 0F       		.uleb128 0xf
+ 1704 0b56 760D0000 		.4byte	0xd76
+ 1705 0b5a 11       		.uleb128 0x11
+ 1706 0b5b 90000000 		.4byte	0x90
+ 1707 0b5f 11       		.uleb128 0x11
+ 1708 0b60 90000000 		.4byte	0x90
+ 1709 0b64 00       		.byte	0
+ 1710 0b65 14       		.uleb128 0x14
+ 1711 0b66 7E0D0000 		.4byte	.LASF115
+ 1712 0b6a 0A       		.byte	0xa
+ 1713 0b6b B2       		.byte	0xb2
+ 1714 0b6c 39060000 		.4byte	.LASF116
+ 1715 0b70 01       		.byte	0x1
+ 1716 0b71 790B0000 		.4byte	0xb79
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 35
+
+
+ 1717 0b75 890B0000 		.4byte	0xb89
+ 1718 0b79 0F       		.uleb128 0xf
+ 1719 0b7a 870D0000 		.4byte	0xd87
+ 1720 0b7e 11       		.uleb128 0x11
+ 1721 0b7f DD000000 		.4byte	0xdd
+ 1722 0b83 11       		.uleb128 0x11
+ 1723 0b84 DD000000 		.4byte	0xdd
+ 1724 0b88 00       		.byte	0
+ 1725 0b89 14       		.uleb128 0x14
+ 1726 0b8a 7E0D0000 		.4byte	.LASF115
+ 1727 0b8e 0A       		.byte	0xa
+ 1728 0b8f B3       		.byte	0xb3
+ 1729 0b90 4B0A0000 		.4byte	.LASF117
+ 1730 0b94 01       		.byte	0x1
+ 1731 0b95 9D0B0000 		.4byte	0xb9d
+ 1732 0b99 AD0B0000 		.4byte	0xbad
+ 1733 0b9d 0F       		.uleb128 0xf
+ 1734 0b9e 870D0000 		.4byte	0xd87
+ 1735 0ba2 11       		.uleb128 0x11
+ 1736 0ba3 8D0D0000 		.4byte	0xd8d
+ 1737 0ba7 11       		.uleb128 0x11
+ 1738 0ba8 8D0D0000 		.4byte	0xd8d
+ 1739 0bac 00       		.byte	0
+ 1740 0bad 14       		.uleb128 0x14
+ 1741 0bae CA010000 		.4byte	.LASF118
+ 1742 0bb2 0A       		.byte	0xa
+ 1743 0bb3 B4       		.byte	0xb4
+ 1744 0bb4 1C0F0000 		.4byte	.LASF119
+ 1745 0bb8 01       		.byte	0x1
+ 1746 0bb9 C10B0000 		.4byte	0xbc1
+ 1747 0bbd CC0B0000 		.4byte	0xbcc
+ 1748 0bc1 0F       		.uleb128 0xf
+ 1749 0bc2 870D0000 		.4byte	0xd87
+ 1750 0bc6 11       		.uleb128 0x11
+ 1751 0bc7 90000000 		.4byte	0x90
+ 1752 0bcb 00       		.byte	0
+ 1753 0bcc 14       		.uleb128 0x14
+ 1754 0bcd CA010000 		.4byte	.LASF118
+ 1755 0bd1 0A       		.byte	0xa
+ 1756 0bd2 B5       		.byte	0xb5
+ 1757 0bd3 B5060000 		.4byte	.LASF120
+ 1758 0bd7 01       		.byte	0x1
+ 1759 0bd8 E00B0000 		.4byte	0xbe0
+ 1760 0bdc F00B0000 		.4byte	0xbf0
+ 1761 0be0 0F       		.uleb128 0xf
+ 1762 0be1 870D0000 		.4byte	0xd87
+ 1763 0be5 11       		.uleb128 0x11
+ 1764 0be6 90000000 		.4byte	0x90
+ 1765 0bea 11       		.uleb128 0x11
+ 1766 0beb 90000000 		.4byte	0x90
+ 1767 0bef 00       		.byte	0
+ 1768 0bf0 14       		.uleb128 0x14
+ 1769 0bf1 F10F0000 		.4byte	.LASF121
+ 1770 0bf5 0A       		.byte	0xa
+ 1771 0bf6 B6       		.byte	0xb6
+ 1772 0bf7 11030000 		.4byte	.LASF122
+ 1773 0bfb 01       		.byte	0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 36
+
+
+ 1774 0bfc 040C0000 		.4byte	0xc04
+ 1775 0c00 0A0C0000 		.4byte	0xc0a
+ 1776 0c04 0F       		.uleb128 0xf
+ 1777 0c05 870D0000 		.4byte	0xd87
+ 1778 0c09 00       		.byte	0
+ 1779 0c0a 14       		.uleb128 0x14
+ 1780 0c0b 1C070000 		.4byte	.LASF123
+ 1781 0c0f 0A       		.byte	0xa
+ 1782 0c10 B7       		.byte	0xb7
+ 1783 0c11 43010000 		.4byte	.LASF124
+ 1784 0c15 01       		.byte	0x1
+ 1785 0c16 1E0C0000 		.4byte	0xc1e
+ 1786 0c1a 240C0000 		.4byte	0xc24
+ 1787 0c1e 0F       		.uleb128 0xf
+ 1788 0c1f 870D0000 		.4byte	0xd87
+ 1789 0c23 00       		.byte	0
+ 1790 0c24 14       		.uleb128 0x14
+ 1791 0c25 300F0000 		.4byte	.LASF125
+ 1792 0c29 0A       		.byte	0xa
+ 1793 0c2a B8       		.byte	0xb8
+ 1794 0c2b AD000000 		.4byte	.LASF126
+ 1795 0c2f 01       		.byte	0x1
+ 1796 0c30 380C0000 		.4byte	0xc38
+ 1797 0c34 3E0C0000 		.4byte	0xc3e
+ 1798 0c38 0F       		.uleb128 0xf
+ 1799 0c39 870D0000 		.4byte	0xd87
+ 1800 0c3d 00       		.byte	0
+ 1801 0c3e 13       		.uleb128 0x13
+ 1802 0c3f B70F0000 		.4byte	.LASF127
+ 1803 0c43 0A       		.byte	0xa
+ 1804 0c44 BB       		.byte	0xbb
+ 1805 0c45 F50D0000 		.4byte	.LASF128
+ 1806 0c49 6D000000 		.4byte	0x6d
+ 1807 0c4d 01       		.byte	0x1
+ 1808 0c4e 560C0000 		.4byte	0xc56
+ 1809 0c52 5C0C0000 		.4byte	0xc5c
+ 1810 0c56 0F       		.uleb128 0xf
+ 1811 0c57 760D0000 		.4byte	0xd76
+ 1812 0c5b 00       		.byte	0
+ 1813 0c5c 13       		.uleb128 0x13
+ 1814 0c5d 2B030000 		.4byte	.LASF129
+ 1815 0c61 0A       		.byte	0xa
+ 1816 0c62 BC       		.byte	0xbc
+ 1817 0c63 85060000 		.4byte	.LASF130
+ 1818 0c67 CF000000 		.4byte	0xcf
+ 1819 0c6b 01       		.byte	0x1
+ 1820 0c6c 740C0000 		.4byte	0xc74
+ 1821 0c70 7A0C0000 		.4byte	0xc7a
+ 1822 0c74 0F       		.uleb128 0xf
+ 1823 0c75 760D0000 		.4byte	0xd76
+ 1824 0c79 00       		.byte	0
+ 1825 0c7a 14       		.uleb128 0x14
+ 1826 0c7b 8A0A0000 		.4byte	.LASF131
+ 1827 0c7f 0A       		.byte	0xa
+ 1828 0c80 C3       		.byte	0xc3
+ 1829 0c81 B20E0000 		.4byte	.LASF132
+ 1830 0c85 02       		.byte	0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 37
+
+
+ 1831 0c86 8E0C0000 		.4byte	0xc8e
+ 1832 0c8a 940C0000 		.4byte	0xc94
+ 1833 0c8e 0F       		.uleb128 0xf
+ 1834 0c8f 870D0000 		.4byte	0xd87
+ 1835 0c93 00       		.byte	0
+ 1836 0c94 14       		.uleb128 0x14
+ 1837 0c95 48020000 		.4byte	.LASF133
+ 1838 0c99 0A       		.byte	0xa
+ 1839 0c9a C4       		.byte	0xc4
+ 1840 0c9b C40B0000 		.4byte	.LASF134
+ 1841 0c9f 02       		.byte	0x2
+ 1842 0ca0 A80C0000 		.4byte	0xca8
+ 1843 0ca4 AE0C0000 		.4byte	0xcae
+ 1844 0ca8 0F       		.uleb128 0xf
+ 1845 0ca9 870D0000 		.4byte	0xd87
+ 1846 0cad 00       		.byte	0
+ 1847 0cae 13       		.uleb128 0x13
+ 1848 0caf BD010000 		.4byte	.LASF135
+ 1849 0cb3 0A       		.byte	0xa
+ 1850 0cb4 C5       		.byte	0xc5
+ 1851 0cb5 28010000 		.4byte	.LASF136
+ 1852 0cb9 37000000 		.4byte	0x37
+ 1853 0cbd 02       		.byte	0x2
+ 1854 0cbe C60C0000 		.4byte	0xcc6
+ 1855 0cc2 D10C0000 		.4byte	0xcd1
+ 1856 0cc6 0F       		.uleb128 0xf
+ 1857 0cc7 870D0000 		.4byte	0xd87
+ 1858 0ccb 11       		.uleb128 0x11
+ 1859 0ccc 90000000 		.4byte	0x90
+ 1860 0cd0 00       		.byte	0
+ 1861 0cd1 13       		.uleb128 0x13
+ 1862 0cd2 5E050000 		.4byte	.LASF37
+ 1863 0cd6 0A       		.byte	0xa
+ 1864 0cd7 C6       		.byte	0xc6
+ 1865 0cd8 860D0000 		.4byte	.LASF137
+ 1866 0cdc 37000000 		.4byte	0x37
+ 1867 0ce0 02       		.byte	0x2
+ 1868 0ce1 E90C0000 		.4byte	0xce9
+ 1869 0ce5 F90C0000 		.4byte	0xcf9
+ 1870 0ce9 0F       		.uleb128 0xf
+ 1871 0cea 870D0000 		.4byte	0xd87
+ 1872 0cee 11       		.uleb128 0x11
+ 1873 0cef 1C010000 		.4byte	0x11c
+ 1874 0cf3 11       		.uleb128 0x11
+ 1875 0cf4 90000000 		.4byte	0x90
+ 1876 0cf8 00       		.byte	0
+ 1877 0cf9 13       		.uleb128 0x13
+ 1878 0cfa ED080000 		.4byte	.LASF138
+ 1879 0cfe 0A       		.byte	0xa
+ 1880 0cff C9       		.byte	0xc9
+ 1881 0d00 070F0000 		.4byte	.LASF139
+ 1882 0d04 A30D0000 		.4byte	0xda3
+ 1883 0d08 02       		.byte	0x2
+ 1884 0d09 110D0000 		.4byte	0xd11
+ 1885 0d0d 210D0000 		.4byte	0xd21
+ 1886 0d11 0F       		.uleb128 0xf
+ 1887 0d12 870D0000 		.4byte	0xd87
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 38
+
+
+ 1888 0d16 11       		.uleb128 0x11
+ 1889 0d17 1C010000 		.4byte	0x11c
+ 1890 0d1b 11       		.uleb128 0x11
+ 1891 0d1c 90000000 		.4byte	0x90
+ 1892 0d20 00       		.byte	0
+ 1893 0d21 15       		.uleb128 0x15
+ 1894 0d22 ED080000 		.4byte	.LASF138
+ 1895 0d26 0A       		.byte	0xa
+ 1896 0d27 CA       		.byte	0xca
+ 1897 0d28 370E0000 		.4byte	.LASF140
+ 1898 0d2c A30D0000 		.4byte	0xda3
+ 1899 0d30 02       		.byte	0x2
+ 1900 0d31 350D0000 		.4byte	0xd35
+ 1901 0d35 0F       		.uleb128 0xf
+ 1902 0d36 870D0000 		.4byte	0xd87
+ 1903 0d3a 11       		.uleb128 0x11
+ 1904 0d3b 930D0000 		.4byte	0xd93
+ 1905 0d3f 11       		.uleb128 0x11
+ 1906 0d40 90000000 		.4byte	0x90
+ 1907 0d44 00       		.byte	0
+ 1908 0d45 00       		.byte	0
+ 1909 0d46 16       		.uleb128 0x16
+ 1910 0d47 08       		.byte	0x8
+ 1911 0d48 0D       		.byte	0xd
+ 1912 0d49 00       		.byte	0
+ 1913 0d4a 670D0000 		.4byte	0xd67
+ 1914 0d4e 17       		.uleb128 0x17
+ 1915 0d4f 82010000 		.4byte	.LASF141
+ 1916 0d53 0A       		.byte	0xa
+ 1917 0d54 32       		.byte	0x32
+ 1918 0d55 810D0000 		.4byte	0xd81
+ 1919 0d59 00       		.byte	0
+ 1920 0d5a 17       		.uleb128 0x17
+ 1921 0d5b AC0B0000 		.4byte	.LASF142
+ 1922 0d5f 0A       		.byte	0xa
+ 1923 0d60 32       		.byte	0x32
+ 1924 0d61 89000000 		.4byte	0x89
+ 1925 0d65 04       		.byte	0x4
+ 1926 0d66 00       		.byte	0
+ 1927 0d67 18       		.uleb128 0x18
+ 1928 0d68 700D0000 		.4byte	0xd70
+ 1929 0d6c 760D0000 		.4byte	0xd76
+ 1930 0d70 0F       		.uleb128 0xf
+ 1931 0d71 760D0000 		.4byte	0xd76
+ 1932 0d75 00       		.byte	0
+ 1933 0d76 07       		.uleb128 0x7
+ 1934 0d77 04       		.byte	0x4
+ 1935 0d78 7C0D0000 		.4byte	0xd7c
+ 1936 0d7c 0A       		.uleb128 0xa
+ 1937 0d7d 27010000 		.4byte	0x127
+ 1938 0d81 07       		.uleb128 0x7
+ 1939 0d82 04       		.byte	0x4
+ 1940 0d83 670D0000 		.4byte	0xd67
+ 1941 0d87 07       		.uleb128 0x7
+ 1942 0d88 04       		.byte	0x4
+ 1943 0d89 27010000 		.4byte	0x127
+ 1944 0d8d 19       		.uleb128 0x19
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 39
+
+
+ 1945 0d8e 04       		.byte	0x4
+ 1946 0d8f 7C0D0000 		.4byte	0xd7c
+ 1947 0d93 07       		.uleb128 0x7
+ 1948 0d94 04       		.byte	0x4
+ 1949 0d95 990D0000 		.4byte	0xd99
+ 1950 0d99 0A       		.uleb128 0xa
+ 1951 0d9a 9E0D0000 		.4byte	0xd9e
+ 1952 0d9e 1A       		.uleb128 0x1a
+ 1953 0d9f 42100000 		.4byte	.LASF238
+ 1954 0da3 19       		.uleb128 0x19
+ 1955 0da4 04       		.byte	0x4
+ 1956 0da5 27010000 		.4byte	0x127
+ 1957 0da9 19       		.uleb128 0x19
+ 1958 0daa 04       		.byte	0x4
+ 1959 0dab DD000000 		.4byte	0xdd
+ 1960 0daf 1B       		.uleb128 0x1b
+ 1961 0db0 D1010000 		.4byte	.LASF144
+ 1962 0db4 10       		.byte	0x10
+ 1963 0db5 03       		.byte	0x3
+ 1964 0db6 1A       		.byte	0x1a
+ 1965 0db7 4E0F0000 		.4byte	0xf4e
+ 1966 0dbb 4E0F0000 		.4byte	0xf4e
+ 1967 0dbf 1C       		.uleb128 0x1c
+ 1968 0dc0 03       		.byte	0x3
+ 1969 0dc1 1A       		.byte	0x1a
+ 1970 0dc2 570F0000 		.4byte	0xf57
+ 1971 0dc6 1D       		.uleb128 0x1d
+ 1972 0dc7 D2100000 		.4byte	0x10d2
+ 1973 0dcb 00       		.byte	0
+ 1974 0dcc 01       		.byte	0x1
+ 1975 0dcd 1E       		.uleb128 0x1e
+ 1976 0dce D1010000 		.4byte	.LASF144
+ 1977 0dd2 1A150000 		.4byte	0x151a
+ 1978 0dd6 01       		.byte	0x1
+ 1979 0dd7 DF0D0000 		.4byte	0xddf
+ 1980 0ddb EA0D0000 		.4byte	0xdea
+ 1981 0ddf 0F       		.uleb128 0xf
+ 1982 0de0 1A150000 		.4byte	0x151a
+ 1983 0de4 11       		.uleb128 0x11
+ 1984 0de5 20150000 		.4byte	0x1520
+ 1985 0de9 00       		.byte	0
+ 1986 0dea 10       		.uleb128 0x10
+ 1987 0deb D1010000 		.4byte	.LASF144
+ 1988 0def 03       		.byte	0x3
+ 1989 0df0 1D       		.byte	0x1d
+ 1990 0df1 1A150000 		.4byte	0x151a
+ 1991 0df5 01       		.byte	0x1
+ 1992 0df6 FE0D0000 		.4byte	0xdfe
+ 1993 0dfa 040E0000 		.4byte	0xe04
+ 1994 0dfe 0F       		.uleb128 0xf
+ 1995 0dff 1A150000 		.4byte	0x151a
+ 1996 0e03 00       		.byte	0
+ 1997 0e04 10       		.uleb128 0x10
+ 1998 0e05 91050000 		.4byte	.LASF145
+ 1999 0e09 03       		.byte	0x3
+ 2000 0e0a 1E       		.byte	0x1e
+ 2001 0e0b 0E010000 		.4byte	0x10e
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 40
+
+
+ 2002 0e0f 01       		.byte	0x1
+ 2003 0e10 180E0000 		.4byte	0xe18
+ 2004 0e14 230E0000 		.4byte	0xe23
+ 2005 0e18 0F       		.uleb128 0xf
+ 2006 0e19 1A150000 		.4byte	0x151a
+ 2007 0e1d 0F       		.uleb128 0xf
+ 2008 0e1e 89000000 		.4byte	0x89
+ 2009 0e22 00       		.byte	0
+ 2010 0e23 1F       		.uleb128 0x1f
+ 2011 0e24 11060000 		.4byte	.LASF146
+ 2012 0e28 03       		.byte	0x3
+ 2013 0e29 1F       		.byte	0x1f
+ 2014 0e2a B80D0000 		.4byte	.LASF154
+ 2015 0e2e 01       		.byte	0x1
+ 2016 0e2f 02       		.uleb128 0x2
+ 2017 0e30 10       		.byte	0x10
+ 2018 0e31 06       		.uleb128 0x6
+ 2019 0e32 AF0D0000 		.4byte	0xdaf
+ 2020 0e36 01       		.byte	0x1
+ 2021 0e37 3F0E0000 		.4byte	0xe3f
+ 2022 0e3b 4A0E0000 		.4byte	0xe4a
+ 2023 0e3f 0F       		.uleb128 0xf
+ 2024 0e40 1A150000 		.4byte	0x151a
+ 2025 0e44 11       		.uleb128 0x11
+ 2026 0e45 74000000 		.4byte	0x74
+ 2027 0e49 00       		.byte	0
+ 2028 0e4a 20       		.uleb128 0x20
+ 2029 0e4b 656E6400 		.ascii	"end\000"
+ 2030 0e4f 03       		.byte	0x3
+ 2031 0e50 20       		.byte	0x20
+ 2032 0e51 600E0000 		.4byte	.LASF239
+ 2033 0e55 01       		.byte	0x1
+ 2034 0e56 02       		.uleb128 0x2
+ 2035 0e57 10       		.byte	0x10
+ 2036 0e58 07       		.uleb128 0x7
+ 2037 0e59 AF0D0000 		.4byte	0xdaf
+ 2038 0e5d 01       		.byte	0x1
+ 2039 0e5e 660E0000 		.4byte	0xe66
+ 2040 0e62 6C0E0000 		.4byte	0xe6c
+ 2041 0e66 0F       		.uleb128 0xf
+ 2042 0e67 1A150000 		.4byte	0x151a
+ 2043 0e6b 00       		.byte	0
+ 2044 0e6c 21       		.uleb128 0x21
+ 2045 0e6d 150B0000 		.4byte	.LASF147
+ 2046 0e71 03       		.byte	0x3
+ 2047 0e72 21       		.byte	0x21
+ 2048 0e73 7A0E0000 		.4byte	.LASF149
+ 2049 0e77 89000000 		.4byte	0x89
+ 2050 0e7b 01       		.byte	0x1
+ 2051 0e7c 02       		.uleb128 0x2
+ 2052 0e7d 10       		.byte	0x10
+ 2053 0e7e 02       		.uleb128 0x2
+ 2054 0e7f AF0D0000 		.4byte	0xdaf
+ 2055 0e83 01       		.byte	0x1
+ 2056 0e84 8C0E0000 		.4byte	0xe8c
+ 2057 0e88 920E0000 		.4byte	0xe92
+ 2058 0e8c 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 41
+
+
+ 2059 0e8d 1A150000 		.4byte	0x151a
+ 2060 0e91 00       		.byte	0
+ 2061 0e92 21       		.uleb128 0x21
+ 2062 0e93 FD060000 		.4byte	.LASF148
+ 2063 0e97 03       		.byte	0x3
+ 2064 0e98 22       		.byte	0x22
+ 2065 0e99 090E0000 		.4byte	.LASF150
+ 2066 0e9d 89000000 		.4byte	0x89
+ 2067 0ea1 01       		.byte	0x1
+ 2068 0ea2 02       		.uleb128 0x2
+ 2069 0ea3 10       		.byte	0x10
+ 2070 0ea4 04       		.uleb128 0x4
+ 2071 0ea5 AF0D0000 		.4byte	0xdaf
+ 2072 0ea9 01       		.byte	0x1
+ 2073 0eaa B20E0000 		.4byte	0xeb2
+ 2074 0eae B80E0000 		.4byte	0xeb8
+ 2075 0eb2 0F       		.uleb128 0xf
+ 2076 0eb3 1A150000 		.4byte	0x151a
+ 2077 0eb7 00       		.byte	0
+ 2078 0eb8 21       		.uleb128 0x21
+ 2079 0eb9 A20F0000 		.4byte	.LASF151
+ 2080 0ebd 03       		.byte	0x3
+ 2081 0ebe 23       		.byte	0x23
+ 2082 0ebf 3B0D0000 		.4byte	.LASF152
+ 2083 0ec3 89000000 		.4byte	0x89
+ 2084 0ec7 01       		.byte	0x1
+ 2085 0ec8 02       		.uleb128 0x2
+ 2086 0ec9 10       		.byte	0x10
+ 2087 0eca 03       		.uleb128 0x3
+ 2088 0ecb AF0D0000 		.4byte	0xdaf
+ 2089 0ecf 01       		.byte	0x1
+ 2090 0ed0 D80E0000 		.4byte	0xed8
+ 2091 0ed4 DE0E0000 		.4byte	0xede
+ 2092 0ed8 0F       		.uleb128 0xf
+ 2093 0ed9 1A150000 		.4byte	0x151a
+ 2094 0edd 00       		.byte	0
+ 2095 0ede 1F       		.uleb128 0x1f
+ 2096 0edf FD080000 		.4byte	.LASF153
+ 2097 0ee3 03       		.byte	0x3
+ 2098 0ee4 24       		.byte	0x24
+ 2099 0ee5 F5010000 		.4byte	.LASF155
+ 2100 0ee9 01       		.byte	0x1
+ 2101 0eea 02       		.uleb128 0x2
+ 2102 0eeb 10       		.byte	0x10
+ 2103 0eec 05       		.uleb128 0x5
+ 2104 0eed AF0D0000 		.4byte	0xdaf
+ 2105 0ef1 01       		.byte	0x1
+ 2106 0ef2 FA0E0000 		.4byte	0xefa
+ 2107 0ef6 000F0000 		.4byte	0xf00
+ 2108 0efa 0F       		.uleb128 0xf
+ 2109 0efb 1A150000 		.4byte	0x151a
+ 2110 0eff 00       		.byte	0
+ 2111 0f00 21       		.uleb128 0x21
+ 2112 0f01 E7080000 		.4byte	.LASF156
+ 2113 0f05 03       		.byte	0x3
+ 2114 0f06 25       		.byte	0x25
+ 2115 0f07 AF090000 		.4byte	.LASF157
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 42
+
+
+ 2116 0f0b FC000000 		.4byte	0xfc
+ 2117 0f0f 01       		.byte	0x1
+ 2118 0f10 02       		.uleb128 0x2
+ 2119 0f11 10       		.byte	0x10
+ 2120 0f12 00       		.uleb128 0
+ 2121 0f13 AF0D0000 		.4byte	0xdaf
+ 2122 0f17 01       		.byte	0x1
+ 2123 0f18 200F0000 		.4byte	0xf20
+ 2124 0f1c 2B0F0000 		.4byte	0xf2b
+ 2125 0f20 0F       		.uleb128 0xf
+ 2126 0f21 1A150000 		.4byte	0x151a
+ 2127 0f25 11       		.uleb128 0x11
+ 2128 0f26 97000000 		.4byte	0x97
+ 2129 0f2a 00       		.byte	0
+ 2130 0f2b 22       		.uleb128 0x22
+ 2131 0f2c E10E0000 		.4byte	.LASF158
+ 2132 0f30 03       		.byte	0x3
+ 2133 0f31 27       		.byte	0x27
+ 2134 0f32 59000000 		.4byte	.LASF159
+ 2135 0f36 2A100000 		.4byte	0x102a
+ 2136 0f3a 01       		.byte	0x1
+ 2137 0f3b 02       		.uleb128 0x2
+ 2138 0f3c 10       		.byte	0x10
+ 2139 0f3d 08       		.uleb128 0x8
+ 2140 0f3e AF0D0000 		.4byte	0xdaf
+ 2141 0f42 01       		.byte	0x1
+ 2142 0f43 470F0000 		.4byte	0xf47
+ 2143 0f47 0F       		.uleb128 0xf
+ 2144 0f48 1A150000 		.4byte	0x151a
+ 2145 0f4c 00       		.byte	0
+ 2146 0f4d 00       		.byte	0
+ 2147 0f4e 23       		.uleb128 0x23
+ 2148 0f4f 7F060000 		.4byte	.LASF172
+ 2149 0f53 9B0F0000 		.4byte	0xf9b
+ 2150 0f57 13       		.uleb128 0x13
+ 2151 0f58 E7080000 		.4byte	.LASF156
+ 2152 0f5c 01       		.byte	0x1
+ 2153 0f5d 37       		.byte	0x37
+ 2154 0f5e D9060000 		.4byte	.LASF160
+ 2155 0f62 FC000000 		.4byte	0xfc
+ 2156 0f66 01       		.byte	0x1
+ 2157 0f67 6F0F0000 		.4byte	0xf6f
+ 2158 0f6b 7F0F0000 		.4byte	0xf7f
+ 2159 0f6f 0F       		.uleb128 0xf
+ 2160 0f70 9B0F0000 		.4byte	0xf9b
+ 2161 0f74 11       		.uleb128 0x11
+ 2162 0f75 1C010000 		.4byte	0x11c
+ 2163 0f79 11       		.uleb128 0x11
+ 2164 0f7a FC000000 		.4byte	0xfc
+ 2165 0f7e 00       		.byte	0
+ 2166 0f7f 24       		.uleb128 0x24
+ 2167 0f80 E0080000 		.4byte	.LASF161
+ 2168 0f84 01       		.byte	0x1
+ 2169 0f85 2C       		.byte	0x2c
+ 2170 0f86 0E010000 		.4byte	0x10e
+ 2171 0f8a 01       		.byte	0x1
+ 2172 0f8b 8F0F0000 		.4byte	0xf8f
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 43
+
+
+ 2173 0f8f 0F       		.uleb128 0xf
+ 2174 0f90 9B0F0000 		.4byte	0xf9b
+ 2175 0f94 0F       		.uleb128 0xf
+ 2176 0f95 89000000 		.4byte	0x89
+ 2177 0f99 00       		.byte	0
+ 2178 0f9a 00       		.byte	0
+ 2179 0f9b 07       		.uleb128 0x7
+ 2180 0f9c 04       		.byte	0x4
+ 2181 0f9d 4E0F0000 		.4byte	0xf4e
+ 2182 0fa1 25       		.uleb128 0x25
+ 2183 0fa2 52080000 		.4byte	.LASF240
+ 2184 0fa6 24       		.byte	0x24
+ 2185 0fa7 04       		.byte	0x4
+ 2186 0fa8 1A       		.byte	0x1a
+ 2187 0fa9 1A100000 		.4byte	0x101a
+ 2188 0fad 17       		.uleb128 0x17
+ 2189 0fae 120D0000 		.4byte	.LASF162
+ 2190 0fb2 04       		.byte	0x4
+ 2191 0fb3 1C       		.byte	0x1c
+ 2192 0fb4 1F100000 		.4byte	0x101f
+ 2193 0fb8 00       		.byte	0
+ 2194 0fb9 17       		.uleb128 0x17
+ 2195 0fba EE030000 		.4byte	.LASF163
+ 2196 0fbe 04       		.byte	0x4
+ 2197 0fbf 1D       		.byte	0x1d
+ 2198 0fc0 31100000 		.4byte	0x1031
+ 2199 0fc4 04       		.byte	0x4
+ 2200 0fc5 17       		.uleb128 0x17
+ 2201 0fc6 84070000 		.4byte	.LASF164
+ 2202 0fca 04       		.byte	0x4
+ 2203 0fcb 1E       		.byte	0x1e
+ 2204 0fcc F5000000 		.4byte	0xf5
+ 2205 0fd0 08       		.byte	0x8
+ 2206 0fd1 17       		.uleb128 0x17
+ 2207 0fd2 4D030000 		.4byte	.LASF165
+ 2208 0fd6 04       		.byte	0x4
+ 2209 0fd7 1F       		.byte	0x1f
+ 2210 0fd8 42100000 		.4byte	0x1042
+ 2211 0fdc 0C       		.byte	0xc
+ 2212 0fdd 17       		.uleb128 0x17
+ 2213 0fde 37050000 		.4byte	.LASF166
+ 2214 0fe2 04       		.byte	0x4
+ 2215 0fe3 20       		.byte	0x20
+ 2216 0fe4 63100000 		.4byte	0x1063
+ 2217 0fe8 10       		.byte	0x10
+ 2218 0fe9 17       		.uleb128 0x17
+ 2219 0fea 61100000 		.4byte	.LASF167
+ 2220 0fee 04       		.byte	0x4
+ 2221 0fef 21       		.byte	0x21
+ 2222 0ff0 83100000 		.4byte	0x1083
+ 2223 0ff4 14       		.byte	0x14
+ 2224 0ff5 17       		.uleb128 0x17
+ 2225 0ff6 8F0A0000 		.4byte	.LASF168
+ 2226 0ffa 04       		.byte	0x4
+ 2227 0ffb 22       		.byte	0x22
+ 2228 0ffc 8E100000 		.4byte	0x108e
+ 2229 1000 18       		.byte	0x18
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 44
+
+
+ 2230 1001 17       		.uleb128 0x17
+ 2231 1002 17060000 		.4byte	.LASF169
+ 2232 1006 04       		.byte	0x4
+ 2233 1007 23       		.byte	0x23
+ 2234 1008 F5000000 		.4byte	0xf5
+ 2235 100c 1C       		.byte	0x1c
+ 2236 100d 17       		.uleb128 0x17
+ 2237 100e 7E100000 		.4byte	.LASF170
+ 2238 1012 04       		.byte	0x4
+ 2239 1013 24       		.byte	0x24
+ 2240 1014 99100000 		.4byte	0x1099
+ 2241 1018 20       		.byte	0x20
+ 2242 1019 00       		.byte	0
+ 2243 101a 26       		.uleb128 0x26
+ 2244 101b A2000000 		.4byte	0xa2
+ 2245 101f 07       		.uleb128 0x7
+ 2246 1020 04       		.byte	0x4
+ 2247 1021 1A100000 		.4byte	0x101a
+ 2248 1025 26       		.uleb128 0x26
+ 2249 1026 2A100000 		.4byte	0x102a
+ 2250 102a 02       		.uleb128 0x2
+ 2251 102b 01       		.byte	0x1
+ 2252 102c 02       		.byte	0x2
+ 2253 102d 100B0000 		.4byte	.LASF171
+ 2254 1031 07       		.uleb128 0x7
+ 2255 1032 04       		.byte	0x4
+ 2256 1033 25100000 		.4byte	0x1025
+ 2257 1037 27       		.uleb128 0x27
+ 2258 1038 42100000 		.4byte	0x1042
+ 2259 103c 11       		.uleb128 0x11
+ 2260 103d AD000000 		.4byte	0xad
+ 2261 1041 00       		.byte	0
+ 2262 1042 07       		.uleb128 0x7
+ 2263 1043 04       		.byte	0x4
+ 2264 1044 37100000 		.4byte	0x1037
+ 2265 1048 27       		.uleb128 0x27
+ 2266 1049 58100000 		.4byte	0x1058
+ 2267 104d 11       		.uleb128 0x11
+ 2268 104e 58100000 		.4byte	0x1058
+ 2269 1052 11       		.uleb128 0x11
+ 2270 1053 AD000000 		.4byte	0xad
+ 2271 1057 00       		.byte	0
+ 2272 1058 07       		.uleb128 0x7
+ 2273 1059 04       		.byte	0x4
+ 2274 105a 5E100000 		.4byte	0x105e
+ 2275 105e 0A       		.uleb128 0xa
+ 2276 105f 97000000 		.4byte	0x97
+ 2277 1063 07       		.uleb128 0x7
+ 2278 1064 04       		.byte	0x4
+ 2279 1065 48100000 		.4byte	0x1048
+ 2280 1069 28       		.uleb128 0x28
+ 2281 106a AD000000 		.4byte	0xad
+ 2282 106e 7D100000 		.4byte	0x107d
+ 2283 1072 11       		.uleb128 0x11
+ 2284 1073 7D100000 		.4byte	0x107d
+ 2285 1077 11       		.uleb128 0x11
+ 2286 1078 AD000000 		.4byte	0xad
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 45
+
+
+ 2287 107c 00       		.byte	0
+ 2288 107d 07       		.uleb128 0x7
+ 2289 107e 04       		.byte	0x4
+ 2290 107f 97000000 		.4byte	0x97
+ 2291 1083 07       		.uleb128 0x7
+ 2292 1084 04       		.byte	0x4
+ 2293 1085 69100000 		.4byte	0x1069
+ 2294 1089 26       		.uleb128 0x26
+ 2295 108a DD000000 		.4byte	0xdd
+ 2296 108e 07       		.uleb128 0x7
+ 2297 108f 04       		.byte	0x4
+ 2298 1090 89100000 		.4byte	0x1089
+ 2299 1094 26       		.uleb128 0x26
+ 2300 1095 97000000 		.4byte	0x97
+ 2301 1099 07       		.uleb128 0x7
+ 2302 109a 04       		.byte	0x4
+ 2303 109b 94100000 		.4byte	0x1094
+ 2304 109f 23       		.uleb128 0x23
+ 2305 10a0 03090000 		.4byte	.LASF173
+ 2306 10a4 CB100000 		.4byte	0x10cb
+ 2307 10a8 1C       		.uleb128 0x1c
+ 2308 10a9 04       		.byte	0x4
+ 2309 10aa 28       		.byte	0x28
+ 2310 10ab 570F0000 		.4byte	0xf57
+ 2311 10af 24       		.uleb128 0x24
+ 2312 10b0 AC0F0000 		.4byte	.LASF174
+ 2313 10b4 04       		.byte	0x4
+ 2314 10b5 2C       		.byte	0x2c
+ 2315 10b6 0E010000 		.4byte	0x10e
+ 2316 10ba 01       		.byte	0x1
+ 2317 10bb BF100000 		.4byte	0x10bf
+ 2318 10bf 0F       		.uleb128 0xf
+ 2319 10c0 29160000 		.4byte	0x1629
+ 2320 10c4 0F       		.uleb128 0xf
+ 2321 10c5 89000000 		.4byte	0x89
+ 2322 10c9 00       		.byte	0
+ 2323 10ca 00       		.byte	0
+ 2324 10cb 02       		.uleb128 0x2
+ 2325 10cc 08       		.byte	0x8
+ 2326 10cd 04       		.byte	0x4
+ 2327 10ce 6D040000 		.4byte	.LASF175
+ 2328 10d2 1B       		.uleb128 0x1b
+ 2329 10d3 6D020000 		.4byte	.LASF176
+ 2330 10d7 10       		.byte	0x10
+ 2331 10d8 02       		.byte	0x2
+ 2332 10d9 26       		.byte	0x26
+ 2333 10da 4E0F0000 		.4byte	0xf4e
+ 2334 10de 1A150000 		.4byte	0x151a
+ 2335 10e2 1D       		.uleb128 0x1d
+ 2336 10e3 4E0F0000 		.4byte	0xf4e
+ 2337 10e7 00       		.byte	0
+ 2338 10e8 01       		.byte	0x1
+ 2339 10e9 0C       		.uleb128 0xc
+ 2340 10ea 59030000 		.4byte	.LASF177
+ 2341 10ee 02       		.byte	0x2
+ 2342 10ef 29       		.byte	0x29
+ 2343 10f0 74000000 		.4byte	0x74
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 46
+
+
+ 2344 10f4 08       		.byte	0x8
+ 2345 10f5 02       		.byte	0x2
+ 2346 10f6 0C       		.uleb128 0xc
+ 2347 10f7 A0000000 		.4byte	.LASF178
+ 2348 10fb 02       		.byte	0x2
+ 2349 10fc 2A       		.byte	0x2a
+ 2350 10fd 74000000 		.4byte	0x74
+ 2351 1101 0C       		.byte	0xc
+ 2352 1102 02       		.byte	0x2
+ 2353 1103 1E       		.uleb128 0x1e
+ 2354 1104 6D020000 		.4byte	.LASF176
+ 2355 1108 2B150000 		.4byte	0x152b
+ 2356 110c 01       		.byte	0x1
+ 2357 110d 15110000 		.4byte	0x1115
+ 2358 1111 20110000 		.4byte	0x1120
+ 2359 1115 0F       		.uleb128 0xf
+ 2360 1116 2B150000 		.4byte	0x152b
+ 2361 111a 11       		.uleb128 0x11
+ 2362 111b 31150000 		.4byte	0x1531
+ 2363 111f 00       		.byte	0
+ 2364 1120 13       		.uleb128 0x13
+ 2365 1121 D40D0000 		.4byte	.LASF179
+ 2366 1125 02       		.byte	0x2
+ 2367 1126 2B       		.byte	0x2b
+ 2368 1127 DE0D0000 		.4byte	.LASF180
+ 2369 112b 89000000 		.4byte	0x89
+ 2370 112f 02       		.byte	0x2
+ 2371 1130 38110000 		.4byte	0x1138
+ 2372 1134 3E110000 		.4byte	0x113e
+ 2373 1138 0F       		.uleb128 0xf
+ 2374 1139 2B150000 		.4byte	0x152b
+ 2375 113d 00       		.byte	0
+ 2376 113e 13       		.uleb128 0x13
+ 2377 113f C40E0000 		.4byte	.LASF181
+ 2378 1143 02       		.byte	0x2
+ 2379 1144 2C       		.byte	0x2c
+ 2380 1145 340A0000 		.4byte	.LASF182
+ 2381 1149 89000000 		.4byte	0x89
+ 2382 114d 02       		.byte	0x2
+ 2383 114e 56110000 		.4byte	0x1156
+ 2384 1152 5C110000 		.4byte	0x115c
+ 2385 1156 0F       		.uleb128 0xf
+ 2386 1157 2B150000 		.4byte	0x152b
+ 2387 115b 00       		.byte	0
+ 2388 115c 13       		.uleb128 0x13
+ 2389 115d 74010000 		.4byte	.LASF183
+ 2390 1161 02       		.byte	0x2
+ 2391 1162 2D       		.byte	0x2d
+ 2392 1163 74020000 		.4byte	.LASF184
+ 2393 1167 89000000 		.4byte	0x89
+ 2394 116b 02       		.byte	0x2
+ 2395 116c 74110000 		.4byte	0x1174
+ 2396 1170 7A110000 		.4byte	0x117a
+ 2397 1174 0F       		.uleb128 0xf
+ 2398 1175 2B150000 		.4byte	0x152b
+ 2399 1179 00       		.byte	0
+ 2400 117a 10       		.uleb128 0x10
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 47
+
+
+ 2401 117b 080B0000 		.4byte	.LASF185
+ 2402 117f 02       		.byte	0x2
+ 2403 1180 30       		.byte	0x30
+ 2404 1181 0E010000 		.4byte	0x10e
+ 2405 1185 01       		.byte	0x1
+ 2406 1186 8E110000 		.4byte	0x118e
+ 2407 118a 99110000 		.4byte	0x1199
+ 2408 118e 0F       		.uleb128 0xf
+ 2409 118f 2B150000 		.4byte	0x152b
+ 2410 1193 0F       		.uleb128 0xf
+ 2411 1194 89000000 		.4byte	0x89
+ 2412 1198 00       		.byte	0
+ 2413 1199 21       		.uleb128 0x21
+ 2414 119a 150B0000 		.4byte	.LASF147
+ 2415 119e 02       		.byte	0x2
+ 2416 119f 31       		.byte	0x31
+ 2417 11a0 63070000 		.4byte	.LASF186
+ 2418 11a4 89000000 		.4byte	0x89
+ 2419 11a8 01       		.byte	0x1
+ 2420 11a9 02       		.uleb128 0x2
+ 2421 11aa 10       		.byte	0x10
+ 2422 11ab 02       		.uleb128 0x2
+ 2423 11ac D2100000 		.4byte	0x10d2
+ 2424 11b0 01       		.byte	0x1
+ 2425 11b1 B9110000 		.4byte	0x11b9
+ 2426 11b5 BF110000 		.4byte	0x11bf
+ 2427 11b9 0F       		.uleb128 0xf
+ 2428 11ba 2B150000 		.4byte	0x152b
+ 2429 11be 00       		.byte	0
+ 2430 11bf 21       		.uleb128 0x21
+ 2431 11c0 A20F0000 		.4byte	.LASF151
+ 2432 11c4 02       		.byte	0x2
+ 2433 11c5 32       		.byte	0x32
+ 2434 11c6 F10B0000 		.4byte	.LASF187
+ 2435 11ca 89000000 		.4byte	0x89
+ 2436 11ce 01       		.byte	0x1
+ 2437 11cf 02       		.uleb128 0x2
+ 2438 11d0 10       		.byte	0x10
+ 2439 11d1 03       		.uleb128 0x3
+ 2440 11d2 D2100000 		.4byte	0x10d2
+ 2441 11d6 01       		.byte	0x1
+ 2442 11d7 DF110000 		.4byte	0x11df
+ 2443 11db E5110000 		.4byte	0x11e5
+ 2444 11df 0F       		.uleb128 0xf
+ 2445 11e0 2B150000 		.4byte	0x152b
+ 2446 11e4 00       		.byte	0
+ 2447 11e5 21       		.uleb128 0x21
+ 2448 11e6 FD060000 		.4byte	.LASF148
+ 2449 11ea 02       		.byte	0x2
+ 2450 11eb 33       		.byte	0x33
+ 2451 11ec 5C0C0000 		.4byte	.LASF188
+ 2452 11f0 89000000 		.4byte	0x89
+ 2453 11f4 01       		.byte	0x1
+ 2454 11f5 02       		.uleb128 0x2
+ 2455 11f6 10       		.byte	0x10
+ 2456 11f7 04       		.uleb128 0x4
+ 2457 11f8 D2100000 		.4byte	0x10d2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 48
+
+
+ 2458 11fc 01       		.byte	0x1
+ 2459 11fd 05120000 		.4byte	0x1205
+ 2460 1201 0B120000 		.4byte	0x120b
+ 2461 1205 0F       		.uleb128 0xf
+ 2462 1206 2B150000 		.4byte	0x152b
+ 2463 120a 00       		.byte	0
+ 2464 120b 1F       		.uleb128 0x1f
+ 2465 120c FD080000 		.4byte	.LASF153
+ 2466 1210 02       		.byte	0x2
+ 2467 1211 34       		.byte	0x34
+ 2468 1212 FA0C0000 		.4byte	.LASF189
+ 2469 1216 01       		.byte	0x1
+ 2470 1217 02       		.uleb128 0x2
+ 2471 1218 10       		.byte	0x10
+ 2472 1219 05       		.uleb128 0x5
+ 2473 121a D2100000 		.4byte	0x10d2
+ 2474 121e 01       		.byte	0x1
+ 2475 121f 27120000 		.4byte	0x1227
+ 2476 1223 2D120000 		.4byte	0x122d
+ 2477 1227 0F       		.uleb128 0xf
+ 2478 1228 2B150000 		.4byte	0x152b
+ 2479 122c 00       		.byte	0
+ 2480 122d 10       		.uleb128 0x10
+ 2481 122e 6D020000 		.4byte	.LASF176
+ 2482 1232 02       		.byte	0x2
+ 2483 1233 36       		.byte	0x36
+ 2484 1234 2B150000 		.4byte	0x152b
+ 2485 1238 01       		.byte	0x1
+ 2486 1239 41120000 		.4byte	0x1241
+ 2487 123d 47120000 		.4byte	0x1247
+ 2488 1241 0F       		.uleb128 0xf
+ 2489 1242 2B150000 		.4byte	0x152b
+ 2490 1246 00       		.byte	0
+ 2491 1247 14       		.uleb128 0x14
+ 2492 1248 D20A0000 		.4byte	.LASF190
+ 2493 124c 02       		.byte	0x2
+ 2494 124d 3A       		.byte	0x3a
+ 2495 124e 31090000 		.4byte	.LASF191
+ 2496 1252 01       		.byte	0x1
+ 2497 1253 5B120000 		.4byte	0x125b
+ 2498 1257 66120000 		.4byte	0x1266
+ 2499 125b 0F       		.uleb128 0xf
+ 2500 125c 2B150000 		.4byte	0x152b
+ 2501 1260 11       		.uleb128 0x11
+ 2502 1261 74000000 		.4byte	0x74
+ 2503 1265 00       		.byte	0
+ 2504 1266 13       		.uleb128 0x13
+ 2505 1267 A70F0000 		.4byte	.LASF192
+ 2506 126b 02       		.byte	0x2
+ 2507 126c 3C       		.byte	0x3c
+ 2508 126d 24000000 		.4byte	.LASF193
+ 2509 1271 2A100000 		.4byte	0x102a
+ 2510 1275 01       		.byte	0x1
+ 2511 1276 7E120000 		.4byte	0x127e
+ 2512 127a 89120000 		.4byte	0x1289
+ 2513 127e 0F       		.uleb128 0xf
+ 2514 127f 2B150000 		.4byte	0x152b
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 49
+
+
+ 2515 1283 11       		.uleb128 0x11
+ 2516 1284 16010000 		.4byte	0x116
+ 2517 1288 00       		.byte	0
+ 2518 1289 13       		.uleb128 0x13
+ 2519 128a A70F0000 		.4byte	.LASF192
+ 2520 128e 02       		.byte	0x2
+ 2521 128f 3D       		.byte	0x3d
+ 2522 1290 02070000 		.4byte	.LASF194
+ 2523 1294 2A100000 		.4byte	0x102a
+ 2524 1298 01       		.byte	0x1
+ 2525 1299 A1120000 		.4byte	0x12a1
+ 2526 129d AC120000 		.4byte	0x12ac
+ 2527 12a1 0F       		.uleb128 0xf
+ 2528 12a2 2B150000 		.4byte	0x152b
+ 2529 12a6 11       		.uleb128 0x11
+ 2530 12a7 7D100000 		.4byte	0x107d
+ 2531 12ab 00       		.byte	0
+ 2532 12ac 13       		.uleb128 0x13
+ 2533 12ad A70F0000 		.4byte	.LASF192
+ 2534 12b1 02       		.byte	0x2
+ 2535 12b2 40       		.byte	0x40
+ 2536 12b3 34020000 		.4byte	.LASF195
+ 2537 12b7 2A100000 		.4byte	0x102a
+ 2538 12bb 01       		.byte	0x1
+ 2539 12bc C4120000 		.4byte	0x12c4
+ 2540 12c0 D4120000 		.4byte	0x12d4
+ 2541 12c4 0F       		.uleb128 0xf
+ 2542 12c5 2B150000 		.4byte	0x152b
+ 2543 12c9 11       		.uleb128 0x11
+ 2544 12ca 16010000 		.4byte	0x116
+ 2545 12ce 11       		.uleb128 0x11
+ 2546 12cf FC000000 		.4byte	0xfc
+ 2547 12d3 00       		.byte	0
+ 2548 12d4 13       		.uleb128 0x13
+ 2549 12d5 A70F0000 		.4byte	.LASF192
+ 2550 12d9 02       		.byte	0x2
+ 2551 12da 41       		.byte	0x41
+ 2552 12db A40D0000 		.4byte	.LASF196
+ 2553 12df 2A100000 		.4byte	0x102a
+ 2554 12e3 01       		.byte	0x1
+ 2555 12e4 EC120000 		.4byte	0x12ec
+ 2556 12e8 FC120000 		.4byte	0x12fc
+ 2557 12ec 0F       		.uleb128 0xf
+ 2558 12ed 2B150000 		.4byte	0x152b
+ 2559 12f1 11       		.uleb128 0x11
+ 2560 12f2 7D100000 		.4byte	0x107d
+ 2561 12f6 11       		.uleb128 0x11
+ 2562 12f7 FC000000 		.4byte	0xfc
+ 2563 12fb 00       		.byte	0
+ 2564 12fc 13       		.uleb128 0x13
+ 2565 12fd BF020000 		.4byte	.LASF197
+ 2566 1301 02       		.byte	0x2
+ 2567 1302 44       		.byte	0x44
+ 2568 1303 4B0F0000 		.4byte	.LASF198
+ 2569 1307 2A100000 		.4byte	0x102a
+ 2570 130b 01       		.byte	0x1
+ 2571 130c 14130000 		.4byte	0x1314
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 50
+
+
+ 2572 1310 24130000 		.4byte	0x1324
+ 2573 1314 0F       		.uleb128 0xf
+ 2574 1315 2B150000 		.4byte	0x152b
+ 2575 1319 11       		.uleb128 0x11
+ 2576 131a 16010000 		.4byte	0x116
+ 2577 131e 11       		.uleb128 0x11
+ 2578 131f 16010000 		.4byte	0x116
+ 2579 1323 00       		.byte	0
+ 2580 1324 13       		.uleb128 0x13
+ 2581 1325 BF020000 		.4byte	.LASF197
+ 2582 1329 02       		.byte	0x2
+ 2583 132a 45       		.byte	0x45
+ 2584 132b 77030000 		.4byte	.LASF199
+ 2585 132f 2A100000 		.4byte	0x102a
+ 2586 1333 01       		.byte	0x1
+ 2587 1334 3C130000 		.4byte	0x133c
+ 2588 1338 4C130000 		.4byte	0x134c
+ 2589 133c 0F       		.uleb128 0xf
+ 2590 133d 2B150000 		.4byte	0x152b
+ 2591 1341 11       		.uleb128 0x11
+ 2592 1342 7D100000 		.4byte	0x107d
+ 2593 1346 11       		.uleb128 0x11
+ 2594 1347 16010000 		.4byte	0x116
+ 2595 134b 00       		.byte	0
+ 2596 134c 13       		.uleb128 0x13
+ 2597 134d BF020000 		.4byte	.LASF197
+ 2598 1351 02       		.byte	0x2
+ 2599 1352 47       		.byte	0x47
+ 2600 1353 A2020000 		.4byte	.LASF200
+ 2601 1357 2A100000 		.4byte	0x102a
+ 2602 135b 01       		.byte	0x1
+ 2603 135c 64130000 		.4byte	0x1364
+ 2604 1360 7E130000 		.4byte	0x137e
+ 2605 1364 0F       		.uleb128 0xf
+ 2606 1365 2B150000 		.4byte	0x152b
+ 2607 1369 11       		.uleb128 0x11
+ 2608 136a 16010000 		.4byte	0x116
+ 2609 136e 11       		.uleb128 0x11
+ 2610 136f FC000000 		.4byte	0xfc
+ 2611 1373 11       		.uleb128 0x11
+ 2612 1374 16010000 		.4byte	0x116
+ 2613 1378 11       		.uleb128 0x11
+ 2614 1379 FC000000 		.4byte	0xfc
+ 2615 137d 00       		.byte	0
+ 2616 137e 13       		.uleb128 0x13
+ 2617 137f BF020000 		.4byte	.LASF197
+ 2618 1383 02       		.byte	0x2
+ 2619 1384 48       		.byte	0x48
+ 2620 1385 7C0F0000 		.4byte	.LASF201
+ 2621 1389 2A100000 		.4byte	0x102a
+ 2622 138d 01       		.byte	0x1
+ 2623 138e 96130000 		.4byte	0x1396
+ 2624 1392 B0130000 		.4byte	0x13b0
+ 2625 1396 0F       		.uleb128 0xf
+ 2626 1397 2B150000 		.4byte	0x152b
+ 2627 139b 11       		.uleb128 0x11
+ 2628 139c 7D100000 		.4byte	0x107d
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 51
+
+
+ 2629 13a0 11       		.uleb128 0x11
+ 2630 13a1 FC000000 		.4byte	0xfc
+ 2631 13a5 11       		.uleb128 0x11
+ 2632 13a6 16010000 		.4byte	0x116
+ 2633 13aa 11       		.uleb128 0x11
+ 2634 13ab FC000000 		.4byte	0xfc
+ 2635 13af 00       		.byte	0
+ 2636 13b0 13       		.uleb128 0x13
+ 2637 13b1 A1050000 		.4byte	.LASF202
+ 2638 13b5 02       		.byte	0x2
+ 2639 13b6 4B       		.byte	0x4b
+ 2640 13b7 64080000 		.4byte	.LASF203
+ 2641 13bb 6D000000 		.4byte	0x6d
+ 2642 13bf 01       		.byte	0x1
+ 2643 13c0 C8130000 		.4byte	0x13c8
+ 2644 13c4 CE130000 		.4byte	0x13ce
+ 2645 13c8 0F       		.uleb128 0xf
+ 2646 13c9 2B150000 		.4byte	0x152b
+ 2647 13cd 00       		.byte	0
+ 2648 13ce 13       		.uleb128 0x13
+ 2649 13cf 15080000 		.4byte	.LASF204
+ 2650 13d3 02       		.byte	0x2
+ 2651 13d4 4F       		.byte	0x4f
+ 2652 13d5 93100000 		.4byte	.LASF205
+ 2653 13d9 CF000000 		.4byte	0xcf
+ 2654 13dd 01       		.byte	0x1
+ 2655 13de E6130000 		.4byte	0x13e6
+ 2656 13e2 EC130000 		.4byte	0x13ec
+ 2657 13e6 0F       		.uleb128 0xf
+ 2658 13e7 2B150000 		.4byte	0x152b
+ 2659 13eb 00       		.byte	0
+ 2660 13ec 13       		.uleb128 0x13
+ 2661 13ed E70B0000 		.4byte	.LASF206
+ 2662 13f1 02       		.byte	0x2
+ 2663 13f2 51       		.byte	0x51
+ 2664 13f3 09050000 		.4byte	.LASF207
+ 2665 13f7 FC000000 		.4byte	0xfc
+ 2666 13fb 01       		.byte	0x1
+ 2667 13fc 04140000 		.4byte	0x1404
+ 2668 1400 14140000 		.4byte	0x1414
+ 2669 1404 0F       		.uleb128 0xf
+ 2670 1405 2B150000 		.4byte	0x152b
+ 2671 1409 11       		.uleb128 0x11
+ 2672 140a 16010000 		.4byte	0x116
+ 2673 140e 11       		.uleb128 0x11
+ 2674 140f FC000000 		.4byte	0xfc
+ 2675 1413 00       		.byte	0
+ 2676 1414 13       		.uleb128 0x13
+ 2677 1415 E70B0000 		.4byte	.LASF206
+ 2678 1419 02       		.byte	0x2
+ 2679 141a 52       		.byte	0x52
+ 2680 141b B40C0000 		.4byte	.LASF208
+ 2681 141f FC000000 		.4byte	0xfc
+ 2682 1423 01       		.byte	0x1
+ 2683 1424 2C140000 		.4byte	0x142c
+ 2684 1428 3C140000 		.4byte	0x143c
+ 2685 142c 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 52
+
+
+ 2686 142d 2B150000 		.4byte	0x152b
+ 2687 1431 11       		.uleb128 0x11
+ 2688 1432 7D100000 		.4byte	0x107d
+ 2689 1436 11       		.uleb128 0x11
+ 2690 1437 FC000000 		.4byte	0xfc
+ 2691 143b 00       		.byte	0
+ 2692 143c 13       		.uleb128 0x13
+ 2693 143d 3C0F0000 		.4byte	.LASF209
+ 2694 1441 02       		.byte	0x2
+ 2695 1442 56       		.byte	0x56
+ 2696 1443 CD0C0000 		.4byte	.LASF210
+ 2697 1447 FC000000 		.4byte	0xfc
+ 2698 144b 01       		.byte	0x1
+ 2699 144c 54140000 		.4byte	0x1454
+ 2700 1450 69140000 		.4byte	0x1469
+ 2701 1454 0F       		.uleb128 0xf
+ 2702 1455 2B150000 		.4byte	0x152b
+ 2703 1459 11       		.uleb128 0x11
+ 2704 145a DD000000 		.4byte	0xdd
+ 2705 145e 11       		.uleb128 0x11
+ 2706 145f 16010000 		.4byte	0x116
+ 2707 1463 11       		.uleb128 0x11
+ 2708 1464 FC000000 		.4byte	0xfc
+ 2709 1468 00       		.byte	0
+ 2710 1469 13       		.uleb128 0x13
+ 2711 146a 3C0F0000 		.4byte	.LASF209
+ 2712 146e 02       		.byte	0x2
+ 2713 146f 57       		.byte	0x57
+ 2714 1470 28070000 		.4byte	.LASF211
+ 2715 1474 FC000000 		.4byte	0xfc
+ 2716 1478 01       		.byte	0x1
+ 2717 1479 81140000 		.4byte	0x1481
+ 2718 147d 96140000 		.4byte	0x1496
+ 2719 1481 0F       		.uleb128 0xf
+ 2720 1482 2B150000 		.4byte	0x152b
+ 2721 1486 11       		.uleb128 0x11
+ 2722 1487 DD000000 		.4byte	0xdd
+ 2723 148b 11       		.uleb128 0x11
+ 2724 148c 7D100000 		.4byte	0x107d
+ 2725 1490 11       		.uleb128 0x11
+ 2726 1491 FC000000 		.4byte	0xfc
+ 2727 1495 00       		.byte	0
+ 2728 1496 13       		.uleb128 0x13
+ 2729 1497 74060000 		.4byte	.LASF212
+ 2730 149b 02       		.byte	0x2
+ 2731 149c 5C       		.byte	0x5c
+ 2732 149d 9B0C0000 		.4byte	.LASF213
+ 2733 14a1 27010000 		.4byte	0x127
+ 2734 14a5 01       		.byte	0x1
+ 2735 14a6 AE140000 		.4byte	0x14ae
+ 2736 14aa B4140000 		.4byte	0x14b4
+ 2737 14ae 0F       		.uleb128 0xf
+ 2738 14af 2B150000 		.4byte	0x152b
+ 2739 14b3 00       		.byte	0
+ 2740 14b4 13       		.uleb128 0x13
+ 2741 14b5 980A0000 		.4byte	.LASF214
+ 2742 14b9 02       		.byte	0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 53
+
+
+ 2743 14ba 5D       		.byte	0x5d
+ 2744 14bb 40050000 		.4byte	.LASF215
+ 2745 14bf 27010000 		.4byte	0x127
+ 2746 14c3 01       		.byte	0x1
+ 2747 14c4 CC140000 		.4byte	0x14cc
+ 2748 14c8 D7140000 		.4byte	0x14d7
+ 2749 14cc 0F       		.uleb128 0xf
+ 2750 14cd 2B150000 		.4byte	0x152b
+ 2751 14d1 11       		.uleb128 0x11
+ 2752 14d2 DD000000 		.4byte	0xdd
+ 2753 14d6 00       		.byte	0
+ 2754 14d7 13       		.uleb128 0x13
+ 2755 14d8 A1050000 		.4byte	.LASF202
+ 2756 14dc 02       		.byte	0x2
+ 2757 14dd 60       		.byte	0x60
+ 2758 14de 8D080000 		.4byte	.LASF216
+ 2759 14e2 6D000000 		.4byte	0x6d
+ 2760 14e6 02       		.byte	0x2
+ 2761 14e7 EF140000 		.4byte	0x14ef
+ 2762 14eb FA140000 		.4byte	0x14fa
+ 2763 14ef 0F       		.uleb128 0xf
+ 2764 14f0 2B150000 		.4byte	0x152b
+ 2765 14f4 11       		.uleb128 0x11
+ 2766 14f5 DD000000 		.4byte	0xdd
+ 2767 14f9 00       		.byte	0
+ 2768 14fa 15       		.uleb128 0x15
+ 2769 14fb 15080000 		.4byte	.LASF204
+ 2770 14ff 02       		.byte	0x2
+ 2771 1500 64       		.byte	0x64
+ 2772 1501 FD0F0000 		.4byte	.LASF217
+ 2773 1505 CF000000 		.4byte	0xcf
+ 2774 1509 02       		.byte	0x2
+ 2775 150a 0E150000 		.4byte	0x150e
+ 2776 150e 0F       		.uleb128 0xf
+ 2777 150f 2B150000 		.4byte	0x152b
+ 2778 1513 11       		.uleb128 0x11
+ 2779 1514 DD000000 		.4byte	0xdd
+ 2780 1518 00       		.byte	0
+ 2781 1519 00       		.byte	0
+ 2782 151a 07       		.uleb128 0x7
+ 2783 151b 04       		.byte	0x4
+ 2784 151c AF0D0000 		.4byte	0xdaf
+ 2785 1520 19       		.uleb128 0x19
+ 2786 1521 04       		.byte	0x4
+ 2787 1522 26150000 		.4byte	0x1526
+ 2788 1526 0A       		.uleb128 0xa
+ 2789 1527 AF0D0000 		.4byte	0xdaf
+ 2790 152b 07       		.uleb128 0x7
+ 2791 152c 04       		.byte	0x4
+ 2792 152d D2100000 		.4byte	0x10d2
+ 2793 1531 19       		.uleb128 0x19
+ 2794 1532 04       		.byte	0x4
+ 2795 1533 37150000 		.4byte	0x1537
+ 2796 1537 0A       		.uleb128 0xa
+ 2797 1538 D2100000 		.4byte	0x10d2
+ 2798 153c 29       		.uleb128 0x29
+ 2799 153d 7F0F0000 		.4byte	0xf7f
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 54
+
+
+ 2800 1541 02       		.byte	0x2
+ 2801 1542 4A150000 		.4byte	0x154a
+ 2802 1546 5D150000 		.4byte	0x155d
+ 2803 154a 2A       		.uleb128 0x2a
+ 2804 154b C9020000 		.4byte	.LASF218
+ 2805 154f 5D150000 		.4byte	0x155d
+ 2806 1553 2A       		.uleb128 0x2a
+ 2807 1554 48000000 		.4byte	.LASF219
+ 2808 1558 62150000 		.4byte	0x1562
+ 2809 155c 00       		.byte	0
+ 2810 155d 0A       		.uleb128 0xa
+ 2811 155e 9B0F0000 		.4byte	0xf9b
+ 2812 1562 0A       		.uleb128 0xa
+ 2813 1563 89000000 		.4byte	0x89
+ 2814 1567 2B       		.uleb128 0x2b
+ 2815 1568 3C150000 		.4byte	0x153c
+ 2816 156c 2D0B0000 		.4byte	.LASF220
+ 2817 1570 00000000 		.4byte	.LFB119
+ 2818 1574 20000000 		.4byte	.LFE119-.LFB119
+ 2819 1578 01       		.uleb128 0x1
+ 2820 1579 9C       		.byte	0x9c
+ 2821 157a 82150000 		.4byte	0x1582
+ 2822 157e 8B150000 		.4byte	0x158b
+ 2823 1582 2C       		.uleb128 0x2c
+ 2824 1583 4A150000 		.4byte	0x154a
+ 2825 1587 02       		.uleb128 0x2
+ 2826 1588 91       		.byte	0x91
+ 2827 1589 74       		.sleb128 -12
+ 2828 158a 00       		.byte	0
+ 2829 158b 29       		.uleb128 0x29
+ 2830 158c 7A110000 		.4byte	0x117a
+ 2831 1590 02       		.byte	0x2
+ 2832 1591 99150000 		.4byte	0x1599
+ 2833 1595 AC150000 		.4byte	0x15ac
+ 2834 1599 2A       		.uleb128 0x2a
+ 2835 159a C9020000 		.4byte	.LASF218
+ 2836 159e AC150000 		.4byte	0x15ac
+ 2837 15a2 2A       		.uleb128 0x2a
+ 2838 15a3 48000000 		.4byte	.LASF219
+ 2839 15a7 B1150000 		.4byte	0x15b1
+ 2840 15ab 00       		.byte	0
+ 2841 15ac 0A       		.uleb128 0xa
+ 2842 15ad 2B150000 		.4byte	0x152b
+ 2843 15b1 0A       		.uleb128 0xa
+ 2844 15b2 89000000 		.4byte	0x89
+ 2845 15b6 2D       		.uleb128 0x2d
+ 2846 15b7 8B150000 		.4byte	0x158b
+ 2847 15bb 72000000 		.4byte	.LASF221
+ 2848 15bf 00000000 		.4byte	.LFB126
+ 2849 15c3 24000000 		.4byte	.LFE126-.LFB126
+ 2850 15c7 01       		.uleb128 0x1
+ 2851 15c8 9C       		.byte	0x9c
+ 2852 15c9 D1150000 		.4byte	0x15d1
+ 2853 15cd DA150000 		.4byte	0x15da
+ 2854 15d1 2C       		.uleb128 0x2c
+ 2855 15d2 99150000 		.4byte	0x1599
+ 2856 15d6 02       		.uleb128 0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 55
+
+
+ 2857 15d7 91       		.byte	0x91
+ 2858 15d8 74       		.sleb128 -12
+ 2859 15d9 00       		.byte	0
+ 2860 15da 29       		.uleb128 0x29
+ 2861 15db 040E0000 		.4byte	0xe04
+ 2862 15df 02       		.byte	0x2
+ 2863 15e0 E8150000 		.4byte	0x15e8
+ 2864 15e4 FB150000 		.4byte	0x15fb
+ 2865 15e8 2A       		.uleb128 0x2a
+ 2866 15e9 C9020000 		.4byte	.LASF218
+ 2867 15ed FB150000 		.4byte	0x15fb
+ 2868 15f1 2A       		.uleb128 0x2a
+ 2869 15f2 48000000 		.4byte	.LASF219
+ 2870 15f6 00160000 		.4byte	0x1600
+ 2871 15fa 00       		.byte	0
+ 2872 15fb 0A       		.uleb128 0xa
+ 2873 15fc 1A150000 		.4byte	0x151a
+ 2874 1600 0A       		.uleb128 0xa
+ 2875 1601 89000000 		.4byte	0x89
+ 2876 1605 2D       		.uleb128 0x2d
+ 2877 1606 DA150000 		.4byte	0x15da
+ 2878 160a 9A0E0000 		.4byte	.LASF222
+ 2879 160e 00000000 		.4byte	.LFB141
+ 2880 1612 24000000 		.4byte	.LFE141-.LFB141
+ 2881 1616 01       		.uleb128 0x1
+ 2882 1617 9C       		.byte	0x9c
+ 2883 1618 20160000 		.4byte	0x1620
+ 2884 161c 29160000 		.4byte	0x1629
+ 2885 1620 2C       		.uleb128 0x2c
+ 2886 1621 E8150000 		.4byte	0x15e8
+ 2887 1625 02       		.uleb128 0x2
+ 2888 1626 91       		.byte	0x91
+ 2889 1627 74       		.sleb128 -12
+ 2890 1628 00       		.byte	0
+ 2891 1629 07       		.uleb128 0x7
+ 2892 162a 04       		.byte	0x4
+ 2893 162b 9F100000 		.4byte	0x109f
+ 2894 162f 29       		.uleb128 0x29
+ 2895 1630 AF100000 		.4byte	0x10af
+ 2896 1634 02       		.byte	0x2
+ 2897 1635 3D160000 		.4byte	0x163d
+ 2898 1639 50160000 		.4byte	0x1650
+ 2899 163d 2A       		.uleb128 0x2a
+ 2900 163e C9020000 		.4byte	.LASF218
+ 2901 1642 50160000 		.4byte	0x1650
+ 2902 1646 2A       		.uleb128 0x2a
+ 2903 1647 48000000 		.4byte	.LASF219
+ 2904 164b 55160000 		.4byte	0x1655
+ 2905 164f 00       		.byte	0
+ 2906 1650 0A       		.uleb128 0xa
+ 2907 1651 29160000 		.4byte	0x1629
+ 2908 1655 0A       		.uleb128 0xa
+ 2909 1656 89000000 		.4byte	0x89
+ 2910 165a 2D       		.uleb128 0x2d
+ 2911 165b 2F160000 		.4byte	0x162f
+ 2912 165f E6020000 		.4byte	.LASF223
+ 2913 1663 00000000 		.4byte	.LFB144
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 56
+
+
+ 2914 1667 24000000 		.4byte	.LFE144-.LFB144
+ 2915 166b 01       		.uleb128 0x1
+ 2916 166c 9C       		.byte	0x9c
+ 2917 166d 75160000 		.4byte	0x1675
+ 2918 1671 7E160000 		.4byte	0x167e
+ 2919 1675 2C       		.uleb128 0x2c
+ 2920 1676 3D160000 		.4byte	0x163d
+ 2921 167a 02       		.uleb128 0x2
+ 2922 167b 91       		.byte	0x91
+ 2923 167c 74       		.sleb128 -12
+ 2924 167d 00       		.byte	0
+ 2925 167e 2E       		.uleb128 0x2e
+ 2926 167f F9030000 		.4byte	.LASF241
+ 2927 1683 05       		.byte	0x5
+ 2928 1684 10       		.byte	0x10
+ 2929 1685 89000000 		.4byte	0x89
+ 2930 1689 00000000 		.4byte	.LFB147
+ 2931 168d 2C000000 		.4byte	.LFE147-.LFB147
+ 2932 1691 01       		.uleb128 0x1
+ 2933 1692 9C       		.byte	0x9c
+ 2934 1693 2F       		.uleb128 0x2f
+ 2935 1694 D7000000 		.4byte	.LASF242
+ 2936 1698 00000000 		.4byte	.LFB148
+ 2937 169c 60000000 		.4byte	.LFE148-.LFB148
+ 2938 16a0 01       		.uleb128 0x1
+ 2939 16a1 9C       		.byte	0x9c
+ 2940 16a2 C3160000 		.4byte	0x16c3
+ 2941 16a6 30       		.uleb128 0x30
+ 2942 16a7 65050000 		.4byte	.LASF224
+ 2943 16ab 05       		.byte	0x5
+ 2944 16ac 20       		.byte	0x20
+ 2945 16ad 89000000 		.4byte	0x89
+ 2946 16b1 02       		.uleb128 0x2
+ 2947 16b2 91       		.byte	0x91
+ 2948 16b3 74       		.sleb128 -12
+ 2949 16b4 30       		.uleb128 0x30
+ 2950 16b5 56100000 		.4byte	.LASF225
+ 2951 16b9 05       		.byte	0x5
+ 2952 16ba 20       		.byte	0x20
+ 2953 16bb 89000000 		.4byte	0x89
+ 2954 16bf 02       		.uleb128 0x2
+ 2955 16c0 91       		.byte	0x91
+ 2956 16c1 70       		.sleb128 -16
+ 2957 16c2 00       		.byte	0
+ 2958 16c3 31       		.uleb128 0x31
+ 2959 16c4 F2050000 		.4byte	.LASF243
+ 2960 16c8 00000000 		.4byte	.LFB149
+ 2961 16cc 10000000 		.4byte	.LFE149-.LFB149
+ 2962 16d0 01       		.uleb128 0x1
+ 2963 16d1 9C       		.byte	0x9c
+ 2964 16d2 32       		.uleb128 0x32
+ 2965 16d3 E0010000 		.4byte	.LASF228
+ 2966 16d7 0C       		.byte	0xc
+ 2967 16d8 5506     		.2byte	0x655
+ 2968 16da DE160000 		.4byte	0x16de
+ 2969 16de 06       		.uleb128 0x6
+ 2970 16df B8000000 		.4byte	0xb8
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 57
+
+
+ 2971 16e3 33       		.uleb128 0x33
+ 2972 16e4 535300   		.ascii	"SS\000"
+ 2973 16e7 0B       		.byte	0xb
+ 2974 16e8 26       		.byte	0x26
+ 2975 16e9 5E100000 		.4byte	0x105e
+ 2976 16ed 05       		.uleb128 0x5
+ 2977 16ee 03       		.byte	0x3
+ 2978 16ef 00000000 		.4byte	_ZL2SS
+ 2979 16f3 34       		.uleb128 0x34
+ 2980 16f4 280B0000 		.4byte	.LASF226
+ 2981 16f8 0B       		.byte	0xb
+ 2982 16f9 27       		.byte	0x27
+ 2983 16fa 5E100000 		.4byte	0x105e
+ 2984 16fe 05       		.uleb128 0x5
+ 2985 16ff 03       		.byte	0x3
+ 2986 1700 01000000 		.4byte	_ZL4MOSI
+ 2987 1704 34       		.uleb128 0x34
+ 2988 1705 020F0000 		.4byte	.LASF227
+ 2989 1709 0B       		.byte	0xb
+ 2990 170a 28       		.byte	0x28
+ 2991 170b 5E100000 		.4byte	0x105e
+ 2992 170f 05       		.uleb128 0x5
+ 2993 1710 03       		.byte	0x3
+ 2994 1711 02000000 		.4byte	_ZL4MISO
+ 2995 1715 33       		.uleb128 0x33
+ 2996 1716 53434B00 		.ascii	"SCK\000"
+ 2997 171a 0B       		.byte	0xb
+ 2998 171b 29       		.byte	0x29
+ 2999 171c 5E100000 		.4byte	0x105e
+ 3000 1720 05       		.uleb128 0x5
+ 3001 1721 03       		.byte	0x3
+ 3002 1722 03000000 		.4byte	_ZL3SCK
+ 3003 1726 33       		.uleb128 0x33
+ 3004 1727 53444100 		.ascii	"SDA\000"
+ 3005 172b 0B       		.byte	0xb
+ 3006 172c 2B       		.byte	0x2b
+ 3007 172d 5E100000 		.4byte	0x105e
+ 3008 1731 05       		.uleb128 0x5
+ 3009 1732 03       		.byte	0x3
+ 3010 1733 04000000 		.4byte	_ZL3SDA
+ 3011 1737 33       		.uleb128 0x33
+ 3012 1738 53434C00 		.ascii	"SCL\000"
+ 3013 173c 0B       		.byte	0xb
+ 3014 173d 2C       		.byte	0x2c
+ 3015 173e 5E100000 		.4byte	0x105e
+ 3016 1742 05       		.uleb128 0x5
+ 3017 1743 03       		.byte	0x3
+ 3018 1744 05000000 		.4byte	_ZL3SCL
+ 3019 1748 35       		.uleb128 0x35
+ 3020 1749 350F0000 		.4byte	.LASF229
+ 3021 174d 05       		.byte	0x5
+ 3022 174e 0D       		.byte	0xd
+ 3023 174f 9F100000 		.4byte	0x109f
+ 3024 1753 05       		.uleb128 0x5
+ 3025 1754 03       		.byte	0x3
+ 3026 1755 00000000 		.4byte	Serial
+ 3027 1759 35       		.uleb128 0x35
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 58
+
+
+ 3028 175a 660F0000 		.4byte	.LASF230
+ 3029 175e 05       		.byte	0x5
+ 3030 175f 0E       		.byte	0xe
+ 3031 1760 9F100000 		.4byte	0x109f
+ 3032 1764 05       		.uleb128 0x5
+ 3033 1765 03       		.byte	0x3
+ 3034 1766 00000000 		.4byte	Serial1
+ 3035 176a 35       		.uleb128 0x35
+ 3036 176b 21090000 		.4byte	.LASF231
+ 3037 176f 05       		.byte	0x5
+ 3038 1770 0B       		.byte	0xb
+ 3039 1771 A10F0000 		.4byte	0xfa1
+ 3040 1775 05       		.uleb128 0x5
+ 3041 1776 03       		.byte	0x3
+ 3042 1777 00000000 		.4byte	USBUART_Helpers
+ 3043 177b 35       		.uleb128 0x35
+ 3044 177c B8070000 		.4byte	.LASF232
+ 3045 1780 05       		.byte	0x5
+ 3046 1781 0C       		.byte	0xc
+ 3047 1782 A10F0000 		.4byte	0xfa1
+ 3048 1786 05       		.uleb128 0x5
+ 3049 1787 03       		.byte	0x3
+ 3050 1788 00000000 		.4byte	UART_Helpers
+ 3051 178c 36       		.uleb128 0x36
+ 3052 178d 71100000 		.4byte	.LASF233
+ 3053 1791 0E010000 		.4byte	0x10e
+ 3054 1795 00       		.byte	0
+ 3055              		.section	.debug_abbrev,"",%progbits
+ 3056              	.Ldebug_abbrev0:
+ 3057 0000 01       		.uleb128 0x1
+ 3058 0001 11       		.uleb128 0x11
+ 3059 0002 01       		.byte	0x1
+ 3060 0003 25       		.uleb128 0x25
+ 3061 0004 0E       		.uleb128 0xe
+ 3062 0005 13       		.uleb128 0x13
+ 3063 0006 0B       		.uleb128 0xb
+ 3064 0007 03       		.uleb128 0x3
+ 3065 0008 0E       		.uleb128 0xe
+ 3066 0009 1B       		.uleb128 0x1b
+ 3067 000a 0E       		.uleb128 0xe
+ 3068 000b 55       		.uleb128 0x55
+ 3069 000c 17       		.uleb128 0x17
+ 3070 000d 11       		.uleb128 0x11
+ 3071 000e 01       		.uleb128 0x1
+ 3072 000f 10       		.uleb128 0x10
+ 3073 0010 17       		.uleb128 0x17
+ 3074 0011 00       		.byte	0
+ 3075 0012 00       		.byte	0
+ 3076 0013 02       		.uleb128 0x2
+ 3077 0014 24       		.uleb128 0x24
+ 3078 0015 00       		.byte	0
+ 3079 0016 0B       		.uleb128 0xb
+ 3080 0017 0B       		.uleb128 0xb
+ 3081 0018 3E       		.uleb128 0x3e
+ 3082 0019 0B       		.uleb128 0xb
+ 3083 001a 03       		.uleb128 0x3
+ 3084 001b 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 59
+
+
+ 3085 001c 00       		.byte	0
+ 3086 001d 00       		.byte	0
+ 3087 001e 03       		.uleb128 0x3
+ 3088 001f 16       		.uleb128 0x16
+ 3089 0020 00       		.byte	0
+ 3090 0021 03       		.uleb128 0x3
+ 3091 0022 0E       		.uleb128 0xe
+ 3092 0023 3A       		.uleb128 0x3a
+ 3093 0024 0B       		.uleb128 0xb
+ 3094 0025 3B       		.uleb128 0x3b
+ 3095 0026 0B       		.uleb128 0xb
+ 3096 0027 49       		.uleb128 0x49
+ 3097 0028 13       		.uleb128 0x13
+ 3098 0029 00       		.byte	0
+ 3099 002a 00       		.byte	0
+ 3100 002b 04       		.uleb128 0x4
+ 3101 002c 24       		.uleb128 0x24
+ 3102 002d 00       		.byte	0
+ 3103 002e 0B       		.uleb128 0xb
+ 3104 002f 0B       		.uleb128 0xb
+ 3105 0030 3E       		.uleb128 0x3e
+ 3106 0031 0B       		.uleb128 0xb
+ 3107 0032 03       		.uleb128 0x3
+ 3108 0033 08       		.uleb128 0x8
+ 3109 0034 00       		.byte	0
+ 3110 0035 00       		.byte	0
+ 3111 0036 05       		.uleb128 0x5
+ 3112 0037 16       		.uleb128 0x16
+ 3113 0038 00       		.byte	0
+ 3114 0039 03       		.uleb128 0x3
+ 3115 003a 0E       		.uleb128 0xe
+ 3116 003b 3A       		.uleb128 0x3a
+ 3117 003c 0B       		.uleb128 0xb
+ 3118 003d 3B       		.uleb128 0x3b
+ 3119 003e 05       		.uleb128 0x5
+ 3120 003f 49       		.uleb128 0x49
+ 3121 0040 13       		.uleb128 0x13
+ 3122 0041 00       		.byte	0
+ 3123 0042 00       		.byte	0
+ 3124 0043 06       		.uleb128 0x6
+ 3125 0044 35       		.uleb128 0x35
+ 3126 0045 00       		.byte	0
+ 3127 0046 49       		.uleb128 0x49
+ 3128 0047 13       		.uleb128 0x13
+ 3129 0048 00       		.byte	0
+ 3130 0049 00       		.byte	0
+ 3131 004a 07       		.uleb128 0x7
+ 3132 004b 0F       		.uleb128 0xf
+ 3133 004c 00       		.byte	0
+ 3134 004d 0B       		.uleb128 0xb
+ 3135 004e 0B       		.uleb128 0xb
+ 3136 004f 49       		.uleb128 0x49
+ 3137 0050 13       		.uleb128 0x13
+ 3138 0051 00       		.byte	0
+ 3139 0052 00       		.byte	0
+ 3140 0053 08       		.uleb128 0x8
+ 3141 0054 15       		.uleb128 0x15
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 60
+
+
+ 3142 0055 00       		.byte	0
+ 3143 0056 00       		.byte	0
+ 3144 0057 00       		.byte	0
+ 3145 0058 09       		.uleb128 0x9
+ 3146 0059 0F       		.uleb128 0xf
+ 3147 005a 00       		.byte	0
+ 3148 005b 0B       		.uleb128 0xb
+ 3149 005c 0B       		.uleb128 0xb
+ 3150 005d 00       		.byte	0
+ 3151 005e 00       		.byte	0
+ 3152 005f 0A       		.uleb128 0xa
+ 3153 0060 26       		.uleb128 0x26
+ 3154 0061 00       		.byte	0
+ 3155 0062 49       		.uleb128 0x49
+ 3156 0063 13       		.uleb128 0x13
+ 3157 0064 00       		.byte	0
+ 3158 0065 00       		.byte	0
+ 3159 0066 0B       		.uleb128 0xb
+ 3160 0067 02       		.uleb128 0x2
+ 3161 0068 01       		.byte	0x1
+ 3162 0069 03       		.uleb128 0x3
+ 3163 006a 0E       		.uleb128 0xe
+ 3164 006b 0B       		.uleb128 0xb
+ 3165 006c 0B       		.uleb128 0xb
+ 3166 006d 3A       		.uleb128 0x3a
+ 3167 006e 0B       		.uleb128 0xb
+ 3168 006f 3B       		.uleb128 0x3b
+ 3169 0070 0B       		.uleb128 0xb
+ 3170 0071 01       		.uleb128 0x1
+ 3171 0072 13       		.uleb128 0x13
+ 3172 0073 00       		.byte	0
+ 3173 0074 00       		.byte	0
+ 3174 0075 0C       		.uleb128 0xc
+ 3175 0076 0D       		.uleb128 0xd
+ 3176 0077 00       		.byte	0
+ 3177 0078 03       		.uleb128 0x3
+ 3178 0079 0E       		.uleb128 0xe
+ 3179 007a 3A       		.uleb128 0x3a
+ 3180 007b 0B       		.uleb128 0xb
+ 3181 007c 3B       		.uleb128 0x3b
+ 3182 007d 0B       		.uleb128 0xb
+ 3183 007e 49       		.uleb128 0x49
+ 3184 007f 13       		.uleb128 0x13
+ 3185 0080 38       		.uleb128 0x38
+ 3186 0081 0B       		.uleb128 0xb
+ 3187 0082 32       		.uleb128 0x32
+ 3188 0083 0B       		.uleb128 0xb
+ 3189 0084 00       		.byte	0
+ 3190 0085 00       		.byte	0
+ 3191 0086 0D       		.uleb128 0xd
+ 3192 0087 0D       		.uleb128 0xd
+ 3193 0088 00       		.byte	0
+ 3194 0089 03       		.uleb128 0x3
+ 3195 008a 08       		.uleb128 0x8
+ 3196 008b 3A       		.uleb128 0x3a
+ 3197 008c 0B       		.uleb128 0xb
+ 3198 008d 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 61
+
+
+ 3199 008e 0B       		.uleb128 0xb
+ 3200 008f 49       		.uleb128 0x49
+ 3201 0090 13       		.uleb128 0x13
+ 3202 0091 38       		.uleb128 0x38
+ 3203 0092 0B       		.uleb128 0xb
+ 3204 0093 32       		.uleb128 0x32
+ 3205 0094 0B       		.uleb128 0xb
+ 3206 0095 00       		.byte	0
+ 3207 0096 00       		.byte	0
+ 3208 0097 0E       		.uleb128 0xe
+ 3209 0098 2E       		.uleb128 0x2e
+ 3210 0099 01       		.byte	0x1
+ 3211 009a 3F       		.uleb128 0x3f
+ 3212 009b 19       		.uleb128 0x19
+ 3213 009c 03       		.uleb128 0x3
+ 3214 009d 0E       		.uleb128 0xe
+ 3215 009e 3A       		.uleb128 0x3a
+ 3216 009f 0B       		.uleb128 0xb
+ 3217 00a0 3B       		.uleb128 0x3b
+ 3218 00a1 0B       		.uleb128 0xb
+ 3219 00a2 6E       		.uleb128 0x6e
+ 3220 00a3 0E       		.uleb128 0xe
+ 3221 00a4 3C       		.uleb128 0x3c
+ 3222 00a5 19       		.uleb128 0x19
+ 3223 00a6 64       		.uleb128 0x64
+ 3224 00a7 13       		.uleb128 0x13
+ 3225 00a8 01       		.uleb128 0x1
+ 3226 00a9 13       		.uleb128 0x13
+ 3227 00aa 00       		.byte	0
+ 3228 00ab 00       		.byte	0
+ 3229 00ac 0F       		.uleb128 0xf
+ 3230 00ad 05       		.uleb128 0x5
+ 3231 00ae 00       		.byte	0
+ 3232 00af 49       		.uleb128 0x49
+ 3233 00b0 13       		.uleb128 0x13
+ 3234 00b1 34       		.uleb128 0x34
+ 3235 00b2 19       		.uleb128 0x19
+ 3236 00b3 00       		.byte	0
+ 3237 00b4 00       		.byte	0
+ 3238 00b5 10       		.uleb128 0x10
+ 3239 00b6 2E       		.uleb128 0x2e
+ 3240 00b7 01       		.byte	0x1
+ 3241 00b8 3F       		.uleb128 0x3f
+ 3242 00b9 19       		.uleb128 0x19
+ 3243 00ba 03       		.uleb128 0x3
+ 3244 00bb 0E       		.uleb128 0xe
+ 3245 00bc 3A       		.uleb128 0x3a
+ 3246 00bd 0B       		.uleb128 0xb
+ 3247 00be 3B       		.uleb128 0x3b
+ 3248 00bf 0B       		.uleb128 0xb
+ 3249 00c0 49       		.uleb128 0x49
+ 3250 00c1 13       		.uleb128 0x13
+ 3251 00c2 32       		.uleb128 0x32
+ 3252 00c3 0B       		.uleb128 0xb
+ 3253 00c4 3C       		.uleb128 0x3c
+ 3254 00c5 19       		.uleb128 0x19
+ 3255 00c6 64       		.uleb128 0x64
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 62
+
+
+ 3256 00c7 13       		.uleb128 0x13
+ 3257 00c8 01       		.uleb128 0x1
+ 3258 00c9 13       		.uleb128 0x13
+ 3259 00ca 00       		.byte	0
+ 3260 00cb 00       		.byte	0
+ 3261 00cc 11       		.uleb128 0x11
+ 3262 00cd 05       		.uleb128 0x5
+ 3263 00ce 00       		.byte	0
+ 3264 00cf 49       		.uleb128 0x49
+ 3265 00d0 13       		.uleb128 0x13
+ 3266 00d1 00       		.byte	0
+ 3267 00d2 00       		.byte	0
+ 3268 00d3 12       		.uleb128 0x12
+ 3269 00d4 2E       		.uleb128 0x2e
+ 3270 00d5 01       		.byte	0x1
+ 3271 00d6 3F       		.uleb128 0x3f
+ 3272 00d7 19       		.uleb128 0x19
+ 3273 00d8 03       		.uleb128 0x3
+ 3274 00d9 0E       		.uleb128 0xe
+ 3275 00da 3A       		.uleb128 0x3a
+ 3276 00db 0B       		.uleb128 0xb
+ 3277 00dc 3B       		.uleb128 0x3b
+ 3278 00dd 0B       		.uleb128 0xb
+ 3279 00de 49       		.uleb128 0x49
+ 3280 00df 13       		.uleb128 0x13
+ 3281 00e0 32       		.uleb128 0x32
+ 3282 00e1 0B       		.uleb128 0xb
+ 3283 00e2 3C       		.uleb128 0x3c
+ 3284 00e3 19       		.uleb128 0x19
+ 3285 00e4 63       		.uleb128 0x63
+ 3286 00e5 19       		.uleb128 0x19
+ 3287 00e6 64       		.uleb128 0x64
+ 3288 00e7 13       		.uleb128 0x13
+ 3289 00e8 01       		.uleb128 0x1
+ 3290 00e9 13       		.uleb128 0x13
+ 3291 00ea 00       		.byte	0
+ 3292 00eb 00       		.byte	0
+ 3293 00ec 13       		.uleb128 0x13
+ 3294 00ed 2E       		.uleb128 0x2e
+ 3295 00ee 01       		.byte	0x1
+ 3296 00ef 3F       		.uleb128 0x3f
+ 3297 00f0 19       		.uleb128 0x19
+ 3298 00f1 03       		.uleb128 0x3
+ 3299 00f2 0E       		.uleb128 0xe
+ 3300 00f3 3A       		.uleb128 0x3a
+ 3301 00f4 0B       		.uleb128 0xb
+ 3302 00f5 3B       		.uleb128 0x3b
+ 3303 00f6 0B       		.uleb128 0xb
+ 3304 00f7 6E       		.uleb128 0x6e
+ 3305 00f8 0E       		.uleb128 0xe
+ 3306 00f9 49       		.uleb128 0x49
+ 3307 00fa 13       		.uleb128 0x13
+ 3308 00fb 32       		.uleb128 0x32
+ 3309 00fc 0B       		.uleb128 0xb
+ 3310 00fd 3C       		.uleb128 0x3c
+ 3311 00fe 19       		.uleb128 0x19
+ 3312 00ff 64       		.uleb128 0x64
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 63
+
+
+ 3313 0100 13       		.uleb128 0x13
+ 3314 0101 01       		.uleb128 0x1
+ 3315 0102 13       		.uleb128 0x13
+ 3316 0103 00       		.byte	0
+ 3317 0104 00       		.byte	0
+ 3318 0105 14       		.uleb128 0x14
+ 3319 0106 2E       		.uleb128 0x2e
+ 3320 0107 01       		.byte	0x1
+ 3321 0108 3F       		.uleb128 0x3f
+ 3322 0109 19       		.uleb128 0x19
+ 3323 010a 03       		.uleb128 0x3
+ 3324 010b 0E       		.uleb128 0xe
+ 3325 010c 3A       		.uleb128 0x3a
+ 3326 010d 0B       		.uleb128 0xb
+ 3327 010e 3B       		.uleb128 0x3b
+ 3328 010f 0B       		.uleb128 0xb
+ 3329 0110 6E       		.uleb128 0x6e
+ 3330 0111 0E       		.uleb128 0xe
+ 3331 0112 32       		.uleb128 0x32
+ 3332 0113 0B       		.uleb128 0xb
+ 3333 0114 3C       		.uleb128 0x3c
+ 3334 0115 19       		.uleb128 0x19
+ 3335 0116 64       		.uleb128 0x64
+ 3336 0117 13       		.uleb128 0x13
+ 3337 0118 01       		.uleb128 0x1
+ 3338 0119 13       		.uleb128 0x13
+ 3339 011a 00       		.byte	0
+ 3340 011b 00       		.byte	0
+ 3341 011c 15       		.uleb128 0x15
+ 3342 011d 2E       		.uleb128 0x2e
+ 3343 011e 01       		.byte	0x1
+ 3344 011f 3F       		.uleb128 0x3f
+ 3345 0120 19       		.uleb128 0x19
+ 3346 0121 03       		.uleb128 0x3
+ 3347 0122 0E       		.uleb128 0xe
+ 3348 0123 3A       		.uleb128 0x3a
+ 3349 0124 0B       		.uleb128 0xb
+ 3350 0125 3B       		.uleb128 0x3b
+ 3351 0126 0B       		.uleb128 0xb
+ 3352 0127 6E       		.uleb128 0x6e
+ 3353 0128 0E       		.uleb128 0xe
+ 3354 0129 49       		.uleb128 0x49
+ 3355 012a 13       		.uleb128 0x13
+ 3356 012b 32       		.uleb128 0x32
+ 3357 012c 0B       		.uleb128 0xb
+ 3358 012d 3C       		.uleb128 0x3c
+ 3359 012e 19       		.uleb128 0x19
+ 3360 012f 64       		.uleb128 0x64
+ 3361 0130 13       		.uleb128 0x13
+ 3362 0131 00       		.byte	0
+ 3363 0132 00       		.byte	0
+ 3364 0133 16       		.uleb128 0x16
+ 3365 0134 13       		.uleb128 0x13
+ 3366 0135 01       		.byte	0x1
+ 3367 0136 0B       		.uleb128 0xb
+ 3368 0137 0B       		.uleb128 0xb
+ 3369 0138 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 64
+
+
+ 3370 0139 0B       		.uleb128 0xb
+ 3371 013a 3B       		.uleb128 0x3b
+ 3372 013b 0B       		.uleb128 0xb
+ 3373 013c 01       		.uleb128 0x1
+ 3374 013d 13       		.uleb128 0x13
+ 3375 013e 00       		.byte	0
+ 3376 013f 00       		.byte	0
+ 3377 0140 17       		.uleb128 0x17
+ 3378 0141 0D       		.uleb128 0xd
+ 3379 0142 00       		.byte	0
+ 3380 0143 03       		.uleb128 0x3
+ 3381 0144 0E       		.uleb128 0xe
+ 3382 0145 3A       		.uleb128 0x3a
+ 3383 0146 0B       		.uleb128 0xb
+ 3384 0147 3B       		.uleb128 0x3b
+ 3385 0148 0B       		.uleb128 0xb
+ 3386 0149 49       		.uleb128 0x49
+ 3387 014a 13       		.uleb128 0x13
+ 3388 014b 38       		.uleb128 0x38
+ 3389 014c 0B       		.uleb128 0xb
+ 3390 014d 00       		.byte	0
+ 3391 014e 00       		.byte	0
+ 3392 014f 18       		.uleb128 0x18
+ 3393 0150 15       		.uleb128 0x15
+ 3394 0151 01       		.byte	0x1
+ 3395 0152 64       		.uleb128 0x64
+ 3396 0153 13       		.uleb128 0x13
+ 3397 0154 01       		.uleb128 0x1
+ 3398 0155 13       		.uleb128 0x13
+ 3399 0156 00       		.byte	0
+ 3400 0157 00       		.byte	0
+ 3401 0158 19       		.uleb128 0x19
+ 3402 0159 10       		.uleb128 0x10
+ 3403 015a 00       		.byte	0
+ 3404 015b 0B       		.uleb128 0xb
+ 3405 015c 0B       		.uleb128 0xb
+ 3406 015d 49       		.uleb128 0x49
+ 3407 015e 13       		.uleb128 0x13
+ 3408 015f 00       		.byte	0
+ 3409 0160 00       		.byte	0
+ 3410 0161 1A       		.uleb128 0x1a
+ 3411 0162 02       		.uleb128 0x2
+ 3412 0163 00       		.byte	0
+ 3413 0164 03       		.uleb128 0x3
+ 3414 0165 0E       		.uleb128 0xe
+ 3415 0166 3C       		.uleb128 0x3c
+ 3416 0167 19       		.uleb128 0x19
+ 3417 0168 00       		.byte	0
+ 3418 0169 00       		.byte	0
+ 3419 016a 1B       		.uleb128 0x1b
+ 3420 016b 02       		.uleb128 0x2
+ 3421 016c 01       		.byte	0x1
+ 3422 016d 03       		.uleb128 0x3
+ 3423 016e 0E       		.uleb128 0xe
+ 3424 016f 0B       		.uleb128 0xb
+ 3425 0170 0B       		.uleb128 0xb
+ 3426 0171 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 65
+
+
+ 3427 0172 0B       		.uleb128 0xb
+ 3428 0173 3B       		.uleb128 0x3b
+ 3429 0174 0B       		.uleb128 0xb
+ 3430 0175 1D       		.uleb128 0x1d
+ 3431 0176 13       		.uleb128 0x13
+ 3432 0177 01       		.uleb128 0x1
+ 3433 0178 13       		.uleb128 0x13
+ 3434 0179 00       		.byte	0
+ 3435 017a 00       		.byte	0
+ 3436 017b 1C       		.uleb128 0x1c
+ 3437 017c 08       		.uleb128 0x8
+ 3438 017d 00       		.byte	0
+ 3439 017e 3A       		.uleb128 0x3a
+ 3440 017f 0B       		.uleb128 0xb
+ 3441 0180 3B       		.uleb128 0x3b
+ 3442 0181 0B       		.uleb128 0xb
+ 3443 0182 18       		.uleb128 0x18
+ 3444 0183 13       		.uleb128 0x13
+ 3445 0184 00       		.byte	0
+ 3446 0185 00       		.byte	0
+ 3447 0186 1D       		.uleb128 0x1d
+ 3448 0187 1C       		.uleb128 0x1c
+ 3449 0188 00       		.byte	0
+ 3450 0189 49       		.uleb128 0x49
+ 3451 018a 13       		.uleb128 0x13
+ 3452 018b 38       		.uleb128 0x38
+ 3453 018c 0B       		.uleb128 0xb
+ 3454 018d 32       		.uleb128 0x32
+ 3455 018e 0B       		.uleb128 0xb
+ 3456 018f 00       		.byte	0
+ 3457 0190 00       		.byte	0
+ 3458 0191 1E       		.uleb128 0x1e
+ 3459 0192 2E       		.uleb128 0x2e
+ 3460 0193 01       		.byte	0x1
+ 3461 0194 3F       		.uleb128 0x3f
+ 3462 0195 19       		.uleb128 0x19
+ 3463 0196 03       		.uleb128 0x3
+ 3464 0197 0E       		.uleb128 0xe
+ 3465 0198 49       		.uleb128 0x49
+ 3466 0199 13       		.uleb128 0x13
+ 3467 019a 34       		.uleb128 0x34
+ 3468 019b 19       		.uleb128 0x19
+ 3469 019c 32       		.uleb128 0x32
+ 3470 019d 0B       		.uleb128 0xb
+ 3471 019e 3C       		.uleb128 0x3c
+ 3472 019f 19       		.uleb128 0x19
+ 3473 01a0 64       		.uleb128 0x64
+ 3474 01a1 13       		.uleb128 0x13
+ 3475 01a2 01       		.uleb128 0x1
+ 3476 01a3 13       		.uleb128 0x13
+ 3477 01a4 00       		.byte	0
+ 3478 01a5 00       		.byte	0
+ 3479 01a6 1F       		.uleb128 0x1f
+ 3480 01a7 2E       		.uleb128 0x2e
+ 3481 01a8 01       		.byte	0x1
+ 3482 01a9 3F       		.uleb128 0x3f
+ 3483 01aa 19       		.uleb128 0x19
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 66
+
+
+ 3484 01ab 03       		.uleb128 0x3
+ 3485 01ac 0E       		.uleb128 0xe
+ 3486 01ad 3A       		.uleb128 0x3a
+ 3487 01ae 0B       		.uleb128 0xb
+ 3488 01af 3B       		.uleb128 0x3b
+ 3489 01b0 0B       		.uleb128 0xb
+ 3490 01b1 6E       		.uleb128 0x6e
+ 3491 01b2 0E       		.uleb128 0xe
+ 3492 01b3 4C       		.uleb128 0x4c
+ 3493 01b4 0B       		.uleb128 0xb
+ 3494 01b5 4D       		.uleb128 0x4d
+ 3495 01b6 18       		.uleb128 0x18
+ 3496 01b7 1D       		.uleb128 0x1d
+ 3497 01b8 13       		.uleb128 0x13
+ 3498 01b9 32       		.uleb128 0x32
+ 3499 01ba 0B       		.uleb128 0xb
+ 3500 01bb 3C       		.uleb128 0x3c
+ 3501 01bc 19       		.uleb128 0x19
+ 3502 01bd 64       		.uleb128 0x64
+ 3503 01be 13       		.uleb128 0x13
+ 3504 01bf 01       		.uleb128 0x1
+ 3505 01c0 13       		.uleb128 0x13
+ 3506 01c1 00       		.byte	0
+ 3507 01c2 00       		.byte	0
+ 3508 01c3 20       		.uleb128 0x20
+ 3509 01c4 2E       		.uleb128 0x2e
+ 3510 01c5 01       		.byte	0x1
+ 3511 01c6 3F       		.uleb128 0x3f
+ 3512 01c7 19       		.uleb128 0x19
+ 3513 01c8 03       		.uleb128 0x3
+ 3514 01c9 08       		.uleb128 0x8
+ 3515 01ca 3A       		.uleb128 0x3a
+ 3516 01cb 0B       		.uleb128 0xb
+ 3517 01cc 3B       		.uleb128 0x3b
+ 3518 01cd 0B       		.uleb128 0xb
+ 3519 01ce 6E       		.uleb128 0x6e
+ 3520 01cf 0E       		.uleb128 0xe
+ 3521 01d0 4C       		.uleb128 0x4c
+ 3522 01d1 0B       		.uleb128 0xb
+ 3523 01d2 4D       		.uleb128 0x4d
+ 3524 01d3 18       		.uleb128 0x18
+ 3525 01d4 1D       		.uleb128 0x1d
+ 3526 01d5 13       		.uleb128 0x13
+ 3527 01d6 32       		.uleb128 0x32
+ 3528 01d7 0B       		.uleb128 0xb
+ 3529 01d8 3C       		.uleb128 0x3c
+ 3530 01d9 19       		.uleb128 0x19
+ 3531 01da 64       		.uleb128 0x64
+ 3532 01db 13       		.uleb128 0x13
+ 3533 01dc 01       		.uleb128 0x1
+ 3534 01dd 13       		.uleb128 0x13
+ 3535 01de 00       		.byte	0
+ 3536 01df 00       		.byte	0
+ 3537 01e0 21       		.uleb128 0x21
+ 3538 01e1 2E       		.uleb128 0x2e
+ 3539 01e2 01       		.byte	0x1
+ 3540 01e3 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 67
+
+
+ 3541 01e4 19       		.uleb128 0x19
+ 3542 01e5 03       		.uleb128 0x3
+ 3543 01e6 0E       		.uleb128 0xe
+ 3544 01e7 3A       		.uleb128 0x3a
+ 3545 01e8 0B       		.uleb128 0xb
+ 3546 01e9 3B       		.uleb128 0x3b
+ 3547 01ea 0B       		.uleb128 0xb
+ 3548 01eb 6E       		.uleb128 0x6e
+ 3549 01ec 0E       		.uleb128 0xe
+ 3550 01ed 49       		.uleb128 0x49
+ 3551 01ee 13       		.uleb128 0x13
+ 3552 01ef 4C       		.uleb128 0x4c
+ 3553 01f0 0B       		.uleb128 0xb
+ 3554 01f1 4D       		.uleb128 0x4d
+ 3555 01f2 18       		.uleb128 0x18
+ 3556 01f3 1D       		.uleb128 0x1d
+ 3557 01f4 13       		.uleb128 0x13
+ 3558 01f5 32       		.uleb128 0x32
+ 3559 01f6 0B       		.uleb128 0xb
+ 3560 01f7 3C       		.uleb128 0x3c
+ 3561 01f8 19       		.uleb128 0x19
+ 3562 01f9 64       		.uleb128 0x64
+ 3563 01fa 13       		.uleb128 0x13
+ 3564 01fb 01       		.uleb128 0x1
+ 3565 01fc 13       		.uleb128 0x13
+ 3566 01fd 00       		.byte	0
+ 3567 01fe 00       		.byte	0
+ 3568 01ff 22       		.uleb128 0x22
+ 3569 0200 2E       		.uleb128 0x2e
+ 3570 0201 01       		.byte	0x1
+ 3571 0202 3F       		.uleb128 0x3f
+ 3572 0203 19       		.uleb128 0x19
+ 3573 0204 03       		.uleb128 0x3
+ 3574 0205 0E       		.uleb128 0xe
+ 3575 0206 3A       		.uleb128 0x3a
+ 3576 0207 0B       		.uleb128 0xb
+ 3577 0208 3B       		.uleb128 0x3b
+ 3578 0209 0B       		.uleb128 0xb
+ 3579 020a 6E       		.uleb128 0x6e
+ 3580 020b 0E       		.uleb128 0xe
+ 3581 020c 49       		.uleb128 0x49
+ 3582 020d 13       		.uleb128 0x13
+ 3583 020e 4C       		.uleb128 0x4c
+ 3584 020f 0B       		.uleb128 0xb
+ 3585 0210 4D       		.uleb128 0x4d
+ 3586 0211 18       		.uleb128 0x18
+ 3587 0212 1D       		.uleb128 0x1d
+ 3588 0213 13       		.uleb128 0x13
+ 3589 0214 32       		.uleb128 0x32
+ 3590 0215 0B       		.uleb128 0xb
+ 3591 0216 3C       		.uleb128 0x3c
+ 3592 0217 19       		.uleb128 0x19
+ 3593 0218 64       		.uleb128 0x64
+ 3594 0219 13       		.uleb128 0x13
+ 3595 021a 00       		.byte	0
+ 3596 021b 00       		.byte	0
+ 3597 021c 23       		.uleb128 0x23
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 68
+
+
+ 3598 021d 02       		.uleb128 0x2
+ 3599 021e 01       		.byte	0x1
+ 3600 021f 03       		.uleb128 0x3
+ 3601 0220 0E       		.uleb128 0xe
+ 3602 0221 3C       		.uleb128 0x3c
+ 3603 0222 19       		.uleb128 0x19
+ 3604 0223 01       		.uleb128 0x1
+ 3605 0224 13       		.uleb128 0x13
+ 3606 0225 00       		.byte	0
+ 3607 0226 00       		.byte	0
+ 3608 0227 24       		.uleb128 0x24
+ 3609 0228 2E       		.uleb128 0x2e
+ 3610 0229 01       		.byte	0x1
+ 3611 022a 3F       		.uleb128 0x3f
+ 3612 022b 19       		.uleb128 0x19
+ 3613 022c 03       		.uleb128 0x3
+ 3614 022d 0E       		.uleb128 0xe
+ 3615 022e 3A       		.uleb128 0x3a
+ 3616 022f 0B       		.uleb128 0xb
+ 3617 0230 3B       		.uleb128 0x3b
+ 3618 0231 0B       		.uleb128 0xb
+ 3619 0232 49       		.uleb128 0x49
+ 3620 0233 13       		.uleb128 0x13
+ 3621 0234 32       		.uleb128 0x32
+ 3622 0235 0B       		.uleb128 0xb
+ 3623 0236 3C       		.uleb128 0x3c
+ 3624 0237 19       		.uleb128 0x19
+ 3625 0238 64       		.uleb128 0x64
+ 3626 0239 13       		.uleb128 0x13
+ 3627 023a 00       		.byte	0
+ 3628 023b 00       		.byte	0
+ 3629 023c 25       		.uleb128 0x25
+ 3630 023d 13       		.uleb128 0x13
+ 3631 023e 01       		.byte	0x1
+ 3632 023f 03       		.uleb128 0x3
+ 3633 0240 0E       		.uleb128 0xe
+ 3634 0241 0B       		.uleb128 0xb
+ 3635 0242 0B       		.uleb128 0xb
+ 3636 0243 3A       		.uleb128 0x3a
+ 3637 0244 0B       		.uleb128 0xb
+ 3638 0245 3B       		.uleb128 0x3b
+ 3639 0246 0B       		.uleb128 0xb
+ 3640 0247 01       		.uleb128 0x1
+ 3641 0248 13       		.uleb128 0x13
+ 3642 0249 00       		.byte	0
+ 3643 024a 00       		.byte	0
+ 3644 024b 26       		.uleb128 0x26
+ 3645 024c 15       		.uleb128 0x15
+ 3646 024d 00       		.byte	0
+ 3647 024e 49       		.uleb128 0x49
+ 3648 024f 13       		.uleb128 0x13
+ 3649 0250 00       		.byte	0
+ 3650 0251 00       		.byte	0
+ 3651 0252 27       		.uleb128 0x27
+ 3652 0253 15       		.uleb128 0x15
+ 3653 0254 01       		.byte	0x1
+ 3654 0255 01       		.uleb128 0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 69
+
+
+ 3655 0256 13       		.uleb128 0x13
+ 3656 0257 00       		.byte	0
+ 3657 0258 00       		.byte	0
+ 3658 0259 28       		.uleb128 0x28
+ 3659 025a 15       		.uleb128 0x15
+ 3660 025b 01       		.byte	0x1
+ 3661 025c 49       		.uleb128 0x49
+ 3662 025d 13       		.uleb128 0x13
+ 3663 025e 01       		.uleb128 0x1
+ 3664 025f 13       		.uleb128 0x13
+ 3665 0260 00       		.byte	0
+ 3666 0261 00       		.byte	0
+ 3667 0262 29       		.uleb128 0x29
+ 3668 0263 2E       		.uleb128 0x2e
+ 3669 0264 01       		.byte	0x1
+ 3670 0265 47       		.uleb128 0x47
+ 3671 0266 13       		.uleb128 0x13
+ 3672 0267 20       		.uleb128 0x20
+ 3673 0268 0B       		.uleb128 0xb
+ 3674 0269 64       		.uleb128 0x64
+ 3675 026a 13       		.uleb128 0x13
+ 3676 026b 01       		.uleb128 0x1
+ 3677 026c 13       		.uleb128 0x13
+ 3678 026d 00       		.byte	0
+ 3679 026e 00       		.byte	0
+ 3680 026f 2A       		.uleb128 0x2a
+ 3681 0270 05       		.uleb128 0x5
+ 3682 0271 00       		.byte	0
+ 3683 0272 03       		.uleb128 0x3
+ 3684 0273 0E       		.uleb128 0xe
+ 3685 0274 49       		.uleb128 0x49
+ 3686 0275 13       		.uleb128 0x13
+ 3687 0276 34       		.uleb128 0x34
+ 3688 0277 19       		.uleb128 0x19
+ 3689 0278 00       		.byte	0
+ 3690 0279 00       		.byte	0
+ 3691 027a 2B       		.uleb128 0x2b
+ 3692 027b 2E       		.uleb128 0x2e
+ 3693 027c 01       		.byte	0x1
+ 3694 027d 31       		.uleb128 0x31
+ 3695 027e 13       		.uleb128 0x13
+ 3696 027f 6E       		.uleb128 0x6e
+ 3697 0280 0E       		.uleb128 0xe
+ 3698 0281 11       		.uleb128 0x11
+ 3699 0282 01       		.uleb128 0x1
+ 3700 0283 12       		.uleb128 0x12
+ 3701 0284 06       		.uleb128 0x6
+ 3702 0285 40       		.uleb128 0x40
+ 3703 0286 18       		.uleb128 0x18
+ 3704 0287 64       		.uleb128 0x64
+ 3705 0288 13       		.uleb128 0x13
+ 3706 0289 9742     		.uleb128 0x2117
+ 3707 028b 19       		.uleb128 0x19
+ 3708 028c 01       		.uleb128 0x1
+ 3709 028d 13       		.uleb128 0x13
+ 3710 028e 00       		.byte	0
+ 3711 028f 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 70
+
+
+ 3712 0290 2C       		.uleb128 0x2c
+ 3713 0291 05       		.uleb128 0x5
+ 3714 0292 00       		.byte	0
+ 3715 0293 31       		.uleb128 0x31
+ 3716 0294 13       		.uleb128 0x13
+ 3717 0295 02       		.uleb128 0x2
+ 3718 0296 18       		.uleb128 0x18
+ 3719 0297 00       		.byte	0
+ 3720 0298 00       		.byte	0
+ 3721 0299 2D       		.uleb128 0x2d
+ 3722 029a 2E       		.uleb128 0x2e
+ 3723 029b 01       		.byte	0x1
+ 3724 029c 31       		.uleb128 0x31
+ 3725 029d 13       		.uleb128 0x13
+ 3726 029e 6E       		.uleb128 0x6e
+ 3727 029f 0E       		.uleb128 0xe
+ 3728 02a0 11       		.uleb128 0x11
+ 3729 02a1 01       		.uleb128 0x1
+ 3730 02a2 12       		.uleb128 0x12
+ 3731 02a3 06       		.uleb128 0x6
+ 3732 02a4 40       		.uleb128 0x40
+ 3733 02a5 18       		.uleb128 0x18
+ 3734 02a6 64       		.uleb128 0x64
+ 3735 02a7 13       		.uleb128 0x13
+ 3736 02a8 9642     		.uleb128 0x2116
+ 3737 02aa 19       		.uleb128 0x19
+ 3738 02ab 01       		.uleb128 0x1
+ 3739 02ac 13       		.uleb128 0x13
+ 3740 02ad 00       		.byte	0
+ 3741 02ae 00       		.byte	0
+ 3742 02af 2E       		.uleb128 0x2e
+ 3743 02b0 2E       		.uleb128 0x2e
+ 3744 02b1 00       		.byte	0
+ 3745 02b2 3F       		.uleb128 0x3f
+ 3746 02b3 19       		.uleb128 0x19
+ 3747 02b4 03       		.uleb128 0x3
+ 3748 02b5 0E       		.uleb128 0xe
+ 3749 02b6 3A       		.uleb128 0x3a
+ 3750 02b7 0B       		.uleb128 0xb
+ 3751 02b8 3B       		.uleb128 0x3b
+ 3752 02b9 0B       		.uleb128 0xb
+ 3753 02ba 49       		.uleb128 0x49
+ 3754 02bb 13       		.uleb128 0x13
+ 3755 02bc 11       		.uleb128 0x11
+ 3756 02bd 01       		.uleb128 0x1
+ 3757 02be 12       		.uleb128 0x12
+ 3758 02bf 06       		.uleb128 0x6
+ 3759 02c0 40       		.uleb128 0x40
+ 3760 02c1 18       		.uleb128 0x18
+ 3761 02c2 9642     		.uleb128 0x2116
+ 3762 02c4 19       		.uleb128 0x19
+ 3763 02c5 00       		.byte	0
+ 3764 02c6 00       		.byte	0
+ 3765 02c7 2F       		.uleb128 0x2f
+ 3766 02c8 2E       		.uleb128 0x2e
+ 3767 02c9 01       		.byte	0x1
+ 3768 02ca 03       		.uleb128 0x3
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 71
+
+
+ 3769 02cb 0E       		.uleb128 0xe
+ 3770 02cc 34       		.uleb128 0x34
+ 3771 02cd 19       		.uleb128 0x19
+ 3772 02ce 11       		.uleb128 0x11
+ 3773 02cf 01       		.uleb128 0x1
+ 3774 02d0 12       		.uleb128 0x12
+ 3775 02d1 06       		.uleb128 0x6
+ 3776 02d2 40       		.uleb128 0x40
+ 3777 02d3 18       		.uleb128 0x18
+ 3778 02d4 9642     		.uleb128 0x2116
+ 3779 02d6 19       		.uleb128 0x19
+ 3780 02d7 01       		.uleb128 0x1
+ 3781 02d8 13       		.uleb128 0x13
+ 3782 02d9 00       		.byte	0
+ 3783 02da 00       		.byte	0
+ 3784 02db 30       		.uleb128 0x30
+ 3785 02dc 05       		.uleb128 0x5
+ 3786 02dd 00       		.byte	0
+ 3787 02de 03       		.uleb128 0x3
+ 3788 02df 0E       		.uleb128 0xe
+ 3789 02e0 3A       		.uleb128 0x3a
+ 3790 02e1 0B       		.uleb128 0xb
+ 3791 02e2 3B       		.uleb128 0x3b
+ 3792 02e3 0B       		.uleb128 0xb
+ 3793 02e4 49       		.uleb128 0x49
+ 3794 02e5 13       		.uleb128 0x13
+ 3795 02e6 02       		.uleb128 0x2
+ 3796 02e7 18       		.uleb128 0x18
+ 3797 02e8 00       		.byte	0
+ 3798 02e9 00       		.byte	0
+ 3799 02ea 31       		.uleb128 0x31
+ 3800 02eb 2E       		.uleb128 0x2e
+ 3801 02ec 00       		.byte	0
+ 3802 02ed 03       		.uleb128 0x3
+ 3803 02ee 0E       		.uleb128 0xe
+ 3804 02ef 34       		.uleb128 0x34
+ 3805 02f0 19       		.uleb128 0x19
+ 3806 02f1 11       		.uleb128 0x11
+ 3807 02f2 01       		.uleb128 0x1
+ 3808 02f3 12       		.uleb128 0x12
+ 3809 02f4 06       		.uleb128 0x6
+ 3810 02f5 40       		.uleb128 0x40
+ 3811 02f6 18       		.uleb128 0x18
+ 3812 02f7 9642     		.uleb128 0x2116
+ 3813 02f9 19       		.uleb128 0x19
+ 3814 02fa 00       		.byte	0
+ 3815 02fb 00       		.byte	0
+ 3816 02fc 32       		.uleb128 0x32
+ 3817 02fd 34       		.uleb128 0x34
+ 3818 02fe 00       		.byte	0
+ 3819 02ff 03       		.uleb128 0x3
+ 3820 0300 0E       		.uleb128 0xe
+ 3821 0301 3A       		.uleb128 0x3a
+ 3822 0302 0B       		.uleb128 0xb
+ 3823 0303 3B       		.uleb128 0x3b
+ 3824 0304 05       		.uleb128 0x5
+ 3825 0305 49       		.uleb128 0x49
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 72
+
+
+ 3826 0306 13       		.uleb128 0x13
+ 3827 0307 3F       		.uleb128 0x3f
+ 3828 0308 19       		.uleb128 0x19
+ 3829 0309 3C       		.uleb128 0x3c
+ 3830 030a 19       		.uleb128 0x19
+ 3831 030b 00       		.byte	0
+ 3832 030c 00       		.byte	0
+ 3833 030d 33       		.uleb128 0x33
+ 3834 030e 34       		.uleb128 0x34
+ 3835 030f 00       		.byte	0
+ 3836 0310 03       		.uleb128 0x3
+ 3837 0311 08       		.uleb128 0x8
+ 3838 0312 3A       		.uleb128 0x3a
+ 3839 0313 0B       		.uleb128 0xb
+ 3840 0314 3B       		.uleb128 0x3b
+ 3841 0315 0B       		.uleb128 0xb
+ 3842 0316 49       		.uleb128 0x49
+ 3843 0317 13       		.uleb128 0x13
+ 3844 0318 02       		.uleb128 0x2
+ 3845 0319 18       		.uleb128 0x18
+ 3846 031a 00       		.byte	0
+ 3847 031b 00       		.byte	0
+ 3848 031c 34       		.uleb128 0x34
+ 3849 031d 34       		.uleb128 0x34
+ 3850 031e 00       		.byte	0
+ 3851 031f 03       		.uleb128 0x3
+ 3852 0320 0E       		.uleb128 0xe
+ 3853 0321 3A       		.uleb128 0x3a
+ 3854 0322 0B       		.uleb128 0xb
+ 3855 0323 3B       		.uleb128 0x3b
+ 3856 0324 0B       		.uleb128 0xb
+ 3857 0325 49       		.uleb128 0x49
+ 3858 0326 13       		.uleb128 0x13
+ 3859 0327 02       		.uleb128 0x2
+ 3860 0328 18       		.uleb128 0x18
+ 3861 0329 00       		.byte	0
+ 3862 032a 00       		.byte	0
+ 3863 032b 35       		.uleb128 0x35
+ 3864 032c 34       		.uleb128 0x34
+ 3865 032d 00       		.byte	0
+ 3866 032e 03       		.uleb128 0x3
+ 3867 032f 0E       		.uleb128 0xe
+ 3868 0330 3A       		.uleb128 0x3a
+ 3869 0331 0B       		.uleb128 0xb
+ 3870 0332 3B       		.uleb128 0x3b
+ 3871 0333 0B       		.uleb128 0xb
+ 3872 0334 49       		.uleb128 0x49
+ 3873 0335 13       		.uleb128 0x13
+ 3874 0336 3F       		.uleb128 0x3f
+ 3875 0337 19       		.uleb128 0x19
+ 3876 0338 02       		.uleb128 0x2
+ 3877 0339 18       		.uleb128 0x18
+ 3878 033a 00       		.byte	0
+ 3879 033b 00       		.byte	0
+ 3880 033c 36       		.uleb128 0x36
+ 3881 033d 34       		.uleb128 0x34
+ 3882 033e 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 73
+
+
+ 3883 033f 03       		.uleb128 0x3
+ 3884 0340 0E       		.uleb128 0xe
+ 3885 0341 49       		.uleb128 0x49
+ 3886 0342 13       		.uleb128 0x13
+ 3887 0343 3F       		.uleb128 0x3f
+ 3888 0344 19       		.uleb128 0x19
+ 3889 0345 34       		.uleb128 0x34
+ 3890 0346 19       		.uleb128 0x19
+ 3891 0347 3C       		.uleb128 0x3c
+ 3892 0348 19       		.uleb128 0x19
+ 3893 0349 00       		.byte	0
+ 3894 034a 00       		.byte	0
+ 3895 034b 00       		.byte	0
+ 3896              		.section	.debug_aranges,"",%progbits
+ 3897 0000 4C000000 		.4byte	0x4c
+ 3898 0004 0200     		.2byte	0x2
+ 3899 0006 00000000 		.4byte	.Ldebug_info0
+ 3900 000a 04       		.byte	0x4
+ 3901 000b 00       		.byte	0
+ 3902 000c 0000     		.2byte	0
+ 3903 000e 0000     		.2byte	0
+ 3904 0010 00000000 		.4byte	.LFB119
+ 3905 0014 20000000 		.4byte	.LFE119-.LFB119
+ 3906 0018 00000000 		.4byte	.LFB126
+ 3907 001c 24000000 		.4byte	.LFE126-.LFB126
+ 3908 0020 00000000 		.4byte	.LFB141
+ 3909 0024 24000000 		.4byte	.LFE141-.LFB141
+ 3910 0028 00000000 		.4byte	.LFB144
+ 3911 002c 24000000 		.4byte	.LFE144-.LFB144
+ 3912 0030 00000000 		.4byte	.LFB147
+ 3913 0034 2C000000 		.4byte	.LFE147-.LFB147
+ 3914 0038 00000000 		.4byte	.LFB148
+ 3915 003c 60000000 		.4byte	.LFE148-.LFB148
+ 3916 0040 00000000 		.4byte	.LFB149
+ 3917 0044 10000000 		.4byte	.LFE149-.LFB149
+ 3918 0048 00000000 		.4byte	0
+ 3919 004c 00000000 		.4byte	0
+ 3920              		.section	.debug_ranges,"",%progbits
+ 3921              	.Ldebug_ranges0:
+ 3922 0000 00000000 		.4byte	.LFB119
+ 3923 0004 20000000 		.4byte	.LFE119
+ 3924 0008 00000000 		.4byte	.LFB126
+ 3925 000c 24000000 		.4byte	.LFE126
+ 3926 0010 00000000 		.4byte	.LFB141
+ 3927 0014 24000000 		.4byte	.LFE141
+ 3928 0018 00000000 		.4byte	.LFB144
+ 3929 001c 24000000 		.4byte	.LFE144
+ 3930 0020 00000000 		.4byte	.LFB147
+ 3931 0024 2C000000 		.4byte	.LFE147
+ 3932 0028 00000000 		.4byte	.LFB148
+ 3933 002c 60000000 		.4byte	.LFE148
+ 3934 0030 00000000 		.4byte	.LFB149
+ 3935 0034 10000000 		.4byte	.LFE149
+ 3936 0038 00000000 		.4byte	0
+ 3937 003c 00000000 		.4byte	0
+ 3938              		.section	.debug_line,"",%progbits
+ 3939              	.Ldebug_line0:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 74
+
+
+ 3940 0000 E0020000 		.section	.debug_str,"MS",%progbits,1
+ 3940      02003E02 
+ 3940      00000201 
+ 3940      FB0E0D00 
+ 3940      01010101 
+ 3941              	.LASF25:
+ 3942 0000 63617061 		.ascii	"capacity\000"
+ 3942      63697479 
+ 3942      00
+ 3943              	.LASF64:
+ 3944 0009 5F5A4E4B 		.ascii	"_ZNK6String9compareToERKS_\000"
+ 3944      36537472 
+ 3944      696E6739 
+ 3944      636F6D70 
+ 3944      61726554 
+ 3945              	.LASF193:
+ 3946 0024 5F5A4E36 		.ascii	"_ZN6Stream4findEPc\000"
+ 3946      53747265 
+ 3946      616D3466 
+ 3946      696E6445 
+ 3946      506300
+ 3947              	.LASF51:
+ 3948 0037 5F5A4E36 		.ascii	"_ZN6StringpLEPKc\000"
+ 3948      53747269 
+ 3948      6E67704C 
+ 3948      45504B63 
+ 3948      00
+ 3949              	.LASF219:
+ 3950 0048 5F5F696E 		.ascii	"__in_chrg\000"
+ 3950      5F636872 
+ 3950      6700
+ 3951              	.LASF22:
+ 3952 0052 73697A65 		.ascii	"size_t\000"
+ 3952      5F7400
+ 3953              	.LASF159:
+ 3954 0059 5F5A4E31 		.ascii	"_ZN14HardwareSerialcvbEv\000"
+ 3954      34486172 
+ 3954      64776172 
+ 3954      65536572 
+ 3954      69616C63 
+ 3955              	.LASF221:
+ 3956 0072 5F5A4E36 		.ascii	"_ZN6StreamD2Ev\000"
+ 3956      53747265 
+ 3956      616D4432 
+ 3956      457600
+ 3957              	.LASF90:
+ 3958 0081 5F5A4E4B 		.ascii	"_ZNK6String6charAtEj\000"
+ 3958      36537472 
+ 3958      696E6736 
+ 3958      63686172 
+ 3958      4174456A 
+ 3959              	.LASF2:
+ 3960 0096 5F5F7569 		.ascii	"__uint8_t\000"
+ 3960      6E74385F 
+ 3960      7400
+ 3961              	.LASF178:
+ 3962 00a0 5F737461 		.ascii	"_startMillis\000"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 75
+
+
+ 3962      72744D69 
+ 3962      6C6C6973 
+ 3962      00
+ 3963              	.LASF126:
+ 3964 00ad 5F5A4E36 		.ascii	"_ZN6String4trimEv\000"
+ 3964      53747269 
+ 3964      6E673474 
+ 3964      72696D45 
+ 3964      7600
+ 3965              	.LASF143:
+ 3966 00bf 53747269 		.ascii	"StringIfHelper\000"
+ 3966      6E674966 
+ 3966      48656C70 
+ 3966      657200
+ 3967              	.LASF95:
+ 3968 00ce 67657442 		.ascii	"getBytes\000"
+ 3968      79746573 
+ 3968      00
+ 3969              	.LASF242:
+ 3970 00d7 5F5F7374 		.ascii	"__static_initialization_and_destruction_0\000"
+ 3970      61746963 
+ 3970      5F696E69 
+ 3970      7469616C 
+ 3970      697A6174 
+ 3971              	.LASF110:
+ 3972 0101 5F5A4E4B 		.ascii	"_ZNK6String11lastIndexOfERKS_\000"
+ 3972      36537472 
+ 3972      696E6731 
+ 3972      316C6173 
+ 3972      74496E64 
+ 3973              	.LASF8:
+ 3974 011f 6C6F6E67 		.ascii	"long int\000"
+ 3974      20696E74 
+ 3974      00
+ 3975              	.LASF136:
+ 3976 0128 5F5A4E36 		.ascii	"_ZN6String12changeBufferEj\000"
+ 3976      53747269 
+ 3976      6E673132 
+ 3976      6368616E 
+ 3976      67654275 
+ 3977              	.LASF124:
+ 3978 0143 5F5A4E36 		.ascii	"_ZN6String11toUpperCaseEv\000"
+ 3978      53747269 
+ 3978      6E673131 
+ 3978      746F5570 
+ 3978      70657243 
+ 3979              	.LASF67:
+ 3980 015d 5F5A4E4B 		.ascii	"_ZNK6String6equalsEPKc\000"
+ 3980      36537472 
+ 3980      696E6736 
+ 3980      65717561 
+ 3980      6C734550 
+ 3981              	.LASF183:
+ 3982 0174 7065656B 		.ascii	"peekNextDigit\000"
+ 3982      4E657874 
+ 3982      44696769 
+ 3982      7400
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 76
+
+
+ 3983              	.LASF141:
+ 3984 0182 5F5F7066 		.ascii	"__pfn\000"
+ 3984      6E00
+ 3985              	.LASF11:
+ 3986 0188 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3986      206C6F6E 
+ 3986      6720756E 
+ 3986      7369676E 
+ 3986      65642069 
+ 3987              	.LASF237:
+ 3988 019f 5F5A4E4B 		.ascii	"_ZNK6String14StringIfHelperEv\000"
+ 3988      36537472 
+ 3988      696E6731 
+ 3988      34537472 
+ 3988      696E6749 
+ 3989              	.LASF135:
+ 3990 01bd 6368616E 		.ascii	"changeBuffer\000"
+ 3990      67654275 
+ 3990      66666572 
+ 3990      00
+ 3991              	.LASF118:
+ 3992 01ca 72656D6F 		.ascii	"remove\000"
+ 3992      766500
+ 3993              	.LASF144:
+ 3994 01d1 48617264 		.ascii	"HardwareSerial\000"
+ 3994      77617265 
+ 3994      53657269 
+ 3994      616C00
+ 3995              	.LASF228:
+ 3996 01e0 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 3996      52784275 
+ 3996      66666572 
+ 3996      00
+ 3997              	.LASF28:
+ 3998 01ed 7E537472 		.ascii	"~String\000"
+ 3998      696E6700 
+ 3999              	.LASF155:
+ 4000 01f5 5F5A4E31 		.ascii	"_ZN14HardwareSerial5flushEv\000"
+ 4000      34486172 
+ 4000      64776172 
+ 4000      65536572 
+ 4000      69616C35 
+ 4001              	.LASF27:
+ 4002 0211 53747269 		.ascii	"String\000"
+ 4002      6E6700
+ 4003              	.LASF109:
+ 4004 0218 5F5A4E4B 		.ascii	"_ZNK6String11lastIndexOfEcj\000"
+ 4004      36537472 
+ 4004      696E6731 
+ 4004      316C6173 
+ 4004      74496E64 
+ 4005              	.LASF195:
+ 4006 0234 5F5A4E36 		.ascii	"_ZN6Stream4findEPcj\000"
+ 4006      53747265 
+ 4006      616D3466 
+ 4006      696E6445 
+ 4006      50636A00 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 77
+
+
+ 4007              	.LASF133:
+ 4008 0248 696E7661 		.ascii	"invalidate\000"
+ 4008      6C696461 
+ 4008      746500
+ 4009              	.LASF10:
+ 4010 0253 6C6F6E67 		.ascii	"long long int\000"
+ 4010      206C6F6E 
+ 4010      6720696E 
+ 4010      7400
+ 4011              	.LASF0:
+ 4012 0261 7369676E 		.ascii	"signed char\000"
+ 4012      65642063 
+ 4012      68617200 
+ 4013              	.LASF176:
+ 4014 026d 53747265 		.ascii	"Stream\000"
+ 4014      616D00
+ 4015              	.LASF184:
+ 4016 0274 5F5A4E36 		.ascii	"_ZN6Stream13peekNextDigitEv\000"
+ 4016      53747265 
+ 4016      616D3133 
+ 4016      7065656B 
+ 4016      4E657874 
+ 4017              	.LASF73:
+ 4018 0290 5F5A4E4B 		.ascii	"_ZNK6StringneEPKc\000"
+ 4018      36537472 
+ 4018      696E676E 
+ 4018      6545504B 
+ 4018      6300
+ 4019              	.LASF200:
+ 4020 02a2 5F5A4E36 		.ascii	"_ZN6Stream9findUntilEPcjS0_j\000"
+ 4020      53747265 
+ 4020      616D3966 
+ 4020      696E6455 
+ 4020      6E74696C 
+ 4021              	.LASF197:
+ 4022 02bf 66696E64 		.ascii	"findUntil\000"
+ 4022      556E7469 
+ 4022      6C00
+ 4023              	.LASF218:
+ 4024 02c9 74686973 		.ascii	"this\000"
+ 4024      00
+ 4025              	.LASF96:
+ 4026 02ce 5F5A4E36 		.ascii	"_ZN6String9setCharAtEjc\000"
+ 4026      53747269 
+ 4026      6E673973 
+ 4026      65744368 
+ 4026      61724174 
+ 4027              	.LASF223:
+ 4028 02e6 5F5A4E39 		.ascii	"_ZN9UARTClassD2Ev\000"
+ 4028      55415254 
+ 4028      436C6173 
+ 4028      73443245 
+ 4028      7600
+ 4029              	.LASF105:
+ 4030 02f8 5F5A4E4B 		.ascii	"_ZNK6String7indexOfERKS_\000"
+ 4030      36537472 
+ 4030      696E6737 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 78
+
+
+ 4030      696E6465 
+ 4030      784F6645 
+ 4031              	.LASF122:
+ 4032 0311 5F5A4E36 		.ascii	"_ZN6String11toLowerCaseEv\000"
+ 4032      53747269 
+ 4032      6E673131 
+ 4032      746F4C6F 
+ 4032      77657243 
+ 4033              	.LASF129:
+ 4034 032b 746F466C 		.ascii	"toFloat\000"
+ 4034      6F617400 
+ 4035              	.LASF97:
+ 4036 0333 5F5A4E4B 		.ascii	"_ZNK6String8getBytesEPhjj\000"
+ 4036      36537472 
+ 4036      696E6738 
+ 4036      67657442 
+ 4036      79746573 
+ 4037              	.LASF165:
+ 4038 034d 636C6F63 		.ascii	"clockAdjust\000"
+ 4038      6B41646A 
+ 4038      75737400 
+ 4039              	.LASF177:
+ 4040 0359 5F74696D 		.ascii	"_timeout\000"
+ 4040      656F7574 
+ 4040      00
+ 4041              	.LASF63:
+ 4042 0362 636F6D70 		.ascii	"compareTo\000"
+ 4042      61726554 
+ 4042      6F00
+ 4043              	.LASF71:
+ 4044 036c 6F706572 		.ascii	"operator!=\000"
+ 4044      61746F72 
+ 4044      213D00
+ 4045              	.LASF199:
+ 4046 0377 5F5A4E36 		.ascii	"_ZN6Stream9findUntilEPhPc\000"
+ 4046      53747265 
+ 4046      616D3966 
+ 4046      696E6455 
+ 4046      6E74696C 
+ 4047              	.LASF113:
+ 4048 0391 5F5A4E4B 		.ascii	"_ZNK6String9substringEj\000"
+ 4048      36537472 
+ 4048      696E6739 
+ 4048      73756273 
+ 4048      7472696E 
+ 4049              	.LASF17:
+ 4050 03a9 75696E74 		.ascii	"uint8\000"
+ 4050      3800
+ 4051              	.LASF82:
+ 4052 03af 65717561 		.ascii	"equalsIgnoreCase\000"
+ 4052      6C734967 
+ 4052      6E6F7265 
+ 4052      43617365 
+ 4052      00
+ 4053              	.LASF15:
+ 4054 03c0 75696E74 		.ascii	"uint16_t\000"
+ 4054      31365F74 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 79
+
+
+ 4054      00
+ 4055              	.LASF99:
+ 4056 03c9 5F5A4E4B 		.ascii	"_ZNK6String11toCharArrayEPcjj\000"
+ 4056      36537472 
+ 4056      696E6731 
+ 4056      31746F43 
+ 4056      68617241 
+ 4057              	.LASF19:
+ 4058 03e7 646F7562 		.ascii	"double\000"
+ 4058      6C6500
+ 4059              	.LASF163:
+ 4060 03ee 706F7274 		.ascii	"portEnable\000"
+ 4060      456E6162 
+ 4060      6C6500
+ 4061              	.LASF241:
+ 4062 03f9 6D61696E 		.ascii	"main\000"
+ 4062      00
+ 4063              	.LASF39:
+ 4064 03fe 5F5A4E36 		.ascii	"_ZN6String6concatEPKc\000"
+ 4064      53747269 
+ 4064      6E673663 
+ 4064      6F6E6361 
+ 4064      7445504B 
+ 4065              	.LASF91:
+ 4066 0414 73657443 		.ascii	"setCharAt\000"
+ 4066      68617241 
+ 4066      7400
+ 4067              	.LASF60:
+ 4068 041e 5F5A4E36 		.ascii	"_ZN6StringpLEPK19__FlashStringHelper\000"
+ 4068      53747269 
+ 4068      6E67704C 
+ 4068      45504B31 
+ 4068      395F5F46 
+ 4069              	.LASF6:
+ 4070 0443 73686F72 		.ascii	"short unsigned int\000"
+ 4070      7420756E 
+ 4070      7369676E 
+ 4070      65642069 
+ 4070      6E7400
+ 4071              	.LASF104:
+ 4072 0456 5F5A4E4B 		.ascii	"_ZNK6String7indexOfEcj\000"
+ 4072      36537472 
+ 4072      696E6737 
+ 4072      696E6465 
+ 4072      784F6645 
+ 4073              	.LASF175:
+ 4074 046d 6C6F6E67 		.ascii	"long double\000"
+ 4074      20646F75 
+ 4074      626C6500 
+ 4075              	.LASF234:
+ 4076 0479 474E5520 		.ascii	"GNU C++ 4.9.3 20150303 (release) [ARM/embedded-4_9-"
+ 4076      432B2B20 
+ 4076      342E392E 
+ 4076      33203230 
+ 4076      31353033 
+ 4077 04ac 6272616E 		.ascii	"branch revision 221220] -mcpu=cortex-m3 -mthumb -g "
+ 4077      63682072 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 80
+
+
+ 4077      65766973 
+ 4077      696F6E20 
+ 4077      32323132 
+ 4078 04df 2D4F3020 		.ascii	"-O0 -ffunction-sections -ffat-lto-objects\000"
+ 4078      2D666675 
+ 4078      6E637469 
+ 4078      6F6E2D73 
+ 4078      65637469 
+ 4079              	.LASF207:
+ 4080 0509 5F5A4E36 		.ascii	"_ZN6Stream9readBytesEPcj\000"
+ 4080      53747265 
+ 4080      616D3972 
+ 4080      65616442 
+ 4080      79746573 
+ 4081              	.LASF32:
+ 4082 0522 5F5A4E4B 		.ascii	"_ZNK6String6lengthEv\000"
+ 4082      36537472 
+ 4082      696E6736 
+ 4082      6C656E67 
+ 4082      74684576 
+ 4083              	.LASF166:
+ 4084 0537 73656E64 		.ascii	"sendData\000"
+ 4084      44617461 
+ 4084      00
+ 4085              	.LASF215:
+ 4086 0540 5F5A4E36 		.ascii	"_ZN6Stream15readStringUntilEc\000"
+ 4086      53747265 
+ 4086      616D3135 
+ 4086      72656164 
+ 4086      53747269 
+ 4087              	.LASF37:
+ 4088 055e 636F6E63 		.ascii	"concat\000"
+ 4088      617400
+ 4089              	.LASF224:
+ 4090 0565 5F5F696E 		.ascii	"__initialize_p\000"
+ 4090      69746961 
+ 4090      6C697A65 
+ 4090      5F7000
+ 4091              	.LASF102:
+ 4092 0574 696E6465 		.ascii	"indexOf\000"
+ 4092      784F6600 
+ 4093              	.LASF31:
+ 4094 057c 5F5A4E36 		.ascii	"_ZN6String7reserveEj\000"
+ 4094      53747269 
+ 4094      6E673772 
+ 4094      65736572 
+ 4094      7665456A 
+ 4095              	.LASF145:
+ 4096 0591 7E486172 		.ascii	"~HardwareSerial\000"
+ 4096      64776172 
+ 4096      65536572 
+ 4096      69616C00 
+ 4097              	.LASF202:
+ 4098 05a1 70617273 		.ascii	"parseInt\000"
+ 4098      65496E74 
+ 4098      00
+ 4099              	.LASF107:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 81
+
+
+ 4100 05aa 6C617374 		.ascii	"lastIndexOf\000"
+ 4100      496E6465 
+ 4100      784F6600 
+ 4101              	.LASF103:
+ 4102 05b6 5F5A4E4B 		.ascii	"_ZNK6String7indexOfEc\000"
+ 4102      36537472 
+ 4102      696E6737 
+ 4102      696E6465 
+ 4102      784F6645 
+ 4103              	.LASF35:
+ 4104 05cc 5F5A4E36 		.ascii	"_ZN6StringaSEPKc\000"
+ 4104      53747269 
+ 4104      6E676153 
+ 4104      45504B63 
+ 4104      00
+ 4105              	.LASF12:
+ 4106 05dd 756E7369 		.ascii	"unsigned int\000"
+ 4106      676E6564 
+ 4106      20696E74 
+ 4106      00
+ 4107              	.LASF29:
+ 4108 05ea 72657365 		.ascii	"reserve\000"
+ 4108      72766500 
+ 4109              	.LASF243:
+ 4110 05f2 5F474C4F 		.ascii	"_GLOBAL__sub_I_USBUART_Helpers\000"
+ 4110      42414C5F 
+ 4110      5F737562 
+ 4110      5F495F55 
+ 4110      53425541 
+ 4111              	.LASF146:
+ 4112 0611 62656769 		.ascii	"begin\000"
+ 4112      6E00
+ 4113              	.LASF169:
+ 4114 0617 626C6F63 		.ascii	"blockForWriteComplete\000"
+ 4114      6B466F72 
+ 4114      57726974 
+ 4114      65436F6D 
+ 4114      706C6574 
+ 4115              	.LASF98:
+ 4116 062d 746F4368 		.ascii	"toCharArray\000"
+ 4116      61724172 
+ 4116      72617900 
+ 4117              	.LASF116:
+ 4118 0639 5F5A4E36 		.ascii	"_ZN6String7replaceEcc\000"
+ 4118      53747269 
+ 4118      6E673772 
+ 4118      65706C61 
+ 4118      63654563 
+ 4119              	.LASF26:
+ 4120 064f 53747269 		.ascii	"StringIfHelperType\000"
+ 4120      6E674966 
+ 4120      48656C70 
+ 4120      65725479 
+ 4120      706500
+ 4121              	.LASF9:
+ 4122 0662 6C6F6E67 		.ascii	"long unsigned int\000"
+ 4122      20756E73 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 82
+
+
+ 4122      69676E65 
+ 4122      6420696E 
+ 4122      7400
+ 4123              	.LASF212:
+ 4124 0674 72656164 		.ascii	"readString\000"
+ 4124      53747269 
+ 4124      6E6700
+ 4125              	.LASF172:
+ 4126 067f 5072696E 		.ascii	"Print\000"
+ 4126      7400
+ 4127              	.LASF130:
+ 4128 0685 5F5A4E4B 		.ascii	"_ZNK6String7toFloatEv\000"
+ 4128      36537472 
+ 4128      696E6737 
+ 4128      746F466C 
+ 4128      6F617445 
+ 4129              	.LASF88:
+ 4130 069b 5F5A4E4B 		.ascii	"_ZNK6String8endsWithERKS_\000"
+ 4130      36537472 
+ 4130      696E6738 
+ 4130      656E6473 
+ 4130      57697468 
+ 4131              	.LASF120:
+ 4132 06b5 5F5A4E36 		.ascii	"_ZN6String6removeEjj\000"
+ 4132      53747269 
+ 4132      6E673672 
+ 4132      656D6F76 
+ 4132      65456A6A 
+ 4133              	.LASF94:
+ 4134 06ca 5F5A4E36 		.ascii	"_ZN6StringixEj\000"
+ 4134      53747269 
+ 4134      6E676978 
+ 4134      456A00
+ 4135              	.LASF160:
+ 4136 06d9 5F5A4E35 		.ascii	"_ZN5Print5writeEPKcj\000"
+ 4136      5072696E 
+ 4136      74357772 
+ 4136      69746545 
+ 4136      504B636A 
+ 4137              	.LASF57:
+ 4138 06ee 5F5A4E36 		.ascii	"_ZN6StringpLEm\000"
+ 4138      53747269 
+ 4138      6E67704C 
+ 4138      456D00
+ 4139              	.LASF148:
+ 4140 06fd 7065656B 		.ascii	"peek\000"
+ 4140      00
+ 4141              	.LASF194:
+ 4142 0702 5F5A4E36 		.ascii	"_ZN6Stream4findEPh\000"
+ 4142      53747265 
+ 4142      616D3466 
+ 4142      696E6445 
+ 4142      506800
+ 4143              	.LASF89:
+ 4144 0715 63686172 		.ascii	"charAt\000"
+ 4144      417400
+ 4145              	.LASF123:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 83
+
+
+ 4146 071c 746F5570 		.ascii	"toUpperCase\000"
+ 4146      70657243 
+ 4146      61736500 
+ 4147              	.LASF211:
+ 4148 0728 5F5A4E36 		.ascii	"_ZN6Stream14readBytesUntilEcPhj\000"
+ 4148      53747265 
+ 4148      616D3134 
+ 4148      72656164 
+ 4148      42797465 
+ 4149              	.LASF65:
+ 4150 0748 65717561 		.ascii	"equals\000"
+ 4150      6C7300
+ 4151              	.LASF101:
+ 4152 074f 5F5A4E4B 		.ascii	"_ZNK6String5c_strEv\000"
+ 4152      36537472 
+ 4152      696E6735 
+ 4152      635F7374 
+ 4152      72457600 
+ 4153              	.LASF186:
+ 4154 0763 5F5A4E36 		.ascii	"_ZN6Stream9availableEv\000"
+ 4154      53747265 
+ 4154      616D3961 
+ 4154      7661696C 
+ 4154      61626C65 
+ 4155              	.LASF112:
+ 4156 077a 73756273 		.ascii	"substring\000"
+ 4156      7472696E 
+ 4156      6700
+ 4157              	.LASF164:
+ 4158 0784 706F7274 		.ascii	"portDisable\000"
+ 4158      44697361 
+ 4158      626C6500 
+ 4159              	.LASF40:
+ 4160 0790 5F5A4E36 		.ascii	"_ZN6String6concatEc\000"
+ 4160      53747269 
+ 4160      6E673663 
+ 4160      6F6E6361 
+ 4160      74456300 
+ 4161              	.LASF47:
+ 4162 07a4 5F5A4E36 		.ascii	"_ZN6String6concatEd\000"
+ 4162      53747269 
+ 4162      6E673663 
+ 4162      6F6E6361 
+ 4162      74456400 
+ 4163              	.LASF232:
+ 4164 07b8 55415254 		.ascii	"UART_Helpers\000"
+ 4164      5F48656C 
+ 4164      70657273 
+ 4164      00
+ 4165              	.LASF46:
+ 4166 07c5 5F5A4E36 		.ascii	"_ZN6String6concatEf\000"
+ 4166      53747269 
+ 4166      6E673663 
+ 4166      6F6E6361 
+ 4166      74456600 
+ 4167              	.LASF41:
+ 4168 07d9 5F5A4E36 		.ascii	"_ZN6String6concatEh\000"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 84
+
+
+ 4168      53747269 
+ 4168      6E673663 
+ 4168      6F6E6361 
+ 4168      74456800 
+ 4169              	.LASF42:
+ 4170 07ed 5F5A4E36 		.ascii	"_ZN6String6concatEi\000"
+ 4170      53747269 
+ 4170      6E673663 
+ 4170      6F6E6361 
+ 4170      74456900 
+ 4171              	.LASF43:
+ 4172 0801 5F5A4E36 		.ascii	"_ZN6String6concatEj\000"
+ 4172      53747269 
+ 4172      6E673663 
+ 4172      6F6E6361 
+ 4172      74456A00 
+ 4173              	.LASF204:
+ 4174 0815 70617273 		.ascii	"parseFloat\000"
+ 4174      65466C6F 
+ 4174      617400
+ 4175              	.LASF44:
+ 4176 0820 5F5A4E36 		.ascii	"_ZN6String6concatEl\000"
+ 4176      53747269 
+ 4176      6E673663 
+ 4176      6F6E6361 
+ 4176      74456C00 
+ 4177              	.LASF45:
+ 4178 0834 5F5A4E36 		.ascii	"_ZN6String6concatEm\000"
+ 4178      53747269 
+ 4178      6E673663 
+ 4178      6F6E6361 
+ 4178      74456D00 
+ 4179              	.LASF7:
+ 4180 0848 5F5F696E 		.ascii	"__int32_t\000"
+ 4180      7433325F 
+ 4180      7400
+ 4181              	.LASF240:
+ 4182 0852 53657269 		.ascii	"SerialHelperFuncs\000"
+ 4182      616C4865 
+ 4182      6C706572 
+ 4182      46756E63 
+ 4182      7300
+ 4183              	.LASF203:
+ 4184 0864 5F5A4E36 		.ascii	"_ZN6Stream8parseIntEv\000"
+ 4184      53747265 
+ 4184      616D3870 
+ 4184      61727365 
+ 4184      496E7445 
+ 4185              	.LASF77:
+ 4186 087a 5F5A4E4B 		.ascii	"_ZNK6StringgtERKS_\000"
+ 4186      36537472 
+ 4186      696E6767 
+ 4186      7445524B 
+ 4186      535F00
+ 4187              	.LASF216:
+ 4188 088d 5F5A4E36 		.ascii	"_ZN6Stream8parseIntEc\000"
+ 4188      53747265 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 85
+
+
+ 4188      616D3870 
+ 4188      61727365 
+ 4188      496E7445 
+ 4189              	.LASF86:
+ 4190 08a3 5F5A4E4B 		.ascii	"_ZNK6String10startsWithERKS_j\000"
+ 4190      36537472 
+ 4190      696E6731 
+ 4190      30737461 
+ 4190      72747357 
+ 4191              	.LASF111:
+ 4192 08c1 5F5A4E4B 		.ascii	"_ZNK6String11lastIndexOfERKS_j\000"
+ 4192      36537472 
+ 4192      696E6731 
+ 4192      316C6173 
+ 4192      74496E64 
+ 4193              	.LASF161:
+ 4194 08e0 7E507269 		.ascii	"~Print\000"
+ 4194      6E7400
+ 4195              	.LASF156:
+ 4196 08e7 77726974 		.ascii	"write\000"
+ 4196      6500
+ 4197              	.LASF138:
+ 4198 08ed 636F7079 		.ascii	"copy\000"
+ 4198      00
+ 4199              	.LASF92:
+ 4200 08f2 6F706572 		.ascii	"operator[]\000"
+ 4200      61746F72 
+ 4200      5B5D00
+ 4201              	.LASF153:
+ 4202 08fd 666C7573 		.ascii	"flush\000"
+ 4202      6800
+ 4203              	.LASF173:
+ 4204 0903 55415254 		.ascii	"UARTClass\000"
+ 4204      436C6173 
+ 4204      7300
+ 4205              	.LASF23:
+ 4206 090d 73697A65 		.ascii	"sizetype\000"
+ 4206      74797065 
+ 4206      00
+ 4207              	.LASF84:
+ 4208 0916 73746172 		.ascii	"startsWith\000"
+ 4208      74735769 
+ 4208      746800
+ 4209              	.LASF231:
+ 4210 0921 55534255 		.ascii	"USBUART_Helpers\000"
+ 4210      4152545F 
+ 4210      48656C70 
+ 4210      65727300 
+ 4211              	.LASF191:
+ 4212 0931 5F5A4E36 		.ascii	"_ZN6Stream10setTimeoutEm\000"
+ 4212      53747265 
+ 4212      616D3130 
+ 4212      73657454 
+ 4212      696D656F 
+ 4213              	.LASF83:
+ 4214 094a 5F5A4E4B 		.ascii	"_ZNK6String16equalsIgnoreCaseERKS_\000"
+ 4214      36537472 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 86
+
+
+ 4214      696E6731 
+ 4214      36657175 
+ 4214      616C7349 
+ 4215              	.LASF50:
+ 4216 096d 5F5A4E36 		.ascii	"_ZN6StringpLERKS_\000"
+ 4216      53747269 
+ 4216      6E67704C 
+ 4216      45524B53 
+ 4216      5F00
+ 4217              	.LASF235:
+ 4218 097f 636F7265 		.ascii	"core\\main.cpp\000"
+ 4218      5C6D6169 
+ 4218      6E2E6370 
+ 4218      7000
+ 4219              	.LASF38:
+ 4220 098d 5F5A4E36 		.ascii	"_ZN6String6concatERKS_\000"
+ 4220      53747269 
+ 4220      6E673663 
+ 4220      6F6E6361 
+ 4220      7445524B 
+ 4221              	.LASF68:
+ 4222 09a4 6F706572 		.ascii	"operator==\000"
+ 4222      61746F72 
+ 4222      3D3D00
+ 4223              	.LASF157:
+ 4224 09af 5F5A4E31 		.ascii	"_ZN14HardwareSerial5writeEh\000"
+ 4224      34486172 
+ 4224      64776172 
+ 4224      65536572 
+ 4224      69616C35 
+ 4225              	.LASF52:
+ 4226 09cb 5F5A4E36 		.ascii	"_ZN6StringpLEc\000"
+ 4226      53747269 
+ 4226      6E67704C 
+ 4226      456300
+ 4227              	.LASF59:
+ 4228 09da 5F5A4E36 		.ascii	"_ZN6StringpLEd\000"
+ 4228      53747269 
+ 4228      6E67704C 
+ 4228      456400
+ 4229              	.LASF58:
+ 4230 09e9 5F5A4E36 		.ascii	"_ZN6StringpLEf\000"
+ 4230      53747269 
+ 4230      6E67704C 
+ 4230      456600
+ 4231              	.LASF53:
+ 4232 09f8 5F5A4E36 		.ascii	"_ZN6StringpLEh\000"
+ 4232      53747269 
+ 4232      6E67704C 
+ 4232      456800
+ 4233              	.LASF54:
+ 4234 0a07 5F5A4E36 		.ascii	"_ZN6StringpLEi\000"
+ 4234      53747269 
+ 4234      6E67704C 
+ 4234      456900
+ 4235              	.LASF55:
+ 4236 0a16 5F5A4E36 		.ascii	"_ZN6StringpLEj\000"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 87
+
+
+ 4236      53747269 
+ 4236      6E67704C 
+ 4236      456A00
+ 4237              	.LASF56:
+ 4238 0a25 5F5A4E36 		.ascii	"_ZN6StringpLEl\000"
+ 4238      53747269 
+ 4238      6E67704C 
+ 4238      456C00
+ 4239              	.LASF182:
+ 4240 0a34 5F5A4E36 		.ascii	"_ZN6Stream9timedPeekEv\000"
+ 4240      53747265 
+ 4240      616D3974 
+ 4240      696D6564 
+ 4240      5065656B 
+ 4241              	.LASF117:
+ 4242 0a4b 5F5A4E36 		.ascii	"_ZN6String7replaceERKS_S1_\000"
+ 4242      53747269 
+ 4242      6E673772 
+ 4242      65706C61 
+ 4242      63654552 
+ 4243              	.LASF61:
+ 4244 0a66 6F706572 		.ascii	"operator String::StringIfHelperType\000"
+ 4244      61746F72 
+ 4244      20537472 
+ 4244      696E673A 
+ 4244      3A537472 
+ 4245              	.LASF131:
+ 4246 0a8a 696E6974 		.ascii	"init\000"
+ 4246      00
+ 4247              	.LASF168:
+ 4248 0a8f 7065656B 		.ascii	"peekData\000"
+ 4248      44617461 
+ 4248      00
+ 4249              	.LASF214:
+ 4250 0a98 72656164 		.ascii	"readStringUntil\000"
+ 4250      53747269 
+ 4250      6E67556E 
+ 4250      74696C00 
+ 4251              	.LASF48:
+ 4252 0aa8 5F5A4E36 		.ascii	"_ZN6String6concatEPK19__FlashStringHelper\000"
+ 4252      53747269 
+ 4252      6E673663 
+ 4252      6F6E6361 
+ 4252      7445504B 
+ 4253              	.LASF190:
+ 4254 0ad2 73657454 		.ascii	"setTimeout\000"
+ 4254      696D656F 
+ 4254      757400
+ 4255              	.LASF69:
+ 4256 0add 5F5A4E4B 		.ascii	"_ZNK6StringeqERKS_\000"
+ 4256      36537472 
+ 4256      696E6765 
+ 4256      7145524B 
+ 4256      535F00
+ 4257              	.LASF62:
+ 4258 0af0 5F5A4E4B 		.ascii	"_ZNK6StringcvMS_KFvvEEv\000"
+ 4258      36537472 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 88
+
+
+ 4258      696E6763 
+ 4258      764D535F 
+ 4258      4B467676 
+ 4259              	.LASF185:
+ 4260 0b08 7E537472 		.ascii	"~Stream\000"
+ 4260      65616D00 
+ 4261              	.LASF171:
+ 4262 0b10 626F6F6C 		.ascii	"bool\000"
+ 4262      00
+ 4263              	.LASF147:
+ 4264 0b15 61766169 		.ascii	"available\000"
+ 4264      6C61626C 
+ 4264      6500
+ 4265              	.LASF87:
+ 4266 0b1f 656E6473 		.ascii	"endsWith\000"
+ 4266      57697468 
+ 4266      00
+ 4267              	.LASF226:
+ 4268 0b28 4D4F5349 		.ascii	"MOSI\000"
+ 4268      00
+ 4269              	.LASF220:
+ 4270 0b2d 5F5A4E35 		.ascii	"_ZN5PrintD2Ev\000"
+ 4270      5072696E 
+ 4270      74443245 
+ 4270      7600
+ 4271              	.LASF66:
+ 4272 0b3b 5F5A4E4B 		.ascii	"_ZNK6String6equalsERKS_\000"
+ 4272      36537472 
+ 4272      696E6736 
+ 4272      65717561 
+ 4272      6C734552 
+ 4273              	.LASF36:
+ 4274 0b53 5F5A4E36 		.ascii	"_ZN6StringaSEPK19__FlashStringHelper\000"
+ 4274      53747269 
+ 4274      6E676153 
+ 4274      45504B31 
+ 4274      395F5F46 
+ 4275              	.LASF16:
+ 4276 0b78 696E7433 		.ascii	"int32_t\000"
+ 4276      325F7400 
+ 4277              	.LASF1:
+ 4278 0b80 756E7369 		.ascii	"unsigned char\000"
+ 4278      676E6564 
+ 4278      20636861 
+ 4278      7200
+ 4279              	.LASF74:
+ 4280 0b8e 6F706572 		.ascii	"operator<\000"
+ 4280      61746F72 
+ 4280      3C00
+ 4281              	.LASF33:
+ 4282 0b98 6F706572 		.ascii	"operator=\000"
+ 4282      61746F72 
+ 4282      3D00
+ 4283              	.LASF76:
+ 4284 0ba2 6F706572 		.ascii	"operator>\000"
+ 4284      61746F72 
+ 4284      3E00
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 89
+
+
+ 4285              	.LASF142:
+ 4286 0bac 5F5F6465 		.ascii	"__delta\000"
+ 4286      6C746100 
+ 4287              	.LASF93:
+ 4288 0bb4 5F5A4E4B 		.ascii	"_ZNK6StringixEj\000"
+ 4288      36537472 
+ 4288      696E6769 
+ 4288      78456A00 
+ 4289              	.LASF134:
+ 4290 0bc4 5F5A4E36 		.ascii	"_ZN6String10invalidateEv\000"
+ 4290      53747269 
+ 4290      6E673130 
+ 4290      696E7661 
+ 4290      6C696461 
+ 4291              	.LASF4:
+ 4292 0bdd 73686F72 		.ascii	"short int\000"
+ 4292      7420696E 
+ 4292      7400
+ 4293              	.LASF206:
+ 4294 0be7 72656164 		.ascii	"readBytes\000"
+ 4294      42797465 
+ 4294      7300
+ 4295              	.LASF187:
+ 4296 0bf1 5F5A4E36 		.ascii	"_ZN6Stream4readEv\000"
+ 4296      53747265 
+ 4296      616D3472 
+ 4296      65616445 
+ 4296      7600
+ 4297              	.LASF236:
+ 4298 0c03 433A5C55 		.ascii	"C:\\Users\\Bruger\\Desktop\\CODE\\PSOC5\\CY8CKIT-59"
+ 4298      73657273 
+ 4298      5C427275 
+ 4298      6765725C 
+ 4298      4465736B 
+ 4299 0c30 2D417264 		.ascii	"-Arduino\\CY8CKIT59_Ardudino-Speeduino.cydsn\000"
+ 4299      75696E6F 
+ 4299      5C435938 
+ 4299      434B4954 
+ 4299      35395F41 
+ 4300              	.LASF188:
+ 4301 0c5c 5F5A4E36 		.ascii	"_ZN6Stream4peekEv\000"
+ 4301      53747265 
+ 4301      616D3470 
+ 4301      65656B45 
+ 4301      7600
+ 4302              	.LASF70:
+ 4303 0c6e 5F5A4E4B 		.ascii	"_ZNK6StringeqEPKc\000"
+ 4303      36537472 
+ 4303      696E6765 
+ 4303      7145504B 
+ 4303      6300
+ 4304              	.LASF49:
+ 4305 0c80 6F706572 		.ascii	"operator+=\000"
+ 4305      61746F72 
+ 4305      2B3D00
+ 4306              	.LASF21:
+ 4307 0c8b 72656738 		.ascii	"reg8\000"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 90
+
+
+ 4307      00
+ 4308              	.LASF80:
+ 4309 0c90 6F706572 		.ascii	"operator>=\000"
+ 4309      61746F72 
+ 4309      3E3D00
+ 4310              	.LASF213:
+ 4311 0c9b 5F5A4E36 		.ascii	"_ZN6Stream10readStringEv\000"
+ 4311      53747265 
+ 4311      616D3130 
+ 4311      72656164 
+ 4311      53747269 
+ 4312              	.LASF208:
+ 4313 0cb4 5F5A4E36 		.ascii	"_ZN6Stream9readBytesEPhj\000"
+ 4313      53747265 
+ 4313      616D3972 
+ 4313      65616442 
+ 4313      79746573 
+ 4314              	.LASF210:
+ 4315 0ccd 5F5A4E36 		.ascii	"_ZN6Stream14readBytesUntilEcPcj\000"
+ 4315      53747265 
+ 4315      616D3134 
+ 4315      72656164 
+ 4315      42797465 
+ 4316              	.LASF18:
+ 4317 0ced 666C6F61 		.ascii	"float\000"
+ 4317      7400
+ 4318              	.LASF30:
+ 4319 0cf3 6C656E67 		.ascii	"length\000"
+ 4319      746800
+ 4320              	.LASF189:
+ 4321 0cfa 5F5A4E36 		.ascii	"_ZN6Stream5flushEv\000"
+ 4321      53747265 
+ 4321      616D3566 
+ 4321      6C757368 
+ 4321      457600
+ 4322              	.LASF20:
+ 4323 0d0d 63686172 		.ascii	"char\000"
+ 4323      00
+ 4324              	.LASF162:
+ 4325 0d12 62756666 		.ascii	"bufferSize\000"
+ 4325      65725369 
+ 4325      7A6500
+ 4326              	.LASF78:
+ 4327 0d1d 6F706572 		.ascii	"operator<=\000"
+ 4327      61746F72 
+ 4327      3C3D00
+ 4328              	.LASF81:
+ 4329 0d28 5F5A4E4B 		.ascii	"_ZNK6StringgeERKS_\000"
+ 4329      36537472 
+ 4329      696E6767 
+ 4329      6545524B 
+ 4329      535F00
+ 4330              	.LASF152:
+ 4331 0d3b 5F5A4E31 		.ascii	"_ZN14HardwareSerial4readEv\000"
+ 4331      34486172 
+ 4331      64776172 
+ 4331      65536572 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 91
+
+
+ 4331      69616C34 
+ 4332              	.LASF5:
+ 4333 0d56 5F5F7569 		.ascii	"__uint16_t\000"
+ 4333      6E743136 
+ 4333      5F7400
+ 4334              	.LASF85:
+ 4335 0d61 5F5A4E4B 		.ascii	"_ZNK6String10startsWithERKS_\000"
+ 4335      36537472 
+ 4335      696E6731 
+ 4335      30737461 
+ 4335      72747357 
+ 4336              	.LASF115:
+ 4337 0d7e 7265706C 		.ascii	"replace\000"
+ 4337      61636500 
+ 4338              	.LASF137:
+ 4339 0d86 5F5A4E36 		.ascii	"_ZN6String6concatEPKcj\000"
+ 4339      53747269 
+ 4339      6E673663 
+ 4339      6F6E6361 
+ 4339      7445504B 
+ 4340              	.LASF24:
+ 4341 0d9d 62756666 		.ascii	"buffer\000"
+ 4341      657200
+ 4342              	.LASF196:
+ 4343 0da4 5F5A4E36 		.ascii	"_ZN6Stream4findEPhj\000"
+ 4343      53747265 
+ 4343      616D3466 
+ 4343      696E6445 
+ 4343      50686A00 
+ 4344              	.LASF154:
+ 4345 0db8 5F5A4E31 		.ascii	"_ZN14HardwareSerial5beginEm\000"
+ 4345      34486172 
+ 4345      64776172 
+ 4345      65536572 
+ 4345      69616C35 
+ 4346              	.LASF179:
+ 4347 0dd4 74696D65 		.ascii	"timedRead\000"
+ 4347      64526561 
+ 4347      6400
+ 4348              	.LASF180:
+ 4349 0dde 5F5A4E36 		.ascii	"_ZN6Stream9timedReadEv\000"
+ 4349      53747265 
+ 4349      616D3974 
+ 4349      696D6564 
+ 4349      52656164 
+ 4350              	.LASF128:
+ 4351 0df5 5F5A4E4B 		.ascii	"_ZNK6String5toIntEv\000"
+ 4351      36537472 
+ 4351      696E6735 
+ 4351      746F496E 
+ 4351      74457600 
+ 4352              	.LASF150:
+ 4353 0e09 5F5A4E31 		.ascii	"_ZN14HardwareSerial4peekEv\000"
+ 4353      34486172 
+ 4353      64776172 
+ 4353      65536572 
+ 4353      69616C34 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 92
+
+
+ 4354              	.LASF79:
+ 4355 0e24 5F5A4E4B 		.ascii	"_ZNK6StringleERKS_\000"
+ 4355      36537472 
+ 4355      696E676C 
+ 4355      6545524B 
+ 4355      535F00
+ 4356              	.LASF140:
+ 4357 0e37 5F5A4E36 		.ascii	"_ZN6String4copyEPK19__FlashStringHelperj\000"
+ 4357      53747269 
+ 4357      6E673463 
+ 4357      6F707945 
+ 4357      504B3139 
+ 4358              	.LASF239:
+ 4359 0e60 5F5A4E31 		.ascii	"_ZN14HardwareSerial3endEv\000"
+ 4359      34486172 
+ 4359      64776172 
+ 4359      65536572 
+ 4359      69616C33 
+ 4360              	.LASF149:
+ 4361 0e7a 5F5A4E31 		.ascii	"_ZN14HardwareSerial9availableEv\000"
+ 4361      34486172 
+ 4361      64776172 
+ 4361      65536572 
+ 4361      69616C39 
+ 4362              	.LASF222:
+ 4363 0e9a 5F5A4E31 		.ascii	"_ZN14HardwareSerialD2Ev\000"
+ 4363      34486172 
+ 4363      64776172 
+ 4363      65536572 
+ 4363      69616C44 
+ 4364              	.LASF132:
+ 4365 0eb2 5F5A4E36 		.ascii	"_ZN6String4initEv\000"
+ 4365      53747269 
+ 4365      6E673469 
+ 4365      6E697445 
+ 4365      7600
+ 4366              	.LASF181:
+ 4367 0ec4 74696D65 		.ascii	"timedPeek\000"
+ 4367      64506565 
+ 4367      6B00
+ 4368              	.LASF72:
+ 4369 0ece 5F5A4E4B 		.ascii	"_ZNK6StringneERKS_\000"
+ 4369      36537472 
+ 4369      696E676E 
+ 4369      6545524B 
+ 4369      535F00
+ 4370              	.LASF158:
+ 4371 0ee1 6F706572 		.ascii	"operator bool\000"
+ 4371      61746F72 
+ 4371      20626F6F 
+ 4371      6C00
+ 4372              	.LASF75:
+ 4373 0eef 5F5A4E4B 		.ascii	"_ZNK6StringltERKS_\000"
+ 4373      36537472 
+ 4373      696E676C 
+ 4373      7445524B 
+ 4373      535F00
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 93
+
+
+ 4374              	.LASF227:
+ 4375 0f02 4D49534F 		.ascii	"MISO\000"
+ 4375      00
+ 4376              	.LASF139:
+ 4377 0f07 5F5A4E36 		.ascii	"_ZN6String4copyEPKcj\000"
+ 4377      53747269 
+ 4377      6E673463 
+ 4377      6F707945 
+ 4377      504B636A 
+ 4378              	.LASF119:
+ 4379 0f1c 5F5A4E36 		.ascii	"_ZN6String6removeEj\000"
+ 4379      53747269 
+ 4379      6E673672 
+ 4379      656D6F76 
+ 4379      65456A00 
+ 4380              	.LASF125:
+ 4381 0f30 7472696D 		.ascii	"trim\000"
+ 4381      00
+ 4382              	.LASF229:
+ 4383 0f35 53657269 		.ascii	"Serial\000"
+ 4383      616C00
+ 4384              	.LASF209:
+ 4385 0f3c 72656164 		.ascii	"readBytesUntil\000"
+ 4385      42797465 
+ 4385      73556E74 
+ 4385      696C00
+ 4386              	.LASF198:
+ 4387 0f4b 5F5A4E36 		.ascii	"_ZN6Stream9findUntilEPcS0_\000"
+ 4387      53747265 
+ 4387      616D3966 
+ 4387      696E6455 
+ 4387      6E74696C 
+ 4388              	.LASF230:
+ 4389 0f66 53657269 		.ascii	"Serial1\000"
+ 4389      616C3100 
+ 4390              	.LASF13:
+ 4391 0f6e 75696E74 		.ascii	"uint8_t\000"
+ 4391      385F7400 
+ 4392              	.LASF100:
+ 4393 0f76 635F7374 		.ascii	"c_str\000"
+ 4393      7200
+ 4394              	.LASF201:
+ 4395 0f7c 5F5A4E36 		.ascii	"_ZN6Stream9findUntilEPhjPcj\000"
+ 4395      53747265 
+ 4395      616D3966 
+ 4395      696E6455 
+ 4395      6E74696C 
+ 4396              	.LASF3:
+ 4397 0f98 5F5F696E 		.ascii	"__int16_t\000"
+ 4397      7431365F 
+ 4397      7400
+ 4398              	.LASF151:
+ 4399 0fa2 72656164 		.ascii	"read\000"
+ 4399      00
+ 4400              	.LASF192:
+ 4401 0fa7 66696E64 		.ascii	"find\000"
+ 4401      00
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 94
+
+
+ 4402              	.LASF174:
+ 4403 0fac 7E554152 		.ascii	"~UARTClass\000"
+ 4403      54436C61 
+ 4403      737300
+ 4404              	.LASF127:
+ 4405 0fb7 746F496E 		.ascii	"toInt\000"
+ 4405      7400
+ 4406              	.LASF114:
+ 4407 0fbd 5F5A4E4B 		.ascii	"_ZNK6String9substringEjj\000"
+ 4407      36537472 
+ 4407      696E6739 
+ 4407      73756273 
+ 4407      7472696E 
+ 4408              	.LASF108:
+ 4409 0fd6 5F5A4E4B 		.ascii	"_ZNK6String11lastIndexOfEc\000"
+ 4409      36537472 
+ 4409      696E6731 
+ 4409      316C6173 
+ 4409      74496E64 
+ 4410              	.LASF121:
+ 4411 0ff1 746F4C6F 		.ascii	"toLowerCase\000"
+ 4411      77657243 
+ 4411      61736500 
+ 4412              	.LASF217:
+ 4413 0ffd 5F5A4E36 		.ascii	"_ZN6Stream10parseFloatEc\000"
+ 4413      53747265 
+ 4413      616D3130 
+ 4413      70617273 
+ 4413      65466C6F 
+ 4414              	.LASF106:
+ 4415 1016 5F5A4E4B 		.ascii	"_ZNK6String7indexOfERKS_j\000"
+ 4415      36537472 
+ 4415      696E6737 
+ 4415      696E6465 
+ 4415      784F6645 
+ 4416              	.LASF34:
+ 4417 1030 5F5A4E36 		.ascii	"_ZN6StringaSERKS_\000"
+ 4417      53747269 
+ 4417      6E676153 
+ 4417      45524B53 
+ 4417      5F00
+ 4418              	.LASF238:
+ 4419 1042 5F5F466C 		.ascii	"__FlashStringHelper\000"
+ 4419      61736853 
+ 4419      7472696E 
+ 4419      6748656C 
+ 4419      70657200 
+ 4420              	.LASF225:
+ 4421 1056 5F5F7072 		.ascii	"__priority\000"
+ 4421      696F7269 
+ 4421      747900
+ 4422              	.LASF167:
+ 4423 1061 67657444 		.ascii	"getData\000"
+ 4423      61746100 
+ 4424              	.LASF14:
+ 4425 1069 696E7431 		.ascii	"int16_t\000"
+ 4425      365F7400 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccTYSziv.s 			page 95
+
+
+ 4426              	.LASF233:
+ 4427 1071 5F5F6473 		.ascii	"__dso_handle\000"
+ 4427      6F5F6861 
+ 4427      6E646C65 
+ 4427      00
+ 4428              	.LASF170:
+ 4429 107e 626C6F63 		.ascii	"blockForReadyToWrite\000"
+ 4429      6B466F72 
+ 4429      52656164 
+ 4429      79546F57 
+ 4429      72697465 
+ 4430              	.LASF205:
+ 4431 1093 5F5A4E36 		.ascii	"_ZN6Stream10parseFloatEv\000"
+ 4431      53747265 
+ 4431      616D3130 
+ 4431      70617273 
+ 4431      65466C6F 
+ 4432              		.hidden	__dso_handle
+ 4433              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

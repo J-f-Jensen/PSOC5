@@ -1,0 +1,966 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGkXoJg.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"IgnitionPortControlReg.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.section	.gnu.lto_.profile.24c1121d,"",%progbits
+  18 0000 789C6366 		.ascii	"x\234cf```a\200\000F\0066\026\000\000\204\000\023"
+  18      60606061 
+  18      80004606 
+  18      36160000 
+  18      840013
+  19              		.text
+  20              		.section	.gnu.lto_.jmpfuncs.24c1121d,"",%progbits
+  21 0000 789C6366 		.ascii	"x\234cf\300\016\270\2404\023\003##c=#\220\005\000\004"
+  21      C00EB8A0 
+  21      34130323 
+  21      23633D23 
+  21      90050004 
+  22 0014 040093   		.ascii	"\004\000\223"
+  23              		.text
+  24              		.section	.gnu.lto_.inline.24c1121d,"",%progbits
+  25 0000 789C6366 		.ascii	"x\234cf\300\0164\2404\023\003\003\0133#\003\023\323"
+  25      C00E34A0 
+  25      34130303 
+  25      0B332303 
+  25      13D3
+  26 0012 057E06B6 		.ascii	"\005~\006\266\005\362L 1FL!\006\000K\274\003\223"
+  26      05F24C20 
+  26      31464C21 
+  26      06004BBC 
+  26      0393
+  27              		.text
+  28              		.section	.gnu.lto_.pureconst.24c1121d,"",%progbits
+  29 0000 789C6366 		.ascii	"x\234cf```e\200\000&\006)F)\000\000\371\000@"
+  29      60606065 
+  29      80002606 
+  29      29462900 
+  29      00F90040 
+  30              		.text
+  31              		.section	.gnu.lto_IgnitionPortControlReg_Write.24c1121d,"",%progbits
+  32 0000 789C6590 		.ascii	"x\234e\220;K\003Q\020\205\347\314\346%i\304r{\011\202"
+  32      3B4B0351 
+  32      1085E7CC 
+  32      E62569C4 
+  32      727B0982 
+  33 0014 88203656 		.ascii	"\210 6VB\012\021,\202i\003\"q\011\001\331\205e\255s"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGkXoJg.s 			page 2
+
+
+  33      420A112C 
+  33      82690322 
+  33      710901D9 
+  33      8565AD73 
+  34 0028 57F20382 		.ascii	"W\362\003\202\205\010\242\205\242Q\343\223\374\2015"
+  34      8508A285 
+  34      A251E393 
+  34      FC8135
+  35 0037 8868A1A2 		.ascii	"\210h\241\242\215h\021\233\210Z(\006\013\211\240q\256"
+  35      8D68119B 
+  35      885A2806 
+  35      0B89A071 
+  35      AE
+  36 0048 29BD7099 		.ascii	")\275p\231\007\347|3\367\032\364\377\230rc \032\221"
+  36      07E77C33 
+  36      F71AF4FF 
+  36      98726320 
+  36      1A91
+  37 005a 0883C0A5 		.ascii	"\010\203\300\245K\"?\306\200N\010T`\024\360\302MF)\250"
+  37      4B223FC6 
+  37      804E0854 
+  37      6014F0C2 
+  37      4D4629A8 
+  38 006e 2CC5131B 		.ascii	",\305\023\033J\251\367\233s?\025\240\305D\037\334\341"
+  38      4AA9F79B 
+  38      733F15A0 
+  38      C5441FDC 
+  38      E1
+  39 007f A08C8468 		.ascii	"\240\214\204h6ONMc\010$\351Wu\241\322\325\273\256\324"
+  39      364F4E4D 
+  39      630824E9 
+  39      5775A1D2 
+  39      D5BBAED4 
+  40 0093 7C70B7AF 		.ascii	"|p\267\257FE\015l\301\020\003\372M\364\231$\015\302"
+  40      46450D6C 
+  40      C11003FA 
+  40      4DF49924 
+  40      0DC2
+  41 00a5 367AB5B8 		.ascii	"6z\265\270Y\374\276\215G\212\302\356\356 \261\203\210"
+  41      59FCBE8D 
+  41      478AC2EE 
+  41      EE20B183 
+  41      88
+  42 00b6 AC45073D 		.ascii	"\254E\007=\201j\267\253\345\343C\204\004\240\345\324"
+  42      816AB7AB 
+  42      E5E34384 
+  42      04A0E5D4 
+  43 00c6 1081DEEE 		.ascii	"\020\201\336\356\221YG\343\036\265\305fyB[\004\365\372"
+  43      915947E3 
+  43      1EB5C566 
+  43      79425B04 
+  43      F5FA
+  44 00d8 545F8B3E 		.ascii	"T_\213>s\213\371\347\314W!M\177h\\]\307\376Z\244\313"
+  44      738BF9E7 
+  44      CC57214D 
+  44      7F685C5D 
+  44      C7FE5AA4 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGkXoJg.s 			page 3
+
+
+  45 00ed D5B7DA05 		.ascii	"\325\267\332\005V\260\354\027\375 \334b\003\025\230"
+  45      56B0EC17 
+  45      FD20DC62 
+  45      031598
+  46 00fc D8857C05 		.ascii	"\330\205|\005\366\244\377)\262:\374\340(\254\211\372"
+  46      F6A4FF29 
+  46      B23AFCE0 
+  46      28AC89FA 
+  47 010c 710DD954 		.ascii	"q\015\331T\006\211{p\314\262-w\332\263f\246\322\316"
+  47      06897B70 
+  47      CCB22D77 
+  47      DAB366A6 
+  47      D2CE
+  48 011e 9C9BB532 		.ascii	"\234\233\2652\251\264\223\034\316\214\347\354\274\227"
+  48      A9B4931C 
+  48      CE8CE7EC 
+  48      BC97
+  49 012c 77EC94E3 		.ascii	"w\354\224\343zI\307\366\\gv\322\312\015d)\232\355T\277"
+  49      7A49C7F6 
+  49      5C6776D2 
+  49      CA0D6429 
+  49      9AED54BF 
+  50 0140 CEF573CE 		.ascii	"\316\365s\316"
+  51              		.text
+  52              		.section	.gnu.lto_IgnitionPortControlReg_Read.24c1121d,"",%progbits
+  53 0000 789C6366 		.ascii	"x\234cf\300\004R@|\025\210\215\200\230\221\231\201\221"
+  53      C0045240 
+  53      7C15888D 
+  53      80989199 
+  53      8191
+  54 0012 69C23906 		.ascii	"i\3029\006\206F\016&FF\020\203\201\221\241\236\211\261"
+  54      86460E26 
+  54      46461083 
+  54      8191A19E 
+  54      89B1
+  55 0024 9EF125D3 		.ascii	"\236\361%\323G&\3063;\377]fT_\332\320\320\364a\322\373"
+  55      4726C633 
+  55      3BFF5D66 
+  55      545FDAD0 
+  55      D0F461D2 
+  56 0039 BB010718 		.ascii	"\273\001\007\030\177210|fb`\324\221b\324\004\231\303"
+  56      7F323130 
+  56      7C666260 
+  56      D49162D4 
+  56      0499C3
+  57 004c B89C519D 		.ascii	"\270\234Q\235\001\250\360c\313\337\353\334l-\015\015"
+  57      01A8F063 
+  57      CBDFEBDC 
+  57      6C2D0D0D 
+  58 005c 0D022079 		.ascii	"\015\002 y\240\304\012F6F \275^\350@\303\377\377\233"
+  58      A0C40A46 
+  58      364620BD 
+  58      5EE840C3 
+  58      FFFF9B
+  59 006f F71EFCC1 		.ascii	"\367\036\374\301\310\314\304\000\322\316\360\004H\200"
+  59      C8CCC400 
+  59      D2CEF004 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGkXoJg.s 			page 4
+
+
+  59      4880
+  60 007d 6C7ACAC4 		.ascii	"lz\312\304\004\242\231o1\036\372\326u/\034\244\343;"
+  60      04A2996F 
+  60      311EFAD6 
+  60      752F1CA4 
+  60      E33B
+  61 008f 13C8D6B7 		.ascii	"\023\310\326\267\317\357-b\177\301\364\223\211\361\337"
+  61      CFEF2D62 
+  61      7FC1F493 
+  61      89F1DF
+  62 009e 89C60616 		.ascii	"\211\306\006\026\220\371\367\237\234\277\310\001\026"
+  62      90F9F79F 
+  62      9CBFC801 
+  62      16
+  63 00ab 620071E7 		.ascii	"b\000q\347\275;t\226q.\343\354\306\226\306\0032?\231"
+  63      BD3B7496 
+  63      712EE3EC 
+  63      C696C603 
+  63      323F99
+  64 00be 98185732 		.ascii	"\230\030W2J1\256b\004\272\210q5P\234\341\036cc\0037"
+  64      4A31AE62 
+  64      04BA8871 
+  64      35509CE1 
+  64      1E636303 
+  65 00d3 D440B08D 		.ascii	"\324@\260\215\214 \233\200L\003\367\324\274\324\242"
+  65      8C209B80 
+  65      4C03F7D4 
+  65      BCD4A2
+  66 00e2 C492D494 		.ascii	"\304\222\324\224\370\340\374\322\242\344\324\230\200"
+  66      F8E0FCD2 
+  66      A2E4D498 
+  66      80
+  67 00ef E07C67D3 		.ascii	"\340|g\323\030\317\364\274\314\222\314\374\274\200\374"
+  67      18CFF4BC 
+  67      CC92CCFC 
+  67      BC80FC
+  68 00fe A212E7FC 		.ascii	"\242\022\347\374\274\222\242\374\234\240\324t\275d\006"
+  68      BC92A2FC 
+  68      9CA0D474 
+  68      BD6406
+  69 010d 0011FC62 		.ascii	"\000\021\374bI"
+  69      49
+  70              		.text
+  71              		.section	.gnu.lto_.symbol_nodes.24c1121d,"",%progbits
+  72 0000 789C6366 		.ascii	"x\234cf``Pb\200\002&\206z\006\206\011\347\030\030\352"
+  72      60605062 
+  72      80022686 
+  72      7A068609 
+  72      E71818EA 
+  73 0014 EB19E62D 		.ascii	"\353\031\346-\340``b\254gD\3463\000\000\2212\010n"
+  73      E0606062 
+  73      AC6744E6 
+  73      33000091 
+  73      32086E
+  74              		.text
+  75              		.section	.gnu.lto_.refs.24c1121d,"",%progbits
+  76 0000 789C6366 		.ascii	"x\234cf```d\200\002\000\000=\000\005"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGkXoJg.s 			page 5
+
+
+  76      60606064 
+  76      80020000 
+  76      3D0005
+  77              		.text
+  78              		.section	.gnu.lto_.decls.24c1121d,"",%progbits
+  79 0000 789C6366 		.ascii	"x\234cf``\230\000\304\377\201 \207\211\201a>\220\315"
+  79      60609800 
+  79      C4FF8120 
+  79      87898161 
+  79      3E90CD
+  80 0013 0CC4010C 		.ascii	"\014\304\001\014\010\000\024f\330\004\304[\0310\001"
+  80      08001466 
+  80      D804C45B 
+  80      193001
+  81 0022 489C05AA 		.ascii	"H\234\005\252~-\020\357\002\342\035P9F\250<:\330\012"
+  81      7E2D10EF 
+  81      02E21D50 
+  81      3946A83C 
+  81      3AD80A
+  82 0035 B5039B7A 		.ascii	"\265\003\233zlv|db\334\271\356\313Y\356\027L\214|\\"
+  82      6C767C64 
+  82      62DCB9EE 
+  82      CB59EE17 
+  82      4C8C7C5C 
+  83 0049 0A20EEAE 		.ascii	"\012 \356\256I'f\260\001\271<\\, \356\265\375\355\355"
+  83      492766B0 
+  83      01B93C5C 
+  83      2C20EEB5 
+  83      FDEDED
+  84 005c 1CCC4C8C 		.ascii	"\034\314L\214 \366\342\031\017\257p\351\254jhh\350h"
+  84      20F6E219 
+  84      0FAF70E9 
+  84      AC6A6868 
+  84      E868
+  85 006e 38708011 		.ascii	"8p\200\021aD\343\262\335=\354@=b\\`n\337\351Y\007\231"
+  85      6144E3B2 
+  85      DD3DEC40 
+  85      3D625C60 
+  85      6EDFE959 
+  86 0084 C1DCFF20 		.ascii	"\301\334\377 }L7oN\371\311\314\310\245\326\321\320\320"
+  86      7D4C376F 
+  86      4EF9C9CC 
+  86      C8A5D6D1 
+  86      D0D0
+  87 0096 D4F06152 		.ascii	"\324\360aR\003\263\004\003\243\216\024\243\246\024\003"
+  87      03B30403 
+  87      A38E14A3 
+  87      A61403
+  88 00a5 E33A4635 		.ascii	"\343:F5\2402\306U\214:\014\214\253\031\245\030\3270"
+  88      A032C655 
+  88      8C3A0C8C 
+  88      AB19A518 
+  88      D730
+  89 00b7 4A312C01 		.ascii	"J1,\001Z\360a\376\207\3132\015\015,\214k\031\271\030"
+  89      5AF061FE 
+  89      87CB320D 
+  89      0D2C8C6B 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGkXoJg.s 			page 6
+
+
+  89      19B918
+  90 00ca 57323283 		.ascii	"W22\203U\000\275\001\262\001j\351\204\326\203\023XX"
+  90      5500BD01 
+  90      B2016AE9 
+  90      84D68313 
+  90      5858
+  91 00dc 80010856 		.ascii	"\200\001\010V\023\015v\355\327\377\017\2272\211O\005"
+  91      130D76ED 
+  91      D7FF0F97 
+  91      32894F05 
+  92 00ec 1AD030A1 		.ascii	"\032\3200\241\271A\200\2051@\214q9\320\330\025@c\031"
+  92      B9418085 
+  92      31408C71 
+  92      39D0D815 
+  92      406319
+  93 00ff 1837308A 		.ascii	"\03070\212\003\311\365\214,\020\003N\275<s\215\227\331"
+  93      03C9F58C 
+  93      2C10034E 
+  93      BD3C738D 
+  93      97D9
+  94 0111 10ECB519 		.ascii	"\020\354\265\031S\217\2671+\314kX\260\341\303\274\305"
+  94      538FB731 
+  94      2BCC6B58 
+  94      B0E1C3BC 
+  94      C5
+  95 0122 93996736 		.ascii	"\223\231g6,hj\370\367\037\350|\220&\306\215p\0070\200"
+  95      2C686AF8 
+  95      F71FE87C 
+  95      9026C68D 
+  95      70073080 
+  96 0136 D89010DD 		.ascii	"\330\220\020\335\304\250\000\324\330\331\262\201\031"
+  96      C4A800D4 
+  96      D8D9B281 
+  96      19
+  97 0143 D942905B 		.ascii	"\331B\220[\0206n\006\333\030\015\265p\367\322m\023\331"
+  97      10366E06 
+  97      DB180DB5 
+  97      70F7D26D 
+  97      13D9
+  98 0155 99EBC116 		.ascii	"\231\353\301\026\266\334\272\334\315\011\266\360\301"
+  98      B6DCBADC 
+  98      CD09B6F0 
+  98      C1
+  99 0162 CF756C27 		.ascii	"\317ul'\032\016\374\377o\017R\316\270\005\311\256-0"
+  99      1A0EFCFF 
+  99      6F0F52CE 
+  99      B805C9AE 
+  99      2D30
+ 100 0174 BBB682ED 		.ascii	"\273\266\202\355j\230\336\275\204\203y6#\330\200\255"
+ 100      6A98DEBD 
+ 100      84837936 
+ 100      23D880AD 
+ 101 0184 DFBA76F2 		.ascii	"\337\272v\362r\001\203\264\231\210 \005F\302\225s]\327"
+ 101      720183B4 
+ 101      99882005 
+ 101      46C29573 
+ 101      5DD7
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGkXoJg.s 			page 7
+
+
+ 102 0196 38219180 		.ascii	"8!\221\200\256c'\316H\230r_\005\024\011;\200\236\332"
+ 102      AE6327CE 
+ 102      4898725F 
+ 102      0514093B 
+ 102      809EDA
+ 103 01a9 868884ED 		.ascii	"\206\210\204\355\214\210X\350|4\353,\017O\027(f\201"
+ 103      8C8858E8 
+ 103      7C34EB2C 
+ 103      0F4F1728 
+ 103      6681
+ 104 01bb 01C07982 		.ascii	"\001\300y\202\017\254\030\021\002\273\030y\300>\000"
+ 104      0FAC1811 
+ 104      02BB1879 
+ 104      C03E00
+ 105 01ca D1ACA599 		.ascii	"\321\254\245\231y%\026l\356~\241\012\316\014\212\356"
+ 105      7925166C 
+ 105      EE7EA10A 
+ 105      CE0C8AEE 
+ 106 01da A979A945 		.ascii	"\251y\251E\211%\251)\361\301\371\245E\311\2511\001\301"
+ 106      8925A929 
+ 106      F1C1F9A5 
+ 106      45C9A931 
+ 106      01C1
+ 107 01ec F9CEA631 		.ascii	"\371\316\2461\311\225%\225\005\251\305z\031\0142\236"
+ 107      C9952595 
+ 107      05A9C57A 
+ 107      190C329E 
+ 108 01fc E9799925 		.ascii	"\351y\231%\231\371y\001\371E%\316\371y%E\3719A\251\351"
+ 108      99F97901 
+ 108      F94525CE 
+ 108      F9792545 
+ 108      F93941A9 
+ 109 0211 F1E14599 		.ascii	"\361\341E\231%\251\0068\264c\327\243\227\314 \215\303"
+ 109      25A90638 
+ 109      B463D7A3 
+ 109      97CC208D 
+ 109      C3
+ 110 0222 B4A0D4C4 		.ascii	"\264\240\324\304\024\226\242\324t\013\000\260\351\371"
+ 110      1496A2D4 
+ 110      740B00B0 
+ 110      E9F9
+ 111 0230 89       		.ascii	"\211"
+ 112              		.text
+ 113              		.section	.gnu.lto_.symtab.24c1121d,"",%progbits
+ 114 0000 49676E69 		.ascii	"IgnitionPortControlReg_Write\000\000\000\000\000\000"
+ 114      74696F6E 
+ 114      506F7274 
+ 114      436F6E74 
+ 114      726F6C52 
+ 115 0022 00000000 		.ascii	"\000\000\000\000\000\000\262\000\000\000IgnitionPor"
+ 115      0000B200 
+ 115      00004967 
+ 115      6E697469 
+ 115      6F6E506F 
+ 116 0037 74436F6E 		.ascii	"tControlReg_Read\000\000\000\000\000\000\000\000\000"
+ 116      74726F6C 
+ 116      5265675F 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGkXoJg.s 			page 8
+
+
+ 116      52656164 
+ 116      00000000 
+ 117 0050 000000B5 		.ascii	"\000\000\000\265\000\000\000"
+ 117      000000
+ 118              		.text
+ 119              		.section	.gnu.lto_.opts,"",%progbits
+ 120 0000 272D666E 		.ascii	"'-fno-trapv' '-mcpu=cortex-m3' '-mthumb' '-g' '-O3'"
+ 120      6F2D7472 
+ 120      61707627 
+ 120      20272D6D 
+ 120      6370753D 
+ 121 0033 20272D66 		.ascii	" '-ffunction-sections' '-finline-functions' '-flto'"
+ 121      66756E63 
+ 121      74696F6E 
+ 121      2D736563 
+ 121      74696F6E 
+ 122 0066 20272D66 		.ascii	" '-ffat-lto-objects'\000"
+ 122      6661742D 
+ 122      6C746F2D 
+ 122      6F626A65 
+ 122      63747327 
+ 123              		.text
+ 124              		.cfi_sections	.debug_frame
+ 125              		.section	.text.IgnitionPortControlReg_Write,"ax",%progbits
+ 126              		.align	2
+ 127              		.global	IgnitionPortControlReg_Write
+ 128              		.thumb
+ 129              		.thumb_func
+ 130              		.type	IgnitionPortControlReg_Write, %function
+ 131              	IgnitionPortControlReg_Write:
+ 132              	.LFB0:
+ 133              		.file 1 "Generated_Source\\PSoC5\\IgnitionPortControlReg.c"
+   1:Generated_Source\PSoC5/IgnitionPortControlReg.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/IgnitionPortControlReg.c **** * File Name: IgnitionPortControlReg.c  
+   3:Generated_Source\PSoC5/IgnitionPortControlReg.c **** * Version 1.80
+   4:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *
+   5:Generated_Source\PSoC5/IgnitionPortControlReg.c **** * Description:
+   6:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *  This file contains API to enable firmware control of a Control Register.
+   7:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *
+   8:Generated_Source\PSoC5/IgnitionPortControlReg.c **** * Note:
+   9:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *
+  10:Generated_Source\PSoC5/IgnitionPortControlReg.c **** ********************************************************************************
+  11:Generated_Source\PSoC5/IgnitionPortControlReg.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC5/IgnitionPortControlReg.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  13:Generated_Source\PSoC5/IgnitionPortControlReg.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  14:Generated_Source\PSoC5/IgnitionPortControlReg.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *******************************************************************************/
+  16:Generated_Source\PSoC5/IgnitionPortControlReg.c **** 
+  17:Generated_Source\PSoC5/IgnitionPortControlReg.c **** #include "IgnitionPortControlReg.h"
+  18:Generated_Source\PSoC5/IgnitionPortControlReg.c **** 
+  19:Generated_Source\PSoC5/IgnitionPortControlReg.c **** /* Check for removal by optimization */
+  20:Generated_Source\PSoC5/IgnitionPortControlReg.c **** #if !defined(IgnitionPortControlReg_Sync_ctrl_reg__REMOVED)
+  21:Generated_Source\PSoC5/IgnitionPortControlReg.c **** 
+  22:Generated_Source\PSoC5/IgnitionPortControlReg.c ****     
+  23:Generated_Source\PSoC5/IgnitionPortControlReg.c **** /*******************************************************************************
+  24:Generated_Source\PSoC5/IgnitionPortControlReg.c **** * Function Name: IgnitionPortControlReg_Write
+  25:Generated_Source\PSoC5/IgnitionPortControlReg.c **** ********************************************************************************
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGkXoJg.s 			page 9
+
+
+  26:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *
+  27:Generated_Source\PSoC5/IgnitionPortControlReg.c **** * Summary:
+  28:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *  Write a byte to the Control Register.
+  29:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *
+  30:Generated_Source\PSoC5/IgnitionPortControlReg.c **** * Parameters:
+  31:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *  control:  The value to be assigned to the Control Register.
+  32:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *
+  33:Generated_Source\PSoC5/IgnitionPortControlReg.c **** * Return:
+  34:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *  None.
+  35:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *
+  36:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *******************************************************************************/
+  37:Generated_Source\PSoC5/IgnitionPortControlReg.c **** void IgnitionPortControlReg_Write(uint8 control) 
+  38:Generated_Source\PSoC5/IgnitionPortControlReg.c **** {
+ 134              		.loc 1 38 0
+ 135              		.cfi_startproc
+ 136              		@ args = 0, pretend = 0, frame = 0
+ 137              		@ frame_needed = 0, uses_anonymous_args = 0
+ 138              		@ link register save eliminated.
+ 139              	.LVL0:
+  39:Generated_Source\PSoC5/IgnitionPortControlReg.c ****     IgnitionPortControlReg_Control = control;
+ 140              		.loc 1 39 0
+ 141 0000 014B     		ldr	r3, .L2
+ 142 0002 1870     		strb	r0, [r3]
+ 143 0004 7047     		bx	lr
+ 144              	.L3:
+ 145 0006 00BF     		.align	2
+ 146              	.L2:
+ 147 0008 7E640040 		.word	1073767550
+ 148              		.cfi_endproc
+ 149              	.LFE0:
+ 150              		.size	IgnitionPortControlReg_Write, .-IgnitionPortControlReg_Write
+ 151              		.section	.text.IgnitionPortControlReg_Read,"ax",%progbits
+ 152              		.align	2
+ 153              		.global	IgnitionPortControlReg_Read
+ 154              		.thumb
+ 155              		.thumb_func
+ 156              		.type	IgnitionPortControlReg_Read, %function
+ 157              	IgnitionPortControlReg_Read:
+ 158              	.LFB1:
+  40:Generated_Source\PSoC5/IgnitionPortControlReg.c **** }
+  41:Generated_Source\PSoC5/IgnitionPortControlReg.c **** 
+  42:Generated_Source\PSoC5/IgnitionPortControlReg.c **** 
+  43:Generated_Source\PSoC5/IgnitionPortControlReg.c **** /*******************************************************************************
+  44:Generated_Source\PSoC5/IgnitionPortControlReg.c **** * Function Name: IgnitionPortControlReg_Read
+  45:Generated_Source\PSoC5/IgnitionPortControlReg.c **** ********************************************************************************
+  46:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *
+  47:Generated_Source\PSoC5/IgnitionPortControlReg.c **** * Summary:
+  48:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *  Reads the current value assigned to the Control Register.
+  49:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *
+  50:Generated_Source\PSoC5/IgnitionPortControlReg.c **** * Parameters:
+  51:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *  None.
+  52:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *
+  53:Generated_Source\PSoC5/IgnitionPortControlReg.c **** * Return:
+  54:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *  Returns the current value in the Control Register.
+  55:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *
+  56:Generated_Source\PSoC5/IgnitionPortControlReg.c **** *******************************************************************************/
+  57:Generated_Source\PSoC5/IgnitionPortControlReg.c **** uint8 IgnitionPortControlReg_Read(void) 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGkXoJg.s 			page 10
+
+
+  58:Generated_Source\PSoC5/IgnitionPortControlReg.c **** {
+ 159              		.loc 1 58 0
+ 160              		.cfi_startproc
+ 161              		@ args = 0, pretend = 0, frame = 0
+ 162              		@ frame_needed = 0, uses_anonymous_args = 0
+ 163              		@ link register save eliminated.
+  59:Generated_Source\PSoC5/IgnitionPortControlReg.c ****     return IgnitionPortControlReg_Control;
+ 164              		.loc 1 59 0
+ 165 0000 014B     		ldr	r3, .L5
+ 166 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+  60:Generated_Source\PSoC5/IgnitionPortControlReg.c **** }
+ 167              		.loc 1 60 0
+ 168 0004 7047     		bx	lr
+ 169              	.L6:
+ 170 0006 00BF     		.align	2
+ 171              	.L5:
+ 172 0008 7E640040 		.word	1073767550
+ 173              		.cfi_endproc
+ 174              	.LFE1:
+ 175              		.size	IgnitionPortControlReg_Read, .-IgnitionPortControlReg_Read
+ 176              		.text
+ 177              	.Letext0:
+ 178              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 179              		.section	.debug_info,"",%progbits
+ 180              	.Ldebug_info0:
+ 181 0000 D2000000 		.4byte	0xd2
+ 182 0004 0400     		.2byte	0x4
+ 183 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 184 000a 04       		.byte	0x4
+ 185 000b 01       		.uleb128 0x1
+ 186 000c CC000000 		.4byte	.LASF14
+ 187 0010 01       		.byte	0x1
+ 188 0011 14000000 		.4byte	.LASF15
+ 189 0015 91010000 		.4byte	.LASF16
+ 190 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 191 001d 00000000 		.4byte	0
+ 192 0021 00000000 		.4byte	.Ldebug_line0
+ 193 0025 02       		.uleb128 0x2
+ 194 0026 01       		.byte	0x1
+ 195 0027 06       		.byte	0x6
+ 196 0028 F6010000 		.4byte	.LASF0
+ 197 002c 02       		.uleb128 0x2
+ 198 002d 01       		.byte	0x1
+ 199 002e 08       		.byte	0x8
+ 200 002f 06000000 		.4byte	.LASF1
+ 201 0033 02       		.uleb128 0x2
+ 202 0034 02       		.byte	0x2
+ 203 0035 05       		.byte	0x5
+ 204 0036 78010000 		.4byte	.LASF2
+ 205 003a 02       		.uleb128 0x2
+ 206 003b 02       		.byte	0x2
+ 207 003c 07       		.byte	0x7
+ 208 003d 56000000 		.4byte	.LASF3
+ 209 0041 02       		.uleb128 0x2
+ 210 0042 04       		.byte	0x4
+ 211 0043 05       		.byte	0x5
+ 212 0044 88010000 		.4byte	.LASF4
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGkXoJg.s 			page 11
+
+
+ 213 0048 02       		.uleb128 0x2
+ 214 0049 04       		.byte	0x4
+ 215 004a 07       		.byte	0x7
+ 216 004b 44000000 		.4byte	.LASF5
+ 217 004f 02       		.uleb128 0x2
+ 218 0050 08       		.byte	0x8
+ 219 0051 05       		.byte	0x5
+ 220 0052 BE000000 		.4byte	.LASF6
+ 221 0056 02       		.uleb128 0x2
+ 222 0057 08       		.byte	0x8
+ 223 0058 07       		.byte	0x7
+ 224 0059 85000000 		.4byte	.LASF7
+ 225 005d 03       		.uleb128 0x3
+ 226 005e 04       		.byte	0x4
+ 227 005f 05       		.byte	0x5
+ 228 0060 696E7400 		.ascii	"int\000"
+ 229 0064 02       		.uleb128 0x2
+ 230 0065 04       		.byte	0x4
+ 231 0066 07       		.byte	0x7
+ 232 0067 78000000 		.4byte	.LASF8
+ 233 006b 04       		.uleb128 0x4
+ 234 006c 82010000 		.4byte	.LASF12
+ 235 0070 02       		.byte	0x2
+ 236 0071 3801     		.2byte	0x138
+ 237 0073 2C000000 		.4byte	0x2c
+ 238 0077 02       		.uleb128 0x2
+ 239 0078 04       		.byte	0x4
+ 240 0079 04       		.byte	0x4
+ 241 007a 00000000 		.4byte	.LASF9
+ 242 007e 02       		.uleb128 0x2
+ 243 007f 08       		.byte	0x8
+ 244 0080 04       		.byte	0x4
+ 245 0081 71000000 		.4byte	.LASF10
+ 246 0085 02       		.uleb128 0x2
+ 247 0086 01       		.byte	0x1
+ 248 0087 08       		.byte	0x8
+ 249 0088 73010000 		.4byte	.LASF11
+ 250 008c 04       		.uleb128 0x4
+ 251 008d B9000000 		.4byte	.LASF13
+ 252 0091 02       		.byte	0x2
+ 253 0092 E201     		.2byte	0x1e2
+ 254 0094 98000000 		.4byte	0x98
+ 255 0098 05       		.uleb128 0x5
+ 256 0099 6B000000 		.4byte	0x6b
+ 257 009d 06       		.uleb128 0x6
+ 258 009e 9C000000 		.4byte	.LASF17
+ 259 00a2 01       		.byte	0x1
+ 260 00a3 25       		.byte	0x25
+ 261 00a4 00000000 		.4byte	.LFB0
+ 262 00a8 0C000000 		.4byte	.LFE0-.LFB0
+ 263 00ac 01       		.uleb128 0x1
+ 264 00ad 9C       		.byte	0x9c
+ 265 00ae C0000000 		.4byte	0xc0
+ 266 00b2 07       		.uleb128 0x7
+ 267 00b3 69000000 		.4byte	.LASF18
+ 268 00b7 01       		.byte	0x1
+ 269 00b8 25       		.byte	0x25
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGkXoJg.s 			page 12
+
+
+ 270 00b9 6B000000 		.4byte	0x6b
+ 271 00bd 01       		.uleb128 0x1
+ 272 00be 50       		.byte	0x50
+ 273 00bf 00       		.byte	0
+ 274 00c0 08       		.uleb128 0x8
+ 275 00c1 02020000 		.4byte	.LASF19
+ 276 00c5 01       		.byte	0x1
+ 277 00c6 39       		.byte	0x39
+ 278 00c7 6B000000 		.4byte	0x6b
+ 279 00cb 00000000 		.4byte	.LFB1
+ 280 00cf 0C000000 		.4byte	.LFE1-.LFB1
+ 281 00d3 01       		.uleb128 0x1
+ 282 00d4 9C       		.byte	0x9c
+ 283 00d5 00       		.byte	0
+ 284              		.section	.debug_abbrev,"",%progbits
+ 285              	.Ldebug_abbrev0:
+ 286 0000 01       		.uleb128 0x1
+ 287 0001 11       		.uleb128 0x11
+ 288 0002 01       		.byte	0x1
+ 289 0003 25       		.uleb128 0x25
+ 290 0004 0E       		.uleb128 0xe
+ 291 0005 13       		.uleb128 0x13
+ 292 0006 0B       		.uleb128 0xb
+ 293 0007 03       		.uleb128 0x3
+ 294 0008 0E       		.uleb128 0xe
+ 295 0009 1B       		.uleb128 0x1b
+ 296 000a 0E       		.uleb128 0xe
+ 297 000b 55       		.uleb128 0x55
+ 298 000c 17       		.uleb128 0x17
+ 299 000d 11       		.uleb128 0x11
+ 300 000e 01       		.uleb128 0x1
+ 301 000f 10       		.uleb128 0x10
+ 302 0010 17       		.uleb128 0x17
+ 303 0011 00       		.byte	0
+ 304 0012 00       		.byte	0
+ 305 0013 02       		.uleb128 0x2
+ 306 0014 24       		.uleb128 0x24
+ 307 0015 00       		.byte	0
+ 308 0016 0B       		.uleb128 0xb
+ 309 0017 0B       		.uleb128 0xb
+ 310 0018 3E       		.uleb128 0x3e
+ 311 0019 0B       		.uleb128 0xb
+ 312 001a 03       		.uleb128 0x3
+ 313 001b 0E       		.uleb128 0xe
+ 314 001c 00       		.byte	0
+ 315 001d 00       		.byte	0
+ 316 001e 03       		.uleb128 0x3
+ 317 001f 24       		.uleb128 0x24
+ 318 0020 00       		.byte	0
+ 319 0021 0B       		.uleb128 0xb
+ 320 0022 0B       		.uleb128 0xb
+ 321 0023 3E       		.uleb128 0x3e
+ 322 0024 0B       		.uleb128 0xb
+ 323 0025 03       		.uleb128 0x3
+ 324 0026 08       		.uleb128 0x8
+ 325 0027 00       		.byte	0
+ 326 0028 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGkXoJg.s 			page 13
+
+
+ 327 0029 04       		.uleb128 0x4
+ 328 002a 16       		.uleb128 0x16
+ 329 002b 00       		.byte	0
+ 330 002c 03       		.uleb128 0x3
+ 331 002d 0E       		.uleb128 0xe
+ 332 002e 3A       		.uleb128 0x3a
+ 333 002f 0B       		.uleb128 0xb
+ 334 0030 3B       		.uleb128 0x3b
+ 335 0031 05       		.uleb128 0x5
+ 336 0032 49       		.uleb128 0x49
+ 337 0033 13       		.uleb128 0x13
+ 338 0034 00       		.byte	0
+ 339 0035 00       		.byte	0
+ 340 0036 05       		.uleb128 0x5
+ 341 0037 35       		.uleb128 0x35
+ 342 0038 00       		.byte	0
+ 343 0039 49       		.uleb128 0x49
+ 344 003a 13       		.uleb128 0x13
+ 345 003b 00       		.byte	0
+ 346 003c 00       		.byte	0
+ 347 003d 06       		.uleb128 0x6
+ 348 003e 2E       		.uleb128 0x2e
+ 349 003f 01       		.byte	0x1
+ 350 0040 3F       		.uleb128 0x3f
+ 351 0041 19       		.uleb128 0x19
+ 352 0042 03       		.uleb128 0x3
+ 353 0043 0E       		.uleb128 0xe
+ 354 0044 3A       		.uleb128 0x3a
+ 355 0045 0B       		.uleb128 0xb
+ 356 0046 3B       		.uleb128 0x3b
+ 357 0047 0B       		.uleb128 0xb
+ 358 0048 27       		.uleb128 0x27
+ 359 0049 19       		.uleb128 0x19
+ 360 004a 11       		.uleb128 0x11
+ 361 004b 01       		.uleb128 0x1
+ 362 004c 12       		.uleb128 0x12
+ 363 004d 06       		.uleb128 0x6
+ 364 004e 40       		.uleb128 0x40
+ 365 004f 18       		.uleb128 0x18
+ 366 0050 9742     		.uleb128 0x2117
+ 367 0052 19       		.uleb128 0x19
+ 368 0053 01       		.uleb128 0x1
+ 369 0054 13       		.uleb128 0x13
+ 370 0055 00       		.byte	0
+ 371 0056 00       		.byte	0
+ 372 0057 07       		.uleb128 0x7
+ 373 0058 05       		.uleb128 0x5
+ 374 0059 00       		.byte	0
+ 375 005a 03       		.uleb128 0x3
+ 376 005b 0E       		.uleb128 0xe
+ 377 005c 3A       		.uleb128 0x3a
+ 378 005d 0B       		.uleb128 0xb
+ 379 005e 3B       		.uleb128 0x3b
+ 380 005f 0B       		.uleb128 0xb
+ 381 0060 49       		.uleb128 0x49
+ 382 0061 13       		.uleb128 0x13
+ 383 0062 02       		.uleb128 0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGkXoJg.s 			page 14
+
+
+ 384 0063 18       		.uleb128 0x18
+ 385 0064 00       		.byte	0
+ 386 0065 00       		.byte	0
+ 387 0066 08       		.uleb128 0x8
+ 388 0067 2E       		.uleb128 0x2e
+ 389 0068 00       		.byte	0
+ 390 0069 3F       		.uleb128 0x3f
+ 391 006a 19       		.uleb128 0x19
+ 392 006b 03       		.uleb128 0x3
+ 393 006c 0E       		.uleb128 0xe
+ 394 006d 3A       		.uleb128 0x3a
+ 395 006e 0B       		.uleb128 0xb
+ 396 006f 3B       		.uleb128 0x3b
+ 397 0070 0B       		.uleb128 0xb
+ 398 0071 27       		.uleb128 0x27
+ 399 0072 19       		.uleb128 0x19
+ 400 0073 49       		.uleb128 0x49
+ 401 0074 13       		.uleb128 0x13
+ 402 0075 11       		.uleb128 0x11
+ 403 0076 01       		.uleb128 0x1
+ 404 0077 12       		.uleb128 0x12
+ 405 0078 06       		.uleb128 0x6
+ 406 0079 40       		.uleb128 0x40
+ 407 007a 18       		.uleb128 0x18
+ 408 007b 9742     		.uleb128 0x2117
+ 409 007d 19       		.uleb128 0x19
+ 410 007e 00       		.byte	0
+ 411 007f 00       		.byte	0
+ 412 0080 00       		.byte	0
+ 413              		.section	.debug_aranges,"",%progbits
+ 414 0000 24000000 		.4byte	0x24
+ 415 0004 0200     		.2byte	0x2
+ 416 0006 00000000 		.4byte	.Ldebug_info0
+ 417 000a 04       		.byte	0x4
+ 418 000b 00       		.byte	0
+ 419 000c 0000     		.2byte	0
+ 420 000e 0000     		.2byte	0
+ 421 0010 00000000 		.4byte	.LFB0
+ 422 0014 0C000000 		.4byte	.LFE0-.LFB0
+ 423 0018 00000000 		.4byte	.LFB1
+ 424 001c 0C000000 		.4byte	.LFE1-.LFB1
+ 425 0020 00000000 		.4byte	0
+ 426 0024 00000000 		.4byte	0
+ 427              		.section	.debug_ranges,"",%progbits
+ 428              	.Ldebug_ranges0:
+ 429 0000 00000000 		.4byte	.LFB0
+ 430 0004 0C000000 		.4byte	.LFE0
+ 431 0008 00000000 		.4byte	.LFB1
+ 432 000c 0C000000 		.4byte	.LFE1
+ 433 0010 00000000 		.4byte	0
+ 434 0014 00000000 		.4byte	0
+ 435              		.section	.debug_line,"",%progbits
+ 436              	.Ldebug_line0:
+ 437 0000 7A000000 		.section	.debug_str,"MS",%progbits,1
+ 437      02005300 
+ 437      00000201 
+ 437      FB0E0D00 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGkXoJg.s 			page 15
+
+
+ 437      01010101 
+ 438              	.LASF9:
+ 439 0000 666C6F61 		.ascii	"float\000"
+ 439      7400
+ 440              	.LASF1:
+ 441 0006 756E7369 		.ascii	"unsigned char\000"
+ 441      676E6564 
+ 441      20636861 
+ 441      7200
+ 442              	.LASF15:
+ 443 0014 47656E65 		.ascii	"Generated_Source\\PSoC5\\IgnitionPortControlReg.c\000"
+ 443      72617465 
+ 443      645F536F 
+ 443      75726365 
+ 443      5C50536F 
+ 444              	.LASF5:
+ 445 0044 6C6F6E67 		.ascii	"long unsigned int\000"
+ 445      20756E73 
+ 445      69676E65 
+ 445      6420696E 
+ 445      7400
+ 446              	.LASF3:
+ 447 0056 73686F72 		.ascii	"short unsigned int\000"
+ 447      7420756E 
+ 447      7369676E 
+ 447      65642069 
+ 447      6E7400
+ 448              	.LASF18:
+ 449 0069 636F6E74 		.ascii	"control\000"
+ 449      726F6C00 
+ 450              	.LASF10:
+ 451 0071 646F7562 		.ascii	"double\000"
+ 451      6C6500
+ 452              	.LASF8:
+ 453 0078 756E7369 		.ascii	"unsigned int\000"
+ 453      676E6564 
+ 453      20696E74 
+ 453      00
+ 454              	.LASF7:
+ 455 0085 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 455      206C6F6E 
+ 455      6720756E 
+ 455      7369676E 
+ 455      65642069 
+ 456              	.LASF17:
+ 457 009c 49676E69 		.ascii	"IgnitionPortControlReg_Write\000"
+ 457      74696F6E 
+ 457      506F7274 
+ 457      436F6E74 
+ 457      726F6C52 
+ 458              	.LASF13:
+ 459 00b9 72656738 		.ascii	"reg8\000"
+ 459      00
+ 460              	.LASF6:
+ 461 00be 6C6F6E67 		.ascii	"long long int\000"
+ 461      206C6F6E 
+ 461      6720696E 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGkXoJg.s 			page 16
+
+
+ 461      7400
+ 462              	.LASF14:
+ 463 00cc 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 463      4320342E 
+ 463      392E3320 
+ 463      32303135 
+ 463      30333033 
+ 464 00ff 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 464      20726576 
+ 464      6973696F 
+ 464      6E203232 
+ 464      31323230 
+ 465 0132 33202D66 		.ascii	"3 -ffunction-sections -finline-functions -flto -ffa"
+ 465      66756E63 
+ 465      74696F6E 
+ 465      2D736563 
+ 465      74696F6E 
+ 466 0165 742D6C74 		.ascii	"t-lto-objects\000"
+ 466      6F2D6F62 
+ 466      6A656374 
+ 466      7300
+ 467              	.LASF11:
+ 468 0173 63686172 		.ascii	"char\000"
+ 468      00
+ 469              	.LASF2:
+ 470 0178 73686F72 		.ascii	"short int\000"
+ 470      7420696E 
+ 470      7400
+ 471              	.LASF12:
+ 472 0182 75696E74 		.ascii	"uint8\000"
+ 472      3800
+ 473              	.LASF4:
+ 474 0188 6C6F6E67 		.ascii	"long int\000"
+ 474      20696E74 
+ 474      00
+ 475              	.LASF16:
+ 476 0191 433A5C55 		.ascii	"C:\\Users\\Bruger\\OneDrive\\Skrivebord\\CODE\\PSOC"
+ 476      73657273 
+ 476      5C427275 
+ 476      6765725C 
+ 476      4F6E6544 
+ 477 01be 355C4359 		.ascii	"5\\CY8CKIT-59-Arduino\\CY8CKIT59_Ardudino-Speeduino"
+ 477      38434B49 
+ 477      542D3539 
+ 477      2D417264 
+ 477      75696E6F 
+ 478 01ef 2E637964 		.ascii	".cydsn\000"
+ 478      736E00
+ 479              	.LASF0:
+ 480 01f6 7369676E 		.ascii	"signed char\000"
+ 480      65642063 
+ 480      68617200 
+ 481              	.LASF19:
+ 482 0202 49676E69 		.ascii	"IgnitionPortControlReg_Read\000"
+ 482      74696F6E 
+ 482      506F7274 
+ 482      436F6E74 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccGkXoJg.s 			page 17
+
+
+ 482      726F6C52 
+ 483              		.comm	__gnu_lto_v1,1,1
+ 484              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -1,0 +1,805 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccedqsPp.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"Arduino_Analog_Out.cpp"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text._Z15analogWriteInitv,"ax",%progbits
+  19              		.align	2
+  20              		.global	_Z15analogWriteInitv
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	_Z15analogWriteInitv, %function
+  24              	_Z15analogWriteInitv:
+  25              		.fnstart
+  26              	.LFB63:
+  27              		.file 1 "core\\Arduino_Analog_Out.cpp"
+   1:core/Arduino_Analog_Out.cpp **** /* ========================================
+   2:core/Arduino_Analog_Out.cpp ****  *
+   3:core/Arduino_Analog_Out.cpp ****  * Copyright YOUR COMPANY, THE YEAR
+   4:core/Arduino_Analog_Out.cpp ****  * All Rights Reserved
+   5:core/Arduino_Analog_Out.cpp ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:core/Arduino_Analog_Out.cpp ****  *
+   7:core/Arduino_Analog_Out.cpp ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:core/Arduino_Analog_Out.cpp ****  * WHICH IS THE PROPERTY OF your company.
+   9:core/Arduino_Analog_Out.cpp ****  *
+  10:core/Arduino_Analog_Out.cpp ****  * ========================================
+  11:core/Arduino_Analog_Out.cpp **** */
+  12:core/Arduino_Analog_Out.cpp **** extern "C" {
+  13:core/Arduino_Analog_Out.cpp **** #include <project.h>
+  14:core/Arduino_Analog_Out.cpp **** }
+  15:core/Arduino_Analog_Out.cpp **** 
+  16:core/Arduino_Analog_Out.cpp **** #include <Arduino_Pins.h>
+  17:core/Arduino_Analog_Out.cpp **** #include <Arduino_Analog_Out.h>
+  18:core/Arduino_Analog_Out.cpp **** 
+  19:core/Arduino_Analog_Out.cpp **** void analogWriteInit()
+  20:core/Arduino_Analog_Out.cpp **** {
+  28              		.loc 1 20 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              		.save {r7, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 7, -8
+  36              		.cfi_offset 14, -4
+  37              		.setfp r7, sp, #0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccedqsPp.s 			page 2
+
+
+  38 0002 00AF     		add	r7, sp, #0
+  39              		.cfi_def_cfa_register 7
+  21:core/Arduino_Analog_Out.cpp ****   D10_Ctrl_Write(0x00);
+  40              		.loc 1 21 0
+  41 0004 0020     		movs	r0, #0
+  42 0006 FFF7FEFF 		bl	D10_Ctrl_Write
+  22:core/Arduino_Analog_Out.cpp ****   D11_Ctrl_Write(0x00);
+  43              		.loc 1 22 0
+  44 000a 0020     		movs	r0, #0
+  45 000c FFF7FEFF 		bl	D11_Ctrl_Write
+  23:core/Arduino_Analog_Out.cpp **** }
+  46              		.loc 1 23 0
+  47 0010 80BD     		pop	{r7, pc}
+  48              		.cfi_endproc
+  49              	.LFE63:
+  50              		.fnend
+  51              		.size	_Z15analogWriteInitv, .-_Z15analogWriteInitv
+  52 0012 00BF     		.section	.text._Z11analogWritemh,"ax",%progbits
+  53              		.align	2
+  54              		.global	_Z11analogWritemh
+  55              		.thumb
+  56              		.thumb_func
+  57              		.type	_Z11analogWritemh, %function
+  58              	_Z11analogWritemh:
+  59              		.fnstart
+  60              	.LFB64:
+  24:core/Arduino_Analog_Out.cpp **** 
+  25:core/Arduino_Analog_Out.cpp **** void analogWrite(uint32_t pin, uint8_t value)
+  26:core/Arduino_Analog_Out.cpp **** {
+  61              		.loc 1 26 0
+  62              		.cfi_startproc
+  63              		@ args = 0, pretend = 0, frame = 8
+  64              		@ frame_needed = 1, uses_anonymous_args = 0
+  65 0000 80B5     		push	{r7, lr}
+  66              		.save {r7, lr}
+  67              		.cfi_def_cfa_offset 8
+  68              		.cfi_offset 7, -8
+  69              		.cfi_offset 14, -4
+  70              		.pad #8
+  71 0002 82B0     		sub	sp, sp, #8
+  72              		.cfi_def_cfa_offset 16
+  73              		.setfp r7, sp, #0
+  74 0004 00AF     		add	r7, sp, #0
+  75              		.cfi_def_cfa_register 7
+  76 0006 7860     		str	r0, [r7, #4]
+  77 0008 0B46     		mov	r3, r1
+  78 000a FB70     		strb	r3, [r7, #3]
+  27:core/Arduino_Analog_Out.cpp ****   switch (pin)
+  79              		.loc 1 27 0
+  80 000c 7B68     		ldr	r3, [r7, #4]
+  81 000e 052B     		cmp	r3, #5
+  82 0010 0BD0     		beq	.L4
+  83 0012 062B     		cmp	r3, #6
+  84 0014 10D0     		beq	.L5
+  85 0016 032B     		cmp	r3, #3
+  86 0018 00D0     		beq	.L6
+  28:core/Arduino_Analog_Out.cpp ****   {
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccedqsPp.s 			page 3
+
+
+  29:core/Arduino_Analog_Out.cpp ****     case 3:
+  30:core/Arduino_Analog_Out.cpp ****       pin = D3;
+  31:core/Arduino_Analog_Out.cpp ****       PWM_Reg_3_Write(value);
+  32:core/Arduino_Analog_Out.cpp ****       break;
+  33:core/Arduino_Analog_Out.cpp ****     case 5:
+  34:core/Arduino_Analog_Out.cpp ****       pin = D5;
+  35:core/Arduino_Analog_Out.cpp ****       PWM_Reg_5_Write(value);
+  36:core/Arduino_Analog_Out.cpp ****       break;
+  37:core/Arduino_Analog_Out.cpp ****     case 6:
+  38:core/Arduino_Analog_Out.cpp ****       pin = D6;
+  39:core/Arduino_Analog_Out.cpp ****       PWM_Reg_6_Write(value);
+  40:core/Arduino_Analog_Out.cpp ****       break;
+  41:core/Arduino_Analog_Out.cpp ****     default:
+  42:core/Arduino_Analog_Out.cpp ****       return;
+  87              		.loc 1 42 0
+  88 001a 18E0     		b	.L2
+  89              	.L6:
+  30:core/Arduino_Analog_Out.cpp ****       PWM_Reg_3_Write(value);
+  90              		.loc 1 30 0
+  91 001c 0D4B     		ldr	r3, .L9
+  92 001e 7B60     		str	r3, [r7, #4]
+  31:core/Arduino_Analog_Out.cpp ****       break;
+  93              		.loc 1 31 0
+  94 0020 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+  95 0022 1846     		mov	r0, r3
+  96 0024 FFF7FEFF 		bl	PWM_Reg_3_Write
+  32:core/Arduino_Analog_Out.cpp ****     case 5:
+  97              		.loc 1 32 0
+  98 0028 0DE0     		b	.L7
+  99              	.L4:
+  34:core/Arduino_Analog_Out.cpp ****       PWM_Reg_5_Write(value);
+ 100              		.loc 1 34 0
+ 101 002a 0B4B     		ldr	r3, .L9+4
+ 102 002c 7B60     		str	r3, [r7, #4]
+  35:core/Arduino_Analog_Out.cpp ****       break;
+ 103              		.loc 1 35 0
+ 104 002e FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 105 0030 1846     		mov	r0, r3
+ 106 0032 FFF7FEFF 		bl	PWM_Reg_5_Write
+  36:core/Arduino_Analog_Out.cpp ****     case 6:
+ 107              		.loc 1 36 0
+ 108 0036 06E0     		b	.L7
+ 109              	.L5:
+  38:core/Arduino_Analog_Out.cpp ****       PWM_Reg_6_Write(value);
+ 110              		.loc 1 38 0
+ 111 0038 084B     		ldr	r3, .L9+8
+ 112 003a 7B60     		str	r3, [r7, #4]
+  39:core/Arduino_Analog_Out.cpp ****       break;
+ 113              		.loc 1 39 0
+ 114 003c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 115 003e 1846     		mov	r0, r3
+ 116 0040 FFF7FEFF 		bl	PWM_Reg_6_Write
+  40:core/Arduino_Analog_Out.cpp ****     default:
+ 117              		.loc 1 40 0
+ 118 0044 00BF     		nop
+ 119              	.L7:
+  43:core/Arduino_Analog_Out.cpp ****   }
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccedqsPp.s 			page 4
+
+
+  44:core/Arduino_Analog_Out.cpp ****       
+  45:core/Arduino_Analog_Out.cpp ****   pinMode(pin, PERIPHERAL_OUT);
+ 120              		.loc 1 45 0
+ 121 0046 7868     		ldr	r0, [r7, #4]
+ 122 0048 0421     		movs	r1, #4
+ 123 004a FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+ 124              	.L2:
+  46:core/Arduino_Analog_Out.cpp **** }
+ 125              		.loc 1 46 0
+ 126 004e 0837     		adds	r7, r7, #8
+ 127              		.cfi_def_cfa_offset 8
+ 128 0050 BD46     		mov	sp, r7
+ 129              		.cfi_def_cfa_register 13
+ 130              		@ sp needed
+ 131 0052 80BD     		pop	{r7, pc}
+ 132              	.L10:
+ 133              		.align	2
+ 134              	.L9:
+ 135 0054 13500040 		.word	1073762323
+ 136 0058 15500040 		.word	1073762325
+ 137 005c 16500040 		.word	1073762326
+ 138              		.cfi_endproc
+ 139              	.LFE64:
+ 140              		.fnend
+ 141              		.size	_Z11analogWritemh, .-_Z11analogWritemh
+ 142              		.text
+ 143              	.Letext0:
+ 144              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 145              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 146              		.file 4 ".\\core/Arduino_Pins.h"
+ 147              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 148              		.section	.debug_info,"",%progbits
+ 149              	.Ldebug_info0:
+ 150 0000 59010000 		.4byte	0x159
+ 151 0004 0400     		.2byte	0x4
+ 152 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 153 000a 04       		.byte	0x4
+ 154 000b 01       		.uleb128 0x1
+ 155 000c 32000000 		.4byte	.LASF27
+ 156 0010 04       		.byte	0x4
+ 157 0011 87010000 		.4byte	.LASF28
+ 158 0015 2E010000 		.4byte	.LASF29
+ 159 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 160 001d 00000000 		.4byte	0
+ 161 0021 00000000 		.4byte	.Ldebug_line0
+ 162 0025 02       		.uleb128 0x2
+ 163 0026 01       		.byte	0x1
+ 164 0027 06       		.byte	0x6
+ 165 0028 6A020000 		.4byte	.LASF0
+ 166 002c 03       		.uleb128 0x3
+ 167 002d 00000000 		.4byte	.LASF4
+ 168 0031 02       		.byte	0x2
+ 169 0032 1D       		.byte	0x1d
+ 170 0033 37000000 		.4byte	0x37
+ 171 0037 02       		.uleb128 0x2
+ 172 0038 01       		.byte	0x1
+ 173 0039 08       		.byte	0x8
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccedqsPp.s 			page 5
+
+
+ 174 003a C8000000 		.4byte	.LASF1
+ 175 003e 02       		.uleb128 0x2
+ 176 003f 02       		.byte	0x2
+ 177 0040 05       		.byte	0x5
+ 178 0041 3A020000 		.4byte	.LASF2
+ 179 0045 02       		.uleb128 0x2
+ 180 0046 02       		.byte	0x2
+ 181 0047 07       		.byte	0x7
+ 182 0048 E8000000 		.4byte	.LASF3
+ 183 004c 03       		.uleb128 0x3
+ 184 004d 10000000 		.4byte	.LASF5
+ 185 0051 02       		.byte	0x2
+ 186 0052 3F       		.byte	0x3f
+ 187 0053 57000000 		.4byte	0x57
+ 188 0057 02       		.uleb128 0x2
+ 189 0058 04       		.byte	0x4
+ 190 0059 05       		.byte	0x5
+ 191 005a 4D020000 		.4byte	.LASF6
+ 192 005e 03       		.uleb128 0x3
+ 193 005f 23010000 		.4byte	.LASF7
+ 194 0063 02       		.byte	0x2
+ 195 0064 41       		.byte	0x41
+ 196 0065 69000000 		.4byte	0x69
+ 197 0069 02       		.uleb128 0x2
+ 198 006a 04       		.byte	0x4
+ 199 006b 07       		.byte	0x7
+ 200 006c D6000000 		.4byte	.LASF8
+ 201 0070 02       		.uleb128 0x2
+ 202 0071 08       		.byte	0x8
+ 203 0072 05       		.byte	0x5
+ 204 0073 1A020000 		.4byte	.LASF9
+ 205 0077 02       		.uleb128 0x2
+ 206 0078 08       		.byte	0x8
+ 207 0079 07       		.byte	0x7
+ 208 007a BF010000 		.4byte	.LASF10
+ 209 007e 04       		.uleb128 0x4
+ 210 007f 04       		.byte	0x4
+ 211 0080 05       		.byte	0x5
+ 212 0081 696E7400 		.ascii	"int\000"
+ 213 0085 02       		.uleb128 0x2
+ 214 0086 04       		.byte	0x4
+ 215 0087 07       		.byte	0x7
+ 216 0088 A3010000 		.4byte	.LASF11
+ 217 008c 03       		.uleb128 0x3
+ 218 008d D6010000 		.4byte	.LASF12
+ 219 0091 03       		.byte	0x3
+ 220 0092 15       		.byte	0x15
+ 221 0093 2C000000 		.4byte	0x2c
+ 222 0097 03       		.uleb128 0x3
+ 223 0098 09020000 		.4byte	.LASF13
+ 224 009c 03       		.byte	0x3
+ 225 009d 2C       		.byte	0x2c
+ 226 009e 4C000000 		.4byte	0x4c
+ 227 00a2 03       		.uleb128 0x3
+ 228 00a3 44020000 		.4byte	.LASF14
+ 229 00a7 03       		.byte	0x3
+ 230 00a8 2D       		.byte	0x2d
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccedqsPp.s 			page 6
+
+
+ 231 00a9 5E000000 		.4byte	0x5e
+ 232 00ad 02       		.uleb128 0x2
+ 233 00ae 04       		.byte	0x4
+ 234 00af 04       		.byte	0x4
+ 235 00b0 C2000000 		.4byte	.LASF15
+ 236 00b4 02       		.uleb128 0x2
+ 237 00b5 08       		.byte	0x8
+ 238 00b6 04       		.byte	0x4
+ 239 00b7 1C010000 		.4byte	.LASF16
+ 240 00bb 02       		.uleb128 0x2
+ 241 00bc 01       		.byte	0x1
+ 242 00bd 08       		.byte	0x8
+ 243 00be 28020000 		.4byte	.LASF17
+ 244 00c2 02       		.uleb128 0x2
+ 245 00c3 04       		.byte	0x4
+ 246 00c4 07       		.byte	0x7
+ 247 00c5 11020000 		.4byte	.LASF18
+ 248 00c9 05       		.uleb128 0x5
+ 249 00ca 56020000 		.4byte	.LASF30
+ 250 00ce 01       		.byte	0x1
+ 251 00cf 04       		.byte	0x4
+ 252 00d0 51       		.byte	0x51
+ 253 00d1 00010000 		.4byte	0x100
+ 254 00d5 06       		.uleb128 0x6
+ 255 00d6 FB000000 		.4byte	.LASF19
+ 256 00da 00       		.sleb128 0
+ 257 00db 06       		.uleb128 0x6
+ 258 00dc 2C000000 		.4byte	.LASF20
+ 259 00e0 01       		.sleb128 1
+ 260 00e1 06       		.uleb128 0x6
+ 261 00e2 2D020000 		.4byte	.LASF21
+ 262 00e6 02       		.sleb128 2
+ 263 00e7 06       		.uleb128 0x6
+ 264 00e8 5F020000 		.4byte	.LASF22
+ 265 00ec 03       		.sleb128 3
+ 266 00ed 06       		.uleb128 0x6
+ 267 00ee B0010000 		.4byte	.LASF23
+ 268 00f2 04       		.sleb128 4
+ 269 00f3 06       		.uleb128 0x6
+ 270 00f4 0E010000 		.4byte	.LASF24
+ 271 00f8 05       		.sleb128 5
+ 272 00f9 06       		.uleb128 0x6
+ 273 00fa FB010000 		.4byte	.LASF25
+ 274 00fe 06       		.sleb128 6
+ 275 00ff 00       		.byte	0
+ 276 0100 07       		.uleb128 0x7
+ 277 0101 DE010000 		.4byte	.LASF31
+ 278 0105 01       		.byte	0x1
+ 279 0106 13       		.byte	0x13
+ 280 0107 76020000 		.4byte	.LASF32
+ 281 010b 00000000 		.4byte	.LFB63
+ 282 010f 12000000 		.4byte	.LFE63-.LFB63
+ 283 0113 01       		.uleb128 0x1
+ 284 0114 9C       		.byte	0x9c
+ 285 0115 08       		.uleb128 0x8
+ 286 0116 02010000 		.4byte	.LASF33
+ 287 011a 01       		.byte	0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccedqsPp.s 			page 7
+
+
+ 288 011b 19       		.byte	0x19
+ 289 011c 1A000000 		.4byte	.LASF34
+ 290 0120 00000000 		.4byte	.LFB64
+ 291 0124 60000000 		.4byte	.LFE64-.LFB64
+ 292 0128 01       		.uleb128 0x1
+ 293 0129 9C       		.byte	0x9c
+ 294 012a 4B010000 		.4byte	0x14b
+ 295 012e 09       		.uleb128 0x9
+ 296 012f 70696E00 		.ascii	"pin\000"
+ 297 0133 01       		.byte	0x1
+ 298 0134 19       		.byte	0x19
+ 299 0135 A2000000 		.4byte	0xa2
+ 300 0139 02       		.uleb128 0x2
+ 301 013a 91       		.byte	0x91
+ 302 013b 74       		.sleb128 -12
+ 303 013c 0A       		.uleb128 0xa
+ 304 013d 0A000000 		.4byte	.LASF26
+ 305 0141 01       		.byte	0x1
+ 306 0142 19       		.byte	0x19
+ 307 0143 8C000000 		.4byte	0x8c
+ 308 0147 02       		.uleb128 0x2
+ 309 0148 91       		.byte	0x91
+ 310 0149 73       		.sleb128 -13
+ 311 014a 00       		.byte	0
+ 312 014b 0B       		.uleb128 0xb
+ 313 014c EE010000 		.4byte	.LASF35
+ 314 0150 05       		.byte	0x5
+ 315 0151 5506     		.2byte	0x655
+ 316 0153 57010000 		.4byte	0x157
+ 317 0157 0C       		.uleb128 0xc
+ 318 0158 97000000 		.4byte	0x97
+ 319 015c 00       		.byte	0
+ 320              		.section	.debug_abbrev,"",%progbits
+ 321              	.Ldebug_abbrev0:
+ 322 0000 01       		.uleb128 0x1
+ 323 0001 11       		.uleb128 0x11
+ 324 0002 01       		.byte	0x1
+ 325 0003 25       		.uleb128 0x25
+ 326 0004 0E       		.uleb128 0xe
+ 327 0005 13       		.uleb128 0x13
+ 328 0006 0B       		.uleb128 0xb
+ 329 0007 03       		.uleb128 0x3
+ 330 0008 0E       		.uleb128 0xe
+ 331 0009 1B       		.uleb128 0x1b
+ 332 000a 0E       		.uleb128 0xe
+ 333 000b 55       		.uleb128 0x55
+ 334 000c 17       		.uleb128 0x17
+ 335 000d 11       		.uleb128 0x11
+ 336 000e 01       		.uleb128 0x1
+ 337 000f 10       		.uleb128 0x10
+ 338 0010 17       		.uleb128 0x17
+ 339 0011 00       		.byte	0
+ 340 0012 00       		.byte	0
+ 341 0013 02       		.uleb128 0x2
+ 342 0014 24       		.uleb128 0x24
+ 343 0015 00       		.byte	0
+ 344 0016 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccedqsPp.s 			page 8
+
+
+ 345 0017 0B       		.uleb128 0xb
+ 346 0018 3E       		.uleb128 0x3e
+ 347 0019 0B       		.uleb128 0xb
+ 348 001a 03       		.uleb128 0x3
+ 349 001b 0E       		.uleb128 0xe
+ 350 001c 00       		.byte	0
+ 351 001d 00       		.byte	0
+ 352 001e 03       		.uleb128 0x3
+ 353 001f 16       		.uleb128 0x16
+ 354 0020 00       		.byte	0
+ 355 0021 03       		.uleb128 0x3
+ 356 0022 0E       		.uleb128 0xe
+ 357 0023 3A       		.uleb128 0x3a
+ 358 0024 0B       		.uleb128 0xb
+ 359 0025 3B       		.uleb128 0x3b
+ 360 0026 0B       		.uleb128 0xb
+ 361 0027 49       		.uleb128 0x49
+ 362 0028 13       		.uleb128 0x13
+ 363 0029 00       		.byte	0
+ 364 002a 00       		.byte	0
+ 365 002b 04       		.uleb128 0x4
+ 366 002c 24       		.uleb128 0x24
+ 367 002d 00       		.byte	0
+ 368 002e 0B       		.uleb128 0xb
+ 369 002f 0B       		.uleb128 0xb
+ 370 0030 3E       		.uleb128 0x3e
+ 371 0031 0B       		.uleb128 0xb
+ 372 0032 03       		.uleb128 0x3
+ 373 0033 08       		.uleb128 0x8
+ 374 0034 00       		.byte	0
+ 375 0035 00       		.byte	0
+ 376 0036 05       		.uleb128 0x5
+ 377 0037 04       		.uleb128 0x4
+ 378 0038 01       		.byte	0x1
+ 379 0039 03       		.uleb128 0x3
+ 380 003a 0E       		.uleb128 0xe
+ 381 003b 0B       		.uleb128 0xb
+ 382 003c 0B       		.uleb128 0xb
+ 383 003d 3A       		.uleb128 0x3a
+ 384 003e 0B       		.uleb128 0xb
+ 385 003f 3B       		.uleb128 0x3b
+ 386 0040 0B       		.uleb128 0xb
+ 387 0041 01       		.uleb128 0x1
+ 388 0042 13       		.uleb128 0x13
+ 389 0043 00       		.byte	0
+ 390 0044 00       		.byte	0
+ 391 0045 06       		.uleb128 0x6
+ 392 0046 28       		.uleb128 0x28
+ 393 0047 00       		.byte	0
+ 394 0048 03       		.uleb128 0x3
+ 395 0049 0E       		.uleb128 0xe
+ 396 004a 1C       		.uleb128 0x1c
+ 397 004b 0D       		.uleb128 0xd
+ 398 004c 00       		.byte	0
+ 399 004d 00       		.byte	0
+ 400 004e 07       		.uleb128 0x7
+ 401 004f 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccedqsPp.s 			page 9
+
+
+ 402 0050 00       		.byte	0
+ 403 0051 3F       		.uleb128 0x3f
+ 404 0052 19       		.uleb128 0x19
+ 405 0053 03       		.uleb128 0x3
+ 406 0054 0E       		.uleb128 0xe
+ 407 0055 3A       		.uleb128 0x3a
+ 408 0056 0B       		.uleb128 0xb
+ 409 0057 3B       		.uleb128 0x3b
+ 410 0058 0B       		.uleb128 0xb
+ 411 0059 6E       		.uleb128 0x6e
+ 412 005a 0E       		.uleb128 0xe
+ 413 005b 11       		.uleb128 0x11
+ 414 005c 01       		.uleb128 0x1
+ 415 005d 12       		.uleb128 0x12
+ 416 005e 06       		.uleb128 0x6
+ 417 005f 40       		.uleb128 0x40
+ 418 0060 18       		.uleb128 0x18
+ 419 0061 9642     		.uleb128 0x2116
+ 420 0063 19       		.uleb128 0x19
+ 421 0064 00       		.byte	0
+ 422 0065 00       		.byte	0
+ 423 0066 08       		.uleb128 0x8
+ 424 0067 2E       		.uleb128 0x2e
+ 425 0068 01       		.byte	0x1
+ 426 0069 3F       		.uleb128 0x3f
+ 427 006a 19       		.uleb128 0x19
+ 428 006b 03       		.uleb128 0x3
+ 429 006c 0E       		.uleb128 0xe
+ 430 006d 3A       		.uleb128 0x3a
+ 431 006e 0B       		.uleb128 0xb
+ 432 006f 3B       		.uleb128 0x3b
+ 433 0070 0B       		.uleb128 0xb
+ 434 0071 6E       		.uleb128 0x6e
+ 435 0072 0E       		.uleb128 0xe
+ 436 0073 11       		.uleb128 0x11
+ 437 0074 01       		.uleb128 0x1
+ 438 0075 12       		.uleb128 0x12
+ 439 0076 06       		.uleb128 0x6
+ 440 0077 40       		.uleb128 0x40
+ 441 0078 18       		.uleb128 0x18
+ 442 0079 9642     		.uleb128 0x2116
+ 443 007b 19       		.uleb128 0x19
+ 444 007c 01       		.uleb128 0x1
+ 445 007d 13       		.uleb128 0x13
+ 446 007e 00       		.byte	0
+ 447 007f 00       		.byte	0
+ 448 0080 09       		.uleb128 0x9
+ 449 0081 05       		.uleb128 0x5
+ 450 0082 00       		.byte	0
+ 451 0083 03       		.uleb128 0x3
+ 452 0084 08       		.uleb128 0x8
+ 453 0085 3A       		.uleb128 0x3a
+ 454 0086 0B       		.uleb128 0xb
+ 455 0087 3B       		.uleb128 0x3b
+ 456 0088 0B       		.uleb128 0xb
+ 457 0089 49       		.uleb128 0x49
+ 458 008a 13       		.uleb128 0x13
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccedqsPp.s 			page 10
+
+
+ 459 008b 02       		.uleb128 0x2
+ 460 008c 18       		.uleb128 0x18
+ 461 008d 00       		.byte	0
+ 462 008e 00       		.byte	0
+ 463 008f 0A       		.uleb128 0xa
+ 464 0090 05       		.uleb128 0x5
+ 465 0091 00       		.byte	0
+ 466 0092 03       		.uleb128 0x3
+ 467 0093 0E       		.uleb128 0xe
+ 468 0094 3A       		.uleb128 0x3a
+ 469 0095 0B       		.uleb128 0xb
+ 470 0096 3B       		.uleb128 0x3b
+ 471 0097 0B       		.uleb128 0xb
+ 472 0098 49       		.uleb128 0x49
+ 473 0099 13       		.uleb128 0x13
+ 474 009a 02       		.uleb128 0x2
+ 475 009b 18       		.uleb128 0x18
+ 476 009c 00       		.byte	0
+ 477 009d 00       		.byte	0
+ 478 009e 0B       		.uleb128 0xb
+ 479 009f 34       		.uleb128 0x34
+ 480 00a0 00       		.byte	0
+ 481 00a1 03       		.uleb128 0x3
+ 482 00a2 0E       		.uleb128 0xe
+ 483 00a3 3A       		.uleb128 0x3a
+ 484 00a4 0B       		.uleb128 0xb
+ 485 00a5 3B       		.uleb128 0x3b
+ 486 00a6 05       		.uleb128 0x5
+ 487 00a7 49       		.uleb128 0x49
+ 488 00a8 13       		.uleb128 0x13
+ 489 00a9 3F       		.uleb128 0x3f
+ 490 00aa 19       		.uleb128 0x19
+ 491 00ab 3C       		.uleb128 0x3c
+ 492 00ac 19       		.uleb128 0x19
+ 493 00ad 00       		.byte	0
+ 494 00ae 00       		.byte	0
+ 495 00af 0C       		.uleb128 0xc
+ 496 00b0 35       		.uleb128 0x35
+ 497 00b1 00       		.byte	0
+ 498 00b2 49       		.uleb128 0x49
+ 499 00b3 13       		.uleb128 0x13
+ 500 00b4 00       		.byte	0
+ 501 00b5 00       		.byte	0
+ 502 00b6 00       		.byte	0
+ 503              		.section	.debug_aranges,"",%progbits
+ 504 0000 24000000 		.4byte	0x24
+ 505 0004 0200     		.2byte	0x2
+ 506 0006 00000000 		.4byte	.Ldebug_info0
+ 507 000a 04       		.byte	0x4
+ 508 000b 00       		.byte	0
+ 509 000c 0000     		.2byte	0
+ 510 000e 0000     		.2byte	0
+ 511 0010 00000000 		.4byte	.LFB63
+ 512 0014 12000000 		.4byte	.LFE63-.LFB63
+ 513 0018 00000000 		.4byte	.LFB64
+ 514 001c 60000000 		.4byte	.LFE64-.LFB64
+ 515 0020 00000000 		.4byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccedqsPp.s 			page 11
+
+
+ 516 0024 00000000 		.4byte	0
+ 517              		.section	.debug_ranges,"",%progbits
+ 518              	.Ldebug_ranges0:
+ 519 0000 00000000 		.4byte	.LFB63
+ 520 0004 12000000 		.4byte	.LFE63
+ 521 0008 00000000 		.4byte	.LFB64
+ 522 000c 60000000 		.4byte	.LFE64
+ 523 0010 00000000 		.4byte	0
+ 524 0014 00000000 		.4byte	0
+ 525              		.section	.debug_line,"",%progbits
+ 526              	.Ldebug_line0:
+ 527 0000 A0010000 		.section	.debug_str,"MS",%progbits,1
+ 527      02006801 
+ 527      00000201 
+ 527      FB0E0D00 
+ 527      01010101 
+ 528              	.LASF4:
+ 529 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 529      6E74385F 
+ 529      7400
+ 530              	.LASF26:
+ 531 000a 76616C75 		.ascii	"value\000"
+ 531      6500
+ 532              	.LASF5:
+ 533 0010 5F5F696E 		.ascii	"__int32_t\000"
+ 533      7433325F 
+ 533      7400
+ 534              	.LASF34:
+ 535 001a 5F5A3131 		.ascii	"_Z11analogWritemh\000"
+ 535      616E616C 
+ 535      6F675772 
+ 535      6974656D 
+ 535      6800
+ 536              	.LASF20:
+ 537 002c 494E5055 		.ascii	"INPUT\000"
+ 537      5400
+ 538              	.LASF27:
+ 539 0032 474E5520 		.ascii	"GNU C++ 4.9.3 20150303 (release) [ARM/embedded-4_9-"
+ 539      432B2B20 
+ 539      342E392E 
+ 539      33203230 
+ 539      31353033 
+ 540 0065 6272616E 		.ascii	"branch revision 221220] -mcpu=cortex-m3 -mthumb -g "
+ 540      63682072 
+ 540      65766973 
+ 540      696F6E20 
+ 540      32323132 
+ 541 0098 2D4F3020 		.ascii	"-O0 -ffunction-sections -ffat-lto-objects\000"
+ 541      2D666675 
+ 541      6E637469 
+ 541      6F6E2D73 
+ 541      65637469 
+ 542              	.LASF15:
+ 543 00c2 666C6F61 		.ascii	"float\000"
+ 543      7400
+ 544              	.LASF1:
+ 545 00c8 756E7369 		.ascii	"unsigned char\000"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccedqsPp.s 			page 12
+
+
+ 545      676E6564 
+ 545      20636861 
+ 545      7200
+ 546              	.LASF8:
+ 547 00d6 6C6F6E67 		.ascii	"long unsigned int\000"
+ 547      20756E73 
+ 547      69676E65 
+ 547      6420696E 
+ 547      7400
+ 548              	.LASF3:
+ 549 00e8 73686F72 		.ascii	"short unsigned int\000"
+ 549      7420756E 
+ 549      7369676E 
+ 549      65642069 
+ 549      6E7400
+ 550              	.LASF19:
+ 551 00fb 4F555450 		.ascii	"OUTPUT\000"
+ 551      555400
+ 552              	.LASF33:
+ 553 0102 616E616C 		.ascii	"analogWrite\000"
+ 553      6F675772 
+ 553      69746500 
+ 554              	.LASF24:
+ 555 010e 50455249 		.ascii	"PERIPHERAL_IN\000"
+ 555      50484552 
+ 555      414C5F49 
+ 555      4E00
+ 556              	.LASF16:
+ 557 011c 646F7562 		.ascii	"double\000"
+ 557      6C6500
+ 558              	.LASF7:
+ 559 0123 5F5F7569 		.ascii	"__uint32_t\000"
+ 559      6E743332 
+ 559      5F7400
+ 560              	.LASF29:
+ 561 012e 433A5C55 		.ascii	"C:\\Users\\Bruger\\Desktop\\CODE\\PSOC5\\CY8CKIT-59"
+ 561      73657273 
+ 561      5C427275 
+ 561      6765725C 
+ 561      4465736B 
+ 562 015b 2D417264 		.ascii	"-Arduino\\CY8CKIT59_Ardudino-Speeduino.cydsn\000"
+ 562      75696E6F 
+ 562      5C435938 
+ 562      434B4954 
+ 562      35395F41 
+ 563              	.LASF28:
+ 564 0187 636F7265 		.ascii	"core\\Arduino_Analog_Out.cpp\000"
+ 564      5C417264 
+ 564      75696E6F 
+ 564      5F416E61 
+ 564      6C6F675F 
+ 565              	.LASF11:
+ 566 01a3 756E7369 		.ascii	"unsigned int\000"
+ 566      676E6564 
+ 566      20696E74 
+ 566      00
+ 567              	.LASF23:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccedqsPp.s 			page 13
+
+
+ 568 01b0 50455249 		.ascii	"PERIPHERAL_OUT\000"
+ 568      50484552 
+ 568      414C5F4F 
+ 568      555400
+ 569              	.LASF10:
+ 570 01bf 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 570      206C6F6E 
+ 570      6720756E 
+ 570      7369676E 
+ 570      65642069 
+ 571              	.LASF12:
+ 572 01d6 75696E74 		.ascii	"uint8_t\000"
+ 572      385F7400 
+ 573              	.LASF31:
+ 574 01de 616E616C 		.ascii	"analogWriteInit\000"
+ 574      6F675772 
+ 574      69746549 
+ 574      6E697400 
+ 575              	.LASF35:
+ 576 01ee 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 576      52784275 
+ 576      66666572 
+ 576      00
+ 577              	.LASF25:
+ 578 01fb 50455249 		.ascii	"PERIPHERAL_OD\000"
+ 578      50484552 
+ 578      414C5F4F 
+ 578      4400
+ 579              	.LASF13:
+ 580 0209 696E7433 		.ascii	"int32_t\000"
+ 580      325F7400 
+ 581              	.LASF18:
+ 582 0211 73697A65 		.ascii	"sizetype\000"
+ 582      74797065 
+ 582      00
+ 583              	.LASF9:
+ 584 021a 6C6F6E67 		.ascii	"long long int\000"
+ 584      206C6F6E 
+ 584      6720696E 
+ 584      7400
+ 585              	.LASF17:
+ 586 0228 63686172 		.ascii	"char\000"
+ 586      00
+ 587              	.LASF21:
+ 588 022d 494E5055 		.ascii	"INPUT_PULLUP\000"
+ 588      545F5055 
+ 588      4C4C5550 
+ 588      00
+ 589              	.LASF2:
+ 590 023a 73686F72 		.ascii	"short int\000"
+ 590      7420696E 
+ 590      7400
+ 591              	.LASF14:
+ 592 0244 75696E74 		.ascii	"uint32_t\000"
+ 592      33325F74 
+ 592      00
+ 593              	.LASF6:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccedqsPp.s 			page 14
+
+
+ 594 024d 6C6F6E67 		.ascii	"long int\000"
+ 594      20696E74 
+ 594      00
+ 595              	.LASF30:
+ 596 0256 50494E5F 		.ascii	"PIN_MODE\000"
+ 596      4D4F4445 
+ 596      00
+ 597              	.LASF22:
+ 598 025f 50455249 		.ascii	"PERIPHERAL\000"
+ 598      50484552 
+ 598      414C00
+ 599              	.LASF0:
+ 600 026a 7369676E 		.ascii	"signed char\000"
+ 600      65642063 
+ 600      68617200 
+ 601              	.LASF32:
+ 602 0276 5F5A3135 		.ascii	"_Z15analogWriteInitv\000"
+ 602      616E616C 
+ 602      6F675772 
+ 602      69746549 
+ 602      6E697476 
+ 603              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

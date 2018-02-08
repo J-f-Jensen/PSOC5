@@ -1,0 +1,3385 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"sketch.cpp"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text._ZN5Print5writeEPKc,"axG",%progbits,_ZN5Print5writeEPKc,comdat
+  19              		.align	2
+  20              		.weak	_ZN5Print5writeEPKc
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	_ZN5Print5writeEPKc, %function
+  24              	_ZN5Print5writeEPKc:
+  25              		.fnstart
+  26              	.LFB123:
+  27              		.file 1 ".\\core/Print.h"
+   1:.\core/Print.h **** /*
+   2:.\core/Print.h ****   Print.h - Base class that provides print() and println()
+   3:.\core/Print.h ****   Copyright (c) 2008 David A. Mellis.  All right reserved.
+   4:.\core/Print.h **** 
+   5:.\core/Print.h ****   This library is free software; you can redistribute it and/or
+   6:.\core/Print.h ****   modify it under the terms of the GNU Lesser General Public
+   7:.\core/Print.h ****   License as published by the Free Software Foundation; either
+   8:.\core/Print.h ****   version 2.1 of the License, or (at your option) any later version.
+   9:.\core/Print.h **** 
+  10:.\core/Print.h ****   This library is distributed in the hope that it will be useful,
+  11:.\core/Print.h ****   but WITHOUT ANY WARRANTY; without even the implied warranty of
+  12:.\core/Print.h ****   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  13:.\core/Print.h ****   Lesser General Public License for more details.
+  14:.\core/Print.h **** 
+  15:.\core/Print.h ****   You should have received a copy of the GNU Lesser General Public
+  16:.\core/Print.h ****   License along with this library; if not, write to the Free Software
+  17:.\core/Print.h ****   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+  18:.\core/Print.h **** */
+  19:.\core/Print.h **** 
+  20:.\core/Print.h **** #ifndef Print_h
+  21:.\core/Print.h **** #define Print_h
+  22:.\core/Print.h **** 
+  23:.\core/Print.h **** #include <inttypes.h>
+  24:.\core/Print.h **** #include <stdio.h> // for size_t
+  25:.\core/Print.h **** 
+  26:.\core/Print.h **** #include "WString.h"
+  27:.\core/Print.h **** #include "Printable.h"
+  28:.\core/Print.h **** 
+  29:.\core/Print.h **** #define DEC 10
+  30:.\core/Print.h **** #define HEX 16
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 2
+
+
+  31:.\core/Print.h **** #define OCT 8
+  32:.\core/Print.h **** #define BIN 2
+  33:.\core/Print.h **** 
+  34:.\core/Print.h **** class Print
+  35:.\core/Print.h **** {
+  36:.\core/Print.h ****   private:
+  37:.\core/Print.h ****     int write_error;
+  38:.\core/Print.h ****     size_t printNumber(unsigned long, uint8_t);
+  39:.\core/Print.h ****     size_t printFloat(double, uint8_t);
+  40:.\core/Print.h ****   protected:
+  41:.\core/Print.h ****     void setWriteError(int err = 1) { write_error = err; }
+  42:.\core/Print.h ****   public:
+  43:.\core/Print.h ****     Print() : write_error(0) {}
+  44:.\core/Print.h ****     ~Print(){}
+  45:.\core/Print.h ****   
+  46:.\core/Print.h ****     int getWriteError() { return write_error; }
+  47:.\core/Print.h ****     void clearWriteError() { setWriteError(0); }
+  48:.\core/Print.h ****   
+  49:.\core/Print.h ****     virtual size_t write(uint8_t) = 0;
+  50:.\core/Print.h ****     size_t write(const char *str) {
+  28              		.loc 1 50 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 90B5     		push	{r4, r7, lr}
+  33              		.save {r4, r7, lr}
+  34              		.cfi_def_cfa_offset 12
+  35              		.cfi_offset 4, -12
+  36              		.cfi_offset 7, -8
+  37              		.cfi_offset 14, -4
+  38              		.pad #12
+  39 0002 83B0     		sub	sp, sp, #12
+  40              		.cfi_def_cfa_offset 24
+  41              		.setfp r7, sp, #0
+  42 0004 00AF     		add	r7, sp, #0
+  43              		.cfi_def_cfa_register 7
+  44 0006 7860     		str	r0, [r7, #4]
+  45 0008 3960     		str	r1, [r7]
+  51:.\core/Print.h ****       if (str == NULL) return 0;
+  46              		.loc 1 51 0
+  47 000a 3B68     		ldr	r3, [r7]
+  48 000c 002B     		cmp	r3, #0
+  49 000e 01D1     		bne	.L2
+  50              		.loc 1 51 0 is_stmt 0 discriminator 1
+  51 0010 0023     		movs	r3, #0
+  52 0012 0CE0     		b	.L3
+  53              	.L2:
+  52:.\core/Print.h ****       return write((const uint8_t *)str, strlen(str));
+  54              		.loc 1 52 0 is_stmt 1
+  55 0014 7B68     		ldr	r3, [r7, #4]
+  56 0016 1B68     		ldr	r3, [r3]
+  57 0018 0433     		adds	r3, r3, #4
+  58 001a 1C68     		ldr	r4, [r3]
+  59 001c 3868     		ldr	r0, [r7]
+  60 001e FFF7FEFF 		bl	strlen
+  61 0022 0346     		mov	r3, r0
+  62 0024 7868     		ldr	r0, [r7, #4]
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 3
+
+
+  63 0026 3968     		ldr	r1, [r7]
+  64 0028 1A46     		mov	r2, r3
+  65 002a A047     		blx	r4
+  66 002c 0346     		mov	r3, r0
+  67              	.L3:
+  53:.\core/Print.h ****     }
+  68              		.loc 1 53 0
+  69 002e 1846     		mov	r0, r3
+  70 0030 0C37     		adds	r7, r7, #12
+  71              		.cfi_def_cfa_offset 12
+  72 0032 BD46     		mov	sp, r7
+  73              		.cfi_def_cfa_register 13
+  74              		@ sp needed
+  75 0034 90BD     		pop	{r4, r7, pc}
+  76              		.cfi_endproc
+  77              	.LFE123:
+  78              		.fnend
+  79              		.size	_ZN5Print5writeEPKc, .-_ZN5Print5writeEPKc
+  80 0036 00BF     		.section	.text._ZN5EERefC2Ei,"axG",%progbits,_ZN5EERefC5Ei,comdat
+  81              		.align	2
+  82              		.weak	_ZN5EERefC2Ei
+  83              		.thumb
+  84              		.thumb_func
+  85              		.type	_ZN5EERefC2Ei, %function
+  86              	_ZN5EERefC2Ei:
+  87              		.fnstart
+  88              	.LFB148:
+  89              		.file 2 "Libraries/EEPROM/EEPROM.h"
+   1:Libraries/EEPROM/EEPROM.h **** /*
+   2:Libraries/EEPROM/EEPROM.h ****   EEPROM.h - EEPROM library
+   3:Libraries/EEPROM/EEPROM.h ****   Original Copyright (c) 2006 David A. Mellis.  All right reserved.
+   4:Libraries/EEPROM/EEPROM.h ****   New version by Christopher Andrews 2015.
+   5:Libraries/EEPROM/EEPROM.h **** 
+   6:Libraries/EEPROM/EEPROM.h ****   This library is free software; you can redistribute it and/or
+   7:Libraries/EEPROM/EEPROM.h ****   modify it under the terms of the GNU Lesser General Public
+   8:Libraries/EEPROM/EEPROM.h ****   License as published by the Free Software Foundation; either
+   9:Libraries/EEPROM/EEPROM.h ****   version 2.1 of the License, or (at your option) any later version.
+  10:Libraries/EEPROM/EEPROM.h **** 
+  11:Libraries/EEPROM/EEPROM.h ****   This library is distributed in the hope that it will be useful,
+  12:Libraries/EEPROM/EEPROM.h ****   but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:Libraries/EEPROM/EEPROM.h ****   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  14:Libraries/EEPROM/EEPROM.h ****   Lesser General Public License for more details.
+  15:Libraries/EEPROM/EEPROM.h **** 
+  16:Libraries/EEPROM/EEPROM.h ****   You should have received a copy of the GNU Lesser General Public
+  17:Libraries/EEPROM/EEPROM.h ****   License along with this library; if not, write to the Free Software
+  18:Libraries/EEPROM/EEPROM.h ****   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+  19:Libraries/EEPROM/EEPROM.h **** */
+  20:Libraries/EEPROM/EEPROM.h **** 
+  21:Libraries/EEPROM/EEPROM.h **** #ifndef EEPROM_h
+  22:Libraries/EEPROM/EEPROM.h **** #define EEPROM_h
+  23:Libraries/EEPROM/EEPROM.h **** 
+  24:Libraries/EEPROM/EEPROM.h **** #include <inttypes.h>
+  25:Libraries/EEPROM/EEPROM.h **** #include <Arduino_eeprom.h>
+  26:Libraries/EEPROM/EEPROM.h **** #include <avr/io.h>
+  27:Libraries/EEPROM/EEPROM.h **** 
+  28:Libraries/EEPROM/EEPROM.h **** /***
+  29:Libraries/EEPROM/EEPROM.h ****     EERef class.
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 4
+
+
+  30:Libraries/EEPROM/EEPROM.h ****     
+  31:Libraries/EEPROM/EEPROM.h ****     This object references an EEPROM cell.
+  32:Libraries/EEPROM/EEPROM.h ****     Its purpose is to mimic a typical byte of RAM, however its storage is the EEPROM.
+  33:Libraries/EEPROM/EEPROM.h ****     This class has an overhead of two bytes, similar to storing a pointer to an EEPROM cell.
+  34:Libraries/EEPROM/EEPROM.h **** ***/
+  35:Libraries/EEPROM/EEPROM.h **** 
+  36:Libraries/EEPROM/EEPROM.h **** struct EERef{
+  37:Libraries/EEPROM/EEPROM.h **** 
+  38:Libraries/EEPROM/EEPROM.h ****     EERef( const int index )
+  90              		.loc 2 38 0
+  91              		.cfi_startproc
+  92              		@ args = 0, pretend = 0, frame = 8
+  93              		@ frame_needed = 1, uses_anonymous_args = 0
+  94              		@ link register save eliminated.
+  95 0000 80B4     		push	{r7}
+  96              		.cfi_def_cfa_offset 4
+  97              		.cfi_offset 7, -4
+  98 0002 83B0     		sub	sp, sp, #12
+  99              		.cfi_def_cfa_offset 16
+ 100 0004 00AF     		add	r7, sp, #0
+ 101              		.cfi_def_cfa_register 7
+ 102 0006 7860     		str	r0, [r7, #4]
+ 103 0008 3960     		str	r1, [r7]
+ 104              	.LBB2:
+  39:Libraries/EEPROM/EEPROM.h ****         : index( index )                 {}
+ 105              		.loc 2 39 0
+ 106 000a 7B68     		ldr	r3, [r7, #4]
+ 107 000c 3A68     		ldr	r2, [r7]
+ 108 000e 1A60     		str	r2, [r3]
+ 109              	.LBE2:
+ 110 0010 7B68     		ldr	r3, [r7, #4]
+ 111 0012 1846     		mov	r0, r3
+ 112 0014 0C37     		adds	r7, r7, #12
+ 113              		.cfi_def_cfa_offset 4
+ 114 0016 BD46     		mov	sp, r7
+ 115              		.cfi_def_cfa_register 13
+ 116              		@ sp needed
+ 117 0018 5DF8047B 		ldr	r7, [sp], #4
+ 118              		.cfi_restore 7
+ 119              		.cfi_def_cfa_offset 0
+ 120 001c 7047     		bx	lr
+ 121              		.cfi_endproc
+ 122              	.LFE148:
+ 123              		.cantunwind
+ 124              		.fnend
+ 125              		.size	_ZN5EERefC2Ei, .-_ZN5EERefC2Ei
+ 126              		.weak	_ZN5EERefC1Ei
+ 127              		.thumb_set _ZN5EERefC1Ei,_ZN5EERefC2Ei
+ 128 001e 00BF     		.section	.text._ZNK5EERefdeEv,"axG",%progbits,_ZNK5EERefdeEv,comdat
+ 129              		.align	2
+ 130              		.weak	_ZNK5EERefdeEv
+ 131              		.thumb
+ 132              		.thumb_func
+ 133              		.type	_ZNK5EERefdeEv, %function
+ 134              	_ZNK5EERefdeEv:
+ 135              		.fnstart
+ 136              	.LFB150:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 5
+
+
+  40:Libraries/EEPROM/EEPROM.h ****     
+  41:Libraries/EEPROM/EEPROM.h ****     //Access/read members.
+  42:Libraries/EEPROM/EEPROM.h ****     uint8_t operator*() const            { return eeprom_read_byte( (uint8_t*) index ); }
+ 137              		.loc 2 42 0
+ 138              		.cfi_startproc
+ 139              		@ args = 0, pretend = 0, frame = 8
+ 140              		@ frame_needed = 1, uses_anonymous_args = 0
+ 141 0000 80B5     		push	{r7, lr}
+ 142              		.save {r7, lr}
+ 143              		.cfi_def_cfa_offset 8
+ 144              		.cfi_offset 7, -8
+ 145              		.cfi_offset 14, -4
+ 146              		.pad #8
+ 147 0002 82B0     		sub	sp, sp, #8
+ 148              		.cfi_def_cfa_offset 16
+ 149              		.setfp r7, sp, #0
+ 150 0004 00AF     		add	r7, sp, #0
+ 151              		.cfi_def_cfa_register 7
+ 152 0006 7860     		str	r0, [r7, #4]
+ 153              		.loc 2 42 0
+ 154 0008 7B68     		ldr	r3, [r7, #4]
+ 155 000a 1B68     		ldr	r3, [r3]
+ 156 000c 1846     		mov	r0, r3
+ 157 000e FFF7FEFF 		bl	_Z16eeprom_read_bytePh
+ 158 0012 0346     		mov	r3, r0
+ 159 0014 1846     		mov	r0, r3
+ 160 0016 0837     		adds	r7, r7, #8
+ 161              		.cfi_def_cfa_offset 8
+ 162 0018 BD46     		mov	sp, r7
+ 163              		.cfi_def_cfa_register 13
+ 164              		@ sp needed
+ 165 001a 80BD     		pop	{r7, pc}
+ 166              		.cfi_endproc
+ 167              	.LFE150:
+ 168              		.fnend
+ 169              		.size	_ZNK5EERefdeEv, .-_ZNK5EERefdeEv
+ 170              		.section	.text._ZNK5EERefcvKhEv,"axG",%progbits,_ZNK5EERefcvKhEv,comdat
+ 171              		.align	2
+ 172              		.weak	_ZNK5EERefcvKhEv
+ 173              		.thumb
+ 174              		.thumb_func
+ 175              		.type	_ZNK5EERefcvKhEv, %function
+ 176              	_ZNK5EERefcvKhEv:
+ 177              		.fnstart
+ 178              	.LFB151:
+  43:Libraries/EEPROM/EEPROM.h ****     operator const uint8_t() const       { return **this; }
+ 179              		.loc 2 43 0
+ 180              		.cfi_startproc
+ 181              		@ args = 0, pretend = 0, frame = 8
+ 182              		@ frame_needed = 1, uses_anonymous_args = 0
+ 183 0000 80B5     		push	{r7, lr}
+ 184              		.save {r7, lr}
+ 185              		.cfi_def_cfa_offset 8
+ 186              		.cfi_offset 7, -8
+ 187              		.cfi_offset 14, -4
+ 188              		.pad #8
+ 189 0002 82B0     		sub	sp, sp, #8
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 6
+
+
+ 190              		.cfi_def_cfa_offset 16
+ 191              		.setfp r7, sp, #0
+ 192 0004 00AF     		add	r7, sp, #0
+ 193              		.cfi_def_cfa_register 7
+ 194 0006 7860     		str	r0, [r7, #4]
+ 195              		.loc 2 43 0
+ 196 0008 7868     		ldr	r0, [r7, #4]
+ 197 000a FFF7FEFF 		bl	_ZNK5EERefdeEv
+ 198 000e 0346     		mov	r3, r0
+ 199 0010 1846     		mov	r0, r3
+ 200 0012 0837     		adds	r7, r7, #8
+ 201              		.cfi_def_cfa_offset 8
+ 202 0014 BD46     		mov	sp, r7
+ 203              		.cfi_def_cfa_register 13
+ 204              		@ sp needed
+ 205 0016 80BD     		pop	{r7, pc}
+ 206              		.cfi_endproc
+ 207              	.LFE151:
+ 208              		.fnend
+ 209              		.size	_ZNK5EERefcvKhEv, .-_ZNK5EERefcvKhEv
+ 210              		.section	.text._ZN5EERefaSEh,"axG",%progbits,_ZN5EERefaSEh,comdat
+ 211              		.align	2
+ 212              		.weak	_ZN5EERefaSEh
+ 213              		.thumb
+ 214              		.thumb_func
+ 215              		.type	_ZN5EERefaSEh, %function
+ 216              	_ZN5EERefaSEh:
+ 217              		.fnstart
+ 218              	.LFB153:
+  44:Libraries/EEPROM/EEPROM.h ****     
+  45:Libraries/EEPROM/EEPROM.h ****     //Assignment/write members.
+  46:Libraries/EEPROM/EEPROM.h ****     EERef &operator=( const EERef &ref ) { return *this = *ref; }
+  47:Libraries/EEPROM/EEPROM.h ****     EERef &operator=( uint8_t in )       { return eeprom_write_byte( (uint8_t*) index, in ), *this;
+ 219              		.loc 2 47 0
+ 220              		.cfi_startproc
+ 221              		@ args = 0, pretend = 0, frame = 8
+ 222              		@ frame_needed = 1, uses_anonymous_args = 0
+ 223 0000 80B5     		push	{r7, lr}
+ 224              		.save {r7, lr}
+ 225              		.cfi_def_cfa_offset 8
+ 226              		.cfi_offset 7, -8
+ 227              		.cfi_offset 14, -4
+ 228              		.pad #8
+ 229 0002 82B0     		sub	sp, sp, #8
+ 230              		.cfi_def_cfa_offset 16
+ 231              		.setfp r7, sp, #0
+ 232 0004 00AF     		add	r7, sp, #0
+ 233              		.cfi_def_cfa_register 7
+ 234 0006 7860     		str	r0, [r7, #4]
+ 235 0008 0B46     		mov	r3, r1
+ 236 000a FB70     		strb	r3, [r7, #3]
+ 237              		.loc 2 47 0
+ 238 000c 7B68     		ldr	r3, [r7, #4]
+ 239 000e 1B68     		ldr	r3, [r3]
+ 240 0010 1A46     		mov	r2, r3
+ 241 0012 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 242 0014 1046     		mov	r0, r2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 7
+
+
+ 243 0016 1946     		mov	r1, r3
+ 244 0018 FFF7FEFF 		bl	_Z17eeprom_write_bytePhh
+ 245 001c 7B68     		ldr	r3, [r7, #4]
+ 246 001e 1846     		mov	r0, r3
+ 247 0020 0837     		adds	r7, r7, #8
+ 248              		.cfi_def_cfa_offset 8
+ 249 0022 BD46     		mov	sp, r7
+ 250              		.cfi_def_cfa_register 13
+ 251              		@ sp needed
+ 252 0024 80BD     		pop	{r7, pc}
+ 253              		.cfi_endproc
+ 254              	.LFE153:
+ 255              		.fnend
+ 256              		.size	_ZN5EERefaSEh, .-_ZN5EERefaSEh
+ 257 0026 00BF     		.section	.text._ZN5EERef6updateEh,"axG",%progbits,_ZN5EERef6updateEh,comdat
+ 258              		.align	2
+ 259              		.weak	_ZN5EERef6updateEh
+ 260              		.thumb
+ 261              		.thumb_func
+ 262              		.type	_ZN5EERef6updateEh, %function
+ 263              	_ZN5EERef6updateEh:
+ 264              		.fnstart
+ 265              	.LFB164:
+  48:Libraries/EEPROM/EEPROM.h ****     EERef &operator +=( uint8_t in )     { return *this = **this + in; }
+  49:Libraries/EEPROM/EEPROM.h ****     EERef &operator -=( uint8_t in )     { return *this = **this - in; }
+  50:Libraries/EEPROM/EEPROM.h ****     EERef &operator *=( uint8_t in )     { return *this = **this * in; }
+  51:Libraries/EEPROM/EEPROM.h ****     EERef &operator /=( uint8_t in )     { return *this = **this / in; }
+  52:Libraries/EEPROM/EEPROM.h ****     EERef &operator ^=( uint8_t in )     { return *this = **this ^ in; }
+  53:Libraries/EEPROM/EEPROM.h ****     EERef &operator %=( uint8_t in )     { return *this = **this % in; }
+  54:Libraries/EEPROM/EEPROM.h ****     EERef &operator &=( uint8_t in )     { return *this = **this & in; }
+  55:Libraries/EEPROM/EEPROM.h ****     EERef &operator |=( uint8_t in )     { return *this = **this | in; }
+  56:Libraries/EEPROM/EEPROM.h ****     EERef &operator <<=( uint8_t in )    { return *this = **this << in; }
+  57:Libraries/EEPROM/EEPROM.h ****     EERef &operator >>=( uint8_t in )    { return *this = **this >> in; }
+  58:Libraries/EEPROM/EEPROM.h ****     
+  59:Libraries/EEPROM/EEPROM.h ****     EERef &update( uint8_t in )          { return  in != *this ? *this = in : *this; }
+ 266              		.loc 2 59 0
+ 267              		.cfi_startproc
+ 268              		@ args = 0, pretend = 0, frame = 8
+ 269              		@ frame_needed = 1, uses_anonymous_args = 0
+ 270 0000 80B5     		push	{r7, lr}
+ 271              		.save {r7, lr}
+ 272              		.cfi_def_cfa_offset 8
+ 273              		.cfi_offset 7, -8
+ 274              		.cfi_offset 14, -4
+ 275              		.pad #8
+ 276 0002 82B0     		sub	sp, sp, #8
+ 277              		.cfi_def_cfa_offset 16
+ 278              		.setfp r7, sp, #0
+ 279 0004 00AF     		add	r7, sp, #0
+ 280              		.cfi_def_cfa_register 7
+ 281 0006 7860     		str	r0, [r7, #4]
+ 282 0008 0B46     		mov	r3, r1
+ 283 000a FB70     		strb	r3, [r7, #3]
+ 284              		.loc 2 59 0
+ 285 000c 7868     		ldr	r0, [r7, #4]
+ 286 000e FFF7FEFF 		bl	_ZNK5EERefcvKhEv
+ 287 0012 0346     		mov	r3, r0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 8
+
+
+ 288 0014 1A46     		mov	r2, r3
+ 289 0016 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 290 0018 9342     		cmp	r3, r2
+ 291 001a 06D0     		beq	.L14
+ 292              		.loc 2 59 0 is_stmt 0 discriminator 1
+ 293 001c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 294 001e 7868     		ldr	r0, [r7, #4]
+ 295 0020 1946     		mov	r1, r3
+ 296 0022 FFF7FEFF 		bl	_ZN5EERefaSEh
+ 297 0026 0346     		mov	r3, r0
+ 298 0028 00E0     		b	.L15
+ 299              	.L14:
+ 300              		.loc 2 59 0 discriminator 2
+ 301 002a 7B68     		ldr	r3, [r7, #4]
+ 302              	.L15:
+ 303              		.loc 2 59 0 discriminator 4
+ 304 002c 1846     		mov	r0, r3
+ 305 002e 0837     		adds	r7, r7, #8
+ 306              		.cfi_def_cfa_offset 8
+ 307 0030 BD46     		mov	sp, r7
+ 308              		.cfi_def_cfa_register 13
+ 309              		@ sp needed
+ 310 0032 80BD     		pop	{r7, pc}
+ 311              		.cfi_endproc
+ 312              	.LFE164:
+ 313              		.fnend
+ 314              		.size	_ZN5EERef6updateEh, .-_ZN5EERef6updateEh
+ 315              		.section	.text._ZN11EEPROMClass4readEi,"axG",%progbits,_ZN11EEPROMClass4readEi,comdat
+ 316              		.align	2
+ 317              		.weak	_ZN11EEPROMClass4readEi
+ 318              		.thumb
+ 319              		.thumb_func
+ 320              		.type	_ZN11EEPROMClass4readEi, %function
+ 321              	_ZN11EEPROMClass4readEi:
+ 322              		.fnstart
+ 323              	.LFB181:
+  60:Libraries/EEPROM/EEPROM.h ****     
+  61:Libraries/EEPROM/EEPROM.h ****     /** Prefix increment/decrement **/
+  62:Libraries/EEPROM/EEPROM.h ****     EERef& operator++()                  { return *this += 1; }
+  63:Libraries/EEPROM/EEPROM.h ****     EERef& operator--()                  { return *this -= 1; }
+  64:Libraries/EEPROM/EEPROM.h ****     
+  65:Libraries/EEPROM/EEPROM.h ****     /** Postfix increment/decrement **/
+  66:Libraries/EEPROM/EEPROM.h ****     uint8_t operator++ (int){ 
+  67:Libraries/EEPROM/EEPROM.h ****         uint8_t ret = **this;
+  68:Libraries/EEPROM/EEPROM.h ****         return ++(*this), ret;
+  69:Libraries/EEPROM/EEPROM.h ****     }
+  70:Libraries/EEPROM/EEPROM.h **** 
+  71:Libraries/EEPROM/EEPROM.h ****     uint8_t operator-- (int){ 
+  72:Libraries/EEPROM/EEPROM.h ****         uint8_t ret = **this;
+  73:Libraries/EEPROM/EEPROM.h ****         return --(*this), ret;
+  74:Libraries/EEPROM/EEPROM.h ****     }
+  75:Libraries/EEPROM/EEPROM.h ****     
+  76:Libraries/EEPROM/EEPROM.h ****     int index; //Index of current EEPROM cell.
+  77:Libraries/EEPROM/EEPROM.h **** };
+  78:Libraries/EEPROM/EEPROM.h **** 
+  79:Libraries/EEPROM/EEPROM.h **** /***
+  80:Libraries/EEPROM/EEPROM.h ****     EEPtr class.
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 9
+
+
+  81:Libraries/EEPROM/EEPROM.h ****     
+  82:Libraries/EEPROM/EEPROM.h ****     This object is a bidirectional pointer to EEPROM cells represented by EERef objects.
+  83:Libraries/EEPROM/EEPROM.h ****     Just like a normal pointer type, this can be dereferenced and repositioned using 
+  84:Libraries/EEPROM/EEPROM.h ****     increment/decrement operators.
+  85:Libraries/EEPROM/EEPROM.h **** ***/
+  86:Libraries/EEPROM/EEPROM.h **** 
+  87:Libraries/EEPROM/EEPROM.h **** struct EEPtr{
+  88:Libraries/EEPROM/EEPROM.h **** 
+  89:Libraries/EEPROM/EEPROM.h ****     EEPtr( const int index )
+  90:Libraries/EEPROM/EEPROM.h ****         : index( index )                {}
+  91:Libraries/EEPROM/EEPROM.h ****         
+  92:Libraries/EEPROM/EEPROM.h ****     operator const int() const          { return index; }
+  93:Libraries/EEPROM/EEPROM.h ****     EEPtr &operator=( int in )          { return index = in, *this; }
+  94:Libraries/EEPROM/EEPROM.h ****     
+  95:Libraries/EEPROM/EEPROM.h ****     //Iterator functionality.
+  96:Libraries/EEPROM/EEPROM.h ****     bool operator!=( const EEPtr &ptr ) { return index != ptr.index; }
+  97:Libraries/EEPROM/EEPROM.h ****     EERef operator*()                   { return index; }
+  98:Libraries/EEPROM/EEPROM.h ****     
+  99:Libraries/EEPROM/EEPROM.h ****     /** Prefix & Postfix increment/decrement **/
+ 100:Libraries/EEPROM/EEPROM.h ****     EEPtr& operator++()                 { return ++index, *this; }
+ 101:Libraries/EEPROM/EEPROM.h ****     EEPtr& operator--()                 { return --index, *this; }
+ 102:Libraries/EEPROM/EEPROM.h ****     EEPtr operator++ (int)              { return index++; }
+ 103:Libraries/EEPROM/EEPROM.h ****     EEPtr operator-- (int)              { return index--; }
+ 104:Libraries/EEPROM/EEPROM.h **** 
+ 105:Libraries/EEPROM/EEPROM.h ****     int index; //Index of current EEPROM cell.
+ 106:Libraries/EEPROM/EEPROM.h **** };
+ 107:Libraries/EEPROM/EEPROM.h **** 
+ 108:Libraries/EEPROM/EEPROM.h **** /***
+ 109:Libraries/EEPROM/EEPROM.h ****     EEPROMClass class.
+ 110:Libraries/EEPROM/EEPROM.h ****     
+ 111:Libraries/EEPROM/EEPROM.h ****     This object represents the entire EEPROM space.
+ 112:Libraries/EEPROM/EEPROM.h ****     It wraps the functionality of EEPtr and EERef into a basic interface.
+ 113:Libraries/EEPROM/EEPROM.h ****     This class is also 100% backwards compatible with earlier Arduino core releases.
+ 114:Libraries/EEPROM/EEPROM.h **** ***/
+ 115:Libraries/EEPROM/EEPROM.h **** 
+ 116:Libraries/EEPROM/EEPROM.h **** struct EEPROMClass{
+ 117:Libraries/EEPROM/EEPROM.h **** 
+ 118:Libraries/EEPROM/EEPROM.h ****     //Basic user access methods.
+ 119:Libraries/EEPROM/EEPROM.h ****     EERef operator[]( const int idx )    { return idx; }
+ 120:Libraries/EEPROM/EEPROM.h ****     uint8_t read( int idx )              { return EERef( idx ); }
+ 324              		.loc 2 120 0 is_stmt 1
+ 325              		.cfi_startproc
+ 326              		@ args = 0, pretend = 0, frame = 16
+ 327              		@ frame_needed = 1, uses_anonymous_args = 0
+ 328 0000 80B5     		push	{r7, lr}
+ 329              		.save {r7, lr}
+ 330              		.cfi_def_cfa_offset 8
+ 331              		.cfi_offset 7, -8
+ 332              		.cfi_offset 14, -4
+ 333              		.pad #16
+ 334 0002 84B0     		sub	sp, sp, #16
+ 335              		.cfi_def_cfa_offset 24
+ 336              		.setfp r7, sp, #0
+ 337 0004 00AF     		add	r7, sp, #0
+ 338              		.cfi_def_cfa_register 7
+ 339 0006 7860     		str	r0, [r7, #4]
+ 340 0008 3960     		str	r1, [r7]
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 10
+
+
+ 341              		.loc 2 120 0
+ 342 000a 07F10C03 		add	r3, r7, #12
+ 343 000e 1846     		mov	r0, r3
+ 344 0010 3968     		ldr	r1, [r7]
+ 345 0012 FFF7FEFF 		bl	_ZN5EERefC1Ei
+ 346 0016 07F10C03 		add	r3, r7, #12
+ 347 001a 1846     		mov	r0, r3
+ 348 001c FFF7FEFF 		bl	_ZNK5EERefcvKhEv
+ 349 0020 0346     		mov	r3, r0
+ 350 0022 1846     		mov	r0, r3
+ 351 0024 1037     		adds	r7, r7, #16
+ 352              		.cfi_def_cfa_offset 8
+ 353 0026 BD46     		mov	sp, r7
+ 354              		.cfi_def_cfa_register 13
+ 355              		@ sp needed
+ 356 0028 80BD     		pop	{r7, pc}
+ 357              		.cfi_endproc
+ 358              	.LFE181:
+ 359              		.fnend
+ 360              		.size	_ZN11EEPROMClass4readEi, .-_ZN11EEPROMClass4readEi
+ 361 002a 00BF     		.section	.text._ZN11EEPROMClass6updateEih,"axG",%progbits,_ZN11EEPROMClass6updateEih,comdat
+ 362              		.align	2
+ 363              		.weak	_ZN11EEPROMClass6updateEih
+ 364              		.thumb
+ 365              		.thumb_func
+ 366              		.type	_ZN11EEPROMClass6updateEih, %function
+ 367              	_ZN11EEPROMClass6updateEih:
+ 368              		.fnstart
+ 369              	.LFB183:
+ 121:Libraries/EEPROM/EEPROM.h ****     void write( int idx, uint8_t val )   { (EERef( idx )) = val; }
+ 122:Libraries/EEPROM/EEPROM.h ****     void update( int idx, uint8_t val )  { EERef( idx ).update( val ); }
+ 370              		.loc 2 122 0
+ 371              		.cfi_startproc
+ 372              		@ args = 0, pretend = 0, frame = 24
+ 373              		@ frame_needed = 1, uses_anonymous_args = 0
+ 374 0000 80B5     		push	{r7, lr}
+ 375              		.save {r7, lr}
+ 376              		.cfi_def_cfa_offset 8
+ 377              		.cfi_offset 7, -8
+ 378              		.cfi_offset 14, -4
+ 379              		.pad #24
+ 380 0002 86B0     		sub	sp, sp, #24
+ 381              		.cfi_def_cfa_offset 32
+ 382              		.setfp r7, sp, #0
+ 383 0004 00AF     		add	r7, sp, #0
+ 384              		.cfi_def_cfa_register 7
+ 385 0006 F860     		str	r0, [r7, #12]
+ 386 0008 B960     		str	r1, [r7, #8]
+ 387 000a 1346     		mov	r3, r2
+ 388 000c FB71     		strb	r3, [r7, #7]
+ 389              		.loc 2 122 0
+ 390 000e 07F11403 		add	r3, r7, #20
+ 391 0012 1846     		mov	r0, r3
+ 392 0014 B968     		ldr	r1, [r7, #8]
+ 393 0016 FFF7FEFF 		bl	_ZN5EERefC1Ei
+ 394 001a 07F11402 		add	r2, r7, #20
+ 395 001e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 11
+
+
+ 396 0020 1046     		mov	r0, r2
+ 397 0022 1946     		mov	r1, r3
+ 398 0024 FFF7FEFF 		bl	_ZN5EERef6updateEh
+ 399 0028 1837     		adds	r7, r7, #24
+ 400              		.cfi_def_cfa_offset 8
+ 401 002a BD46     		mov	sp, r7
+ 402              		.cfi_def_cfa_register 13
+ 403              		@ sp needed
+ 404 002c 80BD     		pop	{r7, pc}
+ 405              		.cfi_endproc
+ 406              	.LFE183:
+ 407              		.fnend
+ 408              		.size	_ZN11EEPROMClass6updateEih, .-_ZN11EEPROMClass6updateEih
+ 409 002e 00BF     		.bss
+ 410              		.align	2
+ 411              	_ZL6EEPROM:
+ 412 0000 00       		.space	1
+ 413              		.global	onemsCounter
+ 414 0001 000000   		.align	2
+ 415              		.type	onemsCounter, %object
+ 416              		.size	onemsCounter, 4
+ 417              	onemsCounter:
+ 418 0004 00000000 		.space	4
+ 419              		.global	incomingByte
+ 420              		.align	2
+ 421              		.type	incomingByte, %object
+ 422              		.size	incomingByte, 4
+ 423              	incomingByte:
+ 424 0008 00000000 		.space	4
+ 425              		.section	.rodata
+ 426              		.align	2
+ 427              	.LC0:
+ 428 0000 48656C6C 		.ascii	"Hello, world\000"
+ 428      6F2C2077 
+ 428      6F726C64 
+ 428      00
+ 429              		.section	.text._Z5setupv,"ax",%progbits
+ 430              		.align	2
+ 431              		.global	_Z5setupv
+ 432              		.thumb
+ 433              		.thumb_func
+ 434              		.type	_Z5setupv, %function
+ 435              	_Z5setupv:
+ 436              		.fnstart
+ 437              	.LFB189:
+ 438              		.file 3 "sketch.cpp"
+   1:sketch.cpp    **** 
+   2:sketch.cpp    **** 
+   3:sketch.cpp    **** #include "Arduino.h"
+   4:sketch.cpp    **** #include "Libraries/EEPROM/EEPROM.h"
+   5:sketch.cpp    **** 
+   6:sketch.cpp    **** // Define 1ms test function
+   7:sketch.cpp    **** void onemsTest(void);
+   8:sketch.cpp    **** 
+   9:sketch.cpp    **** // Define the variable used in 1msTest
+  10:sketch.cpp    **** int onemsCounter = 0;
+  11:sketch.cpp    **** 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 12
+
+
+  12:sketch.cpp    **** // Define the adress to place the EEPROM tests data in
+  13:sketch.cpp    **** #define EEPROM_TEST    2
+  14:sketch.cpp    **** 
+  15:sketch.cpp    **** const int ledPin = 1; // the pin that the LED is attached to
+  16:sketch.cpp    **** int incomingByte;      // a variable to read incoming serial data into
+  17:sketch.cpp    **** 
+  18:sketch.cpp    **** void setup() {
+ 439              		.loc 3 18 0
+ 440              		.cfi_startproc
+ 441              		@ args = 0, pretend = 0, frame = 0
+ 442              		@ frame_needed = 1, uses_anonymous_args = 0
+ 443 0000 80B5     		push	{r7, lr}
+ 444              		.save {r7, lr}
+ 445              		.cfi_def_cfa_offset 8
+ 446              		.cfi_offset 7, -8
+ 447              		.cfi_offset 14, -4
+ 448              		.setfp r7, sp, #0
+ 449 0002 00AF     		add	r7, sp, #0
+ 450              		.cfi_def_cfa_register 7
+  19:sketch.cpp    ****   // initialize serial communication:
+  20:sketch.cpp    ****   Serial.begin(9600);
+ 451              		.loc 3 20 0
+ 452 0004 0D48     		ldr	r0, .L21
+ 453 0006 4FF41651 		mov	r1, #9600
+ 454 000a FFF7FEFF 		bl	_ZN9UARTClass5beginEm
+  21:sketch.cpp    ****   delay(5000);
+ 455              		.loc 3 21 0
+ 456 000e 41F28830 		movw	r0, #5000
+ 457 0012 FFF7FEFF 		bl	_Z5delayj
+  22:sketch.cpp    ****   Serial.println("Hello, world");
+ 458              		.loc 3 22 0
+ 459 0016 0948     		ldr	r0, .L21
+ 460 0018 0949     		ldr	r1, .L21+4
+ 461 001a FFF7FEFF 		bl	_ZN5Print7printlnEPKc
+  23:sketch.cpp    ****   // initialize the LED pin as an output:
+  24:sketch.cpp    ****   pinMode(ledPin, OUTPUT);
+ 462              		.loc 3 24 0
+ 463 001e 0120     		movs	r0, #1
+ 464 0020 0021     		movs	r1, #0
+ 465 0022 FFF7FEFF 		bl	_Z7pinModem8PIN_MODE
+  25:sketch.cpp    ****   
+  26:sketch.cpp    ****   EEPROM.update(EEPROM_TEST, 'X');
+ 466              		.loc 3 26 0
+ 467 0026 0748     		ldr	r0, .L21+8
+ 468 0028 0221     		movs	r1, #2
+ 469 002a 5822     		movs	r2, #88
+ 470 002c FFF7FEFF 		bl	_ZN11EEPROMClass6updateEih
+  27:sketch.cpp    ****   
+  28:sketch.cpp    ****   // 1ms counter test
+  29:sketch.cpp    ****   Counter_1ms_initialize();
+ 471              		.loc 3 29 0
+ 472 0030 FFF7FEFF 		bl	Counter_1ms_Start
+  30:sketch.cpp    ****   Counter_1ms_attachinterupt(onemsTest);
+ 473              		.loc 3 30 0
+ 474 0034 0448     		ldr	r0, .L21+12
+ 475 0036 FFF7FEFF 		bl	Counter_1ms_INT_StartEx
+  31:sketch.cpp    **** }
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 13
+
+
+ 476              		.loc 3 31 0
+ 477 003a 80BD     		pop	{r7, pc}
+ 478              	.L22:
+ 479              		.align	2
+ 480              	.L21:
+ 481 003c 00000000 		.word	Serial
+ 482 0040 00000000 		.word	.LC0
+ 483 0044 00000000 		.word	_ZL6EEPROM
+ 484 0048 00000000 		.word	_Z9onemsTestv
+ 485              		.cfi_endproc
+ 486              	.LFE189:
+ 487              		.fnend
+ 488              		.size	_Z5setupv, .-_Z5setupv
+ 489              		.section	.rodata
+ 490 000d 000000   		.align	2
+ 491              	.LC1:
+ 492 0010 48494748 		.ascii	"HIGH\000"
+ 492      00
+ 493 0015 000000   		.align	2
+ 494              	.LC2:
+ 495 0018 4C4F5700 		.ascii	"LOW\000"
+ 496              		.align	2
+ 497              	.LC3:
+ 498 001c 4F6C6420 		.ascii	"Old EEPROM DATA\000"
+ 498      45455052 
+ 498      4F4D2044 
+ 498      41544100 
+ 499              		.align	2
+ 500              	.LC4:
+ 501 002c 4E657720 		.ascii	"New EEPROM DATA\000"
+ 501      45455052 
+ 501      4F4D2044 
+ 501      41544100 
+ 502              		.section	.text._Z4loopv,"ax",%progbits
+ 503              		.align	2
+ 504              		.global	_Z4loopv
+ 505              		.thumb
+ 506              		.thumb_func
+ 507              		.type	_Z4loopv, %function
+ 508              	_Z4loopv:
+ 509              		.fnstart
+ 510              	.LFB190:
+  32:sketch.cpp    **** 
+  33:sketch.cpp    **** void loop() {
+ 511              		.loc 3 33 0
+ 512              		.cfi_startproc
+ 513              		@ args = 0, pretend = 0, frame = 0
+ 514              		@ frame_needed = 1, uses_anonymous_args = 0
+ 515 0000 80B5     		push	{r7, lr}
+ 516              		.save {r7, lr}
+ 517              		.cfi_def_cfa_offset 8
+ 518              		.cfi_offset 7, -8
+ 519              		.cfi_offset 14, -4
+ 520              		.setfp r7, sp, #0
+ 521 0002 00AF     		add	r7, sp, #0
+ 522              		.cfi_def_cfa_register 7
+  34:sketch.cpp    ****   // see if there's incoming serial data:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 14
+
+
+  35:sketch.cpp    ****   if (Serial.available() > 0) 
+ 523              		.loc 3 35 0
+ 524 0004 3248     		ldr	r0, .L32
+ 525 0006 FFF7FEFF 		bl	_ZN9UARTClass9availableEv
+ 526 000a 0346     		mov	r3, r0
+ 527 000c 002B     		cmp	r3, #0
+ 528 000e CCBF     		ite	gt
+ 529 0010 0123     		movgt	r3, #1
+ 530 0012 0023     		movle	r3, #0
+ 531 0014 DBB2     		uxtb	r3, r3
+ 532 0016 002B     		cmp	r3, #0
+ 533 0018 59D0     		beq	.L23
+  36:sketch.cpp    ****   {
+  37:sketch.cpp    ****     // read the oldest byte in the serial buffer:
+  38:sketch.cpp    ****     incomingByte = Serial.read();
+ 534              		.loc 3 38 0
+ 535 001a 2D48     		ldr	r0, .L32
+ 536 001c FFF7FEFF 		bl	_ZN9UARTClass4readEv
+ 537 0020 0246     		mov	r2, r0
+ 538 0022 2C4B     		ldr	r3, .L32+4
+ 539 0024 1A60     		str	r2, [r3]
+  39:sketch.cpp    ****     
+  40:sketch.cpp    ****     //Echo back
+  41:sketch.cpp    ****     Serial.write(incomingByte);
+ 540              		.loc 3 41 0
+ 541 0026 2B4B     		ldr	r3, .L32+4
+ 542 0028 1B68     		ldr	r3, [r3]
+ 543 002a DBB2     		uxtb	r3, r3
+ 544 002c 2848     		ldr	r0, .L32
+ 545 002e 1946     		mov	r1, r3
+ 546 0030 FFF7FEFF 		bl	_ZN9UARTClass5writeEh
+  42:sketch.cpp    ****     
+  43:sketch.cpp    ****     switch ( incomingByte ) {
+ 547              		.loc 3 43 0
+ 548 0034 274B     		ldr	r3, .L32+4
+ 549 0036 1B68     		ldr	r3, [r3]
+ 550 0038 482B     		cmp	r3, #72
+ 551 003a 04D0     		beq	.L26
+ 552 003c 4C2B     		cmp	r3, #76
+ 553 003e 0BD0     		beq	.L27
+ 554 0040 452B     		cmp	r3, #69
+ 555 0042 12D0     		beq	.L28
+  44:sketch.cpp    ****         case 'H': // if it's a capital H (ASCII 72), turn on the LED:
+  45:sketch.cpp    ****                 digitalWrite(ledPin, HIGH);
+  46:sketch.cpp    ****                 Serial.println("HIGH");
+  47:sketch.cpp    ****           break;
+  48:sketch.cpp    ****           
+  49:sketch.cpp    ****         case 'L': // if it's an capital L (ASCII 76) turn off the LED:
+  50:sketch.cpp    ****                 digitalWrite(ledPin, LOW);
+  51:sketch.cpp    ****                 Serial.println("LOW");
+  52:sketch.cpp    ****           break;
+  53:sketch.cpp    ****         
+  54:sketch.cpp    ****         case 'E': // if it's an capital E (ASCII ) then we test the EEPROM:
+  55:sketch.cpp    ****                 Serial.write("Old EEPROM DATA");
+  56:sketch.cpp    ****                 Serial.write(EEPROM.read(EEPROM_TEST));
+  57:sketch.cpp    ****                 
+  58:sketch.cpp    ****                 if (EEPROM.read(EEPROM_TEST) == 'X')
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 15
+
+
+  59:sketch.cpp    ****                     {
+  60:sketch.cpp    ****                         EEPROM.update(EEPROM_TEST, 'Y');
+  61:sketch.cpp    ****                     }
+  62:sketch.cpp    ****                 else
+  63:sketch.cpp    ****                     {
+  64:sketch.cpp    ****                         EEPROM.update(EEPROM_TEST, 'X');
+  65:sketch.cpp    ****                     }
+  66:sketch.cpp    ****                 
+  67:sketch.cpp    ****                 Serial.write("New EEPROM DATA");
+  68:sketch.cpp    ****                 Serial.write(EEPROM.read(EEPROM_TEST));
+  69:sketch.cpp    ****           break;
+  70:sketch.cpp    ****         
+  71:sketch.cpp    ****           
+  72:sketch.cpp    ****         default:
+  73:sketch.cpp    ****           // Code
+  74:sketch.cpp    ****           break;
+ 556              		.loc 3 74 0
+ 557 0044 43E0     		b	.L29
+ 558              	.L26:
+  45:sketch.cpp    ****                 Serial.println("HIGH");
+ 559              		.loc 3 45 0
+ 560 0046 0120     		movs	r0, #1
+ 561 0048 0121     		movs	r1, #1
+ 562 004a FFF7FEFF 		bl	_Z12digitalWritemh
+  46:sketch.cpp    ****           break;
+ 563              		.loc 3 46 0
+ 564 004e 2048     		ldr	r0, .L32
+ 565 0050 2149     		ldr	r1, .L32+8
+ 566 0052 FFF7FEFF 		bl	_ZN5Print7printlnEPKc
+  47:sketch.cpp    ****           
+ 567              		.loc 3 47 0
+ 568 0056 3AE0     		b	.L29
+ 569              	.L27:
+  50:sketch.cpp    ****                 Serial.println("LOW");
+ 570              		.loc 3 50 0
+ 571 0058 0120     		movs	r0, #1
+ 572 005a 0021     		movs	r1, #0
+ 573 005c FFF7FEFF 		bl	_Z12digitalWritemh
+  51:sketch.cpp    ****           break;
+ 574              		.loc 3 51 0
+ 575 0060 1B48     		ldr	r0, .L32
+ 576 0062 1E49     		ldr	r1, .L32+12
+ 577 0064 FFF7FEFF 		bl	_ZN5Print7printlnEPKc
+  52:sketch.cpp    ****         
+ 578              		.loc 3 52 0
+ 579 0068 31E0     		b	.L29
+ 580              	.L28:
+  55:sketch.cpp    ****                 Serial.write(EEPROM.read(EEPROM_TEST));
+ 581              		.loc 3 55 0
+ 582 006a 1948     		ldr	r0, .L32
+ 583 006c 1C49     		ldr	r1, .L32+16
+ 584 006e FFF7FEFF 		bl	_ZN5Print5writeEPKc
+  56:sketch.cpp    ****                 
+ 585              		.loc 3 56 0
+ 586 0072 1C48     		ldr	r0, .L32+20
+ 587 0074 0221     		movs	r1, #2
+ 588 0076 FFF7FEFF 		bl	_ZN11EEPROMClass4readEi
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 16
+
+
+ 589 007a 0346     		mov	r3, r0
+ 590 007c 1448     		ldr	r0, .L32
+ 591 007e 1946     		mov	r1, r3
+ 592 0080 FFF7FEFF 		bl	_ZN9UARTClass5writeEh
+  58:sketch.cpp    ****                     {
+ 593              		.loc 3 58 0
+ 594 0084 1748     		ldr	r0, .L32+20
+ 595 0086 0221     		movs	r1, #2
+ 596 0088 FFF7FEFF 		bl	_ZN11EEPROMClass4readEi
+ 597 008c 0346     		mov	r3, r0
+ 598 008e 582B     		cmp	r3, #88
+ 599 0090 0CBF     		ite	eq
+ 600 0092 0123     		moveq	r3, #1
+ 601 0094 0023     		movne	r3, #0
+ 602 0096 DBB2     		uxtb	r3, r3
+ 603 0098 002B     		cmp	r3, #0
+ 604 009a 05D0     		beq	.L30
+  60:sketch.cpp    ****                     }
+ 605              		.loc 3 60 0
+ 606 009c 1148     		ldr	r0, .L32+20
+ 607 009e 0221     		movs	r1, #2
+ 608 00a0 5922     		movs	r2, #89
+ 609 00a2 FFF7FEFF 		bl	_ZN11EEPROMClass6updateEih
+ 610 00a6 04E0     		b	.L31
+ 611              	.L30:
+  64:sketch.cpp    ****                     }
+ 612              		.loc 3 64 0
+ 613 00a8 0E48     		ldr	r0, .L32+20
+ 614 00aa 0221     		movs	r1, #2
+ 615 00ac 5822     		movs	r2, #88
+ 616 00ae FFF7FEFF 		bl	_ZN11EEPROMClass6updateEih
+ 617              	.L31:
+  67:sketch.cpp    ****                 Serial.write(EEPROM.read(EEPROM_TEST));
+ 618              		.loc 3 67 0
+ 619 00b2 0748     		ldr	r0, .L32
+ 620 00b4 0C49     		ldr	r1, .L32+24
+ 621 00b6 FFF7FEFF 		bl	_ZN5Print5writeEPKc
+  68:sketch.cpp    ****           break;
+ 622              		.loc 3 68 0
+ 623 00ba 0A48     		ldr	r0, .L32+20
+ 624 00bc 0221     		movs	r1, #2
+ 625 00be FFF7FEFF 		bl	_ZN11EEPROMClass4readEi
+ 626 00c2 0346     		mov	r3, r0
+ 627 00c4 0248     		ldr	r0, .L32
+ 628 00c6 1946     		mov	r1, r3
+ 629 00c8 FFF7FEFF 		bl	_ZN9UARTClass5writeEh
+  69:sketch.cpp    ****         
+ 630              		.loc 3 69 0
+ 631 00cc 00BF     		nop
+ 632              	.L29:
+ 633              	.L23:
+  75:sketch.cpp    ****     }
+  76:sketch.cpp    ****     
+  77:sketch.cpp    ****   }
+  78:sketch.cpp    **** }
+ 634              		.loc 3 78 0
+ 635 00ce 80BD     		pop	{r7, pc}
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 17
+
+
+ 636              	.L33:
+ 637              		.align	2
+ 638              	.L32:
+ 639 00d0 00000000 		.word	Serial
+ 640 00d4 00000000 		.word	incomingByte
+ 641 00d8 10000000 		.word	.LC1
+ 642 00dc 18000000 		.word	.LC2
+ 643 00e0 1C000000 		.word	.LC3
+ 644 00e4 00000000 		.word	_ZL6EEPROM
+ 645 00e8 2C000000 		.word	.LC4
+ 646              		.cfi_endproc
+ 647              	.LFE190:
+ 648              		.fnend
+ 649              		.size	_Z4loopv, .-_Z4loopv
+ 650              		.section	.text._Z9onemsTestv,"ax",%progbits
+ 651              		.align	2
+ 652              		.global	_Z9onemsTestv
+ 653              		.thumb
+ 654              		.thumb_func
+ 655              		.type	_Z9onemsTestv, %function
+ 656              	_Z9onemsTestv:
+ 657              		.fnstart
+ 658              	.LFB191:
+  79:sketch.cpp    **** 
+  80:sketch.cpp    **** void onemsTest(void)
+  81:sketch.cpp    **** {
+ 659              		.loc 3 81 0
+ 660              		.cfi_startproc
+ 661              		@ args = 0, pretend = 0, frame = 0
+ 662              		@ frame_needed = 1, uses_anonymous_args = 0
+ 663 0000 80B5     		push	{r7, lr}
+ 664              		.save {r7, lr}
+ 665              		.cfi_def_cfa_offset 8
+ 666              		.cfi_offset 7, -8
+ 667              		.cfi_offset 14, -4
+ 668              		.setfp r7, sp, #0
+ 669 0002 00AF     		add	r7, sp, #0
+ 670              		.cfi_def_cfa_register 7
+  82:sketch.cpp    ****     onemsCounter++;
+ 671              		.loc 3 82 0
+ 672 0004 104B     		ldr	r3, .L38
+ 673 0006 1B68     		ldr	r3, [r3]
+ 674 0008 0133     		adds	r3, r3, #1
+ 675 000a 0F4A     		ldr	r2, .L38
+ 676 000c 1360     		str	r3, [r2]
+  83:sketch.cpp    ****     
+  84:sketch.cpp    ****     if (onemsCounter == 1000)
+ 677              		.loc 3 84 0
+ 678 000e 0E4B     		ldr	r3, .L38
+ 679 0010 1B68     		ldr	r3, [r3]
+ 680 0012 B3F57A7F 		cmp	r3, #1000
+ 681 0016 16D1     		bne	.L34
+  85:sketch.cpp    ****     {
+  86:sketch.cpp    ****         // reset the counter value
+  87:sketch.cpp    ****         onemsCounter = 0;
+ 682              		.loc 3 87 0
+ 683 0018 0B4B     		ldr	r3, .L38
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 18
+
+
+ 684 001a 0022     		movs	r2, #0
+ 685 001c 1A60     		str	r2, [r3]
+  88:sketch.cpp    ****         
+  89:sketch.cpp    ****         // flip the LED to show it works
+  90:sketch.cpp    ****         if (digitalRead(ledPin) == 1)
+ 686              		.loc 3 90 0
+ 687 001e 0120     		movs	r0, #1
+ 688 0020 FFF7FEFF 		bl	_Z11digitalReadm
+ 689 0024 0346     		mov	r3, r0
+ 690 0026 012B     		cmp	r3, #1
+ 691 0028 0CBF     		ite	eq
+ 692 002a 0123     		moveq	r3, #1
+ 693 002c 0023     		movne	r3, #0
+ 694 002e DBB2     		uxtb	r3, r3
+ 695 0030 002B     		cmp	r3, #0
+ 696 0032 04D0     		beq	.L36
+  91:sketch.cpp    ****         {
+  92:sketch.cpp    ****             digitalWrite(ledPin, 0);
+ 697              		.loc 3 92 0
+ 698 0034 0120     		movs	r0, #1
+ 699 0036 0021     		movs	r1, #0
+ 700 0038 FFF7FEFF 		bl	_Z12digitalWritemh
+ 701 003c 03E0     		b	.L34
+ 702              	.L36:
+  93:sketch.cpp    ****         }
+  94:sketch.cpp    ****         else
+  95:sketch.cpp    ****         {
+  96:sketch.cpp    ****             digitalWrite(ledPin, 1);
+ 703              		.loc 3 96 0
+ 704 003e 0120     		movs	r0, #1
+ 705 0040 0121     		movs	r1, #1
+ 706 0042 FFF7FEFF 		bl	_Z12digitalWritemh
+ 707              	.L34:
+  97:sketch.cpp    ****         }
+  98:sketch.cpp    ****     }
+  99:sketch.cpp    **** }
+ 708              		.loc 3 99 0
+ 709 0046 80BD     		pop	{r7, pc}
+ 710              	.L39:
+ 711              		.align	2
+ 712              	.L38:
+ 713 0048 00000000 		.word	onemsCounter
+ 714              		.cfi_endproc
+ 715              	.LFE191:
+ 716              		.fnend
+ 717              		.size	_Z9onemsTestv, .-_Z9onemsTestv
+ 718              		.section	.rodata
+ 719              		.type	_ZL2SS, %object
+ 720              		.size	_ZL2SS, 1
+ 721              	_ZL2SS:
+ 722 003c 0A       		.byte	10
+ 723              		.type	_ZL4MOSI, %object
+ 724              		.size	_ZL4MOSI, 1
+ 725              	_ZL4MOSI:
+ 726 003d 0B       		.byte	11
+ 727              		.type	_ZL4MISO, %object
+ 728              		.size	_ZL4MISO, 1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 19
+
+
+ 729              	_ZL4MISO:
+ 730 003e 0C       		.byte	12
+ 731              		.type	_ZL3SCK, %object
+ 732              		.size	_ZL3SCK, 1
+ 733              	_ZL3SCK:
+ 734 003f 0D       		.byte	13
+ 735              		.type	_ZL3SDA, %object
+ 736              		.size	_ZL3SDA, 1
+ 737              	_ZL3SDA:
+ 738 0040 15       		.byte	21
+ 739              		.type	_ZL3SCL, %object
+ 740              		.size	_ZL3SCL, 1
+ 741              	_ZL3SCL:
+ 742 0041 14       		.byte	20
+ 743 0042 0000     		.align	2
+ 744              		.type	_ZL6ledPin, %object
+ 745              		.size	_ZL6ledPin, 4
+ 746              	_ZL6ledPin:
+ 747 0044 01000000 		.word	1
+ 748              		.text
+ 749              	.Letext0:
+ 750              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 751              		.file 5 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 752              		.file 6 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 753              		.file 7 ".\\core/pins_arduino.h"
+ 754              		.file 8 "Generated_Source\\PSoC5/core_cm3.h"
+ 755              		.file 9 ".\\core/Arduino.h"
+ 756              		.file 10 ".\\core/Arduino_Pins.h"
+ 757              		.file 11 ".\\core/UARTClass.h"
+ 758              		.section	.debug_info,"",%progbits
+ 759              	.Ldebug_info0:
+ 760 0000 46090000 		.4byte	0x946
+ 761 0004 0400     		.2byte	0x4
+ 762 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 763 000a 04       		.byte	0x4
+ 764 000b 01       		.uleb128 0x1
+ 765 000c A9050000 		.4byte	.LASF107
+ 766 0010 04       		.byte	0x4
+ 767 0011 A5000000 		.4byte	.LASF108
+ 768 0015 EC040000 		.4byte	.LASF109
+ 769 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 770 001d 00000000 		.4byte	0
+ 771 0021 00000000 		.4byte	.Ldebug_line0
+ 772 0025 02       		.uleb128 0x2
+ 773 0026 01       		.byte	0x1
+ 774 0027 06       		.byte	0x6
+ 775 0028 F8020000 		.4byte	.LASF0
+ 776 002c 03       		.uleb128 0x3
+ 777 002d 23020000 		.4byte	.LASF3
+ 778 0031 04       		.byte	0x4
+ 779 0032 1D       		.byte	0x1d
+ 780 0033 37000000 		.4byte	0x37
+ 781 0037 02       		.uleb128 0x2
+ 782 0038 01       		.byte	0x1
+ 783 0039 08       		.byte	0x8
+ 784 003a 99020000 		.4byte	.LASF1
+ 785 003e 02       		.uleb128 0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 20
+
+
+ 786 003f 02       		.byte	0x2
+ 787 0040 05       		.byte	0x5
+ 788 0041 B0000000 		.4byte	.LASF2
+ 789 0045 03       		.uleb128 0x3
+ 790 0046 14010000 		.4byte	.LASF4
+ 791 004a 04       		.byte	0x4
+ 792 004b 2B       		.byte	0x2b
+ 793 004c 50000000 		.4byte	0x50
+ 794 0050 02       		.uleb128 0x2
+ 795 0051 02       		.byte	0x2
+ 796 0052 07       		.byte	0x7
+ 797 0053 08040000 		.4byte	.LASF5
+ 798 0057 03       		.uleb128 0x3
+ 799 0058 BB040000 		.4byte	.LASF6
+ 800 005c 04       		.byte	0x4
+ 801 005d 3F       		.byte	0x3f
+ 802 005e 62000000 		.4byte	0x62
+ 803 0062 02       		.uleb128 0x2
+ 804 0063 04       		.byte	0x4
+ 805 0064 05       		.byte	0x5
+ 806 0065 DF030000 		.4byte	.LASF7
+ 807 0069 02       		.uleb128 0x2
+ 808 006a 04       		.byte	0x4
+ 809 006b 07       		.byte	0x7
+ 810 006c 2D030000 		.4byte	.LASF8
+ 811 0070 02       		.uleb128 0x2
+ 812 0071 08       		.byte	0x8
+ 813 0072 05       		.byte	0x5
+ 814 0073 B8010000 		.4byte	.LASF9
+ 815 0077 02       		.uleb128 0x2
+ 816 0078 08       		.byte	0x8
+ 817 0079 07       		.byte	0x7
+ 818 007a C6010000 		.4byte	.LASF10
+ 819 007e 04       		.uleb128 0x4
+ 820 007f 04       		.byte	0x4
+ 821 0080 05       		.byte	0x5
+ 822 0081 696E7400 		.ascii	"int\000"
+ 823 0085 02       		.uleb128 0x2
+ 824 0086 04       		.byte	0x4
+ 825 0087 07       		.byte	0x7
+ 826 0088 12030000 		.4byte	.LASF11
+ 827 008c 03       		.uleb128 0x3
+ 828 008d 40010000 		.4byte	.LASF12
+ 829 0091 05       		.byte	0x5
+ 830 0092 15       		.byte	0x15
+ 831 0093 2C000000 		.4byte	0x2c
+ 832 0097 03       		.uleb128 0x3
+ 833 0098 D6030000 		.4byte	.LASF13
+ 834 009c 05       		.byte	0x5
+ 835 009d 21       		.byte	0x21
+ 836 009e 45000000 		.4byte	0x45
+ 837 00a2 03       		.uleb128 0x3
+ 838 00a3 00040000 		.4byte	.LASF14
+ 839 00a7 05       		.byte	0x5
+ 840 00a8 2C       		.byte	0x2c
+ 841 00a9 57000000 		.4byte	0x57
+ 842 00ad 02       		.uleb128 0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 21
+
+
+ 843 00ae 04       		.byte	0x4
+ 844 00af 04       		.byte	0x4
+ 845 00b0 29000000 		.4byte	.LASF15
+ 846 00b4 02       		.uleb128 0x2
+ 847 00b5 08       		.byte	0x8
+ 848 00b6 04       		.byte	0x4
+ 849 00b7 85040000 		.4byte	.LASF16
+ 850 00bb 02       		.uleb128 0x2
+ 851 00bc 01       		.byte	0x1
+ 852 00bd 08       		.byte	0x8
+ 853 00be D1030000 		.4byte	.LASF17
+ 854 00c2 03       		.uleb128 0x3
+ 855 00c3 BA000000 		.4byte	.LASF18
+ 856 00c7 06       		.byte	0x6
+ 857 00c8 D4       		.byte	0xd4
+ 858 00c9 85000000 		.4byte	0x85
+ 859 00cd 02       		.uleb128 0x2
+ 860 00ce 04       		.byte	0x4
+ 861 00cf 07       		.byte	0x7
+ 862 00d0 CC000000 		.4byte	.LASF19
+ 863 00d4 05       		.uleb128 0x5
+ 864 00d5 04       		.byte	0x4
+ 865 00d6 DA000000 		.4byte	0xda
+ 866 00da 06       		.uleb128 0x6
+ 867 00db BB000000 		.4byte	0xbb
+ 868 00df 07       		.uleb128 0x7
+ 869 00e0 A7040000 		.4byte	.LASF110
+ 870 00e4 01       		.byte	0x1
+ 871 00e5 0A       		.byte	0xa
+ 872 00e6 51       		.byte	0x51
+ 873 00e7 16010000 		.4byte	0x116
+ 874 00eb 08       		.uleb128 0x8
+ 875 00ec B1030000 		.4byte	.LASF20
+ 876 00f0 00       		.sleb128 0
+ 877 00f1 08       		.uleb128 0x8
+ 878 00f2 70050000 		.4byte	.LASF21
+ 879 00f6 01       		.sleb128 1
+ 880 00f7 08       		.uleb128 0x8
+ 881 00f8 0B020000 		.4byte	.LASF22
+ 882 00fc 02       		.sleb128 2
+ 883 00fd 08       		.uleb128 0x8
+ 884 00fe 18020000 		.4byte	.LASF23
+ 885 0102 03       		.sleb128 3
+ 886 0103 08       		.uleb128 0x8
+ 887 0104 68040000 		.4byte	.LASF24
+ 888 0108 04       		.sleb128 4
+ 889 0109 08       		.uleb128 0x8
+ 890 010a 1F030000 		.4byte	.LASF25
+ 891 010e 05       		.sleb128 5
+ 892 010f 08       		.uleb128 0x8
+ 893 0110 99040000 		.4byte	.LASF26
+ 894 0114 06       		.sleb128 6
+ 895 0115 00       		.byte	0
+ 896 0116 09       		.uleb128 0x9
+ 897 0117 96010000 		.4byte	.LASF28
+ 898 011b 67010000 		.4byte	0x167
+ 899 011f 0A       		.uleb128 0xa
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 22
+
+
+ 900 0120 52000000 		.4byte	.LASF31
+ 901 0124 01       		.byte	0x1
+ 902 0125 37       		.byte	0x37
+ 903 0126 14000000 		.4byte	.LASF111
+ 904 012a C2000000 		.4byte	0xc2
+ 905 012e 01       		.byte	0x1
+ 906 012f 37010000 		.4byte	0x137
+ 907 0133 47010000 		.4byte	0x147
+ 908 0137 0B       		.uleb128 0xb
+ 909 0138 67010000 		.4byte	0x167
+ 910 013c 0C       		.uleb128 0xc
+ 911 013d D4000000 		.4byte	0xd4
+ 912 0141 0C       		.uleb128 0xc
+ 913 0142 C2000000 		.4byte	0xc2
+ 914 0146 00       		.byte	0
+ 915 0147 0D       		.uleb128 0xd
+ 916 0148 52000000 		.4byte	.LASF31
+ 917 014c 01       		.byte	0x1
+ 918 014d 32       		.byte	0x32
+ 919 014e 48010000 		.4byte	.LASF33
+ 920 0152 C2000000 		.4byte	0xc2
+ 921 0156 01       		.byte	0x1
+ 922 0157 5B010000 		.4byte	0x15b
+ 923 015b 0B       		.uleb128 0xb
+ 924 015c 67010000 		.4byte	0x167
+ 925 0160 0C       		.uleb128 0xc
+ 926 0161 D4000000 		.4byte	0xd4
+ 927 0165 00       		.byte	0
+ 928 0166 00       		.byte	0
+ 929 0167 05       		.uleb128 0x5
+ 930 0168 04       		.byte	0x4
+ 931 0169 16010000 		.4byte	0x116
+ 932 016d 02       		.uleb128 0x2
+ 933 016e 01       		.byte	0x1
+ 934 016f 02       		.byte	0x2
+ 935 0170 77010000 		.4byte	.LASF27
+ 936 0174 06       		.uleb128 0x6
+ 937 0175 8C000000 		.4byte	0x8c
+ 938 0179 09       		.uleb128 0x9
+ 939 017a C5040000 		.4byte	.LASF29
+ 940 017e 8A010000 		.4byte	0x18a
+ 941 0182 0E       		.uleb128 0xe
+ 942 0183 0B       		.byte	0xb
+ 943 0184 28       		.byte	0x28
+ 944 0185 1F010000 		.4byte	0x11f
+ 945 0189 00       		.byte	0
+ 946 018a 02       		.uleb128 0x2
+ 947 018b 08       		.byte	0x8
+ 948 018c 04       		.byte	0x4
+ 949 018d FD000000 		.4byte	.LASF30
+ 950 0191 0F       		.uleb128 0xf
+ 951 0192 00000000 		.4byte	.LASF67
+ 952 0196 04       		.byte	0x4
+ 953 0197 02       		.byte	0x2
+ 954 0198 24       		.byte	0x24
+ 955 0199 36040000 		.4byte	0x436
+ 956 019d 10       		.uleb128 0x10
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 23
+
+
+ 957 019e 8E000000 		.4byte	.LASF69
+ 958 01a2 02       		.byte	0x2
+ 959 01a3 4C       		.byte	0x4c
+ 960 01a4 7E000000 		.4byte	0x7e
+ 961 01a8 00       		.byte	0
+ 962 01a9 11       		.uleb128 0x11
+ 963 01aa 00000000 		.4byte	.LASF67
+ 964 01ae 02       		.byte	0x2
+ 965 01af 26       		.byte	0x26
+ 966 01b0 36040000 		.4byte	0x436
+ 967 01b4 BC010000 		.4byte	0x1bc
+ 968 01b8 C7010000 		.4byte	0x1c7
+ 969 01bc 0B       		.uleb128 0xb
+ 970 01bd 36040000 		.4byte	0x436
+ 971 01c1 0C       		.uleb128 0xc
+ 972 01c2 7E000000 		.4byte	0x7e
+ 973 01c6 00       		.byte	0
+ 974 01c7 12       		.uleb128 0x12
+ 975 01c8 55020000 		.4byte	.LASF32
+ 976 01cc 02       		.byte	0x2
+ 977 01cd 2A       		.byte	0x2a
+ 978 01ce DD040000 		.4byte	.LASF34
+ 979 01d2 8C000000 		.4byte	0x8c
+ 980 01d6 DE010000 		.4byte	0x1de
+ 981 01da E4010000 		.4byte	0x1e4
+ 982 01de 0B       		.uleb128 0xb
+ 983 01df 3C040000 		.4byte	0x43c
+ 984 01e3 00       		.byte	0
+ 985 01e4 12       		.uleb128 0x12
+ 986 01e5 33020000 		.4byte	.LASF35
+ 987 01e9 02       		.byte	0x2
+ 988 01ea 2B       		.byte	0x2b
+ 989 01eb 7D000000 		.4byte	.LASF36
+ 990 01ef 74010000 		.4byte	0x174
+ 991 01f3 FB010000 		.4byte	0x1fb
+ 992 01f7 01020000 		.4byte	0x201
+ 993 01fb 0B       		.uleb128 0xb
+ 994 01fc 3C040000 		.4byte	0x43c
+ 995 0200 00       		.byte	0
+ 996 0201 12       		.uleb128 0x12
+ 997 0202 91050000 		.4byte	.LASF37
+ 998 0206 02       		.byte	0x2
+ 999 0207 2E       		.byte	0x2e
+ 1000 0208 94000000 		.4byte	.LASF38
+ 1001 020c 47040000 		.4byte	0x447
+ 1002 0210 18020000 		.4byte	0x218
+ 1003 0214 23020000 		.4byte	0x223
+ 1004 0218 0B       		.uleb128 0xb
+ 1005 0219 36040000 		.4byte	0x436
+ 1006 021d 0C       		.uleb128 0xc
+ 1007 021e 4D040000 		.4byte	0x44d
+ 1008 0222 00       		.byte	0
+ 1009 0223 12       		.uleb128 0x12
+ 1010 0224 91050000 		.4byte	.LASF37
+ 1011 0228 02       		.byte	0x2
+ 1012 0229 2F       		.byte	0x2f
+ 1013 022a 5F020000 		.4byte	.LASF39
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 24
+
+
+ 1014 022e 47040000 		.4byte	0x447
+ 1015 0232 3A020000 		.4byte	0x23a
+ 1016 0236 45020000 		.4byte	0x245
+ 1017 023a 0B       		.uleb128 0xb
+ 1018 023b 36040000 		.4byte	0x436
+ 1019 023f 0C       		.uleb128 0xc
+ 1020 0240 8C000000 		.4byte	0x8c
+ 1021 0244 00       		.byte	0
+ 1022 0245 12       		.uleb128 0x12
+ 1023 0246 20040000 		.4byte	.LASF40
+ 1024 024a 02       		.byte	0x2
+ 1025 024b 30       		.byte	0x30
+ 1026 024c EA000000 		.4byte	.LASF41
+ 1027 0250 47040000 		.4byte	0x447
+ 1028 0254 5C020000 		.4byte	0x25c
+ 1029 0258 67020000 		.4byte	0x267
+ 1030 025c 0B       		.uleb128 0xb
+ 1031 025d 36040000 		.4byte	0x436
+ 1032 0261 0C       		.uleb128 0xc
+ 1033 0262 8C000000 		.4byte	0x8c
+ 1034 0266 00       		.byte	0
+ 1035 0267 12       		.uleb128 0x12
+ 1036 0268 40040000 		.4byte	.LASF42
+ 1037 026c 02       		.byte	0x2
+ 1038 026d 31       		.byte	0x31
+ 1039 026e 32040000 		.4byte	.LASF43
+ 1040 0272 47040000 		.4byte	0x447
+ 1041 0276 7E020000 		.4byte	0x27e
+ 1042 027a 89020000 		.4byte	0x289
+ 1043 027e 0B       		.uleb128 0xb
+ 1044 027f 36040000 		.4byte	0x436
+ 1045 0283 0C       		.uleb128 0xc
+ 1046 0284 8C000000 		.4byte	0x8c
+ 1047 0288 00       		.byte	0
+ 1048 0289 12       		.uleb128 0x12
+ 1049 028a 4A020000 		.4byte	.LASF44
+ 1050 028e 02       		.byte	0x2
+ 1051 028f 32       		.byte	0x32
+ 1052 0290 F2010000 		.4byte	.LASF45
+ 1053 0294 47040000 		.4byte	0x447
+ 1054 0298 A0020000 		.4byte	0x2a0
+ 1055 029c AB020000 		.4byte	0x2ab
+ 1056 02a0 0B       		.uleb128 0xb
+ 1057 02a1 36040000 		.4byte	0x436
+ 1058 02a5 0C       		.uleb128 0xc
+ 1059 02a6 8C000000 		.4byte	0x8c
+ 1060 02aa 00       		.byte	0
+ 1061 02ab 12       		.uleb128 0x12
+ 1062 02ac B0040000 		.4byte	.LASF46
+ 1063 02b0 02       		.byte	0x2
+ 1064 02b1 33       		.byte	0x33
+ 1065 02b2 56050000 		.4byte	.LASF47
+ 1066 02b6 47040000 		.4byte	0x447
+ 1067 02ba C2020000 		.4byte	0x2c2
+ 1068 02be CD020000 		.4byte	0x2cd
+ 1069 02c2 0B       		.uleb128 0xb
+ 1070 02c3 36040000 		.4byte	0x436
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 25
+
+
+ 1071 02c7 0C       		.uleb128 0xc
+ 1072 02c8 8C000000 		.4byte	0x8c
+ 1073 02cc 00       		.byte	0
+ 1074 02cd 12       		.uleb128 0x12
+ 1075 02ce 9C010000 		.4byte	.LASF48
+ 1076 02d2 02       		.byte	0x2
+ 1077 02d3 34       		.byte	0x34
+ 1078 02d4 83050000 		.4byte	.LASF49
+ 1079 02d8 47040000 		.4byte	0x447
+ 1080 02dc E4020000 		.4byte	0x2e4
+ 1081 02e0 EF020000 		.4byte	0x2ef
+ 1082 02e4 0B       		.uleb128 0xb
+ 1083 02e5 36040000 		.4byte	0x436
+ 1084 02e9 0C       		.uleb128 0xc
+ 1085 02ea 8C000000 		.4byte	0x8c
+ 1086 02ee 00       		.byte	0
+ 1087 02ef 12       		.uleb128 0x12
+ 1088 02f0 C1000000 		.4byte	.LASF50
+ 1089 02f4 02       		.byte	0x2
+ 1090 02f5 35       		.byte	0x35
+ 1091 02f6 04030000 		.4byte	.LASF51
+ 1092 02fa 47040000 		.4byte	0x447
+ 1093 02fe 06030000 		.4byte	0x306
+ 1094 0302 11030000 		.4byte	0x311
+ 1095 0306 0B       		.uleb128 0xb
+ 1096 0307 36040000 		.4byte	0x436
+ 1097 030b 0C       		.uleb128 0xc
+ 1098 030c 8C000000 		.4byte	0x8c
+ 1099 0310 00       		.byte	0
+ 1100 0311 12       		.uleb128 0x12
+ 1101 0312 00020000 		.4byte	.LASF52
+ 1102 0316 02       		.byte	0x2
+ 1103 0317 36       		.byte	0x36
+ 1104 0318 2F000000 		.4byte	.LASF53
+ 1105 031c 47040000 		.4byte	0x447
+ 1106 0320 28030000 		.4byte	0x328
+ 1107 0324 33030000 		.4byte	0x333
+ 1108 0328 0B       		.uleb128 0xb
+ 1109 0329 36040000 		.4byte	0x436
+ 1110 032d 0C       		.uleb128 0xc
+ 1111 032e 8C000000 		.4byte	0x8c
+ 1112 0332 00       		.byte	0
+ 1113 0333 12       		.uleb128 0x12
+ 1114 0334 64000000 		.4byte	.LASF54
+ 1115 0338 02       		.byte	0x2
+ 1116 0339 37       		.byte	0x37
+ 1117 033a 1F010000 		.4byte	.LASF55
+ 1118 033e 47040000 		.4byte	0x447
+ 1119 0342 4A030000 		.4byte	0x34a
+ 1120 0346 55030000 		.4byte	0x355
+ 1121 034a 0B       		.uleb128 0xb
+ 1122 034b 36040000 		.4byte	0x436
+ 1123 034f 0C       		.uleb128 0xc
+ 1124 0350 8C000000 		.4byte	0x8c
+ 1125 0354 00       		.byte	0
+ 1126 0355 12       		.uleb128 0x12
+ 1127 0356 AC010000 		.4byte	.LASF56
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 26
+
+
+ 1128 035a 02       		.byte	0x2
+ 1129 035b 38       		.byte	0x38
+ 1130 035c 82010000 		.4byte	.LASF57
+ 1131 0360 47040000 		.4byte	0x447
+ 1132 0364 6C030000 		.4byte	0x36c
+ 1133 0368 77030000 		.4byte	0x377
+ 1134 036c 0B       		.uleb128 0xb
+ 1135 036d 36040000 		.4byte	0x436
+ 1136 0371 0C       		.uleb128 0xc
+ 1137 0372 8C000000 		.4byte	0x8c
+ 1138 0376 00       		.byte	0
+ 1139 0377 12       		.uleb128 0x12
+ 1140 0378 58000000 		.4byte	.LASF58
+ 1141 037c 02       		.byte	0x2
+ 1142 037d 39       		.byte	0x39
+ 1143 037e CF040000 		.4byte	.LASF59
+ 1144 0382 47040000 		.4byte	0x447
+ 1145 0386 8E030000 		.4byte	0x38e
+ 1146 038a 99030000 		.4byte	0x399
+ 1147 038e 0B       		.uleb128 0xb
+ 1148 038f 36040000 		.4byte	0x436
+ 1149 0393 0C       		.uleb128 0xc
+ 1150 0394 8C000000 		.4byte	0x8c
+ 1151 0398 00       		.byte	0
+ 1152 0399 12       		.uleb128 0x12
+ 1153 039a EB010000 		.4byte	.LASF60
+ 1154 039e 02       		.byte	0x2
+ 1155 039f 3B       		.byte	0x3b
+ 1156 03a0 4B040000 		.4byte	.LASF61
+ 1157 03a4 47040000 		.4byte	0x447
+ 1158 03a8 B0030000 		.4byte	0x3b0
+ 1159 03ac BB030000 		.4byte	0x3bb
+ 1160 03b0 0B       		.uleb128 0xb
+ 1161 03b1 36040000 		.4byte	0x436
+ 1162 03b5 0C       		.uleb128 0xc
+ 1163 03b6 8C000000 		.4byte	0x8c
+ 1164 03ba 00       		.byte	0
+ 1165 03bb 12       		.uleb128 0x12
+ 1166 03bc C6020000 		.4byte	.LASF62
+ 1167 03c0 02       		.byte	0x2
+ 1168 03c1 3E       		.byte	0x3e
+ 1169 03c2 DD010000 		.4byte	.LASF63
+ 1170 03c6 47040000 		.4byte	0x447
+ 1171 03ca D2030000 		.4byte	0x3d2
+ 1172 03ce D8030000 		.4byte	0x3d8
+ 1173 03d2 0B       		.uleb128 0xb
+ 1174 03d3 36040000 		.4byte	0x436
+ 1175 03d7 00       		.byte	0
+ 1176 03d8 12       		.uleb128 0x12
+ 1177 03d9 09010000 		.4byte	.LASF64
+ 1178 03dd 02       		.byte	0x2
+ 1179 03de 3F       		.byte	0x3f
+ 1180 03df 74030000 		.4byte	.LASF65
+ 1181 03e3 47040000 		.4byte	0x447
+ 1182 03e7 EF030000 		.4byte	0x3ef
+ 1183 03eb F5030000 		.4byte	0x3f5
+ 1184 03ef 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 27
+
+
+ 1185 03f0 36040000 		.4byte	0x436
+ 1186 03f4 00       		.byte	0
+ 1187 03f5 12       		.uleb128 0x12
+ 1188 03f6 C6020000 		.4byte	.LASF62
+ 1189 03fa 02       		.byte	0x2
+ 1190 03fb 42       		.byte	0x42
+ 1191 03fc 8B020000 		.4byte	.LASF66
+ 1192 0400 8C000000 		.4byte	0x8c
+ 1193 0404 0C040000 		.4byte	0x40c
+ 1194 0408 17040000 		.4byte	0x417
+ 1195 040c 0B       		.uleb128 0xb
+ 1196 040d 36040000 		.4byte	0x436
+ 1197 0411 0C       		.uleb128 0xc
+ 1198 0412 7E000000 		.4byte	0x7e
+ 1199 0416 00       		.byte	0
+ 1200 0417 13       		.uleb128 0x13
+ 1201 0418 09010000 		.4byte	.LASF64
+ 1202 041c 02       		.byte	0x2
+ 1203 041d 47       		.byte	0x47
+ 1204 041e 6F000000 		.4byte	.LASF79
+ 1205 0422 8C000000 		.4byte	0x8c
+ 1206 0426 2A040000 		.4byte	0x42a
+ 1207 042a 0B       		.uleb128 0xb
+ 1208 042b 36040000 		.4byte	0x436
+ 1209 042f 0C       		.uleb128 0xc
+ 1210 0430 7E000000 		.4byte	0x7e
+ 1211 0434 00       		.byte	0
+ 1212 0435 00       		.byte	0
+ 1213 0436 05       		.uleb128 0x5
+ 1214 0437 04       		.byte	0x4
+ 1215 0438 91010000 		.4byte	0x191
+ 1216 043c 05       		.uleb128 0x5
+ 1217 043d 04       		.byte	0x4
+ 1218 043e 42040000 		.4byte	0x442
+ 1219 0442 06       		.uleb128 0x6
+ 1220 0443 91010000 		.4byte	0x191
+ 1221 0447 14       		.uleb128 0x14
+ 1222 0448 04       		.byte	0x4
+ 1223 0449 91010000 		.4byte	0x191
+ 1224 044d 14       		.uleb128 0x14
+ 1225 044e 04       		.byte	0x4
+ 1226 044f 42040000 		.4byte	0x442
+ 1227 0453 0F       		.uleb128 0xf
+ 1228 0454 7C010000 		.4byte	.LASF68
+ 1229 0458 04       		.byte	0x4
+ 1230 0459 02       		.byte	0x2
+ 1231 045a 57       		.byte	0x57
+ 1232 045b 82050000 		.4byte	0x582
+ 1233 045f 10       		.uleb128 0x10
+ 1234 0460 8E000000 		.4byte	.LASF69
+ 1235 0464 02       		.byte	0x2
+ 1236 0465 69       		.byte	0x69
+ 1237 0466 7E000000 		.4byte	0x7e
+ 1238 046a 00       		.byte	0
+ 1239 046b 11       		.uleb128 0x11
+ 1240 046c 7C010000 		.4byte	.LASF68
+ 1241 0470 02       		.byte	0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 28
+
+
+ 1242 0471 59       		.byte	0x59
+ 1243 0472 82050000 		.4byte	0x582
+ 1244 0476 7E040000 		.4byte	0x47e
+ 1245 047a 89040000 		.4byte	0x489
+ 1246 047e 0B       		.uleb128 0xb
+ 1247 047f 82050000 		.4byte	0x582
+ 1248 0483 0C       		.uleb128 0xc
+ 1249 0484 7E000000 		.4byte	0x7e
+ 1250 0488 00       		.byte	0
+ 1251 0489 12       		.uleb128 0x12
+ 1252 048a A7020000 		.4byte	.LASF70
+ 1253 048e 02       		.byte	0x2
+ 1254 048f 5C       		.byte	0x5c
+ 1255 0490 99030000 		.4byte	.LASF71
+ 1256 0494 88050000 		.4byte	0x588
+ 1257 0498 A0040000 		.4byte	0x4a0
+ 1258 049c A6040000 		.4byte	0x4a6
+ 1259 04a0 0B       		.uleb128 0xb
+ 1260 04a1 8D050000 		.4byte	0x58d
+ 1261 04a5 00       		.byte	0
+ 1262 04a6 12       		.uleb128 0x12
+ 1263 04a7 91050000 		.4byte	.LASF37
+ 1264 04ab 02       		.byte	0x2
+ 1265 04ac 5D       		.byte	0x5d
+ 1266 04ad 7D020000 		.4byte	.LASF72
+ 1267 04b1 98050000 		.4byte	0x598
+ 1268 04b5 BD040000 		.4byte	0x4bd
+ 1269 04b9 C8040000 		.4byte	0x4c8
+ 1270 04bd 0B       		.uleb128 0xb
+ 1271 04be 82050000 		.4byte	0x582
+ 1272 04c2 0C       		.uleb128 0xc
+ 1273 04c3 7E000000 		.4byte	0x7e
+ 1274 04c7 00       		.byte	0
+ 1275 04c8 12       		.uleb128 0x12
+ 1276 04c9 47000000 		.4byte	.LASF73
+ 1277 04cd 02       		.byte	0x2
+ 1278 04ce 60       		.byte	0x60
+ 1279 04cf 45050000 		.4byte	.LASF74
+ 1280 04d3 6D010000 		.4byte	0x16d
+ 1281 04d7 DF040000 		.4byte	0x4df
+ 1282 04db EA040000 		.4byte	0x4ea
+ 1283 04df 0B       		.uleb128 0xb
+ 1284 04e0 82050000 		.4byte	0x582
+ 1285 04e4 0C       		.uleb128 0xc
+ 1286 04e5 9E050000 		.4byte	0x59e
+ 1287 04e9 00       		.byte	0
+ 1288 04ea 12       		.uleb128 0x12
+ 1289 04eb 55020000 		.4byte	.LASF32
+ 1290 04ef 02       		.byte	0x2
+ 1291 04f0 61       		.byte	0x61
+ 1292 04f1 32010000 		.4byte	.LASF75
+ 1293 04f5 91010000 		.4byte	0x191
+ 1294 04f9 01050000 		.4byte	0x501
+ 1295 04fd 07050000 		.4byte	0x507
+ 1296 0501 0B       		.uleb128 0xb
+ 1297 0502 82050000 		.4byte	0x582
+ 1298 0506 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 29
+
+
+ 1299 0507 12       		.uleb128 0x12
+ 1300 0508 C6020000 		.4byte	.LASF62
+ 1301 050c 02       		.byte	0x2
+ 1302 050d 64       		.byte	0x64
+ 1303 050e EA020000 		.4byte	.LASF76
+ 1304 0512 98050000 		.4byte	0x598
+ 1305 0516 1E050000 		.4byte	0x51e
+ 1306 051a 24050000 		.4byte	0x524
+ 1307 051e 0B       		.uleb128 0xb
+ 1308 051f 82050000 		.4byte	0x582
+ 1309 0523 00       		.byte	0
+ 1310 0524 12       		.uleb128 0x12
+ 1311 0525 09010000 		.4byte	.LASF64
+ 1312 0529 02       		.byte	0x2
+ 1313 052a 65       		.byte	0x65
+ 1314 052b C3030000 		.4byte	.LASF77
+ 1315 052f 98050000 		.4byte	0x598
+ 1316 0533 3B050000 		.4byte	0x53b
+ 1317 0537 41050000 		.4byte	0x541
+ 1318 053b 0B       		.uleb128 0xb
+ 1319 053c 82050000 		.4byte	0x582
+ 1320 0540 00       		.byte	0
+ 1321 0541 12       		.uleb128 0x12
+ 1322 0542 C6020000 		.4byte	.LASF62
+ 1323 0546 02       		.byte	0x2
+ 1324 0547 66       		.byte	0x66
+ 1325 0548 06000000 		.4byte	.LASF78
+ 1326 054c 53040000 		.4byte	0x453
+ 1327 0550 58050000 		.4byte	0x558
+ 1328 0554 63050000 		.4byte	0x563
+ 1329 0558 0B       		.uleb128 0xb
+ 1330 0559 82050000 		.4byte	0x582
+ 1331 055d 0C       		.uleb128 0xc
+ 1332 055e 7E000000 		.4byte	0x7e
+ 1333 0562 00       		.byte	0
+ 1334 0563 13       		.uleb128 0x13
+ 1335 0564 09010000 		.4byte	.LASF64
+ 1336 0568 02       		.byte	0x2
+ 1337 0569 67       		.byte	0x67
+ 1338 056a 3F030000 		.4byte	.LASF80
+ 1339 056e 53040000 		.4byte	0x453
+ 1340 0572 76050000 		.4byte	0x576
+ 1341 0576 0B       		.uleb128 0xb
+ 1342 0577 82050000 		.4byte	0x582
+ 1343 057b 0C       		.uleb128 0xc
+ 1344 057c 7E000000 		.4byte	0x7e
+ 1345 0580 00       		.byte	0
+ 1346 0581 00       		.byte	0
+ 1347 0582 05       		.uleb128 0x5
+ 1348 0583 04       		.byte	0x4
+ 1349 0584 53040000 		.4byte	0x453
+ 1350 0588 06       		.uleb128 0x6
+ 1351 0589 7E000000 		.4byte	0x7e
+ 1352 058d 05       		.uleb128 0x5
+ 1353 058e 04       		.byte	0x4
+ 1354 058f 93050000 		.4byte	0x593
+ 1355 0593 06       		.uleb128 0x6
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 30
+
+
+ 1356 0594 53040000 		.4byte	0x453
+ 1357 0598 14       		.uleb128 0x14
+ 1358 0599 04       		.byte	0x4
+ 1359 059a 53040000 		.4byte	0x453
+ 1360 059e 14       		.uleb128 0x14
+ 1361 059f 04       		.byte	0x4
+ 1362 05a0 93050000 		.4byte	0x593
+ 1363 05a4 0F       		.uleb128 0xf
+ 1364 05a5 BA020000 		.4byte	.LASF81
+ 1365 05a9 01       		.byte	0x1
+ 1366 05aa 02       		.byte	0x2
+ 1367 05ab 74       		.byte	0x74
+ 1368 05ac 8E060000 		.4byte	0x68e
+ 1369 05b0 12       		.uleb128 0x12
+ 1370 05b1 B8030000 		.4byte	.LASF82
+ 1371 05b5 02       		.byte	0x2
+ 1372 05b6 77       		.byte	0x77
+ 1373 05b7 D5000000 		.4byte	.LASF83
+ 1374 05bb 91010000 		.4byte	0x191
+ 1375 05bf C7050000 		.4byte	0x5c7
+ 1376 05c3 D2050000 		.4byte	0x5d2
+ 1377 05c7 0B       		.uleb128 0xb
+ 1378 05c8 8E060000 		.4byte	0x68e
+ 1379 05cc 0C       		.uleb128 0xc
+ 1380 05cd 7E000000 		.4byte	0x7e
+ 1381 05d1 00       		.byte	0
+ 1382 05d2 12       		.uleb128 0x12
+ 1383 05d3 A7010000 		.4byte	.LASF84
+ 1384 05d7 02       		.byte	0x2
+ 1385 05d8 78       		.byte	0x78
+ 1386 05d9 E8030000 		.4byte	.LASF85
+ 1387 05dd 8C000000 		.4byte	0x8c
+ 1388 05e1 E9050000 		.4byte	0x5e9
+ 1389 05e5 F4050000 		.4byte	0x5f4
+ 1390 05e9 0B       		.uleb128 0xb
+ 1391 05ea 8E060000 		.4byte	0x68e
+ 1392 05ee 0C       		.uleb128 0xc
+ 1393 05ef 7E000000 		.4byte	0x7e
+ 1394 05f3 00       		.byte	0
+ 1395 05f4 15       		.uleb128 0x15
+ 1396 05f5 52000000 		.4byte	.LASF31
+ 1397 05f9 02       		.byte	0x2
+ 1398 05fa 79       		.byte	0x79
+ 1399 05fb 5A030000 		.4byte	.LASF86
+ 1400 05ff 07060000 		.4byte	0x607
+ 1401 0603 17060000 		.4byte	0x617
+ 1402 0607 0B       		.uleb128 0xb
+ 1403 0608 8E060000 		.4byte	0x68e
+ 1404 060c 0C       		.uleb128 0xc
+ 1405 060d 7E000000 		.4byte	0x7e
+ 1406 0611 0C       		.uleb128 0xc
+ 1407 0612 8C000000 		.4byte	0x8c
+ 1408 0616 00       		.byte	0
+ 1409 0617 15       		.uleb128 0x15
+ 1410 0618 EB010000 		.4byte	.LASF60
+ 1411 061c 02       		.byte	0x2
+ 1412 061d 7A       		.byte	0x7a
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 31
+
+
+ 1413 061e 5C010000 		.4byte	.LASF87
+ 1414 0622 2A060000 		.4byte	0x62a
+ 1415 0626 3A060000 		.4byte	0x63a
+ 1416 062a 0B       		.uleb128 0xb
+ 1417 062b 8E060000 		.4byte	0x68e
+ 1418 062f 0C       		.uleb128 0xc
+ 1419 0630 7E000000 		.4byte	0x7e
+ 1420 0634 0C       		.uleb128 0xc
+ 1421 0635 8C000000 		.4byte	0x8c
+ 1422 0639 00       		.byte	0
+ 1423 063a 12       		.uleb128 0x12
+ 1424 063b 2D020000 		.4byte	.LASF88
+ 1425 063f 02       		.byte	0x2
+ 1426 0640 7D       		.byte	0x7d
+ 1427 0641 D1020000 		.4byte	.LASF89
+ 1428 0645 53040000 		.4byte	0x453
+ 1429 0649 51060000 		.4byte	0x651
+ 1430 064d 57060000 		.4byte	0x657
+ 1431 0651 0B       		.uleb128 0xb
+ 1432 0652 8E060000 		.4byte	0x68e
+ 1433 0656 00       		.byte	0
+ 1434 0657 16       		.uleb128 0x16
+ 1435 0658 656E6400 		.ascii	"end\000"
+ 1436 065c 02       		.byte	0x2
+ 1437 065d 7E       		.byte	0x7e
+ 1438 065e 82030000 		.4byte	.LASF112
+ 1439 0662 53040000 		.4byte	0x453
+ 1440 0666 6E060000 		.4byte	0x66e
+ 1441 066a 74060000 		.4byte	0x674
+ 1442 066e 0B       		.uleb128 0xb
+ 1443 066f 8E060000 		.4byte	0x68e
+ 1444 0673 00       		.byte	0
+ 1445 0674 13       		.uleb128 0x13
+ 1446 0675 76020000 		.4byte	.LASF90
+ 1447 0679 02       		.byte	0x2
+ 1448 067a 7F       		.byte	0x7f
+ 1449 067b 39060000 		.4byte	.LASF91
+ 1450 067f 97000000 		.4byte	0x97
+ 1451 0683 87060000 		.4byte	0x687
+ 1452 0687 0B       		.uleb128 0xb
+ 1453 0688 8E060000 		.4byte	0x68e
+ 1454 068c 00       		.byte	0
+ 1455 068d 00       		.byte	0
+ 1456 068e 05       		.uleb128 0x5
+ 1457 068f 04       		.byte	0x4
+ 1458 0690 A4050000 		.4byte	0x5a4
+ 1459 0694 17       		.uleb128 0x17
+ 1460 0695 47010000 		.4byte	0x147
+ 1461 0699 00000000 		.4byte	.LFB123
+ 1462 069d 36000000 		.4byte	.LFE123-.LFB123
+ 1463 06a1 01       		.uleb128 0x1
+ 1464 06a2 9C       		.byte	0x9c
+ 1465 06a3 AB060000 		.4byte	0x6ab
+ 1466 06a7 C6060000 		.4byte	0x6c6
+ 1467 06ab 18       		.uleb128 0x18
+ 1468 06ac 1B040000 		.4byte	.LASF92
+ 1469 06b0 C6060000 		.4byte	0x6c6
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 32
+
+
+ 1470 06b4 02       		.uleb128 0x2
+ 1471 06b5 91       		.byte	0x91
+ 1472 06b6 6C       		.sleb128 -20
+ 1473 06b7 19       		.uleb128 0x19
+ 1474 06b8 73747200 		.ascii	"str\000"
+ 1475 06bc 01       		.byte	0x1
+ 1476 06bd 32       		.byte	0x32
+ 1477 06be D4000000 		.4byte	0xd4
+ 1478 06c2 02       		.uleb128 0x2
+ 1479 06c3 91       		.byte	0x91
+ 1480 06c4 68       		.sleb128 -24
+ 1481 06c5 00       		.byte	0
+ 1482 06c6 06       		.uleb128 0x6
+ 1483 06c7 67010000 		.4byte	0x167
+ 1484 06cb 1A       		.uleb128 0x1a
+ 1485 06cc A9010000 		.4byte	0x1a9
+ 1486 06d0 02       		.byte	0x2
+ 1487 06d1 D9060000 		.4byte	0x6d9
+ 1488 06d5 EE060000 		.4byte	0x6ee
+ 1489 06d9 1B       		.uleb128 0x1b
+ 1490 06da 1B040000 		.4byte	.LASF92
+ 1491 06de EE060000 		.4byte	0x6ee
+ 1492 06e2 1C       		.uleb128 0x1c
+ 1493 06e3 8E000000 		.4byte	.LASF69
+ 1494 06e7 02       		.byte	0x2
+ 1495 06e8 26       		.byte	0x26
+ 1496 06e9 88050000 		.4byte	0x588
+ 1497 06ed 00       		.byte	0
+ 1498 06ee 06       		.uleb128 0x6
+ 1499 06ef 36040000 		.4byte	0x436
+ 1500 06f3 1D       		.uleb128 0x1d
+ 1501 06f4 CB060000 		.4byte	0x6cb
+ 1502 06f8 9B050000 		.4byte	.LASF113
+ 1503 06fc 00000000 		.4byte	.LFB148
+ 1504 0700 1E000000 		.4byte	.LFE148-.LFB148
+ 1505 0704 01       		.uleb128 0x1
+ 1506 0705 9C       		.byte	0x9c
+ 1507 0706 0E070000 		.4byte	0x70e
+ 1508 070a 1F070000 		.4byte	0x71f
+ 1509 070e 1E       		.uleb128 0x1e
+ 1510 070f D9060000 		.4byte	0x6d9
+ 1511 0713 02       		.uleb128 0x2
+ 1512 0714 91       		.byte	0x91
+ 1513 0715 74       		.sleb128 -12
+ 1514 0716 1E       		.uleb128 0x1e
+ 1515 0717 E2060000 		.4byte	0x6e2
+ 1516 071b 02       		.uleb128 0x2
+ 1517 071c 91       		.byte	0x91
+ 1518 071d 70       		.sleb128 -16
+ 1519 071e 00       		.byte	0
+ 1520 071f 17       		.uleb128 0x17
+ 1521 0720 C7010000 		.4byte	0x1c7
+ 1522 0724 00000000 		.4byte	.LFB150
+ 1523 0728 1C000000 		.4byte	.LFE150-.LFB150
+ 1524 072c 01       		.uleb128 0x1
+ 1525 072d 9C       		.byte	0x9c
+ 1526 072e 36070000 		.4byte	0x736
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 33
+
+
+ 1527 0732 43070000 		.4byte	0x743
+ 1528 0736 18       		.uleb128 0x18
+ 1529 0737 1B040000 		.4byte	.LASF92
+ 1530 073b 43070000 		.4byte	0x743
+ 1531 073f 02       		.uleb128 0x2
+ 1532 0740 91       		.byte	0x91
+ 1533 0741 74       		.sleb128 -12
+ 1534 0742 00       		.byte	0
+ 1535 0743 06       		.uleb128 0x6
+ 1536 0744 3C040000 		.4byte	0x43c
+ 1537 0748 17       		.uleb128 0x17
+ 1538 0749 E4010000 		.4byte	0x1e4
+ 1539 074d 00000000 		.4byte	.LFB151
+ 1540 0751 18000000 		.4byte	.LFE151-.LFB151
+ 1541 0755 01       		.uleb128 0x1
+ 1542 0756 9C       		.byte	0x9c
+ 1543 0757 5F070000 		.4byte	0x75f
+ 1544 075b 6C070000 		.4byte	0x76c
+ 1545 075f 18       		.uleb128 0x18
+ 1546 0760 1B040000 		.4byte	.LASF92
+ 1547 0764 43070000 		.4byte	0x743
+ 1548 0768 02       		.uleb128 0x2
+ 1549 0769 91       		.byte	0x91
+ 1550 076a 74       		.sleb128 -12
+ 1551 076b 00       		.byte	0
+ 1552 076c 17       		.uleb128 0x17
+ 1553 076d 23020000 		.4byte	0x223
+ 1554 0771 00000000 		.4byte	.LFB153
+ 1555 0775 26000000 		.4byte	.LFE153-.LFB153
+ 1556 0779 01       		.uleb128 0x1
+ 1557 077a 9C       		.byte	0x9c
+ 1558 077b 83070000 		.4byte	0x783
+ 1559 077f 9D070000 		.4byte	0x79d
+ 1560 0783 18       		.uleb128 0x18
+ 1561 0784 1B040000 		.4byte	.LASF92
+ 1562 0788 EE060000 		.4byte	0x6ee
+ 1563 078c 02       		.uleb128 0x2
+ 1564 078d 91       		.byte	0x91
+ 1565 078e 74       		.sleb128 -12
+ 1566 078f 19       		.uleb128 0x19
+ 1567 0790 696E00   		.ascii	"in\000"
+ 1568 0793 02       		.byte	0x2
+ 1569 0794 2F       		.byte	0x2f
+ 1570 0795 8C000000 		.4byte	0x8c
+ 1571 0799 02       		.uleb128 0x2
+ 1572 079a 91       		.byte	0x91
+ 1573 079b 73       		.sleb128 -13
+ 1574 079c 00       		.byte	0
+ 1575 079d 17       		.uleb128 0x17
+ 1576 079e 99030000 		.4byte	0x399
+ 1577 07a2 00000000 		.4byte	.LFB164
+ 1578 07a6 34000000 		.4byte	.LFE164-.LFB164
+ 1579 07aa 01       		.uleb128 0x1
+ 1580 07ab 9C       		.byte	0x9c
+ 1581 07ac B4070000 		.4byte	0x7b4
+ 1582 07b0 CE070000 		.4byte	0x7ce
+ 1583 07b4 18       		.uleb128 0x18
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 34
+
+
+ 1584 07b5 1B040000 		.4byte	.LASF92
+ 1585 07b9 EE060000 		.4byte	0x6ee
+ 1586 07bd 02       		.uleb128 0x2
+ 1587 07be 91       		.byte	0x91
+ 1588 07bf 74       		.sleb128 -12
+ 1589 07c0 19       		.uleb128 0x19
+ 1590 07c1 696E00   		.ascii	"in\000"
+ 1591 07c4 02       		.byte	0x2
+ 1592 07c5 3B       		.byte	0x3b
+ 1593 07c6 8C000000 		.4byte	0x8c
+ 1594 07ca 02       		.uleb128 0x2
+ 1595 07cb 91       		.byte	0x91
+ 1596 07cc 73       		.sleb128 -13
+ 1597 07cd 00       		.byte	0
+ 1598 07ce 17       		.uleb128 0x17
+ 1599 07cf D2050000 		.4byte	0x5d2
+ 1600 07d3 00000000 		.4byte	.LFB181
+ 1601 07d7 2A000000 		.4byte	.LFE181-.LFB181
+ 1602 07db 01       		.uleb128 0x1
+ 1603 07dc 9C       		.byte	0x9c
+ 1604 07dd E5070000 		.4byte	0x7e5
+ 1605 07e1 00080000 		.4byte	0x800
+ 1606 07e5 18       		.uleb128 0x18
+ 1607 07e6 1B040000 		.4byte	.LASF92
+ 1608 07ea 00080000 		.4byte	0x800
+ 1609 07ee 02       		.uleb128 0x2
+ 1610 07ef 91       		.byte	0x91
+ 1611 07f0 6C       		.sleb128 -20
+ 1612 07f1 19       		.uleb128 0x19
+ 1613 07f2 69647800 		.ascii	"idx\000"
+ 1614 07f6 02       		.byte	0x2
+ 1615 07f7 78       		.byte	0x78
+ 1616 07f8 7E000000 		.4byte	0x7e
+ 1617 07fc 02       		.uleb128 0x2
+ 1618 07fd 91       		.byte	0x91
+ 1619 07fe 68       		.sleb128 -24
+ 1620 07ff 00       		.byte	0
+ 1621 0800 06       		.uleb128 0x6
+ 1622 0801 8E060000 		.4byte	0x68e
+ 1623 0805 17       		.uleb128 0x17
+ 1624 0806 17060000 		.4byte	0x617
+ 1625 080a 00000000 		.4byte	.LFB183
+ 1626 080e 2E000000 		.4byte	.LFE183-.LFB183
+ 1627 0812 01       		.uleb128 0x1
+ 1628 0813 9C       		.byte	0x9c
+ 1629 0814 1C080000 		.4byte	0x81c
+ 1630 0818 45080000 		.4byte	0x845
+ 1631 081c 18       		.uleb128 0x18
+ 1632 081d 1B040000 		.4byte	.LASF92
+ 1633 0821 00080000 		.4byte	0x800
+ 1634 0825 02       		.uleb128 0x2
+ 1635 0826 91       		.byte	0x91
+ 1636 0827 6C       		.sleb128 -20
+ 1637 0828 19       		.uleb128 0x19
+ 1638 0829 69647800 		.ascii	"idx\000"
+ 1639 082d 02       		.byte	0x2
+ 1640 082e 7A       		.byte	0x7a
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 35
+
+
+ 1641 082f 7E000000 		.4byte	0x7e
+ 1642 0833 02       		.uleb128 0x2
+ 1643 0834 91       		.byte	0x91
+ 1644 0835 68       		.sleb128 -24
+ 1645 0836 19       		.uleb128 0x19
+ 1646 0837 76616C00 		.ascii	"val\000"
+ 1647 083b 02       		.byte	0x2
+ 1648 083c 7A       		.byte	0x7a
+ 1649 083d 8C000000 		.4byte	0x8c
+ 1650 0841 02       		.uleb128 0x2
+ 1651 0842 91       		.byte	0x91
+ 1652 0843 67       		.sleb128 -25
+ 1653 0844 00       		.byte	0
+ 1654 0845 1F       		.uleb128 0x1f
+ 1655 0846 90010000 		.4byte	.LASF93
+ 1656 084a 03       		.byte	0x3
+ 1657 084b 12       		.byte	0x12
+ 1658 084c 5E040000 		.4byte	.LASF95
+ 1659 0850 00000000 		.4byte	.LFB189
+ 1660 0854 4C000000 		.4byte	.LFE189-.LFB189
+ 1661 0858 01       		.uleb128 0x1
+ 1662 0859 9C       		.byte	0x9c
+ 1663 085a 1F       		.uleb128 0x1f
+ 1664 085b 6B050000 		.4byte	.LASF94
+ 1665 085f 03       		.byte	0x3
+ 1666 0860 21       		.byte	0x21
+ 1667 0861 6D020000 		.4byte	.LASF96
+ 1668 0865 00000000 		.4byte	.LFB190
+ 1669 0869 EC000000 		.4byte	.LFE190-.LFB190
+ 1670 086d 01       		.uleb128 0x1
+ 1671 086e 9C       		.byte	0x9c
+ 1672 086f 1F       		.uleb128 0x1f
+ 1673 0870 3D000000 		.4byte	.LASF97
+ 1674 0874 03       		.byte	0x3
+ 1675 0875 50       		.byte	0x50
+ 1676 0876 77040000 		.4byte	.LASF98
+ 1677 087a 00000000 		.4byte	.LFB191
+ 1678 087e 4C000000 		.4byte	.LFE191-.LFB191
+ 1679 0882 01       		.uleb128 0x1
+ 1680 0883 9C       		.byte	0x9c
+ 1681 0884 20       		.uleb128 0x20
+ 1682 0885 76050000 		.4byte	.LASF101
+ 1683 0889 08       		.byte	0x8
+ 1684 088a 5506     		.2byte	0x655
+ 1685 088c 90080000 		.4byte	0x890
+ 1686 0890 21       		.uleb128 0x21
+ 1687 0891 A2000000 		.4byte	0xa2
+ 1688 0895 22       		.uleb128 0x22
+ 1689 0896 535300   		.ascii	"SS\000"
+ 1690 0899 07       		.byte	0x7
+ 1691 089a 26       		.byte	0x26
+ 1692 089b 74010000 		.4byte	0x174
+ 1693 089f 05       		.uleb128 0x5
+ 1694 08a0 03       		.byte	0x3
+ 1695 08a1 3C000000 		.4byte	_ZL2SS
+ 1696 08a5 23       		.uleb128 0x23
+ 1697 08a6 2D010000 		.4byte	.LASF99
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 36
+
+
+ 1698 08aa 07       		.byte	0x7
+ 1699 08ab 27       		.byte	0x27
+ 1700 08ac 74010000 		.4byte	0x174
+ 1701 08b0 05       		.uleb128 0x5
+ 1702 08b1 03       		.byte	0x3
+ 1703 08b2 3D000000 		.4byte	_ZL4MOSI
+ 1704 08b6 23       		.uleb128 0x23
+ 1705 08b7 F8000000 		.4byte	.LASF100
+ 1706 08bb 07       		.byte	0x7
+ 1707 08bc 28       		.byte	0x28
+ 1708 08bd 74010000 		.4byte	0x174
+ 1709 08c1 05       		.uleb128 0x5
+ 1710 08c2 03       		.byte	0x3
+ 1711 08c3 3E000000 		.4byte	_ZL4MISO
+ 1712 08c7 22       		.uleb128 0x22
+ 1713 08c8 53434B00 		.ascii	"SCK\000"
+ 1714 08cc 07       		.byte	0x7
+ 1715 08cd 29       		.byte	0x29
+ 1716 08ce 74010000 		.4byte	0x174
+ 1717 08d2 05       		.uleb128 0x5
+ 1718 08d3 03       		.byte	0x3
+ 1719 08d4 3F000000 		.4byte	_ZL3SCK
+ 1720 08d8 22       		.uleb128 0x22
+ 1721 08d9 53444100 		.ascii	"SDA\000"
+ 1722 08dd 07       		.byte	0x7
+ 1723 08de 2B       		.byte	0x2b
+ 1724 08df 74010000 		.4byte	0x174
+ 1725 08e3 05       		.uleb128 0x5
+ 1726 08e4 03       		.byte	0x3
+ 1727 08e5 40000000 		.4byte	_ZL3SDA
+ 1728 08e9 22       		.uleb128 0x22
+ 1729 08ea 53434C00 		.ascii	"SCL\000"
+ 1730 08ee 07       		.byte	0x7
+ 1731 08ef 2C       		.byte	0x2c
+ 1732 08f0 74010000 		.4byte	0x174
+ 1733 08f4 05       		.uleb128 0x5
+ 1734 08f5 03       		.byte	0x3
+ 1735 08f6 41000000 		.4byte	_ZL3SCL
+ 1736 08fa 24       		.uleb128 0x24
+ 1737 08fb 64050000 		.4byte	.LASF102
+ 1738 08ff 09       		.byte	0x9
+ 1739 0900 2D       		.byte	0x2d
+ 1740 0901 79010000 		.4byte	0x179
+ 1741 0905 23       		.uleb128 0x23
+ 1742 0906 2B040000 		.4byte	.LASF103
+ 1743 090a 02       		.byte	0x2
+ 1744 090b 91       		.byte	0x91
+ 1745 090c A4050000 		.4byte	0x5a4
+ 1746 0910 05       		.uleb128 0x5
+ 1747 0911 03       		.byte	0x3
+ 1748 0912 00000000 		.4byte	_ZL6EEPROM
+ 1749 0916 25       		.uleb128 0x25
+ 1750 0917 4D030000 		.4byte	.LASF104
+ 1751 091b 03       		.byte	0x3
+ 1752 091c 0A       		.byte	0xa
+ 1753 091d 7E000000 		.4byte	0x7e
+ 1754 0921 05       		.uleb128 0x5
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 37
+
+
+ 1755 0922 03       		.byte	0x3
+ 1756 0923 00000000 		.4byte	onemsCounter
+ 1757 0927 23       		.uleb128 0x23
+ 1758 0928 AA030000 		.4byte	.LASF105
+ 1759 092c 03       		.byte	0x3
+ 1760 092d 0F       		.byte	0xf
+ 1761 092e 88050000 		.4byte	0x588
+ 1762 0932 05       		.uleb128 0x5
+ 1763 0933 03       		.byte	0x3
+ 1764 0934 44000000 		.4byte	_ZL6ledPin
+ 1765 0938 25       		.uleb128 0x25
+ 1766 0939 8C040000 		.4byte	.LASF106
+ 1767 093d 03       		.byte	0x3
+ 1768 093e 10       		.byte	0x10
+ 1769 093f 7E000000 		.4byte	0x7e
+ 1770 0943 05       		.uleb128 0x5
+ 1771 0944 03       		.byte	0x3
+ 1772 0945 00000000 		.4byte	incomingByte
+ 1773 0949 00       		.byte	0
+ 1774              		.section	.debug_abbrev,"",%progbits
+ 1775              	.Ldebug_abbrev0:
+ 1776 0000 01       		.uleb128 0x1
+ 1777 0001 11       		.uleb128 0x11
+ 1778 0002 01       		.byte	0x1
+ 1779 0003 25       		.uleb128 0x25
+ 1780 0004 0E       		.uleb128 0xe
+ 1781 0005 13       		.uleb128 0x13
+ 1782 0006 0B       		.uleb128 0xb
+ 1783 0007 03       		.uleb128 0x3
+ 1784 0008 0E       		.uleb128 0xe
+ 1785 0009 1B       		.uleb128 0x1b
+ 1786 000a 0E       		.uleb128 0xe
+ 1787 000b 55       		.uleb128 0x55
+ 1788 000c 17       		.uleb128 0x17
+ 1789 000d 11       		.uleb128 0x11
+ 1790 000e 01       		.uleb128 0x1
+ 1791 000f 10       		.uleb128 0x10
+ 1792 0010 17       		.uleb128 0x17
+ 1793 0011 00       		.byte	0
+ 1794 0012 00       		.byte	0
+ 1795 0013 02       		.uleb128 0x2
+ 1796 0014 24       		.uleb128 0x24
+ 1797 0015 00       		.byte	0
+ 1798 0016 0B       		.uleb128 0xb
+ 1799 0017 0B       		.uleb128 0xb
+ 1800 0018 3E       		.uleb128 0x3e
+ 1801 0019 0B       		.uleb128 0xb
+ 1802 001a 03       		.uleb128 0x3
+ 1803 001b 0E       		.uleb128 0xe
+ 1804 001c 00       		.byte	0
+ 1805 001d 00       		.byte	0
+ 1806 001e 03       		.uleb128 0x3
+ 1807 001f 16       		.uleb128 0x16
+ 1808 0020 00       		.byte	0
+ 1809 0021 03       		.uleb128 0x3
+ 1810 0022 0E       		.uleb128 0xe
+ 1811 0023 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 38
+
+
+ 1812 0024 0B       		.uleb128 0xb
+ 1813 0025 3B       		.uleb128 0x3b
+ 1814 0026 0B       		.uleb128 0xb
+ 1815 0027 49       		.uleb128 0x49
+ 1816 0028 13       		.uleb128 0x13
+ 1817 0029 00       		.byte	0
+ 1818 002a 00       		.byte	0
+ 1819 002b 04       		.uleb128 0x4
+ 1820 002c 24       		.uleb128 0x24
+ 1821 002d 00       		.byte	0
+ 1822 002e 0B       		.uleb128 0xb
+ 1823 002f 0B       		.uleb128 0xb
+ 1824 0030 3E       		.uleb128 0x3e
+ 1825 0031 0B       		.uleb128 0xb
+ 1826 0032 03       		.uleb128 0x3
+ 1827 0033 08       		.uleb128 0x8
+ 1828 0034 00       		.byte	0
+ 1829 0035 00       		.byte	0
+ 1830 0036 05       		.uleb128 0x5
+ 1831 0037 0F       		.uleb128 0xf
+ 1832 0038 00       		.byte	0
+ 1833 0039 0B       		.uleb128 0xb
+ 1834 003a 0B       		.uleb128 0xb
+ 1835 003b 49       		.uleb128 0x49
+ 1836 003c 13       		.uleb128 0x13
+ 1837 003d 00       		.byte	0
+ 1838 003e 00       		.byte	0
+ 1839 003f 06       		.uleb128 0x6
+ 1840 0040 26       		.uleb128 0x26
+ 1841 0041 00       		.byte	0
+ 1842 0042 49       		.uleb128 0x49
+ 1843 0043 13       		.uleb128 0x13
+ 1844 0044 00       		.byte	0
+ 1845 0045 00       		.byte	0
+ 1846 0046 07       		.uleb128 0x7
+ 1847 0047 04       		.uleb128 0x4
+ 1848 0048 01       		.byte	0x1
+ 1849 0049 03       		.uleb128 0x3
+ 1850 004a 0E       		.uleb128 0xe
+ 1851 004b 0B       		.uleb128 0xb
+ 1852 004c 0B       		.uleb128 0xb
+ 1853 004d 3A       		.uleb128 0x3a
+ 1854 004e 0B       		.uleb128 0xb
+ 1855 004f 3B       		.uleb128 0x3b
+ 1856 0050 0B       		.uleb128 0xb
+ 1857 0051 01       		.uleb128 0x1
+ 1858 0052 13       		.uleb128 0x13
+ 1859 0053 00       		.byte	0
+ 1860 0054 00       		.byte	0
+ 1861 0055 08       		.uleb128 0x8
+ 1862 0056 28       		.uleb128 0x28
+ 1863 0057 00       		.byte	0
+ 1864 0058 03       		.uleb128 0x3
+ 1865 0059 0E       		.uleb128 0xe
+ 1866 005a 1C       		.uleb128 0x1c
+ 1867 005b 0D       		.uleb128 0xd
+ 1868 005c 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 39
+
+
+ 1869 005d 00       		.byte	0
+ 1870 005e 09       		.uleb128 0x9
+ 1871 005f 02       		.uleb128 0x2
+ 1872 0060 01       		.byte	0x1
+ 1873 0061 03       		.uleb128 0x3
+ 1874 0062 0E       		.uleb128 0xe
+ 1875 0063 3C       		.uleb128 0x3c
+ 1876 0064 19       		.uleb128 0x19
+ 1877 0065 01       		.uleb128 0x1
+ 1878 0066 13       		.uleb128 0x13
+ 1879 0067 00       		.byte	0
+ 1880 0068 00       		.byte	0
+ 1881 0069 0A       		.uleb128 0xa
+ 1882 006a 2E       		.uleb128 0x2e
+ 1883 006b 01       		.byte	0x1
+ 1884 006c 3F       		.uleb128 0x3f
+ 1885 006d 19       		.uleb128 0x19
+ 1886 006e 03       		.uleb128 0x3
+ 1887 006f 0E       		.uleb128 0xe
+ 1888 0070 3A       		.uleb128 0x3a
+ 1889 0071 0B       		.uleb128 0xb
+ 1890 0072 3B       		.uleb128 0x3b
+ 1891 0073 0B       		.uleb128 0xb
+ 1892 0074 6E       		.uleb128 0x6e
+ 1893 0075 0E       		.uleb128 0xe
+ 1894 0076 49       		.uleb128 0x49
+ 1895 0077 13       		.uleb128 0x13
+ 1896 0078 32       		.uleb128 0x32
+ 1897 0079 0B       		.uleb128 0xb
+ 1898 007a 3C       		.uleb128 0x3c
+ 1899 007b 19       		.uleb128 0x19
+ 1900 007c 64       		.uleb128 0x64
+ 1901 007d 13       		.uleb128 0x13
+ 1902 007e 01       		.uleb128 0x1
+ 1903 007f 13       		.uleb128 0x13
+ 1904 0080 00       		.byte	0
+ 1905 0081 00       		.byte	0
+ 1906 0082 0B       		.uleb128 0xb
+ 1907 0083 05       		.uleb128 0x5
+ 1908 0084 00       		.byte	0
+ 1909 0085 49       		.uleb128 0x49
+ 1910 0086 13       		.uleb128 0x13
+ 1911 0087 34       		.uleb128 0x34
+ 1912 0088 19       		.uleb128 0x19
+ 1913 0089 00       		.byte	0
+ 1914 008a 00       		.byte	0
+ 1915 008b 0C       		.uleb128 0xc
+ 1916 008c 05       		.uleb128 0x5
+ 1917 008d 00       		.byte	0
+ 1918 008e 49       		.uleb128 0x49
+ 1919 008f 13       		.uleb128 0x13
+ 1920 0090 00       		.byte	0
+ 1921 0091 00       		.byte	0
+ 1922 0092 0D       		.uleb128 0xd
+ 1923 0093 2E       		.uleb128 0x2e
+ 1924 0094 01       		.byte	0x1
+ 1925 0095 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 40
+
+
+ 1926 0096 19       		.uleb128 0x19
+ 1927 0097 03       		.uleb128 0x3
+ 1928 0098 0E       		.uleb128 0xe
+ 1929 0099 3A       		.uleb128 0x3a
+ 1930 009a 0B       		.uleb128 0xb
+ 1931 009b 3B       		.uleb128 0x3b
+ 1932 009c 0B       		.uleb128 0xb
+ 1933 009d 6E       		.uleb128 0x6e
+ 1934 009e 0E       		.uleb128 0xe
+ 1935 009f 49       		.uleb128 0x49
+ 1936 00a0 13       		.uleb128 0x13
+ 1937 00a1 32       		.uleb128 0x32
+ 1938 00a2 0B       		.uleb128 0xb
+ 1939 00a3 3C       		.uleb128 0x3c
+ 1940 00a4 19       		.uleb128 0x19
+ 1941 00a5 64       		.uleb128 0x64
+ 1942 00a6 13       		.uleb128 0x13
+ 1943 00a7 00       		.byte	0
+ 1944 00a8 00       		.byte	0
+ 1945 00a9 0E       		.uleb128 0xe
+ 1946 00aa 08       		.uleb128 0x8
+ 1947 00ab 00       		.byte	0
+ 1948 00ac 3A       		.uleb128 0x3a
+ 1949 00ad 0B       		.uleb128 0xb
+ 1950 00ae 3B       		.uleb128 0x3b
+ 1951 00af 0B       		.uleb128 0xb
+ 1952 00b0 18       		.uleb128 0x18
+ 1953 00b1 13       		.uleb128 0x13
+ 1954 00b2 00       		.byte	0
+ 1955 00b3 00       		.byte	0
+ 1956 00b4 0F       		.uleb128 0xf
+ 1957 00b5 13       		.uleb128 0x13
+ 1958 00b6 01       		.byte	0x1
+ 1959 00b7 03       		.uleb128 0x3
+ 1960 00b8 0E       		.uleb128 0xe
+ 1961 00b9 0B       		.uleb128 0xb
+ 1962 00ba 0B       		.uleb128 0xb
+ 1963 00bb 3A       		.uleb128 0x3a
+ 1964 00bc 0B       		.uleb128 0xb
+ 1965 00bd 3B       		.uleb128 0x3b
+ 1966 00be 0B       		.uleb128 0xb
+ 1967 00bf 01       		.uleb128 0x1
+ 1968 00c0 13       		.uleb128 0x13
+ 1969 00c1 00       		.byte	0
+ 1970 00c2 00       		.byte	0
+ 1971 00c3 10       		.uleb128 0x10
+ 1972 00c4 0D       		.uleb128 0xd
+ 1973 00c5 00       		.byte	0
+ 1974 00c6 03       		.uleb128 0x3
+ 1975 00c7 0E       		.uleb128 0xe
+ 1976 00c8 3A       		.uleb128 0x3a
+ 1977 00c9 0B       		.uleb128 0xb
+ 1978 00ca 3B       		.uleb128 0x3b
+ 1979 00cb 0B       		.uleb128 0xb
+ 1980 00cc 49       		.uleb128 0x49
+ 1981 00cd 13       		.uleb128 0x13
+ 1982 00ce 38       		.uleb128 0x38
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 41
+
+
+ 1983 00cf 0B       		.uleb128 0xb
+ 1984 00d0 00       		.byte	0
+ 1985 00d1 00       		.byte	0
+ 1986 00d2 11       		.uleb128 0x11
+ 1987 00d3 2E       		.uleb128 0x2e
+ 1988 00d4 01       		.byte	0x1
+ 1989 00d5 3F       		.uleb128 0x3f
+ 1990 00d6 19       		.uleb128 0x19
+ 1991 00d7 03       		.uleb128 0x3
+ 1992 00d8 0E       		.uleb128 0xe
+ 1993 00d9 3A       		.uleb128 0x3a
+ 1994 00da 0B       		.uleb128 0xb
+ 1995 00db 3B       		.uleb128 0x3b
+ 1996 00dc 0B       		.uleb128 0xb
+ 1997 00dd 49       		.uleb128 0x49
+ 1998 00de 13       		.uleb128 0x13
+ 1999 00df 3C       		.uleb128 0x3c
+ 2000 00e0 19       		.uleb128 0x19
+ 2001 00e1 64       		.uleb128 0x64
+ 2002 00e2 13       		.uleb128 0x13
+ 2003 00e3 01       		.uleb128 0x1
+ 2004 00e4 13       		.uleb128 0x13
+ 2005 00e5 00       		.byte	0
+ 2006 00e6 00       		.byte	0
+ 2007 00e7 12       		.uleb128 0x12
+ 2008 00e8 2E       		.uleb128 0x2e
+ 2009 00e9 01       		.byte	0x1
+ 2010 00ea 3F       		.uleb128 0x3f
+ 2011 00eb 19       		.uleb128 0x19
+ 2012 00ec 03       		.uleb128 0x3
+ 2013 00ed 0E       		.uleb128 0xe
+ 2014 00ee 3A       		.uleb128 0x3a
+ 2015 00ef 0B       		.uleb128 0xb
+ 2016 00f0 3B       		.uleb128 0x3b
+ 2017 00f1 0B       		.uleb128 0xb
+ 2018 00f2 6E       		.uleb128 0x6e
+ 2019 00f3 0E       		.uleb128 0xe
+ 2020 00f4 49       		.uleb128 0x49
+ 2021 00f5 13       		.uleb128 0x13
+ 2022 00f6 3C       		.uleb128 0x3c
+ 2023 00f7 19       		.uleb128 0x19
+ 2024 00f8 64       		.uleb128 0x64
+ 2025 00f9 13       		.uleb128 0x13
+ 2026 00fa 01       		.uleb128 0x1
+ 2027 00fb 13       		.uleb128 0x13
+ 2028 00fc 00       		.byte	0
+ 2029 00fd 00       		.byte	0
+ 2030 00fe 13       		.uleb128 0x13
+ 2031 00ff 2E       		.uleb128 0x2e
+ 2032 0100 01       		.byte	0x1
+ 2033 0101 3F       		.uleb128 0x3f
+ 2034 0102 19       		.uleb128 0x19
+ 2035 0103 03       		.uleb128 0x3
+ 2036 0104 0E       		.uleb128 0xe
+ 2037 0105 3A       		.uleb128 0x3a
+ 2038 0106 0B       		.uleb128 0xb
+ 2039 0107 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 42
+
+
+ 2040 0108 0B       		.uleb128 0xb
+ 2041 0109 6E       		.uleb128 0x6e
+ 2042 010a 0E       		.uleb128 0xe
+ 2043 010b 49       		.uleb128 0x49
+ 2044 010c 13       		.uleb128 0x13
+ 2045 010d 3C       		.uleb128 0x3c
+ 2046 010e 19       		.uleb128 0x19
+ 2047 010f 64       		.uleb128 0x64
+ 2048 0110 13       		.uleb128 0x13
+ 2049 0111 00       		.byte	0
+ 2050 0112 00       		.byte	0
+ 2051 0113 14       		.uleb128 0x14
+ 2052 0114 10       		.uleb128 0x10
+ 2053 0115 00       		.byte	0
+ 2054 0116 0B       		.uleb128 0xb
+ 2055 0117 0B       		.uleb128 0xb
+ 2056 0118 49       		.uleb128 0x49
+ 2057 0119 13       		.uleb128 0x13
+ 2058 011a 00       		.byte	0
+ 2059 011b 00       		.byte	0
+ 2060 011c 15       		.uleb128 0x15
+ 2061 011d 2E       		.uleb128 0x2e
+ 2062 011e 01       		.byte	0x1
+ 2063 011f 3F       		.uleb128 0x3f
+ 2064 0120 19       		.uleb128 0x19
+ 2065 0121 03       		.uleb128 0x3
+ 2066 0122 0E       		.uleb128 0xe
+ 2067 0123 3A       		.uleb128 0x3a
+ 2068 0124 0B       		.uleb128 0xb
+ 2069 0125 3B       		.uleb128 0x3b
+ 2070 0126 0B       		.uleb128 0xb
+ 2071 0127 6E       		.uleb128 0x6e
+ 2072 0128 0E       		.uleb128 0xe
+ 2073 0129 3C       		.uleb128 0x3c
+ 2074 012a 19       		.uleb128 0x19
+ 2075 012b 64       		.uleb128 0x64
+ 2076 012c 13       		.uleb128 0x13
+ 2077 012d 01       		.uleb128 0x1
+ 2078 012e 13       		.uleb128 0x13
+ 2079 012f 00       		.byte	0
+ 2080 0130 00       		.byte	0
+ 2081 0131 16       		.uleb128 0x16
+ 2082 0132 2E       		.uleb128 0x2e
+ 2083 0133 01       		.byte	0x1
+ 2084 0134 3F       		.uleb128 0x3f
+ 2085 0135 19       		.uleb128 0x19
+ 2086 0136 03       		.uleb128 0x3
+ 2087 0137 08       		.uleb128 0x8
+ 2088 0138 3A       		.uleb128 0x3a
+ 2089 0139 0B       		.uleb128 0xb
+ 2090 013a 3B       		.uleb128 0x3b
+ 2091 013b 0B       		.uleb128 0xb
+ 2092 013c 6E       		.uleb128 0x6e
+ 2093 013d 0E       		.uleb128 0xe
+ 2094 013e 49       		.uleb128 0x49
+ 2095 013f 13       		.uleb128 0x13
+ 2096 0140 3C       		.uleb128 0x3c
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 43
+
+
+ 2097 0141 19       		.uleb128 0x19
+ 2098 0142 64       		.uleb128 0x64
+ 2099 0143 13       		.uleb128 0x13
+ 2100 0144 01       		.uleb128 0x1
+ 2101 0145 13       		.uleb128 0x13
+ 2102 0146 00       		.byte	0
+ 2103 0147 00       		.byte	0
+ 2104 0148 17       		.uleb128 0x17
+ 2105 0149 2E       		.uleb128 0x2e
+ 2106 014a 01       		.byte	0x1
+ 2107 014b 47       		.uleb128 0x47
+ 2108 014c 13       		.uleb128 0x13
+ 2109 014d 11       		.uleb128 0x11
+ 2110 014e 01       		.uleb128 0x1
+ 2111 014f 12       		.uleb128 0x12
+ 2112 0150 06       		.uleb128 0x6
+ 2113 0151 40       		.uleb128 0x40
+ 2114 0152 18       		.uleb128 0x18
+ 2115 0153 64       		.uleb128 0x64
+ 2116 0154 13       		.uleb128 0x13
+ 2117 0155 9642     		.uleb128 0x2116
+ 2118 0157 19       		.uleb128 0x19
+ 2119 0158 01       		.uleb128 0x1
+ 2120 0159 13       		.uleb128 0x13
+ 2121 015a 00       		.byte	0
+ 2122 015b 00       		.byte	0
+ 2123 015c 18       		.uleb128 0x18
+ 2124 015d 05       		.uleb128 0x5
+ 2125 015e 00       		.byte	0
+ 2126 015f 03       		.uleb128 0x3
+ 2127 0160 0E       		.uleb128 0xe
+ 2128 0161 49       		.uleb128 0x49
+ 2129 0162 13       		.uleb128 0x13
+ 2130 0163 34       		.uleb128 0x34
+ 2131 0164 19       		.uleb128 0x19
+ 2132 0165 02       		.uleb128 0x2
+ 2133 0166 18       		.uleb128 0x18
+ 2134 0167 00       		.byte	0
+ 2135 0168 00       		.byte	0
+ 2136 0169 19       		.uleb128 0x19
+ 2137 016a 05       		.uleb128 0x5
+ 2138 016b 00       		.byte	0
+ 2139 016c 03       		.uleb128 0x3
+ 2140 016d 08       		.uleb128 0x8
+ 2141 016e 3A       		.uleb128 0x3a
+ 2142 016f 0B       		.uleb128 0xb
+ 2143 0170 3B       		.uleb128 0x3b
+ 2144 0171 0B       		.uleb128 0xb
+ 2145 0172 49       		.uleb128 0x49
+ 2146 0173 13       		.uleb128 0x13
+ 2147 0174 02       		.uleb128 0x2
+ 2148 0175 18       		.uleb128 0x18
+ 2149 0176 00       		.byte	0
+ 2150 0177 00       		.byte	0
+ 2151 0178 1A       		.uleb128 0x1a
+ 2152 0179 2E       		.uleb128 0x2e
+ 2153 017a 01       		.byte	0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 44
+
+
+ 2154 017b 47       		.uleb128 0x47
+ 2155 017c 13       		.uleb128 0x13
+ 2156 017d 20       		.uleb128 0x20
+ 2157 017e 0B       		.uleb128 0xb
+ 2158 017f 64       		.uleb128 0x64
+ 2159 0180 13       		.uleb128 0x13
+ 2160 0181 01       		.uleb128 0x1
+ 2161 0182 13       		.uleb128 0x13
+ 2162 0183 00       		.byte	0
+ 2163 0184 00       		.byte	0
+ 2164 0185 1B       		.uleb128 0x1b
+ 2165 0186 05       		.uleb128 0x5
+ 2166 0187 00       		.byte	0
+ 2167 0188 03       		.uleb128 0x3
+ 2168 0189 0E       		.uleb128 0xe
+ 2169 018a 49       		.uleb128 0x49
+ 2170 018b 13       		.uleb128 0x13
+ 2171 018c 34       		.uleb128 0x34
+ 2172 018d 19       		.uleb128 0x19
+ 2173 018e 00       		.byte	0
+ 2174 018f 00       		.byte	0
+ 2175 0190 1C       		.uleb128 0x1c
+ 2176 0191 05       		.uleb128 0x5
+ 2177 0192 00       		.byte	0
+ 2178 0193 03       		.uleb128 0x3
+ 2179 0194 0E       		.uleb128 0xe
+ 2180 0195 3A       		.uleb128 0x3a
+ 2181 0196 0B       		.uleb128 0xb
+ 2182 0197 3B       		.uleb128 0x3b
+ 2183 0198 0B       		.uleb128 0xb
+ 2184 0199 49       		.uleb128 0x49
+ 2185 019a 13       		.uleb128 0x13
+ 2186 019b 00       		.byte	0
+ 2187 019c 00       		.byte	0
+ 2188 019d 1D       		.uleb128 0x1d
+ 2189 019e 2E       		.uleb128 0x2e
+ 2190 019f 01       		.byte	0x1
+ 2191 01a0 31       		.uleb128 0x31
+ 2192 01a1 13       		.uleb128 0x13
+ 2193 01a2 6E       		.uleb128 0x6e
+ 2194 01a3 0E       		.uleb128 0xe
+ 2195 01a4 11       		.uleb128 0x11
+ 2196 01a5 01       		.uleb128 0x1
+ 2197 01a6 12       		.uleb128 0x12
+ 2198 01a7 06       		.uleb128 0x6
+ 2199 01a8 40       		.uleb128 0x40
+ 2200 01a9 18       		.uleb128 0x18
+ 2201 01aa 64       		.uleb128 0x64
+ 2202 01ab 13       		.uleb128 0x13
+ 2203 01ac 9742     		.uleb128 0x2117
+ 2204 01ae 19       		.uleb128 0x19
+ 2205 01af 01       		.uleb128 0x1
+ 2206 01b0 13       		.uleb128 0x13
+ 2207 01b1 00       		.byte	0
+ 2208 01b2 00       		.byte	0
+ 2209 01b3 1E       		.uleb128 0x1e
+ 2210 01b4 05       		.uleb128 0x5
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 45
+
+
+ 2211 01b5 00       		.byte	0
+ 2212 01b6 31       		.uleb128 0x31
+ 2213 01b7 13       		.uleb128 0x13
+ 2214 01b8 02       		.uleb128 0x2
+ 2215 01b9 18       		.uleb128 0x18
+ 2216 01ba 00       		.byte	0
+ 2217 01bb 00       		.byte	0
+ 2218 01bc 1F       		.uleb128 0x1f
+ 2219 01bd 2E       		.uleb128 0x2e
+ 2220 01be 00       		.byte	0
+ 2221 01bf 3F       		.uleb128 0x3f
+ 2222 01c0 19       		.uleb128 0x19
+ 2223 01c1 03       		.uleb128 0x3
+ 2224 01c2 0E       		.uleb128 0xe
+ 2225 01c3 3A       		.uleb128 0x3a
+ 2226 01c4 0B       		.uleb128 0xb
+ 2227 01c5 3B       		.uleb128 0x3b
+ 2228 01c6 0B       		.uleb128 0xb
+ 2229 01c7 6E       		.uleb128 0x6e
+ 2230 01c8 0E       		.uleb128 0xe
+ 2231 01c9 11       		.uleb128 0x11
+ 2232 01ca 01       		.uleb128 0x1
+ 2233 01cb 12       		.uleb128 0x12
+ 2234 01cc 06       		.uleb128 0x6
+ 2235 01cd 40       		.uleb128 0x40
+ 2236 01ce 18       		.uleb128 0x18
+ 2237 01cf 9642     		.uleb128 0x2116
+ 2238 01d1 19       		.uleb128 0x19
+ 2239 01d2 00       		.byte	0
+ 2240 01d3 00       		.byte	0
+ 2241 01d4 20       		.uleb128 0x20
+ 2242 01d5 34       		.uleb128 0x34
+ 2243 01d6 00       		.byte	0
+ 2244 01d7 03       		.uleb128 0x3
+ 2245 01d8 0E       		.uleb128 0xe
+ 2246 01d9 3A       		.uleb128 0x3a
+ 2247 01da 0B       		.uleb128 0xb
+ 2248 01db 3B       		.uleb128 0x3b
+ 2249 01dc 05       		.uleb128 0x5
+ 2250 01dd 49       		.uleb128 0x49
+ 2251 01de 13       		.uleb128 0x13
+ 2252 01df 3F       		.uleb128 0x3f
+ 2253 01e0 19       		.uleb128 0x19
+ 2254 01e1 3C       		.uleb128 0x3c
+ 2255 01e2 19       		.uleb128 0x19
+ 2256 01e3 00       		.byte	0
+ 2257 01e4 00       		.byte	0
+ 2258 01e5 21       		.uleb128 0x21
+ 2259 01e6 35       		.uleb128 0x35
+ 2260 01e7 00       		.byte	0
+ 2261 01e8 49       		.uleb128 0x49
+ 2262 01e9 13       		.uleb128 0x13
+ 2263 01ea 00       		.byte	0
+ 2264 01eb 00       		.byte	0
+ 2265 01ec 22       		.uleb128 0x22
+ 2266 01ed 34       		.uleb128 0x34
+ 2267 01ee 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 46
+
+
+ 2268 01ef 03       		.uleb128 0x3
+ 2269 01f0 08       		.uleb128 0x8
+ 2270 01f1 3A       		.uleb128 0x3a
+ 2271 01f2 0B       		.uleb128 0xb
+ 2272 01f3 3B       		.uleb128 0x3b
+ 2273 01f4 0B       		.uleb128 0xb
+ 2274 01f5 49       		.uleb128 0x49
+ 2275 01f6 13       		.uleb128 0x13
+ 2276 01f7 02       		.uleb128 0x2
+ 2277 01f8 18       		.uleb128 0x18
+ 2278 01f9 00       		.byte	0
+ 2279 01fa 00       		.byte	0
+ 2280 01fb 23       		.uleb128 0x23
+ 2281 01fc 34       		.uleb128 0x34
+ 2282 01fd 00       		.byte	0
+ 2283 01fe 03       		.uleb128 0x3
+ 2284 01ff 0E       		.uleb128 0xe
+ 2285 0200 3A       		.uleb128 0x3a
+ 2286 0201 0B       		.uleb128 0xb
+ 2287 0202 3B       		.uleb128 0x3b
+ 2288 0203 0B       		.uleb128 0xb
+ 2289 0204 49       		.uleb128 0x49
+ 2290 0205 13       		.uleb128 0x13
+ 2291 0206 02       		.uleb128 0x2
+ 2292 0207 18       		.uleb128 0x18
+ 2293 0208 00       		.byte	0
+ 2294 0209 00       		.byte	0
+ 2295 020a 24       		.uleb128 0x24
+ 2296 020b 34       		.uleb128 0x34
+ 2297 020c 00       		.byte	0
+ 2298 020d 03       		.uleb128 0x3
+ 2299 020e 0E       		.uleb128 0xe
+ 2300 020f 3A       		.uleb128 0x3a
+ 2301 0210 0B       		.uleb128 0xb
+ 2302 0211 3B       		.uleb128 0x3b
+ 2303 0212 0B       		.uleb128 0xb
+ 2304 0213 49       		.uleb128 0x49
+ 2305 0214 13       		.uleb128 0x13
+ 2306 0215 3F       		.uleb128 0x3f
+ 2307 0216 19       		.uleb128 0x19
+ 2308 0217 3C       		.uleb128 0x3c
+ 2309 0218 19       		.uleb128 0x19
+ 2310 0219 00       		.byte	0
+ 2311 021a 00       		.byte	0
+ 2312 021b 25       		.uleb128 0x25
+ 2313 021c 34       		.uleb128 0x34
+ 2314 021d 00       		.byte	0
+ 2315 021e 03       		.uleb128 0x3
+ 2316 021f 0E       		.uleb128 0xe
+ 2317 0220 3A       		.uleb128 0x3a
+ 2318 0221 0B       		.uleb128 0xb
+ 2319 0222 3B       		.uleb128 0x3b
+ 2320 0223 0B       		.uleb128 0xb
+ 2321 0224 49       		.uleb128 0x49
+ 2322 0225 13       		.uleb128 0x13
+ 2323 0226 3F       		.uleb128 0x3f
+ 2324 0227 19       		.uleb128 0x19
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 47
+
+
+ 2325 0228 02       		.uleb128 0x2
+ 2326 0229 18       		.uleb128 0x18
+ 2327 022a 00       		.byte	0
+ 2328 022b 00       		.byte	0
+ 2329 022c 00       		.byte	0
+ 2330              		.section	.debug_aranges,"",%progbits
+ 2331 0000 6C000000 		.4byte	0x6c
+ 2332 0004 0200     		.2byte	0x2
+ 2333 0006 00000000 		.4byte	.Ldebug_info0
+ 2334 000a 04       		.byte	0x4
+ 2335 000b 00       		.byte	0
+ 2336 000c 0000     		.2byte	0
+ 2337 000e 0000     		.2byte	0
+ 2338 0010 00000000 		.4byte	.LFB123
+ 2339 0014 36000000 		.4byte	.LFE123-.LFB123
+ 2340 0018 00000000 		.4byte	.LFB148
+ 2341 001c 1E000000 		.4byte	.LFE148-.LFB148
+ 2342 0020 00000000 		.4byte	.LFB150
+ 2343 0024 1C000000 		.4byte	.LFE150-.LFB150
+ 2344 0028 00000000 		.4byte	.LFB151
+ 2345 002c 18000000 		.4byte	.LFE151-.LFB151
+ 2346 0030 00000000 		.4byte	.LFB153
+ 2347 0034 26000000 		.4byte	.LFE153-.LFB153
+ 2348 0038 00000000 		.4byte	.LFB164
+ 2349 003c 34000000 		.4byte	.LFE164-.LFB164
+ 2350 0040 00000000 		.4byte	.LFB181
+ 2351 0044 2A000000 		.4byte	.LFE181-.LFB181
+ 2352 0048 00000000 		.4byte	.LFB183
+ 2353 004c 2E000000 		.4byte	.LFE183-.LFB183
+ 2354 0050 00000000 		.4byte	.LFB189
+ 2355 0054 4C000000 		.4byte	.LFE189-.LFB189
+ 2356 0058 00000000 		.4byte	.LFB190
+ 2357 005c EC000000 		.4byte	.LFE190-.LFB190
+ 2358 0060 00000000 		.4byte	.LFB191
+ 2359 0064 4C000000 		.4byte	.LFE191-.LFB191
+ 2360 0068 00000000 		.4byte	0
+ 2361 006c 00000000 		.4byte	0
+ 2362              		.section	.debug_ranges,"",%progbits
+ 2363              	.Ldebug_ranges0:
+ 2364 0000 00000000 		.4byte	.LFB123
+ 2365 0004 36000000 		.4byte	.LFE123
+ 2366 0008 00000000 		.4byte	.LFB148
+ 2367 000c 1E000000 		.4byte	.LFE148
+ 2368 0010 00000000 		.4byte	.LFB150
+ 2369 0014 1C000000 		.4byte	.LFE150
+ 2370 0018 00000000 		.4byte	.LFB151
+ 2371 001c 18000000 		.4byte	.LFE151
+ 2372 0020 00000000 		.4byte	.LFB153
+ 2373 0024 26000000 		.4byte	.LFE153
+ 2374 0028 00000000 		.4byte	.LFB164
+ 2375 002c 34000000 		.4byte	.LFE164
+ 2376 0030 00000000 		.4byte	.LFB181
+ 2377 0034 2A000000 		.4byte	.LFE181
+ 2378 0038 00000000 		.4byte	.LFB183
+ 2379 003c 2E000000 		.4byte	.LFE183
+ 2380 0040 00000000 		.4byte	.LFB189
+ 2381 0044 4C000000 		.4byte	.LFE189
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 48
+
+
+ 2382 0048 00000000 		.4byte	.LFB190
+ 2383 004c EC000000 		.4byte	.LFE190
+ 2384 0050 00000000 		.4byte	.LFB191
+ 2385 0054 4C000000 		.4byte	.LFE191
+ 2386 0058 00000000 		.4byte	0
+ 2387 005c 00000000 		.4byte	0
+ 2388              		.section	.debug_line,"",%progbits
+ 2389              	.Ldebug_line0:
+ 2390 0000 3B030000 		.section	.debug_str,"MS",%progbits,1
+ 2390      02002F02 
+ 2390      00000201 
+ 2390      FB0E0D00 
+ 2390      01010101 
+ 2391              	.LASF67:
+ 2392 0000 45455265 		.ascii	"EERef\000"
+ 2392      6600
+ 2393              	.LASF78:
+ 2394 0006 5F5A4E35 		.ascii	"_ZN5EEPtrppEi\000"
+ 2394      45455074 
+ 2394      72707045 
+ 2394      6900
+ 2395              	.LASF111:
+ 2396 0014 5F5A4E35 		.ascii	"_ZN5Print5writeEPKcj\000"
+ 2396      5072696E 
+ 2396      74357772 
+ 2396      69746545 
+ 2396      504B636A 
+ 2397              	.LASF15:
+ 2398 0029 666C6F61 		.ascii	"float\000"
+ 2398      7400
+ 2399              	.LASF53:
+ 2400 002f 5F5A4E35 		.ascii	"_ZN5EERefaNEh\000"
+ 2400      45455265 
+ 2400      66614E45 
+ 2400      6800
+ 2401              	.LASF97:
+ 2402 003d 6F6E656D 		.ascii	"onemsTest\000"
+ 2402      73546573 
+ 2402      7400
+ 2403              	.LASF73:
+ 2404 0047 6F706572 		.ascii	"operator!=\000"
+ 2404      61746F72 
+ 2404      213D00
+ 2405              	.LASF31:
+ 2406 0052 77726974 		.ascii	"write\000"
+ 2406      6500
+ 2407              	.LASF58:
+ 2408 0058 6F706572 		.ascii	"operator>>=\000"
+ 2408      61746F72 
+ 2408      3E3E3D00 
+ 2409              	.LASF54:
+ 2410 0064 6F706572 		.ascii	"operator|=\000"
+ 2410      61746F72 
+ 2410      7C3D00
+ 2411              	.LASF79:
+ 2412 006f 5F5A4E35 		.ascii	"_ZN5EERefmmEi\000"
+ 2412      45455265 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 49
+
+
+ 2412      666D6D45 
+ 2412      6900
+ 2413              	.LASF36:
+ 2414 007d 5F5A4E4B 		.ascii	"_ZNK5EERefcvKhEv\000"
+ 2414      35454552 
+ 2414      65666376 
+ 2414      4B684576 
+ 2414      00
+ 2415              	.LASF69:
+ 2416 008e 696E6465 		.ascii	"index\000"
+ 2416      7800
+ 2417              	.LASF38:
+ 2418 0094 5F5A4E35 		.ascii	"_ZN5EERefaSERKS_\000"
+ 2418      45455265 
+ 2418      66615345 
+ 2418      524B535F 
+ 2418      00
+ 2419              	.LASF108:
+ 2420 00a5 736B6574 		.ascii	"sketch.cpp\000"
+ 2420      63682E63 
+ 2420      707000
+ 2421              	.LASF2:
+ 2422 00b0 73686F72 		.ascii	"short int\000"
+ 2422      7420696E 
+ 2422      7400
+ 2423              	.LASF18:
+ 2424 00ba 73697A65 		.ascii	"size_t\000"
+ 2424      5F7400
+ 2425              	.LASF50:
+ 2426 00c1 6F706572 		.ascii	"operator%=\000"
+ 2426      61746F72 
+ 2426      253D00
+ 2427              	.LASF19:
+ 2428 00cc 73697A65 		.ascii	"sizetype\000"
+ 2428      74797065 
+ 2428      00
+ 2429              	.LASF83:
+ 2430 00d5 5F5A4E31 		.ascii	"_ZN11EEPROMClassixEi\000"
+ 2430      31454550 
+ 2430      524F4D43 
+ 2430      6C617373 
+ 2430      69784569 
+ 2431              	.LASF41:
+ 2432 00ea 5F5A4E35 		.ascii	"_ZN5EERefpLEh\000"
+ 2432      45455265 
+ 2432      66704C45 
+ 2432      6800
+ 2433              	.LASF100:
+ 2434 00f8 4D49534F 		.ascii	"MISO\000"
+ 2434      00
+ 2435              	.LASF30:
+ 2436 00fd 6C6F6E67 		.ascii	"long double\000"
+ 2436      20646F75 
+ 2436      626C6500 
+ 2437              	.LASF64:
+ 2438 0109 6F706572 		.ascii	"operator--\000"
+ 2438      61746F72 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 50
+
+
+ 2438      2D2D00
+ 2439              	.LASF4:
+ 2440 0114 5F5F7569 		.ascii	"__uint16_t\000"
+ 2440      6E743136 
+ 2440      5F7400
+ 2441              	.LASF55:
+ 2442 011f 5F5A4E35 		.ascii	"_ZN5EERefoREh\000"
+ 2442      45455265 
+ 2442      666F5245 
+ 2442      6800
+ 2443              	.LASF99:
+ 2444 012d 4D4F5349 		.ascii	"MOSI\000"
+ 2444      00
+ 2445              	.LASF75:
+ 2446 0132 5F5A4E35 		.ascii	"_ZN5EEPtrdeEv\000"
+ 2446      45455074 
+ 2446      72646545 
+ 2446      7600
+ 2447              	.LASF12:
+ 2448 0140 75696E74 		.ascii	"uint8_t\000"
+ 2448      385F7400 
+ 2449              	.LASF33:
+ 2450 0148 5F5A4E35 		.ascii	"_ZN5Print5writeEPKc\000"
+ 2450      5072696E 
+ 2450      74357772 
+ 2450      69746545 
+ 2450      504B6300 
+ 2451              	.LASF87:
+ 2452 015c 5F5A4E31 		.ascii	"_ZN11EEPROMClass6updateEih\000"
+ 2452      31454550 
+ 2452      524F4D43 
+ 2452      6C617373 
+ 2452      36757064 
+ 2453              	.LASF27:
+ 2454 0177 626F6F6C 		.ascii	"bool\000"
+ 2454      00
+ 2455              	.LASF68:
+ 2456 017c 45455074 		.ascii	"EEPtr\000"
+ 2456      7200
+ 2457              	.LASF57:
+ 2458 0182 5F5A4E35 		.ascii	"_ZN5EEReflSEh\000"
+ 2458      45455265 
+ 2458      666C5345 
+ 2458      6800
+ 2459              	.LASF93:
+ 2460 0190 73657475 		.ascii	"setup\000"
+ 2460      7000
+ 2461              	.LASF28:
+ 2462 0196 5072696E 		.ascii	"Print\000"
+ 2462      7400
+ 2463              	.LASF48:
+ 2464 019c 6F706572 		.ascii	"operator^=\000"
+ 2464      61746F72 
+ 2464      5E3D00
+ 2465              	.LASF84:
+ 2466 01a7 72656164 		.ascii	"read\000"
+ 2466      00
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 51
+
+
+ 2467              	.LASF56:
+ 2468 01ac 6F706572 		.ascii	"operator<<=\000"
+ 2468      61746F72 
+ 2468      3C3C3D00 
+ 2469              	.LASF9:
+ 2470 01b8 6C6F6E67 		.ascii	"long long int\000"
+ 2470      206C6F6E 
+ 2470      6720696E 
+ 2470      7400
+ 2471              	.LASF10:
+ 2472 01c6 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2472      206C6F6E 
+ 2472      6720756E 
+ 2472      7369676E 
+ 2472      65642069 
+ 2473              	.LASF63:
+ 2474 01dd 5F5A4E35 		.ascii	"_ZN5EERefppEv\000"
+ 2474      45455265 
+ 2474      66707045 
+ 2474      7600
+ 2475              	.LASF60:
+ 2476 01eb 75706461 		.ascii	"update\000"
+ 2476      746500
+ 2477              	.LASF45:
+ 2478 01f2 5F5A4E35 		.ascii	"_ZN5EERefmLEh\000"
+ 2478      45455265 
+ 2478      666D4C45 
+ 2478      6800
+ 2479              	.LASF52:
+ 2480 0200 6F706572 		.ascii	"operator&=\000"
+ 2480      61746F72 
+ 2480      263D00
+ 2481              	.LASF22:
+ 2482 020b 494E5055 		.ascii	"INPUT_PULLUP\000"
+ 2482      545F5055 
+ 2482      4C4C5550 
+ 2482      00
+ 2483              	.LASF23:
+ 2484 0218 50455249 		.ascii	"PERIPHERAL\000"
+ 2484      50484552 
+ 2484      414C00
+ 2485              	.LASF3:
+ 2486 0223 5F5F7569 		.ascii	"__uint8_t\000"
+ 2486      6E74385F 
+ 2486      7400
+ 2487              	.LASF88:
+ 2488 022d 62656769 		.ascii	"begin\000"
+ 2488      6E00
+ 2489              	.LASF35:
+ 2490 0233 6F706572 		.ascii	"operator const uint8_t\000"
+ 2490      61746F72 
+ 2490      20636F6E 
+ 2490      73742075 
+ 2490      696E7438 
+ 2491              	.LASF44:
+ 2492 024a 6F706572 		.ascii	"operator*=\000"
+ 2492      61746F72 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 52
+
+
+ 2492      2A3D00
+ 2493              	.LASF32:
+ 2494 0255 6F706572 		.ascii	"operator*\000"
+ 2494      61746F72 
+ 2494      2A00
+ 2495              	.LASF39:
+ 2496 025f 5F5A4E35 		.ascii	"_ZN5EERefaSEh\000"
+ 2496      45455265 
+ 2496      66615345 
+ 2496      6800
+ 2497              	.LASF96:
+ 2498 026d 5F5A346C 		.ascii	"_Z4loopv\000"
+ 2498      6F6F7076 
+ 2498      00
+ 2499              	.LASF90:
+ 2500 0276 6C656E67 		.ascii	"length\000"
+ 2500      746800
+ 2501              	.LASF72:
+ 2502 027d 5F5A4E35 		.ascii	"_ZN5EEPtraSEi\000"
+ 2502      45455074 
+ 2502      72615345 
+ 2502      6900
+ 2503              	.LASF66:
+ 2504 028b 5F5A4E35 		.ascii	"_ZN5EERefppEi\000"
+ 2504      45455265 
+ 2504      66707045 
+ 2504      6900
+ 2505              	.LASF1:
+ 2506 0299 756E7369 		.ascii	"unsigned char\000"
+ 2506      676E6564 
+ 2506      20636861 
+ 2506      7200
+ 2507              	.LASF70:
+ 2508 02a7 6F706572 		.ascii	"operator int const\000"
+ 2508      61746F72 
+ 2508      20696E74 
+ 2508      20636F6E 
+ 2508      737400
+ 2509              	.LASF81:
+ 2510 02ba 45455052 		.ascii	"EEPROMClass\000"
+ 2510      4F4D436C 
+ 2510      61737300 
+ 2511              	.LASF62:
+ 2512 02c6 6F706572 		.ascii	"operator++\000"
+ 2512      61746F72 
+ 2512      2B2B00
+ 2513              	.LASF89:
+ 2514 02d1 5F5A4E31 		.ascii	"_ZN11EEPROMClass5beginEv\000"
+ 2514      31454550 
+ 2514      524F4D43 
+ 2514      6C617373 
+ 2514      35626567 
+ 2515              	.LASF76:
+ 2516 02ea 5F5A4E35 		.ascii	"_ZN5EEPtrppEv\000"
+ 2516      45455074 
+ 2516      72707045 
+ 2516      7600
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 53
+
+
+ 2517              	.LASF0:
+ 2518 02f8 7369676E 		.ascii	"signed char\000"
+ 2518      65642063 
+ 2518      68617200 
+ 2519              	.LASF51:
+ 2520 0304 5F5A4E35 		.ascii	"_ZN5EERefrMEh\000"
+ 2520      45455265 
+ 2520      66724D45 
+ 2520      6800
+ 2521              	.LASF11:
+ 2522 0312 756E7369 		.ascii	"unsigned int\000"
+ 2522      676E6564 
+ 2522      20696E74 
+ 2522      00
+ 2523              	.LASF25:
+ 2524 031f 50455249 		.ascii	"PERIPHERAL_IN\000"
+ 2524      50484552 
+ 2524      414C5F49 
+ 2524      4E00
+ 2525              	.LASF8:
+ 2526 032d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2526      20756E73 
+ 2526      69676E65 
+ 2526      6420696E 
+ 2526      7400
+ 2527              	.LASF80:
+ 2528 033f 5F5A4E35 		.ascii	"_ZN5EEPtrmmEi\000"
+ 2528      45455074 
+ 2528      726D6D45 
+ 2528      6900
+ 2529              	.LASF104:
+ 2530 034d 6F6E656D 		.ascii	"onemsCounter\000"
+ 2530      73436F75 
+ 2530      6E746572 
+ 2530      00
+ 2531              	.LASF86:
+ 2532 035a 5F5A4E31 		.ascii	"_ZN11EEPROMClass5writeEih\000"
+ 2532      31454550 
+ 2532      524F4D43 
+ 2532      6C617373 
+ 2532      35777269 
+ 2533              	.LASF65:
+ 2534 0374 5F5A4E35 		.ascii	"_ZN5EERefmmEv\000"
+ 2534      45455265 
+ 2534      666D6D45 
+ 2534      7600
+ 2535              	.LASF112:
+ 2536 0382 5F5A4E31 		.ascii	"_ZN11EEPROMClass3endEv\000"
+ 2536      31454550 
+ 2536      524F4D43 
+ 2536      6C617373 
+ 2536      33656E64 
+ 2537              	.LASF71:
+ 2538 0399 5F5A4E4B 		.ascii	"_ZNK5EEPtrcvKiEv\000"
+ 2538      35454550 
+ 2538      74726376 
+ 2538      4B694576 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 54
+
+
+ 2538      00
+ 2539              	.LASF105:
+ 2540 03aa 6C656450 		.ascii	"ledPin\000"
+ 2540      696E00
+ 2541              	.LASF20:
+ 2542 03b1 4F555450 		.ascii	"OUTPUT\000"
+ 2542      555400
+ 2543              	.LASF82:
+ 2544 03b8 6F706572 		.ascii	"operator[]\000"
+ 2544      61746F72 
+ 2544      5B5D00
+ 2545              	.LASF77:
+ 2546 03c3 5F5A4E35 		.ascii	"_ZN5EEPtrmmEv\000"
+ 2546      45455074 
+ 2546      726D6D45 
+ 2546      7600
+ 2547              	.LASF17:
+ 2548 03d1 63686172 		.ascii	"char\000"
+ 2548      00
+ 2549              	.LASF13:
+ 2550 03d6 75696E74 		.ascii	"uint16_t\000"
+ 2550      31365F74 
+ 2550      00
+ 2551              	.LASF7:
+ 2552 03df 6C6F6E67 		.ascii	"long int\000"
+ 2552      20696E74 
+ 2552      00
+ 2553              	.LASF85:
+ 2554 03e8 5F5A4E31 		.ascii	"_ZN11EEPROMClass4readEi\000"
+ 2554      31454550 
+ 2554      524F4D43 
+ 2554      6C617373 
+ 2554      34726561 
+ 2555              	.LASF14:
+ 2556 0400 696E7433 		.ascii	"int32_t\000"
+ 2556      325F7400 
+ 2557              	.LASF5:
+ 2558 0408 73686F72 		.ascii	"short unsigned int\000"
+ 2558      7420756E 
+ 2558      7369676E 
+ 2558      65642069 
+ 2558      6E7400
+ 2559              	.LASF92:
+ 2560 041b 74686973 		.ascii	"this\000"
+ 2560      00
+ 2561              	.LASF40:
+ 2562 0420 6F706572 		.ascii	"operator+=\000"
+ 2562      61746F72 
+ 2562      2B3D00
+ 2563              	.LASF103:
+ 2564 042b 45455052 		.ascii	"EEPROM\000"
+ 2564      4F4D00
+ 2565              	.LASF43:
+ 2566 0432 5F5A4E35 		.ascii	"_ZN5EERefmIEh\000"
+ 2566      45455265 
+ 2566      666D4945 
+ 2566      6800
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 55
+
+
+ 2567              	.LASF42:
+ 2568 0440 6F706572 		.ascii	"operator-=\000"
+ 2568      61746F72 
+ 2568      2D3D00
+ 2569              	.LASF61:
+ 2570 044b 5F5A4E35 		.ascii	"_ZN5EERef6updateEh\000"
+ 2570      45455265 
+ 2570      66367570 
+ 2570      64617465 
+ 2570      456800
+ 2571              	.LASF95:
+ 2572 045e 5F5A3573 		.ascii	"_Z5setupv\000"
+ 2572      65747570 
+ 2572      7600
+ 2573              	.LASF24:
+ 2574 0468 50455249 		.ascii	"PERIPHERAL_OUT\000"
+ 2574      50484552 
+ 2574      414C5F4F 
+ 2574      555400
+ 2575              	.LASF98:
+ 2576 0477 5F5A396F 		.ascii	"_Z9onemsTestv\000"
+ 2576      6E656D73 
+ 2576      54657374 
+ 2576      7600
+ 2577              	.LASF16:
+ 2578 0485 646F7562 		.ascii	"double\000"
+ 2578      6C6500
+ 2579              	.LASF106:
+ 2580 048c 696E636F 		.ascii	"incomingByte\000"
+ 2580      6D696E67 
+ 2580      42797465 
+ 2580      00
+ 2581              	.LASF26:
+ 2582 0499 50455249 		.ascii	"PERIPHERAL_OD\000"
+ 2582      50484552 
+ 2582      414C5F4F 
+ 2582      4400
+ 2583              	.LASF110:
+ 2584 04a7 50494E5F 		.ascii	"PIN_MODE\000"
+ 2584      4D4F4445 
+ 2584      00
+ 2585              	.LASF46:
+ 2586 04b0 6F706572 		.ascii	"operator/=\000"
+ 2586      61746F72 
+ 2586      2F3D00
+ 2587              	.LASF6:
+ 2588 04bb 5F5F696E 		.ascii	"__int32_t\000"
+ 2588      7433325F 
+ 2588      7400
+ 2589              	.LASF29:
+ 2590 04c5 55415254 		.ascii	"UARTClass\000"
+ 2590      436C6173 
+ 2590      7300
+ 2591              	.LASF59:
+ 2592 04cf 5F5A4E35 		.ascii	"_ZN5EERefrSEh\000"
+ 2592      45455265 
+ 2592      66725345 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 56
+
+
+ 2592      6800
+ 2593              	.LASF34:
+ 2594 04dd 5F5A4E4B 		.ascii	"_ZNK5EERefdeEv\000"
+ 2594      35454552 
+ 2594      65666465 
+ 2594      457600
+ 2595              	.LASF109:
+ 2596 04ec 433A5C55 		.ascii	"C:\\Users\\Bruger\\Desktop\\CODE\\PSOC5\\CY8CKIT-59"
+ 2596      73657273 
+ 2596      5C427275 
+ 2596      6765725C 
+ 2596      4465736B 
+ 2597 0519 2D417264 		.ascii	"-Arduino\\CY8CKIT59_Ardudino-Speeduino.cydsn\000"
+ 2597      75696E6F 
+ 2597      5C435938 
+ 2597      434B4954 
+ 2597      35395F41 
+ 2598              	.LASF74:
+ 2599 0545 5F5A4E35 		.ascii	"_ZN5EEPtrneERKS_\000"
+ 2599      45455074 
+ 2599      726E6545 
+ 2599      524B535F 
+ 2599      00
+ 2600              	.LASF47:
+ 2601 0556 5F5A4E35 		.ascii	"_ZN5EERefdVEh\000"
+ 2601      45455265 
+ 2601      66645645 
+ 2601      6800
+ 2602              	.LASF102:
+ 2603 0564 53657269 		.ascii	"Serial\000"
+ 2603      616C00
+ 2604              	.LASF94:
+ 2605 056b 6C6F6F70 		.ascii	"loop\000"
+ 2605      00
+ 2606              	.LASF21:
+ 2607 0570 494E5055 		.ascii	"INPUT\000"
+ 2607      5400
+ 2608              	.LASF101:
+ 2609 0576 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2609      52784275 
+ 2609      66666572 
+ 2609      00
+ 2610              	.LASF49:
+ 2611 0583 5F5A4E35 		.ascii	"_ZN5EERefeOEh\000"
+ 2611      45455265 
+ 2611      66654F45 
+ 2611      6800
+ 2612              	.LASF37:
+ 2613 0591 6F706572 		.ascii	"operator=\000"
+ 2613      61746F72 
+ 2613      3D00
+ 2614              	.LASF113:
+ 2615 059b 5F5A4E35 		.ascii	"_ZN5EERefC2Ei\000"
+ 2615      45455265 
+ 2615      66433245 
+ 2615      6900
+ 2616              	.LASF107:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccEL6qnd.s 			page 57
+
+
+ 2617 05a9 474E5520 		.ascii	"GNU C++ 4.9.3 20150303 (release) [ARM/embedded-4_9-"
+ 2617      432B2B20 
+ 2617      342E392E 
+ 2617      33203230 
+ 2617      31353033 
+ 2618 05dc 6272616E 		.ascii	"branch revision 221220] -mcpu=cortex-m3 -mthumb -g "
+ 2618      63682072 
+ 2618      65766973 
+ 2618      696F6E20 
+ 2618      32323132 
+ 2619 060f 2D4F3020 		.ascii	"-O0 -ffunction-sections -ffat-lto-objects\000"
+ 2619      2D666675 
+ 2619      6E637469 
+ 2619      6F6E2D73 
+ 2619      65637469 
+ 2620              	.LASF91:
+ 2621 0639 5F5A4E31 		.ascii	"_ZN11EEPROMClass6lengthEv\000"
+ 2621      31454550 
+ 2621      524F4D43 
+ 2621      6C617373 
+ 2621      366C656E 
+ 2622              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

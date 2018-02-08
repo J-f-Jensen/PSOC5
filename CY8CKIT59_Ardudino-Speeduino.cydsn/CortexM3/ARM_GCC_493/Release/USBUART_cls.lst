@@ -1,0 +1,1854 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"USBUART_cls.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.section	.gnu.lto_.profile.24c07e69,"",%progbits
+  18 0000 789C6366 		.ascii	"x\234cf```a\200\000F\006)1\000\000\276\0009"
+  18      60606061 
+  18      80004606 
+  18      29310000 
+  18      BE0039
+  19              		.text
+  20              		.section	.gnu.lto_.jmpfuncs.24c07e69,"",%progbits
+  21 0000 789C6366 		.ascii	"x\234cf\300\016\330\2404#\230\004\000\000\362\000\013"
+  21      C00ED8A0 
+  21      34239804 
+  21      0000F200 
+  21      0B
+  22              		.text
+  23              		.section	.gnu.lto_.inline.24c07e69,"",%progbits
+  24 0000 789C6366 		.ascii	"x\234cf\300\016\244\2414#\003\203\204 #\003\223\332"
+  24      C00EA4A1 
+  24      34230383 
+  24      84202303 
+  24      93DA
+  25 0012 BA858C0C 		.ascii	"\272\205\214\014ls\344\231@\202L\334 \022\000,\231\002"
+  25      6C73E499 
+  25      40824CDC 
+  25      2012002C 
+  25      9902
+  26 0024 92       		.ascii	"\222"
+  27              		.text
+  28              		.section	.gnu.lto_.pureconst.24c07e69,"",%progbits
+  29 0000 789C6366 		.ascii	"x\234cf```f\200\000F\006)\000\000z\000\""
+  29      60606066 
+  29      80004606 
+  29      2900007A 
+  29      0022
+  30              		.text
+  31              		.section	.gnu.lto_USBUART_DispatchClassRqst.24c07e69,"",%progbits
+  32 0000 789C9554 		.ascii	"x\234\225Tkh\\E\024\2363\367\265\217l6\351\317\005\363"
+  32      6B685C45 
+  32      149E33F7 
+  32      B58F6C36 
+  32      E9CF05F3 
+  33 0014 2748154C 		.ascii	"'H\025L\203\202\370\253\370\002\365W-\306\012J\240\304"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 2
+
+
+  33      8382F8AB 
+  33      F802F557 
+  33      2DC60A4A 
+  33      A0C4
+  34 0026 E40A859A 		.ascii	"\344\012\205\232\3426\001AB\346&\333*\250\251\006\177"
+  34      E2360141 
+  34      42E626DB 
+  34      2AA8A906 
+  34      7F
+  35 0037 846A627C 		.ascii	"\204jb|\325\255q\023\223\332m\263}\335\266\321>l#\032"
+  35      D5AD7113 
+  35      93DA6DB3 
+  35      7DDDB6D1 
+  35      3E6C231A 
+  36 004b 48F36A8C 		.ascii	"H\363j\214%-m\245\3224\301dm7\353937\365n\024\301\205"
+  36      252D6DA5 
+  36      D234C164 
+  36      6D37EB39 
+  36      3337F56E 
+  37 0062 9D9D39F3 		.ascii	"\235\2359\363}g\276\363\235\231\325\330??\325\370}\301"
+  37      7D67BEF3 
+  37      9D99D5D8 
+  37      3F3FD5F8 
+  37      7DC1
+  38 0074 64EC29FC 		.ascii	"d\354)\374\205\000\003\376\3360cN\200k\306\216\030\023"
+  38      850003FE 
+  38      DE30634E 
+  38      806BC68E 
+  38      1813
+  39 0086 014D8EBA 		.ascii	"\001M\216\272\232\203\2416\365\225\211\301\255\321J"
+  39      9A83A136 
+  39      F59589C1 
+  39      ADD14A
+  40 0095 DC313365 		.ascii	"\33413e4\202\245\302\026\000M\030\260f\256\351\206i"
+  40      3482A5C2 
+  40      16004D18 
+  40      B066AEE9 
+  40      8669
+  41 00a7 41335CE3 		.ascii	"A3\\\343s\034\316\015.\217\300\332/\204h\271\331\376"
+  41      731CCE0D 
+  41      2E8FC0DA 
+  41      2F8468B9 
+  41      D9FE
+  42 00b9 DBC58D2E 		.ascii	"\333\305\215.d9c\363\234\301\0031\270?F\214/a-C\340"
+  42      643963F3 
+  42      9CC10331 
+  42      B83F468C 
+  42      2F612D43 
+  43 00ce D8C1C9F6 		.ascii	"\330\301\311\366\"\355>\240\371\350\320\240\340\345"
+  43      22ED3EA0 
+  43      F9E8D0A0 
+  43      E0E5
+  44 00dc 9F206966 		.ascii	"\237 if2]\355:\335b9\237'&$A\363\223\351\203\370\334"
+  44      325DED3A 
+  44      DD62399F 
+  44      27262441 
+  44      F393E983 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 3
+
+
+  45 00f2 9B677E37 		.ascii	"\233g~7\264G$7y\275\243YR\273\247z\305c>\352W\377J\235"
+  45      B4472437 
+  45      79BDA359 
+  45      52BBA77A 
+  45      C5633EEA 
+  46 010a 4BE42E84 		.ascii	"K\344.\204\315\204\020\242\004\366B9\364@9\311C]_\203"
+  46      CD8410A2 
+  46      04F64239 
+  46      F44039C9 
+  46      435D5F83 
+  47 011e 098CF195 		.ascii	"\011\214\361\225h\337\032W\344\363\373R\307\273Bk\200"
+  47      68DF1A57 
+  47      E4F3FB52 
+  47      C7BB426B 
+  47      80
+  48 012f 51149361 		.ascii	"Q\024\223a\334`Y\016&\015\226\\\007h\032\244!\204\003"
+  48      DC60590E 
+  48      260D965C 
+  48      07681AA4 
+  48      218403
+  49 0142 0FCB6011 		.ascii	"\017\313`\021N\265\010\016z1\315\242\264]*\22306\213"
+  49      4EB5080E 
+  49      7A31CDA2 
+  49      B45D2A93 
+  49      30368B
+  50 0155 A7917797 		.ascii	"\247\221w\2279\247_m\002Nd\346\372\356\241\363\027\271"
+  50      39A75F6D 
+  50      024E64E6 
+  50      FAEEA1F3 
+  50      17B9
+  51 0167 811233C9 		.ascii	"\201\0223\311\311k\321\253<\313\015\341:B'\325\277\314"
+  51      C96BD1AB 
+  51      3CCB0DE1 
+  51      3A4227D5 
+  51      BFCC
+  52 0179 FEF85340 		.ascii	"\376\370S@\206d\0217.\276\235\203N\370\320I`\245&\244"
+  52      86641137 
+  52      2EBE9D83 
+  52      4EF8D049 
+  52      60A526A4 
+  53 018d 2006BD10 		.ascii	" \006\275\020\223[\267/9]\341\212\036A;\026\364!\352"
+  53      935BB72F 
+  53      395DE18A 
+  53      1E413B16 
+  53      F421EA
+  54 01a0 16F74A77 		.ascii	"\026\367Jw\366\034z\307\242$\\.\227\246\373\326U\246"
+  54      F61C7AC7 
+  54      A2245C2E 
+  54      97A6FBD6 
+  54      55A6
+  55 01b2 243000DF 		.ascii	"$0\000\337@\005\364\203\364\011\006\240\222M@\353\322"
+  55      4005F483 
+  55      F40906A0 
+  55      924D40EB 
+  55      D2
+  56 01c3 CE055D89 		.ascii	"\316\005]\211\012(]m\275\237\317K]\2401\330\207\340"
+  56      0A285D6D 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 4
+
+
+  56      BD9FCF4B 
+  56      5DA031D8 
+  56      87E0
+  57 01d5 714888B0 		.ascii	"qH\210\260\007\301\375\237\357\334I\302.x\327I\210\231"
+  57      07C1FD9F 
+  57      EFDC49C2 
+  57      2E78D749 
+  57      8899
+  58 01e7 FC43591E 		.ascii	"\374CY\036dlA\236\015\337b\030\001\247:\257\016\350"
+  58      646C419E 
+  58      0DDF6218 
+  58      01A73AAF 
+  58      0EE8
+  59 01f9 3281ECDC 		.ascii	"2\201\354\334\314\365\341\015\012\336\275\005\321\260"
+  59      CCF5E10D 
+  59      0ADEBD05 
+  59      D1B0
+  60 0207 1F532E70 		.ascii	"\037S.p BZ\021v_\270\274\240I\002'\302\373\351\261?"
+  60      20425A11 
+  60      765FB8BC 
+  60      A0490227 
+  60      C2FBE9B1 
+  61 021c 831EE375 		.ascii	"\203\036\343ub\034\220\014\331\275\203\310`d\252\306"
+  61      621C900C 
+  61      D9BD83C8 
+  61      6064AAC6 
+  62 022c 76C4B431 		.ascii	"v\304\2641pJH\030\245\223\376\246\327+\235V\201{\216"
+  62      704A4818 
+  62      A593FEA6 
+  62      D72B9D56 
+  62      817B8E
+  63 023f FBEC7FFB 		.ascii	"\373\354\177\3737\350\367/\323~\272\303\224\376\311"
+  63      37E8F72F 
+  63      D37EBAC3 
+  63      94FEC9
+  64 024e 9E7C9A9E 		.ascii	"\236|\232\236\275b\222\201\216\373(Y\230A\013\017y\026"
+  64      BD629281 
+  64      8EFB2859 
+  64      98410B0F 
+  64      7916
+  65 0260 1E460B47 		.ascii	"\036F\013G\241E\274!o\025^\010<Y\252\323\013\325q\251"
+  65      A145BC21 
+  65      6F155E08 
+  65      3C59AAD3 
+  65      0BD571A9 
+  66 0274 AEFFE84B 		.ascii	"\256\377\350KJ]\360\377\364\366\210_\333]1\262\233G"
+  66      4A5DF0FF 
+  66      F4F6885F 
+  66      DB5D31B2 
+  66      9B47
+  67 0286 7D528EDD 		.ascii	"}R\216\335\355\246\245\016\361\316\031Y\036>\011\322"
+  67      EDA6A50E 
+  67      F1CE1959 
+  67      1E3E09D2 
+  68 0296 DB66062E 		.ascii	"\333f\006.\202'\240e\332\203\204\020E\312\322\277\226"
+  68      8227A065 
+  68      DA838410 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 5
+
+
+  68      45CAD2BF 
+  68      96
+  69 02a7 A9401809 		.ascii	"\251@\030\011]#m\275\274\351\266xK\004\262<\224C\243"
+  69      5D236DBD 
+  69      BCE9B678 
+  69      4B04B23C 
+  69      9443A3
+  70 02ba 0B6E6648 		.ascii	"\013nfH./\211=Y\213\324\013\007Qa8\016Mp\302\223?0\220"
+  70      2E2F893D 
+  70      598BD40B 
+  70      07516138 
+  70      0E4D70C2 
+  71 02d2 DAED19F6 		.ascii	"\332\355\031\366b\226\027\301I,`\221xr\267m|\362\030"
+  71      629617C1 
+  71      492C6091 
+  71      7872B76D 
+  71      7CF218
+  72 02e5 A7E21CB7 		.ascii	"\247\342\034\267G\243\"\206\240\362\226\272\015\337"
+  72      47A32286 
+  72      A0F296BA 
+  72      0DDF
+  73 02f3 41C56A37 		.ascii	"A\305j7\303\322M\203\355\302\007Dv\312\233\206\230\022"
+  73      C3D24D83 
+  73      EDC20744 
+  73      76CA9B86 
+  73      9812
+  74 0305 A6F6C9D8 		.ascii	"\246\366\311\330\226\366\271\363\375AU@\321\352\002"
+  74      96F6B9F3 
+  74      FD415540 
+  74      D1EA02
+  75 0314 2239EC45 		.ascii	"\"9\354EA\001\021\271L:\211\217\244\375\202P\032|\217"
+  75      410111B9 
+  75      4C3A898F 
+  75      A4FD8250 
+  75      1A7C8F
+  76 0327 059CA202 		.ascii	"\005\234\242\002\3404\206\375&E\324)\255\035\246Z\027"
+  76      E03486FD 
+  76      2645D429 
+  76      AD1DA65A 
+  76      17
+  77 0338 E3291825 		.ascii	"\343)\030%\310\037!\025\212\372\363+\277\366/}|#\202"
+  77      C81F2115 
+  77      8AFAF32B 
+  77      BFF62F7D 
+  77      7C2382
+  78 034b F9B14F48 		.ascii	"\371\261OH(\20632\367Y\312=\016\255+\317)\272\3529M"
+  78      28863332 
+  78      F759CA3D 
+  78      0EAD2BCF 
+  78      29BAEA39 
+  79 0360 7F667AEF 		.ascii	"\177fz\357\311 C~P\317\303\377\0362\332\337\017\302"
+  79      C920437E 
+  79      50CFC3FF 
+  79      1E32DADF 
+  79      0FC2
+  80 0372 24CC39F9 		.ascii	"$\3149\371 \256\000\307\253\247M\245\242\350\231>T "
+  80      20AE00C7 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 6
+
+
+  80      ABA74DA5 
+  80      A2E8993E 
+  80      5420
+  81 0384 8850E721 		.ascii	"\210P\347!\306?x\020\2554Y\246\314w1M6\005\255\356\342"
+  81      C63F7810 
+  81      AD3459A6 
+  81      CC77314D 
+  81      3605ADEE 
+  82 0399 4EAFFFA5 		.ascii	"N\257\377\245\253\355\213\316Sk`\030\232\360\257\255"
+  82      ABED8BCE 
+  82      536B6018 
+  82      9AF0AFAD 
+  83 03a9 049DE7B2 		.ascii	"\004\235\347\2627{\311\373R\331\033\313\337\033\303"
+  83      377BC9FB 
+  83      52D91BCB 
+  83      DF1BC3
+  84 03b8 EB8DDC07 		.ascii	"\353\215\334\0076\015\216\333y\226\253\334R%^\204R\363"
+  84      360D8EDB 
+  84      7996ABDC 
+  84      52255E84 
+  84      52F3
+  85 03ca F0819B40 		.ascii	"\360\201\233@\212\214\304z\374\227\004J\200\"\357}\332"
+  85      8A8CC47A 
+  85      FC97044A 
+  85      8022EF7D 
+  85      DA
+  86 03db AEB7E335 		.ascii	"\256\267\3435\015v\335\346\252m\215\361Z\273zc\325\266"
+  86      0D76DDE6 
+  86      AA6D8DF1 
+  86      5ABB7A63 
+  86      D5B6
+  87 03ed 271FAEDE 		.ascii	"'\037\256\336T\365\304\246\307\237{~s\355\326\355\353"
+  87      54F5C4A6 
+  87      C79F7B7E 
+  87      73EDD6ED 
+  87      EB
+  88 03fe 6A5971DC 		.ascii	"jYq\334~\255\321\336\336\360LM}\335V\273.\272\245\276"
+  88      7EADD1DE 
+  88      DEF04C4D 
+  88      7DDD56BB 
+  88      2EBAA5BE 
+  89 0412 C18EBF52 		.ascii	"\301\216\277RSkoh|\365e;\376\027%\227C\257"
+  89      536B6F68 
+  89      7CF5653B 
+  89      FE172597 
+  89      43AF
+  90              		.text
+  91              		.section	.gnu.lto_.symbol_nodes.24c07e69,"",%progbits
+  92 0000 789C6366 		.ascii	"x\234cf``0e\200\002&\206z\006\206\011\347\030\030\352"
+  92      60603065 
+  92      80022686 
+  92      7A068609 
+  92      E71818EA 
+  93 0014 EB19E62D 		.ascii	"\353\031\346-\340``ed\020\250g`eb\004\222\214\314\365"
+  93      E0606065 
+  93      6410A867 
+  93      60656204 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 7
+
+
+  93      928CCCF5 
+  94 0028 8C103986 		.ascii	"\214\0209\206\206\006\016\006f <r\372\030\033\003\000"
+  94      86060E06 
+  94      66203C72 
+  94      FA181B03 
+  94      00
+  95 0039 27710B52 		.ascii	"'q\013R"
+  96              		.text
+  97              		.section	.gnu.lto_.refs.24c07e69,"",%progbits
+  98 0000 789C6366 		.ascii	"x\234cf``\340d\200\000&\006\006Fn\006&\001\006\000\001"
+  98      6060E064 
+  98      80002606 
+  98      06466E06 
+  98      26010600 
+  99 0015 62002D   		.ascii	"b\000-"
+ 100              		.text
+ 101              		.section	.gnu.lto_.decls.24c07e69,"",%progbits
+ 102 0000 789C9D56 		.ascii	"x\234\235VkL\024W\024\236\263\003\2730\254`!AKL\\0%"
+ 102      6B4C1457 
+ 102      149EB303 
+ 102      BB30AC60 
+ 102      21414B4C 
+ 103 0017 B621067F 		.ascii	"\266!\006\177\264\351\277R\321\330\244\266\022\301\037"
+ 103      B4E9BF52 
+ 103      D1D8A4B6 
+ 103      12C11F
+ 104 0026 A6267485 		.ascii	"\246&t\205EI\210\340\262\264\261\277\006\320\000\242"
+ 104      454988E0 
+ 104      B2B4B1BF 
+ 104      06D000A2 
+ 105 0036 16A8B64A 		.ascii	"\026\250\266J\001W\001YA\036\342\013\004\005\221\227"
+ 105      01570159 
+ 105      411EE20B 
+ 105      04059197 
+ 106 0046 A2488BA2 		.ascii	"\242H\213\242\370\200\005\005\345\275<d\201\012\364"
+ 106      F8800505 
+ 106      E5BD3C64 
+ 106      810AF4
+ 107 0055 DC3BB3BB 		.ascii	"\334;\263\273,]\254\355$\037\314\331\373\335\357\234"
+ 107      2C5DACED 
+ 107      241FCCD9 
+ 107      FBDDEF9C 
+ 108 0065 7BCEB977 		.ascii	"{\316\271w.\3130L-b\036\237\022\216a\016\002\303H\320"
+ 108      2ECB304C 
+ 108      2D621E9F 
+ 108      128E610E 
+ 108      02C348D0 
+ 109 0079 0E602C0F 		.ascii	"\016`,\017\261/ .\212\357\235\210\027\214\365C\306?"
+ 109      B12F202E 
+ 109      8AEF9D88 
+ 109      178CF543 
+ 109      C63F
+ 110 008b 401420DC 		.ascii	"@\024 \334\021_!\272\020r\204\0011\202\030C\214\212"
+ 110      115F21BA 
+ 110      10728401 
+ 110      31821843 
+ 110      8C8A
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 8
+
+
+ 111 009d DAE388E7 		.ascii	"\332\343\210\347\210\307\210\011\204\036\361\006Q,\372"
+ 111      88C78809 
+ 111      841EF106 
+ 111      512CFA
+ 112 00ac E843342D 		.ascii	"\350C4-\362-CL\"\214\210\251\005qL#f\026\3053*\201\266"
+ 112      F22D434C 
+ 112      228C88A9 
+ 112      05714C23 
+ 112      6616C533 
+ 113 00c3 AA840407 		.ascii	"\252\204\004\007V\002\344=\373D\327\003\316'\237\347"
+ 113      5602E43D 
+ 113      FB44D703 
+ 113      CE279FE7 
+ 114 00d3 F944BEBA 		.ascii	"\371D\276\272\032,\244\330\263\025\207e\257%\340\316"
+ 114      1A2CA4D8 
+ 114      B3158765 
+ 114      AF25E0CE 
+ 115 00e3 51F36853 		.ascii	"Q\363hS\372M\226\232\363d\236\244\275\375\3304\013\234"
+ 115      FA4D969A 
+ 115      F3649EA4 
+ 115      BDFDD834 
+ 115      0B9C
+ 116 00f5 7722CFC7 		.ascii	"w\"\317\307\361\2064\236]\311\200\217\007|\354\301\300"
+ 116      F186349E 
+ 116      5DC9808F 
+ 116      077CECC1 
+ 116      C0
+ 117 0106 79F0461A 		.ascii	"y\360F\032\350\300\207\201s\340\001\371\340\301\344"
+ 117      E8C08781 
+ 117      73E001F9 
+ 117      E0C1E4
+ 118 0115 A003C329 		.ascii	"\240\003\303)C\353*\236\267\203\002\340 \017X\312`\030"
+ 118      43EB2A9E 
+ 118      B78302E0 
+ 118      200F58CA 
+ 118      6018
+ 119 0127 EA41745A 		.ascii	"\352AtZ^4q\317\011\2758s\012b^Kk<!ES\316\331\0213\351"
+ 119      5E3471CF 
+ 119      09BD3873 
+ 119      0A625E4B 
+ 119      6B3C2145 
+ 120 0141 4009BBE2 		.ascii	"@\011\273\3428*\361)\361\374rA\247\020\035\024\241\003"
+ 120      382AF129 
+ 120      F1FC7241 
+ 120      A7101D14 
+ 120      A103
+ 121 0153 068A6105 		.ascii	"\006\212a\005\376\375\316NP\352l\177f\004v=]\343d\376"
+ 121      FEFDCE4E 
+ 121      50EA6C7F 
+ 121      6604763D 
+ 121      5DE364FE 
+ 122 0167 609ABD22 		.ascii	"`\232\275\"\213\327\226\030~\317ncO\362\3328~n\036\327"
+ 122      8BD79618 
+ 122      7ECF6E63 
+ 122      4FF2DA38 
+ 122      7E6E1ED7 
+ 123 017b 41E64089 		.ascii	"A\346@\2119\022\206\274\323P\340\002(pb\303\334T \273"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 9
+
+
+ 123      391286BC 
+ 123      D350E002 
+ 123      287062C3 
+ 123      DC5420BB 
+ 124 018f 8F6AFC32 		.ascii	"\217j\3742=\376\322\0055\364\274!\253ndGj|J\016\257"
+ 124      3DFED205 
+ 124      35F4BC21 
+ 124      AB6E6447 
+ 124      6A7C4A0E 
+ 125 01a4 9F9F5F2D 		.ascii	"\237\237_-h\224.\320(5i\\\244\032%U\005I\216tI\337\023"
+ 125      68942ED0 
+ 125      2835695C 
+ 125      A41A2555 
+ 125      05498E74 
+ 126 01bb 1DE34143 		.ascii	"\035\343AC\022G\227$'f\342\243\212\2532\366\022P\037"
+ 126      12479724 
+ 126      2766E2A3 
+ 126      8AAB32F6 
+ 126      12501F
+ 127 01ce B73A7392 		.ascii	"\267:s\2229\266B0r\357\036\351\341\330z\301h\352\236"
+ 127      39B64230 
+ 127      72EF1EE9 
+ 127      E1D87AC1 
+ 127      68EA9E
+ 128 01e1 1A975391 		.ascii	"\032\227S\221\345tqG\322\316rl\2130v\322x\267\336\205"
+ 128      E5747147 
+ 128      D2CE726C 
+ 128      8B3076D2 
+ 128      78B7DE85 
+ 129 01f5 8EAD2466 		.ascii	"\216\255$f\\\205q\214c\333E\221\263-3R\266C0t\335\315"
+ 129      5C85718C 
+ 129      63DB4591 
+ 129      B32D3352 
+ 129      B6433074 
+ 130 020b 69CB2871 		.ascii	"i\313(q-1\323\037\365L\2604\022\01113\307\206+\035\331"
+ 130      2D31D31F 
+ 130      F54CB034 
+ 130      12093133 
+ 130      C7862B1D 
+ 131 0220 1E816A2A 		.ascii	"\036\201j*\276B(\376o\003S\227\034\2509?\317\222\352"
+ 131      BE4228FE 
+ 131      6F035397 
+ 131      1CA8393F 
+ 131      CF92EA
+ 132 0233 FFF5A228 		.ascii	"\377\365\242(O\012\336\234P\3261\241\254\265X\216jK"
+ 132      4F0ADE9C 
+ 132      50D631A1 
+ 132      ACB5588E 
+ 132      6A4B
+ 133 0245 59156259 		.ascii	"Y\025bYi\207\360\361\274\275\316\231\201r,W\025\226"
+ 133      6987F0F1 
+ 133      BCBDCE99 
+ 133      81722C57 
+ 133      1596
+ 134 0257 0B6E6193 		.ascii	"\013na\223(\304&\271\211?\326\340\217\350ib\266\246"
+ 134      28C426B9 
+ 134      893FD6E0 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 10
+
+
+ 134      8FE86962 
+ 134      B6A6
+ 135 0269 8F650785 		.ascii	"\217e\007\205(:\215\23552\032\260/1\347j\337\352\244"
+ 135      283A8D9D 
+ 135      35321AB0 
+ 135      2F31E76A 
+ 135      DFEAA4
+ 136 027c AC5118CB 		.ascii	"\254Q\030\3139\376\353y{\032\275\0031[\372\252\006\355"
+ 136      39FEEB79 
+ 136      7B1ABD03 
+ 136      315BFAAA 
+ 136      06ED
+ 137 028e D938DAD3 		.ascii	"\3318\332\323Nsm\303\0069x\221\307\215\374\361\326b"
+ 137      4E736DC3 
+ 137      06397891 
+ 137      C78DFCF1 
+ 137      D662
+ 138 02a0 08868CDB 		.ascii	"\010\206\214\333\371\312\3218\376\360J\3327e\030\350"
+ 138      F9CAD138 
+ 138      FEF04ADA 
+ 138      376518E8 
+ 139 02b0 7D7033F5 		.ascii	"}p3\365\354Z\322A\345\244\217\030B\326\226\365\330\237"
+ 139      EC5AD241 
+ 139      E5A48F18 
+ 139      42D696F5 
+ 139      D89F
+ 140 02c2 F0A5C4DB 		.ascii	"\360\245\304\333\326\304FX\304,03\257\331\220\254\260"
+ 140      D6C44658 
+ 140      C42C3033 
+ 140      AFD990AC 
+ 140      B0
+ 141 02d3 100BCDC4 		.ascii	"\020\013\315\304\3536\2107,\304\363fb\245\015b!%\246"
+ 141      EB368837 
+ 141      2CC4F366 
+ 141      62A50D62 
+ 141      2125A6
+ 142 02e6 D25DC0F3 		.ascii	"\322]\300\363~j\006.a\372.\323\260\010\0273\012\017"
+ 142      7E6A062E 
+ 142      61FA2ED3 
+ 142      B0081733 
+ 142      0A0F
+ 143 02f8 30B92DE0 		.ascii	"0\271-\340\005\177 \356 \356\"\232\021\367\020\255\210"
+ 143      057F20EE 
+ 143      20EE229A 
+ 143      11F710AD 
+ 143      88
+ 144 0309 3F114DE0 		.ascii	"?\021M\340E\313C]\352\314.\257\330p\371\2119\264sf\336"
+ 144      45CB435D 
+ 144      EACC2EAF 
+ 144      D870F989 
+ 144      39B47366 
+ 145 031e 551B3C1F 		.ascii	"U\033<\0373\257\370\240T\347K\033\242A\344\231\013/"
+ 145      33AFF8A0 
+ 145      54E74B1B 
+ 145      A241E499 
+ 145      0B2F
+ 146 0330 24D02259 		.ascii	"$\320\"Yd\246\326-\246R\321z\272^\322h\372\254\\)\017"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 11
+
+
+ 146      64A6D62D 
+ 146      A652D17A 
+ 146      BA5ED268 
+ 146      FAAC5C29 
+ 147 0345 84C29836 		.ascii	"\204\302\2306\233\371\340\030\255\311\373Y\302\026\321"
+ 147      9BF9E018 
+ 147      ADC9FB59 
+ 147      C216D1
+ 148 0354 FA4B52EB 		.ascii	"\372KR\353\2733\035\301\333\215N*W9\300#T}h\351L\242"
+ 148      BB331DC1 
+ 148      DB8D4E2A 
+ 148      5739C023 
+ 148      547D68E9 
+ 149 036a 401F5B59 		.ascii	"@\037[Y\2046L\336\377I$F\221\334s\246A\346\206\252\261"
+ 149      84364CDE 
+ 149      FF492446 
+ 149      91DC73A6 
+ 149      41E686AA 
+ 150 037f EF5265FE 		.ascii	"\357Re\376\213d\373\231#u\316t\017\350\245\304N\230"
+ 150      8B64FB99 
+ 150      2375CE74 
+ 150      0FE8A5C4 
+ 150      4E98
+ 151 0391 D6F500ED 		.ascii	"\326\365\000\355\373\010b\276\215\037\232d\271D\361"
+ 151      FB0862BE 
+ 151      8D1F9A64 
+ 151      B944F1
+ 152 03a0 4C746C74 		.ascii	"Ltlt\306\201\005g\342S\300M\210y\244Y'\247\317pc\213"
+ 152      C6810567 
+ 152      E253C04D 
+ 152      8879A459 
+ 152      27A7CF70 
+ 153 03b6 936B8AB8 		.ascii	"\223k\212\270l\205\232f\246\035\351O(\375\031\270\232"
+ 153      6C859A66 
+ 153      A61DE94F 
+ 153      28FD19B8 
+ 153      9A
+ 154 03c7 261176D5 		.ascii	"&\021v\325\345\312F\347\205\354\307\357b\317\224\035"
+ 154      E5CA46E7 
+ 154      85ECC7EF 
+ 154      62CF941D 
+ 155 03d7 C87664EB 		.ascii	"\310vd\353\204\317\312l\336\323\031\3475\247\371\227"
+ 155      84CFCA6C 
+ 155      DED319E7 
+ 155      35A7F997 
+ 156 03e7 B186ACDC 		.ascii	"\261\206\254\3349\277\343|\3121-o\230\377b5<\007W\350"
+ 156      39BFE37C 
+ 156      CA312D6F 
+ 156      98FF6235 
+ 156      3C0757E8 
+ 157 03fb 106AB140 		.ascii	"\020j\261@\253C84\241\023\326\340\354\346\364\304\011"
+ 157      AB433834 
+ 157      A113D6E0 
+ 157      ECE6F4C4 
+ 157      09
+ 158 040c 8E133F2D 		.ascii	"\216\023?-\211\377\362iA~}Ql\3462\371!\302\027\263\240"
+ 158      89FFF269 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 12
+
+
+ 158      417E7D51 
+ 158      6CE632F9 
+ 158      21C217B3 
+ 159 0421 B7FA3474 		.ascii	"\267\3724t\201\\L\247!\341^\262\023\333\"\004\371\372"
+ 159      815C4CA7 
+ 159      21E15EB2 
+ 159      13DB2204 
+ 159      F9FA
+ 160 0433 62F26D07 		.ascii	"b\362m\007\014R\033\247\037\211\277/\3276V\323#\235"
+ 160      0C521BA7 
+ 160      1F89BF2F 
+ 160      D73656D3 
+ 160      239D
+ 161 0445 D0A15B0C 		.ascii	"\320\241[\014\321\"\322-\206\370\202\206X\232\235{E"
+ 161      D122D22D 
+ 161      86F88286 
+ 161      589A9D7B 
+ 161      45
+ 162 0456 38D6FD68 		.ascii	"8\326\375hb\263\365\003BYd\304\324\317\245\360.K\227"
+ 162      62B3F503 
+ 162      425964C4 
+ 162      D4CFA5F0 
+ 162      2E4B97
+ 163 0469 A5D75496 		.ascii	"\245\327T\226\036!\376\026\276\271X\"&Z\313+\200\356"
+ 163      1E21FE16 
+ 163      BEB95822 
+ 163      265ACB2B 
+ 163      80EE
+ 164 047b B097E021 		.ascii	"\260\227\340!n\226W4\321\275\246D\033[[\357\000\373"
+ 164      6E965734 
+ 164      D1BDA644 
+ 164      1B5B5BEF 
+ 164      00FB
+ 165 048d 8AAE811D 		.ascii	"\212\256\201\035\310\350\350\221\201\227\0339\343xC"
+ 165      C8E8E891 
+ 165      81971B39 
+ 165      E37843
+ 166 049c 4652EF0E 		.ascii	"FR\357\016l?<\343p\016\274\3065\364c\311LJ\013vs\252"
+ 166      6C3F3CE3 
+ 166      700EBCC6 
+ 166      35F463C9 
+ 166      4C4A0B76 
+ 167 04b2 E8CB6F1F 		.ascii	"\350\313o\037\263\300Q\277\330\366\003\230\346>\261"
+ 167      B3C051BF 
+ 167      D8F60398 
+ 167      E63EB1
+ 168 04c1 07E9263A 		.ascii	"\007\351&:\232Gv^\277\255\235\227\361\244\371\231\035"
+ 168      9A47765E 
+ 168      BFAD9D97 
+ 168      F1A4F999 
+ 168      1D
+ 169 04d2 3B2CECBC 		.ascii	";,\354\274\351\366\207gd\340\346mK\036\206QuI\017'w"
+ 169      E9F68767 
+ 169      64E0E66D 
+ 169      4B1E8651 
+ 169      75490F27 
+ 170 04e7 3BC0100E 		.ascii	";\300\020\016\016Z\266i\277i\233\242\227\332\331\216"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 13
+
+
+ 170      0E5AB669 
+ 170      BF699BA2 
+ 170      97DAD98E 
+ 171 04f7 6AD3CE5A 		.ascii	"j\323\316ZZ\2261k\342\224\312\346\211!\260j\212\021"
+ 171      5A96316B 
+ 171      E294CAE6 
+ 171      8921B06A 
+ 171      8A11
+ 172 0509 64598A60 		.ascii	"dY\212`\020\232\202\374G\366\345\311C\345\313H\305\342"
+ 172      109A82FC 
+ 172      47F6E5C9 
+ 172      43E5CB48 
+ 172      C5E2
+ 173 051b DFE33643 		.ascii	"\337\3436C\276\220\225\215\247aa\311F\227,\031\214\201"
+ 173      BE90958D 
+ 173      A76161C9 
+ 173      46972C19 
+ 173      8C81
+ 174 052d 2BF9C0F6 		.ascii	"+\371\300\366\027VX\307C\266\202%\236q1\236q\032\317"
+ 174      175658C7 
+ 174      43B68225 
+ 174      9E71319E 
+ 174      711ACF
+ 175 0540 F4811BA5 		.ascii	"\364\201\033\245.Vl\322\225\026\366\204\310\236\240"
+ 175      2E566CD2 
+ 175      9516F684 
+ 175      C89EA0
+ 176 054f ECA9D35D 		.ascii	"\354\251\323]\275\326lr+\261\260\337\210\3547\224\335"
+ 176      BDD66C72 
+ 176      2BB1B0DF 
+ 176      88EC3794 
+ 176      DD
+ 177 0560 98197754 		.ascii	"\230\031wT\352y\212\334\371\2527@\200;\275\356\010w"
+ 177      EA798ADC 
+ 177      F9AA3740 
+ 177      803BBDEE 
+ 177      0877
+ 178 0572 9649F024 		.ascii	"\226I\360$\227\275\241\2062\031%\340\205\351\211\234"
+ 178      97BDA186 
+ 178      321925E0 
+ 178      85E9899C 
+ 179 0582 3F6667CD 		.ascii	"?fg\3152R\226\256x6\311\221\262\264S\274\316\201\261"
+ 179      325296AE 
+ 179      7836C991 
+ 179      B2B453BC 
+ 179      CE81B1
+ 180 0595 E64C514E 		.ascii	"\346LQN\356\344\365x;\333\256\246)!\366z_:\010\"\327"
+ 180      EEE4F578 
+ 180      3BDBAEA6 
+ 180      2921F67A 
+ 180      5F3A0822 
+ 181 05aa F08E00D6 		.ascii	"\360\216\000\326\234\031\360d\354c\302\367j>\227n\376"
+ 181      9C19F064 
+ 181      EC63C2F7 
+ 181      6A3E976E 
+ 181      FE
+ 182 05bb 76BBC29F 		.ascii	"v\273\302\237\361\334\254\332\253R+5\252\320\340\300"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 14
+
+
+ 182      F1DCACDA 
+ 182      AB522B35 
+ 182      AAD0E0C0 
+ 183 05cb C8187588 		.ascii	"\310\030u\210jg@`\244\377\247;C\366k\366G\251\242\327"
+ 183      6A674060 
+ 183      A4FFA73B 
+ 183      43F66BF6 
+ 183      47A9A2D7 
+ 184 05df ED613EDC 		.ascii	"\355a>\334\036\270a\373\227\333\202\2027\206GG)5!{\374"
+ 184      1EB861FB 
+ 184      97DB8282 
+ 184      37864747 
+ 184      2935217B 
+ 185 05f4 2394D1D1 		.ascii	"#\224\321\321\333\366Ek>Zb\256iBHD\364\272\020f\325"
+ 185      DBF6456B 
+ 185      3E5A62AE 
+ 185      69424844 
+ 185      F4BA1066 
+ 186 0609 3FE66FF4 		.ascii	"?\346o\364\177o\211\250\0374\030\202T\251\321\250\303"
+ 186      7F6F89A8 
+ 186      1F341882 
+ 186      54A9D1A8 
+ 186      C3
+ 187 061a 7771CAA8 		.ascii	"wq\312\250\360MQ\201\032\244;\356\371Q|sPE\005E\356"
+ 187      F04D5181 
+ 187      1AA43BEE 
+ 187      F9517C73 
+ 187      50450545 
+ 188 062f DE1DA1B2 		.ascii	"\336\035\241\262S\206\206\252\245\252\250o\"CUR\262"
+ 188      538686AA 
+ 188      A5AAA86F 
+ 188      22435552 
+ 188      B2
+ 189 0640 C4F59F71 		.ascii	"\304\365\237q\273b\302\302\266\206\205E\2534\364U\245"
+ 189      BB62C2C2 
+ 189      B6868545 
+ 189      AB34F455 
+ 189      A5
+ 190 0651 0E0CFF49 		.ascii	"\016\014\377I\345\210c*u\2302D\265\324\342E\357\350"
+ 190      E588632A 
+ 190      75983244 
+ 190      B5D4E245 
+ 190      EFE8
+ 191 0663 D93D28D8 		.ascii	"\331=(\330\024\312\246\200`\377\240-\301\033\266l\365"
+ 191      14CAA680 
+ 191      60FFA02D 
+ 191      C11BB66C 
+ 191      F5
+ 192 0674 FF9AB3FC 		.ascii	"\377\232\263\374\350nz5\253\322\305a \033\225\032\345"
+ 192      E86E7A35 
+ 192      ABD2C561 
+ 192      201B951A 
+ 192      E5
+ 193 0685 0AD3A82A 		.ascii	"\012\323\250*\31278\024\177\010\216\326\250cB4\177\003"
+ 193      CA373814 
+ 193      7F088ED6 
+ 193      A8634234 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 15
+
+
+ 193      7F03
+ 194 0697 DF9AC4BB 		.ascii	"\337\232\304\273"
+ 195              		.text
+ 196              		.section	.gnu.lto_.symtab.24c07e69,"",%progbits
+ 197 0000 55534255 		.ascii	"USBUART_DispatchClassRqst\000\000\000\000\000\000\000"
+ 197      4152545F 
+ 197      44697370 
+ 197      61746368 
+ 197      436C6173 
+ 198 0020 00000000 		.ascii	"\000\000\000\000\000\261\000\000\000USBUART_EP\000\000"
+ 198      00B10000 
+ 198      00555342 
+ 198      55415254 
+ 198      5F455000 
+ 199 0035 02000000 		.ascii	"\002\000\000\000\000\000\000\000\000\000\337\000\000"
+ 199      00000000 
+ 199      0000DF00 
+ 199      00
+ 200 0042 00555342 		.ascii	"\000USBUART_interfaceClass\000\000\002\000\000\000\000"
+ 200      55415254 
+ 200      5F696E74 
+ 200      65726661 
+ 200      6365436C 
+ 201 0060 00000000 		.ascii	"\000\000\000\000\000\343\000\000\000USBUART_Dispatc"
+ 201      00E30000 
+ 201      00555342 
+ 201      55415254 
+ 201      5F446973 
+ 202 0078 68434443 		.ascii	"hCDCClassRqst\000\000\002\000\000\000\000\000\000\000"
+ 202      436C6173 
+ 202      73527173 
+ 202      74000002 
+ 202      00000000 
+ 203 008f 0000B300 		.ascii	"\000\000\263\000\000\000"
+ 203      0000
+ 204              		.text
+ 205              		.section	.gnu.lto_.opts,"",%progbits
+ 206 0000 272D666E 		.ascii	"'-fno-trapv' '-mcpu=cortex-m3' '-mthumb' '-g' '-O3'"
+ 206      6F2D7472 
+ 206      61707627 
+ 206      20272D6D 
+ 206      6370753D 
+ 207 0033 20272D66 		.ascii	" '-ffunction-sections' '-finline-functions' '-flto'"
+ 207      66756E63 
+ 207      74696F6E 
+ 207      2D736563 
+ 207      74696F6E 
+ 208 0066 20272D66 		.ascii	" '-ffat-lto-objects'\000"
+ 208      6661742D 
+ 208      6C746F2D 
+ 208      6F626A65 
+ 208      63747327 
+ 209              		.text
+ 210              		.cfi_sections	.debug_frame
+ 211              		.section	.text.USBUART_DispatchClassRqst,"ax",%progbits
+ 212              		.align	2
+ 213              		.global	USBUART_DispatchClassRqst
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 16
+
+
+ 214              		.thumb
+ 215              		.thumb_func
+ 216              		.type	USBUART_DispatchClassRqst, %function
+ 217              	USBUART_DispatchClassRqst:
+ 218              	.LFB0:
+ 219              		.file 1 "Generated_Source\\PSoC5\\USBUART_cls.c"
+   1:Generated_Source\PSoC5/USBUART_cls.c **** /***************************************************************************//**
+   2:Generated_Source\PSoC5/USBUART_cls.c **** * \file USBUART_cls.c
+   3:Generated_Source\PSoC5/USBUART_cls.c **** * \version 3.0
+   4:Generated_Source\PSoC5/USBUART_cls.c **** *
+   5:Generated_Source\PSoC5/USBUART_cls.c **** * \brief
+   6:Generated_Source\PSoC5/USBUART_cls.c **** *  This file contains the USB Class request handler.
+   7:Generated_Source\PSoC5/USBUART_cls.c **** *
+   8:Generated_Source\PSoC5/USBUART_cls.c **** ********************************************************************************
+   9:Generated_Source\PSoC5/USBUART_cls.c **** * \copyright
+  10:Generated_Source\PSoC5/USBUART_cls.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  11:Generated_Source\PSoC5/USBUART_cls.c **** * You may use this file only in accordance with the license, terms, conditions,
+  12:Generated_Source\PSoC5/USBUART_cls.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  13:Generated_Source\PSoC5/USBUART_cls.c **** * the software package with which this file was provided.
+  14:Generated_Source\PSoC5/USBUART_cls.c **** *******************************************************************************/
+  15:Generated_Source\PSoC5/USBUART_cls.c **** 
+  16:Generated_Source\PSoC5/USBUART_cls.c **** #include "USBUART_pvt.h"
+  17:Generated_Source\PSoC5/USBUART_cls.c **** 
+  18:Generated_Source\PSoC5/USBUART_cls.c **** 
+  19:Generated_Source\PSoC5/USBUART_cls.c **** #if(USBUART_EXTERN_CLS == USBUART_FALSE)
+  20:Generated_Source\PSoC5/USBUART_cls.c **** 
+  21:Generated_Source\PSoC5/USBUART_cls.c **** /***************************************
+  22:Generated_Source\PSoC5/USBUART_cls.c **** * User Implemented Class Driver Declarations.
+  23:Generated_Source\PSoC5/USBUART_cls.c **** ***************************************/
+  24:Generated_Source\PSoC5/USBUART_cls.c **** /* `#START USER_DEFINED_CLASS_DECLARATIONS` Place your declaration here */
+  25:Generated_Source\PSoC5/USBUART_cls.c **** 
+  26:Generated_Source\PSoC5/USBUART_cls.c **** /* `#END` */
+  27:Generated_Source\PSoC5/USBUART_cls.c **** 
+  28:Generated_Source\PSoC5/USBUART_cls.c **** 
+  29:Generated_Source\PSoC5/USBUART_cls.c **** /*******************************************************************************
+  30:Generated_Source\PSoC5/USBUART_cls.c **** * Function Name: USBUART_DispatchClassRqst
+  31:Generated_Source\PSoC5/USBUART_cls.c **** ****************************************************************************//**
+  32:Generated_Source\PSoC5/USBUART_cls.c **** *  This routine dispatches class specific requests depend on interface class.
+  33:Generated_Source\PSoC5/USBUART_cls.c **** *
+  34:Generated_Source\PSoC5/USBUART_cls.c **** * \return
+  35:Generated_Source\PSoC5/USBUART_cls.c **** *  requestHandled.
+  36:Generated_Source\PSoC5/USBUART_cls.c **** *
+  37:Generated_Source\PSoC5/USBUART_cls.c **** * \reentrant
+  38:Generated_Source\PSoC5/USBUART_cls.c **** *  No.
+  39:Generated_Source\PSoC5/USBUART_cls.c **** *
+  40:Generated_Source\PSoC5/USBUART_cls.c **** *******************************************************************************/
+  41:Generated_Source\PSoC5/USBUART_cls.c **** uint8 USBUART_DispatchClassRqst(void) 
+  42:Generated_Source\PSoC5/USBUART_cls.c **** {
+ 220              		.loc 1 42 0
+ 221              		.cfi_startproc
+ 222              		@ args = 0, pretend = 0, frame = 0
+ 223              		@ frame_needed = 0, uses_anonymous_args = 0
+ 224              		@ link register save eliminated.
+  43:Generated_Source\PSoC5/USBUART_cls.c ****     uint8 requestHandled;
+  44:Generated_Source\PSoC5/USBUART_cls.c ****     uint8 interfaceNumber;
+  45:Generated_Source\PSoC5/USBUART_cls.c **** 
+  46:Generated_Source\PSoC5/USBUART_cls.c ****     /* Get interface to which request is intended. */
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 17
+
+
+  47:Generated_Source\PSoC5/USBUART_cls.c ****     switch (USBUART_bmRequestTypeReg & USBUART_RQST_RCPT_MASK)
+ 225              		.loc 1 47 0
+ 226 0000 124A     		ldr	r2, .L13
+ 227 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 228 0004 03F00303 		and	r3, r3, #3
+ 229 0008 012B     		cmp	r3, #1
+ 230 000a 1BD0     		beq	.L3
+ 231 000c 022B     		cmp	r3, #2
+ 232 000e 07D0     		beq	.L4
+ 233 0010 0023     		movs	r3, #0
+ 234              	.L2:
+  48:Generated_Source\PSoC5/USBUART_cls.c ****     {
+  49:Generated_Source\PSoC5/USBUART_cls.c ****         case USBUART_RQST_RCPT_IFC:
+  50:Generated_Source\PSoC5/USBUART_cls.c ****             /* Class-specific request directed to interface: wIndexLoReg 
+  51:Generated_Source\PSoC5/USBUART_cls.c ****             * contains interface number.
+  52:Generated_Source\PSoC5/USBUART_cls.c ****             */
+  53:Generated_Source\PSoC5/USBUART_cls.c ****             interfaceNumber = (uint8) USBUART_wIndexLoReg;
+  54:Generated_Source\PSoC5/USBUART_cls.c ****             break;
+  55:Generated_Source\PSoC5/USBUART_cls.c ****         
+  56:Generated_Source\PSoC5/USBUART_cls.c ****         case USBUART_RQST_RCPT_EP:
+  57:Generated_Source\PSoC5/USBUART_cls.c ****             /* Class-specific request directed to endpoint: wIndexLoReg contains 
+  58:Generated_Source\PSoC5/USBUART_cls.c ****             * endpoint number. Find interface related to endpoint, 
+  59:Generated_Source\PSoC5/USBUART_cls.c ****             */
+  60:Generated_Source\PSoC5/USBUART_cls.c ****             interfaceNumber = USBUART_EP[USBUART_wIndexLoReg & USBUART_DIR_UNUSED].interface;
+  61:Generated_Source\PSoC5/USBUART_cls.c ****             break;
+  62:Generated_Source\PSoC5/USBUART_cls.c ****             
+  63:Generated_Source\PSoC5/USBUART_cls.c ****         default:
+  64:Generated_Source\PSoC5/USBUART_cls.c ****             /* Default interface is zero. */
+  65:Generated_Source\PSoC5/USBUART_cls.c ****             interfaceNumber = 0u;
+  66:Generated_Source\PSoC5/USBUART_cls.c ****             break;
+  67:Generated_Source\PSoC5/USBUART_cls.c ****     }
+  68:Generated_Source\PSoC5/USBUART_cls.c **** 
+  69:Generated_Source\PSoC5/USBUART_cls.c **** #if (defined(USBUART_ENABLE_HID_CLASS) ||\
+  70:Generated_Source\PSoC5/USBUART_cls.c ****             defined(USBUART_ENABLE_AUDIO_CLASS) ||\
+  71:Generated_Source\PSoC5/USBUART_cls.c ****             defined(USBUART_ENABLE_CDC_CLASS) ||\
+  72:Generated_Source\PSoC5/USBUART_cls.c ****             USBUART_ENABLE_MSC_CLASS)
+  73:Generated_Source\PSoC5/USBUART_cls.c **** 
+  74:Generated_Source\PSoC5/USBUART_cls.c ****     /* Handle class request depends on interface type. */
+  75:Generated_Source\PSoC5/USBUART_cls.c ****     switch (USBUART_interfaceClass[interfaceNumber])
+ 235              		.loc 1 75 0
+ 236 0012 0F4A     		ldr	r2, .L13+4
+ 237 0014 1268     		ldr	r2, [r2]
+ 238 0016 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
+ 239 0018 022B     		cmp	r3, #2
+ 240 001a 11D0     		beq	.L12
+ 241              	.L9:
+ 242              	.LVL0:
+  76:Generated_Source\PSoC5/USBUART_cls.c ****     {
+  77:Generated_Source\PSoC5/USBUART_cls.c ****     #if defined(USBUART_ENABLE_HID_CLASS)
+  78:Generated_Source\PSoC5/USBUART_cls.c ****         case USBUART_CLASS_HID:
+  79:Generated_Source\PSoC5/USBUART_cls.c ****             requestHandled = USBUART_DispatchHIDClassRqst();
+  80:Generated_Source\PSoC5/USBUART_cls.c ****             break;
+  81:Generated_Source\PSoC5/USBUART_cls.c ****     #endif /* (USBUART_ENABLE_HID_CLASS) */
+  82:Generated_Source\PSoC5/USBUART_cls.c ****             
+  83:Generated_Source\PSoC5/USBUART_cls.c ****     #if defined(USBUART_ENABLE_AUDIO_CLASS)
+  84:Generated_Source\PSoC5/USBUART_cls.c ****         case USBUART_CLASS_AUDIO:
+  85:Generated_Source\PSoC5/USBUART_cls.c ****             requestHandled = USBUART_DispatchAUDIOClassRqst();
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 18
+
+
+  86:Generated_Source\PSoC5/USBUART_cls.c ****             break;
+  87:Generated_Source\PSoC5/USBUART_cls.c ****     #endif /* (USBUART_CLASS_AUDIO) */
+  88:Generated_Source\PSoC5/USBUART_cls.c ****             
+  89:Generated_Source\PSoC5/USBUART_cls.c ****     #if defined(USBUART_ENABLE_CDC_CLASS)
+  90:Generated_Source\PSoC5/USBUART_cls.c ****         case USBUART_CLASS_CDC:
+  91:Generated_Source\PSoC5/USBUART_cls.c ****             requestHandled = USBUART_DispatchCDCClassRqst();
+  92:Generated_Source\PSoC5/USBUART_cls.c ****             break;
+  93:Generated_Source\PSoC5/USBUART_cls.c ****     #endif /* (USBUART_ENABLE_CDC_CLASS) */
+  94:Generated_Source\PSoC5/USBUART_cls.c ****         
+  95:Generated_Source\PSoC5/USBUART_cls.c ****     #if (USBUART_ENABLE_MSC_CLASS)
+  96:Generated_Source\PSoC5/USBUART_cls.c ****         case USBUART_CLASS_MSD:
+  97:Generated_Source\PSoC5/USBUART_cls.c ****         #if (USBUART_HANDLE_MSC_REQUESTS)
+  98:Generated_Source\PSoC5/USBUART_cls.c ****             /* MSC requests are handled by the component. */
+  99:Generated_Source\PSoC5/USBUART_cls.c ****             requestHandled = USBUART_DispatchMSCClassRqst();
+ 100:Generated_Source\PSoC5/USBUART_cls.c ****         #elif defined(USBUART_DISPATCH_MSC_CLASS_RQST_CALLBACK)
+ 101:Generated_Source\PSoC5/USBUART_cls.c ****             /* MSC requests are handled by user defined callbcak. */
+ 102:Generated_Source\PSoC5/USBUART_cls.c ****             requestHandled = USBUART_DispatchMSCClassRqst_Callback();
+ 103:Generated_Source\PSoC5/USBUART_cls.c ****         #else
+ 104:Generated_Source\PSoC5/USBUART_cls.c ****             /* MSC requests are not handled. */
+ 105:Generated_Source\PSoC5/USBUART_cls.c ****             requestHandled = USBUART_FALSE;
+ 106:Generated_Source\PSoC5/USBUART_cls.c ****         #endif /* (USBUART_HANDLE_MSC_REQUESTS) */
+ 107:Generated_Source\PSoC5/USBUART_cls.c ****             break;
+ 108:Generated_Source\PSoC5/USBUART_cls.c ****     #endif /* (USBUART_ENABLE_MSC_CLASS) */
+ 109:Generated_Source\PSoC5/USBUART_cls.c ****         
+ 110:Generated_Source\PSoC5/USBUART_cls.c ****         default:
+ 111:Generated_Source\PSoC5/USBUART_cls.c ****             /* Request is not handled: unknown class request type. */
+ 112:Generated_Source\PSoC5/USBUART_cls.c ****             requestHandled = USBUART_FALSE;
+ 113:Generated_Source\PSoC5/USBUART_cls.c ****             break;
+ 114:Generated_Source\PSoC5/USBUART_cls.c ****     }
+ 115:Generated_Source\PSoC5/USBUART_cls.c **** #else /*No class is defined*/
+ 116:Generated_Source\PSoC5/USBUART_cls.c ****     if (0u != interfaceNumber)
+ 117:Generated_Source\PSoC5/USBUART_cls.c ****     {
+ 118:Generated_Source\PSoC5/USBUART_cls.c ****         /* Suppress warning message */
+ 119:Generated_Source\PSoC5/USBUART_cls.c ****     }
+ 120:Generated_Source\PSoC5/USBUART_cls.c ****     requestHandled = USBUART_FALSE;
+ 121:Generated_Source\PSoC5/USBUART_cls.c **** #endif /*HID or AUDIO or MSC or CDC class enabled*/
+ 122:Generated_Source\PSoC5/USBUART_cls.c **** 
+ 123:Generated_Source\PSoC5/USBUART_cls.c ****     /* `#START USER_DEFINED_CLASS_CODE` Place your Class request here */
+ 124:Generated_Source\PSoC5/USBUART_cls.c **** 
+ 125:Generated_Source\PSoC5/USBUART_cls.c ****     /* `#END` */
+ 126:Generated_Source\PSoC5/USBUART_cls.c **** 
+ 127:Generated_Source\PSoC5/USBUART_cls.c **** #ifdef USBUART_DISPATCH_CLASS_RQST_CALLBACK
+ 128:Generated_Source\PSoC5/USBUART_cls.c ****     if (USBUART_FALSE == requestHandled)
+ 129:Generated_Source\PSoC5/USBUART_cls.c ****     {
+ 130:Generated_Source\PSoC5/USBUART_cls.c ****         requestHandled = USBUART_DispatchClassRqst_Callback(interfaceNumber);
+ 131:Generated_Source\PSoC5/USBUART_cls.c ****     }
+ 132:Generated_Source\PSoC5/USBUART_cls.c **** #endif /* (USBUART_DISPATCH_CLASS_RQST_CALLBACK) */
+ 133:Generated_Source\PSoC5/USBUART_cls.c **** 
+ 134:Generated_Source\PSoC5/USBUART_cls.c ****     return (requestHandled);
+ 135:Generated_Source\PSoC5/USBUART_cls.c **** }
+ 243              		.loc 1 135 0
+ 244 001c 0020     		movs	r0, #0
+ 245 001e 7047     		bx	lr
+ 246              	.LVL1:
+ 247              	.L4:
+  60:Generated_Source\PSoC5/USBUART_cls.c ****             break;
+ 248              		.loc 1 60 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 19
+
+
+ 249 0020 1379     		ldrb	r3, [r2, #4]	@ zero_extendqisi2
+ 250 0022 0C4A     		ldr	r2, .L13+8
+ 251 0024 03F07F03 		and	r3, r3, #127
+ 252 0028 03EB4303 		add	r3, r3, r3, lsl #1
+ 253 002c 02EB8303 		add	r3, r2, r3, lsl #2
+ 254 0030 0833     		adds	r3, r3, #8
+  75:Generated_Source\PSoC5/USBUART_cls.c ****     {
+ 255              		.loc 1 75 0
+ 256 0032 074A     		ldr	r2, .L13+4
+  60:Generated_Source\PSoC5/USBUART_cls.c ****             break;
+ 257              		.loc 1 60 0
+ 258 0034 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+  75:Generated_Source\PSoC5/USBUART_cls.c ****     {
+ 259              		.loc 1 75 0
+ 260 0036 1268     		ldr	r2, [r2]
+  60:Generated_Source\PSoC5/USBUART_cls.c ****             break;
+ 261              		.loc 1 60 0
+ 262 0038 DBB2     		uxtb	r3, r3
+  75:Generated_Source\PSoC5/USBUART_cls.c ****     {
+ 263              		.loc 1 75 0
+ 264 003a D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
+ 265 003c 022B     		cmp	r3, #2
+ 266 003e EDD1     		bne	.L9
+ 267              	.L12:
+  91:Generated_Source\PSoC5/USBUART_cls.c ****             break;
+ 268              		.loc 1 91 0
+ 269 0040 FFF7FEBF 		b	USBUART_DispatchCDCClassRqst
+ 270              	.LVL2:
+ 271              	.L3:
+  53:Generated_Source\PSoC5/USBUART_cls.c ****             break;
+ 272              		.loc 1 53 0
+ 273 0044 1379     		ldrb	r3, [r2, #4]	@ zero_extendqisi2
+ 274 0046 DBB2     		uxtb	r3, r3
+  54:Generated_Source\PSoC5/USBUART_cls.c ****         
+ 275              		.loc 1 54 0
+ 276 0048 E3E7     		b	.L2
+ 277              	.L14:
+ 278 004a 00BF     		.align	2
+ 279              	.L13:
+ 280 004c 00600040 		.word	1073766400
+ 281 0050 00000000 		.word	USBUART_interfaceClass
+ 282 0054 00000000 		.word	USBUART_EP
+ 283              		.cfi_endproc
+ 284              	.LFE0:
+ 285              		.size	USBUART_DispatchClassRqst, .-USBUART_DispatchClassRqst
+ 286              		.text
+ 287              	.Letext0:
+ 288              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 289              		.file 3 "Generated_Source\\PSoC5\\USBUART.h"
+ 290              		.file 4 "Generated_Source\\PSoC5\\USBUART_pvt.h"
+ 291              		.section	.debug_info,"",%progbits
+ 292              	.Ldebug_info0:
+ 293 0000 CA010000 		.4byte	0x1ca
+ 294 0004 0400     		.2byte	0x4
+ 295 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 296 000a 04       		.byte	0x4
+ 297 000b 01       		.uleb128 0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 20
+
+
+ 298 000c 55010000 		.4byte	.LASF29
+ 299 0010 01       		.byte	0x1
+ 300 0011 0C020000 		.4byte	.LASF30
+ 301 0015 6B020000 		.4byte	.LASF31
+ 302 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 303 001d 00000000 		.4byte	0
+ 304 0021 00000000 		.4byte	.Ldebug_line0
+ 305 0025 02       		.uleb128 0x2
+ 306 0026 01       		.byte	0x1
+ 307 0027 06       		.byte	0x6
+ 308 0028 D0020000 		.4byte	.LASF0
+ 309 002c 02       		.uleb128 0x2
+ 310 002d 01       		.byte	0x1
+ 311 002e 08       		.byte	0x8
+ 312 002f 81000000 		.4byte	.LASF1
+ 313 0033 02       		.uleb128 0x2
+ 314 0034 02       		.byte	0x2
+ 315 0035 05       		.byte	0x5
+ 316 0036 31020000 		.4byte	.LASF2
+ 317 003a 02       		.uleb128 0x2
+ 318 003b 02       		.byte	0x2
+ 319 003c 07       		.byte	0x7
+ 320 003d 00000000 		.4byte	.LASF3
+ 321 0041 02       		.uleb128 0x2
+ 322 0042 04       		.byte	0x4
+ 323 0043 05       		.byte	0x5
+ 324 0044 4B020000 		.4byte	.LASF4
+ 325 0048 02       		.uleb128 0x2
+ 326 0049 04       		.byte	0x4
+ 327 004a 07       		.byte	0x7
+ 328 004b 5A000000 		.4byte	.LASF5
+ 329 004f 02       		.uleb128 0x2
+ 330 0050 08       		.byte	0x8
+ 331 0051 05       		.byte	0x5
+ 332 0052 47010000 		.4byte	.LASF6
+ 333 0056 02       		.uleb128 0x2
+ 334 0057 08       		.byte	0x8
+ 335 0058 07       		.byte	0x7
+ 336 0059 E4000000 		.4byte	.LASF7
+ 337 005d 03       		.uleb128 0x3
+ 338 005e 04       		.byte	0x4
+ 339 005f 05       		.byte	0x5
+ 340 0060 696E7400 		.ascii	"int\000"
+ 341 0064 02       		.uleb128 0x2
+ 342 0065 04       		.byte	0x4
+ 343 0066 07       		.byte	0x7
+ 344 0067 D7000000 		.4byte	.LASF8
+ 345 006b 04       		.uleb128 0x4
+ 346 006c 3B020000 		.4byte	.LASF9
+ 347 0070 02       		.byte	0x2
+ 348 0071 3801     		.2byte	0x138
+ 349 0073 2C000000 		.4byte	0x2c
+ 350 0077 04       		.uleb128 0x4
+ 351 0078 A8000000 		.4byte	.LASF10
+ 352 007c 02       		.byte	0x2
+ 353 007d 3901     		.2byte	0x139
+ 354 007f 3A000000 		.4byte	0x3a
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 21
+
+
+ 355 0083 02       		.uleb128 0x2
+ 356 0084 04       		.byte	0x4
+ 357 0085 04       		.byte	0x4
+ 358 0086 40000000 		.4byte	.LASF11
+ 359 008a 02       		.uleb128 0x2
+ 360 008b 08       		.byte	0x8
+ 361 008c 04       		.byte	0x4
+ 362 008d 8F000000 		.4byte	.LASF12
+ 363 0091 02       		.uleb128 0x2
+ 364 0092 01       		.byte	0x1
+ 365 0093 08       		.byte	0x8
+ 366 0094 FC010000 		.4byte	.LASF13
+ 367 0098 02       		.uleb128 0x2
+ 368 0099 04       		.byte	0x4
+ 369 009a 07       		.byte	0x7
+ 370 009b 37010000 		.4byte	.LASF14
+ 371 009f 05       		.uleb128 0x5
+ 372 00a0 0C       		.byte	0xc
+ 373 00a1 03       		.byte	0x3
+ 374 00a2 8E       		.byte	0x8e
+ 375 00a3 14010000 		.4byte	0x114
+ 376 00a7 06       		.uleb128 0x6
+ 377 00a8 96000000 		.4byte	.LASF15
+ 378 00ac 03       		.byte	0x3
+ 379 00ad 90       		.byte	0x90
+ 380 00ae 6B000000 		.4byte	0x6b
+ 381 00b2 00       		.byte	0
+ 382 00b3 06       		.uleb128 0x6
+ 383 00b4 AF000000 		.4byte	.LASF16
+ 384 00b8 03       		.byte	0x3
+ 385 00b9 91       		.byte	0x91
+ 386 00ba 6B000000 		.4byte	0x6b
+ 387 00be 01       		.byte	0x1
+ 388 00bf 06       		.uleb128 0x6
+ 389 00c0 FB000000 		.4byte	.LASF17
+ 390 00c4 03       		.byte	0x3
+ 391 00c5 92       		.byte	0x92
+ 392 00c6 6B000000 		.4byte	0x6b
+ 393 00ca 02       		.byte	0x2
+ 394 00cb 06       		.uleb128 0x6
+ 395 00cc 46000000 		.4byte	.LASF18
+ 396 00d0 03       		.byte	0x3
+ 397 00d1 93       		.byte	0x93
+ 398 00d2 6B000000 		.4byte	0x6b
+ 399 00d6 03       		.byte	0x3
+ 400 00d7 06       		.uleb128 0x6
+ 401 00d8 6C000000 		.4byte	.LASF19
+ 402 00dc 03       		.byte	0x3
+ 403 00dd 94       		.byte	0x94
+ 404 00de 6B000000 		.4byte	0x6b
+ 405 00e2 04       		.byte	0x4
+ 406 00e3 06       		.uleb128 0x6
+ 407 00e4 40010000 		.4byte	.LASF20
+ 408 00e8 03       		.byte	0x3
+ 409 00e9 95       		.byte	0x95
+ 410 00ea 6B000000 		.4byte	0x6b
+ 411 00ee 05       		.byte	0x5
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 22
+
+
+ 412 00ef 06       		.uleb128 0x6
+ 413 00f0 9D000000 		.4byte	.LASF21
+ 414 00f4 03       		.byte	0x3
+ 415 00f5 96       		.byte	0x96
+ 416 00f6 77000000 		.4byte	0x77
+ 417 00fa 06       		.byte	0x6
+ 418 00fb 06       		.uleb128 0x6
+ 419 00fc 01020000 		.4byte	.LASF22
+ 420 0100 03       		.byte	0x3
+ 421 0101 97       		.byte	0x97
+ 422 0102 77000000 		.4byte	0x77
+ 423 0106 08       		.byte	0x8
+ 424 0107 06       		.uleb128 0x6
+ 425 0108 41020000 		.4byte	.LASF23
+ 426 010c 03       		.byte	0x3
+ 427 010d 98       		.byte	0x98
+ 428 010e 6B000000 		.4byte	0x6b
+ 429 0112 0A       		.byte	0xa
+ 430 0113 00       		.byte	0
+ 431 0114 07       		.uleb128 0x7
+ 432 0115 54020000 		.4byte	.LASF24
+ 433 0119 03       		.byte	0x3
+ 434 011a 99       		.byte	0x99
+ 435 011b 9F000000 		.4byte	0x9f
+ 436 011f 05       		.uleb128 0x5
+ 437 0120 08       		.byte	0x8
+ 438 0121 03       		.byte	0x3
+ 439 0122 C6       		.byte	0xc6
+ 440 0123 34010000 		.4byte	0x134
+ 441 0127 06       		.uleb128 0x6
+ 442 0128 2A000000 		.4byte	.LASF25
+ 443 012c 03       		.byte	0x3
+ 444 012d C8       		.byte	0xc8
+ 445 012e 34010000 		.4byte	0x134
+ 446 0132 00       		.byte	0
+ 447 0133 00       		.byte	0
+ 448 0134 08       		.uleb128 0x8
+ 449 0135 6B000000 		.4byte	0x6b
+ 450 0139 44010000 		.4byte	0x144
+ 451 013d 09       		.uleb128 0x9
+ 452 013e 98000000 		.4byte	0x98
+ 453 0142 07       		.byte	0x7
+ 454 0143 00       		.byte	0
+ 455 0144 07       		.uleb128 0x7
+ 456 0145 1F010000 		.4byte	.LASF26
+ 457 0149 03       		.byte	0x3
+ 458 014a C9       		.byte	0xc9
+ 459 014b 1F010000 		.4byte	0x11f
+ 460 014f 0A       		.uleb128 0xa
+ 461 0150 05010000 		.4byte	.LASF32
+ 462 0154 01       		.byte	0x1
+ 463 0155 29       		.byte	0x29
+ 464 0156 6B000000 		.4byte	0x6b
+ 465 015a 00000000 		.4byte	.LFB0
+ 466 015e 58000000 		.4byte	.LFE0-.LFB0
+ 467 0162 01       		.uleb128 0x1
+ 468 0163 9C       		.byte	0x9c
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 23
+
+
+ 469 0164 8C010000 		.4byte	0x18c
+ 470 0168 0B       		.uleb128 0xb
+ 471 0169 31000000 		.4byte	.LASF33
+ 472 016d 01       		.byte	0x1
+ 473 016e 2B       		.byte	0x2b
+ 474 016f 6B000000 		.4byte	0x6b
+ 475 0173 00000000 		.4byte	.LLST0
+ 476 0177 0C       		.uleb128 0xc
+ 477 0178 71000000 		.4byte	.LASF34
+ 478 017c 01       		.byte	0x1
+ 479 017d 2C       		.byte	0x2c
+ 480 017e 6B000000 		.4byte	0x6b
+ 481 0182 0D       		.uleb128 0xd
+ 482 0183 44000000 		.4byte	.LVL2
+ 483 0187 C2010000 		.4byte	0x1c2
+ 484 018b 00       		.byte	0
+ 485 018c 0E       		.uleb128 0xe
+ 486 018d 13000000 		.4byte	.LASF27
+ 487 0191 04       		.byte	0x4
+ 488 0192 77       		.byte	0x77
+ 489 0193 97010000 		.4byte	0x197
+ 490 0197 0F       		.uleb128 0xf
+ 491 0198 04       		.byte	0x4
+ 492 0199 9D010000 		.4byte	0x19d
+ 493 019d 10       		.uleb128 0x10
+ 494 019e 6B000000 		.4byte	0x6b
+ 495 01a2 08       		.uleb128 0x8
+ 496 01a3 14010000 		.4byte	0x114
+ 497 01a7 B2010000 		.4byte	0x1b2
+ 498 01ab 09       		.uleb128 0x9
+ 499 01ac 98000000 		.4byte	0x98
+ 500 01b0 08       		.byte	0x8
+ 501 01b1 00       		.byte	0
+ 502 01b2 0E       		.uleb128 0xe
+ 503 01b3 4F000000 		.4byte	.LASF28
+ 504 01b7 04       		.byte	0x4
+ 505 01b8 79       		.byte	0x79
+ 506 01b9 BD010000 		.4byte	0x1bd
+ 507 01bd 11       		.uleb128 0x11
+ 508 01be A2010000 		.4byte	0x1a2
+ 509 01c2 12       		.uleb128 0x12
+ 510 01c3 BA000000 		.4byte	.LASF35
+ 511 01c7 04       		.byte	0x4
+ 512 01c8 DE       		.byte	0xde
+ 513 01c9 6B000000 		.4byte	0x6b
+ 514 01cd 00       		.byte	0
+ 515              		.section	.debug_abbrev,"",%progbits
+ 516              	.Ldebug_abbrev0:
+ 517 0000 01       		.uleb128 0x1
+ 518 0001 11       		.uleb128 0x11
+ 519 0002 01       		.byte	0x1
+ 520 0003 25       		.uleb128 0x25
+ 521 0004 0E       		.uleb128 0xe
+ 522 0005 13       		.uleb128 0x13
+ 523 0006 0B       		.uleb128 0xb
+ 524 0007 03       		.uleb128 0x3
+ 525 0008 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 24
+
+
+ 526 0009 1B       		.uleb128 0x1b
+ 527 000a 0E       		.uleb128 0xe
+ 528 000b 55       		.uleb128 0x55
+ 529 000c 17       		.uleb128 0x17
+ 530 000d 11       		.uleb128 0x11
+ 531 000e 01       		.uleb128 0x1
+ 532 000f 10       		.uleb128 0x10
+ 533 0010 17       		.uleb128 0x17
+ 534 0011 00       		.byte	0
+ 535 0012 00       		.byte	0
+ 536 0013 02       		.uleb128 0x2
+ 537 0014 24       		.uleb128 0x24
+ 538 0015 00       		.byte	0
+ 539 0016 0B       		.uleb128 0xb
+ 540 0017 0B       		.uleb128 0xb
+ 541 0018 3E       		.uleb128 0x3e
+ 542 0019 0B       		.uleb128 0xb
+ 543 001a 03       		.uleb128 0x3
+ 544 001b 0E       		.uleb128 0xe
+ 545 001c 00       		.byte	0
+ 546 001d 00       		.byte	0
+ 547 001e 03       		.uleb128 0x3
+ 548 001f 24       		.uleb128 0x24
+ 549 0020 00       		.byte	0
+ 550 0021 0B       		.uleb128 0xb
+ 551 0022 0B       		.uleb128 0xb
+ 552 0023 3E       		.uleb128 0x3e
+ 553 0024 0B       		.uleb128 0xb
+ 554 0025 03       		.uleb128 0x3
+ 555 0026 08       		.uleb128 0x8
+ 556 0027 00       		.byte	0
+ 557 0028 00       		.byte	0
+ 558 0029 04       		.uleb128 0x4
+ 559 002a 16       		.uleb128 0x16
+ 560 002b 00       		.byte	0
+ 561 002c 03       		.uleb128 0x3
+ 562 002d 0E       		.uleb128 0xe
+ 563 002e 3A       		.uleb128 0x3a
+ 564 002f 0B       		.uleb128 0xb
+ 565 0030 3B       		.uleb128 0x3b
+ 566 0031 05       		.uleb128 0x5
+ 567 0032 49       		.uleb128 0x49
+ 568 0033 13       		.uleb128 0x13
+ 569 0034 00       		.byte	0
+ 570 0035 00       		.byte	0
+ 571 0036 05       		.uleb128 0x5
+ 572 0037 13       		.uleb128 0x13
+ 573 0038 01       		.byte	0x1
+ 574 0039 0B       		.uleb128 0xb
+ 575 003a 0B       		.uleb128 0xb
+ 576 003b 3A       		.uleb128 0x3a
+ 577 003c 0B       		.uleb128 0xb
+ 578 003d 3B       		.uleb128 0x3b
+ 579 003e 0B       		.uleb128 0xb
+ 580 003f 01       		.uleb128 0x1
+ 581 0040 13       		.uleb128 0x13
+ 582 0041 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 25
+
+
+ 583 0042 00       		.byte	0
+ 584 0043 06       		.uleb128 0x6
+ 585 0044 0D       		.uleb128 0xd
+ 586 0045 00       		.byte	0
+ 587 0046 03       		.uleb128 0x3
+ 588 0047 0E       		.uleb128 0xe
+ 589 0048 3A       		.uleb128 0x3a
+ 590 0049 0B       		.uleb128 0xb
+ 591 004a 3B       		.uleb128 0x3b
+ 592 004b 0B       		.uleb128 0xb
+ 593 004c 49       		.uleb128 0x49
+ 594 004d 13       		.uleb128 0x13
+ 595 004e 38       		.uleb128 0x38
+ 596 004f 0B       		.uleb128 0xb
+ 597 0050 00       		.byte	0
+ 598 0051 00       		.byte	0
+ 599 0052 07       		.uleb128 0x7
+ 600 0053 16       		.uleb128 0x16
+ 601 0054 00       		.byte	0
+ 602 0055 03       		.uleb128 0x3
+ 603 0056 0E       		.uleb128 0xe
+ 604 0057 3A       		.uleb128 0x3a
+ 605 0058 0B       		.uleb128 0xb
+ 606 0059 3B       		.uleb128 0x3b
+ 607 005a 0B       		.uleb128 0xb
+ 608 005b 49       		.uleb128 0x49
+ 609 005c 13       		.uleb128 0x13
+ 610 005d 00       		.byte	0
+ 611 005e 00       		.byte	0
+ 612 005f 08       		.uleb128 0x8
+ 613 0060 01       		.uleb128 0x1
+ 614 0061 01       		.byte	0x1
+ 615 0062 49       		.uleb128 0x49
+ 616 0063 13       		.uleb128 0x13
+ 617 0064 01       		.uleb128 0x1
+ 618 0065 13       		.uleb128 0x13
+ 619 0066 00       		.byte	0
+ 620 0067 00       		.byte	0
+ 621 0068 09       		.uleb128 0x9
+ 622 0069 21       		.uleb128 0x21
+ 623 006a 00       		.byte	0
+ 624 006b 49       		.uleb128 0x49
+ 625 006c 13       		.uleb128 0x13
+ 626 006d 2F       		.uleb128 0x2f
+ 627 006e 0B       		.uleb128 0xb
+ 628 006f 00       		.byte	0
+ 629 0070 00       		.byte	0
+ 630 0071 0A       		.uleb128 0xa
+ 631 0072 2E       		.uleb128 0x2e
+ 632 0073 01       		.byte	0x1
+ 633 0074 3F       		.uleb128 0x3f
+ 634 0075 19       		.uleb128 0x19
+ 635 0076 03       		.uleb128 0x3
+ 636 0077 0E       		.uleb128 0xe
+ 637 0078 3A       		.uleb128 0x3a
+ 638 0079 0B       		.uleb128 0xb
+ 639 007a 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 26
+
+
+ 640 007b 0B       		.uleb128 0xb
+ 641 007c 27       		.uleb128 0x27
+ 642 007d 19       		.uleb128 0x19
+ 643 007e 49       		.uleb128 0x49
+ 644 007f 13       		.uleb128 0x13
+ 645 0080 11       		.uleb128 0x11
+ 646 0081 01       		.uleb128 0x1
+ 647 0082 12       		.uleb128 0x12
+ 648 0083 06       		.uleb128 0x6
+ 649 0084 40       		.uleb128 0x40
+ 650 0085 18       		.uleb128 0x18
+ 651 0086 9742     		.uleb128 0x2117
+ 652 0088 19       		.uleb128 0x19
+ 653 0089 01       		.uleb128 0x1
+ 654 008a 13       		.uleb128 0x13
+ 655 008b 00       		.byte	0
+ 656 008c 00       		.byte	0
+ 657 008d 0B       		.uleb128 0xb
+ 658 008e 34       		.uleb128 0x34
+ 659 008f 00       		.byte	0
+ 660 0090 03       		.uleb128 0x3
+ 661 0091 0E       		.uleb128 0xe
+ 662 0092 3A       		.uleb128 0x3a
+ 663 0093 0B       		.uleb128 0xb
+ 664 0094 3B       		.uleb128 0x3b
+ 665 0095 0B       		.uleb128 0xb
+ 666 0096 49       		.uleb128 0x49
+ 667 0097 13       		.uleb128 0x13
+ 668 0098 02       		.uleb128 0x2
+ 669 0099 17       		.uleb128 0x17
+ 670 009a 00       		.byte	0
+ 671 009b 00       		.byte	0
+ 672 009c 0C       		.uleb128 0xc
+ 673 009d 34       		.uleb128 0x34
+ 674 009e 00       		.byte	0
+ 675 009f 03       		.uleb128 0x3
+ 676 00a0 0E       		.uleb128 0xe
+ 677 00a1 3A       		.uleb128 0x3a
+ 678 00a2 0B       		.uleb128 0xb
+ 679 00a3 3B       		.uleb128 0x3b
+ 680 00a4 0B       		.uleb128 0xb
+ 681 00a5 49       		.uleb128 0x49
+ 682 00a6 13       		.uleb128 0x13
+ 683 00a7 00       		.byte	0
+ 684 00a8 00       		.byte	0
+ 685 00a9 0D       		.uleb128 0xd
+ 686 00aa 898201   		.uleb128 0x4109
+ 687 00ad 00       		.byte	0
+ 688 00ae 11       		.uleb128 0x11
+ 689 00af 01       		.uleb128 0x1
+ 690 00b0 9542     		.uleb128 0x2115
+ 691 00b2 19       		.uleb128 0x19
+ 692 00b3 31       		.uleb128 0x31
+ 693 00b4 13       		.uleb128 0x13
+ 694 00b5 00       		.byte	0
+ 695 00b6 00       		.byte	0
+ 696 00b7 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 27
+
+
+ 697 00b8 34       		.uleb128 0x34
+ 698 00b9 00       		.byte	0
+ 699 00ba 03       		.uleb128 0x3
+ 700 00bb 0E       		.uleb128 0xe
+ 701 00bc 3A       		.uleb128 0x3a
+ 702 00bd 0B       		.uleb128 0xb
+ 703 00be 3B       		.uleb128 0x3b
+ 704 00bf 0B       		.uleb128 0xb
+ 705 00c0 49       		.uleb128 0x49
+ 706 00c1 13       		.uleb128 0x13
+ 707 00c2 3F       		.uleb128 0x3f
+ 708 00c3 19       		.uleb128 0x19
+ 709 00c4 3C       		.uleb128 0x3c
+ 710 00c5 19       		.uleb128 0x19
+ 711 00c6 00       		.byte	0
+ 712 00c7 00       		.byte	0
+ 713 00c8 0F       		.uleb128 0xf
+ 714 00c9 0F       		.uleb128 0xf
+ 715 00ca 00       		.byte	0
+ 716 00cb 0B       		.uleb128 0xb
+ 717 00cc 0B       		.uleb128 0xb
+ 718 00cd 49       		.uleb128 0x49
+ 719 00ce 13       		.uleb128 0x13
+ 720 00cf 00       		.byte	0
+ 721 00d0 00       		.byte	0
+ 722 00d1 10       		.uleb128 0x10
+ 723 00d2 26       		.uleb128 0x26
+ 724 00d3 00       		.byte	0
+ 725 00d4 49       		.uleb128 0x49
+ 726 00d5 13       		.uleb128 0x13
+ 727 00d6 00       		.byte	0
+ 728 00d7 00       		.byte	0
+ 729 00d8 11       		.uleb128 0x11
+ 730 00d9 35       		.uleb128 0x35
+ 731 00da 00       		.byte	0
+ 732 00db 49       		.uleb128 0x49
+ 733 00dc 13       		.uleb128 0x13
+ 734 00dd 00       		.byte	0
+ 735 00de 00       		.byte	0
+ 736 00df 12       		.uleb128 0x12
+ 737 00e0 2E       		.uleb128 0x2e
+ 738 00e1 00       		.byte	0
+ 739 00e2 3F       		.uleb128 0x3f
+ 740 00e3 19       		.uleb128 0x19
+ 741 00e4 03       		.uleb128 0x3
+ 742 00e5 0E       		.uleb128 0xe
+ 743 00e6 3A       		.uleb128 0x3a
+ 744 00e7 0B       		.uleb128 0xb
+ 745 00e8 3B       		.uleb128 0x3b
+ 746 00e9 0B       		.uleb128 0xb
+ 747 00ea 27       		.uleb128 0x27
+ 748 00eb 19       		.uleb128 0x19
+ 749 00ec 49       		.uleb128 0x49
+ 750 00ed 13       		.uleb128 0x13
+ 751 00ee 3C       		.uleb128 0x3c
+ 752 00ef 19       		.uleb128 0x19
+ 753 00f0 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 28
+
+
+ 754 00f1 00       		.byte	0
+ 755 00f2 00       		.byte	0
+ 756              		.section	.debug_loc,"",%progbits
+ 757              	.Ldebug_loc0:
+ 758              	.LLST0:
+ 759 0000 1C000000 		.4byte	.LVL0
+ 760 0004 20000000 		.4byte	.LVL1
+ 761 0008 0200     		.2byte	0x2
+ 762 000a 30       		.byte	0x30
+ 763 000b 9F       		.byte	0x9f
+ 764 000c 00000000 		.4byte	0
+ 765 0010 00000000 		.4byte	0
+ 766              		.section	.debug_aranges,"",%progbits
+ 767 0000 1C000000 		.4byte	0x1c
+ 768 0004 0200     		.2byte	0x2
+ 769 0006 00000000 		.4byte	.Ldebug_info0
+ 770 000a 04       		.byte	0x4
+ 771 000b 00       		.byte	0
+ 772 000c 0000     		.2byte	0
+ 773 000e 0000     		.2byte	0
+ 774 0010 00000000 		.4byte	.LFB0
+ 775 0014 58000000 		.4byte	.LFE0-.LFB0
+ 776 0018 00000000 		.4byte	0
+ 777 001c 00000000 		.4byte	0
+ 778              		.section	.debug_ranges,"",%progbits
+ 779              	.Ldebug_ranges0:
+ 780 0000 00000000 		.4byte	.LFB0
+ 781 0004 58000000 		.4byte	.LFE0
+ 782 0008 00000000 		.4byte	0
+ 783 000c 00000000 		.4byte	0
+ 784              		.section	.debug_line,"",%progbits
+ 785              	.Ldebug_line0:
+ 786 0000 9C000000 		.section	.debug_str,"MS",%progbits,1
+ 786      02006600 
+ 786      00000201 
+ 786      FB0E0D00 
+ 786      01010101 
+ 787              	.LASF3:
+ 788 0000 73686F72 		.ascii	"short unsigned int\000"
+ 788      7420756E 
+ 788      7369676E 
+ 788      65642069 
+ 788      6E7400
+ 789              	.LASF27:
+ 790 0013 55534255 		.ascii	"USBUART_interfaceClass\000"
+ 790      4152545F 
+ 790      696E7465 
+ 790      72666163 
+ 790      65436C61 
+ 791              	.LASF25:
+ 792 002a 65704461 		.ascii	"epData\000"
+ 792      746100
+ 793              	.LASF33:
+ 794 0031 72657175 		.ascii	"requestHandled\000"
+ 794      65737448 
+ 794      616E646C 
+ 794      656400
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 29
+
+
+ 795              	.LASF11:
+ 796 0040 666C6F61 		.ascii	"float\000"
+ 796      7400
+ 797              	.LASF18:
+ 798 0046 6570546F 		.ascii	"epToggle\000"
+ 798      67676C65 
+ 798      00
+ 799              	.LASF28:
+ 800 004f 55534255 		.ascii	"USBUART_EP\000"
+ 800      4152545F 
+ 800      455000
+ 801              	.LASF5:
+ 802 005a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 802      20756E73 
+ 802      69676E65 
+ 802      6420696E 
+ 802      7400
+ 803              	.LASF19:
+ 804 006c 61646472 		.ascii	"addr\000"
+ 804      00
+ 805              	.LASF34:
+ 806 0071 696E7465 		.ascii	"interfaceNumber\000"
+ 806      72666163 
+ 806      654E756D 
+ 806      62657200 
+ 807              	.LASF1:
+ 808 0081 756E7369 		.ascii	"unsigned char\000"
+ 808      676E6564 
+ 808      20636861 
+ 808      7200
+ 809              	.LASF12:
+ 810 008f 646F7562 		.ascii	"double\000"
+ 810      6C6500
+ 811              	.LASF15:
+ 812 0096 61747472 		.ascii	"attrib\000"
+ 812      696200
+ 813              	.LASF21:
+ 814 009d 62756666 		.ascii	"buffOffset\000"
+ 814      4F666673 
+ 814      657400
+ 815              	.LASF10:
+ 816 00a8 75696E74 		.ascii	"uint16\000"
+ 816      313600
+ 817              	.LASF16:
+ 818 00af 61706945 		.ascii	"apiEpState\000"
+ 818      70537461 
+ 818      746500
+ 819              	.LASF35:
+ 820 00ba 55534255 		.ascii	"USBUART_DispatchCDCClassRqst\000"
+ 820      4152545F 
+ 820      44697370 
+ 820      61746368 
+ 820      43444343 
+ 821              	.LASF8:
+ 822 00d7 756E7369 		.ascii	"unsigned int\000"
+ 822      676E6564 
+ 822      20696E74 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 30
+
+
+ 822      00
+ 823              	.LASF7:
+ 824 00e4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 824      206C6F6E 
+ 824      6720756E 
+ 824      7369676E 
+ 824      65642069 
+ 825              	.LASF17:
+ 826 00fb 68774570 		.ascii	"hwEpState\000"
+ 826      53746174 
+ 826      6500
+ 827              	.LASF32:
+ 828 0105 55534255 		.ascii	"USBUART_DispatchClassRqst\000"
+ 828      4152545F 
+ 828      44697370 
+ 828      61746368 
+ 828      436C6173 
+ 829              	.LASF26:
+ 830 011f 55534255 		.ascii	"USBUART_ep0_data_struct\000"
+ 830      4152545F 
+ 830      6570305F 
+ 830      64617461 
+ 830      5F737472 
+ 831              	.LASF14:
+ 832 0137 73697A65 		.ascii	"sizetype\000"
+ 832      74797065 
+ 832      00
+ 833              	.LASF20:
+ 834 0140 65704D6F 		.ascii	"epMode\000"
+ 834      646500
+ 835              	.LASF6:
+ 836 0147 6C6F6E67 		.ascii	"long long int\000"
+ 836      206C6F6E 
+ 836      6720696E 
+ 836      7400
+ 837              	.LASF29:
+ 838 0155 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 838      4320342E 
+ 838      392E3320 
+ 838      32303135 
+ 838      30333033 
+ 839 0188 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 839      20726576 
+ 839      6973696F 
+ 839      6E203232 
+ 839      31323230 
+ 840 01bb 33202D66 		.ascii	"3 -ffunction-sections -finline-functions -flto -ffa"
+ 840      66756E63 
+ 840      74696F6E 
+ 840      2D736563 
+ 840      74696F6E 
+ 841 01ee 742D6C74 		.ascii	"t-lto-objects\000"
+ 841      6F2D6F62 
+ 841      6A656374 
+ 841      7300
+ 842              	.LASF13:
+ 843 01fc 63686172 		.ascii	"char\000"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc7R1Lqi.s 			page 31
+
+
+ 843      00
+ 844              	.LASF22:
+ 845 0201 62756666 		.ascii	"bufferSize\000"
+ 845      65725369 
+ 845      7A6500
+ 846              	.LASF30:
+ 847 020c 47656E65 		.ascii	"Generated_Source\\PSoC5\\USBUART_cls.c\000"
+ 847      72617465 
+ 847      645F536F 
+ 847      75726365 
+ 847      5C50536F 
+ 848              	.LASF2:
+ 849 0231 73686F72 		.ascii	"short int\000"
+ 849      7420696E 
+ 849      7400
+ 850              	.LASF9:
+ 851 023b 75696E74 		.ascii	"uint8\000"
+ 851      3800
+ 852              	.LASF23:
+ 853 0241 696E7465 		.ascii	"interface\000"
+ 853      72666163 
+ 853      6500
+ 854              	.LASF4:
+ 855 024b 6C6F6E67 		.ascii	"long int\000"
+ 855      20696E74 
+ 855      00
+ 856              	.LASF24:
+ 857 0254 545F5553 		.ascii	"T_USBUART_EP_CTL_BLOCK\000"
+ 857      42554152 
+ 857      545F4550 
+ 857      5F43544C 
+ 857      5F424C4F 
+ 858              	.LASF31:
+ 859 026b 433A5C55 		.ascii	"C:\\Users\\Bruger\\OneDrive\\Skrivebord\\CODE\\PSOC"
+ 859      73657273 
+ 859      5C427275 
+ 859      6765725C 
+ 859      4F6E6544 
+ 860 0298 355C4359 		.ascii	"5\\CY8CKIT-59-Arduino\\CY8CKIT59_Ardudino-Speeduino"
+ 860      38434B49 
+ 860      542D3539 
+ 860      2D417264 
+ 860      75696E6F 
+ 861 02c9 2E637964 		.ascii	".cydsn\000"
+ 861      736E00
+ 862              	.LASF0:
+ 863 02d0 7369676E 		.ascii	"signed char\000"
+ 863      65642063 
+ 863      68617200 
+ 864              		.comm	__gnu_lto_v1,1,1
+ 865              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

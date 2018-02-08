@@ -1,0 +1,2223 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"Bootloadable.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.section	.gnu.lto_.profile.24c05542,"",%progbits
+  18 0000 789C6366 		.ascii	"x\234cf```a\200\000F\006#Q\000\000\355\000P"
+  18      60606061 
+  18      80004606 
+  18      23510000 
+  18      ED0050
+  19              		.text
+  20              		.section	.gnu.lto_.jmpfuncs.24c05542,"",%progbits
+  21 0000 789C6366 		.ascii	"x\234cf\300\016D\2414\023\210`dbdd\256\257g`\206\012"
+  21      C00E44A1 
+  21      34138860 
+  21      64626464 
+  21      AEAF6760 
+  22 0016 02000E4F 		.ascii	"\002\000\016O\001$"
+  22      0124
+  23              		.text
+  24              		.section	.gnu.lto_.inline.24c05542,"",%progbits
+  25 0000 789C6366 		.ascii	"x\234cf\300\016<\2414\023\003\003+/#\003\023\323\005"
+  25      C00E3CA1 
+  25      34130303 
+  25      2B2F2303 
+  25      13D305
+  26 0013 7E06B605 		.ascii	"~\006\266\005\362L 1F.\020\321\300$\362\231\205\221"
+  26      F24C2031 
+  26      462E10D1 
+  26      C024F299 
+  26      8591
+  27 0025 91819181 		.ascii	"\221\201\221\201\201\231o\302\007\017\2104\327\004?"
+  27      81996FC2 
+  27      070F8834 
+  27      D7043F
+  28 0034 16A02C0B 		.ascii	"\026\240,\013D\021\013/Pr\202\337\004?\006\006\000A"
+  28      44110B2F 
+  28      507282DF 
+  28      043F0606 
+  28      0041
+  29 0046 DF0913   		.ascii	"\337\011\023"
+  30              		.text
+  31              		.section	.gnu.lto_.pureconst.24c05542,"",%progbits
+  32 0000 789C6366 		.ascii	"x\234cf```e\200\000&\006)FI\000\000\370\000?"
+  32      60606065 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 2
+
+
+  32      80002606 
+  32      29464900 
+  32      00F8003F 
+  33              		.text
+  34              		.section	.gnu.lto_Bootloadable_Load.24c05542,"",%progbits
+  35 0000 789C658F 		.ascii	"x\234e\217\277KBQ\024\307\317\367\274\247<\221 \032"
+  35      BF4B4251 
+  35      14C7CFF7 
+  35      BCA73C91 
+  35      201A
+  36 0012 FD03B2A9 		.ascii	"\375\003\262\251\255=jh\025\\\2050}\233\364@l\024\357"
+  36      AD3D6A68 
+  36      155C8530 
+  36      7D9BF440 
+  36      6C14EF
+  37 0025 23879642 		.ascii	"#\207\226B\232\212\260%$\313\324~\321$\365j\015\212"
+  37      9A8AB025 
+  37      24CBD47E 
+  37      D124F56A 
+  37      0D8A
+  38 0037 6808226A 		.ascii	"h\010\"j\261\310MszE\330\271:v\341r\356\275\337\357"
+  38      B1C84D73 
+  38      7A45D8B9 
+  38      3A76E172 
+  38      EEBDDFEF 
+  39 004b F9DCEF31 		.ascii	"\371\334\3571\350\377\212\3106@4%\025\006\201KwD\256"
+  39      E8FF8AC8 
+  39      36403425 
+  39      1506814B 
+  39      7744AE
+  40 005e C5803E10 		.ascii	"\305\200>\020\250\300(\240\303=F\311\253m\205\243\025"
+  40      A8C028A0 
+  40      C33D46C9 
+  40      AB6D85A3 
+  40      15
+  41 006f A55477F3 		.ascii	"\245Tw\363\326\215y\360\231\250\317#\016\366\021%1\365"
+  41      D68D79F0 
+  41      99A8CF23 
+  41      0EF61125 
+  41      31F5
+  42 0081 8ABF4FE1 		.ascii	"\212\277O\341`QL\343#\015U\004\205O\315\011O\015\006"
+  42      60514CE3 
+  42      230D5504 
+  42      854FCD09 
+  42      4F0D06
+  43 0094 67F5EB4B 		.ascii	"g\365\353K\230Dm\221\364\007\357\314\272\032\317\270"
+  43      98446D91 
+  43      F407EFCC 
+  43      BA1ACFB8 
+  44 00a4 E91E3702 		.ascii	"\351\0367\002\332,\220\355\217jg\354\223}\306\367\272"
+  44      DA2C90ED 
+  44      8F6A67EC 
+  44      937DC6F7 
+  44      BA
+  45 00b5 AB4CCD7D 		.ascii	"\253L\315}k\337?X\303'\322\327\223\326\327y\250\214"
+  45      6BDF3F58 
+  45      C327D2D7 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 3
+
+
+  45      93D6D779 
+  45      A88C
+  46 00c7 1DB72829 		.ascii	"\035\267()\030\007\210\340\0202\013j(C\364\323\275\312"
+  46      180788E0 
+  46      10320B6A 
+  46      2843F4D3 
+  46      BDCA
+  47 00d9 4548DB8D 		.ascii	"EH\333\215Y\302\221(/X\365Z\320|\335\276\373\270\321"
+  47      59C29128 
+  47      2F58F55A 
+  47      D07CDDBE 
+  47      FBB8D1
+  48 00ec E0FC8F5A 		.ascii	"\340\374\217ZS\226\317f_CQG\236|\016\320+\\\357j\230"
+  48      5396CF66 
+  48      5F435147 
+  48      9E7C0ED0 
+  48      2B5CEF6A 
+  49 0101 44CFD516 		.ascii	"D\317\325\026M\002J\334\311\005{\331\316&svz1\356\254"
+  49      4D024ADC 
+  49      C9057BD9 
+  49      CE267376 
+  49      7A31EEAC 
+  50 0115 64537622 		.ascii	"dSv\"\026w\346g\022s\216\223\3138\311tr)cO\247\350\017"
+  50      1677E667 
+  50      12738E93 
+  50      CB38C974 
+  50      7229634F 
+  51 012c 29036BF9 		.ascii	")\003k\371"
+  52              		.text
+  53              		.section	.gnu.lto_Bootloadable_SetFlashByte.24c05542,"",%progbits
+  54 0000 789C7554 		.ascii	"x\234uTkL\\E\024\2363s_\313.\317&J\210\211F\202\330"
+  54      6B4C5C45 
+  54      149E3373 
+  54      5FCB2ECF 
+  54      264A8889 
+  55 0017 A4DAF8C3 		.ascii	"\244\332\370\303F\377\265jb\032\023S\255?\214ib\266"
+  55      46FFB56A 
+  55      621A1353 
+  55      AD3F8C69 
+  55      62B6
+  56 0029 DD3535A1 		.ascii	"\33555\241\254Y \332\037\244S\226\262\330\304\202\030"
+  56      AC5920DA 
+  56      1FA45396 
+  56      B2D8C482 
+  56      18
+  57 003a 5BA4625B 		.ascii	"[\244b[\215-\333\007\324\002m\201\002\313J\201\312+"
+  57      8D2DDB07 
+  57      D4026D81 
+  57      02CB4A81 
+  57      CA2B
+  58 004c 6D2D2D84 		.ascii	"m--\204\000V@\024\332H\300\302\325\332\365\314\014\220"
+  58      00564014 
+  58      DA48C0C2 
+  58      D5DAF5CC 
+  58      0C90
+  59 005e D5CA4DE6 		.ascii	"\325\312M\346\356\235\263\347\373\316w\316\2343\214"
+  59      EE9DB3E7 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 4
+
+
+  59      FBCE77CE 
+  59      9C338C
+  60 006d 3CFCBC86 		.ascii	"<\374\274\206\353\220A\210\007\177\301 @K\373\010\331"
+  60      EB904188 
+  60      077FC120 
+  60      404BFB08 
+  60      D9
+  61 007e 6B51D0D4 		.ascii	"kQ\320\324\007S\037m\226F\331\351^Bx\234>\216o\227\016"
+  61      07531F6D 
+  61      9646D9E9 
+  61      5E42789C 
+  61      3E8E6F97 
+  62 0093 20EC04C8 		.ascii	" \354\004\310\036\3124\035\366P\215\000\247r\341\363"
+  62      1ECA341D 
+  62      F6508D00 
+  62      A772E1F3 
+  63 00a3 2B9DA550 		.ascii	"+\235\245P\032>U\356\314\374\226s\376{\304N\335\227"
+  63      1A3E55EE 
+  63      CCFC9673 
+  63      FE7BC44E 
+  63      DD97
+  64 00b5 6AE35F73 		.ascii	"j\343_sT\305\205\023\220)\\\246\007K\\l-\020\374n\250"
+  64      54C58513 
+  64      90295CA6 
+  64      074B5C6C 
+  64      2D10FC6E 
+  65 00ca 9EEF754E 		.ascii	"\236\357uNQ\233\302\023b\333X\326Un\210-2\343\366\267"
+  65      519BC213 
+  65      62DB58D6 
+  65      556E882D 
+  65      32E3F6B7 
+  66 00de 8F6F4458 		.ascii	"\217oDX\3067\234\027\204\373\317\361\215\232M\031T\001"
+  66      C6379C17 
+  66      84FBCFF1 
+  66      8D9A4D19 
+  66      5401
+  67 00f0 433E0841 		.ascii	"C>\010A\032\234\2044\202&\002\247 \003\275?/\355\270"
+  67      1A9C8434 
+  67      822602A7 
+  67      2003BD3F 
+  67      2FEDB8
+  68 0103 ADB1E724 		.ascii	"\255\261\347$\357\217\365\027'\251B\336\255\346\033"
+  68      EF8FF517 
+  68      27A942DE 
+  68      ADE61B
+  69 0112 C1A61A9C 		.ascii	"\301\246\032\234V\310ui\260V\340P\373\031\310\020\316"
+  69      56C87569 
+  69      B056E050 
+  69      FB19C810 
+  69      CE
+  70 0123 272EDC0D 		.ascii	"'.\334\015X\354E\011\374\271+\362\2053\375\030\002\307"
+  70      58EC4509 
+  70      FCB92BF2 
+  70      8533FD18 
+  70      02C7
+  71 0135 FA829D2E 		.ascii	"\372\202\235.\336\305\013\307\242\321\307E\344\352\177"
+  71      DEC50BC7 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 5
+
+
+  71      A2D1C745 
+  71      E4EA7F
+  72 0144 47560F42 		.ascii	"GV\017B\006\333\366W\350l\223\204\2175\366\034\261d"
+  72      06DBF657 
+  72      E86C9384 
+  72      8F35F61C 
+  72      B164
+  73 0156 3E3C49EC 		.ascii	"><I\354\233zB5T&\2045\302\375L\363\311P\002\322\207"
+  73      9B7A4235 
+  73      54268435 
+  73      C2FD4CF3 
+  73      C95002D2 
+  74 016b F9D1FECC 		.ascii	"\371\321\376\314\025n\035\316*\356\357\220\373\\,\367"
+  74      156E1DCE 
+  74      2AEEEF90 
+  74      FB5C2CF7 
+  75 017b F0F5CE9D 		.ascii	"\360\365\316\235l\263\244\376\363\312l\266\0226\364"
+  75      6CB3A4FE 
+  75      F3CA6CB6 
+  75      1236F4
+  76 018a 4BA79397 		.ascii	"K\247\223\227/\2035\250\213Ml\005:\037\231\034\005\366"
+  76      2F8335A8 
+  76      8B4D6C05 
+  76      3A1F991C 
+  76      05F6
+  77 019c 86C476DF 		.ascii	"\206\304v\337^\234sIYRU\305\315\211y&UIQ]S=3TQO\005"
+  77      5E9C7349 
+  77      595255C5 
+  77      CD897926 
+  77      5549515D 
+  78 01b7 F7BB78D5 		.ascii	"\367\273x\3252\265\001\347\025\365\005\324u1V\327\275"
+  78      32B501E7 
+  78      15F505D4 
+  78      753156D7 
+  78      BD
+  79 01c8 D98E27D9 		.ascii	"\331\216'\331\333\222;\324\020\334\007\012=\375\237"
+  79      DB923BD4 
+  79      10DC070A 
+  79      3DFD9F
+  80 01d7 8A35AE52 		.ascii	"\2125\256R\261\372\320\361O(s\253\212\265\327\314\230"
+  80      B1FAD0F1 
+  80      4F2873AB 
+  80      8AB5D7CC 
+  80      98
+  81 01e8 127E7426 		.ascii	"\022~t&h\304\204\276\264J\350\331\302\277o:\215B\354"
+  81      68C484BE 
+  81      B44AE8D9 
+  81      C2BF6F3A 
+  81      8D42EC
+  82 01fb B024A881 		.ascii	"\260$\250\201t\250\305U\217\253\001W\023\256fHW\035"
+  82      74A8C555 
+  82      8FAB0157 
+  82      13AE6648 
+  82      571D
+  83 020d 072D6000 		.ascii	"\007-`\000!\372\377y\324\244\204y4:7\371Yq\246\226\012"
+  83      21FAFF79 
+  83      D4A48479 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 6
+
+
+  83      343A37F9 
+  83      5971A696 
+  84 0222 44981888 		.ascii	"D\230\030\210>\322\2603L\235\010\177C|\232\342e\021"
+  84      3ED2B033 
+  84      4C9D087F 
+  84      437C9AE2 
+  84      6511
+  85 0234 81751081 		.ascii	"\201u\020\201v\242\301r\011k\274x%\340\313\221\210\257"
+  85      76A2C172 
+  85      096BBC78 
+  85      25E0CB91 
+  85      88AF
+  86 0246 B864C992 		.ascii	"\270d\311\222\"\214k@\266\026\031G\03189\023X\346q\302"
+  86      228C6B40 
+  86      B6161947 
+  86      19383913 
+  86      58E671C2 
+  87 025a 06A0205C 		.ascii	"\006\240 \\Y\222 e\241\360\005\354\334!\010|Y4\320|"
+  87      59922065 
+  87      A1F005EC 
+  87      DC21087C 
+  87      5934D07C 
+  88 026e 1E847181 		.ascii	"\036\204q\201jh\303\014\017\376Q\025\222S`r\216]\332"
+  88      6A68C30C 
+  88      0FFE5115 
+  88      92536072 
+  88      8E5DDA
+  89 0281 8AD90F41 		.ascii	"\212\331\017A\301\255\340\375%7\035=\311\000P\311T/"
+  89      C1ADE0FD 
+  89      25371D3D 
+  89      C90050C9 
+  89      542F
+  90 0293 9874C1B4 		.ascii	"\230t\301\264X\324\321\322\270\344b(\246C\323\213u\262"
+  90      58D4D1D2 
+  90      B8E46228 
+  90      A643D38B 
+  90      75B2
+  91 02a5 1DCD6814 		.ascii	"\035\315h\024\347$,\2310\344|\252r3\3213\266KM1\315"
+  91      E7242C99 
+  91      30E47CAA 
+  91      7233D133 
+  91      B64B4D31 
+  92 02ba 6DCBF1DA 		.ascii	"m\313\361\332\251\362\262\320q%^\203\210g\251x#-/(\017"
+  92      A9F2B2D0 
+  92      71255E83 
+  92      8867A978 
+  92      232D2F28 
+  93 02cf 870A77A7 		.ascii	"\207\012w\247\216_Z\022\376 \032M$\020A\252e`\223\000"
+  93      8E5F5A12 
+  93      FE201A4D 
+  93      241041AA 
+  93      65609300 
+  94 02e3 3A88A8C2 		.ascii	":\210\250\302hI\2424a\275\0205:\336\177U\212\304+\011"
+  94      6849A234 
+  94      61BD1035 
+  94      3ADE7F55 
+  94      8AC42B09 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 7
+
+
+  95 02f7 BE97473D 		.ascii	"\276\227G=\201\265\301\233\207\241\214\221`_\353\026"
+  95      81B5C19B 
+  95      87A18C91 
+  95      605FEB16 
+  96 0307 15C5B940 		.ascii	"\025\305\271@\201HS;S\026\227\262\004\312\014\265\217"
+  96      8148533B 
+  96      531697B2 
+  96      04CA0CB5 
+  96      8F
+  97 0318 97268794 		.ascii	"\227&\207\224o*S\002Z\305\376^\234\332'\306Ft\250v\\"
+  97      6F2A5302 
+  97      5AC5FE5E 
+  97      9CDA27C6 
+  97      4674A876 
+  98 032d 3C7227BE 		.ascii	"<r'\276\022\016\213[\002\001\320.4\300e\250\224\321"
+  98      120E8B5B 
+  98      0201D02E 
+  98      34C065A8 
+  98      94D1
+  99 033f CA8E3D2A 		.ascii	"\312\216=*\220\350g\177\335\333\310\326\237\301\316"
+  99      90E8677F 
+  99      DDDBC8D6 
+  99      9FC1CE
+ 100 034e 0B3F2DE6 		.ascii	"\013?-\346\256Vd\344\2247[\007\254Gj)\245\350A\313\265"
+ 100      AE5664E4 
+ 100      94375B07 
+ 100      AC476A29 
+ 100      A5E841CB 
+ 101 0363 A5534846 		.ascii	"\245SHFy\210\273Zq<\220(\023\304N\353\214)I\263 H\226"
+ 101      7988BB5A 
+ 101      713C9028 
+ 101      13C44EEB 
+ 101      8C2949B3 
+ 102 037a F96A04AF 		.ascii	"\371j\004\257V\321\"ID\231\201\334\200\302\336\300#"
+ 102      56D12249 
+ 102      449981DC 
+ 102      80C2DEC0 
+ 102      23
+ 103 038b 8A49D094 		.ascii	"\212I\320\224\037\266[LI\023E\236.5\023\223\000\242"
+ 103      1FB65B4C 
+ 103      4913459E 
+ 103      2E351393 
+ 103      00A2
+ 104 039d 66748A21 		.ascii	"ft\212!\023+\217G*]4\233:\237\326w\024<E\235\317\201"
+ 104      132B8F47 
+ 104      2A5D349B 
+ 104      3A9FD677 
+ 104      143C459D 
+ 105 03b3 EE8A36A6 		.ascii	"\356\2126\246\332\001\031\256\250s>\370\3233\017\347"
+ 105      DA0119AE 
+ 105      A8733EF8 
+ 105      D3330FE7 
+ 106 03c3 F7D84A7E 		.ascii	"\367\330J~)2\277\037D~k\3100\024\205?\275\346\022\376"
+ 106      2932BF1F 
+ 106      447E6BC8 
+ 106      3014853F 
+ 106      BDE612FE 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 8
+
+
+ 107 03d7 A2705F5D 		.ascii	"\242p_]?PM\363\377\342\305\334\262\251s\0165\023\350"
+ 107      3F504DF3 
+ 107      FFE2C5DC 
+ 107      B2A9730E 
+ 107      3513E8
+ 108 03ea 867C225B 		.ascii	"\206|\"[\324\022\367\316\375\313\255.t@\306\2356u\311"
+ 108      D412F7CE 
+ 108      FDCBAD2E 
+ 108      7440C69D 
+ 108      3675C9
+ 109 03fd 491458E8 		.ascii	"I\024X\350\201|\033\317e\030\002\341\372U\370\022\346"
+ 109      817C1BCF 
+ 109      651802E1 
+ 109      FA55F812 
+ 109      E6
+ 110 040e 706C08F4 		.ascii	"pl\010\364\"\237-K\033\271\245\313\252\325\312\256\341"
+ 110      229F2D4B 
+ 110      1BB9A5CB 
+ 110      AAD5CAAE 
+ 110      E1
+ 111 041f 6D830BC6 		.ascii	"m\203\013\306\206:^\214\247\206\363\332\007\033\310"
+ 111      863A5E8C 
+ 111      A786F3DA 
+ 111      071BC8
+ 112 042e 08EC0D37 		.ascii	"\010\354\0157\274)\311\210\030>\300B \305S\257z\263"
+ 112      BC29C988 
+ 112      183EC042 
+ 112      20C553AF 
+ 112      7AB3
+ 113 0440 BD7E77AE 		.ascii	"\275~w\256\327\363\356V_\236\177\207w\333\226\255\276"
+ 113      D7F3EE56 
+ 113      5F9E7F87 
+ 113      77DB96AD 
+ 113      BE
+ 114 0451 979FDFF6 		.ascii	"\227\237\337\366\222\317\227\233\345s{\334\333\263\274"
+ 114      92CF979B 
+ 114      E5737BDC 
+ 114      DBB3BC
+ 115 0460 CFEE20A6 		.ascii	"\317\356 \246\333\343\361{srL\177^\366[\273?\360\232"
+ 115      DBE3F17B 
+ 115      73724C7F 
+ 115      5EF65BBB 
+ 115      3FF09A
+ 116 0473 EF65E56C 		.ascii	"\357e\345lB\223\351\367}\370\212;\327m\272\375~\367"
+ 116      4293E9F7 
+ 116      7DF88A3B 
+ 116      D76DBAFD 
+ 116      7EF7
+ 117 0485 EECD1E03 		.ascii	"\356\315\036\003\367\257\347\355\262\266\273s\274\342"
+ 117      F7AFE7ED 
+ 117      B2B6BB73 
+ 117      BCE2
+ 118 0493 7FF6BEE7 		.ascii	"\177\366\276\347\243\177\000\345)kB"
+ 118      A37F00E5 
+ 118      296B42
+ 119              		.text
+ 120              		.section	.gnu.lto_.symbol_nodes.24c05542,"",%progbits
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 9
+
+
+ 121 0000 789C6366 		.ascii	"x\234cf``Hg\200\002&\206z\006\206\011\347\030\030\352"
+ 121      60604867 
+ 121      80022686 
+ 121      7A068609 
+ 121      E71818EA 
+ 122 0014 EB19E62D 		.ascii	"\353\031\346-\340``b\254gD\34632\3253A\370\014\015\015"
+ 122      E0606062 
+ 122      AC6744E6 
+ 122      3332D533 
+ 122      41F80C0D 
+ 123 0029 402E4B3D 		.ascii	"@.K=32\227\271\236\005\211\313\0144\356\310\203\177"
+ 123      333297B9 
+ 123      9E0589CB 
+ 123      0C34EEC8 
+ 123      837F
+ 124 003b 8CCC8C2C 		.ascii	"\214\314\214,\014K\372\336\3103323\034\001\322\014\000"
+ 124      0C4BFADE 
+ 124      C8333332 
+ 124      331C01D2 
+ 124      0C00
+ 125 004d 36C51A45 		.ascii	"6\305\032E"
+ 126              		.text
+ 127              		.section	.gnu.lto_.refs.24c05542,"",%progbits
+ 128 0000 789C6366 		.ascii	"x\234cf```d\200\002\000\000=\000\005"
+ 128      60606064 
+ 128      80020000 
+ 128      3D0005
+ 129              		.text
+ 130              		.section	.gnu.lto_.decls.24c05542,"",%progbits
+ 131 0000 789C8D54 		.ascii	"x\234\215TmL[U\030\276\357\275\245\264\365\362!?\230"
+ 131      6D4C5B55 
+ 131      18BEEFBD 
+ 131      A5B4F5F2 
+ 131      213F98
+ 132 0013 F267E50F 		.ascii	"\362g\345\017\321dY\242F\263\177\032j\266d.\206\214"
+ 132      D16459A2 
+ 132      46B37F1A 
+ 132      6AB6642E 
+ 132      868C
+ 133 0025 187FB064 		.ascii	"\030\177\260d\351\330u\020\311\252\364\222\245\277<"
+ 133      E9D87510 
+ 133      C9AAF492 
+ 133      A5BF3C
+ 134 0034 5BB7C098 		.ascii	"[\267\300\230q@F\370\230LT\002\0037`s\260A\371\2360"
+ 134      714046F8 
+ 134      984C5402 
+ 134      03376073 
+ 134      B041F99E 
+ 135 0049 185F436A 		.ascii	"\030_CjK\035\205\002\3732\232\331M\242 \272\372\236"
+ 135      4B1D8502 
+ 135      FB329AD9 
+ 135      4DA220BA 
+ 135      FA9E
+ 136 005b 736F692F 		.ascii	"soi/\016\335I\336\336{N\237\367y\237s\336\347\\\201"
+ 136      0EDD49DE 
+ 136      DE7B4E9F 
+ 136      F7799F73 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 10
+
+
+ 136      DEE75C81 
+ 137 006f E3B83B18 		.ascii	"\343\270;\030!\034\277\3529.\0168N\300y\006\027\031"
+ 137      211CBFEA 
+ 137      392E0E38 
+ 137      4EC07906 
+ 137      1719
+ 138 0081 31181730 		.ascii	"1\030\0270\\\030\335\030\275\030S\334\277\007\305\350"
+ 138      5C18DD18 
+ 138      BD1853DC 
+ 138      BF07C5E8 
+ 139 0091 D55C0F86 		.ascii	"\325\\\017\206\033#\031\303\213\321\250bx\025\327\375"
+ 139      1B2319C3 
+ 139      8BD1A862 
+ 139      7815D7FD 
+ 140 00a1 947CCA9F 		.ascii	"\224|\312\237\250\346\307c\210\030\2270\3320f1F0R1v"
+ 140      A8E6C763 
+ 140      88189730 
+ 140      DA306631 
+ 140      46305231 
+ 141 00b6 63F855EE 		.ascii	"c\370U\3569\214y\214\311\015u\004\225oJ\325\273q<\342"
+ 141      398C798C 
+ 141      C90D7504 
+ 141      956F4AD5 
+ 141      BB713CE2 
+ 142 00ca A1A37979 		.ascii	"\241\243yy\374\271\007<\304\233\314t\332Y6\\\251\307"
+ 142      FCB9073C 
+ 142      C49BCC74 
+ 142      DA59365C 
+ 142      A9C7
+ 143 00dc A968D2D1 		.ascii	"\251h\322\321\251km\321\255\333RNp\2248I\242\0162\222"
+ 143      A96B6DD1 
+ 143      ADDB524E 
+ 143      70943849 
+ 143      A20E3292 
+ 144 00f0 A10152E0 		.ascii	"\241\001R\340<\244p\0344\302\026\374\315\322)L_W\224"
+ 144      3CA4701C 
+ 144      34C216FC 
+ 144      CDD2294C 
+ 144      5F5794
+ 145 0103 3A75020F 		.ascii	":u\002\017\354\275r\301m\332\326\204iE\244/\300G\312"
+ 145      ECBD72C1 
+ 145      6DDAD684 
+ 145      6945A42F 
+ 145      C047CA
+ 146 0116 7DE5BFDA 		.ascii	"}\345\277\332d4\237#\265\255A\327e\237H\206I_(\364&"
+ 146      64349F23 
+ 146      B5AD41D7 
+ 146      659F4886 
+ 146      495F28F4 
+ 147 012b A3822610 		.ascii	"\243\202&\020\340\033\330F\221\364\235\245\300\0050"
+ 147      E01BD846 
+ 147      91F49DA5 
+ 147      C00530
+ 148 013a 63DAC28C 		.ascii	"c\332\302\214\267+VHg\334G\353]\237\306\242\304T\023"
+ 148      B72B5648 
+ 148      67DC47EB 
+ 148      5D9FC6A2 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 11
+
+
+ 148      C45413
+ 149 014d 639C3FBB 		.ascii	"c\234?\273ZgdS\332\275\004\\\342]\003eS&H3\325a\375"
+ 149      5A676453 
+ 149      DABD045C 
+ 149      E25D0365 
+ 149      53264833 
+ 150 0164 60D5F59E 		.ascii	"`\325\365\236\335N\362\026\\\002\023\\\\\257\300\262"
+ 150      DD4EF216 
+ 150      5C02135C 
+ 150      5CAFC0B2 
+ 151 0174 E92822E4 		.ascii	"\351(\"\344\030\335\233q8\236[\337\032\264B\032\"\030"
+ 151      18DD9B71 
+ 151      389E5BDF 
+ 151      1AB4421A 
+ 151      2218
+ 152 0186 169A71B1 		.ascii	"\026\232q\261\005\027\261\226\247\267\260\320 |\250"
+ 152      0517B196 
+ 152      A7B7B0D0 
+ 152      207CA8
+ 153 0195 9191ACC8 		.ascii	"\221\221\254\310\370l\264\272_`\323\020\375\233\367"
+ 153      F86CB4BA 
+ 153      5F60D310 
+ 153      FD9BF7
+ 154 01a4 F9CEAC0A 		.ascii	"\371\316\254\012`Jc\374\3012\"\274\300\301\266\024x"
+ 154      604A63FC 
+ 154      C13222BC 
+ 154      C0C1B614 
+ 154      78
+ 155 01b5 19C9DB91 		.ascii	"\031\311\333\221<Y%\377\026\311\257 9\225Z\273b\004"
+ 155      3C5925FF 
+ 155      16C9AF20 
+ 155      39955ABB 
+ 155      6204
+ 156 01c7 68439997 		.ascii	"hC\231\227#2\223M\353GWr\242\277D\247\303\263d\230,"
+ 156      2332934D 
+ 156      EB475772 
+ 156      A2BF44A7 
+ 156      C3B36498 
+ 157 01dc D69F85C1 		.ascii	"\326\237\205\301\331\245\030\266F\267w\025\330b\250"
+ 157      D9A518B6 
+ 157      46B77715 
+ 157      D862A8
+ 158 01eb 2DF01F4D 		.ascii	"-\360\037M\353`M\273\006j\327\216\327\334-\217\023>"
+ 158      EB604DBB 
+ 158      066AD78E 
+ 158      D7DC2D8F 
+ 158      133E
+ 159 01fd 665BF2F8 		.ascii	"f[\362\370>w\206\233SyZ\250\"\265\307\310\223\020\356"
+ 159      3E77869B 
+ 159      53795AA8 
+ 159      22B5C7C8 
+ 159      9310EE
+ 160 0210 87264167 		.ascii	"\207&AgT{:\303\355q\261\366\334{\024\374+V8\005\214"
+ 160      547B3AC3 
+ 160      ED71B1F6 
+ 160      DC7B14FC 
+ 160      2B563805 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 12
+
+
+ 161 0225 E5CEFD9F 		.ascii	"\345\316\375\237\374\224%@Z]'>\251\"_\206Ih\217\273"
+ 161      FC942540 
+ 161      5A5D273E 
+ 161      A9225F86 
+ 161      49688FBB 
+ 162 0239 A248BAC2 		.ascii	"\242H\272\302$\335\214\244\275\361\346\212Np)$g\306"
+ 162      24DD8CA4 
+ 162      BDF1E68A 
+ 162      4E702924 
+ 162      67C6
+ 163 024b 5DCBF18C 		.ascii	"]\313\361\214$\320<8$\326F\373\244'\212\243'\314\321"
+ 163      24D03C38 
+ 163      24D646FB 
+ 163      A4278AA3 
+ 163      27CCD1
+ 164 025e CB38CACF 		.ascii	"\3138\312\317:\375\011\3020\343\340\335\277L\324\210"
+ 164      3AFD09C2 
+ 164      30E3E0DD 
+ 164      BF4CD488 
+ 165 026e 111B3CCC 		.ascii	"\021\033<\314\2426\030\300s\352{V\033\364?\335\006\243"
+ 165      A23618C0 
+ 165      73EA7B56 
+ 165      1BF43FDD 
+ 165      06A3
+ 166 0280 8B2BBF89 		.ascii	"\213+\277\211\354\316$\322i\265\367\356\262\300\356"
+ 166      ECCE24D2 
+ 166      69B5F7EE 
+ 166      B2C0EE
+ 167 028f 0C4FA735 		.ascii	"\014O\2475\217\037v\031\205)\320\270\304\254\270\244"
+ 167      8F1F7619 
+ 167      8529D0B8 
+ 167      C4ACB8A4 
+ 168 029f E2E7952B 		.ascii	"\342\347\225+\0066\015\205\004\252qm\251\271A\257j\014"
+ 168      06360D85 
+ 168      04AA716D 
+ 168      A9B941AF 
+ 168      6A0C
+ 169 02b1 AC36C613 		.ascii	"\2546\306\023\200\021T8\030Qh\216VH\234$\346<*\274\216"
+ 169      80115438 
+ 169      1851688E 
+ 169      56489C24 
+ 169      E63C2ABC 
+ 170 02c6 62BEA30A 		.ascii	"b\276\243\012\207Q\241YU8\204\2137\024\205\023\325E"
+ 170      8751A159 
+ 170      5538848B 
+ 170      37148513 
+ 170      D545
+ 171 02d8 CB2693EA 		.ascii	"\313&\223\352\275\242\377\361\036\342\207\232\217\326"
+ 171      BDA2FFF1 
+ 171      1EE2879A 
+ 171      8FD6
+ 172 02e6 C489C591 		.ascii	"\304\211\305\221C\200\233\250\"b\232Q\020U\027\266t"
+ 172      43809BA8 
+ 172      22629A51 
+ 172      105517B6 
+ 172      74
+ 173 02f7 378C282E 		.ascii	"7\214(.\3045\325\205\323\177^<\235\300\326\250\3661"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 13
+
+
+ 173      C435D585 
+ 173      D37F5E3C 
+ 173      9DC0D6A8 
+ 173      F631
+ 174 0309 C585A5BE 		.ascii	"\305\205\245\2761bX\267\353\270\262\370`\340v\035D["
+ 174      316258B7 
+ 174      EBB8B2F8 
+ 174      60E0761D 
+ 174      445B
+ 175 031b 73405366 		.ascii	"s@Sf\222ys\"\354\315\372\3211//\314('\271\264\332T/"
+ 175      92797322 
+ 175      ECCDFAD1 
+ 175      312F2FCC 
+ 175      2827B9B4 
+ 176 0332 32470427 		.ascii	"2G\004'o\334\313(u\226\324\221@(\264\225e\301\255(O"
+ 176      6FDCCB28 
+ 176      7596D491 
+ 176      4028B495 
+ 176      65C1AD28 
+ 177 0347 DC0A7B62 		.ascii	"\334\012{b\212y\202T\234\2523\010'\225\017S\333\357"
+ 177      8A798254 
+ 177      9CAA3308 
+ 177      27950F53 
+ 177      DBEF
+ 178 0359 C51D71F4 		.ascii	"\305\035q\364`\234\317p)\251\207&\212=F\345\032o\314"
+ 178      609CCF70 
+ 178      29A98726 
+ 178      8A3D46E5 
+ 178      1A6FCC
+ 179 036c F861936B 		.ascii	"\370a\223k\214V{\374\316q\264\232\033\367\366}\244\221"
+ 179      8C567BFC 
+ 179      CE71B49A 
+ 179      1BF7F67D 
+ 179      A491
+ 180 037e D310B9CB 		.ascii	"\323\020\271\313'\027\253\307E\315y\2735\007\341Q\316"
+ 180      2717ABC7 
+ 180      45CD79BB 
+ 180      3507E151 
+ 180      CE
+ 181 038f 9B3E113D 		.ascii	"\233>\021=W\331W\254\323\240\3515\210\240\275\330\011"
+ 181      57D957AC 
+ 181      D3A0E935 
+ 181      88A0BDD8 
+ 181      09
+ 182 03a0 B5889725 		.ascii	"\265\210\227%\004:\307\27600\203\022\346P\327Xc\013"
+ 182      043AC7BE 
+ 182      30308312 
+ 182      E650D758 
+ 182      630B
+ 183 03b2 CF1C4AF8 		.ascii	"\317\034J\370\350\217\225\250|\254\240\360\217\332$"
+ 183      E88F95A8 
+ 183      7CACA0F0 
+ 183      8FDA24
+ 184 03c1 7A2824CC 		.ascii	"z($\314/F\213\271M\205\303K)\360\243b\226\373\355\365"
+ 184      2F468BB9 
+ 184      4D85C34B 
+ 184      29F0A362 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 14
+
+
+ 184      96FBEDF5 
+ 185 03d5 1E31A984 		.ascii	"\0361\251\204\301\0111+\337\254\031\204\373\030|\026"
+ 185      C109312B 
+ 185      DFAC1984 
+ 185      FB187C16 
+ 186 03e5 92C2496C 		.ascii	"\222\302IlBm\177.\270f\324l\240M\263]\277\272]?S\337"
+ 186      426D7F2E 
+ 186      B866D46C 
+ 186      A04DB35D 
+ 186      BFBA5D3F 
+ 187 03fb DAF4F7B4 		.ascii	"\332\364\367\264\326\214\223\232\355\316\251\3509\206"
+ 187      D68C939A 
+ 187      EDCEA9E8 
+ 187      3986
+ 188 0409 EE7F12BC 		.ascii	"\356\177\022\274\306k\320X3\012=\257\242\351\363\371"
+ 188      C66BD058 
+ 188      330A3DAF 
+ 188      A2E9F3F9 
+ 189 0419 749B4DCE 		.ascii	"t\233M\316\263Y\017Z\017\344I\373\367\340\213~\327\273"
+ 189      B3590F5A 
+ 189      0FE449FB 
+ 189      F7E08B7E 
+ 189      D7BB
+ 190 042b EF992D5C 		.ascii	"\357\231-\\\332.\351\260\224o\225\245\203\3733m\005"
+ 190      DA2EE9B0 
+ 190      946F95A5 
+ 190      83FB336D 
+ 190      05
+ 191 043c F9D9D2BE 		.ascii	"\371\331\322\276\214L\233\345\365}\321\370\355\331\234"
+ 191      8C4C9BE5 
+ 191      F57DD1F8 
+ 191      EDD99C
+ 192 044b BE20F7B0 		.ascii	"\276 \367\260\374\332\253\251\233\240\263\035\262\343"
+ 192      FCDAABA9 
+ 192      9BA0B31D 
+ 192      B2E3
+ 193 0459 23C9BE3D 		.ascii	"#\311\276=\207\213\241\300\035/j\312eJ\362\316<\253"
+ 193      878BA1C0 
+ 193      1D2F6ACA 
+ 193      654AF2CE 
+ 193      3CAB
+ 194 046b 3D27DD21 		.ascii	"='\335!K\011\026G\246\355\003\371\2105_\332+\331%y\353"
+ 194      4B091647 
+ 194      A6ED03F9 
+ 194      88355FDA 
+ 194      2BD92579 
+ 195 0480 268C16C7 		.ascii	"&\214\026\307\236\334\003\310'Z\034;\363\012\3549\026"
+ 195      9EDC03C8 
+ 195      275A1C3B 
+ 195      F30AEC39 
+ 195      16
+ 196 0491 6B768E64 		.ascii	"kv\216d\310v\330e\253\\`gr^y#\336\342x??W\226\366\332"
+ 196      C876D865 
+ 196      AB5C6067 
+ 196      725E7923 
+ 196      DEE2783F 
+ 197 04aa 8EBC6D95 		.ascii	"\216\274m\225\255\233\251\243\024X\036\331t\371\322"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 15
+
+
+ 197      AD9BA9A3 
+ 197      14581ED9 
+ 197      74F9D2
+ 198 04b9 A11DFF00 		.ascii	"\241\035\377\000Y\235\212]"
+ 198      599D8A5D 
+ 199              		.text
+ 200              		.section	.gnu.lto_.symtab.24c05542,"",%progbits
+ 201 0000 426F6F74 		.ascii	"Bootloadable_Load\000\000\000\000\000\000\000\000\000"
+ 201      6C6F6164 
+ 201      61626C65 
+ 201      5F4C6F61 
+ 201      64000000 
+ 202 001a 000000AC 		.ascii	"\000\000\000\254\000\000\000Bootloadable_SetFlashBy"
+ 202      00000042 
+ 202      6F6F746C 
+ 202      6F616461 
+ 202      626C655F 
+ 203 0038 74650000 		.ascii	"te\000\000\000\000\000\000\000\000\000\000\000\000\273"
+ 203      00000000 
+ 203      00000000 
+ 203      0000BB
+ 204 0047 00000043 		.ascii	"\000\000\000CySoftwareReset\000\000\002\000\000\000"
+ 204      79536F66 
+ 204      74776172 
+ 204      65526573 
+ 204      65740000 
+ 205 005f 00000000 		.ascii	"\000\000\000\000\000\000\275\000\000\000CyFlushCach"
+ 205      0000BD00 
+ 205      00004379 
+ 205      466C7573 
+ 205      68436163 
+ 206 0074 65000002 		.ascii	"e\000\000\002\000\000\000\000\000\000\000\000\000\277"
+ 206      00000000 
+ 206      00000000 
+ 206      00BF
+ 207 0082 00000043 		.ascii	"\000\000\000CyWriteRowData\000\000\002\000\000\000\000"
+ 207      79577269 
+ 207      7465526F 
+ 207      77446174 
+ 207      61000002 
+ 208 009a 00000000 		.ascii	"\000\000\000\000\000\321\000\000\000"
+ 208      00D10000 
+ 208      00
+ 209              		.text
+ 210              		.section	.gnu.lto_.opts,"",%progbits
+ 211 0000 272D666E 		.ascii	"'-fno-trapv' '-mcpu=cortex-m3' '-mthumb' '-g' '-O3'"
+ 211      6F2D7472 
+ 211      61707627 
+ 211      20272D6D 
+ 211      6370753D 
+ 212 0033 20272D66 		.ascii	" '-ffunction-sections' '-finline-functions' '-flto'"
+ 212      66756E63 
+ 212      74696F6E 
+ 212      2D736563 
+ 212      74696F6E 
+ 213 0066 20272D66 		.ascii	" '-ffat-lto-objects'\000"
+ 213      6661742D 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 16
+
+
+ 213      6C746F2D 
+ 213      6F626A65 
+ 213      63747327 
+ 214              		.text
+ 215              		.cfi_sections	.debug_frame
+ 216              		.section	.text.Bootloadable_Load,"ax",%progbits
+ 217              		.align	2
+ 218              		.global	Bootloadable_Load
+ 219              		.thumb
+ 220              		.thumb_func
+ 221              		.type	Bootloadable_Load, %function
+ 222              	Bootloadable_Load:
+ 223              	.LFB0:
+ 224              		.file 1 "Generated_Source\\PSoC5\\Bootloadable.c"
+   1:Generated_Source\PSoC5/Bootloadable.c **** /****************************************************************************//**
+   2:Generated_Source\PSoC5/Bootloadable.c **** * \file Bootloadable.c
+   3:Generated_Source\PSoC5/Bootloadable.c **** * \version 1.50
+   4:Generated_Source\PSoC5/Bootloadable.c **** *
+   5:Generated_Source\PSoC5/Bootloadable.c **** * \brief
+   6:Generated_Source\PSoC5/Bootloadable.c **** *   Provides an API for the Bootloadable application.
+   7:Generated_Source\PSoC5/Bootloadable.c **** *
+   8:Generated_Source\PSoC5/Bootloadable.c **** ********************************************************************************
+   9:Generated_Source\PSoC5/Bootloadable.c **** * \copyright
+  10:Generated_Source\PSoC5/Bootloadable.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  11:Generated_Source\PSoC5/Bootloadable.c **** * You may use this file only in accordance with the license, terms, conditions,
+  12:Generated_Source\PSoC5/Bootloadable.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  13:Generated_Source\PSoC5/Bootloadable.c **** * the software package with which this file was provided.
+  14:Generated_Source\PSoC5/Bootloadable.c **** *******************************************************************************/
+  15:Generated_Source\PSoC5/Bootloadable.c **** 
+  16:Generated_Source\PSoC5/Bootloadable.c **** #include "Bootloadable.h"
+  17:Generated_Source\PSoC5/Bootloadable.c **** 
+  18:Generated_Source\PSoC5/Bootloadable.c **** /**
+  19:Generated_Source\PSoC5/Bootloadable.c ****  \defgroup functions_group Functions
+  20:Generated_Source\PSoC5/Bootloadable.c ****  @{
+  21:Generated_Source\PSoC5/Bootloadable.c **** */
+  22:Generated_Source\PSoC5/Bootloadable.c **** 
+  23:Generated_Source\PSoC5/Bootloadable.c **** #if (CYDEV_PROJ_TYPE == CYDEV_PROJ_TYPE_LOADABLEANDBOOTLOADER)
+  24:Generated_Source\PSoC5/Bootloadable.c **** static cystatus Bootloadable_WriteFlashByte(const uint32 address, const uint8 inputValue) CYLARGE \
+  25:Generated_Source\PSoC5/Bootloadable.c ****                                ;
+  26:Generated_Source\PSoC5/Bootloadable.c **** #endif /*(CYDEV_PROJ_TYPE == CYDEV_PROJ_TYPE_LOADABLEANDBOOTLOADER)*/
+  27:Generated_Source\PSoC5/Bootloadable.c **** 
+  28:Generated_Source\PSoC5/Bootloadable.c **** /*******************************************************************************
+  29:Generated_Source\PSoC5/Bootloadable.c **** * Function Name: Bootloadable_Load
+  30:Generated_Source\PSoC5/Bootloadable.c **** ****************************************************************************//**
+  31:Generated_Source\PSoC5/Bootloadable.c **** *
+  32:Generated_Source\PSoC5/Bootloadable.c **** * \brief
+  33:Generated_Source\PSoC5/Bootloadable.c **** *  Schedules the Bootloader/Launcher to be launched and then performs
+  34:Generated_Source\PSoC5/Bootloadable.c **** *  a software reset to launch it
+  35:Generated_Source\PSoC5/Bootloadable.c **** *
+  36:Generated_Source\PSoC5/Bootloadable.c **** * \return
+  37:Generated_Source\PSoC5/Bootloadable.c **** *  This method will never return. It will load a new application and reset
+  38:Generated_Source\PSoC5/Bootloadable.c **** *  the device.
+  39:Generated_Source\PSoC5/Bootloadable.c **** *
+  40:Generated_Source\PSoC5/Bootloadable.c **** *******************************************************************************/
+  41:Generated_Source\PSoC5/Bootloadable.c **** void Bootloadable_Load(void) 
+  42:Generated_Source\PSoC5/Bootloadable.c **** {
+ 225              		.loc 1 42 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 17
+
+
+ 226              		.cfi_startproc
+ 227              		@ args = 0, pretend = 0, frame = 0
+ 228              		@ frame_needed = 0, uses_anonymous_args = 0
+ 229              		@ link register save eliminated.
+  43:Generated_Source\PSoC5/Bootloadable.c ****     /* Schedule Bootloader to start after reset */
+  44:Generated_Source\PSoC5/Bootloadable.c ****     Bootloadable_SET_RUN_TYPE(Bootloadable_SCHEDULE_BTLDR);
+ 230              		.loc 1 44 0
+ 231 0000 024B     		ldr	r3, .L2
+ 232 0002 4022     		movs	r2, #64
+ 233 0004 1A70     		strb	r2, [r3]
+  45:Generated_Source\PSoC5/Bootloadable.c **** 
+  46:Generated_Source\PSoC5/Bootloadable.c ****     CySoftwareReset();
+ 234              		.loc 1 46 0
+ 235 0006 FFF7FEBF 		b	CySoftwareReset
+ 236              	.LVL0:
+ 237              	.L3:
+ 238 000a 00BF     		.align	2
+ 239              	.L2:
+ 240 000c FA460040 		.word	1073759994
+ 241              		.cfi_endproc
+ 242              	.LFE0:
+ 243              		.size	Bootloadable_Load, .-Bootloadable_Load
+ 244              		.section	.text.Bootloadable_SetFlashByte,"ax",%progbits
+ 245              		.align	2
+ 246              		.global	Bootloadable_SetFlashByte
+ 247              		.thumb
+ 248              		.thumb_func
+ 249              		.type	Bootloadable_SetFlashByte, %function
+ 250              	Bootloadable_SetFlashByte:
+ 251              	.LFB1:
+  47:Generated_Source\PSoC5/Bootloadable.c **** }
+  48:Generated_Source\PSoC5/Bootloadable.c **** 
+  49:Generated_Source\PSoC5/Bootloadable.c **** #if (CYDEV_PROJ_TYPE == CYDEV_PROJ_TYPE_LOADABLEANDBOOTLOADER)
+  50:Generated_Source\PSoC5/Bootloadable.c **** /*******************************************************************************
+  51:Generated_Source\PSoC5/Bootloadable.c **** * Function Name: Bootloadable_GetActiveApplication
+  52:Generated_Source\PSoC5/Bootloadable.c **** ****************************************************************************//**
+  53:Generated_Source\PSoC5/Bootloadable.c **** *
+  54:Generated_Source\PSoC5/Bootloadable.c **** * \brief
+  55:Generated_Source\PSoC5/Bootloadable.c **** *   Gets the application which will be loaded after a next reset event.
+  56:Generated_Source\PSoC5/Bootloadable.c **** *   NOTE Intended for the combination project type ONLY!
+  57:Generated_Source\PSoC5/Bootloadable.c **** *
+  58:Generated_Source\PSoC5/Bootloadable.c **** * \return 
+  59:Generated_Source\PSoC5/Bootloadable.c **** *  A number of the current active application set in the metadata section.
+  60:Generated_Source\PSoC5/Bootloadable.c **** *  \n  0 - app#0 is set as active.
+  61:Generated_Source\PSoC5/Bootloadable.c **** *  \n  1 - app#1 is set as active.
+  62:Generated_Source\PSoC5/Bootloadable.c **** *
+  63:Generated_Source\PSoC5/Bootloadable.c **** * \note If neither of the applications is set active, then the API returns 0x02.
+  64:Generated_Source\PSoC5/Bootloadable.c **** *
+  65:Generated_Source\PSoC5/Bootloadable.c **** *******************************************************************************/
+  66:Generated_Source\PSoC5/Bootloadable.c **** uint8 Bootloadable_GetActiveApplication(void) CYSMALL \
+  67:Generated_Source\PSoC5/Bootloadable.c ****                           
+  68:Generated_Source\PSoC5/Bootloadable.c **** {   
+  69:Generated_Source\PSoC5/Bootloadable.c ****     uint8 result = Bootloadable_MD_BTLDB_ACTIVE_NONE;
+  70:Generated_Source\PSoC5/Bootloadable.c ****     
+  71:Generated_Source\PSoC5/Bootloadable.c ****     if (0u != Bootloadable_GET_CODE_DATA( \
+  72:Generated_Source\PSoC5/Bootloadable.c ****               Bootloadable_MD_BTLDB_ACTIVE_OFFSET(Bootloadable_MD_BTLDB_ACTIVE_0))) 
+  73:Generated_Source\PSoC5/Bootloadable.c ****     {
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 18
+
+
+  74:Generated_Source\PSoC5/Bootloadable.c ****         result = Bootloadable_MD_BTLDB_ACTIVE_0;
+  75:Generated_Source\PSoC5/Bootloadable.c ****     }
+  76:Generated_Source\PSoC5/Bootloadable.c ****     else if (0u != Bootloadable_GET_CODE_DATA( \
+  77:Generated_Source\PSoC5/Bootloadable.c ****                    Bootloadable_MD_BTLDB_ACTIVE_OFFSET(Bootloadable_MD_BTLDB_ACTIVE_1)))
+  78:Generated_Source\PSoC5/Bootloadable.c ****     {
+  79:Generated_Source\PSoC5/Bootloadable.c ****         result = Bootloadable_MD_BTLDB_ACTIVE_1;    
+  80:Generated_Source\PSoC5/Bootloadable.c ****     }
+  81:Generated_Source\PSoC5/Bootloadable.c ****     else
+  82:Generated_Source\PSoC5/Bootloadable.c ****     {
+  83:Generated_Source\PSoC5/Bootloadable.c ****         /*Do nothing, result is none*/
+  84:Generated_Source\PSoC5/Bootloadable.c ****     }
+  85:Generated_Source\PSoC5/Bootloadable.c ****     
+  86:Generated_Source\PSoC5/Bootloadable.c ****     return (result);
+  87:Generated_Source\PSoC5/Bootloadable.c **** }
+  88:Generated_Source\PSoC5/Bootloadable.c **** 
+  89:Generated_Source\PSoC5/Bootloadable.c **** /*******************************************************************************
+  90:Generated_Source\PSoC5/Bootloadable.c **** * Function Name: Bootloadable_SetActiveApplication
+  91:Generated_Source\PSoC5/Bootloadable.c **** ****************************************************************************//**
+  92:Generated_Source\PSoC5/Bootloadable.c **** *
+  93:Generated_Source\PSoC5/Bootloadable.c **** * \brief 
+  94:Generated_Source\PSoC5/Bootloadable.c **** *   Sets the application which will be loaded after a next reset event.          
+  95:Generated_Source\PSoC5/Bootloadable.c **** *   
+  96:Generated_Source\PSoC5/Bootloadable.c **** * \details
+  97:Generated_Source\PSoC5/Bootloadable.c **** * Theory: 
+  98:Generated_Source\PSoC5/Bootloadable.c **** *   This API sets in the Flash (metadata section) the given active application 
+  99:Generated_Source\PSoC5/Bootloadable.c **** *   number.
+ 100:Generated_Source\PSoC5/Bootloadable.c **** *          
+ 101:Generated_Source\PSoC5/Bootloadable.c **** *   NOTE The active application number is not set directly, but the boolean 
+ 102:Generated_Source\PSoC5/Bootloadable.c **** *   mark instead means that the application is active or not for the relative 
+ 103:Generated_Source\PSoC5/Bootloadable.c **** *   metadata. Both metadata sections are updated. For example, if the second 
+ 104:Generated_Source\PSoC5/Bootloadable.c **** *   application is to be set active, then in the metadata section for the first 
+ 105:Generated_Source\PSoC5/Bootloadable.c **** *   application there will be a "0" written, which means that it is not active, and 
+ 106:Generated_Source\PSoC5/Bootloadable.c **** *   for the second metadata section there will be a "1" written, which means that it is 
+ 107:Generated_Source\PSoC5/Bootloadable.c **** *   active. 
+ 108:Generated_Source\PSoC5/Bootloadable.c **** *
+ 109:Generated_Source\PSoC5/Bootloadable.c **** *   NOTE Intended for the combination project type ONLY!
+ 110:Generated_Source\PSoC5/Bootloadable.c **** *
+ 111:Generated_Source\PSoC5/Bootloadable.c **** * \param appId  
+ 112:Generated_Source\PSoC5/Bootloadable.c **** *   The active application number to be written to flash (metadata section) 
+ 113:Generated_Source\PSoC5/Bootloadable.c **** *   NOTE Possible values are:
+ 114:Generated_Source\PSoC5/Bootloadable.c **** *   0 - for the first application
+ 115:Generated_Source\PSoC5/Bootloadable.c **** *   1 - for the second application.
+ 116:Generated_Source\PSoC5/Bootloadable.c **** *   Any other number is considered invalid. 
+ 117:Generated_Source\PSoC5/Bootloadable.c **** *
+ 118:Generated_Source\PSoC5/Bootloadable.c **** * \return 
+ 119:Generated_Source\PSoC5/Bootloadable.c **** *   A status of writing to flash operation.
+ 120:Generated_Source\PSoC5/Bootloadable.c **** *   \n CYRET_SUCCESS - Returned if appId was successfully changed. 
+ 121:Generated_Source\PSoC5/Bootloadable.c **** *   \n CYRET_BAD_PARAM - Returned if the parameter appID passed to the function has the 
+ 122:Generated_Source\PSoC5/Bootloadable.c **** *                       same value as the active application ID. 
+ 123:Generated_Source\PSoC5/Bootloadable.c **** *   \note - The other non-zero value is considered as a failure during writing to flash.  
+ 124:Generated_Source\PSoC5/Bootloadable.c **** *
+ 125:Generated_Source\PSoC5/Bootloadable.c **** *   \note - This API does not update Bootloader_activeApp variable.
+ 126:Generated_Source\PSoC5/Bootloadable.c **** *
+ 127:Generated_Source\PSoC5/Bootloadable.c **** *******************************************************************************/
+ 128:Generated_Source\PSoC5/Bootloadable.c **** cystatus Bootloadable_SetActiveApplication(uint8 appId) CYSMALL \
+ 129:Generated_Source\PSoC5/Bootloadable.c ****                 
+ 130:Generated_Source\PSoC5/Bootloadable.c **** {
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 19
+
+
+ 131:Generated_Source\PSoC5/Bootloadable.c ****     cystatus result = CYRET_SUCCESS;
+ 132:Generated_Source\PSoC5/Bootloadable.c **** 
+ 133:Generated_Source\PSoC5/Bootloadable.c ****     uint8 CYDATA idx;
+ 134:Generated_Source\PSoC5/Bootloadable.c ****     
+ 135:Generated_Source\PSoC5/Bootloadable.c ****     /* If invalid application number */
+ 136:Generated_Source\PSoC5/Bootloadable.c ****     if (appId > Bootloadable_MD_BTLDB_ACTIVE_1)
+ 137:Generated_Source\PSoC5/Bootloadable.c ****     {
+ 138:Generated_Source\PSoC5/Bootloadable.c ****         result = CYRET_BAD_PARAM;
+ 139:Generated_Source\PSoC5/Bootloadable.c ****     }
+ 140:Generated_Source\PSoC5/Bootloadable.c ****     else
+ 141:Generated_Source\PSoC5/Bootloadable.c ****     {
+ 142:Generated_Source\PSoC5/Bootloadable.c ****         /* If appID has same value as active application ID */
+ 143:Generated_Source\PSoC5/Bootloadable.c ****         if (1u == Bootloadable_GET_CODE_DATA(Bootloadable_MD_BTLDB_ACTIVE_OFFSET(appId)))
+ 144:Generated_Source\PSoC5/Bootloadable.c ****         {
+ 145:Generated_Source\PSoC5/Bootloadable.c ****             result = CYRET_BAD_PARAM;
+ 146:Generated_Source\PSoC5/Bootloadable.c ****         }
+ 147:Generated_Source\PSoC5/Bootloadable.c ****         else
+ 148:Generated_Source\PSoC5/Bootloadable.c ****         {
+ 149:Generated_Source\PSoC5/Bootloadable.c ****             /* Updating metadata section */
+ 150:Generated_Source\PSoC5/Bootloadable.c ****             for(idx = 0u; idx < Bootloadable_MAX_NUM_OF_BTLDB; idx++)
+ 151:Generated_Source\PSoC5/Bootloadable.c ****             {
+ 152:Generated_Source\PSoC5/Bootloadable.c ****                 result |= Bootloadable_WriteFlashByte((uint32) Bootloadable_MD_BTLDB_ACTIVE_OFFSET(
+ 153:Generated_Source\PSoC5/Bootloadable.c ****                                                                                             (uint8)
+ 154:Generated_Source\PSoC5/Bootloadable.c ****             }
+ 155:Generated_Source\PSoC5/Bootloadable.c ****         }
+ 156:Generated_Source\PSoC5/Bootloadable.c ****     }
+ 157:Generated_Source\PSoC5/Bootloadable.c ****     
+ 158:Generated_Source\PSoC5/Bootloadable.c ****     return (result);
+ 159:Generated_Source\PSoC5/Bootloadable.c **** }
+ 160:Generated_Source\PSoC5/Bootloadable.c **** 
+ 161:Generated_Source\PSoC5/Bootloadable.c **** /*******************************************************************************
+ 162:Generated_Source\PSoC5/Bootloadable.c **** * Function Name: Bootloadable_WriteFlashByte
+ 163:Generated_Source\PSoC5/Bootloadable.c **** ****************************************************************************//**
+ 164:Generated_Source\PSoC5/Bootloadable.c **** *
+ 165:Generated_Source\PSoC5/Bootloadable.c **** * \brief 
+ 166:Generated_Source\PSoC5/Bootloadable.c **** *   This API writes to flash the specified data.
+ 167:Generated_Source\PSoC5/Bootloadable.c **** *
+ 168:Generated_Source\PSoC5/Bootloadable.c **** * \param address 
+ 169:Generated_Source\PSoC5/Bootloadable.c **** *   The address in flash.
+ 170:Generated_Source\PSoC5/Bootloadable.c **** *
+ 171:Generated_Source\PSoC5/Bootloadable.c **** * \param inputValue 
+ 172:Generated_Source\PSoC5/Bootloadable.c **** *   One-byte data.
+ 173:Generated_Source\PSoC5/Bootloadable.c **** *
+ 174:Generated_Source\PSoC5/Bootloadable.c **** * \return 
+ 175:Generated_Source\PSoC5/Bootloadable.c **** *   A status of the writing to flash procedure.
+ 176:Generated_Source\PSoC5/Bootloadable.c **** *
+ 177:Generated_Source\PSoC5/Bootloadable.c **** *******************************************************************************/
+ 178:Generated_Source\PSoC5/Bootloadable.c **** static cystatus Bootloadable_WriteFlashByte(const uint32 address, const uint8 inputValue) CYLARGE \
+ 179:Generated_Source\PSoC5/Bootloadable.c ****                                
+ 180:Generated_Source\PSoC5/Bootloadable.c **** {
+ 181:Generated_Source\PSoC5/Bootloadable.c ****     cystatus result = CYRET_SUCCESS;
+ 182:Generated_Source\PSoC5/Bootloadable.c ****     uint32 flsAddr = address - CYDEV_FLASH_BASE;
+ 183:Generated_Source\PSoC5/Bootloadable.c ****     uint8  rowData[CYDEV_FLS_ROW_SIZE];
+ 184:Generated_Source\PSoC5/Bootloadable.c **** 
+ 185:Generated_Source\PSoC5/Bootloadable.c ****     #if !(CY_PSOC4)
+ 186:Generated_Source\PSoC5/Bootloadable.c ****         uint8 arrayId = ( uint8 )(flsAddr / CYDEV_FLS_SECTOR_SIZE);
+ 187:Generated_Source\PSoC5/Bootloadable.c ****     #endif  /* !(CY_PSOC4) */
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 20
+
+
+ 188:Generated_Source\PSoC5/Bootloadable.c **** 
+ 189:Generated_Source\PSoC5/Bootloadable.c ****     #if (CY_PSOC4)
+ 190:Generated_Source\PSoC5/Bootloadable.c ****         uint16 rowNum = ( uint16 )(flsAddr / CYDEV_FLS_ROW_SIZE);
+ 191:Generated_Source\PSoC5/Bootloadable.c ****     #else
+ 192:Generated_Source\PSoC5/Bootloadable.c ****         uint16 rowNum = ( uint16 )((flsAddr % CYDEV_FLS_SECTOR_SIZE) / CYDEV_FLS_ROW_SIZE);
+ 193:Generated_Source\PSoC5/Bootloadable.c ****     #endif  /* (CY_PSOC4) */
+ 194:Generated_Source\PSoC5/Bootloadable.c **** 
+ 195:Generated_Source\PSoC5/Bootloadable.c ****     uint32 baseAddr = address - (address % CYDEV_FLS_ROW_SIZE);
+ 196:Generated_Source\PSoC5/Bootloadable.c ****     uint16 idx;
+ 197:Generated_Source\PSoC5/Bootloadable.c **** 
+ 198:Generated_Source\PSoC5/Bootloadable.c ****     for(idx = 0u; idx < CYDEV_FLS_ROW_SIZE; idx++)
+ 199:Generated_Source\PSoC5/Bootloadable.c ****     {
+ 200:Generated_Source\PSoC5/Bootloadable.c ****         rowData[idx] = (uint8)Bootloadable_GET_CODE_DATA(baseAddr + idx);
+ 201:Generated_Source\PSoC5/Bootloadable.c ****     }
+ 202:Generated_Source\PSoC5/Bootloadable.c **** 
+ 203:Generated_Source\PSoC5/Bootloadable.c ****     rowData[address % CYDEV_FLS_ROW_SIZE] = inputValue;
+ 204:Generated_Source\PSoC5/Bootloadable.c **** 
+ 205:Generated_Source\PSoC5/Bootloadable.c ****     #if(CY_PSOC4)
+ 206:Generated_Source\PSoC5/Bootloadable.c ****         result = CySysFlashWriteRow((uint32) rowNum, rowData);
+ 207:Generated_Source\PSoC5/Bootloadable.c ****     #else
+ 208:Generated_Source\PSoC5/Bootloadable.c ****         result = CyWriteRowData(arrayId, rowNum, rowData);
+ 209:Generated_Source\PSoC5/Bootloadable.c ****     #endif  /* (CY_PSOC4) */
+ 210:Generated_Source\PSoC5/Bootloadable.c **** 
+ 211:Generated_Source\PSoC5/Bootloadable.c ****     #if(CY_PSOC5)
+ 212:Generated_Source\PSoC5/Bootloadable.c ****         /***************************************************************************
+ 213:Generated_Source\PSoC5/Bootloadable.c ****         * When writing to flash, data in the instruction cache can become stale.
+ 214:Generated_Source\PSoC5/Bootloadable.c ****         * Therefore, the cache data does not correlate to the data just written to
+ 215:Generated_Source\PSoC5/Bootloadable.c ****         * flash. A call to CyFlushCache() is required to invalidate the data in the
+ 216:Generated_Source\PSoC5/Bootloadable.c ****         * cache and force fresh information to be loaded from flash.
+ 217:Generated_Source\PSoC5/Bootloadable.c ****         ***************************************************************************/
+ 218:Generated_Source\PSoC5/Bootloadable.c ****         CyFlushCache();
+ 219:Generated_Source\PSoC5/Bootloadable.c ****     #endif /* (CY_PSOC5) */
+ 220:Generated_Source\PSoC5/Bootloadable.c ****     return (result);
+ 221:Generated_Source\PSoC5/Bootloadable.c **** }
+ 222:Generated_Source\PSoC5/Bootloadable.c **** #endif /*(CYDEV_PROJ_TYPE == CYDEV_PROJ_TYPE_LOADABLEANDBOOTLOADER)*/
+ 223:Generated_Source\PSoC5/Bootloadable.c **** /** @} functions_group */
+ 224:Generated_Source\PSoC5/Bootloadable.c **** 
+ 225:Generated_Source\PSoC5/Bootloadable.c **** /*******************************************************************************
+ 226:Generated_Source\PSoC5/Bootloadable.c **** * The following code is OBSOLETE and must not be used.
+ 227:Generated_Source\PSoC5/Bootloadable.c **** *******************************************************************************/
+ 228:Generated_Source\PSoC5/Bootloadable.c **** void Bootloadable_SetFlashByte(uint32 address, uint8 runType) 
+ 229:Generated_Source\PSoC5/Bootloadable.c **** {
+ 252              		.loc 1 229 0
+ 253              		.cfi_startproc
+ 254              		@ args = 0, pretend = 0, frame = 256
+ 255              		@ frame_needed = 0, uses_anonymous_args = 0
+ 256              	.LVL1:
+ 257 0000 30B5     		push	{r4, r5, lr}
+ 258              		.cfi_def_cfa_offset 12
+ 259              		.cfi_offset 4, -12
+ 260              		.cfi_offset 5, -8
+ 261              		.cfi_offset 14, -4
+ 262 0002 0446     		mov	r4, r0
+ 263              	.LVL2:
+ 264 0004 0D46     		mov	r5, r1
+ 265 0006 C1B0     		sub	sp, sp, #260
+ 266              		.cfi_def_cfa_offset 272
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 21
+
+
+ 267 0008 20F0FF01 		bic	r1, r0, #255
+ 268              	.LVL3:
+ 269 000c 4FF48072 		mov	r2, #256
+ 270 0010 6846     		mov	r0, sp
+ 271              	.LVL4:
+ 272 0012 FFF7FEFF 		bl	memmove
+ 273              	.LVL5:
+ 230:Generated_Source\PSoC5/Bootloadable.c ****     uint32 flsAddr = address - CYDEV_FLASH_BASE;
+ 231:Generated_Source\PSoC5/Bootloadable.c ****     uint8  rowData[CYDEV_FLS_ROW_SIZE];
+ 232:Generated_Source\PSoC5/Bootloadable.c **** 
+ 233:Generated_Source\PSoC5/Bootloadable.c ****     #if !(CY_PSOC4)
+ 234:Generated_Source\PSoC5/Bootloadable.c ****         uint8 arrayId = ( uint8 )(flsAddr / CYDEV_FLS_SECTOR_SIZE);
+ 235:Generated_Source\PSoC5/Bootloadable.c ****     #endif  /* !(CY_PSOC4) */
+ 236:Generated_Source\PSoC5/Bootloadable.c **** 
+ 237:Generated_Source\PSoC5/Bootloadable.c ****     #if (CY_PSOC4)
+ 238:Generated_Source\PSoC5/Bootloadable.c ****         uint16 rowNum = ( uint16 )(flsAddr / CYDEV_FLS_ROW_SIZE);
+ 239:Generated_Source\PSoC5/Bootloadable.c ****     #else
+ 240:Generated_Source\PSoC5/Bootloadable.c ****         uint16 rowNum = ( uint16 )((flsAddr % CYDEV_FLS_SECTOR_SIZE) / CYDEV_FLS_ROW_SIZE);
+ 241:Generated_Source\PSoC5/Bootloadable.c ****     #endif  /* (CY_PSOC4) */
+ 242:Generated_Source\PSoC5/Bootloadable.c **** 
+ 243:Generated_Source\PSoC5/Bootloadable.c ****     uint32 baseAddr = address - (address % CYDEV_FLS_ROW_SIZE);
+ 244:Generated_Source\PSoC5/Bootloadable.c ****     uint16 idx;
+ 245:Generated_Source\PSoC5/Bootloadable.c **** 
+ 246:Generated_Source\PSoC5/Bootloadable.c **** 
+ 247:Generated_Source\PSoC5/Bootloadable.c ****     for (idx = 0u; idx < CYDEV_FLS_ROW_SIZE; idx++)
+ 248:Generated_Source\PSoC5/Bootloadable.c ****     {
+ 249:Generated_Source\PSoC5/Bootloadable.c ****         rowData[idx] = Bootloadable_GET_CODE_DATA(baseAddr + idx);
+ 250:Generated_Source\PSoC5/Bootloadable.c ****     }
+ 251:Generated_Source\PSoC5/Bootloadable.c ****     rowData[address % CYDEV_FLS_ROW_SIZE] = runType;
+ 274              		.loc 1 251 0
+ 275 0016 E3B2     		uxtb	r3, r4
+ 252:Generated_Source\PSoC5/Bootloadable.c **** 
+ 253:Generated_Source\PSoC5/Bootloadable.c ****     #if(CY_PSOC4)
+ 254:Generated_Source\PSoC5/Bootloadable.c ****         (void) CySysFlashWriteRow((uint32) rowNum, rowData);
+ 255:Generated_Source\PSoC5/Bootloadable.c ****     #else
+ 256:Generated_Source\PSoC5/Bootloadable.c ****         (void) CyWriteRowData(arrayId, rowNum, rowData);
+ 276              		.loc 1 256 0
+ 277 0018 6A46     		mov	r2, sp
+ 278 001a C4F30721 		ubfx	r1, r4, #8, #8
+ 279 001e C4F30740 		ubfx	r0, r4, #16, #8
+ 251:Generated_Source\PSoC5/Bootloadable.c **** 
+ 280              		.loc 1 251 0
+ 281 0022 0DF80350 		strb	r5, [sp, r3]
+ 282              		.loc 1 256 0
+ 283 0026 FFF7FEFF 		bl	CyWriteRowData
+ 284              	.LVL6:
+ 257:Generated_Source\PSoC5/Bootloadable.c ****     #endif  /* (CY_PSOC4) */
+ 258:Generated_Source\PSoC5/Bootloadable.c **** 
+ 259:Generated_Source\PSoC5/Bootloadable.c ****     #if(CY_PSOC5)
+ 260:Generated_Source\PSoC5/Bootloadable.c ****         /***************************************************************************
+ 261:Generated_Source\PSoC5/Bootloadable.c ****         * When writing to flash, data in the instruction cache can become obsolete.
+ 262:Generated_Source\PSoC5/Bootloadable.c ****         * Therefore, the cache data does not correlate to the data just written to
+ 263:Generated_Source\PSoC5/Bootloadable.c ****         * flash. A call to CyFlushCache() is required to invalidate the data in the
+ 264:Generated_Source\PSoC5/Bootloadable.c ****         * cache and force fresh information to be loaded from flash.
+ 265:Generated_Source\PSoC5/Bootloadable.c ****         ***************************************************************************/
+ 266:Generated_Source\PSoC5/Bootloadable.c ****         CyFlushCache();
+ 285              		.loc 1 266 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 22
+
+
+ 286 002a FFF7FEFF 		bl	CyFlushCache
+ 287              	.LVL7:
+ 267:Generated_Source\PSoC5/Bootloadable.c ****     #endif /* (CY_PSOC5) */
+ 268:Generated_Source\PSoC5/Bootloadable.c **** }
+ 288              		.loc 1 268 0
+ 289 002e 41B0     		add	sp, sp, #260
+ 290              		.cfi_def_cfa_offset 12
+ 291              		@ sp needed
+ 292 0030 30BD     		pop	{r4, r5, pc}
+ 293              		.cfi_endproc
+ 294              	.LFE1:
+ 295              		.size	Bootloadable_SetFlashByte, .-Bootloadable_SetFlashByte
+ 296 0032 00BF     		.text
+ 297              	.Letext0:
+ 298              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 299              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
+ 300              		.file 4 "<built-in>"
+ 301              		.file 5 "Generated_Source\\PSoC5\\CyFlash.h"
+ 302              		.section	.debug_info,"",%progbits
+ 303              	.Ldebug_info0:
+ 304 0000 3D020000 		.4byte	0x23d
+ 305 0004 0400     		.2byte	0x4
+ 306 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 307 000a 04       		.byte	0x4
+ 308 000b 01       		.uleb128 0x1
+ 309 000c EF000000 		.4byte	.LASF29
+ 310 0010 01       		.byte	0x1
+ 311 0011 BF010000 		.4byte	.LASF30
+ 312 0015 FE010000 		.4byte	.LASF31
+ 313 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 314 001d 00000000 		.4byte	0
+ 315 0021 00000000 		.4byte	.Ldebug_line0
+ 316 0025 02       		.uleb128 0x2
+ 317 0026 01       		.byte	0x1
+ 318 0027 06       		.byte	0x6
+ 319 0028 63020000 		.4byte	.LASF0
+ 320 002c 02       		.uleb128 0x2
+ 321 002d 01       		.byte	0x1
+ 322 002e 08       		.byte	0x8
+ 323 002f 31000000 		.4byte	.LASF1
+ 324 0033 02       		.uleb128 0x2
+ 325 0034 02       		.byte	0x2
+ 326 0035 05       		.byte	0x5
+ 327 0036 B5010000 		.4byte	.LASF2
+ 328 003a 02       		.uleb128 0x2
+ 329 003b 02       		.byte	0x2
+ 330 003c 07       		.byte	0x7
+ 331 003d 18000000 		.4byte	.LASF3
+ 332 0041 02       		.uleb128 0x2
+ 333 0042 04       		.byte	0x4
+ 334 0043 05       		.byte	0x5
+ 335 0044 F5010000 		.4byte	.LASF4
+ 336 0048 02       		.uleb128 0x2
+ 337 0049 04       		.byte	0x4
+ 338 004a 07       		.byte	0x7
+ 339 004b 4C000000 		.4byte	.LASF5
+ 340 004f 02       		.uleb128 0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 23
+
+
+ 341 0050 08       		.byte	0x8
+ 342 0051 05       		.byte	0x5
+ 343 0052 E1000000 		.4byte	.LASF6
+ 344 0056 02       		.uleb128 0x2
+ 345 0057 08       		.byte	0x8
+ 346 0058 07       		.byte	0x7
+ 347 0059 B0000000 		.4byte	.LASF7
+ 348 005d 03       		.uleb128 0x3
+ 349 005e 04       		.byte	0x4
+ 350 005f 05       		.byte	0x5
+ 351 0060 696E7400 		.ascii	"int\000"
+ 352 0064 02       		.uleb128 0x2
+ 353 0065 04       		.byte	0x4
+ 354 0066 07       		.byte	0x7
+ 355 0067 9B000000 		.4byte	.LASF8
+ 356 006b 04       		.uleb128 0x4
+ 357 006c 5E000000 		.4byte	.LASF9
+ 358 0070 02       		.byte	0x2
+ 359 0071 3801     		.2byte	0x138
+ 360 0073 2C000000 		.4byte	0x2c
+ 361 0077 04       		.uleb128 0x4
+ 362 0078 8D000000 		.4byte	.LASF10
+ 363 007c 02       		.byte	0x2
+ 364 007d 3901     		.2byte	0x139
+ 365 007f 3A000000 		.4byte	0x3a
+ 366 0083 04       		.uleb128 0x4
+ 367 0084 94000000 		.4byte	.LASF11
+ 368 0088 02       		.byte	0x2
+ 369 0089 3A01     		.2byte	0x13a
+ 370 008b 48000000 		.4byte	0x48
+ 371 008f 02       		.uleb128 0x2
+ 372 0090 04       		.byte	0x4
+ 373 0091 04       		.byte	0x4
+ 374 0092 2B000000 		.4byte	.LASF12
+ 375 0096 02       		.uleb128 0x2
+ 376 0097 08       		.byte	0x8
+ 377 0098 04       		.byte	0x4
+ 378 0099 7E000000 		.4byte	.LASF13
+ 379 009d 02       		.uleb128 0x2
+ 380 009e 01       		.byte	0x1
+ 381 009f 08       		.byte	0x8
+ 382 00a0 96010000 		.4byte	.LASF14
+ 383 00a4 04       		.uleb128 0x4
+ 384 00a5 00000000 		.4byte	.LASF15
+ 385 00a9 02       		.byte	0x2
+ 386 00aa DA01     		.2byte	0x1da
+ 387 00ac 48000000 		.4byte	0x48
+ 388 00b0 04       		.uleb128 0x4
+ 389 00b1 47000000 		.4byte	.LASF16
+ 390 00b5 02       		.byte	0x2
+ 391 00b6 E201     		.2byte	0x1e2
+ 392 00b8 BC000000 		.4byte	0xbc
+ 393 00bc 05       		.uleb128 0x5
+ 394 00bd 6B000000 		.4byte	0x6b
+ 395 00c1 02       		.uleb128 0x2
+ 396 00c2 04       		.byte	0x4
+ 397 00c3 07       		.byte	0x7
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 24
+
+
+ 398 00c4 D8000000 		.4byte	.LASF17
+ 399 00c8 06       		.uleb128 0x6
+ 400 00c9 04       		.byte	0x4
+ 401 00ca 07       		.uleb128 0x7
+ 402 00cb 6C000000 		.4byte	.LASF18
+ 403 00cf 01       		.byte	0x1
+ 404 00d0 29       		.byte	0x29
+ 405 00d1 00000000 		.4byte	.LFB0
+ 406 00d5 10000000 		.4byte	.LFE0-.LFB0
+ 407 00d9 01       		.uleb128 0x1
+ 408 00da 9C       		.byte	0x9c
+ 409 00db E9000000 		.4byte	0xe9
+ 410 00df 08       		.uleb128 0x8
+ 411 00e0 0A000000 		.4byte	.LVL0
+ 412 00e4 DE010000 		.4byte	0x1de
+ 413 00e8 00       		.byte	0
+ 414 00e9 07       		.uleb128 0x7
+ 415 00ea 9B010000 		.4byte	.LASF19
+ 416 00ee 01       		.byte	0x1
+ 417 00ef E4       		.byte	0xe4
+ 418 00f0 00000000 		.4byte	.LFB1
+ 419 00f4 32000000 		.4byte	.LFE1-.LFB1
+ 420 00f8 01       		.uleb128 0x1
+ 421 00f9 9C       		.byte	0x9c
+ 422 00fa CE010000 		.4byte	0x1ce
+ 423 00fe 09       		.uleb128 0x9
+ 424 00ff A8000000 		.4byte	.LASF20
+ 425 0103 01       		.byte	0x1
+ 426 0104 E4       		.byte	0xe4
+ 427 0105 83000000 		.4byte	0x83
+ 428 0109 00000000 		.4byte	.LLST0
+ 429 010d 09       		.uleb128 0x9
+ 430 010e C7000000 		.4byte	.LASF21
+ 431 0112 01       		.byte	0x1
+ 432 0113 E4       		.byte	0xe4
+ 433 0114 6B000000 		.4byte	0x6b
+ 434 0118 1E000000 		.4byte	.LLST1
+ 435 011c 0A       		.uleb128 0xa
+ 436 011d 85000000 		.4byte	.LASF22
+ 437 0121 01       		.byte	0x1
+ 438 0122 E6       		.byte	0xe6
+ 439 0123 83000000 		.4byte	0x83
+ 440 0127 3F000000 		.4byte	.LLST2
+ 441 012b 0B       		.uleb128 0xb
+ 442 012c 3F000000 		.4byte	.LASF23
+ 443 0130 01       		.byte	0x1
+ 444 0131 E7       		.byte	0xe7
+ 445 0132 CE010000 		.4byte	0x1ce
+ 446 0136 03       		.uleb128 0x3
+ 447 0137 91       		.byte	0x91
+ 448 0138 F07D     		.sleb128 -272
+ 449 013a 0A       		.uleb128 0xa
+ 450 013b 64000000 		.4byte	.LASF24
+ 451 013f 01       		.byte	0x1
+ 452 0140 EA       		.byte	0xea
+ 453 0141 6B000000 		.4byte	0x6b
+ 454 0145 5D000000 		.4byte	.LLST3
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 25
+
+
+ 455 0149 0A       		.uleb128 0xa
+ 456 014a 11000000 		.4byte	.LASF25
+ 457 014e 01       		.byte	0x1
+ 458 014f F0       		.byte	0xf0
+ 459 0150 77000000 		.4byte	0x77
+ 460 0154 83000000 		.4byte	.LLST4
+ 461 0158 0A       		.uleb128 0xa
+ 462 0159 CF000000 		.4byte	.LASF26
+ 463 015d 01       		.byte	0x1
+ 464 015e F3       		.byte	0xf3
+ 465 015f 83000000 		.4byte	0x83
+ 466 0163 B1000000 		.4byte	.LLST5
+ 467 0167 0C       		.uleb128 0xc
+ 468 0168 69647800 		.ascii	"idx\000"
+ 469 016c 01       		.byte	0x1
+ 470 016d F4       		.byte	0xf4
+ 471 016e 77000000 		.4byte	0x77
+ 472 0172 00       		.byte	0
+ 473 0173 0D       		.uleb128 0xd
+ 474 0174 16000000 		.4byte	.LVL5
+ 475 0178 E5010000 		.4byte	0x1e5
+ 476 017c 98010000 		.4byte	0x198
+ 477 0180 0E       		.uleb128 0xe
+ 478 0181 01       		.uleb128 0x1
+ 479 0182 52       		.byte	0x52
+ 480 0183 03       		.uleb128 0x3
+ 481 0184 0A       		.byte	0xa
+ 482 0185 0001     		.2byte	0x100
+ 483 0187 0E       		.uleb128 0xe
+ 484 0188 01       		.uleb128 0x1
+ 485 0189 51       		.byte	0x51
+ 486 018a 06       		.uleb128 0x6
+ 487 018b 74       		.byte	0x74
+ 488 018c 00       		.sleb128 0
+ 489 018d 0B       		.byte	0xb
+ 490 018e 00FF     		.2byte	0xff00
+ 491 0190 1A       		.byte	0x1a
+ 492 0191 0E       		.uleb128 0xe
+ 493 0192 01       		.uleb128 0x1
+ 494 0193 50       		.byte	0x50
+ 495 0194 02       		.uleb128 0x2
+ 496 0195 7D       		.byte	0x7d
+ 497 0196 00       		.sleb128 0
+ 498 0197 00       		.byte	0
+ 499 0198 0D       		.uleb128 0xd
+ 500 0199 2A000000 		.4byte	.LVL6
+ 501 019d 0F020000 		.4byte	0x20f
+ 502 01a1 C4010000 		.4byte	0x1c4
+ 503 01a5 0E       		.uleb128 0xe
+ 504 01a6 01       		.uleb128 0x1
+ 505 01a7 52       		.byte	0x52
+ 506 01a8 02       		.uleb128 0x2
+ 507 01a9 7D       		.byte	0x7d
+ 508 01aa 00       		.sleb128 0
+ 509 01ab 0E       		.uleb128 0xe
+ 510 01ac 01       		.uleb128 0x1
+ 511 01ad 51       		.byte	0x51
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 26
+
+
+ 512 01ae 08       		.uleb128 0x8
+ 513 01af 74       		.byte	0x74
+ 514 01b0 00       		.sleb128 0
+ 515 01b1 09       		.byte	0x9
+ 516 01b2 F4       		.byte	0xf4
+ 517 01b3 24       		.byte	0x24
+ 518 01b4 09       		.byte	0x9
+ 519 01b5 FC       		.byte	0xfc
+ 520 01b6 25       		.byte	0x25
+ 521 01b7 0E       		.uleb128 0xe
+ 522 01b8 01       		.uleb128 0x1
+ 523 01b9 50       		.byte	0x50
+ 524 01ba 08       		.uleb128 0x8
+ 525 01bb 74       		.byte	0x74
+ 526 01bc 00       		.sleb128 0
+ 527 01bd 09       		.byte	0x9
+ 528 01be EC       		.byte	0xec
+ 529 01bf 24       		.byte	0x24
+ 530 01c0 09       		.byte	0x9
+ 531 01c1 FC       		.byte	0xfc
+ 532 01c2 25       		.byte	0x25
+ 533 01c3 00       		.byte	0
+ 534 01c4 0F       		.uleb128 0xf
+ 535 01c5 2E000000 		.4byte	.LVL7
+ 536 01c9 39020000 		.4byte	0x239
+ 537 01cd 00       		.byte	0
+ 538 01ce 10       		.uleb128 0x10
+ 539 01cf 6B000000 		.4byte	0x6b
+ 540 01d3 DE010000 		.4byte	0x1de
+ 541 01d7 11       		.uleb128 0x11
+ 542 01d8 C1000000 		.4byte	0xc1
+ 543 01dc FF       		.byte	0xff
+ 544 01dd 00       		.byte	0
+ 545 01de 12       		.uleb128 0x12
+ 546 01df E5010000 		.4byte	.LASF27
+ 547 01e3 03       		.byte	0x3
+ 548 01e4 7C       		.byte	0x7c
+ 549 01e5 13       		.uleb128 0x13
+ 550 01e6 09000000 		.4byte	.LASF32
+ 551 01ea 04       		.byte	0x4
+ 552 01eb 00       		.byte	0
+ 553 01ec 09000000 		.4byte	.LASF32
+ 554 01f0 C8000000 		.4byte	0xc8
+ 555 01f4 08020000 		.4byte	0x208
+ 556 01f8 14       		.uleb128 0x14
+ 557 01f9 C8000000 		.4byte	0xc8
+ 558 01fd 14       		.uleb128 0x14
+ 559 01fe 08020000 		.4byte	0x208
+ 560 0202 14       		.uleb128 0x14
+ 561 0203 64000000 		.4byte	0x64
+ 562 0207 00       		.byte	0
+ 563 0208 15       		.uleb128 0x15
+ 564 0209 04       		.byte	0x4
+ 565 020a 0E020000 		.4byte	0x20e
+ 566 020e 16       		.uleb128 0x16
+ 567 020f 17       		.uleb128 0x17
+ 568 0210 7C020000 		.4byte	.LASF33
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 27
+
+
+ 569 0214 05       		.byte	0x5
+ 570 0215 4A       		.byte	0x4a
+ 571 0216 A4000000 		.4byte	0xa4
+ 572 021a 2E020000 		.4byte	0x22e
+ 573 021e 14       		.uleb128 0x14
+ 574 021f 6B000000 		.4byte	0x6b
+ 575 0223 14       		.uleb128 0x14
+ 576 0224 77000000 		.4byte	0x77
+ 577 0228 14       		.uleb128 0x14
+ 578 0229 2E020000 		.4byte	0x22e
+ 579 022d 00       		.byte	0
+ 580 022e 15       		.uleb128 0x15
+ 581 022f 04       		.byte	0x4
+ 582 0230 34020000 		.4byte	0x234
+ 583 0234 18       		.uleb128 0x18
+ 584 0235 6B000000 		.4byte	0x6b
+ 585 0239 12       		.uleb128 0x12
+ 586 023a 6F020000 		.4byte	.LASF28
+ 587 023e 03       		.byte	0x3
+ 588 023f 96       		.byte	0x96
+ 589 0240 00       		.byte	0
+ 590              		.section	.debug_abbrev,"",%progbits
+ 591              	.Ldebug_abbrev0:
+ 592 0000 01       		.uleb128 0x1
+ 593 0001 11       		.uleb128 0x11
+ 594 0002 01       		.byte	0x1
+ 595 0003 25       		.uleb128 0x25
+ 596 0004 0E       		.uleb128 0xe
+ 597 0005 13       		.uleb128 0x13
+ 598 0006 0B       		.uleb128 0xb
+ 599 0007 03       		.uleb128 0x3
+ 600 0008 0E       		.uleb128 0xe
+ 601 0009 1B       		.uleb128 0x1b
+ 602 000a 0E       		.uleb128 0xe
+ 603 000b 55       		.uleb128 0x55
+ 604 000c 17       		.uleb128 0x17
+ 605 000d 11       		.uleb128 0x11
+ 606 000e 01       		.uleb128 0x1
+ 607 000f 10       		.uleb128 0x10
+ 608 0010 17       		.uleb128 0x17
+ 609 0011 00       		.byte	0
+ 610 0012 00       		.byte	0
+ 611 0013 02       		.uleb128 0x2
+ 612 0014 24       		.uleb128 0x24
+ 613 0015 00       		.byte	0
+ 614 0016 0B       		.uleb128 0xb
+ 615 0017 0B       		.uleb128 0xb
+ 616 0018 3E       		.uleb128 0x3e
+ 617 0019 0B       		.uleb128 0xb
+ 618 001a 03       		.uleb128 0x3
+ 619 001b 0E       		.uleb128 0xe
+ 620 001c 00       		.byte	0
+ 621 001d 00       		.byte	0
+ 622 001e 03       		.uleb128 0x3
+ 623 001f 24       		.uleb128 0x24
+ 624 0020 00       		.byte	0
+ 625 0021 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 28
+
+
+ 626 0022 0B       		.uleb128 0xb
+ 627 0023 3E       		.uleb128 0x3e
+ 628 0024 0B       		.uleb128 0xb
+ 629 0025 03       		.uleb128 0x3
+ 630 0026 08       		.uleb128 0x8
+ 631 0027 00       		.byte	0
+ 632 0028 00       		.byte	0
+ 633 0029 04       		.uleb128 0x4
+ 634 002a 16       		.uleb128 0x16
+ 635 002b 00       		.byte	0
+ 636 002c 03       		.uleb128 0x3
+ 637 002d 0E       		.uleb128 0xe
+ 638 002e 3A       		.uleb128 0x3a
+ 639 002f 0B       		.uleb128 0xb
+ 640 0030 3B       		.uleb128 0x3b
+ 641 0031 05       		.uleb128 0x5
+ 642 0032 49       		.uleb128 0x49
+ 643 0033 13       		.uleb128 0x13
+ 644 0034 00       		.byte	0
+ 645 0035 00       		.byte	0
+ 646 0036 05       		.uleb128 0x5
+ 647 0037 35       		.uleb128 0x35
+ 648 0038 00       		.byte	0
+ 649 0039 49       		.uleb128 0x49
+ 650 003a 13       		.uleb128 0x13
+ 651 003b 00       		.byte	0
+ 652 003c 00       		.byte	0
+ 653 003d 06       		.uleb128 0x6
+ 654 003e 0F       		.uleb128 0xf
+ 655 003f 00       		.byte	0
+ 656 0040 0B       		.uleb128 0xb
+ 657 0041 0B       		.uleb128 0xb
+ 658 0042 00       		.byte	0
+ 659 0043 00       		.byte	0
+ 660 0044 07       		.uleb128 0x7
+ 661 0045 2E       		.uleb128 0x2e
+ 662 0046 01       		.byte	0x1
+ 663 0047 3F       		.uleb128 0x3f
+ 664 0048 19       		.uleb128 0x19
+ 665 0049 03       		.uleb128 0x3
+ 666 004a 0E       		.uleb128 0xe
+ 667 004b 3A       		.uleb128 0x3a
+ 668 004c 0B       		.uleb128 0xb
+ 669 004d 3B       		.uleb128 0x3b
+ 670 004e 0B       		.uleb128 0xb
+ 671 004f 27       		.uleb128 0x27
+ 672 0050 19       		.uleb128 0x19
+ 673 0051 11       		.uleb128 0x11
+ 674 0052 01       		.uleb128 0x1
+ 675 0053 12       		.uleb128 0x12
+ 676 0054 06       		.uleb128 0x6
+ 677 0055 40       		.uleb128 0x40
+ 678 0056 18       		.uleb128 0x18
+ 679 0057 9742     		.uleb128 0x2117
+ 680 0059 19       		.uleb128 0x19
+ 681 005a 01       		.uleb128 0x1
+ 682 005b 13       		.uleb128 0x13
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 29
+
+
+ 683 005c 00       		.byte	0
+ 684 005d 00       		.byte	0
+ 685 005e 08       		.uleb128 0x8
+ 686 005f 898201   		.uleb128 0x4109
+ 687 0062 00       		.byte	0
+ 688 0063 11       		.uleb128 0x11
+ 689 0064 01       		.uleb128 0x1
+ 690 0065 9542     		.uleb128 0x2115
+ 691 0067 19       		.uleb128 0x19
+ 692 0068 31       		.uleb128 0x31
+ 693 0069 13       		.uleb128 0x13
+ 694 006a 00       		.byte	0
+ 695 006b 00       		.byte	0
+ 696 006c 09       		.uleb128 0x9
+ 697 006d 05       		.uleb128 0x5
+ 698 006e 00       		.byte	0
+ 699 006f 03       		.uleb128 0x3
+ 700 0070 0E       		.uleb128 0xe
+ 701 0071 3A       		.uleb128 0x3a
+ 702 0072 0B       		.uleb128 0xb
+ 703 0073 3B       		.uleb128 0x3b
+ 704 0074 0B       		.uleb128 0xb
+ 705 0075 49       		.uleb128 0x49
+ 706 0076 13       		.uleb128 0x13
+ 707 0077 02       		.uleb128 0x2
+ 708 0078 17       		.uleb128 0x17
+ 709 0079 00       		.byte	0
+ 710 007a 00       		.byte	0
+ 711 007b 0A       		.uleb128 0xa
+ 712 007c 34       		.uleb128 0x34
+ 713 007d 00       		.byte	0
+ 714 007e 03       		.uleb128 0x3
+ 715 007f 0E       		.uleb128 0xe
+ 716 0080 3A       		.uleb128 0x3a
+ 717 0081 0B       		.uleb128 0xb
+ 718 0082 3B       		.uleb128 0x3b
+ 719 0083 0B       		.uleb128 0xb
+ 720 0084 49       		.uleb128 0x49
+ 721 0085 13       		.uleb128 0x13
+ 722 0086 02       		.uleb128 0x2
+ 723 0087 17       		.uleb128 0x17
+ 724 0088 00       		.byte	0
+ 725 0089 00       		.byte	0
+ 726 008a 0B       		.uleb128 0xb
+ 727 008b 34       		.uleb128 0x34
+ 728 008c 00       		.byte	0
+ 729 008d 03       		.uleb128 0x3
+ 730 008e 0E       		.uleb128 0xe
+ 731 008f 3A       		.uleb128 0x3a
+ 732 0090 0B       		.uleb128 0xb
+ 733 0091 3B       		.uleb128 0x3b
+ 734 0092 0B       		.uleb128 0xb
+ 735 0093 49       		.uleb128 0x49
+ 736 0094 13       		.uleb128 0x13
+ 737 0095 02       		.uleb128 0x2
+ 738 0096 18       		.uleb128 0x18
+ 739 0097 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 30
+
+
+ 740 0098 00       		.byte	0
+ 741 0099 0C       		.uleb128 0xc
+ 742 009a 34       		.uleb128 0x34
+ 743 009b 00       		.byte	0
+ 744 009c 03       		.uleb128 0x3
+ 745 009d 08       		.uleb128 0x8
+ 746 009e 3A       		.uleb128 0x3a
+ 747 009f 0B       		.uleb128 0xb
+ 748 00a0 3B       		.uleb128 0x3b
+ 749 00a1 0B       		.uleb128 0xb
+ 750 00a2 49       		.uleb128 0x49
+ 751 00a3 13       		.uleb128 0x13
+ 752 00a4 1C       		.uleb128 0x1c
+ 753 00a5 0B       		.uleb128 0xb
+ 754 00a6 00       		.byte	0
+ 755 00a7 00       		.byte	0
+ 756 00a8 0D       		.uleb128 0xd
+ 757 00a9 898201   		.uleb128 0x4109
+ 758 00ac 01       		.byte	0x1
+ 759 00ad 11       		.uleb128 0x11
+ 760 00ae 01       		.uleb128 0x1
+ 761 00af 31       		.uleb128 0x31
+ 762 00b0 13       		.uleb128 0x13
+ 763 00b1 01       		.uleb128 0x1
+ 764 00b2 13       		.uleb128 0x13
+ 765 00b3 00       		.byte	0
+ 766 00b4 00       		.byte	0
+ 767 00b5 0E       		.uleb128 0xe
+ 768 00b6 8A8201   		.uleb128 0x410a
+ 769 00b9 00       		.byte	0
+ 770 00ba 02       		.uleb128 0x2
+ 771 00bb 18       		.uleb128 0x18
+ 772 00bc 9142     		.uleb128 0x2111
+ 773 00be 18       		.uleb128 0x18
+ 774 00bf 00       		.byte	0
+ 775 00c0 00       		.byte	0
+ 776 00c1 0F       		.uleb128 0xf
+ 777 00c2 898201   		.uleb128 0x4109
+ 778 00c5 00       		.byte	0
+ 779 00c6 11       		.uleb128 0x11
+ 780 00c7 01       		.uleb128 0x1
+ 781 00c8 31       		.uleb128 0x31
+ 782 00c9 13       		.uleb128 0x13
+ 783 00ca 00       		.byte	0
+ 784 00cb 00       		.byte	0
+ 785 00cc 10       		.uleb128 0x10
+ 786 00cd 01       		.uleb128 0x1
+ 787 00ce 01       		.byte	0x1
+ 788 00cf 49       		.uleb128 0x49
+ 789 00d0 13       		.uleb128 0x13
+ 790 00d1 01       		.uleb128 0x1
+ 791 00d2 13       		.uleb128 0x13
+ 792 00d3 00       		.byte	0
+ 793 00d4 00       		.byte	0
+ 794 00d5 11       		.uleb128 0x11
+ 795 00d6 21       		.uleb128 0x21
+ 796 00d7 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 31
+
+
+ 797 00d8 49       		.uleb128 0x49
+ 798 00d9 13       		.uleb128 0x13
+ 799 00da 2F       		.uleb128 0x2f
+ 800 00db 0B       		.uleb128 0xb
+ 801 00dc 00       		.byte	0
+ 802 00dd 00       		.byte	0
+ 803 00de 12       		.uleb128 0x12
+ 804 00df 2E       		.uleb128 0x2e
+ 805 00e0 00       		.byte	0
+ 806 00e1 3F       		.uleb128 0x3f
+ 807 00e2 19       		.uleb128 0x19
+ 808 00e3 03       		.uleb128 0x3
+ 809 00e4 0E       		.uleb128 0xe
+ 810 00e5 3A       		.uleb128 0x3a
+ 811 00e6 0B       		.uleb128 0xb
+ 812 00e7 3B       		.uleb128 0x3b
+ 813 00e8 0B       		.uleb128 0xb
+ 814 00e9 27       		.uleb128 0x27
+ 815 00ea 19       		.uleb128 0x19
+ 816 00eb 3C       		.uleb128 0x3c
+ 817 00ec 19       		.uleb128 0x19
+ 818 00ed 00       		.byte	0
+ 819 00ee 00       		.byte	0
+ 820 00ef 13       		.uleb128 0x13
+ 821 00f0 2E       		.uleb128 0x2e
+ 822 00f1 01       		.byte	0x1
+ 823 00f2 3F       		.uleb128 0x3f
+ 824 00f3 19       		.uleb128 0x19
+ 825 00f4 03       		.uleb128 0x3
+ 826 00f5 0E       		.uleb128 0xe
+ 827 00f6 3A       		.uleb128 0x3a
+ 828 00f7 0B       		.uleb128 0xb
+ 829 00f8 3B       		.uleb128 0x3b
+ 830 00f9 0B       		.uleb128 0xb
+ 831 00fa 6E       		.uleb128 0x6e
+ 832 00fb 0E       		.uleb128 0xe
+ 833 00fc 27       		.uleb128 0x27
+ 834 00fd 19       		.uleb128 0x19
+ 835 00fe 49       		.uleb128 0x49
+ 836 00ff 13       		.uleb128 0x13
+ 837 0100 3C       		.uleb128 0x3c
+ 838 0101 19       		.uleb128 0x19
+ 839 0102 01       		.uleb128 0x1
+ 840 0103 13       		.uleb128 0x13
+ 841 0104 00       		.byte	0
+ 842 0105 00       		.byte	0
+ 843 0106 14       		.uleb128 0x14
+ 844 0107 05       		.uleb128 0x5
+ 845 0108 00       		.byte	0
+ 846 0109 49       		.uleb128 0x49
+ 847 010a 13       		.uleb128 0x13
+ 848 010b 00       		.byte	0
+ 849 010c 00       		.byte	0
+ 850 010d 15       		.uleb128 0x15
+ 851 010e 0F       		.uleb128 0xf
+ 852 010f 00       		.byte	0
+ 853 0110 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 32
+
+
+ 854 0111 0B       		.uleb128 0xb
+ 855 0112 49       		.uleb128 0x49
+ 856 0113 13       		.uleb128 0x13
+ 857 0114 00       		.byte	0
+ 858 0115 00       		.byte	0
+ 859 0116 16       		.uleb128 0x16
+ 860 0117 26       		.uleb128 0x26
+ 861 0118 00       		.byte	0
+ 862 0119 00       		.byte	0
+ 863 011a 00       		.byte	0
+ 864 011b 17       		.uleb128 0x17
+ 865 011c 2E       		.uleb128 0x2e
+ 866 011d 01       		.byte	0x1
+ 867 011e 3F       		.uleb128 0x3f
+ 868 011f 19       		.uleb128 0x19
+ 869 0120 03       		.uleb128 0x3
+ 870 0121 0E       		.uleb128 0xe
+ 871 0122 3A       		.uleb128 0x3a
+ 872 0123 0B       		.uleb128 0xb
+ 873 0124 3B       		.uleb128 0x3b
+ 874 0125 0B       		.uleb128 0xb
+ 875 0126 27       		.uleb128 0x27
+ 876 0127 19       		.uleb128 0x19
+ 877 0128 49       		.uleb128 0x49
+ 878 0129 13       		.uleb128 0x13
+ 879 012a 3C       		.uleb128 0x3c
+ 880 012b 19       		.uleb128 0x19
+ 881 012c 01       		.uleb128 0x1
+ 882 012d 13       		.uleb128 0x13
+ 883 012e 00       		.byte	0
+ 884 012f 00       		.byte	0
+ 885 0130 18       		.uleb128 0x18
+ 886 0131 26       		.uleb128 0x26
+ 887 0132 00       		.byte	0
+ 888 0133 49       		.uleb128 0x49
+ 889 0134 13       		.uleb128 0x13
+ 890 0135 00       		.byte	0
+ 891 0136 00       		.byte	0
+ 892 0137 00       		.byte	0
+ 893              		.section	.debug_loc,"",%progbits
+ 894              	.Ldebug_loc0:
+ 895              	.LLST0:
+ 896 0000 00000000 		.4byte	.LVL1
+ 897 0004 12000000 		.4byte	.LVL4
+ 898 0008 0100     		.2byte	0x1
+ 899 000a 50       		.byte	0x50
+ 900 000b 12000000 		.4byte	.LVL4
+ 901 000f 32000000 		.4byte	.LFE1
+ 902 0013 0100     		.2byte	0x1
+ 903 0015 54       		.byte	0x54
+ 904 0016 00000000 		.4byte	0
+ 905 001a 00000000 		.4byte	0
+ 906              	.LLST1:
+ 907 001e 00000000 		.4byte	.LVL1
+ 908 0022 0C000000 		.4byte	.LVL3
+ 909 0026 0100     		.2byte	0x1
+ 910 0028 51       		.byte	0x51
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 33
+
+
+ 911 0029 0C000000 		.4byte	.LVL3
+ 912 002d 32000000 		.4byte	.LFE1
+ 913 0031 0400     		.2byte	0x4
+ 914 0033 F3       		.byte	0xf3
+ 915 0034 01       		.uleb128 0x1
+ 916 0035 51       		.byte	0x51
+ 917 0036 9F       		.byte	0x9f
+ 918 0037 00000000 		.4byte	0
+ 919 003b 00000000 		.4byte	0
+ 920              	.LLST2:
+ 921 003f 04000000 		.4byte	.LVL2
+ 922 0043 12000000 		.4byte	.LVL4
+ 923 0047 0100     		.2byte	0x1
+ 924 0049 50       		.byte	0x50
+ 925 004a 12000000 		.4byte	.LVL4
+ 926 004e 32000000 		.4byte	.LFE1
+ 927 0052 0100     		.2byte	0x1
+ 928 0054 54       		.byte	0x54
+ 929 0055 00000000 		.4byte	0
+ 930 0059 00000000 		.4byte	0
+ 931              	.LLST3:
+ 932 005d 04000000 		.4byte	.LVL2
+ 933 0061 12000000 		.4byte	.LVL4
+ 934 0065 0500     		.2byte	0x5
+ 935 0067 70       		.byte	0x70
+ 936 0068 00       		.sleb128 0
+ 937 0069 40       		.byte	0x40
+ 938 006a 25       		.byte	0x25
+ 939 006b 9F       		.byte	0x9f
+ 940 006c 12000000 		.4byte	.LVL4
+ 941 0070 32000000 		.4byte	.LFE1
+ 942 0074 0500     		.2byte	0x5
+ 943 0076 74       		.byte	0x74
+ 944 0077 00       		.sleb128 0
+ 945 0078 40       		.byte	0x40
+ 946 0079 25       		.byte	0x25
+ 947 007a 9F       		.byte	0x9f
+ 948 007b 00000000 		.4byte	0
+ 949 007f 00000000 		.4byte	0
+ 950              	.LLST4:
+ 951 0083 04000000 		.4byte	.LVL2
+ 952 0087 12000000 		.4byte	.LVL4
+ 953 008b 0900     		.2byte	0x9
+ 954 008d 70       		.byte	0x70
+ 955 008e 00       		.sleb128 0
+ 956 008f 0A       		.byte	0xa
+ 957 0090 FFFF     		.2byte	0xffff
+ 958 0092 1A       		.byte	0x1a
+ 959 0093 38       		.byte	0x38
+ 960 0094 25       		.byte	0x25
+ 961 0095 9F       		.byte	0x9f
+ 962 0096 12000000 		.4byte	.LVL4
+ 963 009a 32000000 		.4byte	.LFE1
+ 964 009e 0900     		.2byte	0x9
+ 965 00a0 74       		.byte	0x74
+ 966 00a1 00       		.sleb128 0
+ 967 00a2 0A       		.byte	0xa
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 34
+
+
+ 968 00a3 FFFF     		.2byte	0xffff
+ 969 00a5 1A       		.byte	0x1a
+ 970 00a6 38       		.byte	0x38
+ 971 00a7 25       		.byte	0x25
+ 972 00a8 9F       		.byte	0x9f
+ 973 00a9 00000000 		.4byte	0
+ 974 00ad 00000000 		.4byte	0
+ 975              	.LLST5:
+ 976 00b1 04000000 		.4byte	.LVL2
+ 977 00b5 0C000000 		.4byte	.LVL3
+ 978 00b9 0700     		.2byte	0x7
+ 979 00bb 70       		.byte	0x70
+ 980 00bc 00       		.sleb128 0
+ 981 00bd 0B       		.byte	0xb
+ 982 00be 00FF     		.2byte	0xff00
+ 983 00c0 1A       		.byte	0x1a
+ 984 00c1 9F       		.byte	0x9f
+ 985 00c2 0C000000 		.4byte	.LVL3
+ 986 00c6 15000000 		.4byte	.LVL5-1
+ 987 00ca 0100     		.2byte	0x1
+ 988 00cc 51       		.byte	0x51
+ 989 00cd 15000000 		.4byte	.LVL5-1
+ 990 00d1 32000000 		.4byte	.LFE1
+ 991 00d5 0700     		.2byte	0x7
+ 992 00d7 74       		.byte	0x74
+ 993 00d8 00       		.sleb128 0
+ 994 00d9 0B       		.byte	0xb
+ 995 00da 00FF     		.2byte	0xff00
+ 996 00dc 1A       		.byte	0x1a
+ 997 00dd 9F       		.byte	0x9f
+ 998 00de 00000000 		.4byte	0
+ 999 00e2 00000000 		.4byte	0
+ 1000              		.section	.debug_aranges,"",%progbits
+ 1001 0000 24000000 		.4byte	0x24
+ 1002 0004 0200     		.2byte	0x2
+ 1003 0006 00000000 		.4byte	.Ldebug_info0
+ 1004 000a 04       		.byte	0x4
+ 1005 000b 00       		.byte	0
+ 1006 000c 0000     		.2byte	0
+ 1007 000e 0000     		.2byte	0
+ 1008 0010 00000000 		.4byte	.LFB0
+ 1009 0014 10000000 		.4byte	.LFE0-.LFB0
+ 1010 0018 00000000 		.4byte	.LFB1
+ 1011 001c 32000000 		.4byte	.LFE1-.LFB1
+ 1012 0020 00000000 		.4byte	0
+ 1013 0024 00000000 		.4byte	0
+ 1014              		.section	.debug_ranges,"",%progbits
+ 1015              	.Ldebug_ranges0:
+ 1016 0000 00000000 		.4byte	.LFB0
+ 1017 0004 10000000 		.4byte	.LFE0
+ 1018 0008 00000000 		.4byte	.LFB1
+ 1019 000c 32000000 		.4byte	.LFE1
+ 1020 0010 00000000 		.4byte	0
+ 1021 0014 00000000 		.4byte	0
+ 1022              		.section	.debug_line,"",%progbits
+ 1023              	.Ldebug_line0:
+ 1024 0000 A0000000 		.section	.debug_str,"MS",%progbits,1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 35
+
+
+ 1024      02006F00 
+ 1024      00000201 
+ 1024      FB0E0D00 
+ 1024      01010101 
+ 1025              	.LASF15:
+ 1026 0000 63797374 		.ascii	"cystatus\000"
+ 1026      61747573 
+ 1026      00
+ 1027              	.LASF32:
+ 1028 0009 6D656D6D 		.ascii	"memmove\000"
+ 1028      6F766500 
+ 1029              	.LASF25:
+ 1030 0011 726F774E 		.ascii	"rowNum\000"
+ 1030      756D00
+ 1031              	.LASF3:
+ 1032 0018 73686F72 		.ascii	"short unsigned int\000"
+ 1032      7420756E 
+ 1032      7369676E 
+ 1032      65642069 
+ 1032      6E7400
+ 1033              	.LASF12:
+ 1034 002b 666C6F61 		.ascii	"float\000"
+ 1034      7400
+ 1035              	.LASF1:
+ 1036 0031 756E7369 		.ascii	"unsigned char\000"
+ 1036      676E6564 
+ 1036      20636861 
+ 1036      7200
+ 1037              	.LASF23:
+ 1038 003f 726F7744 		.ascii	"rowData\000"
+ 1038      61746100 
+ 1039              	.LASF16:
+ 1040 0047 72656738 		.ascii	"reg8\000"
+ 1040      00
+ 1041              	.LASF5:
+ 1042 004c 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1042      20756E73 
+ 1042      69676E65 
+ 1042      6420696E 
+ 1042      7400
+ 1043              	.LASF9:
+ 1044 005e 75696E74 		.ascii	"uint8\000"
+ 1044      3800
+ 1045              	.LASF24:
+ 1046 0064 61727261 		.ascii	"arrayId\000"
+ 1046      79496400 
+ 1047              	.LASF18:
+ 1048 006c 426F6F74 		.ascii	"Bootloadable_Load\000"
+ 1048      6C6F6164 
+ 1048      61626C65 
+ 1048      5F4C6F61 
+ 1048      6400
+ 1049              	.LASF13:
+ 1050 007e 646F7562 		.ascii	"double\000"
+ 1050      6C6500
+ 1051              	.LASF22:
+ 1052 0085 666C7341 		.ascii	"flsAddr\000"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 36
+
+
+ 1052      64647200 
+ 1053              	.LASF10:
+ 1054 008d 75696E74 		.ascii	"uint16\000"
+ 1054      313600
+ 1055              	.LASF11:
+ 1056 0094 75696E74 		.ascii	"uint32\000"
+ 1056      333200
+ 1057              	.LASF8:
+ 1058 009b 756E7369 		.ascii	"unsigned int\000"
+ 1058      676E6564 
+ 1058      20696E74 
+ 1058      00
+ 1059              	.LASF20:
+ 1060 00a8 61646472 		.ascii	"address\000"
+ 1060      65737300 
+ 1061              	.LASF7:
+ 1062 00b0 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1062      206C6F6E 
+ 1062      6720756E 
+ 1062      7369676E 
+ 1062      65642069 
+ 1063              	.LASF21:
+ 1064 00c7 72756E54 		.ascii	"runType\000"
+ 1064      79706500 
+ 1065              	.LASF26:
+ 1066 00cf 62617365 		.ascii	"baseAddr\000"
+ 1066      41646472 
+ 1066      00
+ 1067              	.LASF17:
+ 1068 00d8 73697A65 		.ascii	"sizetype\000"
+ 1068      74797065 
+ 1068      00
+ 1069              	.LASF6:
+ 1070 00e1 6C6F6E67 		.ascii	"long long int\000"
+ 1070      206C6F6E 
+ 1070      6720696E 
+ 1070      7400
+ 1071              	.LASF29:
+ 1072 00ef 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1072      4320342E 
+ 1072      392E3320 
+ 1072      32303135 
+ 1072      30333033 
+ 1073 0122 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1073      20726576 
+ 1073      6973696F 
+ 1073      6E203232 
+ 1073      31323230 
+ 1074 0155 33202D66 		.ascii	"3 -ffunction-sections -finline-functions -flto -ffa"
+ 1074      66756E63 
+ 1074      74696F6E 
+ 1074      2D736563 
+ 1074      74696F6E 
+ 1075 0188 742D6C74 		.ascii	"t-lto-objects\000"
+ 1075      6F2D6F62 
+ 1075      6A656374 
+ 1075      7300
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 37
+
+
+ 1076              	.LASF14:
+ 1077 0196 63686172 		.ascii	"char\000"
+ 1077      00
+ 1078              	.LASF19:
+ 1079 019b 426F6F74 		.ascii	"Bootloadable_SetFlashByte\000"
+ 1079      6C6F6164 
+ 1079      61626C65 
+ 1079      5F536574 
+ 1079      466C6173 
+ 1080              	.LASF2:
+ 1081 01b5 73686F72 		.ascii	"short int\000"
+ 1081      7420696E 
+ 1081      7400
+ 1082              	.LASF30:
+ 1083 01bf 47656E65 		.ascii	"Generated_Source\\PSoC5\\Bootloadable.c\000"
+ 1083      72617465 
+ 1083      645F536F 
+ 1083      75726365 
+ 1083      5C50536F 
+ 1084              	.LASF27:
+ 1085 01e5 4379536F 		.ascii	"CySoftwareReset\000"
+ 1085      66747761 
+ 1085      72655265 
+ 1085      73657400 
+ 1086              	.LASF4:
+ 1087 01f5 6C6F6E67 		.ascii	"long int\000"
+ 1087      20696E74 
+ 1087      00
+ 1088              	.LASF31:
+ 1089 01fe 433A5C55 		.ascii	"C:\\Users\\Bruger\\OneDrive\\Skrivebord\\CODE\\PSOC"
+ 1089      73657273 
+ 1089      5C427275 
+ 1089      6765725C 
+ 1089      4F6E6544 
+ 1090 022b 355C4359 		.ascii	"5\\CY8CKIT-59-Arduino\\CY8CKIT59_Ardudino-Speeduino"
+ 1090      38434B49 
+ 1090      542D3539 
+ 1090      2D417264 
+ 1090      75696E6F 
+ 1091 025c 2E637964 		.ascii	".cydsn\000"
+ 1091      736E00
+ 1092              	.LASF0:
+ 1093 0263 7369676E 		.ascii	"signed char\000"
+ 1093      65642063 
+ 1093      68617200 
+ 1094              	.LASF28:
+ 1095 026f 4379466C 		.ascii	"CyFlushCache\000"
+ 1095      75736843 
+ 1095      61636865 
+ 1095      00
+ 1096              	.LASF33:
+ 1097 027c 43795772 		.ascii	"CyWriteRowData\000"
+ 1097      69746552 
+ 1097      6F774461 
+ 1097      746100
+ 1098              		.comm	__gnu_lto_v1,1,1
+ 1099              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccL4aqFN.s 			page 38
+
+

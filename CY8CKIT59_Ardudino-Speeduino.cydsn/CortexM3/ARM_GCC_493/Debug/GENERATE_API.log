@@ -1,0 +1,25 @@
+--------------- Build Started: 10/05/2017 14:50:51 Project: CY8CKIT59_Ardudino-Speeduino, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\Bruger\AppData\Local\Cypress Semiconductor\PSoC Creator\4.0" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\Bruger\Desktop\CODE\PSOC5\CY8CKIT-59-Arduino\CY8CKIT59_Ardudino-Speeduino.cydsn\CY8CKIT59_Ardudino-Speeduino.cyprj -d CY8C5888LTI-LP097 -s C:\Users\Bruger\Desktop\CODE\PSOC5\CY8CKIT-59-Arduino\CY8CKIT59_Ardudino-Speeduino.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: sdb.M0017: error: No drivers on signal "Net_5818", bit(s) "0".
+ * C:\Users\Bruger\Desktop\CODE\PSOC5\CY8CKIT-59-Arduino\CY8CKIT59_Ardudino-Speeduino.cydsn\TopDesign\TopDesign.cysch (Signal: Net_5818)
+ * C:\Users\Bruger\Desktop\CODE\PSOC5\CY8CKIT-59-Arduino\CY8CKIT59_Ardudino-Speeduino.cydsn\TopDesign\TopDesign.cysch (Shape_1978)
+ADD: sdb.M0017: error: No drivers on signal "Net_5843", bit(s) "0".
+ * C:\Users\Bruger\Desktop\CODE\PSOC5\CY8CKIT-59-Arduino\CY8CKIT59_Ardudino-Speeduino.cydsn\TopDesign\TopDesign.cysch (Signal: Net_5843)
+ * C:\Users\Bruger\Desktop\CODE\PSOC5\CY8CKIT-59-Arduino\CY8CKIT59_Ardudino-Speeduino.cydsn\TopDesign\TopDesign.cysch (Shape_1979)
+ADD: sdb.M0017: error: No drivers on signal "Net_5856", bit(s) "0".
+ * C:\Users\Bruger\Desktop\CODE\PSOC5\CY8CKIT-59-Arduino\CY8CKIT59_Ardudino-Speeduino.cydsn\TopDesign\TopDesign.cysch (Signal: Net_5856)
+ * C:\Users\Bruger\Desktop\CODE\PSOC5\CY8CKIT-59-Arduino\CY8CKIT59_Ardudino-Speeduino.cydsn\TopDesign\TopDesign.cysch (Shape_1981)
+ADD: sdb.M0017: error: No drivers on signal "Net_6527", bit(s) "0".
+ * C:\Users\Bruger\Desktop\CODE\PSOC5\CY8CKIT-59-Arduino\CY8CKIT59_Ardudino-Speeduino.cydsn\TopDesign\TopDesign.cysch (Signal: Net_6527)
+ * C:\Users\Bruger\Desktop\CODE\PSOC5\CY8CKIT-59-Arduino\CY8CKIT59_Ardudino-Speeduino.cydsn\TopDesign\TopDesign.cysch (Shape_2646)
+ADD: sdb.M0025: error: No input on Instance "Sync_1", terminal "s_in".
+ * C:\Users\Bruger\Desktop\CODE\PSOC5\CY8CKIT-59-Arduino\CY8CKIT59_Ardudino-Speeduino.cydsn\TopDesign\TopDesign.cysch (Signal: Net_7256)
+ * C:\Users\Bruger\Desktop\CODE\PSOC5\CY8CKIT-59-Arduino\CY8CKIT59_Ardudino-Speeduino.cydsn\TopDesign\TopDesign.cysch (Shape_656.1)
+ADD: sdb.M0050: error: Terminal "s_in" requires connection when it is visible.
+ * C:\Users\Bruger\Desktop\CODE\PSOC5\CY8CKIT-59-Arduino\CY8CKIT59_Ardudino-Speeduino.cydsn\TopDesign\TopDesign.cysch (Signal: Net_7256)
+ * C:\Users\Bruger\Desktop\CODE\PSOC5\CY8CKIT-59-Arduino\CY8CKIT59_Ardudino-Speeduino.cydsn\TopDesign\TopDesign.cysch (Shape_656.1)
+ADD: fit.M0015: information: One or more rows of flash have been configured to be protected; however, debugging has been enabled in the System DWR Editor. This means that while write restrictions are honored flash rows can still be read via SWD or JTAG. To prevent any ability to read the flash rows, disable debugging in the System DWR Editor.
+ * C:\Users\Bruger\Desktop\CODE\PSOC5\CY8CKIT-59-Arduino\CY8CKIT59_Ardudino-Speeduino.cydsn\CY8CKIT59_Ardudino-Speeduino.cydwr (Enable Device Protection)
+Error: fit.M0050: The fitter aborted due to errors, please address all errors and rebuild. (App=cydsfit)
+--------------- Build Failed: 10/05/2017 14:50:57 ---------------

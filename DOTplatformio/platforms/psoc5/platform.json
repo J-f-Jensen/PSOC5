@@ -1,0 +1,42 @@
+{
+  "name": "psoc5",
+  "title": "PSOC5",
+  "description": "Arduino support for PSOC5 boards, build on the good work made by Sparkfun for their FreeSoC2",
+  "url": "https://learn.sparkfun.com/tutorials/freesoc2-introduction",
+  "homepage": "http://platformio.org/platforms/xxxx",
+  "license": "Apache-2.0",
+  "engines": {
+    "platformio": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/platformio/xxxx"
+  },
+  "version": "1.7.0",
+  "packageRepositories": [
+    "https://dl.bintray.com/platformio/dl-packages/manifest.json",
+    "https://sourceforge.net/projects/platformio-storage/files/packages/manifest.json/download",
+    "http://dl.platformio.org/packages/manifest.json"
+  ],
+  "frameworks": {
+    "arduino": {
+      "package": "framework-arduinopsoc5",
+      "script": "builder/frameworks/arduino.py"
+    }
+  },
+  "packages": {
+    "toolchain-gccarmnoneeabi": {
+      "type": "toolchain",
+      "version": ">=1.40803.0,<1.40805.0"
+    },
+    "framework-arduinopsoc5": {
+      "type": "framework",
+      "version": "~0.1.2"
+    },
+    "tool-avrdude": {
+      "type": "uploader",
+      "optional": true,
+      "version": "~1.60300.0"
+    }
+  }
+}

@@ -1,0 +1,463 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccfItvaB.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"Arduino_Serial.cpp"
+  15              		.text
+  16              	.Ltext0:
+  17              		.section	.gnu.lto_.profile.24bf6ea9,"",%progbits
+  18 0000 789C6366 		.ascii	"x\234cf```d\200\002\000\000=\000\005"
+  18      60606064 
+  18      80020000 
+  18      3D0005
+  19              		.text
+  20              		.section	.gnu.lto_.inline.24bf6ea9,"",%progbits
+  21 0000 789C6366 		.ascii	"x\234cf\300\016\230\340,\000\000\234\000\006"
+  21      C00E98E0 
+  21      2C00009C 
+  21      0006
+  22              		.text
+  23              		.section	.gnu.lto_.pureconst.24bf6ea9,"",%progbits
+  24 0000 789C6366 		.ascii	"x\234cf```d\200\002\000\000=\000\005"
+  24      60606064 
+  24      80020000 
+  24      3D0005
+  25              		.text
+  26              		.section	.gnu.lto_.symbol_nodes.24bf6ea9,"",%progbits
+  27 0000 789C6366 		.ascii	"x\234cf```b\200\001\000\000L\000\006"
+  27      60606062 
+  27      80010000 
+  27      4C0006
+  28              		.text
+  29              		.section	.gnu.lto_.refs.24bf6ea9,"",%progbits
+  30 0000 789C6366 		.ascii	"x\234cf```d\200\002\000\000=\000\005"
+  30      60606064 
+  30      80020000 
+  30      3D0005
+  31              		.text
+  32              		.section	.gnu.lto_.decls.24bf6ea9,"",%progbits
+  33 0000 789C6366 		.ascii	"x\234cf``P\001\342\377@\000\244\030\030\2418\200\201"
+  33      60605001 
+  33      E2FF4000 
+  33      A41818A1 
+  33      388081
+  34 0013 000000D0 		.ascii	"\000\000\000\3208\004v"
+  34      380476
+  35              		.text
+  36              		.section	.gnu.lto_.symtab.24bf6ea9,"",%progbits
+  37              		.text
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccfItvaB.s 			page 2
+
+
+  38              		.section	.gnu.lto_.opts,"",%progbits
+  39 0000 272D6665 		.ascii	"'-fexceptions' '-fno-trapv' '-mcpu=cortex-m3' '-mth"
+  39      78636570 
+  39      74696F6E 
+  39      73272027 
+  39      2D666E6F 
+  40 0033 756D6227 		.ascii	"umb' '-g' '-O3' '-ffunction-sections' '-finline-fun"
+  40      20272D67 
+  40      2720272D 
+  40      4F332720 
+  40      272D6666 
+  41 0066 6374696F 		.ascii	"ctions' '-flto' '-ffat-lto-objects'\000"
+  41      6E732720 
+  41      272D666C 
+  41      746F2720 
+  41      272D6666 
+  42              		.text
+  43              		.cfi_sections	.debug_frame
+  44              	.Letext0:
+  45              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+  46              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+  47              		.file 3 ".\\core/pins_arduino.h"
+  48              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+  49              		.section	.debug_info,"",%progbits
+  50              	.Ldebug_info0:
+  51 0000 E4000000 		.4byte	0xe4
+  52 0004 0400     		.2byte	0x4
+  53 0006 00000000 		.4byte	.Ldebug_abbrev0
+  54 000a 04       		.byte	0x4
+  55 000b 01       		.uleb128 0x1
+  56 000c 33010000 		.4byte	.LASF19
+  57 0010 04       		.byte	0x4
+  58 0011 C1000000 		.4byte	.LASF20
+  59 0015 44000000 		.4byte	.LASF21
+  60 0019 00000000 		.4byte	.Ldebug_line0
+  61 001d 02       		.uleb128 0x2
+  62 001e 01       		.byte	0x1
+  63 001f 06       		.byte	0x6
+  64 0020 27010000 		.4byte	.LASF0
+  65 0024 03       		.uleb128 0x3
+  66 0025 EF000000 		.4byte	.LASF4
+  67 0029 01       		.byte	0x1
+  68 002a 1D       		.byte	0x1d
+  69 002b 2F000000 		.4byte	0x2f
+  70 002f 02       		.uleb128 0x2
+  71 0030 01       		.byte	0x1
+  72 0031 08       		.byte	0x8
+  73 0032 E1000000 		.4byte	.LASF1
+  74 0036 02       		.uleb128 0x2
+  75 0037 02       		.byte	0x2
+  76 0038 05       		.byte	0x5
+  77 0039 EC010000 		.4byte	.LASF2
+  78 003d 02       		.uleb128 0x2
+  79 003e 02       		.byte	0x2
+  80 003f 07       		.byte	0x7
+  81 0040 A9000000 		.4byte	.LASF3
+  82 0044 03       		.uleb128 0x3
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccfItvaB.s 			page 3
+
+
+  83 0045 DC010000 		.4byte	.LASF5
+  84 0049 01       		.byte	0x1
+  85 004a 3F       		.byte	0x3f
+  86 004b 4F000000 		.4byte	0x4f
+  87 004f 02       		.uleb128 0x2
+  88 0050 04       		.byte	0x4
+  89 0051 05       		.byte	0x5
+  90 0052 FE000000 		.4byte	.LASF6
+  91 0056 02       		.uleb128 0x2
+  92 0057 04       		.byte	0x4
+  93 0058 07       		.byte	0x7
+  94 0059 1B000000 		.4byte	.LASF7
+  95 005d 02       		.uleb128 0x2
+  96 005e 08       		.byte	0x8
+  97 005f 05       		.byte	0x5
+  98 0060 00000000 		.4byte	.LASF8
+  99 0064 02       		.uleb128 0x2
+ 100 0065 08       		.byte	0x8
+ 101 0066 07       		.byte	0x7
+ 102 0067 2D000000 		.4byte	.LASF9
+ 103 006b 04       		.uleb128 0x4
+ 104 006c 04       		.byte	0x4
+ 105 006d 05       		.byte	0x5
+ 106 006e 696E7400 		.ascii	"int\000"
+ 107 0072 02       		.uleb128 0x2
+ 108 0073 04       		.byte	0x4
+ 109 0074 07       		.byte	0x7
+ 110 0075 0E000000 		.4byte	.LASF10
+ 111 0079 03       		.uleb128 0x3
+ 112 007a D9000000 		.4byte	.LASF11
+ 113 007e 02       		.byte	0x2
+ 114 007f 15       		.byte	0x15
+ 115 0080 24000000 		.4byte	0x24
+ 116 0084 03       		.uleb128 0x3
+ 117 0085 F6010000 		.4byte	.LASF12
+ 118 0089 02       		.byte	0x2
+ 119 008a 2C       		.byte	0x2c
+ 120 008b 44000000 		.4byte	0x44
+ 121 008f 02       		.uleb128 0x2
+ 122 0090 04       		.byte	0x4
+ 123 0091 04       		.byte	0x4
+ 124 0092 E6010000 		.4byte	.LASF13
+ 125 0096 02       		.uleb128 0x2
+ 126 0097 08       		.byte	0x8
+ 127 0098 04       		.byte	0x4
+ 128 0099 07010000 		.4byte	.LASF14
+ 129 009d 02       		.uleb128 0x2
+ 130 009e 01       		.byte	0x1
+ 131 009f 08       		.byte	0x8
+ 132 00a0 F9000000 		.4byte	.LASF15
+ 133 00a4 02       		.uleb128 0x2
+ 134 00a5 04       		.byte	0x4
+ 135 00a6 07       		.byte	0x7
+ 136 00a7 FE010000 		.4byte	.LASF16
+ 137 00ab 02       		.uleb128 0x2
+ 138 00ac 08       		.byte	0x8
+ 139 00ad 04       		.byte	0x4
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccfItvaB.s 			page 4
+
+
+ 140 00ae 0E010000 		.4byte	.LASF17
+ 141 00b2 02       		.uleb128 0x2
+ 142 00b3 01       		.byte	0x1
+ 143 00b4 02       		.byte	0x2
+ 144 00b5 BC000000 		.4byte	.LASF18
+ 145 00b9 05       		.uleb128 0x5
+ 146 00ba 79000000 		.4byte	0x79
+ 147 00be 06       		.uleb128 0x6
+ 148 00bf 1A010000 		.4byte	.LASF22
+ 149 00c3 04       		.byte	0x4
+ 150 00c4 5506     		.2byte	0x655
+ 151 00c6 CA000000 		.4byte	0xca
+ 152 00ca 07       		.uleb128 0x7
+ 153 00cb 84000000 		.4byte	0x84
+ 154 00cf 08       		.uleb128 0x8
+ 155 00d0 53444100 		.ascii	"SDA\000"
+ 156 00d4 03       		.byte	0x3
+ 157 00d5 2D       		.byte	0x2d
+ 158 00d6 B9000000 		.4byte	0xb9
+ 159 00da 17       		.byte	0x17
+ 160 00db 08       		.uleb128 0x8
+ 161 00dc 53434C00 		.ascii	"SCL\000"
+ 162 00e0 03       		.byte	0x3
+ 163 00e1 2E       		.byte	0x2e
+ 164 00e2 B9000000 		.4byte	0xb9
+ 165 00e6 16       		.byte	0x16
+ 166 00e7 00       		.byte	0
+ 167              		.section	.debug_abbrev,"",%progbits
+ 168              	.Ldebug_abbrev0:
+ 169 0000 01       		.uleb128 0x1
+ 170 0001 11       		.uleb128 0x11
+ 171 0002 01       		.byte	0x1
+ 172 0003 25       		.uleb128 0x25
+ 173 0004 0E       		.uleb128 0xe
+ 174 0005 13       		.uleb128 0x13
+ 175 0006 0B       		.uleb128 0xb
+ 176 0007 03       		.uleb128 0x3
+ 177 0008 0E       		.uleb128 0xe
+ 178 0009 1B       		.uleb128 0x1b
+ 179 000a 0E       		.uleb128 0xe
+ 180 000b 10       		.uleb128 0x10
+ 181 000c 17       		.uleb128 0x17
+ 182 000d 00       		.byte	0
+ 183 000e 00       		.byte	0
+ 184 000f 02       		.uleb128 0x2
+ 185 0010 24       		.uleb128 0x24
+ 186 0011 00       		.byte	0
+ 187 0012 0B       		.uleb128 0xb
+ 188 0013 0B       		.uleb128 0xb
+ 189 0014 3E       		.uleb128 0x3e
+ 190 0015 0B       		.uleb128 0xb
+ 191 0016 03       		.uleb128 0x3
+ 192 0017 0E       		.uleb128 0xe
+ 193 0018 00       		.byte	0
+ 194 0019 00       		.byte	0
+ 195 001a 03       		.uleb128 0x3
+ 196 001b 16       		.uleb128 0x16
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccfItvaB.s 			page 5
+
+
+ 197 001c 00       		.byte	0
+ 198 001d 03       		.uleb128 0x3
+ 199 001e 0E       		.uleb128 0xe
+ 200 001f 3A       		.uleb128 0x3a
+ 201 0020 0B       		.uleb128 0xb
+ 202 0021 3B       		.uleb128 0x3b
+ 203 0022 0B       		.uleb128 0xb
+ 204 0023 49       		.uleb128 0x49
+ 205 0024 13       		.uleb128 0x13
+ 206 0025 00       		.byte	0
+ 207 0026 00       		.byte	0
+ 208 0027 04       		.uleb128 0x4
+ 209 0028 24       		.uleb128 0x24
+ 210 0029 00       		.byte	0
+ 211 002a 0B       		.uleb128 0xb
+ 212 002b 0B       		.uleb128 0xb
+ 213 002c 3E       		.uleb128 0x3e
+ 214 002d 0B       		.uleb128 0xb
+ 215 002e 03       		.uleb128 0x3
+ 216 002f 08       		.uleb128 0x8
+ 217 0030 00       		.byte	0
+ 218 0031 00       		.byte	0
+ 219 0032 05       		.uleb128 0x5
+ 220 0033 26       		.uleb128 0x26
+ 221 0034 00       		.byte	0
+ 222 0035 49       		.uleb128 0x49
+ 223 0036 13       		.uleb128 0x13
+ 224 0037 00       		.byte	0
+ 225 0038 00       		.byte	0
+ 226 0039 06       		.uleb128 0x6
+ 227 003a 34       		.uleb128 0x34
+ 228 003b 00       		.byte	0
+ 229 003c 03       		.uleb128 0x3
+ 230 003d 0E       		.uleb128 0xe
+ 231 003e 3A       		.uleb128 0x3a
+ 232 003f 0B       		.uleb128 0xb
+ 233 0040 3B       		.uleb128 0x3b
+ 234 0041 05       		.uleb128 0x5
+ 235 0042 49       		.uleb128 0x49
+ 236 0043 13       		.uleb128 0x13
+ 237 0044 3F       		.uleb128 0x3f
+ 238 0045 19       		.uleb128 0x19
+ 239 0046 3C       		.uleb128 0x3c
+ 240 0047 19       		.uleb128 0x19
+ 241 0048 00       		.byte	0
+ 242 0049 00       		.byte	0
+ 243 004a 07       		.uleb128 0x7
+ 244 004b 35       		.uleb128 0x35
+ 245 004c 00       		.byte	0
+ 246 004d 49       		.uleb128 0x49
+ 247 004e 13       		.uleb128 0x13
+ 248 004f 00       		.byte	0
+ 249 0050 00       		.byte	0
+ 250 0051 08       		.uleb128 0x8
+ 251 0052 34       		.uleb128 0x34
+ 252 0053 00       		.byte	0
+ 253 0054 03       		.uleb128 0x3
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccfItvaB.s 			page 6
+
+
+ 254 0055 08       		.uleb128 0x8
+ 255 0056 3A       		.uleb128 0x3a
+ 256 0057 0B       		.uleb128 0xb
+ 257 0058 3B       		.uleb128 0x3b
+ 258 0059 0B       		.uleb128 0xb
+ 259 005a 49       		.uleb128 0x49
+ 260 005b 13       		.uleb128 0x13
+ 261 005c 1C       		.uleb128 0x1c
+ 262 005d 0B       		.uleb128 0xb
+ 263 005e 00       		.byte	0
+ 264 005f 00       		.byte	0
+ 265 0060 00       		.byte	0
+ 266              		.section	.debug_aranges,"",%progbits
+ 267 0000 14000000 		.4byte	0x14
+ 268 0004 0200     		.2byte	0x2
+ 269 0006 00000000 		.4byte	.Ldebug_info0
+ 270 000a 04       		.byte	0x4
+ 271 000b 00       		.byte	0
+ 272 000c 0000     		.2byte	0
+ 273 000e 0000     		.2byte	0
+ 274 0010 00000000 		.4byte	0
+ 275 0014 00000000 		.4byte	0
+ 276              		.section	.debug_line,"",%progbits
+ 277              	.Ldebug_line0:
+ 278 0000 4F010000 		.section	.debug_str,"MS",%progbits,1
+ 278      02004901 
+ 278      00000201 
+ 278      FB0E0D00 
+ 278      01010101 
+ 279              	.LASF8:
+ 280 0000 6C6F6E67 		.ascii	"long long int\000"
+ 280      206C6F6E 
+ 280      6720696E 
+ 280      7400
+ 281              	.LASF10:
+ 282 000e 756E7369 		.ascii	"unsigned int\000"
+ 282      676E6564 
+ 282      20696E74 
+ 282      00
+ 283              	.LASF7:
+ 284 001b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 284      20756E73 
+ 284      69676E65 
+ 284      6420696E 
+ 284      7400
+ 285              	.LASF9:
+ 286 002d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 286      206C6F6E 
+ 286      6720756E 
+ 286      7369676E 
+ 286      65642069 
+ 287              	.LASF21:
+ 288 0044 433A5C55 		.ascii	"C:\\Users\\Bruger\\OneDrive\\Skrivebord\\CODE\\PSOC"
+ 288      73657273 
+ 288      5C427275 
+ 288      6765725C 
+ 288      4F6E6544 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccfItvaB.s 			page 7
+
+
+ 289 0071 355C4359 		.ascii	"5\\CY8CKIT-59-Arduino\\CY8CKIT59_Ardudino-Speeduino"
+ 289      38434B49 
+ 289      542D3539 
+ 289      2D417264 
+ 289      75696E6F 
+ 290 00a2 2E637964 		.ascii	".cydsn\000"
+ 290      736E00
+ 291              	.LASF3:
+ 292 00a9 73686F72 		.ascii	"short unsigned int\000"
+ 292      7420756E 
+ 292      7369676E 
+ 292      65642069 
+ 292      6E7400
+ 293              	.LASF18:
+ 294 00bc 626F6F6C 		.ascii	"bool\000"
+ 294      00
+ 295              	.LASF20:
+ 296 00c1 636F7265 		.ascii	"core\\Arduino_Serial.cpp\000"
+ 296      5C417264 
+ 296      75696E6F 
+ 296      5F536572 
+ 296      69616C2E 
+ 297              	.LASF11:
+ 298 00d9 75696E74 		.ascii	"uint8_t\000"
+ 298      385F7400 
+ 299              	.LASF1:
+ 300 00e1 756E7369 		.ascii	"unsigned char\000"
+ 300      676E6564 
+ 300      20636861 
+ 300      7200
+ 301              	.LASF4:
+ 302 00ef 5F5F7569 		.ascii	"__uint8_t\000"
+ 302      6E74385F 
+ 302      7400
+ 303              	.LASF15:
+ 304 00f9 63686172 		.ascii	"char\000"
+ 304      00
+ 305              	.LASF6:
+ 306 00fe 6C6F6E67 		.ascii	"long int\000"
+ 306      20696E74 
+ 306      00
+ 307              	.LASF14:
+ 308 0107 646F7562 		.ascii	"double\000"
+ 308      6C6500
+ 309              	.LASF17:
+ 310 010e 6C6F6E67 		.ascii	"long double\000"
+ 310      20646F75 
+ 310      626C6500 
+ 311              	.LASF22:
+ 312 011a 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 312      52784275 
+ 312      66666572 
+ 312      00
+ 313              	.LASF0:
+ 314 0127 7369676E 		.ascii	"signed char\000"
+ 314      65642063 
+ 314      68617200 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccfItvaB.s 			page 8
+
+
+ 315              	.LASF19:
+ 316 0133 474E5520 		.ascii	"GNU C++ 4.9.3 20150303 (release) [ARM/embedded-4_9-"
+ 316      432B2B20 
+ 316      342E392E 
+ 316      33203230 
+ 316      31353033 
+ 317 0166 6272616E 		.ascii	"branch revision 221220] -mcpu=cortex-m3 -mthumb -g "
+ 317      63682072 
+ 317      65766973 
+ 317      696F6E20 
+ 317      32323132 
+ 318 0199 2D4F3320 		.ascii	"-O3 -ffunction-sections -finline-functions -flto -f"
+ 318      2D666675 
+ 318      6E637469 
+ 318      6F6E2D73 
+ 318      65637469 
+ 319 01cc 6661742D 		.ascii	"fat-lto-objects\000"
+ 319      6C746F2D 
+ 319      6F626A65 
+ 319      63747300 
+ 320              	.LASF5:
+ 321 01dc 5F5F696E 		.ascii	"__int32_t\000"
+ 321      7433325F 
+ 321      7400
+ 322              	.LASF13:
+ 323 01e6 666C6F61 		.ascii	"float\000"
+ 323      7400
+ 324              	.LASF2:
+ 325 01ec 73686F72 		.ascii	"short int\000"
+ 325      7420696E 
+ 325      7400
+ 326              	.LASF12:
+ 327 01f6 696E7433 		.ascii	"int32_t\000"
+ 327      325F7400 
+ 328              	.LASF16:
+ 329 01fe 73697A65 		.ascii	"sizetype\000"
+ 329      74797065 
+ 329      00
+ 330              		.comm	__gnu_lto_v1,1,1
+ 331              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

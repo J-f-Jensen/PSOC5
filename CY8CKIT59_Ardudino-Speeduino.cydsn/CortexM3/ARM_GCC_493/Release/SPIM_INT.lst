@@ -1,0 +1,774 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccYfPmyl.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"SPIM_INT.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.section	.gnu.lto_.profile.ec5a23ff,"",%progbits
+  18 0000 789C6366 		.ascii	"x\234cf```a\200\000F\006\026&\000\000~\000\017"
+  18      60606061 
+  18      80004606 
+  18      16260000 
+  18      7E000F
+  19              		.text
+  20              		.section	.gnu.lto_.jmpfuncs.ec5a23ff,"",%progbits
+  21 0000 789C6366 		.ascii	"x\234cf\300\0168\2404\023\0203\0021\000\0014\000\017"
+  21      C00E38A0 
+  21      34131033 
+  21      02310001 
+  21      34000F
+  22              		.text
+  23              		.section	.gnu.lto_.inline.ec5a23ff,"",%progbits
+  24 0000 789C6366 		.ascii	"x\234cf\300\016\324\2404\023\003\0033\023#\210b`[ \017"
+  24      C00ED4A0 
+  24      34130303 
+  24      33132388 
+  24      62605B20 
+  25 0015 A2181831 		.ascii	"\242\030\0301D\030\000$\007\001\313"
+  25      44180024 
+  25      0701CB
+  26              		.text
+  27              		.section	.gnu.lto_.pureconst.ec5a23ff,"",%progbits
+  28 0000 789C6366 		.ascii	"x\234cf```e\200\000&\006\006F\006\000\000\221\000\014"
+  28      60606065 
+  28      80002606 
+  28      06460600 
+  28      0091000C 
+  29              		.text
+  30              		.section	.gnu.lto_SPIM_TX_ISR.ec5a23ff,"",%progbits
+  31 0000 789C6366 		.ascii	"x\234cf\300\004R@\\\002\304*@\314\310\314\300\3104\341"
+  31      C0045240 
+  31      5C02C42A 
+  31      40CCC8CC 
+  31      C0C834E1 
+  32 0014 1C034323 		.ascii	"\034\003C#\007\023##\210\301\300\310P\317\304X\317\370"
+  32      07132323 
+  32      88C1C0C8 
+  32      50CFC458 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccYfPmyl.s 			page 2
+
+
+  32      CFF8
+  33 0026 92E92313 		.ascii	"\222\351#\023\343\204\003\253gp\253/mhh\370phmC\300"
+  33      E38403AB 
+  33      6770AB2F 
+  33      6D6868F8 
+  33      70686D43 
+  34 003b 01C69F4C 		.ascii	"\001\306\237L\014\014\237\231 \3460.gTg\000*\372\330"
+  34      0C0C9F99 
+  34      20E6302E 
+  34      67546700 
+  34      2AFAD8
+  35 004e F2F73A37 		.ascii	"\362\367:7[\013P\221\000D\216q\005#\033#\220^/t\240"
+  35      5B0B5091 
+  35      00448E71 
+  35      05231B23 
+  35      905E2F74 
+  36 0063 E1FFFFCB 		.ascii	"\341\377\377\313\333\216\330\002E\237\0001\310\374\247"
+  36      DB8ED802 
+  36      459F0031 
+  36      C8FCA7
+  37 0072 4C4C209A 		.ascii	"LL \232\371\036##H\035\310\240'L\214 !\240\002%\367"
+  37      F91E2323 
+  37      481DC8A0 
+  37      274C8C20 
+  37      21A00225 
+  38 0087 D4BCD4A2 		.ascii	"\324\274\324\242\304\222\324\224\370\340\374\322\242"
+  38      C492D494 
+  38      F8E0FCD2 
+  38      A2
+  39 0094 E4D49880 		.ascii	"\344\324\230\200\340|g\323\230\340\000O\337xO\277\020"
+  39      E07C67D3 
+  39      98E0004F 
+  39      DF784FBF 
+  39      10
+  40 00a5 BD640600 		.ascii	"\275d\006\000\251Q5Q"
+  40      A9513551 
+  41              		.text
+  42              		.section	.gnu.lto_SPIM_RX_ISR.ec5a23ff,"",%progbits
+  43 0000 789C6366 		.ascii	"x\234cf\300\004R@\\\002\304*@\314\310\314\300\3104\341"
+  43      C0045240 
+  43      5C02C42A 
+  43      40CCC8CC 
+  43      C0C834E1 
+  44 0014 1C034323 		.ascii	"\034\003C#\007\023##\210\301\300\310P\317\304X\317\370"
+  44      07132323 
+  44      88C1C0C8 
+  44      50CFC458 
+  44      CFF8
+  45 0026 92E92313 		.ascii	"\222\351#\023\343\204\003\253gp\253/mhh\370\360\351"
+  45      E38403AB 
+  45      6770AB2F 
+  45      6D6868F8 
+  45      F0E9
+  46 0038 324BABC4 		.ascii	"2K\253\304O&\006\206\317L\020c\030\2273\2523\000\325"
+  46      4F260686 
+  46      CF4C1063 
+  46      189733AA 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccYfPmyl.s 			page 3
+
+
+  46      3300D5
+  47 004b 7C6CF97B 		.ascii	"|l\371{\235\233\255\005\250F\000\"\307\270\202\221\215"
+  47      9D9BAD05 
+  47      A8460022 
+  47      C7B88291 
+  47      8D
+  48 005c 1148AF17 		.ascii	"\021H\257\027:\320\360\377\377\344+\207v\360\001\205"
+  48      3AD0F0FF 
+  48      FFE42B87 
+  48      76F00185 
+  49 006c 9F0031C8 		.ascii	"\237\0001\310\374\247LL \232\371\036##H!\310\244'L\214"
+  49      FCA74C4C 
+  49      209AF91E 
+  49      23234821 
+  49      C8A4274C 
+  50 0081 2021A002 		.ascii	" !\240\002%\367\324\274\324\242\304\222\324\224\370"
+  50      25F7D4BC 
+  50      D4A2C492 
+  50      D494F8
+  51 0090 E0FCD2A2 		.ascii	"\340\374\322\242\344\324\230\200\340|g\323\230\340\000"
+  51      E4D49880 
+  51      E07C67D3 
+  51      98E000
+  52 009f 4FDF784F 		.ascii	"O\337xO\277\020\275d\006\000\211w5\034"
+  52      BF10BD64 
+  52      06008977 
+  52      351C
+  53              		.text
+  54              		.section	.gnu.lto_.symbol_nodes.ec5a23ff,"",%progbits
+  55 0000 789C6366 		.ascii	"x\234cf``Pb\200\002&\206z\006\206\011\347\030\030\352"
+  55      60605062 
+  55      80022686 
+  55      7A068609 
+  55      E71818EA 
+  56 0014 EB19E62D 		.ascii	"\353\031\346-\340``b\254gD\3463\000\000\2212\010n"
+  56      E0606062 
+  56      AC6744E6 
+  56      33000091 
+  56      32086E
+  57              		.text
+  58              		.section	.gnu.lto_.refs.ec5a23ff,"",%progbits
+  59 0000 789C6366 		.ascii	"x\234cf```d\200\002\000\000=\000\005"
+  59      60606064 
+  59      80020000 
+  59      3D0005
+  60              		.text
+  61              		.section	.gnu.lto_.decls.ec5a23ff,"",%progbits
+  62 0000 789C6366 		.ascii	"x\234cf``\250\001\342\377@\360\014H;\00313\020\0070"
+  62      6060A801 
+  62      E2FF40F0 
+  62      0C483B03 
+  62      31331007 
+  63 0015 20001310 		.ascii	" \000\023\020\257\001\342u\014\230\000$\316\210\244"
+  63      AF01E275 
+  63      0C980024 
+  63      CE88A4
+  64 0024 9E112A86 		.ascii	"\236\021*\206\016\326aQ\207\315\274\217L\214\247\037"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccYfPmyl.s 			page 4
+
+
+  64      0ED66151 
+  64      87CDBC8F 
+  64      4C8CA71F 
+  65 0034 FDF8CCF3 		.ascii	"\375\370\314\363\202\211\221\217K\000\304\235u\375\351"
+  65      8289918F 
+  65      4B00C49D 
+  65      75FDE9
+  66 0043 17662097 		.ascii	"\027f \227\207\213\011\304\335\366\363\333z6\361\251"
+  66      878B09C4 
+  66      DDF6F3DB 
+  66      7A36F1A9 
+  67 0053 0D20D0DC 		.ascii	"\015 \320\334 \300\304\030 \306\270\234Q\212q\005\243"
+  67      20C0C418 
+  67      20C6B89C 
+  67      518A7105 
+  67      A3
+  68 0064 14D0D495 		.ascii	"\024\320\324\225\214\342@2\232\005b\322\234\011\177"
+  68      8CE24032 
+  68      9A0562D2 
+  68      9C097F
+  69 0073 5EB23233 		.ascii	"^\262231\202\330\213g<\274\302\245\263\012\250\253\243"
+  69      3182D88B 
+  69      673CBCC2 
+  69      A5B30AA8 
+  69      ABA3
+  70 0085 E1C00746 		.ascii	"\341\300\007F\204u\323\266\235\277\307\2510\257a\303"
+  70      8475D3B6 
+  70      9DBFC7A9 
+  70      30AF61C3 
+  71 0095 860F6B6F 		.ascii	"\206\017ko\034\345iX\321p\340\377\177{\260Q\214\253"
+  71      1CE56958 
+  71      D170E0FF 
+  71      7F7BB051 
+  71      8CAB
+  72 00a7 18991957 		.ascii	"\030\231\031W3\352\200\035\014dC\\\276\206Q\001\250"
+  72      33EA801D 
+  72      0C64435C 
+  72      BE865101 
+  72      A8
+  73 00b8 AD67E695 		.ascii	"\255g\346\225\351\214\314\026`\263\277\354]7\205\033"
+  73      E98CCC16 
+  73      60B3BFEC 
+  73      5D37851B 
+  74 00c8 6CC482F9 		.ascii	"l\304\202\371K\331 \006\200\365\257E\322\277\026\246"
+  74      4BD92006 
+  74      80F5AF45 
+  74      D2BF16A6 
+  75 00d8 7F1DA302 		.ascii	"\177\035\243\002\003wp\200\247o|HD\274gp\020\233\273"
+  75      03777080 
+  75      A76F7C48 
+  75      44BC6770 
+  75      109BBB
+  76 00eb 5FA88233 		.ascii	"_\250\2023\203\222{j^jQbIjJ|p~iQrjL@p\276\263i\014X"
+  76      83927B6A 
+  76      5E6A5162 
+  76      496A4A7C 
+  76      707E6951 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccYfPmyl.s 			page 5
+
+
+  77 0109 A5A75F88 		.ascii	"\245\247_\210^2TW\020X\027\000\005\301i\034"
+  77      5E325457 
+  77      10581700 
+  77      05C1691C 
+  78              		.text
+  79              		.section	.gnu.lto_.symtab.ec5a23ff,"",%progbits
+  80 0000 5350494D 		.ascii	"SPIM_TX_ISR\000\000\000\000\000\000\000\000\000\000"
+  80      5F54585F 
+  80      49535200 
+  80      00000000 
+  80      00000000 
+  81 0015 0000AC00 		.ascii	"\000\000\254\000\000\000SPIM_RX_ISR\000\000\000\000"
+  81      00005350 
+  81      494D5F52 
+  81      585F4953 
+  81      52000000 
+  82 002a 00000000 		.ascii	"\000\000\000\000\000\000\000\000\256\000\000\000"
+  82      00000000 
+  82      AE000000 
+  83              		.text
+  84              		.section	.gnu.lto_.opts,"",%progbits
+  85 0000 272D666E 		.ascii	"'-fno-trapv' '-mcpu=cortex-m3' '-mthumb' '-g' '-Os'"
+  85      6F2D7472 
+  85      61707627 
+  85      20272D6D 
+  85      6370753D 
+  86 0033 20272D66 		.ascii	" '-ffunction-sections' '-finline-functions' '-flto'"
+  86      66756E63 
+  86      74696F6E 
+  86      2D736563 
+  86      74696F6E 
+  87 0066 20272D66 		.ascii	" '-ffat-lto-objects'\000"
+  87      6661742D 
+  87      6C746F2D 
+  87      6F626A65 
+  87      63747327 
+  88              		.text
+  89              		.cfi_sections	.debug_frame
+  90              		.section	.text.SPIM_TX_ISR,"ax",%progbits
+  91              		.align	1
+  92              		.global	SPIM_TX_ISR
+  93              		.thumb
+  94              		.thumb_func
+  95              		.type	SPIM_TX_ISR, %function
+  96              	SPIM_TX_ISR:
+  97              	.LFB0:
+  98              		.file 1 "Generated_Source\\PSoC5\\SPIM_INT.c"
+   1:Generated_Source\PSoC5/SPIM_INT.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/SPIM_INT.c **** * File Name: SPIM_INT.c
+   3:Generated_Source\PSoC5/SPIM_INT.c **** * Version 2.50
+   4:Generated_Source\PSoC5/SPIM_INT.c **** *
+   5:Generated_Source\PSoC5/SPIM_INT.c **** * Description:
+   6:Generated_Source\PSoC5/SPIM_INT.c **** *  This file provides all Interrupt Service Routine (ISR) for the SPI Master
+   7:Generated_Source\PSoC5/SPIM_INT.c **** *  component.
+   8:Generated_Source\PSoC5/SPIM_INT.c **** *
+   9:Generated_Source\PSoC5/SPIM_INT.c **** * Note:
+  10:Generated_Source\PSoC5/SPIM_INT.c **** *  None.
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccYfPmyl.s 			page 6
+
+
+  11:Generated_Source\PSoC5/SPIM_INT.c **** *
+  12:Generated_Source\PSoC5/SPIM_INT.c **** ********************************************************************************
+  13:Generated_Source\PSoC5/SPIM_INT.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC5/SPIM_INT.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:Generated_Source\PSoC5/SPIM_INT.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:Generated_Source\PSoC5/SPIM_INT.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC5/SPIM_INT.c **** *******************************************************************************/
+  18:Generated_Source\PSoC5/SPIM_INT.c **** 
+  19:Generated_Source\PSoC5/SPIM_INT.c **** #include "SPIM_PVT.h"
+  20:Generated_Source\PSoC5/SPIM_INT.c **** 
+  21:Generated_Source\PSoC5/SPIM_INT.c **** 
+  22:Generated_Source\PSoC5/SPIM_INT.c **** /* User code required at start of ISR */
+  23:Generated_Source\PSoC5/SPIM_INT.c **** /* `#START SPIM_ISR_START_DEF` */
+  24:Generated_Source\PSoC5/SPIM_INT.c **** 
+  25:Generated_Source\PSoC5/SPIM_INT.c **** /* `#END` */
+  26:Generated_Source\PSoC5/SPIM_INT.c **** 
+  27:Generated_Source\PSoC5/SPIM_INT.c **** 
+  28:Generated_Source\PSoC5/SPIM_INT.c **** /*******************************************************************************
+  29:Generated_Source\PSoC5/SPIM_INT.c **** * Function Name: SPIM_TX_ISR
+  30:Generated_Source\PSoC5/SPIM_INT.c **** ********************************************************************************
+  31:Generated_Source\PSoC5/SPIM_INT.c **** *
+  32:Generated_Source\PSoC5/SPIM_INT.c **** * Summary:
+  33:Generated_Source\PSoC5/SPIM_INT.c **** *  Interrupt Service Routine for TX portion of the SPI Master.
+  34:Generated_Source\PSoC5/SPIM_INT.c **** *
+  35:Generated_Source\PSoC5/SPIM_INT.c **** * Parameters:
+  36:Generated_Source\PSoC5/SPIM_INT.c **** *  None.
+  37:Generated_Source\PSoC5/SPIM_INT.c **** *
+  38:Generated_Source\PSoC5/SPIM_INT.c **** * Return:
+  39:Generated_Source\PSoC5/SPIM_INT.c **** *  None.
+  40:Generated_Source\PSoC5/SPIM_INT.c **** *
+  41:Generated_Source\PSoC5/SPIM_INT.c **** * Global variables:
+  42:Generated_Source\PSoC5/SPIM_INT.c **** *  SPIM_txBufferWrite - used for the account of the bytes which
+  43:Generated_Source\PSoC5/SPIM_INT.c **** *  have been written down in the TX software buffer.
+  44:Generated_Source\PSoC5/SPIM_INT.c **** *  SPIM_txBufferRead - used for the account of the bytes which
+  45:Generated_Source\PSoC5/SPIM_INT.c **** *  have been read from the TX software buffer, modified when exist data to
+  46:Generated_Source\PSoC5/SPIM_INT.c **** *  sending and FIFO Not Full.
+  47:Generated_Source\PSoC5/SPIM_INT.c **** *  SPIM_txBuffer[SPIM_TX_BUFFER_SIZE] - used to store
+  48:Generated_Source\PSoC5/SPIM_INT.c **** *  data to sending.
+  49:Generated_Source\PSoC5/SPIM_INT.c **** *  All described above Global variables are used when Software Buffer is used.
+  50:Generated_Source\PSoC5/SPIM_INT.c **** *
+  51:Generated_Source\PSoC5/SPIM_INT.c **** *******************************************************************************/
+  52:Generated_Source\PSoC5/SPIM_INT.c **** CY_ISR(SPIM_TX_ISR)
+  53:Generated_Source\PSoC5/SPIM_INT.c **** {
+  99              		.loc 1 53 0
+ 100              		.cfi_startproc
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103              		@ link register save eliminated.
+ 104 0000 7047     		bx	lr
+ 105              		.cfi_endproc
+ 106              	.LFE0:
+ 107              		.size	SPIM_TX_ISR, .-SPIM_TX_ISR
+ 108              		.section	.text.SPIM_RX_ISR,"ax",%progbits
+ 109              		.align	1
+ 110              		.global	SPIM_RX_ISR
+ 111              		.thumb
+ 112              		.thumb_func
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccYfPmyl.s 			page 7
+
+
+ 113              		.type	SPIM_RX_ISR, %function
+ 114              	SPIM_RX_ISR:
+ 115              	.LFB1:
+  54:Generated_Source\PSoC5/SPIM_INT.c ****     #if(SPIM_TX_SOFTWARE_BUF_ENABLED)
+  55:Generated_Source\PSoC5/SPIM_INT.c ****         uint8 tmpStatus;
+  56:Generated_Source\PSoC5/SPIM_INT.c ****     #endif /* (SPIM_TX_SOFTWARE_BUF_ENABLED) */
+  57:Generated_Source\PSoC5/SPIM_INT.c **** 
+  58:Generated_Source\PSoC5/SPIM_INT.c ****     #ifdef SPIM_TX_ISR_ENTRY_CALLBACK
+  59:Generated_Source\PSoC5/SPIM_INT.c ****         SPIM_TX_ISR_EntryCallback();
+  60:Generated_Source\PSoC5/SPIM_INT.c ****     #endif /* SPIM_TX_ISR_ENTRY_CALLBACK */
+  61:Generated_Source\PSoC5/SPIM_INT.c **** 
+  62:Generated_Source\PSoC5/SPIM_INT.c ****     /* User code required at start of ISR */
+  63:Generated_Source\PSoC5/SPIM_INT.c ****     /* `#START SPIM_TX_ISR_START` */
+  64:Generated_Source\PSoC5/SPIM_INT.c **** 
+  65:Generated_Source\PSoC5/SPIM_INT.c ****     /* `#END` */
+  66:Generated_Source\PSoC5/SPIM_INT.c ****     
+  67:Generated_Source\PSoC5/SPIM_INT.c ****     #if(SPIM_TX_SOFTWARE_BUF_ENABLED)
+  68:Generated_Source\PSoC5/SPIM_INT.c ****         /* Check if TX data buffer is not empty and there is space in TX FIFO */
+  69:Generated_Source\PSoC5/SPIM_INT.c ****         while(SPIM_txBufferRead != SPIM_txBufferWrite)
+  70:Generated_Source\PSoC5/SPIM_INT.c ****         {
+  71:Generated_Source\PSoC5/SPIM_INT.c ****             tmpStatus = SPIM_GET_STATUS_TX(SPIM_swStatusTx);
+  72:Generated_Source\PSoC5/SPIM_INT.c ****             SPIM_swStatusTx = tmpStatus;
+  73:Generated_Source\PSoC5/SPIM_INT.c **** 
+  74:Generated_Source\PSoC5/SPIM_INT.c ****             if(0u != (SPIM_swStatusTx & SPIM_STS_TX_FIFO_NOT_FULL))
+  75:Generated_Source\PSoC5/SPIM_INT.c ****             {
+  76:Generated_Source\PSoC5/SPIM_INT.c ****                 if(0u == SPIM_txBufferFull)
+  77:Generated_Source\PSoC5/SPIM_INT.c ****                 {
+  78:Generated_Source\PSoC5/SPIM_INT.c ****                    SPIM_txBufferRead++;
+  79:Generated_Source\PSoC5/SPIM_INT.c **** 
+  80:Generated_Source\PSoC5/SPIM_INT.c ****                     if(SPIM_txBufferRead >= SPIM_TX_BUFFER_SIZE)
+  81:Generated_Source\PSoC5/SPIM_INT.c ****                     {
+  82:Generated_Source\PSoC5/SPIM_INT.c ****                         SPIM_txBufferRead = 0u;
+  83:Generated_Source\PSoC5/SPIM_INT.c ****                     }
+  84:Generated_Source\PSoC5/SPIM_INT.c ****                 }
+  85:Generated_Source\PSoC5/SPIM_INT.c ****                 else
+  86:Generated_Source\PSoC5/SPIM_INT.c ****                 {
+  87:Generated_Source\PSoC5/SPIM_INT.c ****                     SPIM_txBufferFull = 0u;
+  88:Generated_Source\PSoC5/SPIM_INT.c ****                 }
+  89:Generated_Source\PSoC5/SPIM_INT.c **** 
+  90:Generated_Source\PSoC5/SPIM_INT.c ****                 /* Put data element into the TX FIFO */
+  91:Generated_Source\PSoC5/SPIM_INT.c ****                 CY_SET_REG8(SPIM_TXDATA_PTR, 
+  92:Generated_Source\PSoC5/SPIM_INT.c ****                                              SPIM_txBuffer[SPIM_txBufferRead]);
+  93:Generated_Source\PSoC5/SPIM_INT.c ****             }
+  94:Generated_Source\PSoC5/SPIM_INT.c ****             else
+  95:Generated_Source\PSoC5/SPIM_INT.c ****             {
+  96:Generated_Source\PSoC5/SPIM_INT.c ****                 break;
+  97:Generated_Source\PSoC5/SPIM_INT.c ****             }
+  98:Generated_Source\PSoC5/SPIM_INT.c ****         }
+  99:Generated_Source\PSoC5/SPIM_INT.c **** 
+ 100:Generated_Source\PSoC5/SPIM_INT.c ****         if(SPIM_txBufferRead == SPIM_txBufferWrite)
+ 101:Generated_Source\PSoC5/SPIM_INT.c ****         {
+ 102:Generated_Source\PSoC5/SPIM_INT.c ****             /* TX Buffer is EMPTY: disable interrupt on TX NOT FULL */
+ 103:Generated_Source\PSoC5/SPIM_INT.c ****             SPIM_TX_STATUS_MASK_REG &= ((uint8) ~SPIM_STS_TX_FIFO_NOT_FULL);
+ 104:Generated_Source\PSoC5/SPIM_INT.c ****         }
+ 105:Generated_Source\PSoC5/SPIM_INT.c **** 
+ 106:Generated_Source\PSoC5/SPIM_INT.c ****     #endif /* (SPIM_TX_SOFTWARE_BUF_ENABLED) */
+ 107:Generated_Source\PSoC5/SPIM_INT.c **** 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccYfPmyl.s 			page 8
+
+
+ 108:Generated_Source\PSoC5/SPIM_INT.c ****     /* User code required at end of ISR (Optional) */
+ 109:Generated_Source\PSoC5/SPIM_INT.c ****     /* `#START SPIM_TX_ISR_END` */
+ 110:Generated_Source\PSoC5/SPIM_INT.c **** 
+ 111:Generated_Source\PSoC5/SPIM_INT.c ****     /* `#END` */
+ 112:Generated_Source\PSoC5/SPIM_INT.c ****     
+ 113:Generated_Source\PSoC5/SPIM_INT.c ****     #ifdef SPIM_TX_ISR_EXIT_CALLBACK
+ 114:Generated_Source\PSoC5/SPIM_INT.c ****         SPIM_TX_ISR_ExitCallback();
+ 115:Generated_Source\PSoC5/SPIM_INT.c ****     #endif /* SPIM_TX_ISR_EXIT_CALLBACK */
+ 116:Generated_Source\PSoC5/SPIM_INT.c **** }
+ 117:Generated_Source\PSoC5/SPIM_INT.c **** 
+ 118:Generated_Source\PSoC5/SPIM_INT.c **** 
+ 119:Generated_Source\PSoC5/SPIM_INT.c **** /*******************************************************************************
+ 120:Generated_Source\PSoC5/SPIM_INT.c **** * Function Name: SPIM_RX_ISR
+ 121:Generated_Source\PSoC5/SPIM_INT.c **** ********************************************************************************
+ 122:Generated_Source\PSoC5/SPIM_INT.c **** *
+ 123:Generated_Source\PSoC5/SPIM_INT.c **** * Summary:
+ 124:Generated_Source\PSoC5/SPIM_INT.c **** *  Interrupt Service Routine for RX portion of the SPI Master.
+ 125:Generated_Source\PSoC5/SPIM_INT.c **** *
+ 126:Generated_Source\PSoC5/SPIM_INT.c **** * Parameters:
+ 127:Generated_Source\PSoC5/SPIM_INT.c **** *  None.
+ 128:Generated_Source\PSoC5/SPIM_INT.c **** *
+ 129:Generated_Source\PSoC5/SPIM_INT.c **** * Return:
+ 130:Generated_Source\PSoC5/SPIM_INT.c **** *  None.
+ 131:Generated_Source\PSoC5/SPIM_INT.c **** *
+ 132:Generated_Source\PSoC5/SPIM_INT.c **** * Global variables:
+ 133:Generated_Source\PSoC5/SPIM_INT.c **** *  SPIM_rxBufferWrite - used for the account of the bytes which
+ 134:Generated_Source\PSoC5/SPIM_INT.c **** *  have been written down in the RX software buffer modified when FIFO contains
+ 135:Generated_Source\PSoC5/SPIM_INT.c **** *  new data.
+ 136:Generated_Source\PSoC5/SPIM_INT.c **** *  SPIM_rxBufferRead - used for the account of the bytes which
+ 137:Generated_Source\PSoC5/SPIM_INT.c **** *  have been read from the RX software buffer, modified when overflow occurred.
+ 138:Generated_Source\PSoC5/SPIM_INT.c **** *  SPIM_rxBuffer[SPIM_RX_BUFFER_SIZE] - used to store
+ 139:Generated_Source\PSoC5/SPIM_INT.c **** *  received data, modified when FIFO contains new data.
+ 140:Generated_Source\PSoC5/SPIM_INT.c **** *  All described above Global variables are used when Software Buffer is used.
+ 141:Generated_Source\PSoC5/SPIM_INT.c **** *
+ 142:Generated_Source\PSoC5/SPIM_INT.c **** *******************************************************************************/
+ 143:Generated_Source\PSoC5/SPIM_INT.c **** CY_ISR(SPIM_RX_ISR)
+ 144:Generated_Source\PSoC5/SPIM_INT.c **** {
+ 116              		.loc 1 144 0
+ 117              		.cfi_startproc
+ 118              		@ args = 0, pretend = 0, frame = 0
+ 119              		@ frame_needed = 0, uses_anonymous_args = 0
+ 120              		@ link register save eliminated.
+ 121 0000 7047     		bx	lr
+ 122              		.cfi_endproc
+ 123              	.LFE1:
+ 124              		.size	SPIM_RX_ISR, .-SPIM_RX_ISR
+ 125              		.text
+ 126              	.Letext0:
+ 127              		.section	.debug_info,"",%progbits
+ 128              	.Ldebug_info0:
+ 129 0000 A6000000 		.4byte	0xa6
+ 130 0004 0400     		.2byte	0x4
+ 131 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 132 000a 04       		.byte	0x4
+ 133 000b 01       		.uleb128 0x1
+ 134 000c E5000000 		.4byte	.LASF15
+ 135 0010 01       		.byte	0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccYfPmyl.s 			page 9
+
+
+ 136 0011 1B000000 		.4byte	.LASF16
+ 137 0015 7E000000 		.4byte	.LASF17
+ 138 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 139 001d 00000000 		.4byte	0
+ 140 0021 00000000 		.4byte	.Ldebug_line0
+ 141 0025 02       		.uleb128 0x2
+ 142 0026 01       		.byte	0x1
+ 143 0027 06       		.byte	0x6
+ 144 0028 B4010000 		.4byte	.LASF0
+ 145 002c 02       		.uleb128 0x2
+ 146 002d 01       		.byte	0x1
+ 147 002e 08       		.byte	0x8
+ 148 002f D7000000 		.4byte	.LASF1
+ 149 0033 02       		.uleb128 0x2
+ 150 0034 02       		.byte	0x2
+ 151 0035 05       		.byte	0x5
+ 152 0036 C6010000 		.4byte	.LASF2
+ 153 003a 02       		.uleb128 0x2
+ 154 003b 02       		.byte	0x2
+ 155 003c 07       		.byte	0x7
+ 156 003d A1010000 		.4byte	.LASF3
+ 157 0041 02       		.uleb128 0x2
+ 158 0042 04       		.byte	0x4
+ 159 0043 05       		.byte	0x5
+ 160 0044 91010000 		.4byte	.LASF4
+ 161 0048 02       		.uleb128 0x2
+ 162 0049 04       		.byte	0x4
+ 163 004a 07       		.byte	0x7
+ 164 004b 55000000 		.4byte	.LASF5
+ 165 004f 02       		.uleb128 0x2
+ 166 0050 08       		.byte	0x8
+ 167 0051 05       		.byte	0x5
+ 168 0052 00000000 		.4byte	.LASF6
+ 169 0056 02       		.uleb128 0x2
+ 170 0057 08       		.byte	0x8
+ 171 0058 07       		.byte	0x7
+ 172 0059 67000000 		.4byte	.LASF7
+ 173 005d 03       		.uleb128 0x3
+ 174 005e 04       		.byte	0x4
+ 175 005f 05       		.byte	0x5
+ 176 0060 696E7400 		.ascii	"int\000"
+ 177 0064 02       		.uleb128 0x2
+ 178 0065 04       		.byte	0x4
+ 179 0066 07       		.byte	0x7
+ 180 0067 0E000000 		.4byte	.LASF8
+ 181 006b 02       		.uleb128 0x2
+ 182 006c 04       		.byte	0x4
+ 183 006d 04       		.byte	0x4
+ 184 006e C0010000 		.4byte	.LASF9
+ 185 0072 02       		.uleb128 0x2
+ 186 0073 08       		.byte	0x8
+ 187 0074 04       		.byte	0x4
+ 188 0075 9A010000 		.4byte	.LASF10
+ 189 0079 02       		.uleb128 0x2
+ 190 007a 01       		.byte	0x1
+ 191 007b 08       		.byte	0x8
+ 192 007c 8C010000 		.4byte	.LASF11
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccYfPmyl.s 			page 10
+
+
+ 193 0080 02       		.uleb128 0x2
+ 194 0081 04       		.byte	0x4
+ 195 0082 07       		.byte	0x7
+ 196 0083 D0010000 		.4byte	.LASF12
+ 197 0087 04       		.uleb128 0x4
+ 198 0088 3D000000 		.4byte	.LASF13
+ 199 008c 01       		.byte	0x1
+ 200 008d 34       		.byte	0x34
+ 201 008e 00000000 		.4byte	.LFB0
+ 202 0092 02000000 		.4byte	.LFE0-.LFB0
+ 203 0096 01       		.uleb128 0x1
+ 204 0097 9C       		.byte	0x9c
+ 205 0098 04       		.uleb128 0x4
+ 206 0099 49000000 		.4byte	.LASF14
+ 207 009d 01       		.byte	0x1
+ 208 009e 8F       		.byte	0x8f
+ 209 009f 00000000 		.4byte	.LFB1
+ 210 00a3 02000000 		.4byte	.LFE1-.LFB1
+ 211 00a7 01       		.uleb128 0x1
+ 212 00a8 9C       		.byte	0x9c
+ 213 00a9 00       		.byte	0
+ 214              		.section	.debug_abbrev,"",%progbits
+ 215              	.Ldebug_abbrev0:
+ 216 0000 01       		.uleb128 0x1
+ 217 0001 11       		.uleb128 0x11
+ 218 0002 01       		.byte	0x1
+ 219 0003 25       		.uleb128 0x25
+ 220 0004 0E       		.uleb128 0xe
+ 221 0005 13       		.uleb128 0x13
+ 222 0006 0B       		.uleb128 0xb
+ 223 0007 03       		.uleb128 0x3
+ 224 0008 0E       		.uleb128 0xe
+ 225 0009 1B       		.uleb128 0x1b
+ 226 000a 0E       		.uleb128 0xe
+ 227 000b 55       		.uleb128 0x55
+ 228 000c 17       		.uleb128 0x17
+ 229 000d 11       		.uleb128 0x11
+ 230 000e 01       		.uleb128 0x1
+ 231 000f 10       		.uleb128 0x10
+ 232 0010 17       		.uleb128 0x17
+ 233 0011 00       		.byte	0
+ 234 0012 00       		.byte	0
+ 235 0013 02       		.uleb128 0x2
+ 236 0014 24       		.uleb128 0x24
+ 237 0015 00       		.byte	0
+ 238 0016 0B       		.uleb128 0xb
+ 239 0017 0B       		.uleb128 0xb
+ 240 0018 3E       		.uleb128 0x3e
+ 241 0019 0B       		.uleb128 0xb
+ 242 001a 03       		.uleb128 0x3
+ 243 001b 0E       		.uleb128 0xe
+ 244 001c 00       		.byte	0
+ 245 001d 00       		.byte	0
+ 246 001e 03       		.uleb128 0x3
+ 247 001f 24       		.uleb128 0x24
+ 248 0020 00       		.byte	0
+ 249 0021 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccYfPmyl.s 			page 11
+
+
+ 250 0022 0B       		.uleb128 0xb
+ 251 0023 3E       		.uleb128 0x3e
+ 252 0024 0B       		.uleb128 0xb
+ 253 0025 03       		.uleb128 0x3
+ 254 0026 08       		.uleb128 0x8
+ 255 0027 00       		.byte	0
+ 256 0028 00       		.byte	0
+ 257 0029 04       		.uleb128 0x4
+ 258 002a 2E       		.uleb128 0x2e
+ 259 002b 00       		.byte	0
+ 260 002c 3F       		.uleb128 0x3f
+ 261 002d 19       		.uleb128 0x19
+ 262 002e 03       		.uleb128 0x3
+ 263 002f 0E       		.uleb128 0xe
+ 264 0030 3A       		.uleb128 0x3a
+ 265 0031 0B       		.uleb128 0xb
+ 266 0032 3B       		.uleb128 0x3b
+ 267 0033 0B       		.uleb128 0xb
+ 268 0034 27       		.uleb128 0x27
+ 269 0035 19       		.uleb128 0x19
+ 270 0036 11       		.uleb128 0x11
+ 271 0037 01       		.uleb128 0x1
+ 272 0038 12       		.uleb128 0x12
+ 273 0039 06       		.uleb128 0x6
+ 274 003a 40       		.uleb128 0x40
+ 275 003b 18       		.uleb128 0x18
+ 276 003c 9742     		.uleb128 0x2117
+ 277 003e 19       		.uleb128 0x19
+ 278 003f 00       		.byte	0
+ 279 0040 00       		.byte	0
+ 280 0041 00       		.byte	0
+ 281              		.section	.debug_aranges,"",%progbits
+ 282 0000 24000000 		.4byte	0x24
+ 283 0004 0200     		.2byte	0x2
+ 284 0006 00000000 		.4byte	.Ldebug_info0
+ 285 000a 04       		.byte	0x4
+ 286 000b 00       		.byte	0
+ 287 000c 0000     		.2byte	0
+ 288 000e 0000     		.2byte	0
+ 289 0010 00000000 		.4byte	.LFB0
+ 290 0014 02000000 		.4byte	.LFE0-.LFB0
+ 291 0018 00000000 		.4byte	.LFB1
+ 292 001c 02000000 		.4byte	.LFE1-.LFB1
+ 293 0020 00000000 		.4byte	0
+ 294 0024 00000000 		.4byte	0
+ 295              		.section	.debug_ranges,"",%progbits
+ 296              	.Ldebug_ranges0:
+ 297 0000 00000000 		.4byte	.LFB0
+ 298 0004 02000000 		.4byte	.LFE0
+ 299 0008 00000000 		.4byte	.LFB1
+ 300 000c 02000000 		.4byte	.LFE1
+ 301 0010 00000000 		.4byte	0
+ 302 0014 00000000 		.4byte	0
+ 303              		.section	.debug_line,"",%progbits
+ 304              	.Ldebug_line0:
+ 305 0000 5D000000 		.section	.debug_str,"MS",%progbits,1
+ 305      02003800 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccYfPmyl.s 			page 12
+
+
+ 305      00000201 
+ 305      FB0E0D00 
+ 305      01010101 
+ 306              	.LASF6:
+ 307 0000 6C6F6E67 		.ascii	"long long int\000"
+ 307      206C6F6E 
+ 307      6720696E 
+ 307      7400
+ 308              	.LASF8:
+ 309 000e 756E7369 		.ascii	"unsigned int\000"
+ 309      676E6564 
+ 309      20696E74 
+ 309      00
+ 310              	.LASF16:
+ 311 001b 47656E65 		.ascii	"Generated_Source\\PSoC5\\SPIM_INT.c\000"
+ 311      72617465 
+ 311      645F536F 
+ 311      75726365 
+ 311      5C50536F 
+ 312              	.LASF13:
+ 313 003d 5350494D 		.ascii	"SPIM_TX_ISR\000"
+ 313      5F54585F 
+ 313      49535200 
+ 314              	.LASF14:
+ 315 0049 5350494D 		.ascii	"SPIM_RX_ISR\000"
+ 315      5F52585F 
+ 315      49535200 
+ 316              	.LASF5:
+ 317 0055 6C6F6E67 		.ascii	"long unsigned int\000"
+ 317      20756E73 
+ 317      69676E65 
+ 317      6420696E 
+ 317      7400
+ 318              	.LASF7:
+ 319 0067 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 319      206C6F6E 
+ 319      6720756E 
+ 319      7369676E 
+ 319      65642069 
+ 320              	.LASF17:
+ 321 007e 433A5C55 		.ascii	"C:\\Users\\Bruger\\Desktop\\CODE\\PSOC5\\CY8CKIT-59"
+ 321      73657273 
+ 321      5C427275 
+ 321      6765725C 
+ 321      4465736B 
+ 322 00ab 2D417264 		.ascii	"-Arduino\\CY8CKIT59_Ardudino-Speeduino.cydsn\000"
+ 322      75696E6F 
+ 322      5C435938 
+ 322      434B4954 
+ 322      35395F41 
+ 323              	.LASF1:
+ 324 00d7 756E7369 		.ascii	"unsigned char\000"
+ 324      676E6564 
+ 324      20636861 
+ 324      7200
+ 325              	.LASF15:
+ 326 00e5 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccYfPmyl.s 			page 13
+
+
+ 326      4320342E 
+ 326      392E3320 
+ 326      32303135 
+ 326      30333033 
+ 327 0118 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 327      20726576 
+ 327      6973696F 
+ 327      6E203232 
+ 327      31323230 
+ 328 014b 73202D66 		.ascii	"s -ffunction-sections -finline-functions -flto -ffa"
+ 328      66756E63 
+ 328      74696F6E 
+ 328      2D736563 
+ 328      74696F6E 
+ 329 017e 742D6C74 		.ascii	"t-lto-objects\000"
+ 329      6F2D6F62 
+ 329      6A656374 
+ 329      7300
+ 330              	.LASF11:
+ 331 018c 63686172 		.ascii	"char\000"
+ 331      00
+ 332              	.LASF4:
+ 333 0191 6C6F6E67 		.ascii	"long int\000"
+ 333      20696E74 
+ 333      00
+ 334              	.LASF10:
+ 335 019a 646F7562 		.ascii	"double\000"
+ 335      6C6500
+ 336              	.LASF3:
+ 337 01a1 73686F72 		.ascii	"short unsigned int\000"
+ 337      7420756E 
+ 337      7369676E 
+ 337      65642069 
+ 337      6E7400
+ 338              	.LASF0:
+ 339 01b4 7369676E 		.ascii	"signed char\000"
+ 339      65642063 
+ 339      68617200 
+ 340              	.LASF9:
+ 341 01c0 666C6F61 		.ascii	"float\000"
+ 341      7400
+ 342              	.LASF2:
+ 343 01c6 73686F72 		.ascii	"short int\000"
+ 343      7420696E 
+ 343      7400
+ 344              	.LASF12:
+ 345 01d0 73697A65 		.ascii	"sizetype\000"
+ 345      74797065 
+ 345      00
+ 346              		.comm	__gnu_lto_v1,1,1
+ 347              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

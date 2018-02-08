@@ -1,0 +1,1309 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"itoa.cpp"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text._Z4itoaiPci,"ax",%progbits
+  19              		.align	2
+  20              		.global	_Z4itoaiPci
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	_Z4itoaiPci, %function
+  24              	_Z4itoaiPci:
+  25              		.fnstart
+  26              	.LFB0:
+  27              		.file 1 "core\\itoa.cpp"
+   1:core/itoa.cpp **** /*
+   2:core/itoa.cpp ****   Copyright (c) 2011 Arduino.  All right reserved.
+   3:core/itoa.cpp **** 
+   4:core/itoa.cpp ****   This library is free software; you can redistribute it and/or
+   5:core/itoa.cpp ****   modify it under the terms of the GNU Lesser General Public
+   6:core/itoa.cpp ****   License as published by the Free Software Foundation; either
+   7:core/itoa.cpp ****   version 2.1 of the License, or (at your option) any later version.
+   8:core/itoa.cpp **** 
+   9:core/itoa.cpp ****   This library is distributed in the hope that it will be useful,
+  10:core/itoa.cpp ****   but WITHOUT ANY WARRANTY; without even the implied warranty of
+  11:core/itoa.cpp ****   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+  12:core/itoa.cpp ****   See the GNU Lesser General Public License for more details.
+  13:core/itoa.cpp **** 
+  14:core/itoa.cpp ****   You should have received a copy of the GNU Lesser General Public
+  15:core/itoa.cpp ****   License along with this library; if not, write to the Free Software
+  16:core/itoa.cpp ****   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+  17:core/itoa.cpp **** */
+  18:core/itoa.cpp **** 
+  19:core/itoa.cpp **** #include "itoa.h"
+  20:core/itoa.cpp **** #include <string.h>
+  21:core/itoa.cpp **** 
+  22:core/itoa.cpp **** 
+  23:core/itoa.cpp **** extern char* itoa( int value, char *string, int radix )
+  24:core/itoa.cpp **** {
+  28              		.loc 1 24 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 16
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 2
+
+
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 84B0     		sub	sp, sp, #16
+  37              		.cfi_def_cfa_offset 24
+  38 0004 00AF     		add	r7, sp, #0
+  39              		.cfi_def_cfa_register 7
+  40 0006 F860     		str	r0, [r7, #12]
+  41 0008 B960     		str	r1, [r7, #8]
+  42 000a 7A60     		str	r2, [r7, #4]
+  25:core/itoa.cpp ****   return ltoa( value, string, radix ) ;
+  43              		.loc 1 25 0
+  44 000c F868     		ldr	r0, [r7, #12]
+  45 000e B968     		ldr	r1, [r7, #8]
+  46 0010 7A68     		ldr	r2, [r7, #4]
+  47 0012 FFF7FEFF 		bl	_Z4ltoalPci
+  48 0016 0346     		mov	r3, r0
+  26:core/itoa.cpp **** }
+  49              		.loc 1 26 0
+  50 0018 1846     		mov	r0, r3
+  51 001a 1037     		adds	r7, r7, #16
+  52              		.cfi_def_cfa_offset 8
+  53 001c BD46     		mov	sp, r7
+  54              		.cfi_def_cfa_register 13
+  55              		@ sp needed
+  56 001e 80BD     		pop	{r7, pc}
+  57              		.cfi_endproc
+  58              	.LFE0:
+  59              		.cantunwind
+  60              		.fnend
+  61              		.size	_Z4itoaiPci, .-_Z4itoaiPci
+  62              		.section	.text._Z4ltoalPci,"ax",%progbits
+  63              		.align	2
+  64              		.global	_Z4ltoalPci
+  65              		.thumb
+  66              		.thumb_func
+  67              		.type	_Z4ltoalPci, %function
+  68              	_Z4ltoalPci:
+  69              		.fnstart
+  70              	.LFB1:
+  27:core/itoa.cpp **** 
+  28:core/itoa.cpp **** extern char* ltoa( long value, char *string, int radix )
+  29:core/itoa.cpp **** {
+  71              		.loc 1 29 0
+  72              		.cfi_startproc
+  73              		@ args = 0, pretend = 0, frame = 72
+  74              		@ frame_needed = 1, uses_anonymous_args = 0
+  75              		@ link register save eliminated.
+  76 0000 80B4     		push	{r7}
+  77              		.cfi_def_cfa_offset 4
+  78              		.cfi_offset 7, -4
+  79 0002 93B0     		sub	sp, sp, #76
+  80              		.cfi_def_cfa_offset 80
+  81 0004 00AF     		add	r7, sp, #0
+  82              		.cfi_def_cfa_register 7
+  83 0006 F860     		str	r0, [r7, #12]
+  84 0008 B960     		str	r1, [r7, #8]
+  85 000a 7A60     		str	r2, [r7, #4]
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 3
+
+
+  86              	.LBB2:
+  30:core/itoa.cpp ****   char tmp[33];
+  31:core/itoa.cpp ****   char *tp = tmp;
+  87              		.loc 1 31 0
+  88 000c 07F11003 		add	r3, r7, #16
+  89 0010 7B64     		str	r3, [r7, #68]
+  32:core/itoa.cpp ****   long i;
+  33:core/itoa.cpp ****   unsigned long v;
+  34:core/itoa.cpp ****   int sign;
+  35:core/itoa.cpp ****   char *sp;
+  36:core/itoa.cpp **** 
+  37:core/itoa.cpp ****   if ( string == NULL )
+  90              		.loc 1 37 0
+  91 0012 BB68     		ldr	r3, [r7, #8]
+  92 0014 002B     		cmp	r3, #0
+  93 0016 01D1     		bne	.L4
+  38:core/itoa.cpp ****   {
+  39:core/itoa.cpp ****     return 0 ;
+  94              		.loc 1 39 0
+  95 0018 0023     		movs	r3, #0
+  96 001a 61E0     		b	.L18
+  97              	.L4:
+  40:core/itoa.cpp ****   }
+  41:core/itoa.cpp **** 
+  42:core/itoa.cpp ****   if (radix > 36 || radix <= 1)
+  98              		.loc 1 42 0
+  99 001c 7B68     		ldr	r3, [r7, #4]
+ 100 001e 242B     		cmp	r3, #36
+ 101 0020 02DC     		bgt	.L6
+ 102              		.loc 1 42 0 is_stmt 0 discriminator 1
+ 103 0022 7B68     		ldr	r3, [r7, #4]
+ 104 0024 012B     		cmp	r3, #1
+ 105 0026 01DC     		bgt	.L7
+ 106              	.L6:
+  43:core/itoa.cpp ****   {
+  44:core/itoa.cpp ****     return 0 ;
+ 107              		.loc 1 44 0 is_stmt 1
+ 108 0028 0023     		movs	r3, #0
+ 109 002a 59E0     		b	.L18
+ 110              	.L7:
+  45:core/itoa.cpp ****   }
+  46:core/itoa.cpp **** 
+  47:core/itoa.cpp ****   sign = (radix == 10 && value < 0);
+ 111              		.loc 1 47 0
+ 112 002c 7B68     		ldr	r3, [r7, #4]
+ 113 002e 0A2B     		cmp	r3, #10
+ 114 0030 04D1     		bne	.L8
+ 115              		.loc 1 47 0 is_stmt 0 discriminator 1
+ 116 0032 FB68     		ldr	r3, [r7, #12]
+ 117 0034 002B     		cmp	r3, #0
+ 118 0036 01DA     		bge	.L8
+ 119              		.loc 1 47 0 discriminator 3
+ 120 0038 0123     		movs	r3, #1
+ 121 003a 00E0     		b	.L9
+ 122              	.L8:
+ 123              		.loc 1 47 0 discriminator 4
+ 124 003c 0023     		movs	r3, #0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 4
+
+
+ 125              	.L9:
+ 126              		.loc 1 47 0 discriminator 6
+ 127 003e BB63     		str	r3, [r7, #56]
+  48:core/itoa.cpp ****   if (sign)
+ 128              		.loc 1 48 0 is_stmt 1 discriminator 6
+ 129 0040 BB6B     		ldr	r3, [r7, #56]
+ 130 0042 002B     		cmp	r3, #0
+ 131 0044 03D0     		beq	.L10
+  49:core/itoa.cpp ****   {
+  50:core/itoa.cpp ****     v = -value;
+ 132              		.loc 1 50 0
+ 133 0046 FB68     		ldr	r3, [r7, #12]
+ 134 0048 5B42     		negs	r3, r3
+ 135 004a 3B64     		str	r3, [r7, #64]
+ 136 004c 01E0     		b	.L11
+ 137              	.L10:
+  51:core/itoa.cpp ****   }
+  52:core/itoa.cpp ****   else
+  53:core/itoa.cpp ****   {
+  54:core/itoa.cpp ****     v = (unsigned long)value;
+ 138              		.loc 1 54 0
+ 139 004e FB68     		ldr	r3, [r7, #12]
+ 140 0050 3B64     		str	r3, [r7, #64]
+ 141              	.L11:
+  55:core/itoa.cpp ****   }
+  56:core/itoa.cpp **** 
+  57:core/itoa.cpp ****   while (v || tp == tmp)
+ 142              		.loc 1 57 0
+ 143 0052 20E0     		b	.L12
+ 144              	.L14:
+  58:core/itoa.cpp ****   {
+  59:core/itoa.cpp ****     i = v % radix;
+ 145              		.loc 1 59 0
+ 146 0054 7A68     		ldr	r2, [r7, #4]
+ 147 0056 3B6C     		ldr	r3, [r7, #64]
+ 148 0058 B3FBF2F1 		udiv	r1, r3, r2
+ 149 005c 02FB01F2 		mul	r2, r2, r1
+ 150 0060 9B1A     		subs	r3, r3, r2
+ 151 0062 7B63     		str	r3, [r7, #52]
+  60:core/itoa.cpp ****     v = v / radix;
+ 152              		.loc 1 60 0
+ 153 0064 7B68     		ldr	r3, [r7, #4]
+ 154 0066 3A6C     		ldr	r2, [r7, #64]
+ 155 0068 B2FBF3F3 		udiv	r3, r2, r3
+ 156 006c 3B64     		str	r3, [r7, #64]
+  61:core/itoa.cpp ****     if (i < 10)
+ 157              		.loc 1 61 0
+ 158 006e 7B6B     		ldr	r3, [r7, #52]
+ 159 0070 092B     		cmp	r3, #9
+ 160 0072 08DC     		bgt	.L13
+  62:core/itoa.cpp ****       *tp++ = i+'0';
+ 161              		.loc 1 62 0
+ 162 0074 7B6C     		ldr	r3, [r7, #68]
+ 163 0076 5A1C     		adds	r2, r3, #1
+ 164 0078 7A64     		str	r2, [r7, #68]
+ 165 007a 7A6B     		ldr	r2, [r7, #52]
+ 166 007c D2B2     		uxtb	r2, r2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 5
+
+
+ 167 007e 3032     		adds	r2, r2, #48
+ 168 0080 D2B2     		uxtb	r2, r2
+ 169 0082 1A70     		strb	r2, [r3]
+ 170 0084 07E0     		b	.L12
+ 171              	.L13:
+  63:core/itoa.cpp ****     else
+  64:core/itoa.cpp ****       *tp++ = i + 'a' - 10;
+ 172              		.loc 1 64 0
+ 173 0086 7B6C     		ldr	r3, [r7, #68]
+ 174 0088 5A1C     		adds	r2, r3, #1
+ 175 008a 7A64     		str	r2, [r7, #68]
+ 176 008c 7A6B     		ldr	r2, [r7, #52]
+ 177 008e D2B2     		uxtb	r2, r2
+ 178 0090 5732     		adds	r2, r2, #87
+ 179 0092 D2B2     		uxtb	r2, r2
+ 180 0094 1A70     		strb	r2, [r3]
+ 181              	.L12:
+  57:core/itoa.cpp ****   {
+ 182              		.loc 1 57 0
+ 183 0096 3B6C     		ldr	r3, [r7, #64]
+ 184 0098 002B     		cmp	r3, #0
+ 185 009a DBD1     		bne	.L14
+  57:core/itoa.cpp ****   {
+ 186              		.loc 1 57 0 is_stmt 0 discriminator 1
+ 187 009c 07F11003 		add	r3, r7, #16
+ 188 00a0 7A6C     		ldr	r2, [r7, #68]
+ 189 00a2 9A42     		cmp	r2, r3
+ 190 00a4 D6D0     		beq	.L14
+  65:core/itoa.cpp ****   }
+  66:core/itoa.cpp **** 
+  67:core/itoa.cpp ****   sp = string;
+ 191              		.loc 1 67 0 is_stmt 1
+ 192 00a6 BB68     		ldr	r3, [r7, #8]
+ 193 00a8 FB63     		str	r3, [r7, #60]
+  68:core/itoa.cpp **** 
+  69:core/itoa.cpp ****   if (sign)
+ 194              		.loc 1 69 0
+ 195 00aa BB6B     		ldr	r3, [r7, #56]
+ 196 00ac 002B     		cmp	r3, #0
+ 197 00ae 04D0     		beq	.L15
+  70:core/itoa.cpp ****     *sp++ = '-';
+ 198              		.loc 1 70 0
+ 199 00b0 FB6B     		ldr	r3, [r7, #60]
+ 200 00b2 5A1C     		adds	r2, r3, #1
+ 201 00b4 FA63     		str	r2, [r7, #60]
+ 202 00b6 2D22     		movs	r2, #45
+ 203 00b8 1A70     		strb	r2, [r3]
+ 204              	.L15:
+  71:core/itoa.cpp ****   while (tp > tmp)
+ 205              		.loc 1 71 0
+ 206 00ba 08E0     		b	.L16
+ 207              	.L17:
+  72:core/itoa.cpp ****     *sp++ = *--tp;
+ 208              		.loc 1 72 0
+ 209 00bc FB6B     		ldr	r3, [r7, #60]
+ 210 00be 5A1C     		adds	r2, r3, #1
+ 211 00c0 FA63     		str	r2, [r7, #60]
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 6
+
+
+ 212 00c2 7A6C     		ldr	r2, [r7, #68]
+ 213 00c4 013A     		subs	r2, r2, #1
+ 214 00c6 7A64     		str	r2, [r7, #68]
+ 215 00c8 7A6C     		ldr	r2, [r7, #68]
+ 216 00ca 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 217 00cc 1A70     		strb	r2, [r3]
+ 218              	.L16:
+  71:core/itoa.cpp ****   while (tp > tmp)
+ 219              		.loc 1 71 0
+ 220 00ce 07F11003 		add	r3, r7, #16
+ 221 00d2 7A6C     		ldr	r2, [r7, #68]
+ 222 00d4 9A42     		cmp	r2, r3
+ 223 00d6 F1D8     		bhi	.L17
+  73:core/itoa.cpp ****   *sp = 0;
+ 224              		.loc 1 73 0
+ 225 00d8 FB6B     		ldr	r3, [r7, #60]
+ 226 00da 0022     		movs	r2, #0
+ 227 00dc 1A70     		strb	r2, [r3]
+  74:core/itoa.cpp **** 
+  75:core/itoa.cpp ****   return string;
+ 228              		.loc 1 75 0
+ 229 00de BB68     		ldr	r3, [r7, #8]
+ 230              	.L18:
+ 231              	.LBE2:
+  76:core/itoa.cpp **** }
+ 232              		.loc 1 76 0 discriminator 1
+ 233 00e0 1846     		mov	r0, r3
+ 234 00e2 4C37     		adds	r7, r7, #76
+ 235              		.cfi_def_cfa_offset 4
+ 236 00e4 BD46     		mov	sp, r7
+ 237              		.cfi_def_cfa_register 13
+ 238              		@ sp needed
+ 239 00e6 5DF8047B 		ldr	r7, [sp], #4
+ 240              		.cfi_restore 7
+ 241              		.cfi_def_cfa_offset 0
+ 242 00ea 7047     		bx	lr
+ 243              		.cfi_endproc
+ 244              	.LFE1:
+ 245              		.cantunwind
+ 246              		.fnend
+ 247              		.size	_Z4ltoalPci, .-_Z4ltoalPci
+ 248              		.section	.text._Z4utoamPci,"ax",%progbits
+ 249              		.align	2
+ 250              		.global	_Z4utoamPci
+ 251              		.thumb
+ 252              		.thumb_func
+ 253              		.type	_Z4utoamPci, %function
+ 254              	_Z4utoamPci:
+ 255              		.fnstart
+ 256              	.LFB2:
+  77:core/itoa.cpp **** 
+  78:core/itoa.cpp **** extern char* utoa( unsigned long value, char *string, int radix )
+  79:core/itoa.cpp **** {
+ 257              		.loc 1 79 0
+ 258              		.cfi_startproc
+ 259              		@ args = 0, pretend = 0, frame = 16
+ 260              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 7
+
+
+ 261 0000 80B5     		push	{r7, lr}
+ 262              		.cfi_def_cfa_offset 8
+ 263              		.cfi_offset 7, -8
+ 264              		.cfi_offset 14, -4
+ 265 0002 84B0     		sub	sp, sp, #16
+ 266              		.cfi_def_cfa_offset 24
+ 267 0004 00AF     		add	r7, sp, #0
+ 268              		.cfi_def_cfa_register 7
+ 269 0006 F860     		str	r0, [r7, #12]
+ 270 0008 B960     		str	r1, [r7, #8]
+ 271 000a 7A60     		str	r2, [r7, #4]
+  80:core/itoa.cpp ****   return ultoa( (unsigned long)value, string, (int)radix ) ;
+ 272              		.loc 1 80 0
+ 273 000c F868     		ldr	r0, [r7, #12]
+ 274 000e B968     		ldr	r1, [r7, #8]
+ 275 0010 7A68     		ldr	r2, [r7, #4]
+ 276 0012 FFF7FEFF 		bl	_Z5ultoamPci
+ 277 0016 0346     		mov	r3, r0
+  81:core/itoa.cpp **** }
+ 278              		.loc 1 81 0
+ 279 0018 1846     		mov	r0, r3
+ 280 001a 1037     		adds	r7, r7, #16
+ 281              		.cfi_def_cfa_offset 8
+ 282 001c BD46     		mov	sp, r7
+ 283              		.cfi_def_cfa_register 13
+ 284              		@ sp needed
+ 285 001e 80BD     		pop	{r7, pc}
+ 286              		.cfi_endproc
+ 287              	.LFE2:
+ 288              		.cantunwind
+ 289              		.fnend
+ 290              		.size	_Z4utoamPci, .-_Z4utoamPci
+ 291              		.section	.text._Z5ultoamPci,"ax",%progbits
+ 292              		.align	2
+ 293              		.global	_Z5ultoamPci
+ 294              		.thumb
+ 295              		.thumb_func
+ 296              		.type	_Z5ultoamPci, %function
+ 297              	_Z5ultoamPci:
+ 298              		.fnstart
+ 299              	.LFB3:
+  82:core/itoa.cpp **** 
+  83:core/itoa.cpp **** extern char* ultoa( unsigned long value, char *string, int radix )
+  84:core/itoa.cpp **** {
+ 300              		.loc 1 84 0
+ 301              		.cfi_startproc
+ 302              		@ args = 0, pretend = 0, frame = 72
+ 303              		@ frame_needed = 1, uses_anonymous_args = 0
+ 304              		@ link register save eliminated.
+ 305 0000 80B4     		push	{r7}
+ 306              		.cfi_def_cfa_offset 4
+ 307              		.cfi_offset 7, -4
+ 308 0002 93B0     		sub	sp, sp, #76
+ 309              		.cfi_def_cfa_offset 80
+ 310 0004 00AF     		add	r7, sp, #0
+ 311              		.cfi_def_cfa_register 7
+ 312 0006 F860     		str	r0, [r7, #12]
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 8
+
+
+ 313 0008 B960     		str	r1, [r7, #8]
+ 314 000a 7A60     		str	r2, [r7, #4]
+ 315              	.LBB3:
+  85:core/itoa.cpp ****   char tmp[33];
+  86:core/itoa.cpp ****   char *tp = tmp;
+ 316              		.loc 1 86 0
+ 317 000c 07F11403 		add	r3, r7, #20
+ 318 0010 7B64     		str	r3, [r7, #68]
+  87:core/itoa.cpp ****   long i;
+  88:core/itoa.cpp ****   unsigned long v = value;
+ 319              		.loc 1 88 0
+ 320 0012 FB68     		ldr	r3, [r7, #12]
+ 321 0014 3B64     		str	r3, [r7, #64]
+  89:core/itoa.cpp ****   char *sp;
+  90:core/itoa.cpp **** 
+  91:core/itoa.cpp ****   if ( string == NULL )
+ 322              		.loc 1 91 0
+ 323 0016 BB68     		ldr	r3, [r7, #8]
+ 324 0018 002B     		cmp	r3, #0
+ 325 001a 01D1     		bne	.L22
+  92:core/itoa.cpp ****   {
+  93:core/itoa.cpp ****     return 0;
+ 326              		.loc 1 93 0
+ 327 001c 0023     		movs	r3, #0
+ 328 001e 46E0     		b	.L31
+ 329              	.L22:
+  94:core/itoa.cpp ****   }
+  95:core/itoa.cpp **** 
+  96:core/itoa.cpp ****   if (radix > 36 || radix <= 1)
+ 330              		.loc 1 96 0
+ 331 0020 7B68     		ldr	r3, [r7, #4]
+ 332 0022 242B     		cmp	r3, #36
+ 333 0024 02DC     		bgt	.L24
+ 334              		.loc 1 96 0 is_stmt 0 discriminator 1
+ 335 0026 7B68     		ldr	r3, [r7, #4]
+ 336 0028 012B     		cmp	r3, #1
+ 337 002a 01DC     		bgt	.L25
+ 338              	.L24:
+  97:core/itoa.cpp ****   {
+  98:core/itoa.cpp ****     return 0;
+ 339              		.loc 1 98 0 is_stmt 1
+ 340 002c 0023     		movs	r3, #0
+ 341 002e 3EE0     		b	.L31
+ 342              	.L25:
+  99:core/itoa.cpp ****   }
+ 100:core/itoa.cpp ****  
+ 101:core/itoa.cpp ****   while (v || tp == tmp)
+ 343              		.loc 1 101 0
+ 344 0030 20E0     		b	.L26
+ 345              	.L28:
+ 102:core/itoa.cpp ****   {
+ 103:core/itoa.cpp ****     i = v % radix;
+ 346              		.loc 1 103 0
+ 347 0032 7A68     		ldr	r2, [r7, #4]
+ 348 0034 3B6C     		ldr	r3, [r7, #64]
+ 349 0036 B3FBF2F1 		udiv	r1, r3, r2
+ 350 003a 02FB01F2 		mul	r2, r2, r1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 9
+
+
+ 351 003e 9B1A     		subs	r3, r3, r2
+ 352 0040 BB63     		str	r3, [r7, #56]
+ 104:core/itoa.cpp ****     v = v / radix;
+ 353              		.loc 1 104 0
+ 354 0042 7B68     		ldr	r3, [r7, #4]
+ 355 0044 3A6C     		ldr	r2, [r7, #64]
+ 356 0046 B2FBF3F3 		udiv	r3, r2, r3
+ 357 004a 3B64     		str	r3, [r7, #64]
+ 105:core/itoa.cpp ****     if (i < 10)
+ 358              		.loc 1 105 0
+ 359 004c BB6B     		ldr	r3, [r7, #56]
+ 360 004e 092B     		cmp	r3, #9
+ 361 0050 08DC     		bgt	.L27
+ 106:core/itoa.cpp ****       *tp++ = i+'0';
+ 362              		.loc 1 106 0
+ 363 0052 7B6C     		ldr	r3, [r7, #68]
+ 364 0054 5A1C     		adds	r2, r3, #1
+ 365 0056 7A64     		str	r2, [r7, #68]
+ 366 0058 BA6B     		ldr	r2, [r7, #56]
+ 367 005a D2B2     		uxtb	r2, r2
+ 368 005c 3032     		adds	r2, r2, #48
+ 369 005e D2B2     		uxtb	r2, r2
+ 370 0060 1A70     		strb	r2, [r3]
+ 371 0062 07E0     		b	.L26
+ 372              	.L27:
+ 107:core/itoa.cpp ****     else
+ 108:core/itoa.cpp ****       *tp++ = i + 'a' - 10;
+ 373              		.loc 1 108 0
+ 374 0064 7B6C     		ldr	r3, [r7, #68]
+ 375 0066 5A1C     		adds	r2, r3, #1
+ 376 0068 7A64     		str	r2, [r7, #68]
+ 377 006a BA6B     		ldr	r2, [r7, #56]
+ 378 006c D2B2     		uxtb	r2, r2
+ 379 006e 5732     		adds	r2, r2, #87
+ 380 0070 D2B2     		uxtb	r2, r2
+ 381 0072 1A70     		strb	r2, [r3]
+ 382              	.L26:
+ 101:core/itoa.cpp ****   {
+ 383              		.loc 1 101 0
+ 384 0074 3B6C     		ldr	r3, [r7, #64]
+ 385 0076 002B     		cmp	r3, #0
+ 386 0078 DBD1     		bne	.L28
+ 101:core/itoa.cpp ****   {
+ 387              		.loc 1 101 0 is_stmt 0 discriminator 1
+ 388 007a 07F11403 		add	r3, r7, #20
+ 389 007e 7A6C     		ldr	r2, [r7, #68]
+ 390 0080 9A42     		cmp	r2, r3
+ 391 0082 D6D0     		beq	.L28
+ 109:core/itoa.cpp ****   }
+ 110:core/itoa.cpp **** 
+ 111:core/itoa.cpp ****   sp = string;
+ 392              		.loc 1 111 0 is_stmt 1
+ 393 0084 BB68     		ldr	r3, [r7, #8]
+ 394 0086 FB63     		str	r3, [r7, #60]
+ 112:core/itoa.cpp **** 
+ 113:core/itoa.cpp ****  
+ 114:core/itoa.cpp ****   while (tp > tmp)
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 10
+
+
+ 395              		.loc 1 114 0
+ 396 0088 08E0     		b	.L29
+ 397              	.L30:
+ 115:core/itoa.cpp ****     *sp++ = *--tp;
+ 398              		.loc 1 115 0
+ 399 008a FB6B     		ldr	r3, [r7, #60]
+ 400 008c 5A1C     		adds	r2, r3, #1
+ 401 008e FA63     		str	r2, [r7, #60]
+ 402 0090 7A6C     		ldr	r2, [r7, #68]
+ 403 0092 013A     		subs	r2, r2, #1
+ 404 0094 7A64     		str	r2, [r7, #68]
+ 405 0096 7A6C     		ldr	r2, [r7, #68]
+ 406 0098 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 407 009a 1A70     		strb	r2, [r3]
+ 408              	.L29:
+ 114:core/itoa.cpp ****     *sp++ = *--tp;
+ 409              		.loc 1 114 0
+ 410 009c 07F11403 		add	r3, r7, #20
+ 411 00a0 7A6C     		ldr	r2, [r7, #68]
+ 412 00a2 9A42     		cmp	r2, r3
+ 413 00a4 F1D8     		bhi	.L30
+ 116:core/itoa.cpp ****   *sp = 0;
+ 414              		.loc 1 116 0
+ 415 00a6 FB6B     		ldr	r3, [r7, #60]
+ 416 00a8 0022     		movs	r2, #0
+ 417 00aa 1A70     		strb	r2, [r3]
+ 117:core/itoa.cpp **** 
+ 118:core/itoa.cpp ****   return string;
+ 418              		.loc 1 118 0
+ 419 00ac BB68     		ldr	r3, [r7, #8]
+ 420              	.L31:
+ 421              	.LBE3:
+ 119:core/itoa.cpp **** }
+ 422              		.loc 1 119 0 discriminator 1
+ 423 00ae 1846     		mov	r0, r3
+ 424 00b0 4C37     		adds	r7, r7, #76
+ 425              		.cfi_def_cfa_offset 4
+ 426 00b2 BD46     		mov	sp, r7
+ 427              		.cfi_def_cfa_register 13
+ 428              		@ sp needed
+ 429 00b4 5DF8047B 		ldr	r7, [sp], #4
+ 430              		.cfi_restore 7
+ 431              		.cfi_def_cfa_offset 0
+ 432 00b8 7047     		bx	lr
+ 433              		.cfi_endproc
+ 434              	.LFE3:
+ 435              		.cantunwind
+ 436              		.fnend
+ 437              		.size	_Z5ultoamPci, .-_Z5ultoamPci
+ 438 00ba 00BF     		.text
+ 439              	.Letext0:
+ 440              		.section	.debug_info,"",%progbits
+ 441              	.Ldebug_info0:
+ 442 0000 50020000 		.4byte	0x250
+ 443 0004 0400     		.2byte	0x4
+ 444 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 445 000a 04       		.byte	0x4
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 11
+
+
+ 446 000b 01       		.uleb128 0x1
+ 447 000c 57010000 		.4byte	.LASF21
+ 448 0010 04       		.byte	0x4
+ 449 0011 35000000 		.4byte	.LASF22
+ 450 0015 F1000000 		.4byte	.LASF23
+ 451 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 452 001d 00000000 		.4byte	0
+ 453 0021 00000000 		.4byte	.Ldebug_line0
+ 454 0025 02       		.uleb128 0x2
+ 455 0026 04       		.byte	0x4
+ 456 0027 05       		.byte	0x5
+ 457 0028 696E7400 		.ascii	"int\000"
+ 458 002c 03       		.uleb128 0x3
+ 459 002d 04       		.byte	0x4
+ 460 002e 07       		.byte	0x7
+ 461 002f 97000000 		.4byte	.LASF0
+ 462 0033 03       		.uleb128 0x3
+ 463 0034 01       		.byte	0x1
+ 464 0035 06       		.byte	0x6
+ 465 0036 74000000 		.4byte	.LASF1
+ 466 003a 03       		.uleb128 0x3
+ 467 003b 01       		.byte	0x1
+ 468 003c 08       		.byte	0x8
+ 469 003d 66000000 		.4byte	.LASF2
+ 470 0041 03       		.uleb128 0x3
+ 471 0042 02       		.byte	0x2
+ 472 0043 05       		.byte	0x5
+ 473 0044 11000000 		.4byte	.LASF3
+ 474 0048 03       		.uleb128 0x3
+ 475 0049 02       		.byte	0x2
+ 476 004a 07       		.byte	0x7
+ 477 004b B6000000 		.4byte	.LASF4
+ 478 004f 03       		.uleb128 0x3
+ 479 0050 04       		.byte	0x4
+ 480 0051 05       		.byte	0x5
+ 481 0052 51000000 		.4byte	.LASF5
+ 482 0056 03       		.uleb128 0x3
+ 483 0057 04       		.byte	0x4
+ 484 0058 07       		.byte	0x7
+ 485 0059 DA000000 		.4byte	.LASF6
+ 486 005d 03       		.uleb128 0x3
+ 487 005e 08       		.byte	0x8
+ 488 005f 05       		.byte	0x5
+ 489 0060 43000000 		.4byte	.LASF7
+ 490 0064 03       		.uleb128 0x3
+ 491 0065 08       		.byte	0x8
+ 492 0066 07       		.byte	0x7
+ 493 0067 80000000 		.4byte	.LASF8
+ 494 006b 03       		.uleb128 0x3
+ 495 006c 04       		.byte	0x4
+ 496 006d 07       		.byte	0x7
+ 497 006e 1B000000 		.4byte	.LASF9
+ 498 0072 04       		.uleb128 0x4
+ 499 0073 04       		.byte	0x4
+ 500 0074 78000000 		.4byte	0x78
+ 501 0078 03       		.uleb128 0x3
+ 502 0079 01       		.byte	0x1
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 12
+
+
+ 503 007a 08       		.byte	0x8
+ 504 007b C9000000 		.4byte	.LASF10
+ 505 007f 05       		.uleb128 0x5
+ 506 0080 61000000 		.4byte	.LASF14
+ 507 0084 01       		.byte	0x1
+ 508 0085 17       		.byte	0x17
+ 509 0086 A4000000 		.4byte	.LASF16
+ 510 008a 72000000 		.4byte	0x72
+ 511 008e 00000000 		.4byte	.LFB0
+ 512 0092 20000000 		.4byte	.LFE0-.LFB0
+ 513 0096 01       		.uleb128 0x1
+ 514 0097 9C       		.byte	0x9c
+ 515 0098 C7000000 		.4byte	0xc7
+ 516 009c 06       		.uleb128 0x6
+ 517 009d 2A000000 		.4byte	.LASF11
+ 518 00a1 01       		.byte	0x1
+ 519 00a2 17       		.byte	0x17
+ 520 00a3 25000000 		.4byte	0x25
+ 521 00a7 02       		.uleb128 0x2
+ 522 00a8 91       		.byte	0x91
+ 523 00a9 74       		.sleb128 -12
+ 524 00aa 06       		.uleb128 0x6
+ 525 00ab 5A000000 		.4byte	.LASF12
+ 526 00af 01       		.byte	0x1
+ 527 00b0 17       		.byte	0x17
+ 528 00b1 72000000 		.4byte	0x72
+ 529 00b5 02       		.uleb128 0x2
+ 530 00b6 91       		.byte	0x91
+ 531 00b7 70       		.sleb128 -16
+ 532 00b8 06       		.uleb128 0x6
+ 533 00b9 B0000000 		.4byte	.LASF13
+ 534 00bd 01       		.byte	0x1
+ 535 00be 17       		.byte	0x17
+ 536 00bf 25000000 		.4byte	0x25
+ 537 00c3 02       		.uleb128 0x2
+ 538 00c4 91       		.byte	0x91
+ 539 00c5 6C       		.sleb128 -20
+ 540 00c6 00       		.byte	0
+ 541 00c7 07       		.uleb128 0x7
+ 542 00c8 30000000 		.4byte	.LASF15
+ 543 00cc 01       		.byte	0x1
+ 544 00cd 1C       		.byte	0x1c
+ 545 00ce 00000000 		.4byte	.LASF17
+ 546 00d2 72000000 		.4byte	0x72
+ 547 00d6 00000000 		.4byte	.LFB1
+ 548 00da EC000000 		.4byte	.LFE1-.LFB1
+ 549 00de 01       		.uleb128 0x1
+ 550 00df 9C       		.byte	0x9c
+ 551 00e0 6A010000 		.4byte	0x16a
+ 552 00e4 06       		.uleb128 0x6
+ 553 00e5 2A000000 		.4byte	.LASF11
+ 554 00e9 01       		.byte	0x1
+ 555 00ea 1C       		.byte	0x1c
+ 556 00eb 4F000000 		.4byte	0x4f
+ 557 00ef 03       		.uleb128 0x3
+ 558 00f0 91       		.byte	0x91
+ 559 00f1 BC7F     		.sleb128 -68
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 13
+
+
+ 560 00f3 06       		.uleb128 0x6
+ 561 00f4 5A000000 		.4byte	.LASF12
+ 562 00f8 01       		.byte	0x1
+ 563 00f9 1C       		.byte	0x1c
+ 564 00fa 72000000 		.4byte	0x72
+ 565 00fe 03       		.uleb128 0x3
+ 566 00ff 91       		.byte	0x91
+ 567 0100 B87F     		.sleb128 -72
+ 568 0102 06       		.uleb128 0x6
+ 569 0103 B0000000 		.4byte	.LASF13
+ 570 0107 01       		.byte	0x1
+ 571 0108 1C       		.byte	0x1c
+ 572 0109 25000000 		.4byte	0x25
+ 573 010d 03       		.uleb128 0x3
+ 574 010e 91       		.byte	0x91
+ 575 010f B47F     		.sleb128 -76
+ 576 0111 08       		.uleb128 0x8
+ 577 0112 0C000000 		.4byte	.LBB2
+ 578 0116 D4000000 		.4byte	.LBE2-.LBB2
+ 579 011a 09       		.uleb128 0x9
+ 580 011b 746D7000 		.ascii	"tmp\000"
+ 581 011f 01       		.byte	0x1
+ 582 0120 1E       		.byte	0x1e
+ 583 0121 6A010000 		.4byte	0x16a
+ 584 0125 02       		.uleb128 0x2
+ 585 0126 91       		.byte	0x91
+ 586 0127 40       		.sleb128 -64
+ 587 0128 09       		.uleb128 0x9
+ 588 0129 747000   		.ascii	"tp\000"
+ 589 012c 01       		.byte	0x1
+ 590 012d 1F       		.byte	0x1f
+ 591 012e 72000000 		.4byte	0x72
+ 592 0132 02       		.uleb128 0x2
+ 593 0133 91       		.byte	0x91
+ 594 0134 74       		.sleb128 -12
+ 595 0135 09       		.uleb128 0x9
+ 596 0136 6900     		.ascii	"i\000"
+ 597 0138 01       		.byte	0x1
+ 598 0139 20       		.byte	0x20
+ 599 013a 4F000000 		.4byte	0x4f
+ 600 013e 02       		.uleb128 0x2
+ 601 013f 91       		.byte	0x91
+ 602 0140 64       		.sleb128 -28
+ 603 0141 09       		.uleb128 0x9
+ 604 0142 7600     		.ascii	"v\000"
+ 605 0144 01       		.byte	0x1
+ 606 0145 21       		.byte	0x21
+ 607 0146 56000000 		.4byte	0x56
+ 608 014a 02       		.uleb128 0x2
+ 609 014b 91       		.byte	0x91
+ 610 014c 70       		.sleb128 -16
+ 611 014d 0A       		.uleb128 0xa
+ 612 014e EC000000 		.4byte	.LASF18
+ 613 0152 01       		.byte	0x1
+ 614 0153 22       		.byte	0x22
+ 615 0154 25000000 		.4byte	0x25
+ 616 0158 02       		.uleb128 0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 14
+
+
+ 617 0159 91       		.byte	0x91
+ 618 015a 68       		.sleb128 -24
+ 619 015b 09       		.uleb128 0x9
+ 620 015c 737000   		.ascii	"sp\000"
+ 621 015f 01       		.byte	0x1
+ 622 0160 23       		.byte	0x23
+ 623 0161 72000000 		.4byte	0x72
+ 624 0165 02       		.uleb128 0x2
+ 625 0166 91       		.byte	0x91
+ 626 0167 6C       		.sleb128 -20
+ 627 0168 00       		.byte	0
+ 628 0169 00       		.byte	0
+ 629 016a 0B       		.uleb128 0xb
+ 630 016b 78000000 		.4byte	0x78
+ 631 016f 7A010000 		.4byte	0x17a
+ 632 0173 0C       		.uleb128 0xc
+ 633 0174 6B000000 		.4byte	0x6b
+ 634 0178 20       		.byte	0x20
+ 635 0179 00       		.byte	0
+ 636 017a 05       		.uleb128 0x5
+ 637 017b 0C000000 		.4byte	.LASF19
+ 638 017f 01       		.byte	0x1
+ 639 0180 4E       		.byte	0x4e
+ 640 0181 CE000000 		.4byte	.LASF20
+ 641 0185 72000000 		.4byte	0x72
+ 642 0189 00000000 		.4byte	.LFB2
+ 643 018d 20000000 		.4byte	.LFE2-.LFB2
+ 644 0191 01       		.uleb128 0x1
+ 645 0192 9C       		.byte	0x9c
+ 646 0193 C2010000 		.4byte	0x1c2
+ 647 0197 06       		.uleb128 0x6
+ 648 0198 2A000000 		.4byte	.LASF11
+ 649 019c 01       		.byte	0x1
+ 650 019d 4E       		.byte	0x4e
+ 651 019e 56000000 		.4byte	0x56
+ 652 01a2 02       		.uleb128 0x2
+ 653 01a3 91       		.byte	0x91
+ 654 01a4 74       		.sleb128 -12
+ 655 01a5 06       		.uleb128 0x6
+ 656 01a6 5A000000 		.4byte	.LASF12
+ 657 01aa 01       		.byte	0x1
+ 658 01ab 4E       		.byte	0x4e
+ 659 01ac 72000000 		.4byte	0x72
+ 660 01b0 02       		.uleb128 0x2
+ 661 01b1 91       		.byte	0x91
+ 662 01b2 70       		.sleb128 -16
+ 663 01b3 06       		.uleb128 0x6
+ 664 01b4 B0000000 		.4byte	.LASF13
+ 665 01b8 01       		.byte	0x1
+ 666 01b9 4E       		.byte	0x4e
+ 667 01ba 25000000 		.4byte	0x25
+ 668 01be 02       		.uleb128 0x2
+ 669 01bf 91       		.byte	0x91
+ 670 01c0 6C       		.sleb128 -20
+ 671 01c1 00       		.byte	0
+ 672 01c2 0D       		.uleb128 0xd
+ 673 01c3 24000000 		.4byte	.LASF24
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 15
+
+
+ 674 01c7 01       		.byte	0x1
+ 675 01c8 53       		.byte	0x53
+ 676 01c9 4A010000 		.4byte	.LASF25
+ 677 01cd 72000000 		.4byte	0x72
+ 678 01d1 00000000 		.4byte	.LFB3
+ 679 01d5 BA000000 		.4byte	.LFE3-.LFB3
+ 680 01d9 01       		.uleb128 0x1
+ 681 01da 9C       		.byte	0x9c
+ 682 01db 06       		.uleb128 0x6
+ 683 01dc 2A000000 		.4byte	.LASF11
+ 684 01e0 01       		.byte	0x1
+ 685 01e1 53       		.byte	0x53
+ 686 01e2 56000000 		.4byte	0x56
+ 687 01e6 03       		.uleb128 0x3
+ 688 01e7 91       		.byte	0x91
+ 689 01e8 BC7F     		.sleb128 -68
+ 690 01ea 06       		.uleb128 0x6
+ 691 01eb 5A000000 		.4byte	.LASF12
+ 692 01ef 01       		.byte	0x1
+ 693 01f0 53       		.byte	0x53
+ 694 01f1 72000000 		.4byte	0x72
+ 695 01f5 03       		.uleb128 0x3
+ 696 01f6 91       		.byte	0x91
+ 697 01f7 B87F     		.sleb128 -72
+ 698 01f9 06       		.uleb128 0x6
+ 699 01fa B0000000 		.4byte	.LASF13
+ 700 01fe 01       		.byte	0x1
+ 701 01ff 53       		.byte	0x53
+ 702 0200 25000000 		.4byte	0x25
+ 703 0204 03       		.uleb128 0x3
+ 704 0205 91       		.byte	0x91
+ 705 0206 B47F     		.sleb128 -76
+ 706 0208 08       		.uleb128 0x8
+ 707 0209 0C000000 		.4byte	.LBB3
+ 708 020d A2000000 		.4byte	.LBE3-.LBB3
+ 709 0211 09       		.uleb128 0x9
+ 710 0212 746D7000 		.ascii	"tmp\000"
+ 711 0216 01       		.byte	0x1
+ 712 0217 55       		.byte	0x55
+ 713 0218 6A010000 		.4byte	0x16a
+ 714 021c 02       		.uleb128 0x2
+ 715 021d 91       		.byte	0x91
+ 716 021e 44       		.sleb128 -60
+ 717 021f 09       		.uleb128 0x9
+ 718 0220 747000   		.ascii	"tp\000"
+ 719 0223 01       		.byte	0x1
+ 720 0224 56       		.byte	0x56
+ 721 0225 72000000 		.4byte	0x72
+ 722 0229 02       		.uleb128 0x2
+ 723 022a 91       		.byte	0x91
+ 724 022b 74       		.sleb128 -12
+ 725 022c 09       		.uleb128 0x9
+ 726 022d 6900     		.ascii	"i\000"
+ 727 022f 01       		.byte	0x1
+ 728 0230 57       		.byte	0x57
+ 729 0231 4F000000 		.4byte	0x4f
+ 730 0235 02       		.uleb128 0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 16
+
+
+ 731 0236 91       		.byte	0x91
+ 732 0237 68       		.sleb128 -24
+ 733 0238 09       		.uleb128 0x9
+ 734 0239 7600     		.ascii	"v\000"
+ 735 023b 01       		.byte	0x1
+ 736 023c 58       		.byte	0x58
+ 737 023d 56000000 		.4byte	0x56
+ 738 0241 02       		.uleb128 0x2
+ 739 0242 91       		.byte	0x91
+ 740 0243 70       		.sleb128 -16
+ 741 0244 09       		.uleb128 0x9
+ 742 0245 737000   		.ascii	"sp\000"
+ 743 0248 01       		.byte	0x1
+ 744 0249 59       		.byte	0x59
+ 745 024a 72000000 		.4byte	0x72
+ 746 024e 02       		.uleb128 0x2
+ 747 024f 91       		.byte	0x91
+ 748 0250 6C       		.sleb128 -20
+ 749 0251 00       		.byte	0
+ 750 0252 00       		.byte	0
+ 751 0253 00       		.byte	0
+ 752              		.section	.debug_abbrev,"",%progbits
+ 753              	.Ldebug_abbrev0:
+ 754 0000 01       		.uleb128 0x1
+ 755 0001 11       		.uleb128 0x11
+ 756 0002 01       		.byte	0x1
+ 757 0003 25       		.uleb128 0x25
+ 758 0004 0E       		.uleb128 0xe
+ 759 0005 13       		.uleb128 0x13
+ 760 0006 0B       		.uleb128 0xb
+ 761 0007 03       		.uleb128 0x3
+ 762 0008 0E       		.uleb128 0xe
+ 763 0009 1B       		.uleb128 0x1b
+ 764 000a 0E       		.uleb128 0xe
+ 765 000b 55       		.uleb128 0x55
+ 766 000c 17       		.uleb128 0x17
+ 767 000d 11       		.uleb128 0x11
+ 768 000e 01       		.uleb128 0x1
+ 769 000f 10       		.uleb128 0x10
+ 770 0010 17       		.uleb128 0x17
+ 771 0011 00       		.byte	0
+ 772 0012 00       		.byte	0
+ 773 0013 02       		.uleb128 0x2
+ 774 0014 24       		.uleb128 0x24
+ 775 0015 00       		.byte	0
+ 776 0016 0B       		.uleb128 0xb
+ 777 0017 0B       		.uleb128 0xb
+ 778 0018 3E       		.uleb128 0x3e
+ 779 0019 0B       		.uleb128 0xb
+ 780 001a 03       		.uleb128 0x3
+ 781 001b 08       		.uleb128 0x8
+ 782 001c 00       		.byte	0
+ 783 001d 00       		.byte	0
+ 784 001e 03       		.uleb128 0x3
+ 785 001f 24       		.uleb128 0x24
+ 786 0020 00       		.byte	0
+ 787 0021 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 17
+
+
+ 788 0022 0B       		.uleb128 0xb
+ 789 0023 3E       		.uleb128 0x3e
+ 790 0024 0B       		.uleb128 0xb
+ 791 0025 03       		.uleb128 0x3
+ 792 0026 0E       		.uleb128 0xe
+ 793 0027 00       		.byte	0
+ 794 0028 00       		.byte	0
+ 795 0029 04       		.uleb128 0x4
+ 796 002a 0F       		.uleb128 0xf
+ 797 002b 00       		.byte	0
+ 798 002c 0B       		.uleb128 0xb
+ 799 002d 0B       		.uleb128 0xb
+ 800 002e 49       		.uleb128 0x49
+ 801 002f 13       		.uleb128 0x13
+ 802 0030 00       		.byte	0
+ 803 0031 00       		.byte	0
+ 804 0032 05       		.uleb128 0x5
+ 805 0033 2E       		.uleb128 0x2e
+ 806 0034 01       		.byte	0x1
+ 807 0035 3F       		.uleb128 0x3f
+ 808 0036 19       		.uleb128 0x19
+ 809 0037 03       		.uleb128 0x3
+ 810 0038 0E       		.uleb128 0xe
+ 811 0039 3A       		.uleb128 0x3a
+ 812 003a 0B       		.uleb128 0xb
+ 813 003b 3B       		.uleb128 0x3b
+ 814 003c 0B       		.uleb128 0xb
+ 815 003d 6E       		.uleb128 0x6e
+ 816 003e 0E       		.uleb128 0xe
+ 817 003f 49       		.uleb128 0x49
+ 818 0040 13       		.uleb128 0x13
+ 819 0041 11       		.uleb128 0x11
+ 820 0042 01       		.uleb128 0x1
+ 821 0043 12       		.uleb128 0x12
+ 822 0044 06       		.uleb128 0x6
+ 823 0045 40       		.uleb128 0x40
+ 824 0046 18       		.uleb128 0x18
+ 825 0047 9642     		.uleb128 0x2116
+ 826 0049 19       		.uleb128 0x19
+ 827 004a 01       		.uleb128 0x1
+ 828 004b 13       		.uleb128 0x13
+ 829 004c 00       		.byte	0
+ 830 004d 00       		.byte	0
+ 831 004e 06       		.uleb128 0x6
+ 832 004f 05       		.uleb128 0x5
+ 833 0050 00       		.byte	0
+ 834 0051 03       		.uleb128 0x3
+ 835 0052 0E       		.uleb128 0xe
+ 836 0053 3A       		.uleb128 0x3a
+ 837 0054 0B       		.uleb128 0xb
+ 838 0055 3B       		.uleb128 0x3b
+ 839 0056 0B       		.uleb128 0xb
+ 840 0057 49       		.uleb128 0x49
+ 841 0058 13       		.uleb128 0x13
+ 842 0059 02       		.uleb128 0x2
+ 843 005a 18       		.uleb128 0x18
+ 844 005b 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 18
+
+
+ 845 005c 00       		.byte	0
+ 846 005d 07       		.uleb128 0x7
+ 847 005e 2E       		.uleb128 0x2e
+ 848 005f 01       		.byte	0x1
+ 849 0060 3F       		.uleb128 0x3f
+ 850 0061 19       		.uleb128 0x19
+ 851 0062 03       		.uleb128 0x3
+ 852 0063 0E       		.uleb128 0xe
+ 853 0064 3A       		.uleb128 0x3a
+ 854 0065 0B       		.uleb128 0xb
+ 855 0066 3B       		.uleb128 0x3b
+ 856 0067 0B       		.uleb128 0xb
+ 857 0068 6E       		.uleb128 0x6e
+ 858 0069 0E       		.uleb128 0xe
+ 859 006a 49       		.uleb128 0x49
+ 860 006b 13       		.uleb128 0x13
+ 861 006c 11       		.uleb128 0x11
+ 862 006d 01       		.uleb128 0x1
+ 863 006e 12       		.uleb128 0x12
+ 864 006f 06       		.uleb128 0x6
+ 865 0070 40       		.uleb128 0x40
+ 866 0071 18       		.uleb128 0x18
+ 867 0072 9742     		.uleb128 0x2117
+ 868 0074 19       		.uleb128 0x19
+ 869 0075 01       		.uleb128 0x1
+ 870 0076 13       		.uleb128 0x13
+ 871 0077 00       		.byte	0
+ 872 0078 00       		.byte	0
+ 873 0079 08       		.uleb128 0x8
+ 874 007a 0B       		.uleb128 0xb
+ 875 007b 01       		.byte	0x1
+ 876 007c 11       		.uleb128 0x11
+ 877 007d 01       		.uleb128 0x1
+ 878 007e 12       		.uleb128 0x12
+ 879 007f 06       		.uleb128 0x6
+ 880 0080 00       		.byte	0
+ 881 0081 00       		.byte	0
+ 882 0082 09       		.uleb128 0x9
+ 883 0083 34       		.uleb128 0x34
+ 884 0084 00       		.byte	0
+ 885 0085 03       		.uleb128 0x3
+ 886 0086 08       		.uleb128 0x8
+ 887 0087 3A       		.uleb128 0x3a
+ 888 0088 0B       		.uleb128 0xb
+ 889 0089 3B       		.uleb128 0x3b
+ 890 008a 0B       		.uleb128 0xb
+ 891 008b 49       		.uleb128 0x49
+ 892 008c 13       		.uleb128 0x13
+ 893 008d 02       		.uleb128 0x2
+ 894 008e 18       		.uleb128 0x18
+ 895 008f 00       		.byte	0
+ 896 0090 00       		.byte	0
+ 897 0091 0A       		.uleb128 0xa
+ 898 0092 34       		.uleb128 0x34
+ 899 0093 00       		.byte	0
+ 900 0094 03       		.uleb128 0x3
+ 901 0095 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 19
+
+
+ 902 0096 3A       		.uleb128 0x3a
+ 903 0097 0B       		.uleb128 0xb
+ 904 0098 3B       		.uleb128 0x3b
+ 905 0099 0B       		.uleb128 0xb
+ 906 009a 49       		.uleb128 0x49
+ 907 009b 13       		.uleb128 0x13
+ 908 009c 02       		.uleb128 0x2
+ 909 009d 18       		.uleb128 0x18
+ 910 009e 00       		.byte	0
+ 911 009f 00       		.byte	0
+ 912 00a0 0B       		.uleb128 0xb
+ 913 00a1 01       		.uleb128 0x1
+ 914 00a2 01       		.byte	0x1
+ 915 00a3 49       		.uleb128 0x49
+ 916 00a4 13       		.uleb128 0x13
+ 917 00a5 01       		.uleb128 0x1
+ 918 00a6 13       		.uleb128 0x13
+ 919 00a7 00       		.byte	0
+ 920 00a8 00       		.byte	0
+ 921 00a9 0C       		.uleb128 0xc
+ 922 00aa 21       		.uleb128 0x21
+ 923 00ab 00       		.byte	0
+ 924 00ac 49       		.uleb128 0x49
+ 925 00ad 13       		.uleb128 0x13
+ 926 00ae 2F       		.uleb128 0x2f
+ 927 00af 0B       		.uleb128 0xb
+ 928 00b0 00       		.byte	0
+ 929 00b1 00       		.byte	0
+ 930 00b2 0D       		.uleb128 0xd
+ 931 00b3 2E       		.uleb128 0x2e
+ 932 00b4 01       		.byte	0x1
+ 933 00b5 3F       		.uleb128 0x3f
+ 934 00b6 19       		.uleb128 0x19
+ 935 00b7 03       		.uleb128 0x3
+ 936 00b8 0E       		.uleb128 0xe
+ 937 00b9 3A       		.uleb128 0x3a
+ 938 00ba 0B       		.uleb128 0xb
+ 939 00bb 3B       		.uleb128 0x3b
+ 940 00bc 0B       		.uleb128 0xb
+ 941 00bd 6E       		.uleb128 0x6e
+ 942 00be 0E       		.uleb128 0xe
+ 943 00bf 49       		.uleb128 0x49
+ 944 00c0 13       		.uleb128 0x13
+ 945 00c1 11       		.uleb128 0x11
+ 946 00c2 01       		.uleb128 0x1
+ 947 00c3 12       		.uleb128 0x12
+ 948 00c4 06       		.uleb128 0x6
+ 949 00c5 40       		.uleb128 0x40
+ 950 00c6 18       		.uleb128 0x18
+ 951 00c7 9742     		.uleb128 0x2117
+ 952 00c9 19       		.uleb128 0x19
+ 953 00ca 00       		.byte	0
+ 954 00cb 00       		.byte	0
+ 955 00cc 00       		.byte	0
+ 956              		.section	.debug_aranges,"",%progbits
+ 957 0000 34000000 		.4byte	0x34
+ 958 0004 0200     		.2byte	0x2
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 20
+
+
+ 959 0006 00000000 		.4byte	.Ldebug_info0
+ 960 000a 04       		.byte	0x4
+ 961 000b 00       		.byte	0
+ 962 000c 0000     		.2byte	0
+ 963 000e 0000     		.2byte	0
+ 964 0010 00000000 		.4byte	.LFB0
+ 965 0014 20000000 		.4byte	.LFE0-.LFB0
+ 966 0018 00000000 		.4byte	.LFB1
+ 967 001c EC000000 		.4byte	.LFE1-.LFB1
+ 968 0020 00000000 		.4byte	.LFB2
+ 969 0024 20000000 		.4byte	.LFE2-.LFB2
+ 970 0028 00000000 		.4byte	.LFB3
+ 971 002c BA000000 		.4byte	.LFE3-.LFB3
+ 972 0030 00000000 		.4byte	0
+ 973 0034 00000000 		.4byte	0
+ 974              		.section	.debug_ranges,"",%progbits
+ 975              	.Ldebug_ranges0:
+ 976 0000 00000000 		.4byte	.LFB0
+ 977 0004 20000000 		.4byte	.LFE0
+ 978 0008 00000000 		.4byte	.LFB1
+ 979 000c EC000000 		.4byte	.LFE1
+ 980 0010 00000000 		.4byte	.LFB2
+ 981 0014 20000000 		.4byte	.LFE2
+ 982 0018 00000000 		.4byte	.LFB3
+ 983 001c BA000000 		.4byte	.LFE3
+ 984 0020 00000000 		.4byte	0
+ 985 0024 00000000 		.4byte	0
+ 986              		.section	.debug_line,"",%progbits
+ 987              	.Ldebug_line0:
+ 988 0000 DF000000 		.section	.debug_str,"MS",%progbits,1
+ 988      02002400 
+ 988      00000201 
+ 988      FB0E0D00 
+ 988      01010101 
+ 989              	.LASF17:
+ 990 0000 5F5A346C 		.ascii	"_Z4ltoalPci\000"
+ 990      746F616C 
+ 990      50636900 
+ 991              	.LASF19:
+ 992 000c 75746F61 		.ascii	"utoa\000"
+ 992      00
+ 993              	.LASF3:
+ 994 0011 73686F72 		.ascii	"short int\000"
+ 994      7420696E 
+ 994      7400
+ 995              	.LASF9:
+ 996 001b 73697A65 		.ascii	"sizetype\000"
+ 996      74797065 
+ 996      00
+ 997              	.LASF24:
+ 998 0024 756C746F 		.ascii	"ultoa\000"
+ 998      6100
+ 999              	.LASF11:
+ 1000 002a 76616C75 		.ascii	"value\000"
+ 1000      6500
+ 1001              	.LASF15:
+ 1002 0030 6C746F61 		.ascii	"ltoa\000"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 21
+
+
+ 1002      00
+ 1003              	.LASF22:
+ 1004 0035 636F7265 		.ascii	"core\\itoa.cpp\000"
+ 1004      5C69746F 
+ 1004      612E6370 
+ 1004      7000
+ 1005              	.LASF7:
+ 1006 0043 6C6F6E67 		.ascii	"long long int\000"
+ 1006      206C6F6E 
+ 1006      6720696E 
+ 1006      7400
+ 1007              	.LASF5:
+ 1008 0051 6C6F6E67 		.ascii	"long int\000"
+ 1008      20696E74 
+ 1008      00
+ 1009              	.LASF12:
+ 1010 005a 73747269 		.ascii	"string\000"
+ 1010      6E6700
+ 1011              	.LASF14:
+ 1012 0061 69746F61 		.ascii	"itoa\000"
+ 1012      00
+ 1013              	.LASF2:
+ 1014 0066 756E7369 		.ascii	"unsigned char\000"
+ 1014      676E6564 
+ 1014      20636861 
+ 1014      7200
+ 1015              	.LASF1:
+ 1016 0074 7369676E 		.ascii	"signed char\000"
+ 1016      65642063 
+ 1016      68617200 
+ 1017              	.LASF8:
+ 1018 0080 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1018      206C6F6E 
+ 1018      6720756E 
+ 1018      7369676E 
+ 1018      65642069 
+ 1019              	.LASF0:
+ 1020 0097 756E7369 		.ascii	"unsigned int\000"
+ 1020      676E6564 
+ 1020      20696E74 
+ 1020      00
+ 1021              	.LASF16:
+ 1022 00a4 5F5A3469 		.ascii	"_Z4itoaiPci\000"
+ 1022      746F6169 
+ 1022      50636900 
+ 1023              	.LASF13:
+ 1024 00b0 72616469 		.ascii	"radix\000"
+ 1024      7800
+ 1025              	.LASF4:
+ 1026 00b6 73686F72 		.ascii	"short unsigned int\000"
+ 1026      7420756E 
+ 1026      7369676E 
+ 1026      65642069 
+ 1026      6E7400
+ 1027              	.LASF10:
+ 1028 00c9 63686172 		.ascii	"char\000"
+ 1028      00
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\cc060v0d.s 			page 22
+
+
+ 1029              	.LASF20:
+ 1030 00ce 5F5A3475 		.ascii	"_Z4utoamPci\000"
+ 1030      746F616D 
+ 1030      50636900 
+ 1031              	.LASF6:
+ 1032 00da 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1032      20756E73 
+ 1032      69676E65 
+ 1032      6420696E 
+ 1032      7400
+ 1033              	.LASF18:
+ 1034 00ec 7369676E 		.ascii	"sign\000"
+ 1034      00
+ 1035              	.LASF23:
+ 1036 00f1 433A5C55 		.ascii	"C:\\Users\\Bruger\\Desktop\\CODE\\PSOC5\\CY8CKIT-59"
+ 1036      73657273 
+ 1036      5C427275 
+ 1036      6765725C 
+ 1036      4465736B 
+ 1037 011e 2D417264 		.ascii	"-Arduino\\CY8CKIT59_Ardudino-Speeduino.cydsn\000"
+ 1037      75696E6F 
+ 1037      5C435938 
+ 1037      434B4954 
+ 1037      35395F41 
+ 1038              	.LASF25:
+ 1039 014a 5F5A3575 		.ascii	"_Z5ultoamPci\000"
+ 1039      6C746F61 
+ 1039      6D506369 
+ 1039      00
+ 1040              	.LASF21:
+ 1041 0157 474E5520 		.ascii	"GNU C++ 4.9.3 20150303 (release) [ARM/embedded-4_9-"
+ 1041      432B2B20 
+ 1041      342E392E 
+ 1041      33203230 
+ 1041      31353033 
+ 1042 018a 6272616E 		.ascii	"branch revision 221220] -mcpu=cortex-m3 -mthumb -g "
+ 1042      63682072 
+ 1042      65766973 
+ 1042      696F6E20 
+ 1042      32323132 
+ 1043 01bd 2D4F3020 		.ascii	"-O0 -ffunction-sections -ffat-lto-objects\000"
+ 1043      2D666675 
+ 1043      6E637469 
+ 1043      6F6E2D73 
+ 1043      65637469 
+ 1044              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

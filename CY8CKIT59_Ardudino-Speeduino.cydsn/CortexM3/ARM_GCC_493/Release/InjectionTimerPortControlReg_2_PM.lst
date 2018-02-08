@@ -1,0 +1,1628 @@
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"InjectionTimerPortControlReg_2_PM.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.section	.gnu.lto_.profile.24c16501,"",%progbits
+  18 0000 789C6366 		.ascii	"x\234cf```a\200\000F\006\001\036\000\000\240\000%"
+  18      60606061 
+  18      80004606 
+  18      011E0000 
+  18      A00025
+  19              		.text
+  20              		.section	.gnu.lto_.jmpfuncs.24c16501,"",%progbits
+  21 0000 789C6366 		.ascii	"x\234cf\300\016\370\2404\013\0203100CX\000\002]\000"
+  21      C00EF8A0 
+  21      340B1033 
+  21      31303043 
+  21      5800025D 
+  22 0015 1F       		.ascii	"\037"
+  23              		.text
+  24              		.section	.gnu.lto_.inline.24c16501,"",%progbits
+  25 0000 789C6366 		.ascii	"x\234cf\300\016\374\2404\013\003\003+\013#\003\023\313"
+  25      C00EFCA0 
+  25      340B0303 
+  25      2B0B2303 
+  25      13CB
+  26 0012 027906B6 		.ascii	"\002y\006\266\005\362L 1&L!fL!\026L!\006\000\022\360"
+  26      05F24C20 
+  26      31264C21 
+  26      664C2116 
+  26      4C210600 
+  27 0028 06B7     		.ascii	"\006\267"
+  28              		.text
+  29              		.section	.gnu.lto_.pureconst.24c16501,"",%progbits
+  30 0000 789C6366 		.ascii	"x\234cf``\340d\200\000\026\006)&)f)\026)\000\002\321"
+  30      6060E064 
+  30      80001606 
+  30      29262966 
+  30      29162900 
+  31 0016 0082     		.ascii	"\000\202"
+  32              		.text
+  33              		.section	.gnu.lto_InjectionTimerPortControlReg_2_SaveConfig.24c16501,"",%progbits
+  34 0000 789C654F 		.ascii	"x\234eO\317+DQ\024>\337yo\306\224\005Y\372\007\254X"
+  34      CF2B4451 
+  34      143EDF79 
+  34      6FC69405 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 2
+
+
+  34      59FA07AC 
+  35 0015 282B6431 		.ascii	"(+d1\013Y\250\027VR\223\306K#\346\325k,5\357M\263\220"
+  35      0B59A817 
+  35      565293C6 
+  35      4B23E6D5 
+  35      6B2C35EF 
+  36 002c 05B2528C 		.ascii	"\005\262R\214\262\220a\306L)l\037K\212\244\220\005\233"
+  36      B29061C6 
+  36      4C296C1F 
+  36      4B8AA490 
+  36      059B
+  37 003e 51EC8C29 		.ascii	"Q\354\214)z\2461\316\035\033\345\326\355\334s\316w\277"
+  37      7AA631CE 
+  37      1D1BE5D6 
+  37      EDDC73CE 
+  37      77BF
+  38 0050 1F1AFD3F 		.ascii	"\037\032\375?\355r\007@\324/\025\032\201W/\211\334\020"
+  38      ED720740 
+  38      D42F151A 
+  38      81572F89 
+  38      DC10
+  39 0062 03EA41A0 		.ascii	"\003\352A\240$#\211W.3V\275\334zs\307\216\3438o\251"
+  39      24238957 
+  39      2E3356BD 
+  39      DC7A73C7 
+  39      8EE3386F 
+  40 0077 0BD7F0E0 		.ascii	"\013\327\360\3403Q\205\177y\260\213\016\022P9]\273k"
+  40      3351857F 
+  40      79B08B0E 
+  40      1250395D 
+  40      BB6B
+  41 0089 0EA605D4 		.ascii	"\016\246\005\324\372\273C\026A\341\247b\233\347\324"
+  41      FABB4316 
+  41      41E1A762 
+  41      9BE7D4
+  42 0098 EB95FCE9 		.ascii	"\353\225\374\3511t&\237eV\222\275RyfVU{\300\331\307"
+  42      3174269F 
+  42      655692BD 
+  42      52796656 
+  42      557BC0D9 
+  43 00ad D2ED4E8B 		.ascii	"\322\355N\213\372\362\311J\362\350e\255\336\364\302"
+  43      FAF2C94A 
+  43      F2E865AD 
+  43      DEF4C2
+  44 00bc 3EF3D7B9 		.ascii	">\363\327\271\353\350J\340\251tu\035j\214H\265\227\325"
+  44      EBE84AE0 
+  44      A974751D 
+  44      6A8C48B5 
+  44      97D5
+  45 00ce FBED960C 		.ascii	"\373\355\226\0146\334\264\330\321\260\207v\354CB!\207"
+  45      36DCB4D8 
+  45      D1B08776 
+  45      EC434221 
+  45      87
+  46 00df 0CE801A9 		.ascii	"\014\350\001\251\265\355>\305'\320\255\233\345\002/"
+  46      B5ED3EC5 
+  46      27D0AD9B 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 3
+
+
+  46      E5022F
+  47 00ee 549D4527 		.ascii	"T\235E'\344\263^S\346\376\362\351\2156\353\2467\241"
+  47      E4B35E53 
+  47      E6FEF2E9 
+  47      8D36EBA6 
+  47      37A1
+  48 0100 F81C850A 		.ascii	"\370\034\205\012 \217\005\034(B\331}\347W\016\203\235"
+  48      208F051C 
+  48      2842D97D 
+  48      E7570E83 
+  48      9D
+  49 0111 39C9E68D 		.ascii	"9\311\346\215\373\034DA\200\357\215\374(\242S\034\323"
+  49      FB1C4441 
+  49      80EF8DFC 
+  49      28A2531C 
+  49      D3
+  50 0122 235CEF24 		.ascii	"#\\\357$\240\364\324\264$!%\227 z\007\315\270iO&\314"
+  50      A0F4D4B4 
+  50      24212597 
+  50      207A07CD 
+  50      B8694F26 
+  51 0137 A9C8A835 		.ascii	"\251\310\2505oG\315\011c\324\012\367L\014\305g\314h"
+  51      6F47CD09 
+  51      63D40AF7 
+  51      4C0CC567 
+  51      CC68
+  52 0149 2266C5C7 		.ascii	"\"f\305\307bs\246mXv\"l\305\023\2665;bNG\272#\306pW"
+  52      6273A66D 
+  52      5876226C 
+  52      C513B635 
+  52      3B624E47 
+  53 0162 947E0027 		.ascii	"\224~\000'u\212\246"
+  53      758AA6
+  54              		.text
+  55              		.section	.gnu.lto_InjectionTimerPortControlReg_2_RestoreConfig.24c16501,"",%progbits
+  56 0000 789C658F 		.ascii	"x\234e\217\277K\303P\020\307\357.m,tP\034\373\017t\220"
+  56      BF4BC350 
+  56      10C7EF2E 
+  56      6D2C7450 
+  56      1CFB0F74 
+  57 0015 76109CD4 		.ascii	"v\020\234\324\251\2408\010A\035\013Ej\220\212&\020\342"
+  57      A9A03808 
+  57      411D0B45 
+  57      6A908A26 
+  57      10E2
+  58 0027 58FA2219 		.ascii	"X\372\"\031\234\264v\022\374\001\016b\265\265\005E\327"
+  58      9CB47612 
+  58      FC010E62 
+  58      B5B50545 
+  58      D7
+  59 0038 46478716 		.ascii	"FG\207\026uP:(B\205\272Y\035$\226Z\337K'\361\301\343"
+  59      75503A28 
+  59      4285BA59 
+  59      1D24965A 
+  59      DF4B27F1 
+  60 004e DEBBFBDE 		.ascii	"\336\273\373\336\367s'\301\377\023\342w\014\001\306"
+  60      F77327C1 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 4
+
+
+  60      FF13E277 
+  60      0C01C6
+  61 005d 79440990 		.ascii	"yD\011\220\262U\000+@\210\342\001\010\031\302\014\276"
+  61      B255002B 
+  61      4088E201 
+  61      0819C20C 
+  61      BE
+  62 006e 518B30EB 		.ascii	"Q\2130\353\024\266\203\341C\306\330\373]\315R\034t\011"
+  62      14B683E1 
+  62      43C6D8FB 
+  62      5DCD521C 
+  62      7409
+  63 0080 E0937A3E 		.ascii	"\340\223z>x\204a\340\242\226\335y\010\3126\027\015\364"
+  63      788461E0 
+  63      A296DD79 
+  63      08CA3617 
+  63      0DF4
+  64 0092 6A984799 		.ascii	"j\230G\231\373Cy\320a\335\356y\345*+\373\010\\\342\271"
+  64      FB4379D0 
+  64      61DDEE79 
+  64      E52A2BFB 
+  64      085CE2B9 
+  65 00a6 06AF0BCA 		.ascii	"\006\257\013\312+\221\210R\035\327.[\225\242$Z\276H"
+  65      2B918852 
+  65      1DD72E5B 
+  65      95A2245A 
+  65      BE48
+  66 00b8 20F7EF37 		.ascii	" \367\3577J\224n\263u\026p\211:\302\217g\237\033\265"
+  66      4A946EB3 
+  66      75167089 
+  66      3AC28F67 
+  66      9F1BB5
+  67 00cb DB409378 		.ascii	"\333@\223x\306\373\346-{\027\367p\307bB%\3411\246\361"
+  67      C6FBE62D 
+  67      7B17F770 
+  67      C7624225 
+  67      E131A6F1 
+  68 00df 04435EED 		.ascii	"\004C^\355\247\270y&G\206\\\362a\201k>\274i\261\210"
+  68      A7B87926 
+  68      47865CF2 
+  68      61816B3E 
+  68      BC69B188 
+  69 00f3 11A8E375 		.ascii	"\021\250\343u\356%*P\\v\321\314u\373\204\243\377\373"
+  69      EE252A50 
+  69      5C76D1CC 
+  69      75FB84A3 
+  69      FFFB
+  70 0105 C662BE3F 		.ascii	"\306b\276?\020\277gTm?\036\364\013\210m9\262K2\236b"
+  70      10BF6754 
+  70      6D3F1EF4 
+  70      0B886D39 
+  70      B24B329E 
+  71 011a 084B8282 		.ascii	"\010K\202\202en\314\307\205'\264\234\255\011\341( \015"
+  71      656ECCC7 
+  71      8527B49C 
+  71      AD09E128 
+  71      200D
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 5
+
+
+  72 012c BE215F8A 		.ascii	"\276!_\212\003G'UM5\346Mu!1\253\257\032I5\256\314\352"
+  72      03472755 
+  72      4D35E64D 
+  72      752131AB 
+  72      AF1A4935 
+  73 0143 B191F894 		.ascii	"\261\221\370\224\266\244&\315\224\256\315\245VTC\321"
+  73      B6A426CD 
+  73      94AECDA5 
+  73      565443D1 
+  74 0153 0D33A66B 		.ascii	"\0153\246k\246\241/\317\250\213\211\341\2042\035M\302"
+  74      A6A12FCF 
+  74      A88B89E1 
+  74      84321D4D 
+  74      C2
+  75 0164 2F4FCD89 		.ascii	"/O\315\211."
+  75      2E
+  76              		.text
+  77              		.section	.gnu.lto_InjectionTimerPortControlReg_2_Sleep.24c16501,"",%progbits
+  78 0000 789C6590 		.ascii	"x\234e\220\313+Dq\024\307\317\367\334qMY\220\225\374"
+  78      CB2B4471 
+  78      14C7CFF7 
+  78      DC714D59 
+  78      9095FC
+  79 0013 03161A0B 		.ascii	"\003\026\032\013e%+E\026j\302Jj\322\270\211\230[\327"
+  79      65252B45 
+  79      166AC24A 
+  79      6AD2B889 
+  79      985BD7
+  80 0026 289B69EE 		.ascii	"(\233i\356\325(YxL\026\312c'\303xk\366\223\205\205\005"
+  80      D5285978 
+  80      4C16CA63 
+  80      27C3786B 
+  80      F6938585 
+  81 003b 49C82C58 		.ascii	"I\310,X\030ev\036\205K\214\363\033\033\217_\375\372"
+  81      1865761E 
+  81      854B8CF3 
+  81      1B1B8F5F 
+  81      FDFA
+  82 004d 3DCEE7F7 		.ascii	"=\316\347\3679\277s4\372?*e\016\201\250AVh\004\236>"
+  82      39BF7334 
+  82      FA3F2A65 
+  82      0E81A841 
+  82      5668049E 
+  83 0062 2272BC0C 		.ascii	"\"r\274\014\250\015\201\242\214(r\374\300\230N'\347"
+  83      A80D81A2 
+  83      8C2872FC 
+  83      C0984E27 
+  83      E7
+  84 0073 4AAA966D 		.ascii	"J\252\226m\333\276\217\247*\306*\\&z\342o\015VPE\302"
+  84      DBBE8FA7 
+  84      2AC62A5C 
+  84      267AE26F 
+  84      0D565045 
+  85 0088 3CC43E2E 		.ascii	"<\304>.J\364\2300e\3371$\240\213\236\266\312\323v>\277"
+  85      4AF49830 
+  85      65DF3124 
+  85      A08B9EB6 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 6
+
+
+  85      CAD3763E 
+  86 009d 7736335E 		.ascii	"w63^\015\217F.\313eV\000\225\345\226Y\255Z\006\373\317"
+  86      0D8F462E 
+  86      CB655600 
+  86      95E59659 
+  86      AD5A06FB 
+  87 00b2 13E7CBA5 		.ascii	"\023\347\313\245\277<\351\213\003.X\236\344\311\237"
+  87      BF3CE98B 
+  87      032E589E 
+  87      E4C99F
+  88 00c1 0C58852E 		.ascii	"\014X\205.)\326\240\277\260&\261\324]<_|\307.\363\333"
+  88      29D6A0BF 
+  88      B026B1D4 
+  88      5D3C5F7C 
+  88      C72EF3DB 
+  89 00d5 A1637B14 		.ascii	"\241c{\024~\235=>\361\026\256H\035o^39^\304\2743\353"
+  89      7E9D3D3E 
+  89      F116AE48 
+  89      1D6F5E33 
+  89      395EC4BC 
+  90 00eb 785DD690 		.ascii	"x]\326\220D%\326!M\300\006\026A\031\214\306w6F\224Q"
+  90      4425D621 
+  90      4DC00616 
+  90      41198CC6 
+  90      77364694 
+  91 0100 E0A5D3C9 		.ascii	"\340\245\323\311M\216\274\333\343\266\260\236\017U\316"
+  91      4D8EBCDB 
+  91      E3B6B09E 
+  91      0F55CE
+  92 010f 4FA3A770 		.ascii	"O\243\247pL8\261\005(\243\255\250\"l\"\202-e\224\330"
+  92      4C38B105 
+  92      28A3ADA8 
+  92      226C2282 
+  92      2D6594D8 
+  93 0123 E7FAD4AE 		.ascii	"\347\372\324\256\356K\252*:]\326\261-\340\243h\012\377"
+  93      EE4BAA2A 
+  93      3A5DD6B1 
+  93      2DE0A368 
+  93      0AFF
+  94 0135 C60E7CF2 		.ascii	"\306\016|\362m\272\202\223\276lR\025\252Ff\245J\351"
+  94      6DBA8293 
+  94      BE6C5215 
+  94      AA4666A5 
+  94      4AE9
+  95 0147 8540F5CD 		.ascii	"\205@\365\315F\310\260\272\303FO\240\335\034\266\202"
+  95      46C8B0BA 
+  95      C3464FA0 
+  95      DD1CB682 
+  96 0157 4697BFDD 		.ascii	"F\227\277\335l\254\353j\011\365\033\301p\237\031\352"
+  96      6CACEB6A 
+  96      09F51BC1 
+  96      709F19EA 
+  97 0167 E81B342C 		.ascii	"\350\0334,\277i\205\033\315P\3302\007\332\214\336@m"
+  97      BF69851B 
+  97      CD50D832 
+  97      07DA8CDE 
+  97      406D
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 7
+
+
+  98 0179 C0DF5A13 		.ascii	"\300\337Z\023\244/%\365\236 "
+  98      A42F25F5 
+  98      9E20
+  99              		.text
+ 100              		.section	.gnu.lto_InjectionTimerPortControlReg_2_Wakeup.24c16501,"",%progbits
+ 101 0000 789C6590 		.ascii	"x\234e\220\273K\003A\020\306\367\233K\316@\032\261\222"
+ 101      BB4B0341 
+ 101      10C6F79B 
+ 101      4BCE401A 
+ 101      B192
+ 102 0012 FC03565A 		.ascii	"\374\003VZ\010\332\210\225E\260\020\202\261\024\202"
+ 102      08DA8895 
+ 102      45B01082 
+ 102      B11482
+ 103 0021 C44314CD 		.ascii	"\304C\024\315\301q\226\222;\211\220\312G\260\020|U\342"
+ 103      C1719692 
+ 103      3B8990CA 
+ 103      47B0107C 
+ 103      55E2
+ 104 0033 23F11145 		.ascii	"#\361\021E\301\312`#X(j\241\244\360\201\021\2653Zh\024"
+ 104      C1CA6023 
+ 104      58286AA1 
+ 104      A4F08111 
+ 104      B5335A68 
+ 105 0048 3D672F55 		.ascii	"=g/Uta\231\335\231o\276\337\316*\342\377\012\3606!D"
+ 105      746199DD 
+ 105      996FBEDF 
+ 105      CE2AE2FF 
+ 105      0AF03621 
+ 106 005d 2B472802 		.ascii	"+G(\0024y\"\204\355#@\036\004D\234\020\3073\025\011"
+ 106      34792284 
+ 106      ED23401E 
+ 106      04449C10 
+ 106      C7331509 
+ 107 0071 93B9F48C 		.ascii	"\223\271\364\214\277n\311\262\254\227\363\375\332\261"
+ 107      BF6EC9B2 
+ 107      AC97F3FD 
+ 107      DAB1
+ 108 007f DA1209F1 		.ascii	"\332\022\011\361Fe\033,\243N\260\246\230\370\276\364"
+ 108      46651B2C 
+ 108      A34EB0A6 
+ 108      98F8BEF4 
+ 109 008f AB09D654 		.ascii	"\253\011\326T\227kX\201\312\366b\263&g9\316\316\343"
+ 109      976B5881 
+ 109      CAF662B3 
+ 109      266739CE 
+ 109      CEE3
+ 110 00a1 54B2191E 		.ascii	"T\262\031\036E\224\210\223\005\026H\312\003\221\214"
+ 110      45948893 
+ 110      051648CA 
+ 110      03918C
+ 111 00b0 4A1EA37B 		.ascii	"J\036\243{\305\203\214R\341\223[<\"\327\345\215[\376"
+ 111      C5838C52 
+ 111      E1935B3C 
+ 111      22D7E58D 
+ 111      5BFE
+ 112 00c2 10B00A95 		.ascii	"\020\260\012\225\021kP\337Iv-\\\214o\320\310\227\225"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 8
+
+
+ 112      116B50DF 
+ 112      49762D5C 
+ 112      8C6FD0C8 
+ 112      9795
+ 113 00d4 B47C25A2 		.ascii	"\264|%\242o\311\347\354M\341\364\314\367D\234q\257+"
+ 113      6FC9E7EC 
+ 113      4DE1F4CC 
+ 113      F7449C71 
+ 113      AF2B
+ 114 00e6 76620EF3 		.ascii	"vb\016\363\230\265-\251R\220\306\0102\010\270\265\237"
+ 114      98B52DA9 
+ 114      5290C608 
+ 114      3208B8B5 
+ 114      9F
+ 115 00f7 CCC4B65A 		.ascii	"\314\304\266Z\237f\363[\347J-\221\007\353,}\345F\027"
+ 115      9F66F35B 
+ 115      E74A2D91 
+ 115      07EB2C7D 
+ 115      E54617
+ 116 010a 850DD48B 		.ascii	"\205\015\324\213<\016Sw\015\022\312\015\273O)\247Jz"
+ 116      3C0E5377 
+ 116      0D12CA0D 
+ 116      BB4F29A7 
+ 116      4A7A
+ 117 011c 7B3F8F6D 		.ascii	"{?\217m\313S\201\363\272\226\367\037\371g\222\270i\233"
+ 117      CB5381F3 
+ 117      BA96F71F 
+ 117      F96792B8 
+ 117      699B
+ 118 012e 712A3611 		.ascii	"q*6\021\300\226\304!\313\326\374nq\015;\227\015\312"
+ 118      C096C421 
+ 118      CBD6FC6E 
+ 118      710D3B97 
+ 118      0DCA
+ 119 0140 11E54F16 		.ascii	"\021\345O\026xL\376\014F\266\004\265\230f\364\230Zo"
+ 119      784CFE0C 
+ 119      46B604B5 
+ 119      9866F498 
+ 119      5A6F
+ 120 0152 24AC0F1B 		.ascii	"$\254\017\033Q\255;\024\326\333\232\272\333c\003Z\324"
+ 120      51AD3B14 
+ 120      D6DB9ABA 
+ 120      DB63035A 
+ 120      D4
+ 121 0163 ECD7635D 		.ascii	"\354\327c]\375C\232\021\322\015\263M\217\231\206>\330"
+ 121      FD439A11 
+ 121      D20DB34D 
+ 121      8F99863E 
+ 121      D8
+ 122 0174 A9F5451A 		.ascii	"\251\365E\032#\241\216\206\250\370\005A\261\237\014"
+ 122      23A18E86 
+ 122      A8F80541 
+ 122      B19F0C
+ 123              		.text
+ 124              		.section	.gnu.lto_.symbol_nodes.24c16501,"",%progbits
+ 125 0000 789C55C8 		.ascii	"x\234U\310A\015\000 \020\304\300\336\036$XC\325Z@\001"
+ 125      410D0020 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 9
+
+
+ 125      10C4C0DE 
+ 125      1E245843 
+ 125      D55A4001 
+ 126 0014 41119AF8 		.ascii	"A\021\232\370\360\200\376\246\011tn\012\303\330`3W\243"
+ 126      F080FEA6 
+ 126      09746E0A 
+ 126      C3D86033 
+ 126      57A3
+ 127 0026 C2925372 		.ascii	"\302\222Sr\274[i}.\316\327\034\222.\022\022"
+ 127      BC5B697D 
+ 127      2ECED71C 
+ 127      922E1212 
+ 128              		.text
+ 129              		.section	.gnu.lto_.refs.24c16501,"",%progbits
+ 130 0000 789C6366 		.ascii	"x\234cf``\020e\200\000F\006FF&F& \311\310\014b\261\000"
+ 130      60601065 
+ 130      80004606 
+ 130      46462646 
+ 130      2620C9C8 
+ 131 0018 590C0003 		.ascii	"Y\014\000\003\357\0002"
+ 131      EF0032
+ 132              		.text
+ 133              		.section	.gnu.lto_.decls.24c16501,"",%progbits
+ 134 0000 789C9D93 		.ascii	"x\234\235\223]H\223a\024\307\237\263g\316\271\346\012"
+ 134      5D489361 
+ 134      14C79FB3 
+ 134      67CEB9E6 
+ 134      0A
+ 135 0011 040BAFEC 		.ascii	"\004\013\257\354K*$(H\204.\262v\021\025\305pJ\027\005"
+ 135      4B2A2428 
+ 135      48842EB2 
+ 135      761115C5 
+ 135      704A1705 
+ 136 0025 66EBCDEC 		.ascii	"f\353\315\354c\2635\203\356\236\266>\324\242\254,\315"
+ 136      63B33583 
+ 136      EE9EB63E 
+ 136      D4A2AC2C 
+ 136      CD
+ 137 0036 A2164A99 		.ascii	"\242\026J\231\315\265L3\247m.-\015\261\272\020\301\233"
+ 137      CDB54C33 
+ 137      A76D2E2D 
+ 137      0DB1BA10 
+ 137      C19B
+ 138 0048 B06E0AEA 		.ascii	"\260n\012\352bID\221\265\316\363\274\357\332\254\306"
+ 138      62494491 
+ 138      B5CEF3BC 
+ 138      EFDAACC6 
+ 139 0058 B207CEFB 		.ascii	"\262\007\316\373\371?\277\363\177\316y_J\010\331\001"
+ 139      F93FBFF3 
+ 139      7FCE795F 
+ 139      4A08D901 
+ 140 0068 844470AD 		.ascii	"\204Dp\255P\023\342\301\353\024|f\"\261\205\217\211"
+ 140      5013E2C1 
+ 140      EB147C66 
+ 140      22B1858F 
+ 140      89
+ 141 0079 07C38BE1 		.ascii	"\007\303\213\341\303h\307@\031\011\221\351\213kR\225"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 10
+
+
+ 141      C368C740 
+ 141      190991E9 
+ 141      8B6B5295 
+ 142 0089 DC4C8CA7 		.ascii	"\334L\214\247\030\003\030\203\030\001\214.%\257G9{\022"
+ 142      18031883 
+ 142      18018C2E 
+ 142      25AF4739 
+ 142      7B12
+ 143 009b 70BCBF71 		.ascii	"p\274\277q\342\363\243\314x\2167\001\3077\003?*E\237"
+ 143      E2F3A3CC 
+ 143      788E3701 
+ 143      C737033F 
+ 143      2A459F
+ 144 00ae C853FB0C 		.ascii	"\310S\373\014<\251\024}\"_\037U\320\355\37542\353\235"
+ 144      3CA9147D 
+ 144      225F1F55 
+ 144      D0EDFD34 
+ 144      32EB9D
+ 145 00c1 0A0CBA6C 		.ascii	"\012\014\272l~\353??\324\240\301[\275N\315o{\276\275"
+ 145      7EEB3F3F 
+ 145      D4A0C15B 
+ 145      BD4ECD6F 
+ 145      7BBEBD
+ 146 00d4 1955CFBD 		.ascii	"\031U\317\275\310p\325\272\330\0345\2302\341\026dA\013"
+ 146      C870D5BA 
+ 146      D81C3598 
+ 146      32E11664 
+ 146      410B
+ 147 00e6 6421F136 		.ascii	"d!\3616\314\305\3436\265L\352\367_9\256\246*\340\327"
+ 147      CCC5E336 
+ 147      B54CEAF7 
+ 147      5F39AEA6 
+ 147      2AE0D7
+ 148 00f9 4D0DAF47 		.ascii	"M\015\257Gu\271\255\230V\305\372&Rb\345j/\325v\247d"
+ 148      75B9AD98 
+ 148      56C5FA26 
+ 148      5262E56A 
+ 148      2FD576A7 
+ 149 010e 5F6313BE 		.ascii	"_c\023\276\360{\337\270\236\015\261\276H$\310@\300\240"
+ 149      F07BDFB8 
+ 149      9E0DB1BE 
+ 149      4824C840 
+ 149      C0A0
+ 150 0120 1528DC81 		.ascii	"\025(\334\201\\\256\345\327\"\011<\220\215\211_[:]\006"
+ 150      5CAEE5D7 
+ 150      22093C90 
+ 150      8D895F5B 
+ 150      3A5D06
+ 151 0133 6A137467 		.ascii	"j\023tg\350\243_\206\270\277\267\263\202cl*\022qi\005"
+ 151      E8A35F86 
+ 151      B8BFB7B3 
+ 151      82636C2A 
+ 151      12716905 
+ 152 0147 A12D8ED0 		.ascii	"\241-\216\320\026%x\005\341\345`\307\2274z\025\004\302"
+ 152      16257805 
+ 152      E1E560C7 
+ 152      97347A15 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 11
+
+
+ 152      04C2
+ 153 0159 5B351930 		.ascii	"[5\0310 \302\355s\337n\322\010\027k\004\340n\034\340"
+ 153      20C2ED73 
+ 153      DF6ED208 
+ 153      176B04E0 
+ 153      6E1CE0
+ 154 016c 6E14E093 		.ascii	"n\024\340\223\001\336\253.\240!\031\360\274\251\272"
+ 154      01DEAB2E 
+ 154      A02119F0 
+ 154      BCA9BA
+ 155 017b 3A55068C 		.ascii	":U\006\214L\003\334\213\003\334\213\002\332\005\340"
+ 155      4C03DC8B 
+ 155      03DC8B02 
+ 155      DA05E0
+ 156 018a 7AD787D1 		.ascii	"z\327\207\3214\372V\006\214\005O\236\324\322:\271_G"
+ 156      34FA5606 
+ 156      8C054F9E 
+ 156      D4D23AB9 
+ 156      5F47
+ 157 019c 6FF69C4E 		.ascii	"o\366\234N\305\266g\352D\227\316\0147\206\250\270\215"
+ 157      C5B667EA 
+ 157      4497CE0C 
+ 157      3786A8B8 
+ 157      8D
+ 158 01ad F0D7AAF1 		.ascii	"\360\327\252\361\361\272\257\024t9U\2149Y\370<\243\363"
+ 158      F1BAAF14 
+ 158      7439558C 
+ 158      3959F83C 
+ 158      A3F3
+ 159 01bf 08E466C1 		.ascii	"\010\344f\301\322,\002\017!\007e\242\"t\342d\036\340"
+ 159      D22C020F 
+ 159      210765A2 
+ 159      2274E264 
+ 159      1EE0
+ 160 01d1 649AB1EF 		.ascii	"d\232\261\357a\177u`\243\213\025@\027\350\240\343\227"
+ 160      617F7560 
+ 160      A38B1540 
+ 160      17E8A0E3 
+ 160      97
+ 161 01e2 27514199 		.ascii	"'QA\231Ecd\254\303@{\205\003Z\367c\312g\200\214\005"
+ 161      456364AC 
+ 161      C3407B85 
+ 161      035AF763 
+ 161      CA67808C 
+ 162 01f7 39E7F8B0 		.ascii	"9\347\370\260\303NVp0Z\203\200\0372x>\364b\261\036X"
+ 162      C34E5670 
+ 162      305A8380 
+ 162      1F32783E 
+ 162      F462B11E 
+ 163 020c 20006EF4 		.ascii	" \000n\364\022\276<\374\"\275\236M\364\201(\323\215"
+ 163      12BE3CFC 
+ 163      22BD9E4D 
+ 163      F48128D3 
+ 163      8D
+ 164 021d 65B854B1 		.ascii	"e\270T\261\266\204\247.\303\20304\321\273R\313\337\222"
+ 164      B684A72E 
+ 164      C3833034 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 12
+
+
+ 164      D1BB52CB 
+ 164      DF92
+ 165 022f 6877A23E 		.ascii	"hw\242>T\315\375\256\026\025\344d\010\325\220\006 \200"
+ 165      54CDFDAE 
+ 165      1615E464 
+ 165      08D59006 
+ 165      2080
+ 166 0241 8CFB31CB 		.ascii	"\214\3731\313<I\254?\255\301#t\3647w\270\275\343\003"
+ 166      3C49AC3F 
+ 166      ADC12374 
+ 166      F43777B8 
+ 166      BDE303
+ 167 0254 9D176653 		.ascii	"\235\027fS'\025\015\256\177;uV\237\327\301\252\334Z"
+ 167      27150DAE 
+ 167      7F3B7556 
+ 167      9FD7C1AA 
+ 167      DC5A
+ 168 0266 81471D6F 		.ascii	"\201G\035o\027\177\0259\33506k\341\015\306\334\341\367"
+ 168      177F1539 
+ 168      DD30366B 
+ 168      E10DC6DC 
+ 168      E1F7
+ 169 0278 AF1ED27A 		.ascii	"\257\036\322z\346v2\306\247)\204A\331\307\257V\004\371"
+ 169      E67632C6 
+ 169      A7298441 
+ 169      D9C7AF56 
+ 169      04F9
+ 170 028a 48A10FF2 		.ascii	"H\241\017\362\010\204`!\246\263\372S\315Z\332\"\227"
+ 170      08846021 
+ 170      A6B3FA53 
+ 170      CD5ADA22 
+ 170      97
+ 171 029b E9FC5CD3 		.ascii	"\351\374\\\323\235\256\3031\271\376aL\270\365\321\347"
+ 171      9DAEC331 
+ 171      B9FE614C 
+ 171      B8F5D1E7 
+ 172 02ab 356369F2 		.ascii	"5ci\362`\177\317x\222p\260\317&7\035\303\301\016`\307"
+ 172      607FCF78 
+ 172      9270B0CF 
+ 172      26371DC3 
+ 172      C10E60C7 
+ 173 02bf 1FC7BAD4 		.ascii	"\037\307\272\324\017\261\311V\277i\034\321\353k\370"
+ 173      0FB1C956 
+ 173      BF691CD1 
+ 173      EB6BF8
+ 174 02ce D782BF6D 		.ascii	"\327\202\277m\332\220A\210c?\356S\320\213\317\022\317"
+ 174      DA904188 
+ 174      633FEE53 
+ 174      D08BCF12 
+ 174      CF
+ 175 02df A89EF49C 		.ascii	"\250\236\364\234\250\325LS\363\215\307\324\203\212\232"
+ 175      A8D54C53 
+ 175      F38DC7D4 
+ 175      838A9A
+ 176 02ee 9F976EB0 		.ascii	"\237\227n\260\356\225,\216r\233\265\250\374\200d7\331"
+ 176      EE952C8E 
+ 176      729BB5A8 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 13
+
+
+ 176      FC806437 
+ 176      D9
+ 177 02ff EC0EA3CD 		.ascii	"\354\016\243\315\352\260\333\366\027Je%+K\314\245\207"
+ 177      EAB0DBF6 
+ 177      174A6525 
+ 177      2B4BCCA5 
+ 177      87
+ 178 0310 257CB0BB 		.ascii	"%|\260\273\274L\263~Kq\266\221\254^/Y%{\251C\332Ub\266"
+ 178      BC4CB37E 
+ 178      4B71B691 
+ 178      AC5E2F59 
+ 178      257BA943 
+ 179 0328 55DA2DD2 		.ascii	"U\332-\322v\223\331f\\\265=\011\307\264y\271\205\344"
+ 179      7693D966 
+ 179      5CB53D09 
+ 179      C7B479B9 
+ 179      85E4
+ 180 033a 2611154A 		.ascii	"&\021\025J\207\0346\273RoQ2g\373%\251bq\022\321\326"
+ 180      871C36BB 
+ 180      526F5132 
+ 180      67FB25A9 
+ 180      627112D1 
+ 181 034f D27D5265 		.ascii	"\322}ReE\262\272\353\326\0327\025\233J\314E\205\305"
+ 181      45B2BAEB 
+ 181      D61A3715 
+ 181      9B4ACC45 
+ 181      85C5
+ 182 0361 C6A294CA 		.ascii	"\306\242\224\312r\253#\177~\202mZ\2168\216TH\207\226"
+ 182      72AB237F 
+ 182      7E826D5A 
+ 182      8E388E54 
+ 182      488796
+ 183 0374 EF217A8B 		.ascii	"\357!z\213\2140;P\225\377_]AJ\262\015\354,\265\354\253"
+ 183      8C303B50 
+ 183      95FF5F5D 
+ 183      414AB20D 
+ 183      EC2CB5EC 
+ 184 0389 AC50DBA5 		.ascii	"\254P\333\245\262\374\237\255\320\002y"
+ 184      B2FC9FAD 
+ 184      D00279
+ 185              		.text
+ 186              		.section	.gnu.lto_.symtab.24c16501,"",%progbits
+ 187 0000 496E6A65 		.ascii	"InjectionTimerPortControlReg_2_SaveConfig\000\000\000"
+ 187      6374696F 
+ 187      6E54696D 
+ 187      6572506F 
+ 187      7274436F 
+ 188 002c 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\254\000\000\000"
+ 188      00000000 
+ 188      00AC0000 
+ 188      00
+ 189 0039 496E6A65 		.ascii	"InjectionTimerPortControlReg_2_RestoreConfig\000\000"
+ 189      6374696F 
+ 189      6E54696D 
+ 189      6572506F 
+ 189      7274436F 
+ 190 0067 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\256\000\000"
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 14
+
+
+ 190      00000000 
+ 190      0000AE00 
+ 190      00
+ 191 0074 00496E6A 		.ascii	"\000InjectionTimerPortControlReg_2_Sleep\000\000\000"
+ 191      65637469 
+ 191      6F6E5469 
+ 191      6D657250 
+ 191      6F727443 
+ 192 009c 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\260\000\000\000"
+ 192      00000000 
+ 192      00B00000 
+ 192      00
+ 193 00a9 496E6A65 		.ascii	"InjectionTimerPortControlReg_2_Wakeup\000\000\000\000"
+ 193      6374696F 
+ 193      6E54696D 
+ 193      6572506F 
+ 193      7274436F 
+ 194 00d2 00000000 		.ascii	"\000\000\000\000\000\000\000\000\262\000\000\000"
+ 194      00000000 
+ 194      B2000000 
+ 195              		.text
+ 196              		.section	.gnu.lto_.opts,"",%progbits
+ 197 0000 272D666E 		.ascii	"'-fno-trapv' '-mcpu=cortex-m3' '-mthumb' '-g' '-O3'"
+ 197      6F2D7472 
+ 197      61707627 
+ 197      20272D6D 
+ 197      6370753D 
+ 198 0033 20272D66 		.ascii	" '-ffunction-sections' '-finline-functions' '-flto'"
+ 198      66756E63 
+ 198      74696F6E 
+ 198      2D736563 
+ 198      74696F6E 
+ 199 0066 20272D66 		.ascii	" '-ffat-lto-objects'\000"
+ 199      6661742D 
+ 199      6C746F2D 
+ 199      6F626A65 
+ 199      63747327 
+ 200              		.text
+ 201              		.cfi_sections	.debug_frame
+ 202              		.section	.text.InjectionTimerPortControlReg_2_SaveConfig,"ax",%progbits
+ 203              		.align	2
+ 204              		.global	InjectionTimerPortControlReg_2_SaveConfig
+ 205              		.thumb
+ 206              		.thumb_func
+ 207              		.type	InjectionTimerPortControlReg_2_SaveConfig, %function
+ 208              	InjectionTimerPortControlReg_2_SaveConfig:
+ 209              	.LFB0:
+ 210              		.file 1 "Generated_Source\\PSoC5\\InjectionTimerPortControlReg_2_PM.c"
+   1:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * File Name: InjectionTimerPortControlReg_2_PM.c
+   3:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Version 1.80
+   4:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+   5:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Description:
+   6:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *  This file contains the setup, control, and status commands to support 
+   7:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *  the component operation in the low power mode. 
+   8:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+   9:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Note:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 15
+
+
+  10:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+  11:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Copyright 2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** 
+  18:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** #include "InjectionTimerPortControlReg_2.h"
+  19:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** 
+  20:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** /* Check for removal by optimization */
+  21:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** #if !defined(InjectionTimerPortControlReg_2_Sync_ctrl_reg__REMOVED)
+  22:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** 
+  23:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** static InjectionTimerPortControlReg_2_BACKUP_STRUCT  InjectionTimerPortControlReg_2_backup = {0u};
+  24:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** 
+  25:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c ****     
+  26:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** /*******************************************************************************
+  27:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Function Name: InjectionTimerPortControlReg_2_SaveConfig
+  28:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** ********************************************************************************
+  29:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+  30:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Summary:
+  31:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *  Saves the control register value.
+  32:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+  33:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Parameters:
+  34:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *  None
+  35:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+  36:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Return:
+  37:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *  None
+  38:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+  39:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *******************************************************************************/
+  40:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** void InjectionTimerPortControlReg_2_SaveConfig(void) 
+  41:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** {
+ 211              		.loc 1 41 0
+ 212              		.cfi_startproc
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215              		@ link register save eliminated.
+  42:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c ****     InjectionTimerPortControlReg_2_backup.controlState = InjectionTimerPortControlReg_2_Control;
+ 216              		.loc 1 42 0
+ 217 0000 024A     		ldr	r2, .L2
+ 218 0002 034B     		ldr	r3, .L2+4
+ 219 0004 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 220 0006 1A70     		strb	r2, [r3]
+ 221 0008 7047     		bx	lr
+ 222              	.L3:
+ 223 000a 00BF     		.align	2
+ 224              	.L2:
+ 225 000c 7A650040 		.word	1073767802
+ 226 0010 00000000 		.word	.LANCHOR0
+ 227              		.cfi_endproc
+ 228              	.LFE0:
+ 229              		.size	InjectionTimerPortControlReg_2_SaveConfig, .-InjectionTimerPortControlReg_2_SaveConfig
+ 230              		.section	.text.InjectionTimerPortControlReg_2_RestoreConfig,"ax",%progbits
+ 231              		.align	2
+ 232              		.global	InjectionTimerPortControlReg_2_RestoreConfig
+ 233              		.thumb
+ 234              		.thumb_func
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 16
+
+
+ 235              		.type	InjectionTimerPortControlReg_2_RestoreConfig, %function
+ 236              	InjectionTimerPortControlReg_2_RestoreConfig:
+ 237              	.LFB1:
+  43:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** }
+  44:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** 
+  45:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** 
+  46:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** /*******************************************************************************
+  47:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Function Name: InjectionTimerPortControlReg_2_RestoreConfig
+  48:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** ********************************************************************************
+  49:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+  50:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Summary:
+  51:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *  Restores the control register value.
+  52:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+  53:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Parameters:
+  54:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *  None
+  55:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+  56:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Return:
+  57:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *  None
+  58:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+  59:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+  60:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *******************************************************************************/
+  61:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** void InjectionTimerPortControlReg_2_RestoreConfig(void) 
+  62:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** {
+ 238              		.loc 1 62 0
+ 239              		.cfi_startproc
+ 240              		@ args = 0, pretend = 0, frame = 0
+ 241              		@ frame_needed = 0, uses_anonymous_args = 0
+ 242              		@ link register save eliminated.
+  63:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c ****      InjectionTimerPortControlReg_2_Control = InjectionTimerPortControlReg_2_backup.controlState;
+ 243              		.loc 1 63 0
+ 244 0000 024A     		ldr	r2, .L5
+ 245 0002 034B     		ldr	r3, .L5+4
+ 246 0004 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 247 0006 1A70     		strb	r2, [r3]
+ 248 0008 7047     		bx	lr
+ 249              	.L6:
+ 250 000a 00BF     		.align	2
+ 251              	.L5:
+ 252 000c 00000000 		.word	.LANCHOR0
+ 253 0010 7A650040 		.word	1073767802
+ 254              		.cfi_endproc
+ 255              	.LFE1:
+ 256              		.size	InjectionTimerPortControlReg_2_RestoreConfig, .-InjectionTimerPortControlReg_2_RestoreConfig
+ 257              		.section	.text.InjectionTimerPortControlReg_2_Sleep,"ax",%progbits
+ 258              		.align	2
+ 259              		.global	InjectionTimerPortControlReg_2_Sleep
+ 260              		.thumb
+ 261              		.thumb_func
+ 262              		.type	InjectionTimerPortControlReg_2_Sleep, %function
+ 263              	InjectionTimerPortControlReg_2_Sleep:
+ 264              	.LFB2:
+  64:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** }
+  65:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** 
+  66:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** 
+  67:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** /*******************************************************************************
+  68:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Function Name: InjectionTimerPortControlReg_2_Sleep
+  69:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** ********************************************************************************
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 17
+
+
+  70:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+  71:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Summary:
+  72:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *  Prepares the component for entering the low power mode.
+  73:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+  74:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Parameters:
+  75:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *  None
+  76:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+  77:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Return:
+  78:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *  None
+  79:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+  80:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *******************************************************************************/
+  81:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** void InjectionTimerPortControlReg_2_Sleep(void) 
+  82:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** {
+ 265              		.loc 1 82 0
+ 266              		.cfi_startproc
+ 267              		@ args = 0, pretend = 0, frame = 0
+ 268              		@ frame_needed = 0, uses_anonymous_args = 0
+ 269              		@ link register save eliminated.
+ 270              	.LBB6:
+ 271              	.LBB7:
+  42:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** }
+ 272              		.loc 1 42 0
+ 273 0000 024A     		ldr	r2, .L8
+ 274 0002 034B     		ldr	r3, .L8+4
+ 275 0004 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 276 0006 1A70     		strb	r2, [r3]
+ 277 0008 7047     		bx	lr
+ 278              	.L9:
+ 279 000a 00BF     		.align	2
+ 280              	.L8:
+ 281 000c 7A650040 		.word	1073767802
+ 282 0010 00000000 		.word	.LANCHOR0
+ 283              	.LBE7:
+ 284              	.LBE6:
+ 285              		.cfi_endproc
+ 286              	.LFE2:
+ 287              		.size	InjectionTimerPortControlReg_2_Sleep, .-InjectionTimerPortControlReg_2_Sleep
+ 288              		.section	.text.InjectionTimerPortControlReg_2_Wakeup,"ax",%progbits
+ 289              		.align	2
+ 290              		.global	InjectionTimerPortControlReg_2_Wakeup
+ 291              		.thumb
+ 292              		.thumb_func
+ 293              		.type	InjectionTimerPortControlReg_2_Wakeup, %function
+ 294              	InjectionTimerPortControlReg_2_Wakeup:
+ 295              	.LFB3:
+  83:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c ****     InjectionTimerPortControlReg_2_SaveConfig();
+  84:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** }
+  85:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** 
+  86:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** 
+  87:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** /*******************************************************************************
+  88:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Function Name: InjectionTimerPortControlReg_2_Wakeup
+  89:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** ********************************************************************************
+  90:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+  91:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Summary:
+  92:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *  Restores the component after waking up from the low power mode.
+  93:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+  94:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Parameters:
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 18
+
+
+  95:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *  None
+  96:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+  97:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** * Return:
+  98:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *  None
+  99:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *
+ 100:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** *******************************************************************************/
+ 101:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** void InjectionTimerPortControlReg_2_Wakeup(void)  
+ 102:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** {
+ 296              		.loc 1 102 0
+ 297              		.cfi_startproc
+ 298              		@ args = 0, pretend = 0, frame = 0
+ 299              		@ frame_needed = 0, uses_anonymous_args = 0
+ 300              		@ link register save eliminated.
+ 301              	.LBB8:
+ 302              	.LBB9:
+  63:Generated_Source\PSoC5/InjectionTimerPortControlReg_2_PM.c **** }
+ 303              		.loc 1 63 0
+ 304 0000 024A     		ldr	r2, .L11
+ 305 0002 034B     		ldr	r3, .L11+4
+ 306 0004 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 307 0006 1A70     		strb	r2, [r3]
+ 308 0008 7047     		bx	lr
+ 309              	.L12:
+ 310 000a 00BF     		.align	2
+ 311              	.L11:
+ 312 000c 00000000 		.word	.LANCHOR0
+ 313 0010 7A650040 		.word	1073767802
+ 314              	.LBE9:
+ 315              	.LBE8:
+ 316              		.cfi_endproc
+ 317              	.LFE3:
+ 318              		.size	InjectionTimerPortControlReg_2_Wakeup, .-InjectionTimerPortControlReg_2_Wakeup
+ 319              		.bss
+ 320              		.align	2
+ 321              		.set	.LANCHOR0,. + 0
+ 322              		.type	InjectionTimerPortControlReg_2_backup, %object
+ 323              		.size	InjectionTimerPortControlReg_2_backup, 1
+ 324              	InjectionTimerPortControlReg_2_backup:
+ 325 0000 00       		.space	1
+ 326 0001 000000   		.text
+ 327              	.Letext0:
+ 328              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 329              		.file 3 "Generated_Source\\PSoC5\\InjectionTimerPortControlReg_2.h"
+ 330              		.section	.debug_info,"",%progbits
+ 331              	.Ldebug_info0:
+ 332 0000 43010000 		.4byte	0x143
+ 333 0004 0400     		.2byte	0x4
+ 334 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 335 000a 04       		.byte	0x4
+ 336 000b 01       		.uleb128 0x1
+ 337 000c 30010000 		.4byte	.LASF19
+ 338 0010 01       		.byte	0x1
+ 339 0011 26000000 		.4byte	.LASF20
+ 340 0015 4C020000 		.4byte	.LASF21
+ 341 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 342 001d 00000000 		.4byte	0
+ 343 0021 00000000 		.4byte	.Ldebug_line0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 19
+
+
+ 344 0025 02       		.uleb128 0x2
+ 345 0026 01       		.byte	0x1
+ 346 0027 06       		.byte	0x6
+ 347 0028 B1020000 		.4byte	.LASF0
+ 348 002c 02       		.uleb128 0x2
+ 349 002d 01       		.byte	0x1
+ 350 002e 08       		.byte	0x8
+ 351 002f B2000000 		.4byte	.LASF1
+ 352 0033 02       		.uleb128 0x2
+ 353 0034 02       		.byte	0x2
+ 354 0035 05       		.byte	0x5
+ 355 0036 33020000 		.4byte	.LASF2
+ 356 003a 02       		.uleb128 0x2
+ 357 003b 02       		.byte	0x2
+ 358 003c 07       		.byte	0x7
+ 359 003d D7000000 		.4byte	.LASF3
+ 360 0041 02       		.uleb128 0x2
+ 361 0042 04       		.byte	0x4
+ 362 0043 05       		.byte	0x5
+ 363 0044 43020000 		.4byte	.LASF4
+ 364 0048 02       		.uleb128 0x2
+ 365 0049 04       		.byte	0x4
+ 366 004a 07       		.byte	0x7
+ 367 004b C5000000 		.4byte	.LASF5
+ 368 004f 02       		.uleb128 0x2
+ 369 0050 08       		.byte	0x8
+ 370 0051 05       		.byte	0x5
+ 371 0052 22010000 		.4byte	.LASF6
+ 372 0056 02       		.uleb128 0x2
+ 373 0057 08       		.byte	0x8
+ 374 0058 07       		.byte	0x7
+ 375 0059 0B010000 		.4byte	.LASF7
+ 376 005d 03       		.uleb128 0x3
+ 377 005e 04       		.byte	0x4
+ 378 005f 05       		.byte	0x5
+ 379 0060 696E7400 		.ascii	"int\000"
+ 380 0064 02       		.uleb128 0x2
+ 381 0065 04       		.byte	0x4
+ 382 0066 07       		.byte	0x7
+ 383 0067 FE000000 		.4byte	.LASF8
+ 384 006b 04       		.uleb128 0x4
+ 385 006c 3D020000 		.4byte	.LASF12
+ 386 0070 02       		.byte	0x2
+ 387 0071 3801     		.2byte	0x138
+ 388 0073 2C000000 		.4byte	0x2c
+ 389 0077 02       		.uleb128 0x2
+ 390 0078 04       		.byte	0x4
+ 391 0079 04       		.byte	0x4
+ 392 007a AC000000 		.4byte	.LASF9
+ 393 007e 02       		.uleb128 0x2
+ 394 007f 08       		.byte	0x8
+ 395 0080 04       		.byte	0x4
+ 396 0081 F7000000 		.4byte	.LASF10
+ 397 0085 02       		.uleb128 0x2
+ 398 0086 01       		.byte	0x1
+ 399 0087 08       		.byte	0x8
+ 400 0088 D7010000 		.4byte	.LASF11
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 20
+
+
+ 401 008c 04       		.uleb128 0x4
+ 402 008d C0000000 		.4byte	.LASF13
+ 403 0091 02       		.byte	0x2
+ 404 0092 E201     		.2byte	0x1e2
+ 405 0094 98000000 		.4byte	0x98
+ 406 0098 05       		.uleb128 0x5
+ 407 0099 6B000000 		.4byte	0x6b
+ 408 009d 06       		.uleb128 0x6
+ 409 009e 01       		.byte	0x1
+ 410 009f 03       		.byte	0x3
+ 411 00a0 1C       		.byte	0x1c
+ 412 00a1 B2000000 		.4byte	0xb2
+ 413 00a5 07       		.uleb128 0x7
+ 414 00a6 EA000000 		.4byte	.LASF22
+ 415 00aa 03       		.byte	0x3
+ 416 00ab 1E       		.byte	0x1e
+ 417 00ac 6B000000 		.4byte	0x6b
+ 418 00b0 00       		.byte	0
+ 419 00b1 00       		.byte	0
+ 420 00b2 08       		.uleb128 0x8
+ 421 00b3 06020000 		.4byte	.LASF14
+ 422 00b7 03       		.byte	0x3
+ 423 00b8 20       		.byte	0x20
+ 424 00b9 9D000000 		.4byte	0x9d
+ 425 00bd 09       		.uleb128 0x9
+ 426 00be DC010000 		.4byte	.LASF15
+ 427 00c2 01       		.byte	0x1
+ 428 00c3 28       		.byte	0x28
+ 429 00c4 01       		.byte	0x1
+ 430 00c5 09       		.uleb128 0x9
+ 431 00c6 BD020000 		.4byte	.LASF16
+ 432 00ca 01       		.byte	0x1
+ 433 00cb 3D       		.byte	0x3d
+ 434 00cc 01       		.byte	0x1
+ 435 00cd 0A       		.uleb128 0xa
+ 436 00ce BD000000 		.4byte	0xbd
+ 437 00d2 00000000 		.4byte	.LFB0
+ 438 00d6 14000000 		.4byte	.LFE0-.LFB0
+ 439 00da 01       		.uleb128 0x1
+ 440 00db 9C       		.byte	0x9c
+ 441 00dc 0A       		.uleb128 0xa
+ 442 00dd C5000000 		.4byte	0xc5
+ 443 00e1 00000000 		.4byte	.LFB1
+ 444 00e5 14000000 		.4byte	.LFE1-.LFB1
+ 445 00e9 01       		.uleb128 0x1
+ 446 00ea 9C       		.byte	0x9c
+ 447 00eb 0B       		.uleb128 0xb
+ 448 00ec 61000000 		.4byte	.LASF17
+ 449 00f0 01       		.byte	0x1
+ 450 00f1 51       		.byte	0x51
+ 451 00f2 00000000 		.4byte	.LFB2
+ 452 00f6 14000000 		.4byte	.LFE2-.LFB2
+ 453 00fa 01       		.uleb128 0x1
+ 454 00fb 9C       		.byte	0x9c
+ 455 00fc 10010000 		.4byte	0x110
+ 456 0100 0C       		.uleb128 0xc
+ 457 0101 BD000000 		.4byte	0xbd
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 21
+
+
+ 458 0105 00000000 		.4byte	.LBB6
+ 459 0109 14000000 		.4byte	.LBE6-.LBB6
+ 460 010d 01       		.byte	0x1
+ 461 010e 53       		.byte	0x53
+ 462 010f 00       		.byte	0
+ 463 0110 0B       		.uleb128 0xb
+ 464 0111 86000000 		.4byte	.LASF18
+ 465 0115 01       		.byte	0x1
+ 466 0116 65       		.byte	0x65
+ 467 0117 00000000 		.4byte	.LFB3
+ 468 011b 14000000 		.4byte	.LFE3-.LFB3
+ 469 011f 01       		.uleb128 0x1
+ 470 0120 9C       		.byte	0x9c
+ 471 0121 35010000 		.4byte	0x135
+ 472 0125 0C       		.uleb128 0xc
+ 473 0126 C5000000 		.4byte	0xc5
+ 474 012a 00000000 		.4byte	.LBB8
+ 475 012e 14000000 		.4byte	.LBE8-.LBB8
+ 476 0132 01       		.byte	0x1
+ 477 0133 67       		.byte	0x67
+ 478 0134 00       		.byte	0
+ 479 0135 0D       		.uleb128 0xd
+ 480 0136 00000000 		.4byte	.LASF23
+ 481 013a 01       		.byte	0x1
+ 482 013b 17       		.byte	0x17
+ 483 013c B2000000 		.4byte	0xb2
+ 484 0140 05       		.uleb128 0x5
+ 485 0141 03       		.byte	0x3
+ 486 0142 00000000 		.4byte	InjectionTimerPortControlReg_2_backup
+ 487 0146 00       		.byte	0
+ 488              		.section	.debug_abbrev,"",%progbits
+ 489              	.Ldebug_abbrev0:
+ 490 0000 01       		.uleb128 0x1
+ 491 0001 11       		.uleb128 0x11
+ 492 0002 01       		.byte	0x1
+ 493 0003 25       		.uleb128 0x25
+ 494 0004 0E       		.uleb128 0xe
+ 495 0005 13       		.uleb128 0x13
+ 496 0006 0B       		.uleb128 0xb
+ 497 0007 03       		.uleb128 0x3
+ 498 0008 0E       		.uleb128 0xe
+ 499 0009 1B       		.uleb128 0x1b
+ 500 000a 0E       		.uleb128 0xe
+ 501 000b 55       		.uleb128 0x55
+ 502 000c 17       		.uleb128 0x17
+ 503 000d 11       		.uleb128 0x11
+ 504 000e 01       		.uleb128 0x1
+ 505 000f 10       		.uleb128 0x10
+ 506 0010 17       		.uleb128 0x17
+ 507 0011 00       		.byte	0
+ 508 0012 00       		.byte	0
+ 509 0013 02       		.uleb128 0x2
+ 510 0014 24       		.uleb128 0x24
+ 511 0015 00       		.byte	0
+ 512 0016 0B       		.uleb128 0xb
+ 513 0017 0B       		.uleb128 0xb
+ 514 0018 3E       		.uleb128 0x3e
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 22
+
+
+ 515 0019 0B       		.uleb128 0xb
+ 516 001a 03       		.uleb128 0x3
+ 517 001b 0E       		.uleb128 0xe
+ 518 001c 00       		.byte	0
+ 519 001d 00       		.byte	0
+ 520 001e 03       		.uleb128 0x3
+ 521 001f 24       		.uleb128 0x24
+ 522 0020 00       		.byte	0
+ 523 0021 0B       		.uleb128 0xb
+ 524 0022 0B       		.uleb128 0xb
+ 525 0023 3E       		.uleb128 0x3e
+ 526 0024 0B       		.uleb128 0xb
+ 527 0025 03       		.uleb128 0x3
+ 528 0026 08       		.uleb128 0x8
+ 529 0027 00       		.byte	0
+ 530 0028 00       		.byte	0
+ 531 0029 04       		.uleb128 0x4
+ 532 002a 16       		.uleb128 0x16
+ 533 002b 00       		.byte	0
+ 534 002c 03       		.uleb128 0x3
+ 535 002d 0E       		.uleb128 0xe
+ 536 002e 3A       		.uleb128 0x3a
+ 537 002f 0B       		.uleb128 0xb
+ 538 0030 3B       		.uleb128 0x3b
+ 539 0031 05       		.uleb128 0x5
+ 540 0032 49       		.uleb128 0x49
+ 541 0033 13       		.uleb128 0x13
+ 542 0034 00       		.byte	0
+ 543 0035 00       		.byte	0
+ 544 0036 05       		.uleb128 0x5
+ 545 0037 35       		.uleb128 0x35
+ 546 0038 00       		.byte	0
+ 547 0039 49       		.uleb128 0x49
+ 548 003a 13       		.uleb128 0x13
+ 549 003b 00       		.byte	0
+ 550 003c 00       		.byte	0
+ 551 003d 06       		.uleb128 0x6
+ 552 003e 13       		.uleb128 0x13
+ 553 003f 01       		.byte	0x1
+ 554 0040 0B       		.uleb128 0xb
+ 555 0041 0B       		.uleb128 0xb
+ 556 0042 3A       		.uleb128 0x3a
+ 557 0043 0B       		.uleb128 0xb
+ 558 0044 3B       		.uleb128 0x3b
+ 559 0045 0B       		.uleb128 0xb
+ 560 0046 01       		.uleb128 0x1
+ 561 0047 13       		.uleb128 0x13
+ 562 0048 00       		.byte	0
+ 563 0049 00       		.byte	0
+ 564 004a 07       		.uleb128 0x7
+ 565 004b 0D       		.uleb128 0xd
+ 566 004c 00       		.byte	0
+ 567 004d 03       		.uleb128 0x3
+ 568 004e 0E       		.uleb128 0xe
+ 569 004f 3A       		.uleb128 0x3a
+ 570 0050 0B       		.uleb128 0xb
+ 571 0051 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 23
+
+
+ 572 0052 0B       		.uleb128 0xb
+ 573 0053 49       		.uleb128 0x49
+ 574 0054 13       		.uleb128 0x13
+ 575 0055 38       		.uleb128 0x38
+ 576 0056 0B       		.uleb128 0xb
+ 577 0057 00       		.byte	0
+ 578 0058 00       		.byte	0
+ 579 0059 08       		.uleb128 0x8
+ 580 005a 16       		.uleb128 0x16
+ 581 005b 00       		.byte	0
+ 582 005c 03       		.uleb128 0x3
+ 583 005d 0E       		.uleb128 0xe
+ 584 005e 3A       		.uleb128 0x3a
+ 585 005f 0B       		.uleb128 0xb
+ 586 0060 3B       		.uleb128 0x3b
+ 587 0061 0B       		.uleb128 0xb
+ 588 0062 49       		.uleb128 0x49
+ 589 0063 13       		.uleb128 0x13
+ 590 0064 00       		.byte	0
+ 591 0065 00       		.byte	0
+ 592 0066 09       		.uleb128 0x9
+ 593 0067 2E       		.uleb128 0x2e
+ 594 0068 00       		.byte	0
+ 595 0069 3F       		.uleb128 0x3f
+ 596 006a 19       		.uleb128 0x19
+ 597 006b 03       		.uleb128 0x3
+ 598 006c 0E       		.uleb128 0xe
+ 599 006d 3A       		.uleb128 0x3a
+ 600 006e 0B       		.uleb128 0xb
+ 601 006f 3B       		.uleb128 0x3b
+ 602 0070 0B       		.uleb128 0xb
+ 603 0071 27       		.uleb128 0x27
+ 604 0072 19       		.uleb128 0x19
+ 605 0073 20       		.uleb128 0x20
+ 606 0074 0B       		.uleb128 0xb
+ 607 0075 00       		.byte	0
+ 608 0076 00       		.byte	0
+ 609 0077 0A       		.uleb128 0xa
+ 610 0078 2E       		.uleb128 0x2e
+ 611 0079 00       		.byte	0
+ 612 007a 31       		.uleb128 0x31
+ 613 007b 13       		.uleb128 0x13
+ 614 007c 11       		.uleb128 0x11
+ 615 007d 01       		.uleb128 0x1
+ 616 007e 12       		.uleb128 0x12
+ 617 007f 06       		.uleb128 0x6
+ 618 0080 40       		.uleb128 0x40
+ 619 0081 18       		.uleb128 0x18
+ 620 0082 9742     		.uleb128 0x2117
+ 621 0084 19       		.uleb128 0x19
+ 622 0085 00       		.byte	0
+ 623 0086 00       		.byte	0
+ 624 0087 0B       		.uleb128 0xb
+ 625 0088 2E       		.uleb128 0x2e
+ 626 0089 01       		.byte	0x1
+ 627 008a 3F       		.uleb128 0x3f
+ 628 008b 19       		.uleb128 0x19
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 24
+
+
+ 629 008c 03       		.uleb128 0x3
+ 630 008d 0E       		.uleb128 0xe
+ 631 008e 3A       		.uleb128 0x3a
+ 632 008f 0B       		.uleb128 0xb
+ 633 0090 3B       		.uleb128 0x3b
+ 634 0091 0B       		.uleb128 0xb
+ 635 0092 27       		.uleb128 0x27
+ 636 0093 19       		.uleb128 0x19
+ 637 0094 11       		.uleb128 0x11
+ 638 0095 01       		.uleb128 0x1
+ 639 0096 12       		.uleb128 0x12
+ 640 0097 06       		.uleb128 0x6
+ 641 0098 40       		.uleb128 0x40
+ 642 0099 18       		.uleb128 0x18
+ 643 009a 9742     		.uleb128 0x2117
+ 644 009c 19       		.uleb128 0x19
+ 645 009d 01       		.uleb128 0x1
+ 646 009e 13       		.uleb128 0x13
+ 647 009f 00       		.byte	0
+ 648 00a0 00       		.byte	0
+ 649 00a1 0C       		.uleb128 0xc
+ 650 00a2 1D       		.uleb128 0x1d
+ 651 00a3 00       		.byte	0
+ 652 00a4 31       		.uleb128 0x31
+ 653 00a5 13       		.uleb128 0x13
+ 654 00a6 11       		.uleb128 0x11
+ 655 00a7 01       		.uleb128 0x1
+ 656 00a8 12       		.uleb128 0x12
+ 657 00a9 06       		.uleb128 0x6
+ 658 00aa 58       		.uleb128 0x58
+ 659 00ab 0B       		.uleb128 0xb
+ 660 00ac 59       		.uleb128 0x59
+ 661 00ad 0B       		.uleb128 0xb
+ 662 00ae 00       		.byte	0
+ 663 00af 00       		.byte	0
+ 664 00b0 0D       		.uleb128 0xd
+ 665 00b1 34       		.uleb128 0x34
+ 666 00b2 00       		.byte	0
+ 667 00b3 03       		.uleb128 0x3
+ 668 00b4 0E       		.uleb128 0xe
+ 669 00b5 3A       		.uleb128 0x3a
+ 670 00b6 0B       		.uleb128 0xb
+ 671 00b7 3B       		.uleb128 0x3b
+ 672 00b8 0B       		.uleb128 0xb
+ 673 00b9 49       		.uleb128 0x49
+ 674 00ba 13       		.uleb128 0x13
+ 675 00bb 02       		.uleb128 0x2
+ 676 00bc 18       		.uleb128 0x18
+ 677 00bd 00       		.byte	0
+ 678 00be 00       		.byte	0
+ 679 00bf 00       		.byte	0
+ 680              		.section	.debug_aranges,"",%progbits
+ 681 0000 34000000 		.4byte	0x34
+ 682 0004 0200     		.2byte	0x2
+ 683 0006 00000000 		.4byte	.Ldebug_info0
+ 684 000a 04       		.byte	0x4
+ 685 000b 00       		.byte	0
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 25
+
+
+ 686 000c 0000     		.2byte	0
+ 687 000e 0000     		.2byte	0
+ 688 0010 00000000 		.4byte	.LFB0
+ 689 0014 14000000 		.4byte	.LFE0-.LFB0
+ 690 0018 00000000 		.4byte	.LFB1
+ 691 001c 14000000 		.4byte	.LFE1-.LFB1
+ 692 0020 00000000 		.4byte	.LFB2
+ 693 0024 14000000 		.4byte	.LFE2-.LFB2
+ 694 0028 00000000 		.4byte	.LFB3
+ 695 002c 14000000 		.4byte	.LFE3-.LFB3
+ 696 0030 00000000 		.4byte	0
+ 697 0034 00000000 		.4byte	0
+ 698              		.section	.debug_ranges,"",%progbits
+ 699              	.Ldebug_ranges0:
+ 700 0000 00000000 		.4byte	.LFB0
+ 701 0004 14000000 		.4byte	.LFE0
+ 702 0008 00000000 		.4byte	.LFB1
+ 703 000c 14000000 		.4byte	.LFE1
+ 704 0010 00000000 		.4byte	.LFB2
+ 705 0014 14000000 		.4byte	.LFE2
+ 706 0018 00000000 		.4byte	.LFB3
+ 707 001c 14000000 		.4byte	.LFE3
+ 708 0020 00000000 		.4byte	0
+ 709 0024 00000000 		.4byte	0
+ 710              		.section	.debug_line,"",%progbits
+ 711              	.Ldebug_line0:
+ 712 0000 CE000000 		.section	.debug_str,"MS",%progbits,1
+ 712      02008200 
+ 712      00000201 
+ 712      FB0E0D00 
+ 712      01010101 
+ 713              	.LASF23:
+ 714 0000 496E6A65 		.ascii	"InjectionTimerPortControlReg_2_backup\000"
+ 714      6374696F 
+ 714      6E54696D 
+ 714      6572506F 
+ 714      7274436F 
+ 715              	.LASF20:
+ 716 0026 47656E65 		.ascii	"Generated_Source\\PSoC5\\InjectionTimerPortControlR"
+ 716      72617465 
+ 716      645F536F 
+ 716      75726365 
+ 716      5C50536F 
+ 717 0057 65675F32 		.ascii	"eg_2_PM.c\000"
+ 717      5F504D2E 
+ 717      6300
+ 718              	.LASF17:
+ 719 0061 496E6A65 		.ascii	"InjectionTimerPortControlReg_2_Sleep\000"
+ 719      6374696F 
+ 719      6E54696D 
+ 719      6572506F 
+ 719      7274436F 
+ 720              	.LASF18:
+ 721 0086 496E6A65 		.ascii	"InjectionTimerPortControlReg_2_Wakeup\000"
+ 721      6374696F 
+ 721      6E54696D 
+ 721      6572506F 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 26
+
+
+ 721      7274436F 
+ 722              	.LASF9:
+ 723 00ac 666C6F61 		.ascii	"float\000"
+ 723      7400
+ 724              	.LASF1:
+ 725 00b2 756E7369 		.ascii	"unsigned char\000"
+ 725      676E6564 
+ 725      20636861 
+ 725      7200
+ 726              	.LASF13:
+ 727 00c0 72656738 		.ascii	"reg8\000"
+ 727      00
+ 728              	.LASF5:
+ 729 00c5 6C6F6E67 		.ascii	"long unsigned int\000"
+ 729      20756E73 
+ 729      69676E65 
+ 729      6420696E 
+ 729      7400
+ 730              	.LASF3:
+ 731 00d7 73686F72 		.ascii	"short unsigned int\000"
+ 731      7420756E 
+ 731      7369676E 
+ 731      65642069 
+ 731      6E7400
+ 732              	.LASF22:
+ 733 00ea 636F6E74 		.ascii	"controlState\000"
+ 733      726F6C53 
+ 733      74617465 
+ 733      00
+ 734              	.LASF10:
+ 735 00f7 646F7562 		.ascii	"double\000"
+ 735      6C6500
+ 736              	.LASF8:
+ 737 00fe 756E7369 		.ascii	"unsigned int\000"
+ 737      676E6564 
+ 737      20696E74 
+ 737      00
+ 738              	.LASF7:
+ 739 010b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 739      206C6F6E 
+ 739      6720756E 
+ 739      7369676E 
+ 739      65642069 
+ 740              	.LASF6:
+ 741 0122 6C6F6E67 		.ascii	"long long int\000"
+ 741      206C6F6E 
+ 741      6720696E 
+ 741      7400
+ 742              	.LASF19:
+ 743 0130 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 743      4320342E 
+ 743      392E3320 
+ 743      32303135 
+ 743      30333033 
+ 744 0163 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 744      20726576 
+ 744      6973696F 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 27
+
+
+ 744      6E203232 
+ 744      31323230 
+ 745 0196 33202D66 		.ascii	"3 -ffunction-sections -finline-functions -flto -ffa"
+ 745      66756E63 
+ 745      74696F6E 
+ 745      2D736563 
+ 745      74696F6E 
+ 746 01c9 742D6C74 		.ascii	"t-lto-objects\000"
+ 746      6F2D6F62 
+ 746      6A656374 
+ 746      7300
+ 747              	.LASF11:
+ 748 01d7 63686172 		.ascii	"char\000"
+ 748      00
+ 749              	.LASF15:
+ 750 01dc 496E6A65 		.ascii	"InjectionTimerPortControlReg_2_SaveConfig\000"
+ 750      6374696F 
+ 750      6E54696D 
+ 750      6572506F 
+ 750      7274436F 
+ 751              	.LASF14:
+ 752 0206 496E6A65 		.ascii	"InjectionTimerPortControlReg_2_BACKUP_STRUCT\000"
+ 752      6374696F 
+ 752      6E54696D 
+ 752      6572506F 
+ 752      7274436F 
+ 753              	.LASF2:
+ 754 0233 73686F72 		.ascii	"short int\000"
+ 754      7420696E 
+ 754      7400
+ 755              	.LASF12:
+ 756 023d 75696E74 		.ascii	"uint8\000"
+ 756      3800
+ 757              	.LASF4:
+ 758 0243 6C6F6E67 		.ascii	"long int\000"
+ 758      20696E74 
+ 758      00
+ 759              	.LASF21:
+ 760 024c 433A5C55 		.ascii	"C:\\Users\\Bruger\\OneDrive\\Skrivebord\\CODE\\PSOC"
+ 760      73657273 
+ 760      5C427275 
+ 760      6765725C 
+ 760      4F6E6544 
+ 761 0279 355C4359 		.ascii	"5\\CY8CKIT-59-Arduino\\CY8CKIT59_Ardudino-Speeduino"
+ 761      38434B49 
+ 761      542D3539 
+ 761      2D417264 
+ 761      75696E6F 
+ 762 02aa 2E637964 		.ascii	".cydsn\000"
+ 762      736E00
+ 763              	.LASF0:
+ 764 02b1 7369676E 		.ascii	"signed char\000"
+ 764      65642063 
+ 764      68617200 
+ 765              	.LASF16:
+ 766 02bd 496E6A65 		.ascii	"InjectionTimerPortControlReg_2_RestoreConfig\000"
+ 766      6374696F 
+ARM GAS  C:\Users\Bruger\AppData\Local\Temp\ccm5SIq0.s 			page 28
+
+
+ 766      6E54696D 
+ 766      6572506F 
+ 766      7274436F 
+ 767              		.comm	__gnu_lto_v1,1,1
+ 768              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

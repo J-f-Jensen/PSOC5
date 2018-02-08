@@ -1,0 +1,26 @@
+{
+  "build": {
+    "core": "arduino", 
+    "cpu": "cortex-m3", 
+    "f_cpu": "64000000L", 
+    "ldscript": "cm3gcc.ld", 
+    "mcu": "cortex-m3",
+	"variant": "standard"
+  }, 
+  "frameworks": [
+    "arduino"
+  ], 
+  "name": "Sparkfun FreeSoC2", 
+  "upload": {
+    "disable_flushing": true,
+    "maximum_ram_size": 65536, 
+    "maximum_size": 256000,
+    "protocol": "avr109",
+    "require_upload_port": true,
+    "speed": 57600,
+    "use_1200bps_touch": true,
+    "wait_for_upload_port": true
+  },  
+  "url": "https://learn.sparkfun.com/tutorials/freesoc2-introduction", 
+  "vendor": "Sparkfun"
+}
